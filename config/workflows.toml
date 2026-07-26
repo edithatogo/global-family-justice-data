@@ -1,0 +1,301 @@
+model_version = "1.0"
+
+[[workflows]]
+id = "technical-baseline"
+name = "Technical baseline and release rehearsal"
+description = "Build all deterministic views, exercise heterogeneous ingestion, run controls, and produce a verified draft release rehearsal."
+fail_fast = true
+
+[[workflows.steps]]
+id = "programme"
+operation = "render_programme"
+description = "Render evidence-linked programme status and dependency graphs."
+inputs = ["config/tracks.toml", "config/stage_gates.toml", "programme/*.csv", "programme/*.json"]
+outputs = ["build/programme/*"]
+[workflows.steps.params]
+output_dir = "build/programme"
+
+[[workflows.steps]]
+id = "validation"
+operation = "validate_repository"
+description = "Run schema, semantic, programme, and security validation."
+depends_on = ["programme"]
+inputs = ["config/*.toml", "schemas/*.json", "data/seed/*.csv", "programme/*.csv", "programme/*.json", "src/gfjd/*.py"]
+outputs = ["build/workflow/validation.json"]
+[workflows.steps.params]
+output = "build/workflow/validation.json"
+security = true
+strict = false
+
+[[workflows.steps]]
+id = "gate-pack"
+operation = "build_gate_pack"
+description = "Build a hash-manifested review snapshot for the declared current gate without self-approving it."
+depends_on = ["programme", "validation"]
+inputs = ["config/tracks.toml", "config/stage_gates.toml", "programme/*.csv", "programme/*.json", "docs/**/*.md"]
+outputs = ["build/gate-packs/G1/gate-pack.json", "build/gate-packs/G1/criterion-matrix.csv", "build/gate-packs/G1/evidence-index.csv", "build/gate-packs/G1/MANIFEST.sha256"]
+[workflows.steps.params]
+output_root = "build/gate-packs"
+gate_id = "G1"
+
+[[workflows.steps]]
+id = "jurisdiction-pack"
+operation = "build_research_pack"
+description = "Build a non-evidentiary multilingual research and handoff pack for one pilot jurisdiction."
+depends_on = ["validation"]
+inputs = ["data/seed/jurisdiction_register.csv", "data/seed/institution_register.csv", "data/seed/source_register.csv", "data/census/search_log.csv", "data/census/coverage_assessment.csv", "schemas/research_pack.schema.json"]
+outputs = ["build/research-packs/AUS/research-pack.json", "build/research-packs/AUS/search-plan.csv", "build/research-packs/AUS/MANIFEST.sha256"]
+[workflows.steps.params]
+output_root = "build/research-packs"
+jurisdiction_id = "AUS"
+
+[[workflows.steps]]
+id = "outcomes-evidence"
+operation = "build_evidence_catalogue"
+description = "Build the study-level outcomes evidence catalogue, summaries, and explicit jurisdiction-by-domain gap matrix."
+depends_on = ["validation"]
+inputs = ["data/seed/outcomes_evidence_template.csv", "data/seed/jurisdiction_register.csv", "data/seed/matter_type_dictionary.csv", "schemas/outcome_evidence.schema.json", "schemas/outcomes_catalogue_summary.schema.json"]
+outputs = ["build/evidence/evidence-summary.json", "build/evidence/evidence-records.csv", "build/evidence/coverage-matrix.csv", "build/evidence/design-and-domain-summary.csv", "build/evidence/evidence-map.md"]
+[workflows.steps.params]
+output_dir = "build/evidence"
+input = "data/seed/outcomes_evidence_template.csv"
+
+[[workflows.steps]]
+id = "verify-outcomes-evidence"
+operation = "verify_evidence_catalogue"
+description = "Verify the outcomes evidence summary, source digest, artifact hashes, and coverage matrix contract."
+depends_on = ["outcomes-evidence"]
+inputs = ["build/evidence/evidence-summary.json", "build/evidence/evidence-records.csv", "build/evidence/coverage-matrix.csv"]
+outputs = []
+[workflows.steps.params]
+output_dir = "build/evidence"
+
+[[workflows.steps]]
+id = "security"
+operation = "security_scan"
+description = "Scan the public repository boundary for credentials and prohibited person-level fields."
+depends_on = ["programme"]
+inputs = ["src/gfjd/*.py", "data/**/*.csv", "config/*.toml", "*.md"]
+outputs = ["build/workflow/security.json"]
+[workflows.steps.params]
+output = "build/workflow/security.json"
+
+[[workflows.steps]]
+id = "critical-state-backup"
+operation = "build_critical_state_backup"
+description = "Build a deterministic, hash-manifested backup of public repository critical state."
+depends_on = ["validation", "security"]
+inputs = [".github/**/*.yml", "*.md", "*.cff", "Makefile", "pyproject.toml", "config/**/*", "programme/**/*", "data/**/*", "docs/**/*", "examples/**/*", "fixtures/**/*", "schemas/**/*", "scripts/**/*", "src/**/*", "tests/**/*"]
+outputs = ["build/backup/gfjd-critical-state.zip", "build/backup/backup-build.json"]
+[workflows.steps.params]
+output_dir = "build/backup"
+source_date_epoch = 1784419200
+
+[[workflows.steps]]
+id = "restore-rehearsal"
+operation = "rehearse_restore"
+description = "Restore the critical-state backup into a clean directory and verify every payload hash."
+depends_on = ["critical-state-backup"]
+inputs = ["build/backup/gfjd-critical-state.zip"]
+outputs = ["build/restore-rehearsal/restore-receipt.json", "build/restore-rehearsal/snapshot/BACKUP.json", "build/restore-rehearsal/snapshot/MANIFEST.sha256"]
+[workflows.steps.params]
+archive = "build/backup/gfjd-critical-state.zip"
+output_dir = "build/restore-rehearsal"
+
+[[workflows.steps]]
+id = "verify-restore-rehearsal"
+operation = "verify_restore_rehearsal"
+description = "Verify the restore receipt against the archive and current restored snapshot."
+depends_on = ["restore-rehearsal"]
+inputs = ["build/backup/gfjd-critical-state.zip", "build/restore-rehearsal/restore-receipt.json", "build/restore-rehearsal/snapshot/MANIFEST.sha256"]
+outputs = []
+[workflows.steps.params]
+receipt = "build/restore-rehearsal/restore-receipt.json"
+
+[[workflows.steps]]
+id = "catalogue"
+operation = "build_catalogue"
+description = "Build the international source-census catalogue and profiles."
+depends_on = ["validation"]
+inputs = ["data/seed/jurisdiction_register.csv", "data/seed/source_register.csv", "schemas/catalogue_summary.schema.json"]
+outputs = ["build/catalogue/catalogue-summary.json", "build/catalogue/coverage-matrix.csv", "build/catalogue/source-health-baseline.csv", "build/catalogue/catalogue.md"]
+[workflows.steps.params]
+output_dir = "build/catalogue"
+
+[[workflows.steps]]
+id = "source-monitor"
+operation = "source_monitor_offline"
+description = "Calculate reproducible source staleness and review-cycle status without network access."
+depends_on = ["validation"]
+inputs = ["data/seed/source_register.csv", "config/project.toml"]
+outputs = ["build/source-monitor/source-monitor.json", "build/source-monitor/source-monitor.csv"]
+[workflows.steps.params]
+output_dir = "build/source-monitor"
+
+[[workflows.steps]]
+id = "synthetic-demo"
+operation = "run_synthetic_demo"
+description = "Exercise CSV, JSON, HTML, XLSX, and manual-PDF transcription paths through gold promotion using fictional data."
+depends_on = ["validation"]
+inputs = ["examples/synthetic_pilot/**/*", "schemas/observation.schema.json", "schemas/mapping.schema.json", "src/gfjd/connectors.py", "src/gfjd/pipeline.py"]
+outputs = ["build/demo/demo-summary.json", "build/demo/silver/observations.csv", "build/demo/gold/observations.csv", "build/demo/receipts/*.json"]
+[workflows.steps.params]
+output_dir = "build/demo"
+
+[[workflows.steps]]
+id = "verify-demo"
+operation = "verify_synthetic_demo"
+description = "Verify connector receipts and combined synthetic outputs."
+depends_on = ["synthetic-demo"]
+inputs = ["build/demo/demo-summary.json", "build/demo/receipts/*.json", "build/demo/bronze/*.csv", "build/demo/silver/observations.csv"]
+outputs = []
+[workflows.steps.params]
+output_dir = "build/demo"
+
+[[workflows.steps]]
+id = "comparability"
+operation = "build_comparability_audit"
+description = "Build conservative exact semantic signatures and surface definitional fragmentation using the fictional gold pilot."
+depends_on = ["verify-demo"]
+inputs = ["build/demo/gold/observations.csv", "data/seed/indicator_dictionary.csv", "schemas/observation.schema.json", "schemas/comparability_summary.schema.json"]
+outputs = ["build/comparability/comparability-summary.json", "build/comparability/comparability-cells.csv", "build/comparability/observation-signature-index.csv", "build/comparability/comparability-issues.csv", "build/comparability/comparability-audit.md"]
+[workflows.steps.params]
+output_dir = "build/comparability"
+input_patterns = ["build/demo/gold/observations.csv"]
+
+[[workflows.steps]]
+id = "verify-comparability"
+operation = "verify_comparability_audit"
+description = "Verify the comparability summary, source digest, artifacts, and row counts."
+depends_on = ["comparability"]
+inputs = ["build/comparability/comparability-summary.json", "build/comparability/comparability-cells.csv", "build/comparability/observation-signature-index.csv"]
+outputs = []
+[workflows.steps.params]
+output_dir = "build/comparability"
+
+[[workflows.steps]]
+id = "warehouse"
+operation = "build_warehouse"
+description = "Build the portable SQLite analytical warehouse and lineage receipt."
+depends_on = ["validation"]
+inputs = ["config/data_contracts.toml", "schemas/*.json", "data/seed/*.csv", "data/silver/**/*.csv", "data/gold/**/*.csv"]
+outputs = ["build/warehouse/gfjd.sqlite", "build/warehouse/gfjd.sqlite.metadata.json"]
+[workflows.steps.params]
+output = "build/warehouse/gfjd.sqlite"
+source_date_epoch = 1784419200
+
+[[workflows.steps]]
+id = "verify-warehouse"
+operation = "verify_warehouse"
+description = "Verify warehouse bytes, receipt, and all recorded input checksums."
+depends_on = ["warehouse"]
+inputs = ["build/warehouse/gfjd.sqlite", "build/warehouse/gfjd.sqlite.metadata.json"]
+outputs = []
+[workflows.steps.params]
+receipt = "build/warehouse/gfjd.sqlite.metadata.json"
+
+[[workflows.steps]]
+id = "products"
+operation = "build_public_products"
+description = "Build portable CSV, JSON, SQLite, data-package and accessible static HTML products."
+depends_on = ["catalogue", "verify-warehouse"]
+inputs = ["data/seed/*.csv", "data/gold/**/*.csv", "src/gfjd/products.py"]
+outputs = ["build/products/products-summary.json", "build/products/datapackage.json", "build/products/gfjd.sqlite", "build/products/site/index.html", "build/products/api/v1/jurisdictions.json"]
+[workflows.steps.params]
+output_dir = "build/products"
+include_catalogue = true
+
+[[workflows.steps]]
+id = "verify-products"
+operation = "verify_public_products"
+description = "Verify every product artifact, data-package hash and SQLite integrity."
+depends_on = ["products"]
+inputs = ["build/products/products-summary.json", "build/products/datapackage.json", "build/products/gfjd.sqlite"]
+outputs = []
+[workflows.steps.params]
+output_dir = "build/products"
+
+[[workflows.steps]]
+id = "tests"
+operation = "run_test_suite"
+description = "Run the complete automated test suite in a subprocess."
+depends_on = ["verify-demo", "verify-comparability", "verify-products", "gate-pack", "jurisdiction-pack", "verify-outcomes-evidence", "source-monitor", "verify-restore-rehearsal", "security"]
+inputs = ["src/gfjd/*.py", "tests/*.py", "config/*.toml", "schemas/*.json", "examples/synthetic_pilot/**/*"]
+outputs = ["build/workflow/tests.log"]
+[workflows.steps.params]
+output = "build/workflow/tests.log"
+timeout = 300
+
+[[workflows.steps]]
+id = "generated"
+operation = "check_generated_programme"
+description = "Verify committed programme status views are current."
+depends_on = ["tests"]
+inputs = ["docs/programme/generated/*.md", "docs/programme/generated/*.mmd", "programme/*.csv", "config/stage_gates.toml", "config/tracks.toml"]
+outputs = []
+
+[[workflows.steps]]
+id = "manifest"
+operation = "verify_repository_manifest"
+description = "Verify every tracked repository file against MANIFEST.sha256."
+depends_on = ["tests"]
+inputs = ["MANIFEST.sha256"]
+outputs = []
+
+[[workflows.steps]]
+id = "release-rehearsal"
+operation = "build_release_rehearsal"
+description = "Build and verify a deterministic draft release bundle."
+depends_on = ["generated", "manifest"]
+inputs = ["data/seed/*.csv", "data/silver/**/*.csv", "data/gold/**/*.csv", "schemas/*.json", "docs/**/*.md", "programme/*.csv", "programme/*.json", "config/*.toml"]
+outputs = ["build/rehearsal/gfjd-0.4.0-alpha.1-rehearsal/RELEASE.json", "build/rehearsal/gfjd-0.4.0-alpha.1-rehearsal.zip"]
+[workflows.steps.params]
+output_dir = "build/rehearsal"
+version = "0.4.0-alpha.1-rehearsal"
+source_date_epoch = 1784419200
+
+[[workflows]]
+id = "data-cycle"
+name = "Repeatable data build cycle"
+description = "Run the non-test data build path used during source onboarding and mapping development."
+fail_fast = true
+
+[[workflows.steps]]
+id = "catalogue"
+operation = "build_catalogue"
+description = "Rebuild the source census."
+inputs = ["data/seed/jurisdiction_register.csv", "data/seed/source_register.csv"]
+outputs = ["build/catalogue/catalogue-summary.json", "build/catalogue/coverage-matrix.csv"]
+[workflows.steps.params]
+output_dir = "build/catalogue"
+
+[[workflows.steps]]
+id = "monitor"
+operation = "source_monitor_offline"
+description = "Refresh offline source-health indicators."
+inputs = ["data/seed/source_register.csv", "config/project.toml"]
+outputs = ["build/source-monitor/source-monitor.json", "build/source-monitor/source-monitor.csv"]
+[workflows.steps.params]
+output_dir = "build/source-monitor"
+
+[[workflows.steps]]
+id = "warehouse"
+operation = "build_warehouse"
+description = "Rebuild the portable analytical warehouse."
+depends_on = ["catalogue"]
+inputs = ["config/data_contracts.toml", "schemas/*.json", "data/seed/*.csv", "data/silver/**/*.csv", "data/gold/**/*.csv"]
+outputs = ["build/warehouse/gfjd.sqlite", "build/warehouse/gfjd.sqlite.metadata.json"]
+[workflows.steps.params]
+output = "build/warehouse/gfjd.sqlite"
+source_date_epoch = 1784419200
+
+[[workflows.steps]]
+id = "products"
+operation = "build_public_products"
+description = "Rebuild portable public products after the canonical data layer."
+depends_on = ["warehouse"]
+inputs = ["data/seed/*.csv", "data/gold/**/*.csv"]
+outputs = ["build/products/products-summary.json", "build/products/datapackage.json", "build/products/gfjd.sqlite", "build/products/site/index.html"]
+[workflows.steps.params]
+output_dir = "build/products"
+include_catalogue = false

@@ -1,22 +1,151 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://global-family-justice-data.example/schemas/outcome_evidence.schema.json",
-  "title": "Outcomes evidence catalogue row",
+  "title": "Outcomes evidence catalogue record",
   "type": "object",
-  "required": ["evidence_record_id", "jurisdiction_id", "matter_type_id", "title", "publisher_or_authors", "publication_year", "evidence_design", "outcome_domain", "population", "source_url", "official_status", "quality_appraisal_status", "notes"],
+  "required": [
+    "evidence_record_id",
+    "jurisdiction_id",
+    "subnational_id",
+    "matter_type_id",
+    "title",
+    "publisher_or_authors",
+    "publication_year",
+    "data_collection_start",
+    "data_collection_end",
+    "evidence_design",
+    "study_population",
+    "procedural_stage",
+    "inclusion_criteria",
+    "exclusion_criteria",
+    "comparator",
+    "sample_size",
+    "response_rate_percent",
+    "attrition_rate_percent",
+    "follow_up_period",
+    "outcome_domain",
+    "outcome_name",
+    "outcome_definition",
+    "instrument_or_measure",
+    "reporter",
+    "data_sources",
+    "linkage_method",
+    "analysis_type",
+    "uncertainty_reported",
+    "equity_strata",
+    "source_url",
+    "provenance_locator",
+    "official_status",
+    "reusable_data_status",
+    "rights_status",
+    "quality_appraisal_status",
+    "risk_of_bias",
+    "transferability",
+    "funding_and_conflicts",
+    "review_status",
+    "reviewer_role",
+    "reviewed_on",
+    "notes"
+  ],
   "properties": {
-    "evidence_record_id": {"type": "string", "pattern": "^EVC_[A-Z0-9][A-Z0-9_-]{5,95}$"},
-    "jurisdiction_id": {"type": "string", "pattern": "^[A-Z]{2,3}(?:-[A-Z0-9]{2,5})?$"},
-    "matter_type_id": {"type": ["string", "null"], "pattern": "^MAT_[A-Z0-9_]{2,60}$"},
+    "evidence_record_id": {
+      "type": "string",
+      "pattern": "^EVC_[A-Z0-9][A-Z0-9_-]{5,95}$"
+    },
+    "jurisdiction_id": {
+      "type": "string",
+      "pattern": "^[A-Z]{2,3}(?:-[A-Z0-9]{2,8})?$"
+    },
+    "subnational_id": {"type": ["string", "null"]},
+    "matter_type_id": {
+      "type": ["string", "null"],
+      "pattern": "^MAT_[A-Z0-9_]{2,60}$"
+    },
     "title": {"type": "string", "minLength": 3},
     "publisher_or_authors": {"type": "string", "minLength": 2},
     "publication_year": {"type": "integer", "minimum": 1900, "maximum": 2200},
-    "evidence_design": {"enum": ["administrative_linkage", "cohort", "cross_sectional", "evaluation", "qualitative", "randomised_trial", "systematic_review", "survey", "other"]},
-    "outcome_domain": {"enum": ["administrative", "child_wellbeing", "family_functioning", "procedural_fairness", "safety", "stability", "user_experience", "other"]},
-    "population": {"type": "string", "minLength": 2},
+    "data_collection_start": {"type": ["string", "null"], "format": "date"},
+    "data_collection_end": {"type": ["string", "null"], "format": "date"},
+    "evidence_design": {
+      "enum": [
+        "administrative_reporting",
+        "administrative_linkage",
+        "cohort",
+        "cross_sectional",
+        "evaluation",
+        "legal_needs_survey",
+        "mixed_methods",
+        "qualitative",
+        "randomised_trial",
+        "systematic_review",
+        "court_user_survey",
+        "other"
+      ]
+    },
+    "study_population": {"type": "string", "minLength": 2},
+    "procedural_stage": {"type": ["string", "null"]},
+    "inclusion_criteria": {"type": ["string", "null"]},
+    "exclusion_criteria": {"type": ["string", "null"]},
+    "comparator": {"type": ["string", "null"]},
+    "sample_size": {"type": ["integer", "null"], "minimum": 1},
+    "response_rate_percent": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+    "attrition_rate_percent": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+    "follow_up_period": {"type": ["string", "null"]},
+    "outcome_domain": {
+      "enum": [
+        "administrative",
+        "child_wellbeing",
+        "economic_security",
+        "family_functioning",
+        "procedural_fairness",
+        "safety",
+        "stability",
+        "user_experience",
+        "other"
+      ]
+    },
+    "outcome_name": {"type": "string", "minLength": 2},
+    "outcome_definition": {"type": "string", "minLength": 3},
+    "instrument_or_measure": {"type": ["string", "null"]},
+    "reporter": {"type": ["string", "null"]},
+    "data_sources": {"type": "string", "minLength": 2},
+    "linkage_method": {"type": ["string", "null"]},
+    "analysis_type": {
+      "enum": [
+        "descriptive",
+        "adjusted_association",
+        "causal_estimate",
+        "qualitative_interpretive",
+        "mixed_methods",
+        "evidence_synthesis",
+        "measurement_validation",
+        "other"
+      ]
+    },
+    "uncertainty_reported": {"type": "boolean"},
+    "equity_strata": {"type": ["string", "null"]},
     "source_url": {"type": "string", "format": "uri", "pattern": "^https?://"},
+    "provenance_locator": {"type": "string", "minLength": 2},
     "official_status": {"enum": ["official", "academic", "non_government", "mixed"]},
-    "quality_appraisal_status": {"enum": ["not_started", "in_progress", "complete", "not_applicable"]},
+    "reusable_data_status": {
+      "enum": ["available", "restricted", "unavailable", "unknown"]
+    },
+    "rights_status": {
+      "enum": ["permitted", "restricted", "review_required", "unknown"]
+    },
+    "quality_appraisal_status": {
+      "enum": ["not_started", "in_progress", "complete", "not_applicable"]
+    },
+    "risk_of_bias": {
+      "enum": ["not_appraised", "low", "some_concerns", "high", "critical", "not_applicable"]
+    },
+    "transferability": {
+      "enum": ["not_assessed", "local_only", "context_dependent", "potentially_transferable", "broad"]
+    },
+    "funding_and_conflicts": {"type": ["string", "null"]},
+    "review_status": {"enum": ["unreviewed", "in_review", "accepted", "rejected"]},
+    "reviewer_role": {"type": ["string", "null"]},
+    "reviewed_on": {"type": ["string", "null"], "format": "date"},
     "notes": {"type": "string"}
   },
   "additionalProperties": false

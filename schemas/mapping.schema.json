@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/mapping.schema.json",
+  "title": "Structured source mapping specification",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "mapping_id",
+    "source_id",
+    "source_edition_id",
+    "fields"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "mapping_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"
+    },
+    "source_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"
+    },
+    "source_edition_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"
+    },
+    "description": {
+      "type": "string"
+    },
+    "fields": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object"
+      }
+    },
+    "input": {
+      "type": "object"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -2,61 +2,63 @@
 
 ## Contributions welcomed
 
-- new or superseded official sources;
-- corrections to source, jurisdiction, evidence, or observation metadata;
+- new or updated official sources;
+- corrections to source metadata or released observations;
 - jurisdiction profiles and institutional maps;
 - original-language definitions and reviewed translations;
-- acquisition, transformation, validation, or publication code;
-- indicator, outcome-domain, and comparability proposals;
+- acquisition, validation and release code;
+- proposed indicator crosswalks and methods evidence;
 - documented negative findings and inaccessible-source evidence;
-- accessibility, documentation, and reproducibility improvements.
+- accessibility, documentation and reproducibility improvements.
 
 ## Evidence standard
 
 Every factual data contribution must include a source ID and exact provenance:
 
-- PDF: page, table, figure, or paragraph;
-- spreadsheet: file version, sheet, and cell/range;
-- HTML: page section/table and retrieval date;
-- dashboard: filters, date, and exported view or query details;
-- API: endpoint, parameters, date, and response/source version;
-- manual correspondence: sender role, date, status, and publication permission.
+- PDF: page, table/figure and row/column where possible;
+- spreadsheet: sheet and cell/range;
+- HTML: table/section and retrieval date;
+- dashboard/API: filters/query parameters, endpoint/view and retrieval date;
+- narrative report: precise section/page and original wording.
 
-Original wording must be retained. English translation and harmonised terms belong in separate fields.
+Preserve original labels and definitions. Add English translation and harmonised mapping as separate fields.
 
 ## Workflow
 
-1. Open the appropriate source, correction, or methods issue.
-2. Add or amend the relevant register or pipeline.
-3. Record source rights, retrieval, and provenance.
-4. Add or update tests for changed logic.
-5. Run `make manifest-update`, then `make check`.
-6. Update documentation, migration notes, and changelog when user-visible.
-7. Request independent second review for gold-layer data and material methods changes.
-8. Obtain methods approval for semantic or comparability changes.
+1. Open the appropriate issue or correction record.
+2. Add/amend the relevant register or extraction.
+3. Include source edition, rights status, retrieval metadata and exact locator.
+4. Run local validation and tests.
+5. Request review from a different contributor.
+6. Resolve or record mapping/translation disagreement.
+7. Gold-layer promotion requires an authorised second reviewer and all quality gates.
+8. Released values are corrected through a new version, never by silently replacing history.
 
-## Review rules
+Run:
 
-- At least one independent reviewer is required for ordinary changes.
-- Gold data require a reviewer who did not perform the extraction/transformation.
-- Breaking schema or ontology changes require methods review and migration documentation.
-- Security/privacy-sensitive changes require the designated specialist review.
-- Large generated files must be produced by the release pipeline, not hand-edited.
+```bash
+make check
+```
+
+## Change expectations
+
+- Small, reviewable pull requests are preferred.
+- Method/schema changes include an impact note and migration implications.
+- Breaking public-contract changes are allowed during 0.x but must be documented.
+- From 1.0 onward, follow `docs/standards/versioning-and-deprecation.md`.
+- New connectors include fixtures, failure handling and ownership/runbook notes.
+- New indicators include definition, unit, clock/cohort/denominator rules and intended use.
 
 ## Prohibited contributions
 
 Do not commit:
 
-- identifiable case, party, child, or family records;
-- sealed, protected, or unlawfully obtained material;
-- login credentials, tokens, API keys, or private endpoints;
-- source files whose redistribution is not permitted;
-- malicious code or content designed to re-identify people;
-- generated gold data edited without lineage;
-- unsupported country rankings or causal claims.
+- identifiable or linkable case records;
+- sealed or protected material;
+- credentials, tokens, cookies or private keys;
+- unlawfully redistributed documents;
+- data that could expose children or families;
+- values without exact provenance;
+- mappings that erase original legal/source wording.
 
-Potential security or privacy issues must follow `SECURITY.md` and must not be opened publicly.
-
-## Contributor conduct
-
-Contributors must engage respectfully across legal systems, languages, professions, and lived experiences. Critique evidence and methods, not people or jurisdictions. Do not disclose personal family-court experiences without explicit, informed choice and appropriate safeguards.
+Sensitive security or privacy issues must follow `SECURITY.md`, not a public issue.

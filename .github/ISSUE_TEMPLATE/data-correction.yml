@@ -1,37 +1,31 @@
-name: Data correction
-about: Report a suspected source, extraction, transformation, or published-value error
-labels: ["data-correction", "needs-triage"]
+name: Report a data or methods correction
+about: Report an extraction, definition, lineage or comparability problem
+labels: ['correction', 'triage']
 body:
-  - type: markdown
-    attributes:
-      value: Do not use this form for privacy or security issues; follow SECURITY.md.
   - type: input
     id: release
     attributes:
-      label: Affected release
-      placeholder: e.g. v1.0.0
-    validations:
-      required: true
-  - type: textarea
-    id: records
-    attributes:
-      label: Affected records or files
-      description: Include IDs, filenames, table rows, pages, or URLs where possible.
+      label: Affected release or source
     validations:
       required: true
   - type: textarea
     id: problem
     attributes:
-      label: Suspected problem
+      label: Problem and impact
+      description: Explain the suspected error and any affected interpretation.
     validations:
       required: true
   - type: textarea
     id: evidence
     attributes:
-      label: Supporting source or evidence
+      label: Supporting evidence
+      description: Provide source title, locator and reproduction steps. Do not include personal case information.
     validations:
       required: true
-  - type: textarea
-    id: impact
+  - type: checkboxes
+    id: safety
     attributes:
-      label: Why this may be material
+      label: Safety
+      options:
+        - label: I have not included identifiable, sealed or restricted case material.
+          required: true

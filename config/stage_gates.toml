@@ -1,0 +1,459 @@
+model_version = "1.0"
+
+[[gates]]
+id = "G1"
+name = "Foundation controls accepted"
+target_release = "0.4.0"
+dependency_ids = []
+objective = "Convert the concept into an authorised programme with controlled scope, architecture, roles and safeguards."
+
+[[gates.criteria]]
+id = "G1-C01"
+track_id = "T0"
+description = "Host, sponsor, programme charter and independent decision rights are formally accepted."
+evidence_ids = ["E-GOV-CHARTER"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G1-C02"
+track_id = "T1"
+description = "Scope, unit of analysis, v0.3 ontology and indicator framework are approved for the pilot."
+evidence_ids = ["E-METHODS-SCOPE", "E-INDICATOR-FRAMEWORK"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G1-C03"
+track_id = "T7"
+description = "Aggregate-only public boundary, ethics principles and prohibited-data rules are accepted."
+evidence_ids = ["E-ETHICS-BOUNDARY", "E-SECURITY-POLICY"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G1-C04"
+track_id = "T4"
+description = "Target architecture, contracts, environments and release-authority model are approved."
+evidence_ids = ["E-ARCH-V1"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G1-C05"
+track_id = "T0"
+description = "Every critical track has an accountable owner, deputy and escalation route."
+evidence_ids = ["E-RACI", "E-TRACK-CHARTERS"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G1-C06"
+track_id = "T7"
+description = "Initial risk, threat, rights and disclosure-control baselines are documented."
+evidence_ids = ["E-RISK-REGISTER", "E-THREAT-BASELINE", "E-RIGHTS-BASELINE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G1-C07"
+track_id = "T4"
+description = "The conductor can validate programme state, calculate gate readiness and render an evidence-linked status report."
+evidence_ids = ["E-CONDUCTOR-BASELINE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G1-C08"
+track_id = "T2"
+description = "Pilot jurisdiction universe and local-verification strategy are approved."
+evidence_ids = ["E-PILOT-UNIVERSE"]
+mandatory = true
+waivable = false
+
+[[gates]]
+id = "G2"
+name = "Reproducible pilot proven"
+target_release = "0.5.0"
+dependency_ids = ["G1"]
+objective = "Demonstrate the full method and technical path on heterogeneous jurisdictions before global scaling."
+
+[[gates.criteria]]
+id = "G2-C01"
+track_id = "T2"
+description = "At least twelve heterogeneous pilot systems have institutional maps, search logs and reviewed coverage states."
+evidence_ids = ["E-PILOT-CENSUS"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G2-C02"
+track_id = "T3"
+description = "Representative API, spreadsheet, HTML/dashboard and PDF/manual acquisition paths have reproducible manifests."
+evidence_ids = ["E-PILOT-ACQUISITION"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G2-C03"
+track_id = "T4"
+description = "A representative bronze-to-silver-to-gold pipeline builds deterministically from frozen pilot inputs."
+evidence_ids = ["E-PILOT-PIPELINE", "E-CLEAN-BUILD"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G2-C04"
+track_id = "T5"
+description = "Pilot extractions and mappings have documented dual review, adjudication and quarantine outcomes."
+evidence_ids = ["E-PILOT-REVIEW"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G2-C05"
+track_id = "T1"
+description = "Pilot evidence has been used to resolve material ontology, clock, denominator and missingness questions."
+evidence_ids = ["E-PILOT-METHODS-ADJUDICATION"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G2-C06"
+track_id = "T7"
+description = "Pilot source rights, privacy, security and disclosure assessments have no unresolved critical finding."
+evidence_ids = ["E-PILOT-RIGHTS-SECURITY"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G2-C07"
+track_id = "T5"
+description = "Independent re-extraction of the pilot sample passes the approved concordance threshold."
+evidence_ids = ["E-PILOT-INDEPENDENT-ASSURANCE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G2-C08"
+track_id = "T8"
+description = "The pilot release process, correction path and restoration of its artefacts have been rehearsed."
+evidence_ids = ["E-PILOT-OPERATIONS-REHEARSAL"]
+mandatory = true
+waivable = false
+
+[[gates]]
+id = "G3"
+name = "Global source census complete"
+target_release = "0.6.0"
+dependency_ids = ["G2"]
+objective = "Complete a reviewable search and coverage record for the approved international universe."
+
+[[gates.criteria]]
+id = "G3-C01"
+track_id = "T2"
+description = "The in-scope jurisdiction universe, federal/devolved rules and review cycle are frozen."
+evidence_ids = ["E-GLOBAL-UNIVERSE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G3-C02"
+track_id = "T2"
+description = "Every in-scope jurisdiction has exactly one current reviewed coverage status and institutional map."
+evidence_ids = ["E-GLOBAL-COVERAGE-REPORT"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G3-C03"
+track_id = "T5"
+description = "Negative findings, inaccessible sources and non-official-only findings have second review."
+evidence_ids = ["E-NEGATIVE-FINDINGS-AUDIT"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G3-C04"
+track_id = "T9"
+description = "Material language and legal-structure ambiguities have local or regional verification."
+evidence_ids = ["E-LOCAL-VERIFICATION-REPORT"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G3-C05"
+track_id = "T2"
+description = "Standard direct enquiries have been completed or transparently closed for priority gaps."
+evidence_ids = ["E-DIRECT-ENQUIRY-REGISTER"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G3-C06"
+track_id = "T3"
+description = "Every catalogued source has rights, retrieval, version and preservation metadata appropriate to its access route."
+evidence_ids = ["E-SOURCE-PRESERVATION-AUDIT"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G3-C07"
+track_id = "T6"
+description = "A complete data-availability atlas and machine-readable source register are production-ready."
+evidence_ids = ["E-COVERAGE-ATLAS-BETA"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G3-C08"
+track_id = "T3"
+description = "High-priority source aging, broken-link and content-drift monitoring is operational."
+evidence_ids = ["E-SOURCE-MONITORING-REPORT"]
+mandatory = true
+waivable = false
+
+[[gates]]
+id = "G4"
+name = "Feature-complete public beta"
+target_release = "0.7.0"
+dependency_ids = ["G3"]
+objective = "Deliver all four products and their operational pathways in a production-like beta."
+
+[[gates.criteria]]
+id = "G4-C01"
+track_id = "T6"
+description = "The global source census and availability atlas are complete in beta form."
+evidence_ids = ["E-BETA-SOURCE-CENSUS"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G4-C02"
+track_id = "T4"
+description = "The harmonised core dataset builds from approved inputs with lineage and release contracts."
+evidence_ids = ["E-BETA-CORE-DATASET"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G4-C03"
+track_id = "T6"
+description = "The outcomes evidence catalogue is searchable and linked to its method and source records."
+evidence_ids = ["E-BETA-OUTCOMES-CATALOGUE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G4-C04"
+track_id = "T6"
+description = "The jurisdiction context library covers the release cohort and documents breaks in series."
+evidence_ids = ["E-BETA-CONTEXT-LIBRARY"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G4-C05"
+track_id = "T5"
+description = "Comparability, quality, quarantine and release-diff controls are enforced in data and interfaces."
+evidence_ids = ["E-BETA-QUALITY-REPORT"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G4-C06"
+track_id = "T6"
+description = "Downloads and any API/query interface expose version, provenance, definitions and limitations."
+evidence_ids = ["E-BETA-DOWNLOAD-API-QA"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G4-C07"
+track_id = "T7"
+description = "Beta threat, privacy, rights, disclosure and supply-chain assessments are current."
+evidence_ids = ["E-BETA-ASSURANCE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G4-C08"
+track_id = "T8"
+description = "Production-like monitoring, correction, backup and publication operations work."
+evidence_ids = ["E-BETA-SERVICE-READINESS"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G4-C09"
+track_id = "T9"
+description = "Public beta testing includes regional experts and people with lived experience; findings are dispositioned."
+evidence_ids = ["E-BETA-USER-RESEARCH"]
+mandatory = true
+waivable = false
+
+[[gates]]
+id = "G5"
+name = "v1.0 release candidate assured"
+target_release = "0.9.0"
+dependency_ids = ["G4"]
+objective = "Freeze contracts and demonstrate that the candidate satisfies every control except final go-live ownership."
+
+[[gates.criteria]]
+id = "G5-C01"
+track_id = "T1"
+description = "v1 ontology, methods, identifiers and public contracts are frozen under change control."
+evidence_ids = ["E-V1-CONTRACT-FREEZE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G5-C02"
+track_id = "T4"
+description = "The complete release candidate rebuilds in a clean environment and matches expected checksums."
+evidence_ids = ["E-RC-CLEAN-BUILD"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G5-C03"
+track_id = "T5"
+description = "All candidate gold series have dual review and independent assurance thresholds pass."
+evidence_ids = ["E-RC-DATA-ASSURANCE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G5-C04"
+track_id = "T5"
+description = "External methodological review is complete and the programme response is public."
+evidence_ids = ["E-EXTERNAL-METHODS-REVIEW"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G5-C05"
+track_id = "T7"
+description = "Security, privacy, legal, rights, disclosure and supply-chain assurance has no open P0/P1 finding."
+evidence_ids = ["E-RC-SECURITY-LEGAL-ASSURANCE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G5-C06"
+track_id = "T6"
+description = "Accessibility, localisation, documentation, citation and responsible-use reviews pass."
+evidence_ids = ["E-RC-PUBLICATION-ASSURANCE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G5-C07"
+track_id = "T8"
+description = "Release, rollback, republish, restore, correction and incident rehearsals pass."
+evidence_ids = ["E-RC-OPERATIONS-REHEARSAL"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G5-C08"
+track_id = "T8"
+description = "Immutable archival deposit, signed manifest and build-provenance pathway are ready."
+evidence_ids = ["E-RC-PRESERVATION-PROVENANCE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G5-C09"
+track_id = "T0"
+description = "No P0/P1 defect is open and any P2 exception is public, time-limited and owned."
+evidence_ids = ["E-RC-DEFECT-REGISTER"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G5-C10"
+track_id = "T9"
+description = "A costed 12-month 1.x operating plan, staffing model and succession plan are committed."
+evidence_ids = ["E-RC-OPERATING-PLAN"]
+mandatory = true
+waivable = false
+
+[[gates]]
+id = "G6"
+name = "Stable v1.0 go-live"
+target_release = "1.0.0"
+dependency_ids = ["G5"]
+objective = "Publish a stable, supportable, independently assured release and transfer it into sustained operation."
+
+[[gates.criteria]]
+id = "G6-C01"
+track_id = "T0"
+description = "Every mandatory v1.0 release criterion has accepted evidence and signed accountable approval."
+evidence_ids = ["E-V1-CRITERIA-MATRIX", "E-V1-RELEASE-DECISION"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G6-C02"
+track_id = "T5"
+description = "The final release contains no open P0/P1 data or methodological defect."
+evidence_ids = ["E-V1-FINAL-QUALITY-REPORT"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G6-C03"
+track_id = "T7"
+description = "The final release contains no open critical or unaccepted high-impact security, privacy, rights or disclosure finding."
+evidence_ids = ["E-V1-FINAL-ASSURANCE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G6-C04"
+track_id = "T4"
+description = "The v1.0 artefact is reproducible, checksummed, signed or attested, contract-tested and independently verifiable."
+evidence_ids = ["E-V1-ARTEFACT-VERIFICATION"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G6-C05"
+track_id = "T8"
+description = "The immutable release exists in two independently administered locations and restore has been tested."
+evidence_ids = ["E-V1-ARCHIVE-RESTORE"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G6-C06"
+track_id = "T8"
+description = "Service ownership, support rota, correction channel, monitoring and release calendar are live."
+evidence_ids = ["E-V1-SERVICE-HANDOVER"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G6-C07"
+track_id = "T6"
+description = "All public products, methods, limitations, accessibility and citation materials are published and version-linked."
+evidence_ids = ["E-V1-PUBLICATION-PACK"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G6-C08"
+track_id = "T9"
+description = "Committed resources cover at least twelve months of post-release maintenance and international verification."
+evidence_ids = ["E-V1-FUNDING-CONTINUITY"]
+mandatory = true
+waivable = false
+
+[[gates.criteria]]
+id = "G6-C09"
+track_id = "T0"
+description = "The programme has a published benefits, harms and misuse monitoring plan for the 1.x line."
+evidence_ids = ["E-V1-IMPACT-MISUSE-PLAN"]
+mandatory = true
+waivable = false

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/extraction.schema.json",
+  "title": "Extraction event row",
+  "type": "object",
+  "required": [
+    "extraction_id",
+    "source_edition_id",
+    "extraction_method",
+    "tool_name",
+    "tool_version",
+    "extracted_at",
+    "extractor_role",
+    "input_sha256",
+    "output_path",
+    "output_sha256",
+    "status",
+    "notes"
+  ],
+  "properties": {
+    "extraction_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"
+    },
+    "source_edition_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"
+    },
+    "extraction_method": {
+      "enum": [
+        "api",
+        "structured_file",
+        "html_table",
+        "dashboard_export",
+        "manual_pdf",
+        "manual_other",
+        "other"
+      ]
+    },
+    "tool_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tool_version": {
+      "type": "string"
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "extractor_role": {
+      "type": "string",
+      "minLength": 2
+    },
+    "input_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "output_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "output_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "review",
+        "accepted",
+        "failed",
+        "superseded"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

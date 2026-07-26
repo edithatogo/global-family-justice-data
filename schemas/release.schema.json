@@ -1,32 +1,77 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Release register row",
+  "$id": "https://global-family-justice-data.example/schemas/release.schema.json",
+  "title": "GFJD release metadata",
   "type": "object",
   "required": [
     "schema_version",
-    "release_id",
-    "semantic_version",
-    "release_status",
-    "release_date",
-    "methods_version",
+    "project_id",
+    "version",
+    "status",
+    "created_at",
+    "contract_version",
     "ontology_version",
-    "build_id"
+    "programme_gate",
+    "counts",
+    "validation",
+    "archive"
   ],
   "properties": {
-    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
-    "release_id": {"type": "string", "minLength": 3},
-    "semantic_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$"},
-    "release_status": {"enum": ["planning_scaffold", "alpha", "beta", "release_candidate", "stable", "superseded", "withdrawn"]},
-    "release_date": {"type": "string", "format": "date"},
-    "git_commit": {"type": "string"},
-    "methods_version": {"type": "string"},
-    "ontology_version": {"type": "string"},
-    "build_id": {"type": "string", "minLength": 1},
-    "archive_identifier": {"type": "string"},
-    "manifest_sha256": {"type": "string", "pattern": "^$|^[a-f0-9]{64}$"},
-    "release_manager": {"type": "string"},
-    "release_authority": {"type": "string"},
-    "notes": {"type": "string"}
+    "schema_version": {
+      "const": "1.0"
+    },
+    "project_id": {
+      "const": "GFJD"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+][0-9A-Za-z.-]+)?$"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "release_candidate",
+        "stable"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source_date_epoch": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "contract_version": {
+      "type": "string"
+    },
+    "ontology_version": {
+      "type": "string"
+    },
+    "programme_gate": {
+      "type": "string"
+    },
+    "counts": {
+      "type": "object"
+    },
+    "validation": {
+      "type": "object"
+    },
+    "archive": {
+      "type": "object"
+    },
+    "source_revision": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "known_limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
   },
   "additionalProperties": false
 }

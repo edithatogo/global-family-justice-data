@@ -1,152 +1,61 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/source.schema.json",
   "title": "Source register row",
   "type": "object",
   "required": [
-    "schema_version",
     "source_id",
     "jurisdiction_id",
     "title",
     "publisher",
+    "source_class",
     "official_status",
     "source_type",
+    "frequency",
+    "coverage_note",
+    "matter_types",
+    "measure_domains",
+    "format",
+    "access_method",
+    "language",
     "source_url",
     "licence_status",
-    "rights_reviewed",
-    "redistribution_decision",
     "priority",
     "last_verified",
-    "source_status",
-    "review_status",
-    "next_review_due"
+    "notes"
   ],
   "properties": {
-    "schema_version": {
-      "type": "string",
-      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
-    },
-    "source_id": {
-      "type": "string",
-      "minLength": 3
-    },
-    "jurisdiction_id": {
-      "type": "string",
-      "minLength": 2
-    },
-    "title": {
-      "type": "string",
-      "minLength": 1
-    },
-    "publisher": {
-      "type": "string",
-      "minLength": 1
-    },
-    "source_class": {
-      "type": "string"
-    },
-    "official_status": {
-      "enum": [
-        "official",
-        "authoritative_method",
-        "peer_reviewed",
-        "non_government",
-        "other"
-      ]
-    },
-    "source_type": {
-      "type": "string"
-    },
-    "frequency": {
-      "type": "string"
-    },
-    "coverage_note": {
-      "type": "string"
-    },
-    "matter_types": {
-      "type": "string"
-    },
-    "measure_domains": {
-      "type": "string"
-    },
-    "format": {
-      "type": "string"
-    },
-    "access_method": {
-      "type": "string"
-    },
-    "language": {
-      "type": "string"
-    },
-    "source_url": {
-      "type": "string",
-      "format": "uri"
-    },
+    "source_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9-]{4,79}$"},
+    "jurisdiction_id": {"type": "string", "pattern": "^[A-Z]{2,3}(?:-[A-Z0-9]{2,5})?$"},
+    "title": {"type": "string", "minLength": 3},
+    "publisher": {"type": "string", "minLength": 2},
+    "source_class": {"enum": ["international", "international_method", "national", "subnational", "research", "non_government"]},
+    "official_status": {"enum": ["official", "authoritative_method", "non_government"]},
+    "source_type": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "frequency": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "coverage_note": {"type": "string", "minLength": 3},
+    "matter_types": {"type": "string", "minLength": 2},
+    "measure_domains": {"type": "string", "minLength": 2},
+    "format": {"type": "string", "minLength": 2},
+    "access_method": {"type": "string", "minLength": 2},
+    "language": {"type": "string", "minLength": 2},
+    "source_url": {"type": "string", "format": "uri", "pattern": "^https?://"},
     "licence_status": {
-      "type": "string",
-      "minLength": 1
-    },
-    "rights_reviewed": {
       "enum": [
-        "yes",
-        "no"
+        "open_licence_verified",
+        "public_domain_verified",
+        "government_open_data_check",
+        "government_terms_check",
+        "commonwealth_copyright_check",
+        "crown_copyright_check",
+        "open_or_crown_check",
+        "restricted_or_unknown",
+        "unknown"
       ]
     },
-    "redistribution_decision": {
-      "enum": [
-        "unknown",
-        "metadata_only",
-        "redistributable",
-        "restricted",
-        "not_applicable"
-      ]
-    },
-    "priority": {
-      "enum": [
-        "high",
-        "medium",
-        "low"
-      ]
-    },
-    "last_verified": {
-      "type": "string",
-      "format": "date"
-    },
-    "notes": {
-      "type": "string"
-    },
-    "source_status": {
-      "enum": [
-        "active",
-        "changed",
-        "superseded",
-        "unavailable",
-        "withdrawn",
-        "unverified"
-      ]
-    },
-    "source_version": {
-      "type": "string"
-    },
-    "archived_url": {
-      "type": "string"
-    },
-    "checksum_sha256": {
-      "type": "string",
-      "pattern": "^$|^[a-f0-9]{64}$"
-    },
-    "review_status": {
-      "enum": [
-        "draft",
-        "provisional",
-        "reviewed",
-        "approved",
-        "withdrawn"
-      ]
-    },
-    "next_review_due": {
-      "type": "string",
-      "format": "date"
-    }
+    "priority": {"enum": ["high", "medium", "low"]},
+    "last_verified": {"type": "string", "format": "date"},
+    "notes": {"type": "string"}
   },
   "additionalProperties": false
 }

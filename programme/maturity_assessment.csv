@@ -1,0 +1,11 @@
+dimension_id,name,target_level,assessed_level,evidence_ids,assessor_role,assessed_on,status,notes
+M01,Governance and independence,5,1,E-GOV-CHARTER;E-RACI,programme executive,2026-07-19,self_assessed,Conceptual controls are documented but not formally constituted.
+M02,Methods and ontology,5,2,E-METHODS-SCOPE;E-INDICATOR-FRAMEWORK,methods lead,2026-07-19,self_assessed,Structured pilot methods exist; external review and freeze remain.
+M03,Jurisdiction census,5,1,E-PILOT-UNIVERSE;E-PILOT-CENSUS,global census lead,2026-07-19,self_assessed,Pilot register exists; global universe and reviewed census do not.
+M04,Acquisition and preservation,5,1,E-PILOT-ACQUISITION,acquisition lead,2026-07-19,self_assessed,Framework code is present; production connectors and preservation evidence remain.
+M05,Data engineering,5,2,E-CONDUCTOR-BASELINE;E-PILOT-PIPELINE;E-CLEAN-BUILD,technical lead,2026-07-19,self_assessed,Executable baseline exists; clean production builds and supported contracts remain.
+M06,Quality and assurance,5,1,E-PILOT-REVIEW;E-PILOT-INDEPENDENT-ASSURANCE,quality and assurance lead,2026-07-19,self_assessed,Rules exist; dual review and independent audit evidence remain.
+M07,Product and accessibility,5,1,E-BETA-SOURCE-CENSUS;E-BETA-DOWNLOAD-API-QA,product and publication lead,2026-07-19,self_assessed,Product boundary is defined; production beta and accessibility testing remain.
+M08,"Security, privacy and legal",5,1,E-THREAT-BASELINE;E-RIGHTS-BASELINE,security and data-governance owner,2026-07-19,self_assessed,Policies are drafted; formal assessments and operational controls remain.
+M09,Operations and reliability,5,1,E-PILOT-OPERATIONS-REHEARSAL,service and release manager,2026-07-19,self_assessed,"Runbooks are drafted; rehearsals, monitoring and restore evidence remain."
+M10,International sustainability,5,1,E-LOCAL-VERIFICATION-REPORT;E-RC-OPERATING-PLAN,international partnerships lead,2026-07-19,self_assessed,Correspondent and funding models are planned but not committed.

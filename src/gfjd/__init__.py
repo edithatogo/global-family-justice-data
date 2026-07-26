@@ -1,3 +1,4 @@
-"""Global Family Justice Data validation and release utilities."""
+"""Global Family Justice Data project tooling."""
 
-__version__ = "0.2.0"
+__all__ = ["__version__"]
+__version__ = "0.3.0"

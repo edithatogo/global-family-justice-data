@@ -1,26 +1,22 @@
-# Licensing and third-party rights notice
+# Licensing and source-rights notice
 
-A founding legal and governance decision is required before public beta. Code, project-authored data, documentation, and third-party source materials have different rights and must not be treated as one licence category.
+Final licences are a founding decision and must be approved before public beta.
 
-## Intended licensing model
+Recommended default:
 
-- **Project code:** a permissive software licence selected by the institutional host.
-- **Project-authored documentation and harmonised aggregate data:** an open attribution licence where the host has authority to grant it.
-- **Third-party raw sources:** remain subject to the publisher’s copyright, database rights, terms, confidentiality rules, and licence.
-- **Metadata and factual extracts:** released only after legal/rights review appropriate to the jurisdiction and source.
+- **code:** a permissive software licence such as MIT or Apache-2.0;
+- **project-authored documentation and harmonised aggregate data:** Creative Commons Attribution 4.0 or another approved open licence, subject to source restrictions;
+- **raw source documents:** remain under the rights and terms of their original publisher and are redistributed only where explicitly permitted.
 
-## Source rights fields
+A source URL and factual extraction do not imply permission to republish the complete source file.
 
-Every source record should state:
+Before v1.0, every source edition should have a controlled rights status such as:
 
-- licence or rights status;
-- whether rights review is complete;
-- redistribution decision: `unknown`, `metadata_only`, `redistributable`, `restricted`, or `not_applicable`;
-- any attribution, share-alike, non-commercial, access, or retention requirement;
-- whether the repository stores a source file or only its manifest, checksum, and access link.
+- not reviewed;
+- metadata/link only;
+- factual extraction permitted;
+- redistribution permitted;
+- restricted/controlled storage;
+- unknown — release blocking for raw-file redistribution.
 
-A public URL does not imply permission to republish the underlying report or database. Until rights review is complete, the default is **metadata and provenance only**.
-
-## Release gate
-
-Stable v1 requires a documented code licence, data/documentation licence, source-rights register, and approval for every redistributed third-party artifact. Material uncertainty blocks redistribution of the source file but need not block cataloguing its metadata and factual provenance.
+The release bundle must distinguish the project licence from third-party rights and include attribution/source obligations. Rights changes or takedown requests follow the correction/incident workflow and never cause undocumented silent deletion.

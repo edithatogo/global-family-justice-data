@@ -1,0 +1,99 @@
+contract_version = "0.3"
+
+[[contracts]]
+id = "jurisdictions"
+path = "data/seed/jurisdiction_register.csv"
+schema = "schemas/jurisdiction.schema.json"
+required = true
+allow_empty = false
+layer = "seed"
+
+[[contracts]]
+id = "sources"
+path = "data/seed/source_register.csv"
+schema = "schemas/source.schema.json"
+required = true
+allow_empty = false
+layer = "seed"
+
+[[contracts]]
+id = "indicators"
+path = "data/seed/indicator_dictionary.csv"
+schema = "schemas/indicator.schema.json"
+required = true
+allow_empty = false
+layer = "seed"
+
+[[contracts]]
+id = "matter_types"
+path = "data/seed/matter_type_dictionary.csv"
+schema = "schemas/matter_type.schema.json"
+required = true
+allow_empty = false
+layer = "seed"
+
+[[contracts]]
+id = "institutions"
+path = "data/seed/institution_register.csv"
+schema = "schemas/institution.schema.json"
+required = true
+allow_empty = true
+layer = "seed"
+
+[[contracts]]
+id = "source_editions"
+path = "data/seed/source_edition_template.csv"
+schema = "schemas/source_edition.schema.json"
+required = true
+allow_empty = true
+layer = "seed"
+
+[[contracts]]
+id = "outcomes_evidence"
+path = "data/seed/outcomes_evidence_template.csv"
+schema = "schemas/outcome_evidence.schema.json"
+required = true
+allow_empty = true
+layer = "seed"
+
+[[contracts]]
+id = "extractions"
+path = "data/seed/extraction_template.csv"
+schema = "schemas/extraction.schema.json"
+required = true
+allow_empty = true
+layer = "seed"
+
+[[contracts]]
+id = "reviews"
+path = "data/seed/review_template.csv"
+schema = "schemas/review.schema.json"
+required = true
+allow_empty = true
+layer = "seed"
+
+[[contracts]]
+id = "observation_template"
+path = "data/seed/observation_template.csv"
+schema = "schemas/observation.schema.json"
+required = true
+allow_empty = true
+layer = "seed"
+
+[[contracts]]
+id = "silver_observations"
+glob = "data/silver/**/*.csv"
+schema = "schemas/observation.schema.json"
+required = false
+allow_empty = false
+layer = "silver"
+exclude_names = ["README.md"]
+
+[[contracts]]
+id = "gold_observations"
+glob = "data/gold/**/*.csv"
+schema = "schemas/observation.schema.json"
+required = false
+allow_empty = false
+layer = "gold"
+exclude_names = ["README.md"]

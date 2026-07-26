@@ -1,0 +1,10 @@
+* @project-maintainers
+/programme/ @programme-governance @methods-leads
+/schemas/ @technical-leads @methods-leads
+/data/seed/ @data-leads @methods-leads
+/src/ @technical-leads
+/docs/methods/ @methods-leads
+/docs/quality/ @quality-leads
+/.github/ @technical-leads @security-leads
+/SECURITY.md @security-leads
+/GOVERNANCE.md @programme-governance

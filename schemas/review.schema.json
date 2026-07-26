@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/review.schema.json",
+  "title": "Review record row",
+  "type": "object",
+  "required": [
+    "review_id",
+    "subject_type",
+    "subject_id",
+    "review_type",
+    "reviewer_role",
+    "reviewed_at",
+    "decision",
+    "findings",
+    "evidence_path"
+  ],
+  "properties": {
+    "review_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"
+    },
+    "subject_type": {
+      "enum": [
+        "source",
+        "source_edition",
+        "extraction",
+        "series",
+        "observation",
+        "mapping",
+        "jurisdiction",
+        "release"
+      ]
+    },
+    "subject_id": {
+      "type": "string",
+      "minLength": 2
+    },
+    "review_type": {
+      "enum": [
+        "first_review",
+        "second_review",
+        "adjudication",
+        "independent_assurance",
+        "disclosure_review",
+        "rights_review"
+      ]
+    },
+    "reviewer_role": {
+      "type": "string",
+      "minLength": 2
+    },
+    "reviewed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "decision": {
+      "enum": [
+        "accepted",
+        "changes_required",
+        "rejected",
+        "quarantined"
+      ]
+    },
+    "findings": {
+      "type": "string"
+    },
+    "evidence_path": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

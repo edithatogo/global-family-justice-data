@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/source_edition.schema.json",
+  "title": "Source edition row",
+  "type": "object",
+  "required": [
+    "source_edition_id",
+    "source_id",
+    "edition_title",
+    "period_start",
+    "period_end",
+    "published_on",
+    "retrieved_at",
+    "canonical_url",
+    "content_sha256",
+    "rights_status",
+    "redistribution_status",
+    "storage_locator",
+    "notes"
+  ],
+  "properties": {
+    "source_edition_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"
+    },
+    "source_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"
+    },
+    "edition_title": {
+      "type": "string",
+      "minLength": 2
+    },
+    "period_start": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "period_end": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "published_on": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "canonical_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "rights_status": {
+      "enum": [
+        "cleared",
+        "review_required",
+        "restricted",
+        "unknown"
+      ]
+    },
+    "redistribution_status": {
+      "enum": [
+        "allowed",
+        "metadata_only",
+        "prohibited",
+        "unknown"
+      ]
+    },
+    "storage_locator": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

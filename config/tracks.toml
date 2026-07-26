@@ -1,0 +1,91 @@
+model_version = "1.0"
+
+[[tracks]]
+id = "T0"
+name = "Governance, ethics and independence"
+purpose = "Create legitimate authority, clear decision rights, ethical safeguards and independence from participating institutions."
+accountable_role = "programme executive"
+dependency_ids = ["T9"]
+mandatory = true
+v1_outcome = "Published governance, conflicts, ethics, corrections and funding controls with named owners and deputies."
+
+[[tracks]]
+id = "T1"
+name = "Scope, ontology and methods"
+purpose = "Define the family-justice universe, measures, clocks, denominators and comparability rules."
+accountable_role = "methods lead"
+dependency_ids = ["T0"]
+mandatory = true
+v1_outcome = "Externally reviewed and frozen v1 ontology, indicator dictionary and methods contract."
+
+[[tracks]]
+id = "T2"
+name = "Jurisdiction universe and source census"
+purpose = "Search every in-scope justice system consistently and record positive and negative findings."
+accountable_role = "global census lead"
+dependency_ids = ["T0", "T1", "T9"]
+mandatory = true
+v1_outcome = "Every approved jurisdiction has a reviewed coverage state, search log and institutional map."
+
+[[tracks]]
+id = "T3"
+name = "Acquisition, preservation and source monitoring"
+purpose = "Acquire source evidence lawfully, preserve it where permitted and detect source drift."
+accountable_role = "acquisition lead"
+dependency_ids = ["T1", "T2", "T7"]
+mandatory = true
+v1_outcome = "Reproducible or controlled acquisition with rights, checksum, query and monitoring records."
+
+[[tracks]]
+id = "T4"
+name = "Data platform and engineering"
+purpose = "Provide stable contracts, reproducible pipelines, deterministic releases and portable outputs."
+accountable_role = "technical lead"
+dependency_ids = ["T1", "T3", "T5", "T7"]
+mandatory = true
+v1_outcome = "Clean-room build, tested bronze-silver-gold flow and supported 1.x contracts."
+
+[[tracks]]
+id = "T5"
+name = "Harmonisation, quality and assurance"
+purpose = "Prevent extraction error, semantic drift and false comparison."
+accountable_role = "quality and assurance lead"
+dependency_ids = ["T1", "T2", "T3"]
+mandatory = true
+v1_outcome = "Dual review, automated controls, audit sampling, quarantine and external methodological assurance."
+
+[[tracks]]
+id = "T6"
+name = "Product, documentation and accessibility"
+purpose = "Publish useful products that retain definitions, uncertainty, provenance and accessibility."
+accountable_role = "product and publication lead"
+dependency_ids = ["T1", "T4", "T5", "T9"]
+mandatory = true
+v1_outcome = "Four complete products, accessible interfaces, open downloads and responsible-use documentation."
+
+[[tracks]]
+id = "T7"
+name = "Security, privacy, legal and supply-chain assurance"
+purpose = "Protect children and families, source rights, credentials, systems and release integrity."
+accountable_role = "security and data-governance owner"
+dependency_ids = ["T0"]
+mandatory = true
+v1_outcome = "Threat, privacy, rights, disclosure and supply-chain controls with no unresolved critical finding."
+
+[[tracks]]
+id = "T8"
+name = "Operations, reliability and release management"
+purpose = "Make publication, correction, incident response, recovery and maintenance repeatable."
+accountable_role = "service and release manager"
+dependency_ids = ["T0", "T3", "T4", "T7", "T9"]
+mandatory = true
+v1_outcome = "Rehearsed release, restore and correction service with deputies, calendar and budget."
+
+[[tracks]]
+id = "T9"
+name = "International community, localisation and sustainability"
+purpose = "Build local verification, multilingual capability, legitimacy, continuity and long-term resourcing."
+accountable_role = "international partnerships lead"
+dependency_ids = []
+mandatory = true
+v1_outcome = "Representative correspondent network, reviewed launch languages and funded 12-month 1.x model."

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/matter_type.schema.json",
+  "title": "Harmonised family-justice matter type row",
+  "type": "object",
+  "required": ["matter_type_id", "parent_matter_type_id", "label", "definition", "scope_status", "version_introduced", "notes"],
+  "properties": {
+    "matter_type_id": {"type": "string", "pattern": "^MAT_[A-Z0-9_]{2,60}$"},
+    "parent_matter_type_id": {"type": ["string", "null"], "pattern": "^MAT_[A-Z0-9_]{2,60}$"},
+    "label": {"type": "string", "minLength": 3},
+    "definition": {"type": "string", "minLength": 20},
+    "scope_status": {"enum": ["core", "adjacent", "excluded"]},
+    "version_introduced": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}

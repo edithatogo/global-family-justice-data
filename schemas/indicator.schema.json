@@ -1,36 +1,33 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/indicator.schema.json",
   "title": "Indicator dictionary row",
   "type": "object",
   "required": [
-    "schema_version",
     "indicator_id",
     "domain",
     "name",
     "definition",
     "preferred_statistic",
     "preferred_unit",
+    "numerator",
+    "denominator",
     "core_release",
-    "status",
-    "introduced_in",
-    "reviewed_for_v1"
+    "comparability_notes"
   ],
   "properties": {
-    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
-    "indicator_id": {"type": "string", "minLength": 3},
-    "domain": {"type": "string", "minLength": 1},
-    "name": {"type": "string", "minLength": 1},
-    "definition": {"type": "string", "minLength": 1},
-    "preferred_statistic": {"type": "string", "minLength": 1},
-    "preferred_unit": {"type": "string", "minLength": 1},
+    "indicator_id": {"type": "string", "pattern": "^[A-Z][A-Z0-9_]{2,63}$"},
+    "domain": {
+      "enum": ["access", "administrative_outcome", "child_family_outcome", "demand", "equity", "experience", "flow", "inputs", "outputs", "process", "timeliness"]
+    },
+    "name": {"type": "string", "minLength": 3},
+    "definition": {"type": "string", "minLength": 20},
+    "preferred_statistic": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "preferred_unit": {"type": "string", "pattern": "^[A-Za-z0-9_]+$"},
     "numerator": {"type": "string"},
     "denominator": {"type": "string"},
     "core_release": {"enum": ["yes", "no"]},
-    "comparability_notes": {"type": "string"},
-    "status": {"enum": ["draft", "active", "deprecated", "withdrawn"]},
-    "introduced_in": {"type": "string"},
-    "reviewed_for_v1": {"enum": ["yes", "no"]},
-    "replacement_indicator_id": {"type": "string"}
+    "comparability_notes": {"type": "string", "minLength": 5}
   },
   "additionalProperties": false
 }

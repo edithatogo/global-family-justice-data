@@ -1,50 +1,51 @@
 # Security and responsible disclosure
 
-## Security boundary
+## Project security boundary
 
-This public repository is designed for aggregate public data, metadata, documentation, and code. It must not contain identifiable court records, sealed material, credentials, private API keys, or restricted linked datasets.
+The public repository is designed for aggregate, publicly reportable family-justice information. Do not submit:
 
-## Reporting a vulnerability or sensitive data exposure
+- identifiable or linkable case/person records;
+- sealed, protected or unlawfully obtained material;
+- credentials, tokens, private keys or access cookies;
+- restricted source files whose redistribution is not authorised;
+- exploit code or sensitive vulnerability detail in a public issue.
 
-Do not open a public issue for a vulnerability, exposed credential, or potentially identifying family/child record. Contact the project security role through the private channel published by the institutional host. Until a host is appointed, security reports should be handled privately by the repository owner and recorded in a restricted incident log.
+Person-level linkage research, if undertaken, belongs in a separately governed secure environment and is not part of this public repository.
 
-A mature v1 deployment must publish:
+## Reporting a vulnerability or sensitive issue
 
-- monitored security contact details;
-- acknowledgement and triage targets;
-- severity and escalation rules;
-- coordinated disclosure process;
-- emergency takedown authority.
+Until a dedicated private reporting channel is configured by the host, contact the project’s designated security/privacy owner through the host institution and mark the report confidential. Do not open a public issue when disclosure could create harm.
 
-## Maintainer controls
+A mature v1.0 must publish and test a private vulnerability/privacy reporting channel before release.
 
-- least-privilege repository and storage access;
-- multi-factor authentication for maintainers;
-- protected default branch and required reviews;
-- no long-lived secrets in code or workflows;
-- dependency, code, and secret scanning;
-- pinned or reviewed automation dependencies;
-- provenance and checksums for release artifacts;
-- periodic access review and immediate revocation on role change.
+Include, where safe:
 
-## Data safety controls
+- affected version or service;
+- issue type and potential impact;
+- steps to reproduce using non-sensitive data;
+- evidence without personal information;
+- suggested containment if known;
+- preferred contact method.
 
-- aggregate-only public release;
-- disclosure and small-cell review;
-- no attempt to re-identify people;
-- no public person-level linkage keys;
-- documented suppression and withdrawal process;
-- source-rights and redistribution review;
-- separation of public and restricted research environments.
+## Response objectives
 
-## Incident classes
+- acknowledge reports within five working days;
+- triage critical issues immediately on detection;
+- protect reporters acting in good faith;
+- preserve evidence and avoid unnecessary collection of sensitive data;
+- publish a proportionate incident/correction record after containment;
+- rotate exposed credentials and invalidate compromised artefacts/keys.
 
-- privacy or disclosure incident;
-- compromised credential or maintainer account;
-- malicious or tampered source/contribution;
-- dependency or build-chain compromise;
-- material data-integrity failure;
-- legal or rights-based takedown request;
-- loss of release or backup availability.
+## Baseline controls on the path to v1.0
 
-The operations runbook must define containment, preservation of evidence, assessment, notification, correction, rollback, and post-incident review for each class.
+- protected branches and reviewed changes;
+- least-privilege named accounts and MFA for privileged systems;
+- secrets outside source control;
+- dependency, secret and artefact scanning;
+- rights and disclosure review before publication;
+- threat model and privacy/disclosure impact assessment;
+- signed/checksummed release artefacts;
+- backup, restore and incident exercises;
+- no unresolved critical security or privacy finding at release.
+
+See `docs/architecture/v1-architecture.md`, `docs/operations/release-and-operations.md` and `V1_0_RELEASE_CRITERIA.md`.

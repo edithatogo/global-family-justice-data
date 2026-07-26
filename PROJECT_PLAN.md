@@ -1,147 +1,212 @@
-# Project plan: from international source census to stable v1.0
+# Project plan: Global Family Justice Data Project
 
-## 1. Aim
+## 1. Executive intent
 
-Build a durable international public data product that inventories family-justice reporting, harmonises defensible process and administrative measures, catalogues child and family outcomes evidence, and exposes gaps without overstating comparability.
+Build and operate the first reproducible international source census and harmonised data platform for family-justice reporting, process, outputs, administrative outcomes, user experience and child/family outcomes.
 
-The project distinguishes five evidence domains:
+The programme is designed to reach a **stable, hardened and maintainable v1.0**, not simply to publish an early global spreadsheet. The delivery model therefore treats methods, data operations, software, security, governance, international verification and financial sustainability as co-equal workstreams.
 
-- **process and performance:** volumes, pending caseload, clearance, hearing waits, case duration, adjournments, legal representation, mediation, and compliance with standards;
-- **court and administrative outputs:** modes of disposal, orders, appeals, enforcement, reapplications, and subsequent administrative events;
-- **user and access outcomes:** perceived fairness, comprehension, participation, cost, accessibility, legal need, and service experience;
-- **child and family outcomes:** safety, stability, reunification, placement, compliance, wellbeing, family functioning, and equity;
-- **system inputs and context:** institutions, jurisdiction, staffing, expenditure, legal aid, procedures, reforms, statutory targets, and socioeconomic context.
+The v1.0 release will be credible only when an external user can:
 
-Routine court statistics, evaluations, surveys, and linked research are represented as different evidence types. The project will not treat faster processing as proof of better child or family outcomes.
+- determine what was searched in every in-scope jurisdiction;
+- distinguish “not published” from “not searched” and from zero activity;
+- trace each released observation to exact source evidence;
+- understand the measure, matter type, clock, denominator and limitations;
+- reproduce derived release artefacts in a clean environment;
+- retrieve a prior release after a correction or source change;
+- report an error or vulnerability through a functioning process;
+- rely on stable identifiers and contracts throughout the 1.x line.
 
-## 2. Product boundary
+## 2. Product definition
 
-### 2.1 Unit of coverage
+### 2.1 Four linked public products
 
-The project covers family-justice functions, regardless of the institution’s name. The jurisdiction model begins with sovereign states and adds subnational or devolved systems whenever they control material parts of family justice.
-
-The final jurisdiction universe must explicitly classify:
-
-- national systems;
-- states, provinces, territories, cantons, or equivalent autonomous systems;
-- supranational and cross-national reporting bodies;
-- customary, religious, administrative, or specialist systems where these are material and publicly reportable;
-- excluded territories or systems, with reasons.
-
-### 2.2 Core matter types
-
-1. divorce, dissolution, separation, and nullity;
-2. private-law parenting, custody, residence, contact, and parental responsibility;
-3. public-law child protection, care, dependency, and removal proceedings;
-4. civil family-violence and protection-order proceedings;
-5. child and spousal maintenance or support;
-6. property and financial relief following relationship breakdown;
-7. adoption, guardianship, kinship care, and related permanence proceedings;
-8. parentage and selected assisted-reproduction matters;
-9. international child abduction, access, recognition, and cross-border child protection.
-
-Juvenile criminal justice, probate, criminal family violence, and general civil matters are adjacent domains. They are included only where reporting is inseparable or the project publishes a clearly bounded adjacent product.
-
-### 2.3 Time horizon
-
-- Pilot extraction: most recent five reporting years, where available.
-- Preferred historical coverage: 2010 onward when definitions and sources permit.
-- Breaks in series are preserved; historical series are not back-cast through legal or methodological changes without explicit evidence.
-- Source-census records may include older foundational reporting where it remains relevant.
-
-### 2.4 Definition of global completeness
-
-The project does not promise that every desired outcome has been measured. A defensible completeness claim is:
-
-> Every in-scope jurisdiction has been searched under a documented multilingual protocol; every located in-scope public source has been catalogued; absent, inaccessible, unpublished, and non-comparable measures have been explicitly coded; and every extracted observation or evidence record retains traceable provenance.
-
-Completeness therefore applies first to the **search and source census**, not to the existence of comparable numeric data.
-
-## 3. v1.0 product contract
-
-Version 1.0 is a stable release bundle containing:
-
-1. a global jurisdiction and institutional register;
-2. a multilingual source census with status history and negative findings;
-3. a versioned matter, stage, and indicator ontology;
-4. an outcomes-evidence catalogue;
-5. source-native bronze extracts or lawful source manifests;
-6. normalised silver observations with source meaning retained;
-7. a bounded gold dataset of approved Tier 1 and Tier 2 comparisons;
-8. jurisdiction profiles and a global reporting-availability atlas;
-9. methods, quality, coverage, limitations, governance, and licensing documentation;
-10. reproducible CSV, Parquet, and DuckDB release artifacts;
-11. checksums, build metadata, citation information, and archival preservation;
-12. operating ownership for monitoring, support, corrections, backups, restoration, and future releases.
-
-The binding release criteria are in `docs/strategy/V1_RELEASE_CRITERIA.md`.
-
-### v1 non-goals
-
-- identifiable case, party, child, or family records in the public repository;
-- a single international performance score or country ranking;
-- direct comparison of incompatible clocks, cohorts, units, or case types;
-- causal inference from descriptive court statistics;
-- redistribution of third-party source files without permission;
-- real-time coverage of every court system;
-- a public API unless the host can operate it under the same stability and support standards as the downloadable release.
-
-## 4. Delivery model
-
-The programme is organised as twelve persistent delivery tracks rather than short-lived work packages. Track charters are in `docs/strategy/DELIVERY_TRACKS.md`.
-
-| Track | Focus | Accountable v1 result |
+| Product | Question answered | v1.0 output |
 |---|---|---|
-| T1 | Governance and institutional home | Durable authority, independence, decision rights, succession |
-| T2 | Scope, ontology, and methods | Frozen v1 semantics and compatibility policy |
-| T3 | Global jurisdiction and source census | Complete auditable search coverage |
-| T4 | Acquisition, preservation, provenance | Repeatable lawful retrieval and source versioning |
-| T5 | Extraction, harmonisation, outcomes evidence | Traceable bronze/silver/gold and evidence catalogue |
-| T6 | Scientific and data quality | Quantified reliability and release-blocking QA |
-| T7 | Engineering and reproducibility | Tested deterministic release system |
-| T8 | Security, privacy, legal, ethics | Harm, rights, and supply-chain controls |
-| T9 | Product, documentation, accessibility | Usable public release with definitions at point of use |
-| T10 | Languages, partnerships, community | Regionally legitimate multilingual search and review |
-| T11 | Operations, releases, support, resilience | Tested maintenance, correction, restore, and rollback |
-| T12 | Sustainability and evaluation | Multi-cycle resources, preservation, and impact measures |
+| Global source census | What does each jurisdiction publicly report? | Jurisdiction universe, search logs, source register, coverage status and availability atlas |
+| Harmonised core dataset | Which process/performance observations can be compared responsibly? | Bronze/silver/gold release data, dictionary, quality grades and comparability tiers |
+| Outcomes evidence catalogue | What evidence exists about subsequent administrative, user, child and family outcomes? | Structured study/dataset catalogue and evidence-gap map |
+| Jurisdiction context library | How does each system work and what affects interpretation? | Versioned profiles, institutional maps, procedural clocks, standards, reforms and series breaks |
 
-Each track must maintain:
+### 2.2 Authoritative artefacts
 
-- an accountable owner and deputy;
-- deliverables and dependencies;
-- measurable quarterly outcomes;
-- risks and controls;
-- evidence mapped to v1 gates;
-- a backlog separated into v1-blocking, v1-desirable, and post-v1.
+The immutable release bundle is the system of record. It contains open tabular files, efficient analytical files, schemas, methods, profiles, validation reports, checksums, citation metadata and change history.
 
-## 5. Stage roadmap
+The dashboard, website and API are generated from that bundle. This allows the project to remain usable if a presentation service fails or is replaced.
 
-### Stage A — Foundations and product contract, target v0.2
+### 2.3 What v1.0 does not claim
+
+v1.0 will not claim that:
+
+- every desired outcome is measured in every jurisdiction;
+- a court order is equivalent to a child or family outcome;
+- faster disposition necessarily means better justice;
+- silence in a source means zero cases;
+- all family matters are heard in an institution called a family court;
+- a single composite ranking can fairly summarise international performance;
+- descriptive reporting establishes causality.
+
+## 3. Definition of global completeness
+
+A defensible global claim is:
+
+> Every jurisdiction in the approved universe has been searched under a documented multilingual protocol; every located public source has been catalogued; absent, inaccessible and unpublished measures have been explicitly coded and second-reviewed; and every extracted observation retains traceable provenance.
+
+The universe begins with sovereign jurisdictions and expands to subnational systems where responsibility for family justice is materially devolved. Dependent territories and transnational/specialised systems are represented under an explicit inclusion rule rather than handled ad hoc.
+
+Every jurisdiction receives one current coverage status:
+
+- not started;
+- search in progress;
+- official source found;
+- non-government source only;
+- no public family-specific source found;
+- source inaccessible or rights-restricted;
+- direct contact pending;
+- verified complete for the current review cycle.
+
+A negative finding requires a preserved search log and second reviewer. It is not a blank cell.
+
+## 4. Scope
+
+### 4.1 Core matter types
+
+1. divorce, dissolution and nullity;
+2. private-law parenting, custody, residence, contact and parental responsibility;
+3. public-law child protection, care and dependency;
+4. civil family-violence and protection-order proceedings;
+5. child and spousal maintenance/support;
+6. property and financial relief following relationship breakdown;
+7. adoption, guardianship and kinship care;
+8. parentage and selected assisted-reproduction matters;
+9. international child abduction, access and cross-border child protection.
+
+Juvenile criminal justice, probate and general criminal family-violence proceedings remain adjacent domains. They may be catalogued when reporting systems combine them, but they are not automatically pooled with core family-justice measures.
+
+### 4.2 Evidence domains
+
+The data model keeps five domains separate:
+
+- **process and performance** — filings, pending caseload, clearance, waits, duration, adjournments and compliance with standards;
+- **court outputs** — manner of disposal, orders and formal decisions;
+- **administrative outcomes** — appeals, reversals, enforcement, non-compliance, reapplication and return to court;
+- **child/family and user outcomes** — safety, stability, wellbeing, family functioning, perceived fairness and experience;
+- **inputs and context** — staffing, expenditure, legal aid, court structure, procedure, reforms and statutory targets.
+
+### 4.3 Time horizon
+
+- Attempt at least the most recent five reporting years in the pilot and core dataset.
+- Prefer 2010 onward where source continuity and definitions support it.
+- Record series breaks and reform periods; do not back-cast across incompatible definitions.
+- Release source-search status with a clear review-cycle date.
+
+## 5. v1.0 capability baseline
+
+The binding release criteria are in `V1_0_RELEASE_CRITERIA.md`. In summary, v1.0 requires:
+
+- complete reviewed coverage status across the approved jurisdiction universe;
+- stable v1 identifiers, schemas, ontology and public file contracts;
+- exact provenance and preservation metadata for every released observation;
+- dual review of all gold series plus independent audit sampling;
+- a reproducible clean-room build and immutable signed/checksummed artefacts;
+- explicit rights, security, privacy, disclosure and ethical controls;
+- public methods, limitations, corrections and vulnerability channels;
+- tested release, restore, rollback and continuity processes;
+- accessible public products and reviewed translations;
+- named role holders and deputies;
+- a 12-month funded operating and release plan after launch.
+
+## 6. Programme structure
+
+The work is organised into ten tracks. No track can be deferred to a final “hardening phase”; controls are built progressively from the v0.3 engineering baseline.
+
+### T0 — Governance, ethics and independence
+
+Establish the legal/organisational host, charter, decision rights, conflict management, advisory structures, release authority and accountability for harms and corrections.
+
+### T1 — Scope, ontology and methods
+
+Own the jurisdiction universe, matter taxonomy, indicator dictionary, procedural clocks, denominators, comparability rules, definitions of missingness and methods change control.
+
+### T2 — Jurisdiction universe and source census
+
+Map institutions, execute multilingual searches, maintain coverage status, document negative findings and coordinate direct enquiries and local verification.
+
+### T3 — Acquisition, preservation and source monitoring
+
+Build lawful acquisition pathways for APIs, files, HTML, dashboards and PDFs; preserve evidence; track checksums, rights and source drift.
+
+### T4 — Data platform and engineering
+
+Maintain schemas, identifiers, pipelines, environments, tests, release builds, efficient file formats and reproducible derived services.
+
+### T5 — Harmonisation, quality and assurance
+
+Promote data through bronze, silver and gold; control classification and transformation; run dual review, audit sampling, quality scoring and external assurance.
+
+### T6 — Product, documentation and accessibility
+
+Develop downloadable releases, profiles, atlas, dashboard/query layer, methods, definitions, limitations, user guidance and accessible interfaces.
+
+### T7 — Security, privacy, legal and supply-chain assurance
+
+Enforce the aggregate-data boundary, manage source rights, scan code and artefacts, protect credentials, assess threats and disclosure risk, and operate incident/takedown processes.
+
+### T8 — Operations, reliability and release management
+
+Run release calendars, monitoring, ticketing, source-health checks, correction service, backups, restore exercises, runbooks and service ownership.
+
+### T9 — International community, localisation and sustainability
+
+Build a representative correspondent network, translation QA, contributor training, regional participation, succession plans, funding and impact evaluation.
+
+Detailed charters, deliverables, dependencies and indicators are in `docs/programme/track-charters.md`.
+
+## 7. Integrated delivery plan
+
+### Stage 0 — Mobilise and control the design (months 0–2; v0.4 / G1)
 
 Objectives:
 
-- adopt the charter and v1 release criteria;
-- define the jurisdiction universe and federal/subnational rules;
-- appoint provisional track owners and release authority;
-- settle public/restricted data boundaries;
-- decide repository, storage, licensing, and preservation architecture;
-- establish risk, decision, conflict, and change logs;
-- freeze pilot selection and sampling rationale.
+- appoint accountable owners and deputies;
+- agree the host, charter, governance and independence protections;
+- approve the v1 product boundary, jurisdiction universe and non-goals;
+- adopt architecture, security baseline, data-governance boundary and risk approach;
+- define stable identifier strategy and draft v1 data contracts;
+- agree pilot jurisdictions, review standards and release criteria.
 
-Exit gate:
+Deliverables:
 
-- governance can answer who owns scope, methods, data, security, release, correction, and preservation;
-- the pilot can begin without changing the product boundary.
+- signed programme charter;
+- RACI and decision log structure;
+- v1 scope and methods baseline;
+- architecture decision records;
+- costed 24-month plan;
+- initial threat model, privacy/disclosure assessment and rights workflow;
+- stage-gate evidence templates.
 
-### Stage B — Controlled heterogeneous pilot, target v0.3
+Gate G1: all foundation controls approved and every critical track has an owner and deputy.
 
-Pilot cohort:
+### Stage 1 — Prove the design in a heterogeneous pilot (months 2–6; v0.5 / G2)
+
+Pilot systems should deliberately test:
+
+- federal and unitary structures;
+- common-law, civil-law and mixed systems;
+- specialist and general courts;
+- national and subnational reporting;
+- English and non-English source discovery;
+- APIs, spreadsheets, HTML, interactive dashboards and PDFs;
+- retrospective duration, prospective listing wait and pending-age measures;
+- strong and sparse reporting environments.
+
+Proposed pilot:
 
 - Australia;
 - England and Wales;
 - New Zealand;
 - Singapore;
-- British Columbia, Canada;
+- British Columbia;
 - one large and one smaller United States state;
 - Spain;
 - Brazil;
@@ -149,477 +214,343 @@ Pilot cohort:
 - Mexico;
 - South Africa.
 
-The final selection may change only with a documented rationale while preserving diversity across region, legal tradition, language, court structure, income setting, and source format.
+Pilot outputs:
 
-Pilot tasks:
+- institutional maps and source logs for every pilot system;
+- at least five years attempted for priority sources;
+- representative bronze-to-gold pipelines;
+- first jurisdiction profiles and outcomes-catalogue entries;
+- dual review of all pilot gold series;
+- independent re-extraction sample;
+- pilot comparability and failure report;
+- revised schemas and ontology after controlled design review.
 
-- map institutions and case pathways;
-- complete multilingual search logs;
-- ingest at least one API, spreadsheet, HTML table, PDF, and dashboard source;
-- catalogue routine reports and outcomes evidence separately;
-- retain raw/source manifests and bronze extracts;
-- create silver observations and a small gold dataset;
-- test manual extraction, translation, double review, and correction;
-- publish failed comparisons and ontology changes.
+Gate G2: end-to-end reproducibility demonstrated and no critical design issue left unresolved.
 
-Exit gate:
+### Stage 2 — Complete the global source census (months 5–12; v0.6 / G3)
 
-- a clean environment reproduces the pilot release;
-- every pilot gold value has exact provenance and second review;
-- pilot source and outcome-evidence gaps are explicit;
-- quality checks catch intentionally seeded errors.
+Tasks:
 
-### Stage C — Integrated alpha, target v0.4–v0.5
+- establish every jurisdiction/subnational record;
+- map responsible institutions before searching for “family court” data;
+- conduct local-language searches across courts, ministries, statistical agencies, parliaments, audit offices, legal aid and child/family agencies;
+- catalogue international/regional sources and research evidence;
+- second-review negative findings;
+- conduct standardised direct enquiries for absent or ambiguous sources;
+- publish a beta source register and data-availability atlas.
 
-Objectives:
+Gate G3: every in-scope jurisdiction has a current status and review evidence.
 
-- stabilise IDs and data contracts;
-- build acquisition and transformation registries;
-- automate structural, referential, temporal, numerical, and lineage validation;
-- establish schema migrations and backwards-compatibility tests;
-- create regional/language operating procedures;
-- generate release packages, profiles, and quality reports from one pipeline;
-- run the first independent clean-build and extraction audit.
+### Stage 3 — Scale acquisition, harmonisation and public beta (months 8–16; v0.7 / G4)
 
-Exit gate:
+Tasks:
 
-- new jurisdictions and sources can be added without changing core architecture;
-- manual steps are controlled and recorded;
-- failed jobs, stale sources, and unresolved reviews are visible.
+- productionise connectors and controlled manual extraction;
+- add checksums, rights metadata, source versioning and drift alerts;
+- implement stable IDs, data contracts and migration tests;
+- transform source-native tables to normalised long form;
+- freeze the v1 core indicator set and proposed analytical cohort;
+- complete outcomes evidence catalogue and context-profile templates;
+- launch downloadable beta data, profiles and constrained comparison views;
+- conduct structured usability, accessibility and interpretation testing.
 
-### Stage D — Global public beta, target v0.6–v0.7
+Gate G4: all v1 products exist in production-like form and the comparative cohort is ready to freeze.
 
-Objectives:
+### Stage 4 — Harden and assure the release candidate (months 15–21; v0.9 / G5)
 
-- create records for the entire defined jurisdiction universe;
-- complete documented local-language or relevant official-language searches;
-- second-review all negative findings;
-- expand extraction to a regionally balanced v1 cohort;
-- publish beta source/evidence catalogues, profiles, and atlas;
-- collect structured feedback from courts, researchers, advocates, users, and lived-experience advisers;
-- publish coverage, data-quality, and comparability metrics.
+Tasks:
 
-Exit gate:
+- freeze features, schemas and ontology for v1;
+- eliminate manual, undocumented production steps;
+- complete gold review and independent audit sample;
+- run clean-room build, migration, rollback and republish rehearsals;
+- complete rights, disclosure, security, dependency and threat reviews;
+- test backups, restoration, source-loss scenarios and continuity handover;
+- obtain external methods review and publish responses;
+- close P0/P1 defects and disposition P2 issues;
+- complete documentation, localisation, citation and limitations materials;
+- operate a stability soak under production-like monitoring.
 
-- every jurisdiction has a status, search evidence, review date, confidence, and next-review date;
-- there is no unexplained regional or language omission;
-- beta users can independently reproduce a documented analytical example.
+Gate G5: release candidate meets all criteria except final publication and operational handover.
 
-### Stage E — Feature freeze and hardening, target v0.8
+### Stage 5 — Publish and institutionalise v1.0 (months 21–24; G6)
 
-Objectives:
+Tasks:
 
-- freeze v1 product scope, schemas, ontology, and user features;
-- complete test coverage for critical validators and transformations;
-- complete source-rights, privacy, disclosure, and security review;
-- enable dependency, code, and secret scanning;
-- implement source freshness and change detection;
-- complete operations, support, correction, backup, restore, rollback, and takedown runbooks;
-- complete accessibility, performance, documentation, and disaster-recovery review;
-- resolve or remove all severity-1 and severity-2 defects.
+- complete final release evidence pack and go/no-go decision;
+- generate immutable release files, checksums, signatures and citation metadata;
+- deposit the release in an archival repository;
+- publish methods, source register, coverage report, data, profiles and limitations;
+- activate correction, incident and support workflows;
+- begin the approved 1.x release calendar;
+- conduct a post-launch review and prioritise non-breaking v1.1 improvements.
 
-Exit gate:
-
-- every mandatory v1 control is implemented and has evidence;
-- all remaining work is audit, correction, or release preparation rather than new functionality.
-
-### Stage F — Release candidates and independent assurance, target v0.9.0-rc*
-
-Objectives:
-
-- complete stratified extraction and transformation audit;
-- complete independent methods and governance review;
-- perform clean-room release build by a non-builder;
-- rehearse correction, withdrawal, rollback, incident, and restore processes;
-- generate complete release notes, limitations, citation, checksums, and archive package;
-- run at least two consecutive release-candidate builds without critical regression.
-
-Exit gate:
-
-- release-readiness matrix passes;
-- no unresolved severity-1 or severity-2 defect remains;
-- release authority signs the candidate record.
-
-### Stage G — Stable v1.0.0
-
-Release actions:
-
-- tag code, schemas, ontology, and metadata;
-- publish data, quality reports, methods, profiles, and atlas as one versioned bundle;
-- archive immutable artifacts and issue a persistent identifier;
-- publish known gaps and limitations with equal prominence to comparative results;
-- activate monitoring, support, and correction processes;
-- record next review dates and operational ownership.
-
-### Stage H — v1.0.x maintenance
-
-Permitted work:
-
-- data corrections and source-status updates;
-- non-breaking documentation, accessibility, security, and operational fixes;
-- refreshed data under unchanged contracts;
-- patch releases with transparent correction logs.
-
-New indicators, breaking fields, material ontology changes, or major scope expansion require a minor or major release under the compatibility policy.
-
-## 6. Source discovery and reporting census
-
-### 6.1 Institutional mapping
-
-For each jurisdiction, identify:
-
-- bodies handling each family matter type;
-- court levels and appeal pathways;
-- justice ministries, statistics offices, legal-aid agencies, child-protection agencies, maintenance agencies, and relevant tribunals;
-- federal/devolved responsibilities;
-- customary or religious pathways where material;
-- publication and accountability obligations.
-
-### 6.2 Search order
-
-1. judiciary and court administration;
-2. justice ministry, attorney-general, or equivalent;
-3. official statistics office and open-data portal;
-4. parliamentary, audit, budget, and performance reporting;
-5. child protection, maintenance, legal aid, and family-violence agencies;
-6. supranational and regional organisations;
-7. academic, civil-society, and professional research;
-8. direct enquiry where public sources are absent or ambiguous.
-
-### 6.3 Search controls
-
-Search logs record:
-
-- names and structures used locally;
-- languages and search terms;
-- domains and catalogues checked;
-- dates and reviewers;
-- candidate sources and exclusions;
-- inaccessible, login-gated, or discontinued sources;
-- confidence and next review date.
-
-Automated translation may assist discovery but cannot by itself close a jurisdiction as fully searched.
-
-## 7. Source and evidence acquisition
-
-For every source or evidence item, capture:
-
-- stable ID;
-- publisher and official status;
-- source/evidence type;
-- matter and outcome domains;
-- language and geographic scope;
-- publication and coverage periods;
-- canonical URL and retrieval method;
-- query/filter parameters;
-- last verified and next review dates;
-- source version and checksum when acquired;
-- rights/licence and redistribution decision;
-- archive or preservation reference;
-- status history: active, superseded, changed, unavailable, withdrawn;
-- exact provenance for extracted values.
-
-Acquisition code and manual procedures must respect access controls, terms, rate limits, copyright, confidentiality, and security. Public accessibility does not automatically confer redistribution rights.
+Gate G6: all mandatory v1 criteria pass and a funded operating team accepts service ownership.
 
 ## 8. Common data model
 
 Every observation should identify:
 
-- schema and record version;
-- observation, jurisdiction, institution, source, indicator, and transformation IDs;
+- jurisdiction and responsible subnational unit;
+- institution and court level;
 - original and harmonised matter type;
-- original and harmonised measure;
-- procedural start and end events for durations;
-- statistic type, unit, numerator, denominator, and denominator definition;
+- original measure and harmonised indicator;
+- start and end events for duration measures;
+- statistic type: count, mean, median, percentile, rate or proportion;
+- unit, numerator and denominator definition;
 - reporting period and cohort basis;
-- inclusion/exclusion rules and breaks in series;
-- geography and demographic strata;
-- original definition and English translation;
-- source version and exact provenance;
-- extraction method and transformation lineage;
-- reviewer, second-review status, and review date;
-- quality grade, comparability tier, release status, and notes.
+- inclusion/exclusion rules and procedural status;
+- demographic/geographic strata and disclosure status;
+- source ID and exact provenance locator;
+- retrieval, extraction, transformation and review records;
+- source quality, data-quality result and comparability tier;
+- ontology, schema and pipeline version;
+- notes, limitations and series-break flags.
 
-Missingness states must distinguish at least:
+Stable identifiers must be opaque enough not to encode changeable semantics. Retired IDs are never reused.
 
-- value not published;
-- source not found after completed search;
-- source inaccessible;
-- not applicable;
-- suppressed for confidentiality;
-- not yet searched;
-- extraction pending;
-- mapping rejected as non-comparable.
+## 9. Minimum v1 core indicator families
 
-## 9. v1 core indicators
-
-The first gold release should prioritise measures that are commonly obtainable and interpretable:
+The comparative release initially prioritises indicators that are commonly reported and interpretable when definitions align:
 
 1. incoming matters;
 2. resolved matters;
 3. pending matters;
 4. clearance rate;
-5. age distribution of pending matters;
-6. median filing-to-disposition time;
-7. mean filing-to-disposition time, retained separately;
-8. selected percentiles where published;
-9. proportion completed within a stated standard;
+5. pending-age distribution;
+6. median filing-to-disposition duration;
+7. mean filing-to-disposition duration, retained separately;
+8. percentile duration where available;
+9. proportion completed within a defined standard;
 10. ready-to-first-available-hearing wait;
-11. filing-to-first-substantive-hearing wait;
-12. adjournment or continuance rate;
+11. filing-to-first-substantive-hearing duration;
+12. adjournment/continuance rate;
 13. self-representation rate;
-14. mediation referral and settlement rates;
+14. mediation referral and resolution rates;
 15. consent versus contested disposition;
-16. appeal, enforcement, or return-to-court rate where definitions permit.
+16. appeal, enforcement or return-to-court measures where definitions are adequate.
 
-Additional indicators may be catalogued in silver or evidence records without entering gold.
+The outcomes catalogue has broader scope, but outcome measures do not enter the gold comparative dataset until their population, follow-up window, instrument and attribution limits are clear.
 
-## 10. Outcomes evidence programme
+## 10. Quality and comparability
 
-The outcomes stream is a first-class track, not a later narrative appendix. Its v1 purpose is to make the evidence landscape discoverable and accurately characterised.
+### 10.1 Source quality
 
-Evidence classes:
-
-- routine administrative outcome reporting;
-- court-user and legal-needs surveys;
-- programme or procedural evaluations;
-- longitudinal cohorts;
-- linked administrative studies;
-- qualitative and mixed-methods research;
-- systematic reviews and evidence syntheses.
-
-Each record should capture:
-
-- jurisdiction, institution, population, and matter type;
-- study setting and period;
-- design, comparator, sample, and data source;
-- outcome domains and measures;
-- publication and source links;
-- peer-review/official status;
-- limitations and risk-of-bias assessment where applicable;
-- whether effect estimates or reusable aggregate data are available;
-- exact provenance and reviewer status.
-
-The project will not aggregate effect estimates until compatible outcomes, populations, designs, and risk-of-bias methods are defined.
-
-## 11. Quality and comparability
-
-### Source quality
-
-- **A:** official, machine-readable, documented, and versionable;
+- **A:** official, machine-readable, documented and stable;
 - **B:** official tabular publication with adequate definitions;
-- **C:** official narrative or interactive source requiring substantial interpretation;
-- **D:** credible non-government, academic, or professional source;
-- **E:** secondary, unverified, or inadequately documented.
+- **C:** official narrative/dashboard requiring substantial interpretation;
+- **D:** credible research or non-government source;
+- **E:** secondary, unverified or insufficiently documented.
 
-### Comparability
+### 10.2 Comparability
 
-- **Tier 1:** same matter concept, clock, statistic, cohort, unit, and denominator; direct comparison reasonable.
-- **Tier 2:** transparent bounded transformation or restricted interpretation required.
-- **Tier 3:** descriptive juxtaposition only.
-- **Tier 4:** not comparable; retained for discovery and local interpretation.
+- **Tier 1:** direct comparison is reasonable;
+- **Tier 2:** transparent transformation or restriction is required;
+- **Tier 3:** descriptive juxtaposition only;
+- **Tier 4:** not comparable; retained for local analysis/source mapping.
 
-Grades apply to individual records. A jurisdiction may have excellent filing data and weak timeliness data.
+Grades apply to individual series/observations rather than to countries.
 
-### Mandatory quality controls
+### 10.3 Promotion model
 
-- schema and required-field validation;
-- ID uniqueness and referential integrity;
-- date and period logic;
-- unit and allowed-value checks;
-- duplicate and overlap detection;
-- source-to-publication reconciliation;
-- lineage completeness;
-- second review for gold;
-- stratified independent audit;
-- prior-release change analysis;
-- documented adjudication of disagreements.
+- **Raw evidence:** preserved source and retrieval metadata.
+- **Bronze:** source-native extraction; no semantic harmonisation.
+- **Silver:** normalised structure with original definitions retained.
+- **Gold:** approved use for a specified analytical purpose after review and validation.
+- **Quarantine:** failed, ambiguous or rights-restricted material retained outside release outputs.
 
-## 12. Technical architecture
+Every gold series receives source/series-level dual review. Every observation receives automated validation. A separate assurance sample is independently re-extracted before v1.0.
 
-The target architecture is described in `ARCHITECTURE.md`.
+See `docs/quality/v1-data-quality-plan.md`.
 
-Core choices:
+## 11. Technical architecture
 
-- public Git monorepo for code, schemas, metadata, documentation, and permitted aggregate release files;
-- external object or archival storage for large, licensed, or restricted source artifacts;
-- CSV for reviewed human-maintained registries;
-- Parquet and DuckDB for analytical release products;
-- JSON Schema and explicit data contracts;
-- Python acquisition, transformation, validation, and release pipelines;
-- static or low-complexity publication architecture unless a supported API is justified;
-- continuous integration for tests, validation, linting, schema compatibility, manifests, and release packaging;
-- immutable tagged releases with checksums and a persistent archival identifier.
+The public monorepo holds:
 
-## 13. Security, privacy, law, and ethics
+- code, schemas, ontologies and documentation;
+- redistributable aggregate release data;
+- source manifests, checksums and rights status;
+- tests, workflows and release configuration.
 
-The public project is aggregate-only. Restricted linked-data research, if pursued, requires a separate programme with lawful basis, ethics approval, custodian agreements, secure environments, disclosure controls, and publication review.
+Large or restricted source files are stored in controlled object/preservation storage. Git stores manifests and checksums rather than unlawfully redistributing material.
 
-Before v1:
+Data products are released in:
 
-- complete source-rights and redistribution decisions;
-- implement disclosure and small-cell rules;
-- publish vulnerability and takedown processes;
-- enable dependency, code, and secret scanning;
-- protect release branches and storage;
-- review malicious contribution and source-tampering risks;
-- test privacy/security incident handling;
-- document independence from funders and participating courts.
+- CSV or equivalent open tabular format;
+- Parquet for efficient analytical use;
+- DuckDB or another portable query artefact where appropriate;
+- JSON/JSONL metadata for machine use;
+- static HTML/documentation generated from the same release.
 
-## 14. Product and publication
+Architecture details are in `docs/architecture/v1-architecture.md`.
 
-The first stable public release should provide:
+## 12. Security, privacy, ethics and legal controls
 
-- global reporting-availability atlas;
-- searchable source and outcomes-evidence catalogues;
-- downloadable registry and analytical files;
-- jurisdiction profiles;
-- thematic analysis of timeliness and backlog reporting;
-- methods, quality, and limitations handbook;
-- worked examples showing valid and invalid comparisons;
-- citation and reuse instructions.
+The public project is aggregate-only. Any person-level linkage research is a separate programme with its own lawful basis, secure environment, approvals and disclosure controls.
 
-The interface should show definitions, data currency, source quality, and comparability warnings next to the value or chart, not only in a remote methods page.
+v1 controls include:
 
-## 15. Governance
+- threat modelling and privacy/disclosure impact assessment;
+- rights and redistribution register for every source family;
+- secret, dependency and release-artifact scanning;
+- least-privilege credentials and separated environments;
+- signed/checksummed release artefacts;
+- small-cell and contextual-harm review;
+- vulnerability, privacy incident and takedown channels;
+- conflict/funding disclosure and independence protections;
+- no publication of sealed, protected or unlawfully acquired records.
+
+## 13. Operating model
+
+The project should run as a release service rather than an episodic research exercise.
+
+### Planned cadence after v1.0
+
+- quarterly source-health and coverage-status review;
+- at least two scheduled data releases each year;
+- patch releases for material corrections;
+- annual methods and ontology review;
+- annual jurisdiction-profile refresh, prioritised by source change;
+- biennial international analytical report or equivalent thematic publication.
+
+### Service objectives
+
+- correction reports acknowledged within five working days;
+- correction disposition or progress update within 30 calendar days;
+- no loss of immutable releases;
+- restoration of public access services within two business days after a major failure;
+- primary and deputy ownership for every critical process;
+- current and previous minor releases remain reproducible.
+
+See `docs/operations/release-and-operations.md`.
+
+## 14. Governance and decision rights
 
 ### Steering group
 
-Sets strategy, approves annual work, protects independence, and appoints release authority.
+Approves strategy, budget, annual work plan, material scope and release authority. Protects independence from funders and participating institutions.
 
 ### Methods and standards group
 
-Owns scope, ontology, indicator definitions, comparability, suppression, evidence-quality methods, and schema-semantic changes.
+Owns ontology, indicator definitions, comparability, quality rules, suppression policy and methods revisions.
 
-### Data operations group
+### Data operations and technical group
 
-Owns acquisition, extraction, validation, releases, monitoring, corrections, and preservation.
+Owns acquisition, pipelines, validation, releases, security operations, preservation and correction implementation.
 
-### Security/privacy and ethics function
+### Jurisdiction correspondent network
 
-Owns threat assessment, disclosure controls, incidents, rights/takedown, and the boundary between public and restricted research.
+Verifies institutional maps, local terminology, translations and source interpretation. Disagreement is recorded rather than silently erased.
 
-### Jurisdiction and language network
+### Lived-experience and child-rights advisory group
 
-Paid or formally recognised local reviewers verify institutional maps, terminology, and source interpretation. Disagreement is retained in notes or decisions rather than silently resolved.
+Shapes outcome priorities, communication, harms analysis and interpretation. Participation is paid and supported safely.
 
-### Lived-experience and child-rights group
+### Independent assurance
 
-Advises on outcomes, harms, interpretation, product design, and dissemination. Participation is remunerated and designed to avoid disclosure or retraumatisation.
+Reviews the release evidence pack and challenges methodological, operational and security claims before v1.0.
 
-### Independence safeguards
+Decision rights and RACI are in `docs/governance/roles-and-raci.md`.
 
-- methods and decision logs are public;
-- funders and conflicts are declared;
-- courts may correct facts but do not control conclusions;
-- release data are reproducible;
-- source verification is separated from policy interpretation;
-- no jurisdiction is ranked through an opaque composite score.
+## 15. Staffing and resourcing
 
-## 16. Operations and service model
+A mature 24-month v1.0 programme should be planned at approximately 8–12 core FTE, supplemented by paid regional/jurisdiction reviewers, translation, legal advice, accessibility testing and external assurance.
 
-Before v1, the project must have tested procedures for:
+Indicative core roles:
 
-- source updates and change detection;
-- pipeline failures and anomaly triage;
-- data correction, retraction, and withdrawal;
-- backup, restore, rollback, and disaster recovery;
-- support and severity-based escalation;
-- dependency and security maintenance;
-- schema migration and backwards compatibility;
-- preservation and archive integrity.
+- programme/product director: 1.0 FTE;
+- programme operations/release manager: 1.0 FTE;
+- comparative family-law/methods leads: 1.5–2.0 FTE;
+- regional source-census leads/analysts: 2.0–4.0 FTE;
+- data engineers: 1.5–2.0 FTE;
+- quality/assurance lead: 0.8–1.0 FTE;
+- platform/product/UX: 0.5–1.0 FTE;
+- security/privacy/data-governance support: 0.3–0.6 FTE;
+- community/localisation lead: 0.5–1.0 FTE.
 
-At least two people must be able to perform every critical release action. Releases are generated through the documented process in `docs/operations/RELEASE_PROCESS.md`.
+A planning envelope of roughly **A$3–6 million over 24 months** is more consistent with a stable international v1.0 than the cost of a lean pilot. The range depends heavily on institutional overhead, translation, manual PDF/dashboard extraction, in-kind court/statistics support and the scale of the public product. It is a planning estimate, not a quotation.
 
-## 17. Staffing model
+The v1.0 gate also requires committed maintenance resources for at least 12 months after launch.
 
-### Controlled pilot
-
-Indicative core capacity:
-
-- project lead: 0.4–0.6 FTE;
-- programme/research manager: 1.0 FTE;
-- comparative family-law lead: 0.8–1.0 FTE;
-- data engineer: 1.0 FTE;
-- analysts/researchers: 2.0 FTE;
-- statistician/methodologist: 0.4 FTE;
-- security/privacy and legal advice: fractional specialist support;
-- regional/language reviewers and lived-experience advisers: paid commissioned roles.
-
-Indicative planning envelope: A$600,000–A$1.0 million, depending on host overhead, translation, source complexity, and engineering maturity.
-
-### Stable global v1 programme
-
-A credible 18–24 month route to stable v1 is likely to require:
-
-- 6–10 core FTE across programme, comparative law, data, engineering, quality, product, and operations;
-- regional and language leads;
-- independent audit and review;
-- legal, security, accessibility, preservation, and design support;
-- hosted storage, publication, and archival infrastructure;
-- post-release maintenance funding.
-
-Indicative planning envelope: A$2.0–A$4.0 million. These are planning ranges, not quotations, and should be tested through a funded discovery phase.
-
-## 18. Principal risks and controls
+## 16. Principal risks and controls
 
 | Risk | Control |
 |---|---|
-| “Family court” is defined differently | Model matter, institution, court level, and jurisdiction separately. |
-| Wait-time measures are falsely pooled | Require start/end events, statistic, cohort, exclusions, and release-time comparability check. |
-| Federal systems are collapsed | Treat autonomous subnational systems as first-class jurisdictions. |
-| English and high-income reporting dominates | Paid regional/language leads, explicit coverage metrics, and second review of negative findings. |
-| Source pages change or disappear | Manifests, checksums, archives, source-status history, and change detection. |
-| Manual PDF/dashboard extraction introduces errors | Controlled templates, double review, audit sampling, and exact locators. |
-| Large data volume outpaces review | Gold release limited by quality gates, not collection volume. |
-| Court speed is mistaken for family outcomes | Separate evidence streams and prohibit unsupported causal language. |
-| Public data create disclosure harm | Aggregate-only release, suppression, privacy review, and takedown process. |
-| Source redistribution violates rights | Rights register and manifest-only storage where copying is not permitted. |
-| One person becomes indispensable | Named deputies, runbooks, handover tests, and separation of duties. |
-| Prototype never becomes maintainable | Feature freeze, release criteria, operational gates, and funded post-release cycles. |
-| Jurisdictions seek editorial control | Factual review allowed; independent methods and conclusions protected. |
+| “Family court” structures are incomparable | Model matter type, institution, court level and jurisdiction separately |
+| Mean, median and prospective waits are conflated | Store statistic and start/end clock explicitly; block incompatible comparison |
+| Federal systems are collapsed into a national figure | Treat responsible subnational systems as first-class jurisdiction units |
+| Coverage claims hide unsearched systems | Require a reviewed status and search log for every jurisdiction |
+| Source dashboards or URLs disappear | Checksums, preservation, source-health monitoring and archived release evidence |
+| Copyright/terms prevent redistribution | Rights register; public manifests; controlled storage where lawful |
+| Translation changes legal meaning | Retain original text and require human local-language review for gold use |
+| Orders are mislabelled as outcomes | Separate process, output, administrative and person-outcome domains |
+| Rankings create misleading incentives | No composite ranking; visible comparability tiers and context notes |
+| Sparse reporting disadvantages some regions | Paid regional network, multilingual protocol and explicit missingness |
+| Small cells or sensitive data expose families | Aggregate boundary, suppression, disclosure and contextual-harm review |
+| Pipelines depend on one engineer | Deputies, runbooks, tests, clean builds and continuity exercises |
+| Source changes silently alter trends | Schema/drift monitoring, series-break flags and release diff review |
+| Funding or institutional influence weakens independence | Public funding/conflict disclosure and independent methods/release assurance |
+| v1.0 is declared before operations are ready | Mandatory release criteria, no-go conditions and executive sign-off |
 
-## 19. v1 success measures
+The maintained risk register is in `docs/programme/risk-register.md`.
 
-### Coverage
+## 17. First 100 days
 
-- 100% of in-scope jurisdictions have an auditable coverage status.
-- 100% of negative findings have second review.
-- Coverage is reported by region, language, legal system, matter type, source type, and outcome domain.
+### Days 1–30: establish control
 
-### Quality
+- confirm host, sponsor, programme director and interim track leads;
+- approve charter, v1 product boundary and non-goals;
+- appoint methods, technical/security and lived-experience advisory structures;
+- freeze the pilot list and draft jurisdiction-universe rule;
+- approve repository ownership, licensing approach and aggregate-data boundary;
+- create decision, risk, issue and change logs;
+- cost the 24-month work plan and secure mobilisation resources.
 
-- 100% of gold observations have exact provenance, second review, quality grade, and comparability tier.
-- Stratified audit reaches at least 99% agreement on copied numeric values and required semantic fields after adjudication.
-- Zero unresolved critical or high-severity defect at release.
+### Days 31–60: freeze foundational design
 
-### Reproducibility
+- approve stable-ID conventions and draft v1 data contracts;
+- approve matter taxonomy, core indicator families and duration-clock model;
+- complete architecture, threat model and rights workflow;
+- establish source-search, translation, extraction and review training;
+- create production-like development/test environments;
+- complete institutional maps and searches for the first six pilot systems;
+- implement baseline CI, validation, provenance and release-manifest checks.
 
-- clean checkout validates and builds all public release artifacts;
-- independent clean-room build succeeds;
-- artifacts are checksummed, versioned, and archived;
-- prior releases remain immutable and available.
+### Days 61–100: prove the first vertical slices
 
-### Usability
+- complete searches for all pilot systems;
+- ingest at least one API, one tabular source and one PDF/dashboard source end to end;
+- produce source-native, normalised and gold examples with exact lineage;
+- run dual review and independent re-extraction on the sample;
+- publish an internal pilot quality and design report;
+- resolve schema/ontology changes through formal decision records;
+- rehearse a versioned pre-release and correction;
+- approve the detailed global census allocation and regional engagement plan.
 
-- users can download and interpret data without proprietary software;
-- definitions and warnings appear at the point of use;
-- at least two external users reproduce a core analytical example;
-- support, correction, and citation routes are clear.
+## 18. Success measures for v1.0
 
-### Operations and sustainability
+The release is successful when:
 
-- correction, restore, rollback, and incident rehearsals pass;
-- at least two operators cover each critical function;
-- maintenance is resourced for at least two post-release review cycles;
-- source freshness, open corrections, and service performance are publicly reported.
+- 100% of the approved jurisdiction universe has a reviewed coverage status;
+- every released observation is traceable and reproducible;
+- no critical privacy, legal, security or data-integrity issue is open;
+- gold data have passed dual review and independent audit thresholds;
+- incompatible measures are not presented as equivalent;
+- public artefacts are accessible without proprietary software;
+- prior releases remain retrievable and corrections are transparent;
+- operations, support, recovery and succession have been rehearsed;
+- regional and lived-experience contributors materially influence interpretation;
+- the project has a funded, named and monitored 1.x operating model.
 
-## 20. Immediate next actions
+## 19. Post-v1.0 direction
 
-1. Approve the v1 product contract and release criteria.
-2. Appoint provisional track owners and release authority by role.
-3. Define the full jurisdiction universe and completion-status vocabulary.
-4. Extend the schemas for source versioning, evidence records, review status, lineage, and release metadata.
-5. Run the 12-jurisdiction pilot through a clean end-to-end release build.
-6. Establish independent methods, security/privacy, and data-quality review before global scaling.
-7. Secure an institutional host and funding that includes post-release operations, not only data collection.
+The 1.x line should favour non-breaking expansion and quality improvement:
+
+- additional historical depth and jurisdictions in the gold cohort;
+- richer outcome evidence and selected secure linked-data partnerships;
+- additional languages and regional reports;
+- more automated acquisition and source-change monitoring;
+- improved user tools constrained by comparability rules;
+- evaluation of how the data are used, misused and translated into policy.
+
+A v2.0 should be reserved for genuinely breaking changes, such as a new conceptual model, public contract or person-level research architecture. It should not be used simply because another annual release has occurred.

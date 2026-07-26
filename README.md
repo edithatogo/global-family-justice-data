@@ -1,124 +1,134 @@
 # Global Family Justice Data Project
 
-A reproducible international source census and harmonised data platform for family-justice reporting, process, outputs, administrative outcomes, user experience, and child and family outcomes evidence.
-
-## Project objective
-
-The project is designed to answer four questions without conflating them:
-
-1. **What is published?** An auditable catalogue of official and credible family-justice data and reports for every jurisdiction searched.
-2. **How do systems operate?** Source-faithful measures of demand, throughput, timeliness, process, resources, and access.
-3. **What decisions and subsequent events occur?** Orders, appeals, enforcement, repeat applications, return to court, and related administrative outcomes.
-4. **What happens to children and families?** A structured catalogue of user experience, safety, stability, wellbeing, equity, and longer-term outcomes evidence, usually drawn from surveys, evaluations, cohorts, or linked research rather than routine court statistics.
-
-The unit of analysis is a **family-justice matter in a defined legal and institutional setting**, not an institution that happens to be called a “family court”. Family matters may be handled by specialist, civil, district, magistrates’, religious, customary, child-protection, or administrative bodies.
+A reproducible international source census and harmonised data platform for family-justice process, performance, outputs, experiences and outcomes.
 
 ## Current status
 
-**Version 0.2.0 — v1 production roadmap and hardening scaffold.**
+This repository is a **v0.3.0 engineering and programme-control baseline**. It now contains an executable conductor, data contracts, validation, acquisition, harmonisation, quarantine, provenance and deterministic release tooling. It is **not** a completed international dataset and must not be represented as v1.0.
 
-This repository is not yet the stable data product. The roadmap now defines a staged path to a mature v1.0 with release gates for global discovery, data quality, reproducibility, security/privacy, governance, operations, documentation, and sustainability.
+The repository is intentionally fail-closed. At this baseline:
 
-Start with:
+- no stage gate has passed;
+- the declared active gate is **G1 — Foundation controls accepted**;
+- the evidence-assured maturity floor is **L0**, although the self-assessed implementation floor is L1;
+- the seed catalogue contains jurisdictions, sources, indicators and matter types, but the gold observation layer is empty;
+- draft documents and implemented code are not treated as accepted evidence without independent review.
 
-- `ROADMAP.md` — stages, delivery tracks, and critical path to v1;
-- `docs/strategy/V1_RELEASE_CRITERIA.md` — binding definition of done;
-- `docs/strategy/DELIVERY_TRACKS.md` — twelve track charters;
-- `PROJECT_PLAN.md` — programme scope, sequencing, resources, and controls;
-- `ARCHITECTURE.md` — target data and release architecture.
-- `docs/strategy/V1_EPICS.md` — executable v1 epic backlog.
-- `docs/strategy/GITHUB_PROJECT_MODEL.md` — GitHub Projects fields, views, milestones, and definitions of done.
+The target v1.0 is a governed, independently assured and maintainable public-data product with stable contracts, immutable releases, tested recovery, production-like soak and a funded 1.x operating model.
 
-## What stable v1.0 means
+## Start here
 
-Version 1.0 will be reached only when the project is:
+- [`V1_HARDENING_REPORT.md`](V1_HARDENING_REPORT.md) — executive implementation assessment, verified baseline and recommended next steps;
+- [`ROADMAP.md`](ROADMAP.md) — integrated capability path from v0.3 to a stable v1.0;
+- [`V1_0_RELEASE_CRITERIA.md`](V1_0_RELEASE_CRITERIA.md) — binding definition of done and no-go conditions;
+- [`docs/architecture/conductor-system.md`](docs/architecture/conductor-system.md) — the programme control plane;
+- [`docs/development/implementation-status.md`](docs/development/implementation-status.md) — what is implemented and what is not;
+- [`docs/development/v1-gap-analysis.md`](docs/development/v1-gap-analysis.md) — prioritised improvements and remaining work;
+- [`docs/quality/testing-strategy.md`](docs/quality/testing-strategy.md) — enforced test baseline and gate-by-gate assurance ratchet;
+- [`PROJECT_PLAN.md`](PROJECT_PLAN.md) — full programme design, resourcing and operating model;
+- [`docs/programme/track-charters.md`](docs/programme/track-charters.md) — ten workstream accountabilities.
 
-- **globally auditable:** every in-scope jurisdiction has a documented coverage status and search evidence;
-- **scientifically defensible:** definitions, clocks, denominators, cohorts, and comparability are explicit;
-- **fully traceable:** every published observation points to an exact source location and transformation lineage;
-- **reproducible:** a clean environment can validate and build the public release;
-- **secure and ethical:** public outputs contain aggregate, non-identifiable information and pass rights and disclosure review;
-- **operationally supportable:** releases, corrections, monitoring, backup, restore, and rollback have named owners and tested runbooks;
-- **durable:** artifacts are archived, versioned, citable, and funded for post-release review cycles.
+## v1.0 product boundary
 
-A global source census can be complete even when a jurisdiction publishes no useful data. Absence, inaccessibility, or non-comparability are explicit findings, not reasons to omit a jurisdiction.
+Version 1.0 contains four linked products:
 
-## Core release products
+1. a **global source census** with a reviewed coverage state for every in-scope jurisdiction;
+2. a **harmonised core dataset** containing only observations that pass explicit quality and comparability gates;
+3. an **outcomes evidence catalogue** covering administrative outcomes, user experience and child/family outcome evidence;
+4. a **jurisdiction context library** explaining institutions, procedures, definitions and breaks in series.
 
-The v1 release bundle is intended to include:
+“Global” applies to the documented search and coverage layer. It does not imply that every jurisdiction publishes usable data, or that incompatible measures can be ranked.
 
-- jurisdiction and responsible-institution register;
-- source and reporting census;
-- outcomes-evidence catalogue;
-- matter and indicator ontology;
-- bronze, silver, and bounded gold datasets;
-- jurisdiction profiles and global data-availability atlas;
-- quality, coverage, methods, and limitations reports;
-- CSV, Parquet, and DuckDB files;
-- schemas, checksums, build metadata, citation file, and archival persistent identifier.
+## Programme conductor
 
-The first release will not include identifiable records, causal claims unsupported by study design, or a composite country ranking.
+The v1 route is machine-readable and evidence-driven:
+
+- `config/tracks.toml` defines ten durable tracks, T0–T9;
+- `config/stage_gates.toml` defines G1–G6 and their mandatory criteria;
+- `programme/work_items.csv` contains executable delivery packages;
+- `programme/evidence_register.csv` records reviewable evidence and checksums;
+- maturity, risks, defects, exceptions and gate decisions have separate controlled registers;
+- conductor mutations are atomic, locked and appended to `programme/audit-log.jsonl`.
+
+A gate is **ready** only after its evidence, work, maturity, dependencies, risk and defect controls pass. It is **passed** only after an authorised decision is recorded.
+
+```bash
+python -m gfjd conductor status
+python -m gfjd conductor gate G1
+python -m gfjd conductor next
+python -m gfjd conductor graph
+```
+
+## Executable data path
+
+The repository implements:
+
+- JSON Schema-backed CSV contracts and semantic cross-register validation;
+- controlled local and public-URL acquisition with checksums, rights routing and manifest verification;
+- configurable source-to-observation mapping;
+- silver-to-gold promotion with schema checks, dual-review requirements and reason-coded quarantine;
+- lineage-index generation;
+- repository secret/public-data safety scans;
+- deterministic release bundles, checksums, declared-dependency SBOM, verification and release diffs;
+- stable-release blocking unless G6 has passed.
+
+Data remain separated into:
+
+- `data/raw/` — immutable acquisition evidence and lawful source copies;
+- `data/bronze/` — source-native extraction;
+- `data/silver/` — normalised observations with original definitions retained;
+- `data/gold/` — accepted, release-eligible observations only.
+
+## Development and assurance checks
+
+```bash
+python -m venv .venv
+. .venv/bin/activate
+python -m pip install -e '.[dev]'
+make check
+```
+
+The local/CI check compiles the package, validates contracts and programme controls, runs the test suite, verifies generated conductor artefacts, builds a deterministic 0.x rehearsal release and verifies its manifest.
+
+Useful individual commands:
+
+```bash
+python -m gfjd validate --strict
+python -m gfjd security
+python -m gfjd pipeline promote \
+  --input data/silver/example.csv \
+  --gold data/gold/example.csv \
+  --quarantine build/quarantine.csv \
+  --report build/promotion-report.json
+python -m gfjd release build \
+  --version 0.3.0 \
+  --output dist \
+  --source-date-epoch 1784419200
+```
 
 ## Repository principles
 
-- Preserve original source language, labels, definitions, units, and calculations before harmonising.
-- Keep source-native, normalised, and comparative data in separate layers.
-- Retain negative findings and failed comparisons.
-- Distinguish prospective listing waits, retrospective case duration, first-hearing waits, and pending-case age.
-- Do not pool means, medians, percentiles, or threshold measures without an explicit approved method.
-- Model federal and devolved systems at the level that controls the relevant family-justice function.
-- Retain provenance to page, table, cell, API query, dashboard filter, or equivalent locator.
-- Never silently overwrite a released value.
-- Keep restricted person-level linkage research outside the public repository.
+- Model the **family-justice matter**, not merely institutions named “family court”.
+- Preserve original wording, language, unit, denominator, clock and cohort before harmonising.
+- Record negative findings: “searched, no public source found” is substantive evidence.
+- Never combine prospective listing waits, completed-case duration and pending-case age as one generic wait measure.
+- Never silently overwrite released values.
+- Keep person-level case data outside this public repository.
+- Expose provenance to page, table, cell, API query or dashboard filter.
+- Do not publish a composite jurisdiction ranking in v1.0.
 
-## Data layers
+## Release and compatibility policy
 
-- `data/seed/` — human-maintained jurisdiction, source, indicator, evidence, and observation templates.
-- `data/raw/` — source manifests and only lawfully redistributable immutable source files.
-- `data/bronze/` — source-native extracted tables.
-- `data/silver/` — normalised long-format observations with source meaning retained.
-- `data/gold/` — reviewed, explicitly comparable analytical releases.
-- `data/quality/` — generated validation, coverage, audit, and lineage reports in the target architecture.
+- `0.x` contracts may change through controlled migrations while the design is tested.
+- `1.x` public IDs, schemas and file contracts are backwards-compatible.
+- Corrections use patch releases; additive changes use minor releases.
+- Every release remains retrievable with checksums, citation metadata, known limitations and a changelog.
+- A version number never substitutes for stage-gate evidence.
 
-## Local validation
+See [`docs/standards/versioning-and-deprecation.md`](docs/standards/versioning-and-deprecation.md).
 
-The current scaffold uses Python 3.11 or later.
+## Contribution boundary
 
-```bash
-python -m pip install -e ".[dev]"
-make check
-```
+Contributions of official sources, jurisdiction profiles, translations, acquisition mappings, tests and correction evidence are welcome. Do not commit identifiable case records, sealed material, credentials or unlawfully redistributed documents.
 
-For a dependency-light structural check:
-
-```bash
-PYTHONPATH=src python -m gfjd.validate
-```
-
-After changing tracked files, regenerate the checksum manifest before the full check:
-
-```bash
-make manifest-update
-make check
-```
-
-## Contribution workflow
-
-1. Read `CONTRIBUTING.md` and the relevant methods documents.
-2. Open the appropriate source, correction, or methods issue.
-3. Preserve original wording and exact provenance.
-4. Run validation and tests.
-5. Obtain second review for gold-layer data or material methods changes.
-
-Potential security, credential, or privacy issues must follow `SECURITY.md`, not a public issue.
-
-## Governance and support
-
-- `GOVERNANCE.md` defines decision bodies and independence safeguards.
-- `MAINTAINERS.md` defines accountable operating roles.
-- `SUPPORT.md` defines corrections and support principles.
-- `docs/operations/RELEASE_PROCESS.md` defines release and patch controls.
-
-## Working title
-
-“Global Family Justice Data Project” remains a descriptive working title. The institutional host, public identity, domain, and long-term repository ownership must be settled before public beta.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md), [`GOVERNANCE.md`](GOVERNANCE.md) and [`SECURITY.md`](SECURITY.md).

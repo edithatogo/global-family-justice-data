@@ -1,0 +1,30 @@
+flowchart LR
+  G1["G1: Foundation controls accepted
+blocked_by_assurance"]
+  G2["G2: Reproducible pilot proven
+blocked_by_dependency"]
+  G1 --> G2
+  G3["G3: Global source census complete
+blocked_by_dependency"]
+  G2 --> G3
+  G4["G4: Feature-complete public beta
+blocked_by_dependency"]
+  G3 --> G4
+  G5["G5: v1.0 release candidate assured
+blocked_by_dependency"]
+  G4 --> G5
+  G6["G6: Stable v1.0 go-live
+blocked_by_dependency"]
+  G5 --> G6
+  subgraph Tracks
+    T0["T0: Governance, ethics and independence"]
+    T1["T1: Scope, ontology and methods"]
+    T2["T2: Jurisdiction universe and source census"]
+    T3["T3: Acquisition, preservation and source monitoring"]
+    T4["T4: Data platform and engineering"]
+    T5["T5: Harmonisation, quality and assurance"]
+    T6["T6: Product, documentation and accessibility"]
+    T7["T7: Security, privacy, legal and supply-chain assurance"]
+    T8["T8: Operations, reliability and release management"]
+    T9["T9: International community, localisation and sustainability"]
+  end

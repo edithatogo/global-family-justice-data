@@ -1,253 +1,244 @@
-# Roadmap to a stable, hardened v1.0
+# Roadmap to a stable v1.0
 
-## Purpose
+## 1. Release intent
 
-This roadmap changes v1.0 from a simple coverage milestone into a **release contract for a dependable international public data product**. Version 1.0 is not reached merely because a global source list exists. It is reached only when the project is scientifically defensible, reproducible, secure, documented, operationally owned, and maintainable after launch.
+Version 1.0 is not merely the first time the project publishes a global table. It is the first release that can be treated as a **stable, governed and supportable international public-data product**.
 
-The roadmap has three simultaneous goals:
+A v1.0 release must be:
 
-1. **Global discovery:** every in-scope jurisdiction is searched under a documented protocol and assigned an auditable coverage status.
-2. **Trusted data:** source metadata, extracted observations, outcome evidence, and comparative datasets meet explicit provenance and quality requirements.
-3. **Durable service:** releases can be rebuilt, corrected, archived, supported, and updated without dependence on one person or one machine.
+- methodologically defensible;
+- reproducible from preserved source evidence;
+- operationally maintainable by more than one person;
+- secure and privacy-preserving by design;
+- explicit about coverage, missingness and comparability;
+- backwards-compatible throughout the 1.x line;
+- independently assured before publication;
+- accompanied by a funded maintenance and correction process.
 
-Detailed release criteria are in `docs/strategy/V1_RELEASE_CRITERIA.md`. Track charters are in `docs/strategy/DELIVERY_TRACKS.md`. The executable epic backlog and project-board model are in `docs/strategy/V1_EPICS.md` and `docs/strategy/GITHUB_PROJECT_MODEL.md`.
+The authoritative v1.0 product is a set of immutable, versioned release artefacts. The website, dashboard and API are derived access channels rather than the sole copy of the data.
 
-## Current state
+## 2. What v1.0 contains
 
-The repository is an early planning and validation scaffold. It contains seed registers, schemas, a preliminary indicator dictionary, methods notes, and lightweight validation. It is **not yet a production dataset or stable v1.0 release**.
+The stable v1.0 product has four linked components:
 
-## What v1.0 will contain
+1. **Global source census** — every approved jurisdiction has a documented coverage status and search record.
+2. **Harmonised core dataset** — comparable process and performance observations for eligible jurisdictions and indicators.
+3. **Outcomes evidence catalogue** — a structured register of administrative-outcome, user-experience, child and family outcome studies and datasets.
+4. **Context library** — versioned jurisdiction profiles explaining institutions, matter types, procedural clocks, reforms and breaks in series.
 
-Version 1.0 will publish a coherent release bundle rather than a collection of unrelated files:
+The source census is global. The comparative dataset is deliberately narrower: only observations that pass the gold-layer rules are included. v1.0 does not imply that every jurisdiction publishes every outcome or that all measures can be ranked.
 
-- a global jurisdiction and institutional register;
-- a multilingual source census with explicit negative findings;
-- a versioned family-justice matter and indicator ontology;
-- a catalogue of outcome studies, surveys, evaluations, and administrative reporting;
-- source-native bronze tables where lawful and practical;
-- normalised silver observations with full lineage;
-- a bounded gold dataset containing only approved comparable measures;
-- jurisdiction profiles and a global reporting-availability atlas;
-- methods, quality, limitations, licensing, and governance documentation;
-- machine-readable CSV, Parquet, and DuckDB release files;
-- checksums, build metadata, schema versions, and an archival deposit;
-- an operational maintenance and correction process.
+## 3. Programme tracks
 
-Version 1.0 will **not** claim that every desired outcome exists, infer child or family wellbeing from court speed alone, publish identifiable records, or create an omnibus country league table.
-
-## Maturity model
-
-| Level | Release family | Meaning | Exit condition |
-|---|---|---|---|
-| M0 — Concept | v0.1 | Scope, seed schemas, and initial sources exist | Founding assumptions documented |
-| M1 — Controlled pilot | v0.2–v0.3 | Repeatable work on a heterogeneous pilot | Pilot data can be rebuilt and audited |
-| M2 — Integrated alpha | v0.4–v0.5 | Discovery, extraction, harmonisation, evidence catalogue, and profiles use one data model | End-to-end workflow works across source formats and languages |
-| M3 — Public beta | v0.6–v0.7 | Broad global coverage and public test releases | Global census substantially complete; known gaps explicit |
-| M4 — Hardened beta | v0.8 | Feature and schema freeze; security, quality, and operations hardening | All mandatory v1 controls implemented |
-| M5 — Release candidate | v0.9.0-rc* | Independent review, correction rehearsal, reproducibility test, and release rehearsal | Release criteria pass with no unresolved critical defects |
-| M6 — Stable | v1.0.0 | Citable, archived, supported production release | Release authority signs the v1 readiness record |
-| M7 — Maintained | v1.0.x | Corrections and non-breaking maintenance | Service levels and annual review cadence met |
-
-## Delivery tracks
-
-Work proceeds through twelve tracks. Each track has its own owner, backlog, evidence, and v1 gate; none is optional.
-
-| Track | Name | v1 outcome |
+| Track | Purpose | v1.0 end-state |
 |---|---|---|
-| T1 | Governance and institutional home | Named accountable bodies, decision rights, conflicts policy, succession, and durable host |
-| T2 | Scope, ontology, and methods | Frozen v1 scope, matter taxonomy, indicator definitions, comparability rules, and migration policy |
-| T3 | Global jurisdiction and source census | Every in-scope jurisdiction searched, reviewed, and assigned a coverage status |
-| T4 | Acquisition, preservation, and provenance | Lawful, repeatable retrieval with checksums, archival references, and exact provenance |
-| T5 | Extraction, harmonisation, and outcomes evidence | Bronze, silver, gold, and evidence-catalogue pipelines with retained source meaning |
-| T6 | Scientific and data quality assurance | Automated tests, reviewer controls, audit sampling, reconciliation, and quality reporting |
-| T7 | Engineering, architecture, and reproducibility | Tested builds, versioned schemas, deterministic release artifacts, and supported environments |
-| T8 | Security, privacy, legal, and ethics | Aggregate-only public release, rights review, threat model, dependency and secret controls, and incident process |
-| T9 | Product, documentation, and accessibility | Downloadable data, profiles, atlas, complete documentation, and accessible public interfaces |
-| T10 | Languages, jurisdiction partnerships, and community | Multilingual search and review, regional representation, contributor workflow, and dispute handling |
-| T11 | Operations, releases, support, and resilience | Runbooks, monitoring, backups, restore test, corrections, release management, and support ownership |
-| T12 | Sustainability and impact evaluation | Resourced maintenance plan, preservation, adoption measures, and post-release evaluation |
+| T0. Governance, ethics and independence | Establish authority, accountability and safeguards | Named accountable bodies, published decisions, conflicts register, ethics and corrections processes, funded operating model |
+| T1. Scope, ontology and methods | Define what is being measured and how | Stable v1 matter taxonomy, indicator dictionary, clocks, comparability rules and documented change control |
+| T2. Jurisdiction universe and source census | Search every in-scope system consistently | 100% of the approved universe has a reviewed coverage status, search log and institutional map |
+| T3. Acquisition, preservation and source monitoring | Obtain and preserve source evidence lawfully | Reproducible connectors or controlled extraction, checksums, archived evidence, licence records and drift monitoring |
+| T4. Data platform and engineering | Transform source-native material into release data | Tested bronze-to-silver-to-gold pipelines, stable IDs, schemas, deterministic builds and portable release formats |
+| T5. Harmonisation, quality and assurance | Control errors and prevent false comparison | Automated validation, dual review, audit sampling, quarantine rules, quality scores and external methods review |
+| T6. Product, documentation and accessibility | Make the evidence usable without hiding uncertainty | Downloadable data, profiles, methods, data dictionary, dashboard/API, accessible documentation and clear limitations |
+| T7. Security, privacy, legal and supply-chain assurance | Protect people, credentials, sources and infrastructure | No personal case data in the public product, threat model, licence review, secret/dependency scanning, signed releases and incident process |
+| T8. Operations, reliability and release management | Make releases routine rather than heroic | Release calendar, runbooks, monitoring, backups, restore test, service objectives, support rota and patch process |
+| T9. International community, localisation and sustainability | Build durable jurisdiction knowledge and legitimacy | Regional correspondents, translation QA, contributor pathway, training, succession coverage and a resourced 1.x maintenance plan |
 
-## Stage plan and hard gates
+Detailed track charters are in `docs/programme/track-charters.md`. Machine-readable definitions are authoritative in `config/tracks.toml`; delivery state is held in `programme/work_items.csv`.
 
-### Stage A — Product contract and foundations: v0.2
+## 4. Integrated release sequence
 
-**Purpose:** remove ambiguity about what will be built, who owns it, and what evidence is required.
+The schedule is expressed from programme mobilisation. A well-resourced programme should plan for approximately 24 months to a mature v1.0 rather than relabelling an early pilot as stable.
 
-Deliverables:
+| Release / gate | Indicative period | Purpose | Exit condition |
+|---|---:|---|---|
+| **v0.1 — concept scaffold** | Existing baseline | Initial schemas, seed registers and methods concept | Repository can represent the proposed work |
+| **v0.3 — engineering/conductor baseline** | Current | Establish executable contracts, conductor, acquisition, promotion, validation and deterministic release tooling | Toolchain works and honestly reports missing assurance; no gate is implied to have passed |
+| **v0.4 — controlled foundation / G1** | Months 0–2 | Establish programme authority and accept foundation controls | Charter, ownership, jurisdiction-universe rule, v1 scope, risk register, architecture and release criteria are independently accepted |
+| **v0.5 — reproducible pilot alpha / G2** | Months 2–6 | Prove complete lineage in heterogeneous pilot systems | Twelve pilot profiles; at least four source-format paths; clean rebuild; independent re-extraction; no unresolved critical design defect |
+| **v0.6 — global census beta / G3** | Months 5–12 | Complete the global discovery and coverage layer | Every in-scope jurisdiction has a reviewed status; negative findings are second-reviewed; source register and atlas are publishable |
+| **v0.7 — feature-complete public beta / G4** | Months 8–16 | Make the end-to-end product feature-complete | Core pipelines, outcomes catalogue, downloads, profiles and public beta access work in a production-like environment |
+| **v0.9 — release candidate / G5** | Months 15–21 | Freeze scope and harden quality, security and operations | Feature freeze; migration rehearsal; external assurance; restore test; no open P0/P1 defects; v1 evidence pack complete |
+| **v1.0 — stable release / G6** | Months 21–24 | Publish and transition into routine service | Every mandatory criterion in `V1_0_RELEASE_CRITERIA.md` passes and release authority signs the go-live record |
+| **v1.1+ — supported maintenance** | After v1.0 | Scheduled updates and non-breaking improvements | Published release calendar, patch support and annual methods review operate to service objectives |
 
-- project charter and explicit v1 product boundary;
-- in-scope jurisdiction universe and rules for federal/subnational systems;
-- v1 release criteria and risk register;
-- track owners and release authority;
-- initial architecture, security, licensing, and preservation decisions;
-- schema and ontology versioning rules;
-- pilot selection and sampling rationale.
+Versions are capability markers, not calendar promises. The v0.3 tooling baseline intentionally precedes G1. A programme release does not advance because time has elapsed or code exists; it advances only when the conductor shows that required evidence and controls are accepted and the authorised gate decision is recorded.
 
-**Gate A:** no unresolved question about public data boundaries, release authority, core matter types, or the definition of a completed jurisdiction search.
+## 5. Stage gates
 
-### Stage B — Controlled heterogeneous pilot: v0.3
+### G0 — mobilisation authorised
 
-**Purpose:** prove the complete workflow, not merely collect examples.
+Required evidence:
 
-Deliverables:
+- confirmed host or interim legal custodian;
+- executive sponsor and programme lead;
+- initial funding and procurement authority;
+- agreement that the public repository contains aggregate data only;
+- approval to begin the pilot.
 
-- at least 12 deliberately heterogeneous pilot jurisdictions;
-- institutional maps and documented multilingual search logs;
-- at least one API, spreadsheet, HTML table, PDF, and dashboard source handled end to end;
-- outcome-evidence catalogue piloted alongside routine court reporting;
-- lineage from raw/source manifest to bronze, silver, and gold;
-- double review for all pilot gold observations;
-- first reproducibility and correction exercises.
+### G1 — controlled foundation
 
-**Gate B:** a fresh environment can rebuild the pilot release; every published value can be traced to an exact source location; failed comparisons are retained and explained.
+Required evidence:
 
-### Stage C — Integrated alpha: v0.4–v0.5
+- signed charter and decision-rights model;
+- approved v1 product boundary and non-goals;
+- approved jurisdiction-universe rule and subnational treatment;
+- architecture, security baseline, data-governance plan and risk register;
+- stable identifiers and draft v1 data contracts;
+- named owners and deputies for every critical track.
 
-**Purpose:** turn pilot methods into one scalable system.
+### G2 — reproducible pilot alpha
 
-Deliverables:
+Required evidence:
 
-- stable identifiers for jurisdictions, institutions, sources, indicators, observations, evidence records, and transformations;
-- standard source manifests and retrieval logs;
-- data contracts for all release tables;
-- transformation registry and schema migrations;
-- automated structural, referential, temporal, numerical, and lineage checks;
-- regional/language operating model;
-- public alpha releases generated through the release pipeline.
+- 12 heterogeneous jurisdictions mapped;
+- at least five reporting years attempted under a documented protocol;
+- API, spreadsheet/HTML and PDF/dashboard acquisition patterns tested;
+- bronze-to-gold lineage demonstrated for representative indicators;
+- dual review completed for all pilot gold series;
+- independent re-extraction sample meets the quality threshold;
+- design changes from the pilot are resolved or explicitly deferred.
 
-**Gate C:** new jurisdictions can be added without changing the core architecture, and routine failures are visible through machine-readable quality reports.
+### G3 — global census beta
 
-### Stage D — Global public beta: v0.6–v0.7
+Required evidence:
 
-**Purpose:** complete the international source census and expose the product to real users.
+- 100% of the approved jurisdiction universe has a coverage record;
+- every “no public source found” conclusion has a second-review search log;
+- federal and devolved systems are represented at the responsible level;
+- language and regional coverage gaps are visible and owned;
+- source register, search protocol and coverage atlas pass public-beta review.
 
-Deliverables:
+### G4 — feature complete
 
-- records for 100% of the defined jurisdiction universe;
-- documented search coverage in local or relevant official languages;
-- second review of every “no public source found” conclusion;
-- source and outcomes-reporting coverage map;
-- a regionally balanced v1 extraction cohort, including all pilot jurisdictions;
-- downloadable beta datasets, profiles, and methods handbook;
-- external feedback and issue triage process.
+Required evidence:
 
-**Gate D:** every jurisdiction has a status, evidence trail, last-reviewed date, confidence rating, and next-review date; no geography is silently omitted.
+- all v1 data products exist in production-like form;
+- stable API/file contracts and migration scripts are tested;
+- outcomes evidence catalogue and context profiles are integrated;
+- accessibility and localisation reviews are complete for launch materials;
+- operational monitoring, source drift detection and correction workflow are running;
+- the v1 comparative cohort is frozen for release-candidate assurance.
 
-### Stage E — Feature freeze and hardening: v0.8
+### G5 — release candidate
 
-**Purpose:** stop adding scope and make the release dependable.
+Required evidence:
 
-Deliverables:
+- feature, schema and ontology freeze;
+- clean-room build reproduces release artefacts and checksums;
+- full licence, privacy and disclosure review;
+- threat model and dependency/supply-chain review updated;
+- backup restoration and continuity exercise completed;
+- external methodological review and response published;
+- all P0 and P1 issues closed; P2 issues have accepted dispositions;
+- user documentation, limitations, citations and correction channels are complete.
 
-- v1 scope, schemas, ontology, and user-facing features frozen;
-- all critical pipelines covered by tests;
-- complete source-rights and redistribution review;
-- privacy and disclosure review of all outputs;
-- threat model, dependency review, and secret scanning enabled;
-- source freshness monitoring and broken-link/changed-source queues;
-- operations runbooks, correction policy, backup and restore procedures;
-- performance, accessibility, and documentation review;
-- migration notes for every change since beta.
+### G6 — v1.0 release authority
 
-**Gate E:** zero open critical defects; all mandatory controls in the release-criteria matrix have evidence; any deferred item is explicitly non-v1 and does not undermine the product contract.
+Required evidence:
 
-### Stage F — Release candidates and independent assurance: v0.9.0-rc1 onward
+- all mandatory v1 criteria pass;
+- release candidate has completed at least 30 calendar days of production-like stability soak with no P0/P1 regression or material data-contract/pipeline instability;
+- independent release assurance report recommends publication;
+- named data, methods, technical, security and executive owners sign the go-live record;
+- 12-month operating plan, release calendar and maintenance funding are approved;
+- immutable artefacts, signatures, checksums and archival deposit are created.
 
-**Purpose:** demonstrate that v1 can be released and maintained under realistic conditions.
-
-Deliverables:
-
-- clean-room reproducibility test by a person not involved in the build;
-- stratified extraction and transformation audit;
-- independent methods and governance review;
-- jurisdiction-fact-check process that preserves analytical independence;
-- simulated source failure, data correction, takedown, and rollback exercises;
-- release notes, known limitations, citation, checksums, and archive deposit prepared;
-- two consecutive release-candidate builds without a critical regression.
-
-**Gate F:** the release authority approves a signed readiness record; no unresolved severity-1 or severity-2 issue remains; all release artifacts are reproducible and internally consistent.
-
-### Stage G — Stable v1.0.0
-
-**Purpose:** publish a citable and supportable international public data product.
-
-Release actions:
-
-- tag immutable source code and metadata;
-- publish release data and documentation together;
-- issue checksums and provenance metadata;
-- archive the release and assign a persistent identifier;
-- publish quality metrics, coverage gaps, and known limitations;
-- activate support, correction, and monitoring processes;
-- announce the next planned review cycle without promising real-time currency.
-
-### Stage H — v1.0.x maintenance
-
-Only backwards-compatible corrections and operational improvements are permitted in v1.0.x. New indicators, breaking schema changes, or major scope expansion require v1.1 or v2.0 under the compatibility policy.
-
-Maintenance includes:
-
-- source freshness and availability checks;
-- scheduled jurisdiction reviews;
-- transparent corrections and retractions;
-- dependency and security maintenance;
-- annual methods and ontology review;
-- preservation checks and restore rehearsal;
-- public service-level reporting.
-
-## v1.0 release gates at a glance
-
-The detailed matrix is authoritative. At minimum:
-
-### Coverage and content
-
-- 100% of in-scope jurisdictions have an auditable coverage record.
-- 100% of negative findings have second review.
-- Every high-priority source has official-status, rights, retrieval, last-verified, and next-review metadata.
-- The outcomes evidence catalogue distinguishes routine reporting, surveys, evaluations, cohort studies, and linked-data research.
-
-### Data quality
-
-- 100% of gold observations have exact provenance, approved indicator mappings, quality grades, comparability tiers, and second review.
-- All gold transformations are reproducible from retained inputs or lawful source manifests.
-- A stratified audit reaches at least 99% agreement on copied values and required semantic fields, with all material disagreements resolved before release.
-- No known incompatible duration clocks, denominators, units, or cohorts are pooled.
-
-### Engineering and reproducibility
-
-- A clean checkout can validate and build all public release artifacts using documented supported environments.
-- Continuous integration covers validation, tests, linting, schema compatibility, packaging, and manifest checks.
-- Release files are deterministic where practical and always checksummed.
-- No unresolved critical dependency, secret, or code-scanning finding remains.
-
-### Governance, ethics, and law
-
-- Release authority, data steward, security contact, and correction owner are named by role.
-- Code, data, and third-party source rights are documented separately.
-- Public outputs contain no identifiable family-level records and pass disclosure review.
-- Conflicts, methodological decisions, corrections, and disputes have public processes.
-
-### Operations and sustainability
-
-- Monitoring, backups, restore, rollback, correction, takedown, and source-change runbooks have been tested.
-- At least two people can operate each critical release process.
-- A funded or institutionally committed maintenance plan covers at least the first two post-release review cycles.
-- Users have a clear support route, response expectations, and machine-readable changelog.
-
-## Critical path
+## 6. Critical path
 
 The critical path is:
 
-1. freeze scope and jurisdiction universe;
-2. prove the end-to-end pilot and data model;
-3. scale multilingual discovery while hardening provenance;
-4. complete global coverage records;
-5. freeze features and schemas;
-6. complete audit, legal, security, operations, and reproducibility gates;
-7. release and maintain.
+1. jurisdiction-universe and matter-scope decisions;
+2. ontology and stable identifier design;
+3. heterogeneous pilot and design correction;
+4. global source census;
+5. production acquisition and provenance controls;
+6. harmonisation and gold promotion;
+7. public beta and comparative-cohort freeze;
+8. independent assurance, operational rehearsal and release candidate;
+9. v1.0 publication and service handover.
 
-Data extraction at scale must not outrun ontology, provenance, or reviewer capacity. A smaller gold dataset with complete lineage is preferable to a larger but unverifiable one.
+Dashboard polish, optional analytics and secondary indicator families must not displace this path.
 
-## Post-v1 direction
+## 7. v1.0 release scope control
 
-Likely v1.1 work includes additional jurisdictions in the fully extracted cohort, non-breaking indicators, improved automation, and translated public documentation. A v2.0 programme may add governed person-level linkage partnerships, common user-experience instruments, prospective outcome studies, and breaking ontology improvements.
+### Must ship
+
+- global coverage-status register;
+- source register with exact provenance and rights metadata;
+- stable jurisdiction, matter, source, indicator and observation identifiers;
+- core process/performance dataset in open tabular and analytical formats;
+- outcomes evidence catalogue;
+- jurisdiction profiles and methods handbook;
+- reproducible build, validation report and data-quality statement;
+- immutable release bundle, checksums, citation file and archive record;
+- public correction, security and governance channels.
+
+### Should ship
+
+- public data-availability atlas;
+- documented API or query layer;
+- multilingual contributor and methodology summaries;
+- source-change alerts and connector health dashboard;
+- comparison explorer constrained by comparability tier.
+
+### May follow in 1.x
+
+- additional matter types and historical backfill;
+- richer demographic stratification after disclosure review;
+- automated translation assistance with human verification;
+- more advanced visual analytics;
+- selected linked-data study metadata.
+
+### Explicitly outside v1.0
+
+- a composite international league table;
+- causal claims from descriptive court statistics;
+- identifiable or linkable person-level court records in the public repository;
+- forced imputation of unpublished outcomes;
+- pretending that a missing source is equivalent to zero activity;
+- a breaking replacement of local definitions by an English harmonised label.
+
+## 8. Stable 1.x support policy
+
+After v1.0:
+
+- stable IDs and public schemas are backwards-compatible throughout 1.x;
+- corrections to released values use patch releases and never silently overwrite history;
+- additive indicators or fields use minor releases;
+- removals or semantic changes require deprecation and normally wait for v2.0;
+- release artefacts remain available permanently;
+- at least the current and immediately previous minor release receive correction support;
+- the methods group reviews ontologies annually and publishes every decision;
+- the project issues at least two scheduled data releases per year, with urgent patch releases when material errors require them.
+
+## 9. No-go conditions for v1.0
+
+Release is blocked if any of the following remains true:
+
+- the jurisdiction universe or inclusion rule is materially unresolved;
+- a gold observation cannot be traced to preserved source evidence;
+- critical calculations cannot be reproduced in a clean environment;
+- personal, sealed or unlawfully redistributed data are present;
+- a critical or high-impact security issue is unresolved without formal acceptance;
+- release licences or source rights are unclear for core artefacts;
+- the comparative product presents incompatible clocks, denominators or matter types as equivalent;
+- there is no named operational owner or funded maintenance plan;
+- the backup/restore path has not been tested;
+- external assurance identifies a material issue that has neither been fixed nor transparently accepted by release authority.
+
+## 10. Programme health indicators
+
+The steering group should review a compact scorecard each month:
+
+- jurisdiction coverage and second-review completion;
+- source acquisition and preservation success;
+- gold-series throughput and review backlog;
+- automated validation pass rate;
+- independent audit concordance;
+- connector/source-drift incidents and time to resolution;
+- unresolved P0–P2 defects;
+- translation/local-review coverage;
+- contributor and regional-representation metrics;
+- budget, staffing, key-person dependencies and maintenance runway.
+
+A green schedule with weak evidence quality is not a successful programme.

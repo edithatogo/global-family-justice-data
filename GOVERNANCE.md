@@ -1,101 +1,77 @@
 # Governance framework
 
-## Purpose
+## 1. Purpose
 
-Governance exists to protect scientific quality, public value, independence, safety, and continuity. No single funder, court, contributor, or maintainer may control source selection, methods, data approval, and publication.
+Governance protects methodological integrity, public trust, independence, safety and continuity. It also prevents a v1.0 label from being applied solely because a dataset or dashboard exists.
 
-## Bodies and roles
+## 2. Bodies
 
 ### Steering group
 
-Sets strategy, approves the annual programme, appoints release authority, secures the institutional home, and protects independence. Membership should cover judicial administration, comparative family law, child rights, family violence, statistics, economics, data engineering, open science, accessibility, and lived experience.
+Sets strategy, approves scope, budget and annual work programme, appoints release authority and protects independence. Membership should cover judicial administration, comparative family law, statistics, child rights, family violence, economics, data engineering, open science, regional expertise and lived experience.
 
 ### Methods and standards group
 
-Owns the jurisdiction universe, matter taxonomy, indicator dictionary, procedural-stage vocabulary, quality grades, comparability tiers, suppression rules, evidence-quality methods, and semantic schema decisions. Decisions and rationales are public.
+Owns the jurisdiction universe, matter taxonomy, indicator dictionary, quality grades, comparability tiers, duration clocks, suppression rules and methods revisions. Decisions and rationales are public.
 
-### Data operations group
+### Data operations and technical group
 
-Owns source discovery operations, acquisition, extraction, transformation, validation, release builds, monitoring, corrections, and preservation.
+Maintains source acquisition, preservation, extraction, validation, pipelines, security operations, release builds, corrections and archival deposits.
 
-### Security, privacy, legal, and ethics function
+### Jurisdiction correspondent network
 
-Owns threat modelling, disclosure controls, source-rights decisions, incident response, takedown requests, and the separation between the public aggregate repository and restricted research environments.
-
-### Release authority
-
-Makes the final go/no-go decision against `docs/strategy/V1_RELEASE_CRITERIA.md`. The release authority cannot be the sole build operator or sole data approver.
-
-### Jurisdiction and language network
-
-Local correspondents verify institutional structures, terminology, translations, and source interpretation. Verification is recorded. Disagreement is preserved in notes or decision records rather than silently erased.
+Local correspondents verify institutional structures, terminology, translations and procedural definitions. Verification is recorded. Disagreement is retained in notes and adjudicated transparently.
 
 ### Lived-experience and child-rights advisory group
 
-Shapes outcome domains, harm controls, interpretation, user experience, and dissemination. Participation is remunerated and organised to avoid disclosure, coercion, or retraumatisation.
+Influences outcome priorities, harms analysis, interpretation, public communication and user testing. Participation is remunerated and supported safely.
 
-## Decision rules
+### Independent release assurance
 
-- Method and semantic changes require a versioned proposal, evidence, impact assessment, compatibility analysis, and recorded decision.
-- Previously released values are never silently overwritten; corrections create a new release and changelog.
-- Breaking changes require migration guidance and the appropriate semantic-version increment.
-- Funders and participating courts may comment on factual accuracy but do not control analytical conclusions.
-- Contributors and decision-makers declare financial, professional, advocacy, and institutional conflicts.
-- Material dissent is recorded when consensus is not reached.
-- Emergency security/privacy withdrawal may occur before full committee review, followed by retrospective review.
+Challenges the v1.0 evidence pack and provides a go/no-go recommendation. Assurance is independent of the team that built the release.
 
-## Separation of duties
+## 3. Decision rules
 
-At minimum:
+- Material method, architecture and scope changes require a versioned proposal, evidence, impact assessment and recorded decision.
+- Previously released values and artefacts are immutable; corrections create a new release and changelog record.
+- Funders and participating institutions may correct factual errors but do not control findings or conclusions.
+- Contributors declare relevant financial, professional and institutional conflicts.
+- Critical roles have named deputies before release candidate.
+- Mandatory v1.0 criteria cannot be waived informally.
+- Any exception is time-limited, public where possible, and identifies risk, owner, compensating control and expiry.
 
-- data preparation and final data approval are separated;
-- methods approval and release execution are separated;
-- security/privacy approval is independent of delivery pressure;
-- no person can alone publish a production release;
-- critical roles have named deputies.
+## 4. Release authority
 
-## Release governance
+Five owners sign the v1.0 evidence pack:
 
-A stable release requires:
+- data owner;
+- methods owner;
+- technical owner;
+- security/privacy owner;
+- executive release owner.
 
-- completed release-readiness record;
-- data steward approval;
-- methods approval;
-- security/privacy/legal approval;
-- release manager build record;
-- release-authority go/no-go decision;
-- public release notes, limitations, quality metrics, and checksums.
+An independent assurer reviews the evidence. The executive owner makes the final decision but cannot retroactively redefine a failed criterion.
 
-Waivers are time-limited, public, assigned to an owner, and never permitted for critical privacy, security, rights, lineage, or reproducibility failures.
+## 5. Publication safeguards
 
-## Publication safeguards
+- Aggregate data only in the public repository.
+- Small-cell, dominance and contextual-harm controls where disaggregation could expose families.
+- No sealed/protected judgments, credentials or unlawfully redistributed material.
+- Context notes accompany comparisons affected by statutory targets, case mix or procedural reform.
+- Tier 3/4 data are not presented as direct comparisons.
+- No composite jurisdiction ranking in v1.0.
+- Original-language source wording is retained separately from translation/harmonisation.
 
-- aggregate or non-identifiable metadata only in the public repository;
-- minimum-cell and dominance controls where breakdowns create disclosure risk;
-- no protected judgments, sealed material, credentials, or data obtained in breach of access conditions;
-- context notes accompany comparisons affected by statutory targets, case mix, legal reform, or reporting changes;
-- no composite international ranking in v1;
-- outcome claims reflect study design and limitations.
+## 6. Transparency
 
-## Transparency records
-
-The project should publish:
+Publish:
 
 - charter and terms of reference;
-- membership and role register;
-- funding and conflicts register;
-- methods and decision log;
-- release-readiness records;
-- corrections, retractions, and incidents at an appropriate level of detail;
-- annual coverage, quality, service, and sustainability report.
+- funders and relevant conflicts;
+- methods and decision records;
+- release criteria and evidence summaries;
+- corrections, deprecations and known limitations;
+- external reviews and project responses;
+- annual work programme and high-level progress.
 
-## Institutional continuity
-
-Before v1, the host must define:
-
-- repository and domain ownership;
-- data and archival custody;
-- maintainer appointment/removal;
-- succession if the host changes;
-- preservation if funding ends;
-- transfer of security contacts, keys, storage, and operational knowledge.
+Detailed roles and RACI are in `docs/governance/roles-and-raci.md`.

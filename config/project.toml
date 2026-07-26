@@ -1,0 +1,57 @@
+[project]
+id = "GFJD"
+name = "Global Family Justice Data Project"
+version = "0.3.0"
+contract_version = "0.3"
+ontology_version = "0.3"
+programme_model_version = "1.0"
+minimum_python = "3.11"
+current_gate = "G1"
+public_data_boundary = "aggregate_only"
+default_timezone = "UTC"
+
+[paths]
+jurisdictions = "data/seed/jurisdiction_register.csv"
+sources = "data/seed/source_register.csv"
+indicators = "data/seed/indicator_dictionary.csv"
+observations_template = "data/seed/observation_template.csv"
+tracks = "config/tracks.toml"
+gates = "config/stage_gates.toml"
+work_items = "programme/work_items.csv"
+evidence = "programme/evidence_register.csv"
+maturity = "programme/maturity_assessment.csv"
+gate_decisions = "programme/gate_decisions.csv"
+risks = "programme/risk_register.csv"
+defects = "programme/defect_register.csv"
+exceptions = "programme/exception_register.csv"
+audit_log = "programme/audit-log.jsonl"
+
+[validation]
+max_errors_displayed = 200
+require_https_for_sources = true
+fail_stable_release_on_warnings = true
+accepted_evidence_requires_hash = true
+accepted_evidence_requires_reviewer = true
+
+[validation.source_staleness_days]
+high = 120
+medium = 240
+low = 400
+
+[release]
+release_prefix = "gfjd"
+minimum_stable_gate = "G6"
+include_programme_status = true
+include_source_code = false
+archive_format = "zip"
+
+[conductor]
+require_recorded_gate_decision = true
+accepted_gate_decision_status = "accepted"
+accepted_work_statuses = ["accepted", "waived"]
+satisfactory_evidence_statuses = ["accepted", "waived"]
+blocking_defect_severities = ["P0", "P1"]
+blocking_risk_severities_before_rc = ["critical"]
+blocking_risk_severities_at_rc = ["critical", "high"]
+minimum_maturity_by_gate = { G1 = 1, G2 = 2, G3 = 3, G4 = 3, G5 = 4, G6 = 5 }
+require_distinct_evidence_reviewer = true

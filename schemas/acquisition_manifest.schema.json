@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/acquisition_manifest.schema.json",
+  "title": "Acquisition manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "acquisition_id",
+    "source_id",
+    "retrieved_at",
+    "requested_url",
+    "final_url",
+    "method",
+    "status",
+    "content_type",
+    "byte_count",
+    "sha256",
+    "rights_status",
+    "redistribution_status",
+    "stored_path",
+    "agent_version",
+    "query_or_filter"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "acquisition_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"
+    },
+    "source_id": {
+      "type": "string",
+      "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"
+    },
+    "source_edition_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "requested_url": {
+      "type": "string"
+    },
+    "final_url": {
+      "type": "string"
+    },
+    "method": {
+      "enum": [
+        "file",
+        "http_get",
+        "metadata_only"
+      ]
+    },
+    "status": {
+      "enum": [
+        "success",
+        "not_modified",
+        "failed",
+        "metadata_only"
+      ]
+    },
+    "http_status": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "content_type": {
+      "type": "string"
+    },
+    "byte_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "etag": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "last_modified": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "rights_status": {
+      "enum": [
+        "cleared",
+        "review_required",
+        "restricted",
+        "unknown"
+      ]
+    },
+    "redistribution_status": {
+      "enum": [
+        "allowed",
+        "metadata_only",
+        "prohibited",
+        "unknown"
+      ]
+    },
+    "stored_path": {
+      "type": "string"
+    },
+    "agent_version": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "query_or_filter": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

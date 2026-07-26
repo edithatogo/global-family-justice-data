@@ -1,0 +1,25 @@
+name: Propose or update a conductor work item
+about: Connect delivery activity to a track, gate and evidence record
+labels: ['programme']
+body:
+  - type: dropdown
+    id: track
+    attributes:
+      label: Track
+      options: [T0, T1, T2, T3, T4, T5, T6, T7, T8, T9]
+    validations:
+      required: true
+  - type: input
+    id: work_item
+    attributes:
+      label: Existing or proposed work-item ID
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome and acceptance evidence
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies, risks and required reviewers

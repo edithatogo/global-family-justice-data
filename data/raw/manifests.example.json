@@ -1,0 +1,17 @@
+{
+  "manifest_version": "1.0.0",
+  "source_id": "EXAMPLE-SOURCE",
+  "requested_url": "https://example.invalid/report.pdf",
+  "resolved_url": "https://example.invalid/report.pdf",
+  "retrieved_at": "2026-07-19T00:00:00Z",
+  "retrieval_method": "http_get",
+  "http_status": 200,
+  "media_type": "application/pdf",
+  "size_bytes": 1234,
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "stored_path": null,
+  "rights_status": "restricted_or_unknown",
+  "redistribution_allowed": false,
+  "query_or_filter": null,
+  "tool_version": "0.3.0"
+}

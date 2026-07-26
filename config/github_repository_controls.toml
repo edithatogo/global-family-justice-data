@@ -1,0 +1,98 @@
+schema_version = "1.0"
+implementation_status = "desired_state_not_applied"
+
+[repository]
+default_branch = "main"
+visibility = "public"
+require_linear_history = true
+require_signed_commits = true
+block_force_pushes = true
+block_deletions = true
+require_conversation_resolution = true
+
+[actions]
+default_workflow_permissions = "read"
+require_immutable_action_shas = true
+allow_actions_create_pull_requests = false
+allow_untrusted_fork_write_tokens = false
+fork_pull_request_approval = "all_external_contributors"
+allowed_action_repositories = [
+  "actions/attest",
+  "actions/checkout",
+  "actions/dependency-review-action",
+  "actions/download-artifact",
+  "actions/setup-python",
+  "actions/upload-artifact",
+  "astral-sh/setup-uv",
+  "github/codeql-action",
+]
+
+[merge_queue]
+required_workflows = ["quality.yml", "codeql.yml"]
+
+[rulesets.main]
+enforcement = "active"
+target = "refs/heads/main"
+required_approvals = 2
+require_code_owner_review = true
+dismiss_stale_approvals = true
+require_last_push_approval = true
+require_merge_queue = true
+prevent_bypass = true
+require_status_checks_up_to_date = true
+required_status_checks = [
+  "Static contracts and repository policy",
+  "Unit tests / Python 3.11",
+  "Unit tests / Python 3.12",
+  "Unit tests / Python 3.13",
+  "Unit tests / Python 3.14",
+  "Property and adversarial tests",
+  "Branch coverage and quality budgets",
+  "Integration and failure-boundary rehearsals",
+  "Platform smoke / ubuntu-24.04",
+  "Platform smoke / macos-15",
+  "Platform smoke / windows-2025",
+  "Build and install distribution",
+  "Deterministic release double-build",
+  "CodeQL analysis",
+]
+
+[rulesets.release_tags]
+enforcement = "active"
+target = "refs/tags/v*"
+block_updates = true
+block_deletions = true
+
+[environments.release_candidate]
+required_reviewers = 2
+prevent_self_review = true
+protected_branches_only = true
+wait_timer_minutes = 0
+deployment_ref_pattern = "refs/heads/main"
+
+[environments.stable_release]
+required_reviewers = 2
+prevent_self_review = true
+protected_branches_only = true
+wait_timer_minutes = 15
+deployment_ref_pattern = "refs/tags/v*"
+
+[security]
+dependency_graph = true
+dependabot_alerts = true
+dependabot_security_updates = true
+secret_scanning = true
+secret_scanning_push_protection = true
+private_vulnerability_reporting = true
+code_scanning_default_setup = false
+
+[retention]
+ordinary_artifacts_days = 14
+security_artifacts_days = 30
+release_candidate_artifacts_days = 90
+stable_release_artifacts_days = 90
+provenance_artifacts_days = 90
+
+[ownership]
+codeowners_status = "pending_real_handles"
+minimum_codeowners = 2

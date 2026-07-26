@@ -1,0 +1,50 @@
+schema_version = "1.0"
+
+[[action]]
+repository = "actions/checkout"
+tag = "v7.0.0"
+sha = "9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0"
+purpose = "Repository checkout"
+
+[[action]]
+repository = "actions/setup-python"
+tag = "v6.3.0"
+sha = "ece7cb06caefa5fff74198d8649806c4678c61a1"
+purpose = "Python runtime provisioning"
+
+
+[[action]]
+repository = "astral-sh/setup-uv"
+tag = "v8.3.2"
+sha = "11f9893b081a58869d3b5fccaea48c9e9e46f990"
+purpose = "Reviewed uv runtime provisioning and lock-keyed cache"
+
+[[action]]
+repository = "actions/upload-artifact"
+tag = "v7.0.1"
+sha = "043fb46d1a93c77aae656e7c1c64a875d1fc6a0a"
+purpose = "Controlled CI artefact upload"
+
+[[action]]
+repository = "actions/download-artifact"
+tag = "v8.0.1"
+sha = "3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c"
+purpose = "Controlled CI artefact download"
+
+[[action]]
+repository = "actions/attest"
+tag = "v4.2.0"
+sha = "f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6"
+purpose = "GitHub artifact attestation"
+
+[[action]]
+repository = "actions/dependency-review-action"
+tag = "v5.0.0"
+sha = "a1d282b36b6f3519aa1f3fc636f609c47dddb294"
+purpose = "Dependency diff policy"
+
+[[action]]
+repository = "github/codeql-action"
+tag = "v4 / bundle 2.26.1"
+sha = "e58424170fb0262c8d7ed60a2e84b9bffe205c67"
+purpose = "CodeQL initialization and analysis"

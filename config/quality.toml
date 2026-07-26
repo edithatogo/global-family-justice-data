@@ -1,0 +1,48 @@
+schema_version = "1.0"
+
+[coverage]
+overall_minimum = 65.0
+ratchet_tolerance = 0.10
+baseline_file = "config/coverage_baseline.json"
+
+[coverage.critical_modules]
+"src/gfjd/conductor.py" = 65.0
+"src/gfjd/programme_state.py" = 65.0
+"src/gfjd/release.py" = 65.0
+"src/gfjd/resilience.py" = 65.0
+"src/gfjd/workflow.py" = 65.0
+"src/gfjd/pipeline.py" = 65.0
+"src/gfjd/acquisition.py" = 65.0
+
+[test_runtime]
+unit_suite_seconds = 240
+integration_suite_seconds = 1200
+single_test_seconds = 180
+
+[distribution]
+expected_project_name = "global-family-justice-data"
+requires_python = ">=3.11"
+required_files = ["gfjd/__init__.py", "gfjd/cli.py"]
+sdist_required_files = [
+  "pyproject.toml",
+  "uv.lock",
+  "README.md",
+  "config/project.toml",
+  "config/contract_lock.json",
+  "schemas/release.schema.json",
+  "src/gfjd/cli.py",
+]
+forbidden_path_fragments = ["__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", ".venv"]
+forbidden_content_fragments = ["internal.api.openai", "applied-caas", "packages.hub.ace-research"]
+max_archive_bytes = 50000000
+max_members = 5000
+max_uncompressed_bytes = 200000000
+max_member_bytes = 20000000
+max_text_scan_bytes = 4000000
+max_path_bytes = 240
+max_compression_ratio = 200.0
+
+[contracts]
+json_schema_globs = ["schemas/*.json"]
+csv_header_globs = ["data/seed/*.csv", "data/census/*.csv", "programme/*.csv"]
+toml_globs = ["config/data_contracts.toml"]

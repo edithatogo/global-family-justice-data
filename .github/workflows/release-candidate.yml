@@ -1,0 +1,103 @@
+name: Controlled release candidate
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Semantic release-candidate version, for example 1.0.0-rc.1
+        required: true
+        type: string
+      source_date_epoch:
+        description: Reproducible build epoch in Unix seconds
+        required: true
+        default: '1784419200'
+        type: string
+      confirmation:
+        description: Type RELEASE CANDIDATE exactly
+        required: true
+        type: string
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  PYTHONHASHSEED: '0'
+  TZ: UTC
+  UV_DEFAULT_INDEX: https://pypi.org/simple
+  RELEASE_VERSION: ${{ inputs.version }}
+  RELEASE_EPOCH: ${{ inputs.source_date_epoch }}
+  RELEASE_CONFIRMATION: ${{ inputs.confirmation }}
+
+jobs:
+  candidate:
+    name: Build protected release candidate
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    environment: release-candidate
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    steps:
+      - name: Check out immutable revision
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Provision Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.13'
+      - name: Provision reviewed uv toolchain
+        uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
+        with:
+          version: '0.10.0'
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+          download-from-astral-mirror: false
+      - name: Validate controlled invocation
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          import sys
+          version = os.environ['RELEASE_VERSION']
+          epoch = os.environ['RELEASE_EPOCH']
+          confirmation = os.environ['RELEASE_CONFIRMATION']
+          if confirmation != 'RELEASE CANDIDATE':
+              sys.exit('confirmation phrase mismatch')
+          if not re.fullmatch(r'[1-9]\d*\.\d+\.\d+-rc(?:\.[0-9A-Za-z.-]+)?', version):
+              sys.exit('version must be a v1+ release candidate')
+          if not epoch.isdigit() or int(epoch) < 315532800:
+              sys.exit('source_date_epoch is invalid')
+          PY
+      - name: Synchronize locked development environment
+        run: uv sync --frozen --extra dev
+      - name: Run complete quality harness
+        run: uv run make check
+      - name: Build candidate twice and require byte identity
+        run: |
+          rm -rf build/candidate-first build/candidate-second build/candidate
+          uv run python -m gfjd release build --version "$RELEASE_VERSION" --output build/candidate-first --source-date-epoch "$RELEASE_EPOCH" --allow-version-override
+          uv run python -m gfjd release build --version "$RELEASE_VERSION" --output build/candidate-second --source-date-epoch "$RELEASE_EPOCH" --allow-version-override
+          uv run python -m gfjd release verify "build/candidate-first/gfjd-$RELEASE_VERSION"
+          uv run python -m gfjd release verify "build/candidate-second/gfjd-$RELEASE_VERSION"
+          uv run python -m gfjd harness repro "build/candidate-first/gfjd-$RELEASE_VERSION.zip" "build/candidate-second/gfjd-$RELEASE_VERSION.zip"
+          mkdir -p build/candidate
+          cp "build/candidate-first/gfjd-$RELEASE_VERSION.zip" build/candidate/gfjd-release-candidate.zip
+      - name: Attest verified release archive
+        uses: actions/attest@f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6 # v4.2.0
+        with:
+          subject-path: build/candidate/gfjd-release-candidate.zip
+      - name: Upload candidate
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: controlled-release-candidate
+          path: build/candidate/gfjd-release-candidate.zip
+          if-no-files-found: error
+          retention-days: 90

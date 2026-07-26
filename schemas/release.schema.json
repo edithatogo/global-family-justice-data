@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Release register row",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "release_id",
+    "semantic_version",
+    "release_status",
+    "release_date",
+    "methods_version",
+    "ontology_version",
+    "build_id"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "release_id": {"type": "string", "minLength": 3},
+    "semantic_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][A-Za-z0-9.-]+)?$"},
+    "release_status": {"enum": ["planning_scaffold", "alpha", "beta", "release_candidate", "stable", "superseded", "withdrawn"]},
+    "release_date": {"type": "string", "format": "date"},
+    "git_commit": {"type": "string"},
+    "methods_version": {"type": "string"},
+    "ontology_version": {"type": "string"},
+    "build_id": {"type": "string", "minLength": 1},
+    "archive_identifier": {"type": "string"},
+    "manifest_sha256": {"type": "string", "pattern": "^$|^[a-f0-9]{64}$"},
+    "release_manager": {"type": "string"},
+    "release_authority": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}

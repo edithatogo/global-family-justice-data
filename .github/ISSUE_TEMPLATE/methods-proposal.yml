@@ -1,0 +1,32 @@
+name: Methods or indicator proposal
+about: Propose a definition, crosswalk, quality rule, or comparability change
+labels: ["methods", "proposal"]
+body:
+  - type: input
+    id: area
+    attributes:
+      label: Method or indicator area
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and jurisdiction examples
+    validations:
+      required: true
+  - type: textarea
+    id: compatibility
+    attributes:
+      label: Compatibility and migration impact

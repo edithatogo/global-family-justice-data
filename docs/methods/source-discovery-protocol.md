@@ -1,87 +1,120 @@
 # Source discovery protocol
 
+## Objective
+
+A jurisdiction search is complete only when the relevant family-justice institutions and reporting pathways have been checked under a documented multilingual process. “No source found” is a reviewed research finding, not a default assigned after a cursory web search.
+
 ## Step 1 — map the system
 
-Identify the bodies responsible for family matters, court administration, official statistics, legal aid, child protection, maintenance enforcement and judicial performance. In federations, repeat this at the relevant subnational level.
+Identify bodies responsible for:
+
+- each in-scope family matter type;
+- court administration and official court statistics;
+- appeals and enforcement;
+- legal aid and dispute resolution;
+- child protection, maintenance, adoption, and family-violence protection;
+- performance, audit, budget, and accountability reporting.
+
+In federal or devolved systems, repeat this at the level that controls the function. Record customary, religious, or administrative pathways where material.
 
 ## Step 2 — search official domains
 
-Search, in the local language and English where useful:
+Search in relevant local/official languages and English where useful:
 
 1. judiciary and court-administration sites;
-2. ministry of justice or attorney-general sites;
+2. ministry of justice, attorney-general, or equivalent;
 3. national statistics offices and open-data portals;
-4. parliamentary, audit and budget/performance publications;
-5. child protection and family service agencies;
-6. regional or international bodies;
-7. academic and non-government evidence sources.
+4. parliamentary, audit, budget, and performance publications;
+5. child-protection, maintenance, legal-aid, and family-service agencies;
+6. regional and international bodies;
+7. academic and non-government evidence sources;
+8. catalogues, archives, and direct institutional enquiries where needed.
 
-Suggested local-language concepts:
+Suggested concepts should be translated and adapted locally:
 
 - family court; family justice; domestic relations; matrimonial;
 - divorce; custody; parenting; contact; maintenance; child protection; adoption; protection order;
 - caseload; filings; disposals; pending; clearance;
 - waiting time; duration; age of cases; time standard;
 - annual report; statistics; dashboard; open data; performance;
-- user survey; satisfaction; fairness; compliance; enforcement; reapplication.
+- user survey; fairness; safety; compliance; enforcement; reapplication; wellbeing; evaluation.
+
+Automated translation may support discovery but cannot by itself close a jurisdiction as searched complete.
 
 ## Step 3 — record the search
 
 Complete a search log even when nothing is found. Record:
 
-- date and reviewer;
-- languages and search terms;
-- institutions and domains checked;
-- candidate sources and reasons for exclusion;
-- unresolved questions;
-- whether a second reviewer confirmed a negative finding.
+- date, reviewer, and coverage cycle;
+- languages, terms, and local institutional names;
+- institutions, domains, catalogues, and archives checked;
+- candidate sources and reasons for inclusion/exclusion;
+- inaccessible, discontinued, login-gated, or unclear sources;
+- unresolved structural or terminology questions;
+- whether direct contact was attempted;
+- whether a second reviewer confirmed any negative finding;
+- confidence and next review due.
 
 ## Step 4 — acquire and preserve provenance
 
-For every source, record the canonical page, direct download or API endpoint, publication and coverage dates, retrieval date, format, access method, licence status and checksum where a file is acquired.
+For every source, record:
 
-Do not bypass authentication, access controls or confidentiality protections. Redistribute raw files only when lawful.
+- canonical page and direct data location;
+- publication and coverage dates;
+- source version and retrieval date;
+- format, access method, and retrieval recipe;
+- API parameters, dashboard filters, or spreadsheet/table identifiers;
+- licence/rights status and redistribution decision;
+- checksum where a file is acquired;
+- archival or storage reference where lawful;
+- exact provenance for every extracted value.
+
+Do not bypass authentication, access controls, confidentiality protections, or rate limits. Public visibility is not permission to redistribute a source file.
 
 ## Step 5 — classify before extracting
 
 Assign:
 
-- source type;
-- official/non-official status;
-- matter types covered;
-- measure domains;
-- geographic detail;
-- update frequency;
-- machine-readability;
-- source-quality grade.
+- source type and official status;
+- matter types and evidence/outcome domains;
+- geographic and institutional detail;
+- period coverage and update frequency;
+- machine-readability and extraction method;
+- source-quality grade;
+- source status and next review date.
 
-## Step 6 — extract with exact provenance
+## Step 6 — extract with exact lineage
 
-Retain original labels and definitions. Every value must point to page/table/cell or dashboard/API query. Translation and harmonised mapping are separate fields.
+Retain original labels, definitions, language, footnotes, units, and period structure. Translation and harmonised mapping are separate fields. Every silver or gold value must point to a source version and page/table/cell/query/filter locator.
 
-## Step 7 — second review
+## Step 7 — independent review
 
 A second reviewer checks:
 
-- source identity and period;
+- source identity, version, period, and official status;
 - count unit and denominator;
-- start/end events for durations;
-- statistic type;
-- case-type mapping;
-- transformations;
-- disclosure risk.
+- duration start/end events and excluded time;
+- statistic and cohort type;
+- matter and indicator mapping;
+- transformations and conversions;
+- source rights and disclosure risk;
+- completeness of the search where the finding is negative.
 
-Gold-layer observations require second review.
+Gold observations require independent second review and approved status.
 
-## Step 8 — update status
+## Step 8 — assign coverage status
 
-Jurisdiction coverage status:
+Use only the controlled values:
 
 - `not_started`;
 - `search_in_progress`;
 - `official_source_found`;
-- `non_official_only`;
+- `non_government_source_only`;
 - `no_public_source_found`;
 - `source_inaccessible`;
-- `contact_pending`;
-- `verified_complete_for_cycle`.
+- `direct_contact_pending`;
+- `verified_complete`;
+- `review_due`;
+- `withdrawn`.
+
+`verified_complete` means complete for the documented review cycle and scope, not permanently complete. Negative and complete statuses require a completion date and second review.

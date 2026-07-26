@@ -3,45 +3,34 @@
   "title": "Indicator dictionary row",
   "type": "object",
   "required": [
+    "schema_version",
     "indicator_id",
     "domain",
     "name",
     "definition",
     "preferred_statistic",
     "preferred_unit",
-    "core_release"
+    "core_release",
+    "status",
+    "introduced_in",
+    "reviewed_for_v1"
   ],
   "properties": {
-    "indicator_id": {
-      "type": "string"
-    },
-    "domain": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-    "definition": {
-      "type": "string"
-    },
-    "preferred_statistic": {
-      "type": "string"
-    },
-    "preferred_unit": {
-      "type": "string"
-    },
-    "numerator": {
-      "type": "string"
-    },
-    "denominator": {
-      "type": "string"
-    },
-    "core_release": {
-      "type": "string"
-    },
-    "comparability_notes": {
-      "type": "string"
-    }
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "indicator_id": {"type": "string", "minLength": 3},
+    "domain": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "definition": {"type": "string", "minLength": 1},
+    "preferred_statistic": {"type": "string", "minLength": 1},
+    "preferred_unit": {"type": "string", "minLength": 1},
+    "numerator": {"type": "string"},
+    "denominator": {"type": "string"},
+    "core_release": {"enum": ["yes", "no"]},
+    "comparability_notes": {"type": "string"},
+    "status": {"enum": ["draft", "active", "deprecated", "withdrawn"]},
+    "introduced_in": {"type": "string"},
+    "reviewed_for_v1": {"enum": ["yes", "no"]},
+    "replacement_indicator_id": {"type": "string"}
   },
   "additionalProperties": false
 }

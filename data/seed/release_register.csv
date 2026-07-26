@@ -1,0 +1,2 @@
+schema_version,release_id,semantic_version,release_status,release_date,git_commit,methods_version,ontology_version,build_id,archive_identifier,manifest_sha256,release_manager,release_authority,notes
+0.2.0,GFJD-0.2.0,0.2.0,planning_scaffold,2026-07-19,,0.2.0,0.2.0,artifact-20260719,,,,,V1 production roadmap and hardening scaffold; not a stable data release

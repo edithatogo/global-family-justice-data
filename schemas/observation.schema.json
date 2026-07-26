@@ -3,6 +3,7 @@
   "title": "Normalised observation",
   "type": "object",
   "required": [
+    "schema_version",
     "observation_id",
     "jurisdiction_id",
     "indicator_id",
@@ -10,134 +11,48 @@
     "period_end",
     "value",
     "source_id",
+    "provenance_locator",
+    "second_reviewed",
     "quality_grade",
-    "comparability_tier"
+    "comparability_tier",
+    "review_status"
   ],
   "properties": {
-    "observation_id": {
-      "type": "string"
-    },
-    "jurisdiction_id": {
-      "type": "string"
-    },
-    "subnational_id": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "institution_id": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "court_level": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "matter_type_original": {
-      "type": "string"
-    },
-    "matter_type_harmonised": {
-      "type": "string"
-    },
-    "measure_original": {
-      "type": "string"
-    },
-    "indicator_id": {
-      "type": "string"
-    },
-    "stage_start": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "stage_end": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "statistic_type": {
-      "type": "string"
-    },
-    "unit": {
-      "type": "string"
-    },
-    "value": {
-      "type": "number"
-    },
-    "denominator_value": {
-      "type": [
-        "number",
-        "null"
-      ]
-    },
-    "denominator_definition": {
-      "type": [
-        "string",
-        "null"
-      ]
-    },
-    "period_start": {
-      "type": "string",
-      "format": "date"
-    },
-    "period_end": {
-      "type": "string",
-      "format": "date"
-    },
-    "cohort_basis": {
-      "type": "string"
-    },
-    "definition_original": {
-      "type": "string"
-    },
-    "definition_english": {
-      "type": "string"
-    },
-    "source_id": {
-      "type": "string"
-    },
-    "provenance_locator": {
-      "type": "string"
-    },
-    "extraction_method": {
-      "type": "string"
-    },
-    "reviewer": {
-      "type": "string"
-    },
-    "second_reviewed": {
-      "type": "boolean"
-    },
-    "quality_grade": {
-      "enum": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E"
-      ]
-    },
-    "comparability_tier": {
-      "enum": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ]
-    },
-    "notes": {
-      "type": [
-        "string",
-        "null"
-      ]
-    }
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "observation_id": {"type": "string", "minLength": 3},
+    "jurisdiction_id": {"type": "string", "minLength": 2},
+    "subnational_id": {"type": ["string", "null"]},
+    "institution_id": {"type": ["string", "null"]},
+    "court_level": {"type": ["string", "null"]},
+    "matter_type_original": {"type": "string"},
+    "matter_type_harmonised": {"type": "string"},
+    "measure_original": {"type": "string"},
+    "indicator_id": {"type": "string"},
+    "stage_start": {"type": ["string", "null"]},
+    "stage_end": {"type": ["string", "null"]},
+    "statistic_type": {"type": "string"},
+    "unit": {"type": "string"},
+    "value": {"type": "number"},
+    "denominator_value": {"type": ["number", "null"]},
+    "denominator_definition": {"type": ["string", "null"]},
+    "period_start": {"type": "string", "format": "date"},
+    "period_end": {"type": "string", "format": "date"},
+    "cohort_basis": {"type": "string"},
+    "definition_original": {"type": "string"},
+    "definition_english": {"type": "string"},
+    "source_id": {"type": "string"},
+    "provenance_locator": {"type": "string", "minLength": 1},
+    "extraction_method": {"type": "string"},
+    "reviewer": {"type": "string"},
+    "second_reviewed": {"enum": ["yes", "no"]},
+    "quality_grade": {"enum": ["A", "B", "C", "D", "E"]},
+    "comparability_tier": {"enum": ["1", "2", "3", "4"]},
+    "notes": {"type": ["string", "null"]},
+    "source_version": {"type": "string"},
+    "transformation_id": {"type": "string"},
+    "review_status": {"enum": ["draft", "provisional", "reviewed", "approved", "withdrawn"]},
+    "reviewed_at": {"type": "string"},
+    "release_id": {"type": "string"}
   },
   "additionalProperties": false
 }

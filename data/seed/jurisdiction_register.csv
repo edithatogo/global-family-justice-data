@@ -1,21 +1,24 @@
-jurisdiction_id,name,level,parent_jurisdiction_id,legal_system_family,search_languages,pilot_phase,coverage_status,notes
-INT,International / cross-national,international,,multi-system,Multiple,1,search_in_progress,International frameworks and cross-country sources
-AUS,Australia,national,,common_law,English,1,official_source_found,Federal family-law jurisdiction; some related protection/child matters are state-based
-GBR-EAW,England and Wales,country_system,GBR,common_law,"English, Welsh",1,official_source_found,Separate legal and statistical system within the UK
-NZL,New Zealand,national,,common_law,"English, Māori",1,official_source_found,National court reporting with family-specific tables and wider workload reporting
-SGP,Singapore,national,,mixed_common_law,"English, Chinese, Malay, Tamil",1,official_source_found,Specialist Family Justice Courts
-CAN-BC,British Columbia,province,CAN,common_law,"English, French",1,official_source_found,Provincial Court publishes prospective time-to-trial reports
-USA-CA,California,state,USA,common_law,"English, Spanish",1,official_source_found,State-level court statistics; local court heterogeneity
-USA-MN,Minnesota,state,USA,common_law,English,1,not_started,Candidate smaller US state for pilot contrast
-ESP,Spain,national,,civil_law,"Spanish, Catalan, Basque, Galician",1,official_source_found,Judicial statistics include estimated duration by procedure and geography
-BRA,Brazil,national_federal,,civil_law,Portuguese,1,official_source_found,National judiciary metadata platform with court-level data
-IND,India,national_federal,,mixed_common_law,"Hindi, English, regional languages",1,official_source_found,National Judicial Data Grid; family classification requires testing
-MEX,Mexico,national_federal,,civil_law,"Spanish, Indigenous languages",1,official_source_found,National justice census includes family matters
-ZAF,South Africa,national,,mixed,English and official languages,1,official_source_found,National judiciary performance reporting; family-specific granularity to assess
-JPN,Japan,national,,civil_law,Japanese,2,search_in_progress,Specialist family courts and judicial statistics
-FRA,France,national,,civil_law,French,2,not_started,Justice ministry statistical publications
-NLD,Netherlands,national,,civil_law,Dutch,2,not_started,Council for the Judiciary and national statistics sources
-SWE,Sweden,national,,civil_law,Swedish,2,not_started,Court administration and official statistics
-KEN,Kenya,national,,mixed_common_law,"English, Swahili",2,not_started,Judiciary annual reporting and children/family courts
-CHL,Chile,national,,civil_law,Spanish,2,not_started,Specialist family courts and judicial data
-PHL,Philippines,national,,mixed,"Filipino, English",2,not_started,Family courts and Supreme Court reporting
+schema_version,jurisdiction_id,name,level,parent_jurisdiction_id,legal_system_family,search_languages,pilot_phase,coverage_status,notes,review_status,coverage_confidence,search_completed_at,second_reviewed,next_review_due
+0.2.0,INT,International / cross-national,international,,multi-system,Multiple,1,search_in_progress,International frameworks and cross-country sources,provisional,medium,,no,2027-07-19
+0.2.0,AUS,Australia,national,,common_law,English,1,official_source_found,Federal family-law jurisdiction; some related protection/child matters are state-based,provisional,medium,,no,2027-07-19
+0.2.0,GBR,United Kingdom,national_federal,,multi-system,English; Welsh,1,not_started,"Umbrella record; England and Wales, Scotland, and Northern Ireland require separate family-justice coverage",provisional,low,,no,2027-07-19
+0.2.0,CAN,Canada,national_federal,,mixed_common_and_civil_law,English; French,1,not_started,Umbrella record; provincial and territorial family-justice systems require separate coverage,provisional,low,,no,2027-07-19
+0.2.0,USA,United States,national_federal,,common_law,English; Spanish,1,not_started,"Umbrella record; state, territorial, tribal, and federal reporting responsibilities must be mapped separately",provisional,low,,no,2027-07-19
+0.2.0,GBR-EAW,England and Wales,country_system,GBR,common_law,"English, Welsh",1,official_source_found,Separate legal and statistical system within the UK,provisional,medium,,no,2027-07-19
+0.2.0,NZL,New Zealand,national,,common_law,"English, Māori",1,official_source_found,National court reporting with family-specific tables and wider workload reporting,provisional,medium,,no,2027-07-19
+0.2.0,SGP,Singapore,national,,mixed_common_law,"English, Chinese, Malay, Tamil",1,official_source_found,Specialist Family Justice Courts,provisional,medium,,no,2027-07-19
+0.2.0,CAN-BC,British Columbia,province,CAN,common_law,"English, French",1,official_source_found,Provincial Court publishes prospective time-to-trial reports,provisional,medium,,no,2027-07-19
+0.2.0,USA-CA,California,state,USA,common_law,"English, Spanish",1,official_source_found,State-level court statistics; local court heterogeneity,provisional,medium,,no,2027-07-19
+0.2.0,USA-MN,Minnesota,state,USA,common_law,English,1,not_started,Candidate smaller US state for pilot contrast,provisional,low,,no,2027-07-19
+0.2.0,ESP,Spain,national,,civil_law,"Spanish, Catalan, Basque, Galician",1,official_source_found,Judicial statistics include estimated duration by procedure and geography,provisional,medium,,no,2027-07-19
+0.2.0,BRA,Brazil,national_federal,,civil_law,Portuguese,1,official_source_found,National judiciary metadata platform with court-level data,provisional,medium,,no,2027-07-19
+0.2.0,IND,India,national_federal,,mixed_common_law,"Hindi, English, regional languages",1,official_source_found,National Judicial Data Grid; family classification requires testing,provisional,medium,,no,2027-07-19
+0.2.0,MEX,Mexico,national_federal,,civil_law,"Spanish, Indigenous languages",1,official_source_found,National justice census includes family matters,provisional,medium,,no,2027-07-19
+0.2.0,ZAF,South Africa,national,,mixed,English and official languages,1,official_source_found,National judiciary performance reporting; family-specific granularity to assess,provisional,medium,,no,2027-07-19
+0.2.0,JPN,Japan,national,,civil_law,Japanese,2,search_in_progress,Specialist family courts and judicial statistics,provisional,medium,,no,2027-07-19
+0.2.0,FRA,France,national,,civil_law,French,2,not_started,Justice ministry statistical publications,provisional,low,,no,2027-07-19
+0.2.0,NLD,Netherlands,national,,civil_law,Dutch,2,not_started,Council for the Judiciary and national statistics sources,provisional,low,,no,2027-07-19
+0.2.0,SWE,Sweden,national,,civil_law,Swedish,2,not_started,Court administration and official statistics,provisional,low,,no,2027-07-19
+0.2.0,KEN,Kenya,national,,mixed_common_law,"English, Swahili",2,not_started,Judiciary annual reporting and children/family courts,provisional,low,,no,2027-07-19
+0.2.0,CHL,Chile,national,,civil_law,Spanish,2,not_started,Specialist family courts and judicial data,provisional,low,,no,2027-07-19
+0.2.0,PHL,Philippines,national,,mixed,"Filipino, English",2,not_started,Family courts and Supreme Court reporting,provisional,low,,no,2027-07-19

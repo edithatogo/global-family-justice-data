@@ -1,9 +1,9 @@
 cff-version: 1.2.0
-title: Global Family Justice Data Project
+message: "Please cite the versioned release and its archival identifier."
+title: "Global Family Justice Data Project"
 type: dataset
-version: 0.1.0
+version: 0.2.0
 date-released: 2026-07-19
-message: Please cite the versioned repository release and the original sources used for each observation.
 authors:
-  - family-names: Founding group
-    given-names: To be appointed
+  - name: "Global Family Justice Data Project contributors"
+abstract: "International family-justice source census, outcomes evidence catalogue, and harmonised data platform. Version 0.2.0 is a planning and hardening scaffold, not the stable v1 dataset."

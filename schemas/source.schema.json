@@ -3,6 +3,7 @@
   "title": "Source register row",
   "type": "object",
   "required": [
+    "schema_version",
     "source_id",
     "jurisdiction_id",
     "title",
@@ -10,9 +11,20 @@
     "official_status",
     "source_type",
     "source_url",
-    "last_verified"
+    "licence_status",
+    "rights_reviewed",
+    "redistribution_decision",
+    "priority",
+    "last_verified",
+    "source_status",
+    "review_status",
+    "next_review_due"
   ],
   "properties": {
+    "schema_version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
     "source_id": {
       "type": "string",
       "minLength": 3
@@ -22,16 +34,24 @@
       "minLength": 2
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "publisher": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "source_class": {
       "type": "string"
     },
     "official_status": {
-      "type": "string"
+      "enum": [
+        "official",
+        "authoritative_method",
+        "peer_reviewed",
+        "non_government",
+        "other"
+      ]
     },
     "source_type": {
       "type": "string"
@@ -62,7 +82,23 @@
       "format": "uri"
     },
     "licence_status": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
+    },
+    "rights_reviewed": {
+      "enum": [
+        "yes",
+        "no"
+      ]
+    },
+    "redistribution_decision": {
+      "enum": [
+        "unknown",
+        "metadata_only",
+        "redistributable",
+        "restricted",
+        "not_applicable"
+      ]
     },
     "priority": {
       "enum": [
@@ -77,6 +113,39 @@
     },
     "notes": {
       "type": "string"
+    },
+    "source_status": {
+      "enum": [
+        "active",
+        "changed",
+        "superseded",
+        "unavailable",
+        "withdrawn",
+        "unverified"
+      ]
+    },
+    "source_version": {
+      "type": "string"
+    },
+    "archived_url": {
+      "type": "string"
+    },
+    "checksum_sha256": {
+      "type": "string",
+      "pattern": "^$|^[a-f0-9]{64}$"
+    },
+    "review_status": {
+      "enum": [
+        "draft",
+        "provisional",
+        "reviewed",
+        "approved",
+        "withdrawn"
+      ]
+    },
+    "next_review_due": {
+      "type": "string",
+      "format": "date"
     }
   },
   "additionalProperties": false

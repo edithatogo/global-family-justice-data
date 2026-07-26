@@ -1,12 +1,13 @@
 name: New or updated source
-description: Propose an official or research source for the register
+description: Propose an official, research, or outcomes-evidence source
 title: "[SOURCE] "
-labels: [source]
+labels: ["source", "needs-triage"]
 body:
   - type: input
     id: jurisdiction
     attributes:
       label: Jurisdiction ID
+      description: Use the registry ID or propose one if the jurisdiction is not yet represented.
     validations:
       required: true
   - type: input
@@ -16,25 +17,45 @@ body:
     validations:
       required: true
   - type: input
+    id: publisher
+    attributes:
+      label: Publisher or responsible institution
+    validations:
+      required: true
+  - type: input
     id: url
     attributes:
       label: Canonical URL
     validations:
       required: true
-  - type: textarea
-    id: coverage
-    attributes:
-      label: Coverage and measures
-      description: Matter types, years, geographic detail, measures and format.
-    validations:
-      required: true
-  - type: textarea
-    id: definitions
-    attributes:
-      label: Key definitions or comparability concerns
   - type: input
     id: verified
     attributes:
       label: Date verified (YYYY-MM-DD)
     validations:
       required: true
+  - type: textarea
+    id: coverage
+    attributes:
+      label: Coverage and measures/outcomes
+      description: Include matter types, years, geography, measures or outcome domains, and source format.
+    validations:
+      required: true
+  - type: textarea
+    id: retrieval
+    attributes:
+      label: Retrieval details and exact provenance
+      description: Include file/table/page, dashboard filters, API parameters, or spreadsheet locations.
+  - type: textarea
+    id: language
+    attributes:
+      label: Original language and translated terminology
+  - type: textarea
+    id: rights
+    attributes:
+      label: Licence, rights, and redistribution information
+      description: A public URL does not by itself permit redistribution.
+  - type: textarea
+    id: definitions
+    attributes:
+      label: Key definitions, limitations, or comparability concerns

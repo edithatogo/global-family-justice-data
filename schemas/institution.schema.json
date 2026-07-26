@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Institution register row",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "institution_id",
+    "jurisdiction_id",
+    "name_original",
+    "institution_type",
+    "review_status"
+  ],
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "institution_id": {"type": "string", "minLength": 3},
+    "jurisdiction_id": {"type": "string", "minLength": 2},
+    "name_original": {"type": "string", "minLength": 1},
+    "name_english": {"type": "string"},
+    "institution_type": {"enum": ["court", "tribunal", "court_administration", "ministry", "statistics_office", "legal_aid", "child_protection", "maintenance_agency", "mediation_service", "customary_body", "religious_body", "research_body", "other"]},
+    "court_level": {"type": "string"},
+    "parent_institution_id": {"type": "string"},
+    "active_from": {"type": "string"},
+    "active_to": {"type": "string"},
+    "official_url": {"type": "string"},
+    "review_status": {"enum": ["draft", "provisional", "reviewed", "approved", "withdrawn"]},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}

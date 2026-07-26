@@ -1,13 +1,16 @@
 # Raw layer
 
-The raw layer is immutable and source-faithful.
+The raw layer preserves source identity and version. It contains source manifests and only those source files that may lawfully be redistributed.
 
-For each acquired source record:
+Each source manifest records:
 
-- keep the original filename;
-- record source ID, retrieval date and SHA-256 checksum;
-- record licence/access conditions;
-- preserve API query parameters or dashboard filters;
-- do not edit source files in place.
+- source ID and source version;
+- canonical URL and retrieval recipe;
+- retrieval timestamp and operator/job;
+- query parameters or dashboard filters;
+- original filename, media type, size, and SHA-256 checksum;
+- rights review and redistribution decision;
+- storage or archival reference;
+- source status and supersession history.
 
-Large or restricted source files should live in approved object storage or an archival repository. This Git repository should retain a manifest and access/provenance information. Do not commit documents when redistribution is not permitted.
+Raw inputs are immutable within a release. New source versions receive new manifest entries. Large, restricted, or licence-uncertain files belong in approved object or archival storage, not Git. Restricted person-level data do not belong in this public architecture.

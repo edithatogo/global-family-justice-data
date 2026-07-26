@@ -1,0 +1,59 @@
+name: Release gate review
+description: Assess a milestone or release candidate against the evidence matrix
+title: "[GATE] "
+labels: ["release-gate", "v1"]
+body:
+  - type: input
+    id: candidate
+    attributes:
+      label: Milestone or release candidate
+      placeholder: e.g. v0.8 or v0.9.0-rc1
+    validations:
+      required: true
+  - type: dropdown
+    id: gate
+    attributes:
+      label: Gate
+      options:
+        - Gate 1 Product boundary and governance
+        - Gate 2 Global discovery completeness
+        - Gate 3 Source catalogue and preservation
+        - Gate 4 Ontology and data contracts
+        - Gate 5 Extraction, transformation, and lineage
+        - Gate 6 Scientific and data quality
+        - Gate 7 Outcomes evidence integrity
+        - Gate 8 Security, privacy, ethics, and legal compliance
+        - Gate 9 Engineering and reproducibility
+        - Gate 10 Product, documentation, and accessibility
+        - Gate 11 Operations, resilience, and support
+        - Gate 12 Sustainability and preservation
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Link to tests, audits, decision records, reports, PRs, and rehearsals.
+    validations:
+      required: true
+  - type: textarea
+    id: findings
+    attributes:
+      label: Open findings, waivers, and risks
+  - type: dropdown
+    id: decision
+    attributes:
+      label: Proposed decision
+      options:
+        - Pass
+        - Fail
+        - Rework required
+        - Conditional waiver proposed
+    validations:
+      required: true
+  - type: textarea
+    id: approvals
+    attributes:
+      label: Required approvers
+    validations:
+      required: true

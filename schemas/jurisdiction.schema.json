@@ -3,39 +3,32 @@
   "title": "Jurisdiction register row",
   "type": "object",
   "required": [
+    "schema_version",
     "jurisdiction_id",
     "name",
     "level",
-    "coverage_status"
+    "coverage_status",
+    "review_status",
+    "coverage_confidence",
+    "second_reviewed",
+    "next_review_due"
   ],
   "properties": {
-    "jurisdiction_id": {
-      "type": "string"
-    },
-    "name": {
-      "type": "string"
-    },
-    "level": {
-      "type": "string"
-    },
-    "parent_jurisdiction_id": {
-      "type": "string"
-    },
-    "legal_system_family": {
-      "type": "string"
-    },
-    "search_languages": {
-      "type": "string"
-    },
-    "pilot_phase": {
-      "type": "string"
-    },
-    "coverage_status": {
-      "type": "string"
-    },
-    "notes": {
-      "type": "string"
-    }
+    "schema_version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "jurisdiction_id": {"type": "string", "minLength": 2},
+    "name": {"type": "string", "minLength": 1},
+    "level": {"enum": ["international", "national", "national_federal", "country_system", "state", "province", "territory", "canton", "subnational", "other"]},
+    "parent_jurisdiction_id": {"type": "string"},
+    "legal_system_family": {"type": "string"},
+    "search_languages": {"type": "string"},
+    "pilot_phase": {"type": "string"},
+    "coverage_status": {"enum": ["not_started", "search_in_progress", "official_source_found", "non_government_source_only", "no_public_source_found", "source_inaccessible", "direct_contact_pending", "verified_complete", "review_due", "withdrawn"]},
+    "notes": {"type": "string"},
+    "review_status": {"enum": ["draft", "provisional", "reviewed", "approved", "withdrawn"]},
+    "coverage_confidence": {"enum": ["low", "medium", "high"]},
+    "search_completed_at": {"type": "string"},
+    "second_reviewed": {"enum": ["yes", "no"]},
+    "next_review_due": {"type": "string", "format": "date"}
   },
   "additionalProperties": false
 }

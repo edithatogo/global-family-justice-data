@@ -1,0 +1,52 @@
+schema_version = "1.0"
+portfolio_id = "GFJD"
+canonical_control_plane = "github"
+
+[[products]]
+id = "gfjd-platform"
+class = "canonical_source"
+status = "active"
+authority = "github"
+repository = "PENDING/global-family-justice-data"
+local_path = "."
+description = "Core software, contracts, programme conductor and release compiler."
+
+[[products]]
+id = "gfjd-source-catalogue"
+class = "generated_distribution"
+status = "planned"
+authority = "gfjd-platform-release"
+huggingface_repository = "PENDING/gfjd-source-catalogue"
+publication_mode = "generated_only"
+
+[[products]]
+id = "gfjd-observations"
+class = "generated_distribution"
+status = "planned"
+authority = "gfjd-platform-release"
+huggingface_repository = "PENDING/gfjd-observations"
+publication_mode = "generated_only"
+
+[[products]]
+id = "gfjd-outcomes-evidence"
+class = "generated_distribution"
+status = "planned"
+authority = "gfjd-platform-release"
+huggingface_repository = "PENDING/gfjd-outcomes-evidence"
+publication_mode = "generated_only"
+
+[[products]]
+id = "gfjd-extraction-benchmark"
+class = "experimental"
+status = "planned"
+authority = "github"
+huggingface_repository = "PENDING/gfjd-extraction-benchmark"
+publication_mode = "generated_only"
+
+[[products]]
+id = "gfjd-explorer"
+class = "generated_distribution"
+status = "planned"
+authority = "gfjd-platform-release"
+huggingface_repository = "PENDING/gfjd-explorer"
+publication_mode = "generated_only"

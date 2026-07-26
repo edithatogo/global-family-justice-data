@@ -1,0 +1,130 @@
+[bootstrap]
+schema_version = "1.0"
+repository_name = "global-family-justice-data"
+description = "International family-justice data source census, harmonisation platform and evidence-governed release system"
+default_branch = "main"
+default_visibility = "private"
+remote_name = "origin"
+initial_commit_message = "chore: initialise Global Family Justice Data platform"
+receipt_directory = "build/bootstrap"
+max_command_output_bytes = 20000
+
+[git]
+pull_ff = "only"
+fetch_prune = true
+rerere_enabled = true
+autocrlf = "input"
+commit_gpgsign = false
+
+[github]
+host = "github.com"
+owner = ""
+repository = "global-family-justice-data"
+visibility = "private"
+homepage = ""
+enable_issues = true
+enable_projects = true
+enable_wiki = false
+enable_discussions = false
+allow_merge_commit = false
+allow_squash_merge = true
+allow_rebase_merge = true
+delete_branch_on_merge = true
+apply_controls_by_default = false
+topics = [
+  "family-justice",
+  "court-statistics",
+  "open-data",
+  "comparative-justice",
+  "data-engineering",
+  "research-infrastructure",
+]
+release_environments = ["release-candidate", "stable-release"]
+
+[github.rules]
+require_pull_request = true
+required_approving_review_count = 1
+require_code_owner_review = true
+require_conversation_resolution = true
+require_linear_history = true
+require_signed_commits = false
+block_force_pushes = true
+block_deletions = true
+required_checks = [
+  "Static contracts and repository policy",
+  "Branch coverage and quality budgets",
+  "Integration and failure-boundary rehearsals",
+]
+
+[huggingface]
+enabled = true
+namespace = ""
+private_by_default = true
+create_missing_by_default = false
+
+[[huggingface.repositories]]
+id = "source-catalogue"
+name = "gfjd-source-catalogue"
+repo_type = "dataset"
+visibility = "private"
+publication_mode = "generated_only"
+
+[[huggingface.repositories]]
+id = "observations"
+name = "gfjd-observations"
+repo_type = "dataset"
+visibility = "private"
+publication_mode = "generated_only"
+
+[[huggingface.repositories]]
+id = "outcomes-evidence"
+name = "gfjd-outcomes-evidence"
+repo_type = "dataset"
+visibility = "private"
+publication_mode = "generated_only"
+
+[[huggingface.repositories]]
+id = "extraction-benchmark"
+name = "gfjd-extraction-benchmark"
+repo_type = "dataset"
+visibility = "private"
+publication_mode = "generated_only"
+
+[[huggingface.repositories]]
+id = "explorer"
+name = "gfjd-explorer"
+repo_type = "space"
+visibility = "private"
+publication_mode = "generated_only"
+sdk = "static"
+
+[discovery]
+max_depth = 6
+max_repositories = 1000
+include_hidden = false
+keywords = [
+  "gfjd",
+  "family",
+  "justice",
+  "court",
+  "courts",
+  "judicial",
+  "dataset",
+  "data",
+  "outcomes",
+  "evidence",
+]
+exclude_directories = [
+  ".cache",
+  ".git",
+  ".hg",
+  ".svn",
+  ".tox",
+  ".venv",
+  "__pycache__",
+  "Applications",
+  "Library",
+  "node_modules",
+  "site-packages",
+  "target",
+]

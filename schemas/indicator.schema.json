@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Indicator dictionary row",
+  "type": "object",
+  "required": [
+    "indicator_id",
+    "domain",
+    "name",
+    "definition",
+    "preferred_statistic",
+    "preferred_unit",
+    "core_release"
+  ],
+  "properties": {
+    "indicator_id": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "definition": {
+      "type": "string"
+    },
+    "preferred_statistic": {
+      "type": "string"
+    },
+    "preferred_unit": {
+      "type": "string"
+    },
+    "numerator": {
+      "type": "string"
+    },
+    "denominator": {
+      "type": "string"
+    },
+    "core_release": {
+      "type": "string"
+    },
+    "comparability_notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,40 @@
+name: New or updated source
+description: Propose an official or research source for the register
+title: "[SOURCE] "
+labels: [source]
+body:
+  - type: input
+    id: jurisdiction
+    attributes:
+      label: Jurisdiction ID
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Source title
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Canonical URL
+    validations:
+      required: true
+  - type: textarea
+    id: coverage
+    attributes:
+      label: Coverage and measures
+      description: Matter types, years, geographic detail, measures and format.
+    validations:
+      required: true
+  - type: textarea
+    id: definitions
+    attributes:
+      label: Key definitions or comparability concerns
+  - type: input
+    id: verified
+    attributes:
+      label: Date verified (YYYY-MM-DD)
+    validations:
+      required: true

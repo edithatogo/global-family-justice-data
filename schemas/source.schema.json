@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source register row",
+  "type": "object",
+  "required": [
+    "source_id",
+    "jurisdiction_id",
+    "title",
+    "publisher",
+    "official_status",
+    "source_type",
+    "source_url",
+    "last_verified"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "jurisdiction_id": {
+      "type": "string",
+      "minLength": 2
+    },
+    "title": {
+      "type": "string"
+    },
+    "publisher": {
+      "type": "string"
+    },
+    "source_class": {
+      "type": "string"
+    },
+    "official_status": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string"
+    },
+    "frequency": {
+      "type": "string"
+    },
+    "coverage_note": {
+      "type": "string"
+    },
+    "matter_types": {
+      "type": "string"
+    },
+    "measure_domains": {
+      "type": "string"
+    },
+    "format": {
+      "type": "string"
+    },
+    "access_method": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "licence_status": {
+      "type": "string"
+    },
+    "priority": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "last_verified": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Jurisdiction register row",
+  "type": "object",
+  "required": [
+    "jurisdiction_id",
+    "name",
+    "level",
+    "coverage_status"
+  ],
+  "properties": {
+    "jurisdiction_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string"
+    },
+    "parent_jurisdiction_id": {
+      "type": "string"
+    },
+    "legal_system_family": {
+      "type": "string"
+    },
+    "search_languages": {
+      "type": "string"
+    },
+    "pilot_phase": {
+      "type": "string"
+    },
+    "coverage_status": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

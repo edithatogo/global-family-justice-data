@@ -1,0 +1,21 @@
+jurisdiction_id,name,level,parent_jurisdiction_id,legal_system_family,search_languages,pilot_phase,coverage_status,notes
+INT,International / cross-national,international,,multi-system,Multiple,1,search_in_progress,International frameworks and cross-country sources
+AUS,Australia,national,,common_law,English,1,official_source_found,Federal family-law jurisdiction; some related protection/child matters are state-based
+GBR-EAW,England and Wales,country_system,GBR,common_law,"English, Welsh",1,official_source_found,Separate legal and statistical system within the UK
+NZL,New Zealand,national,,common_law,"English, Māori",1,official_source_found,National court reporting with family-specific tables and wider workload reporting
+SGP,Singapore,national,,mixed_common_law,"English, Chinese, Malay, Tamil",1,official_source_found,Specialist Family Justice Courts
+CAN-BC,British Columbia,province,CAN,common_law,"English, French",1,official_source_found,Provincial Court publishes prospective time-to-trial reports
+USA-CA,California,state,USA,common_law,"English, Spanish",1,official_source_found,State-level court statistics; local court heterogeneity
+USA-MN,Minnesota,state,USA,common_law,English,1,not_started,Candidate smaller US state for pilot contrast
+ESP,Spain,national,,civil_law,"Spanish, Catalan, Basque, Galician",1,official_source_found,Judicial statistics include estimated duration by procedure and geography
+BRA,Brazil,national_federal,,civil_law,Portuguese,1,official_source_found,National judiciary metadata platform with court-level data
+IND,India,national_federal,,mixed_common_law,"Hindi, English, regional languages",1,official_source_found,National Judicial Data Grid; family classification requires testing
+MEX,Mexico,national_federal,,civil_law,"Spanish, Indigenous languages",1,official_source_found,National justice census includes family matters
+ZAF,South Africa,national,,mixed,English and official languages,1,official_source_found,National judiciary performance reporting; family-specific granularity to assess
+JPN,Japan,national,,civil_law,Japanese,2,search_in_progress,Specialist family courts and judicial statistics
+FRA,France,national,,civil_law,French,2,not_started,Justice ministry statistical publications
+NLD,Netherlands,national,,civil_law,Dutch,2,not_started,Council for the Judiciary and national statistics sources
+SWE,Sweden,national,,civil_law,Swedish,2,not_started,Court administration and official statistics
+KEN,Kenya,national,,mixed_common_law,"English, Swahili",2,not_started,Judiciary annual reporting and children/family courts
+CHL,Chile,national,,civil_law,Spanish,2,not_started,Specialist family courts and judicial data
+PHL,Philippines,national,,mixed,"Filipino, English",2,not_started,Family courts and Supreme Court reporting

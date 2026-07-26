@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+title: Global Family Justice Data Project
+type: dataset
+version: 0.1.0
+date-released: 2026-07-19
+message: Please cite the versioned repository release and the original sources used for each observation.
+authors:
+  - family-names: Founding group
+    given-names: To be appointed

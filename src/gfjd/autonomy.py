@@ -19,6 +19,7 @@ CONTEXT_FILES = (
     "CODEX_IMPLEMENTATION_PROMPT.md",
     "IMPLEMENTATION_STATUS.md",
     "PROJECT_PLAN.md",
+    "docs/governance/t0-acceptance-runbook.md",
     "config/project.toml",
     "config/tracks.toml",
     "config/stage_gates.toml",

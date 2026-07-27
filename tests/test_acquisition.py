@@ -88,9 +88,7 @@ def test_local_acquisition_rejects_expected_checksum_mismatch(
         )
 
 
-def test_local_acquisition_rejects_missing_input(
-    project_root: Path, tmp_path: Path
-) -> None:
+def test_local_acquisition_rejects_missing_input(project_root: Path, tmp_path: Path) -> None:
     with pytest.raises(AcquisitionError, match="does not exist"):
         acquire_local_file(
             load_project(project_root),

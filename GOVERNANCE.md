@@ -75,3 +75,23 @@ Publish:
 - annual work programme and high-level progress.
 
 Detailed roles and RACI are in `docs/governance/roles-and-raci.md`.
+
+## 7. Single-maintainer operation
+
+A single repository maintainer may implement controls, assemble evidence, operate
+the harness and prepare decision records. That maintainer may not represent the
+same work as independently assured, appoint a deputy without that person's
+agreement, or sign both delivery and independent-assurance fields.
+
+Until governance bodies are constituted, repository work proceeds under a
+fail-closed interim model:
+
+- technical changes require tests, review tooling and checksum-bound evidence;
+- evidence prepared by the maintainer remains `in_review`;
+- approval fields remain blank until a genuine named reviewer acts;
+- publication and stable-release decisions remain blocked;
+- external review can be asynchronous and narrowly scoped to a fixed evidence
+  digest, allowing one maintainer to continue unrelated repository work.
+
+The exact evidence and command sequence is documented in
+`docs/governance/t0-acceptance-runbook.md`.

@@ -1027,7 +1027,8 @@ class Conductor:
         risk_failures = [
             risk.id
             for risk in self.risks.values()
-            if risk.residual_severity in blocking_risk_severities and risk.status != "closed"
+            if risk.residual_severity in blocking_risk_severities
+            and risk.status not in {"accepted", "closed"}
         ]
         blocking_defect_severities = set(
             conductor_cfg.get("blocking_defect_severities", ["P0", "P1"])

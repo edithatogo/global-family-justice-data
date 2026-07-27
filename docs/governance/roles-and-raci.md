@@ -16,7 +16,10 @@
 | Lived-experience/child-rights chair | Harms, outcome priorities, communication and participation quality |
 | Independent release assurer | Challenges evidence and recommends go/no-go; does not own delivery |
 
-Every accountable role has a named deputy before G5.
+Every critical track has a named, consenting deputy before G1 acceptance. One
+person may hold multiple delivery roles during bootstrap, but cannot act as their
+own deputy or as the independent assurer of work they produced. Role assignment is
+an institutional or personal commitment, not a username inferred from Git history.
 
 ## 2. Decision classes
 

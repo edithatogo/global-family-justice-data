@@ -76,6 +76,28 @@ def test_controlled_mutation_is_audited(project_root: Path, tmp_path: Path) -> N
     assert event["record_key"] == {"risk_id": "R01"}
 
 
+def test_accountably_accepted_risk_no_longer_blocks_gate(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = tmp_path / "repo"
+    shutil.copytree(
+        project_root,
+        root,
+        ignore=shutil.ignore_patterns(".git", ".pytest_cache", "__pycache__", "build", "dist"),
+    )
+    conductor = Conductor.load(root)
+    assert "R02" in conductor.gate_result("G1").risk_failures
+
+    conductor.update_risk(
+        "R02",
+        actor="accountable risk authority",
+        status="accepted",
+        notes="Fixed review record supplied for test",
+    )
+
+    assert "R02" not in conductor.gate_result("G1").risk_failures
+
+
 def test_evidence_review_enforces_independence_and_unlocks_work_acceptance(
     project_root: Path, tmp_path: Path
 ) -> None:

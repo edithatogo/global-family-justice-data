@@ -79,13 +79,15 @@ release-rehearsal:
 	PYTHONPATH=src $(PYTHON) -m gfjd release verify build/rehearsal/gfjd-$(REHEARSAL_VERSION)
 
 integration-rehearsals:
-	rm -rf build/demo build/evidence build/comparability build/warehouse build/backup build/restore-rehearsal build/bootstrap-rehearsal build/governance build/gate-packs
+	rm -rf build/demo build/evidence build/comparability build/census build/warehouse build/backup build/restore-rehearsal build/bootstrap-rehearsal build/governance build/gate-packs
 	PYTHONPATH=src $(PYTHON) -m gfjd demo run --output build/demo
 	PYTHONPATH=src $(PYTHON) -m gfjd demo verify --output build/demo
 	PYTHONPATH=src $(PYTHON) -m gfjd evidence build --output build/evidence --as-of 2026-07-27
 	PYTHONPATH=src $(PYTHON) -m gfjd evidence verify --output build/evidence
 	PYTHONPATH=src $(PYTHON) -m gfjd comparability build --input 'build/demo/gold/*.csv' --output build/comparability
 	PYTHONPATH=src $(PYTHON) -m gfjd comparability verify --output build/comparability
+	PYTHONPATH=src $(PYTHON) -m gfjd census build --output build/census
+	PYTHONPATH=src $(PYTHON) -m gfjd census verify --output build/census
 	PYTHONPATH=src $(PYTHON) -m gfjd warehouse build --output build/warehouse/gfjd.sqlite --source-date-epoch $(SOURCE_DATE_EPOCH)
 	PYTHONPATH=src $(PYTHON) -m gfjd warehouse verify build/warehouse/gfjd.sqlite
 	PYTHONPATH=src $(PYTHON) -m gfjd resilience backup --output build/backup --source-date-epoch $(SOURCE_DATE_EPOCH)

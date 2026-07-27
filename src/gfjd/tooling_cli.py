@@ -140,6 +140,15 @@ def register_tooling_commands(
     comp_verify = comp_sub.add_parser("verify")
     comp_verify.add_argument("--output", type=Path, default=Path("build/comparability"))
 
+    census = commands.add_parser(
+        "census", help="Build or verify conservative census readiness reports"
+    )
+    census_sub = census.add_subparsers(dest="census_command", required=True)
+    census_build = census_sub.add_parser("build")
+    census_build.add_argument("--output", type=Path, default=Path("build/census"))
+    census_verify = census_sub.add_parser("verify")
+    census_verify.add_argument("--output", type=Path, default=Path("build/census"))
+
     resilience = commands.add_parser(
         "resilience", help="Build, verify and rehearse critical-state backups"
     )
@@ -330,6 +339,21 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
             return 0
         return _print_errors(
             "Comparability audit", verify_comparability_audit(output, project_or_root=project)
+        )
+
+    if command == "census":
+        from .census import build_census_readiness, verify_census_readiness
+
+        output = _resolve(project, args.output)
+        if args.census_command == "build":
+            print(
+                json.dumps(
+                    build_census_readiness(project, output).to_dict(), indent=2, sort_keys=True
+                )
+            )
+            return 0
+        return _print_errors(
+            "Census readiness", verify_census_readiness(output, project_or_root=project)
         )
 
     if command == "resilience":

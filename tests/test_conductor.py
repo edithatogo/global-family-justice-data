@@ -150,4 +150,4 @@ def test_invalid_work_transition_is_rejected(project_root: Path, tmp_path: Path)
     root = _copy_project(project_root, tmp_path / "repo")
     conductor = Conductor.load(root)
     with pytest.raises(ValueError, match="Invalid work transition"):
-        conductor.set_work_status("WI-G2-01", "accepted", actor="reviewer")
+        conductor.set_work_status("WI-G2-02", "accepted", actor="reviewer")

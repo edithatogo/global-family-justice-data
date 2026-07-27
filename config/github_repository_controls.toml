@@ -94,5 +94,5 @@ stable_release_artifacts_days = 90
 provenance_artifacts_days = 90
 
 [ownership]
-codeowners_status = "pending_real_handles"
+codeowners_status = "verified_real_handles"
 minimum_codeowners = 2

@@ -15,6 +15,12 @@ or assert institutional coverage without source and review evidence.
    permissions](https://www.coe.int/en/web/portal/copyright-licensing-permissions));
    HCCH publishes separate digital-publication sales terms ([HCCH terms](https://www.hcch.net/en/publications-and-studies/publications2/general-terms-conditions-sale)).
    These links are leads for review, not a licence grant.
+
+   NCSC states that its library materials are copyright-protected and directs
+   permission requests to its library ([NCSC permissions guidance](https://www.ncsc.org/ncsc-library-collection-research-hub)).
+   WJP publishes a copyright policy and separate terms ([copyright policy](https://worldjusticeproject.org/copyright-policy),
+   [terms of service](https://worldjusticeproject.org/terms-service)); these do
+   not by themselves establish redistribution rights for the dataset.
 2. **Pilot universe.** Populate `data/census/jurisdiction_universe.csv` only
    from approved pilot scope; attach a reviewed coverage assessment for every
    included jurisdiction.

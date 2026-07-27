@@ -129,3 +129,19 @@ schema = "schemas/direct_enquiry.schema.json"
 required = true
 allow_empty = true
 layer = "census"
+
+[[contracts]]
+id = "census_institution_map"
+path = "data/census/institution_map.csv"
+schema = "schemas/institution.schema.json"
+required = true
+allow_empty = true
+layer = "census"
+
+[[contracts]]
+id = "census_review_ledger"
+path = "data/census/review_ledger.csv"
+schema = "schemas/review.schema.json"
+required = true
+allow_empty = true
+layer = "census"

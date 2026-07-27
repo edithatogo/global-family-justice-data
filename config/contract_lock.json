@@ -109,7 +109,7 @@
     {
       "kind": "toml_contract",
       "path": "config/data_contracts.toml",
-      "sha256": "789910106144522062c2ddc4f66b02468f9e48c1f40983111877ebcae7ef1139"
+      "sha256": "e49314a867c06accdd34339c7662c7e285606a8af8f983752ff97bf458fb1ee6"
     },
     {
       "kind": "csv_header",
@@ -188,6 +188,16 @@
     },
     {
       "kind": "csv_header",
+      "path": "data/census/institution_map.csv",
+      "sha256": "d579da270ad18819e071fb850f75591ffcb8bb12efb35a3ce4e173266fe7da09"
+    },
+    {
+      "kind": "csv_header",
+      "path": "data/census/review_ledger.csv",
+      "sha256": "6597563c6d47f6ec01939ef450e05aef33130ebd293019e3ec16e7af23c4552a"
+    },
+    {
+      "kind": "csv_header",
       "path": "programme/decision_log.csv",
       "sha256": "6c404e69164e895a5ed83dc55b11e427b46af4e9c7e16e658f9c074ec1fcdae9"
     },
@@ -227,8 +237,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 45,
-  "inventory_sha256": "c2576f68d10584403ecb9ce0650cfa0dc107c449f62c011daa68c964208ec62f",
+  "entry_count": 47,
+  "inventory_sha256": "c2b63d6bbe2123e46fd95b7f410dbc796d31eb53993120300bd49e287e633d92",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

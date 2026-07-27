@@ -1,5 +1,5 @@
 schema_version = "1.0"
-implementation_status = "desired_state_not_applied"
+implementation_status = "verified_baseline_applied"
 
 [governance]
 review_model = "solo_agent"

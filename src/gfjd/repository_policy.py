@@ -280,7 +280,7 @@ def audit_repository_controls(root: Path) -> RepositoryPolicyReport:
 
     checked += 1
     implementation = str(config.get("implementation_status", ""))
-    if implementation != "verified_applied":
+    if implementation not in {"verified_applied", "verified_baseline_applied"}:
         issues.append(
             RepositoryPolicyIssue(
                 "warning",

@@ -88,6 +88,11 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/research_pack.schema.json",
+      "sha256": "b6ac34ed32458255cee299dd2d4c9d030c27d487adccccbb902a391748a355a5"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/review.schema.json",
       "sha256": "ea2408ae7487b89d054c7aa9f66807588d85e1326d99df32cdc183a908a46b33"
     },
@@ -237,8 +242,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 47,
-  "inventory_sha256": "c2b63d6bbe2123e46fd95b7f410dbc796d31eb53993120300bd49e287e633d92",
+  "entry_count": 48,
+  "inventory_sha256": "36bd513dc4a60b503505da07b5090d28b245aaadf1e83d08a3bc18a37445e00c",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

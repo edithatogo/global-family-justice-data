@@ -37,6 +37,18 @@ def build_research_pack(project: Project, jurisdiction_id: str, output_root: Pat
         "statistics/open data",
         "annual reports",
     )
+    search_plan: list[dict[str, str]] = [
+        {
+            "domain": domain,
+            "language": language,
+            "query_guidance": (
+                f"Search official {domain} sources using registered terminology; "
+                "record results separately."
+            ),
+        }
+        for language in languages
+        for domain in domains
+    ]
     pack = {
         "schema_version": "1.0",
         "jurisdiction_id": jurisdiction_id,
@@ -59,18 +71,7 @@ def build_research_pack(project: Project, jurisdiction_id: str, output_root: Pat
             for row in sources
             if row.get("jurisdiction_id") in {jurisdiction_id, ""}
         ],
-        "search_plan": [
-            {
-                "domain": domain,
-                "language": language,
-                "query_guidance": (
-                    f"Search official {domain} sources using registered terminology; "
-                    "record results separately."
-                ),
-            }
-            for language in languages
-            for domain in domains
-        ],
+        "search_plan": search_plan,
         "limitations": [
             "This pack is not evidence.",
             "No source finding, coverage state, or enquiry outcome is inferred.",
@@ -93,7 +94,7 @@ def build_research_pack(project: Project, jurisdiction_id: str, output_root: Pat
     write_csv(
         destination / "search-plan.csv",
         ["domain", "language", "query_guidance"],
-        pack["search_plan"],
+        search_plan,
     )
     write_json(
         destination / "MANIFEST.json",

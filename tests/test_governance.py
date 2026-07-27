@@ -26,6 +26,14 @@ def test_governance_pack_is_complete_and_fail_closed(tmp_path: Path) -> None:
         "G5",
         "G6",
     }
+    for gate_id in ("G1", "G2", "G3", "G4", "G5", "G6"):
+        gate_dir = tmp_path / "gate-packs" / gate_id
+        assert {path.name for path in gate_dir.iterdir()} == {
+            "MANIFEST.sha256",
+            "criterion-matrix.csv",
+            "evidence-index.csv",
+            "gate-pack.json",
+        }
 
 
 def test_governance_pack_detects_tampering(tmp_path: Path) -> None:
@@ -34,7 +42,8 @@ def test_governance_pack_detects_tampering(tmp_path: Path) -> None:
     (tmp_path / "release-decision-template.json").write_text("{}\n", encoding="utf-8")
 
     assert verify_governance_pack(tmp_path) == [
-        "checksum mismatch: release-decision-template.json"
+        "checksum mismatch: release-decision-template.json",
+        "release decision artifacts disagree",
     ]
 
 
@@ -46,3 +55,22 @@ def test_governance_pack_rejects_manifest_path_injection(tmp_path: Path) -> None
     )
 
     assert verify_governance_pack(tmp_path) == ["manifest artifact set is invalid"]
+
+
+def test_governance_pack_reports_malformed_json(tmp_path: Path) -> None:
+    project = load_project()
+    build_governance_pack(project, tmp_path, as_of=date(2026, 7, 27))
+    (tmp_path / "manifest.json").write_text("{", encoding="utf-8")
+
+    assert verify_governance_pack(tmp_path)[0].startswith("invalid manifest.json:")
+
+
+def test_governance_pack_detects_per_gate_tampering(tmp_path: Path) -> None:
+    project = load_project()
+    build_governance_pack(project, tmp_path, as_of=date(2026, 7, 27))
+    path = tmp_path / "gate-packs" / "G1" / "evidence-index.csv"
+    path.write_text("tampered\n", encoding="utf-8")
+
+    assert verify_governance_pack(tmp_path) == [
+        "G1: checksum mismatch: evidence-index.csv"
+    ]

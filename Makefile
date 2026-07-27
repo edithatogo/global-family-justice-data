@@ -76,7 +76,7 @@ release-rehearsal:
 	PYTHONPATH=src $(PYTHON) -m gfjd release verify build/rehearsal/gfjd-$(REHEARSAL_VERSION)
 
 integration-rehearsals:
-	rm -rf build/demo build/evidence build/comparability build/warehouse build/backup build/restore-rehearsal build/bootstrap-rehearsal build/governance
+	rm -rf build/demo build/evidence build/comparability build/warehouse build/backup build/restore-rehearsal build/bootstrap-rehearsal build/governance build/gate-packs
 	PYTHONPATH=src $(PYTHON) -m gfjd demo run --output build/demo
 	PYTHONPATH=src $(PYTHON) -m gfjd demo verify --output build/demo
 	PYTHONPATH=src $(PYTHON) -m gfjd evidence build --output build/evidence --as-of 2026-07-27

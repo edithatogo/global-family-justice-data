@@ -175,9 +175,15 @@ def register_tooling_commands(
     governance_sub = governance.add_subparsers(dest="governance_command", required=True)
     governance_build = governance_sub.add_parser("build")
     governance_build.add_argument("--output", type=Path, default=Path("build/governance"))
+    governance_build.add_argument(
+        "--gate-output", type=Path, default=Path("build/gate-packs")
+    )
     governance_build.add_argument("--as-of", type=date.fromisoformat)
     governance_verify = governance_sub.add_parser("verify")
     governance_verify.add_argument("--output", type=Path, default=Path("build/governance"))
+    governance_verify.add_argument(
+        "--gate-output", type=Path, default=Path("build/gate-packs")
+    )
 
 
 def _add_bootstrap_discovery(parser: argparse.ArgumentParser) -> None:
@@ -358,10 +364,20 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
 
         output = _resolve(project, args.output)
         if args.governance_command == "build":
-            governance_result = build_governance_pack(project, output, as_of=args.as_of)
+            governance_result = build_governance_pack(
+                project,
+                output,
+                as_of=args.as_of,
+                gate_output=_resolve(project, args.gate_output),
+            )
             print(json.dumps(governance_result.to_dict(), indent=2, sort_keys=True))
             return 0
-        return _print_errors("Governance pack", verify_governance_pack(output))
+        return _print_errors(
+            "Governance pack",
+            verify_governance_pack(
+                output, gate_output=_resolve(project, args.gate_output)
+            ),
+        )
     return None
 
 

@@ -1,0 +1,3 @@
+source_id,original_url,original_access_status,fallback_url,fallback_access_status,artifact_kind,equivalence,rights_status,notes
+INT-CEPEJ-STAT,https://www.coe.int/en/web/cepej/cepej-stat,blocked_403,https://rm.coe.int/cepej-evaluation-report-2024-general-analyses/1680b1e91d,downloaded,official_report,not_equivalent_to_raw_database,unknown,Use only as a methodology/report fallback; raw CEPEJ-STAT values still require browser/API access and review.
+INT-CEPEJ-2024,https://www.coe.int/en/web/cepej/special-file,blocked_403,https://rm.coe.int/cepej-evaluation-report-2024-general-analyses/1680b1e91d,downloaded,official_report,official_report_fallback,unknown,2024 evaluation cycle report based on 2022 data; retain original landing page and review rights before evidence use.

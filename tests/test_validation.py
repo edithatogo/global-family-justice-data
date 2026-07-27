@@ -7,8 +7,10 @@ from pathlib import Path
 
 from jsonschema import Draft202012Validator
 
-from gfjd.io import read_json
+from gfjd.io import read_json, write_csv
 from gfjd.validation import validate_repository
+
+from .helpers import eligible_observation, observation_headers
 
 
 def _copy_project(project_root: Path, destination: Path) -> Path:
@@ -60,3 +62,34 @@ def test_unknown_source_jurisdiction_is_detected(project_root: Path, tmp_path: P
 def test_future_source_verification_is_detected(project_root: Path) -> None:
     report = validate_repository(project_root, today=date(2026, 7, 18))
     assert any(issue.code == "SOURCE_VERIFIED_IN_FUTURE" for issue in report.errors)
+
+
+def test_timeliness_observation_requires_complete_clock_and_denominator(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _copy_project(project_root, tmp_path / "repo")
+    rows = [
+        eligible_observation({"stage_start": "", "observation_id": "OBS_TEST_0002"}),
+        eligible_observation({"stage_end": "", "observation_id": "OBS_TEST_0003"}),
+        eligible_observation({"denominator_definition": "", "observation_id": "OBS_TEST_0004"}),
+    ]
+    write_csv(root / "data/gold/timeliness.csv", observation_headers(root), rows)
+
+    report = validate_repository(root, today=date(2026, 7, 19))
+
+    assert (
+        sum(issue.code == "OBSERVATION_TIMELINESS_SEMANTICS_INCOMPLETE" for issue in report.errors)
+        == 3
+    )
+
+
+def test_methods_contract_manifest_detects_dictionary_drift(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _copy_project(project_root, tmp_path / "repo")
+    dictionary = root / "data/seed/indicator_dictionary.csv"
+    dictionary.write_text(dictionary.read_text(encoding="utf-8") + "\n", encoding="utf-8")
+
+    report = validate_repository(root, today=date(2026, 7, 19))
+
+    assert any(issue.code == "METHODS_CONTRACT_ARTIFACT_DRIFT" for issue in report.errors)

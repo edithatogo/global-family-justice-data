@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import math
 from datetime import date
 from pathlib import Path
@@ -9,6 +10,7 @@ from typing import Any
 from urllib.parse import urlparse
 
 from .conductor import Conductor
+from .io import sha256_file
 from .project import Project, load_project
 from .reporting import Report, Severity
 from .schema_validation import ValidatedTable, tables_by_contract, validate_contracts
@@ -27,6 +29,7 @@ def validate_project(
     report = Report("GFJD project validation")
     tables = validate_contracts(project, report)
     _semantic_validation(project, tables, report, as_of=as_of)
+    _validate_methods_contract_manifest(project, report)
 
     try:
         conductor = Conductor.load(project)
@@ -289,6 +292,90 @@ def _semantic_validation(
     )
 
 
+def _validate_methods_contract_manifest(project: Project, report: Report) -> None:
+    """Require the T1 evidence bundle to bind its v0.3 semantic inputs."""
+
+    relative = "docs/methods/v0.3-methods-contract-manifest.json"
+    manifest_path = project.root / relative
+    required_paths = {
+        "docs/methods/scope-and-unit-of-analysis.md",
+        "docs/methods/indicator-framework.md",
+        "data/seed/jurisdiction_register.csv",
+        "data/seed/institution_register.csv",
+        "data/seed/matter_type_dictionary.csv",
+        "data/seed/indicator_dictionary.csv",
+        "schemas/indicator.schema.json",
+        "schemas/observation.schema.json",
+    }
+    try:
+        payload = json.loads(manifest_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        report.error(
+            "METHODS_CONTRACT_MANIFEST_INVALID",
+            f"Could not read methods contract manifest: {exc}",
+            path=relative,
+        )
+        return
+    if not isinstance(payload, dict) or payload.get("ontology_version") != "0.3":
+        report.error(
+            "METHODS_CONTRACT_MANIFEST_INVALID",
+            "Methods contract manifest must declare ontology_version 0.3",
+            path=relative,
+        )
+        return
+    entries = payload.get("artifacts")
+    if not isinstance(entries, list):
+        report.error(
+            "METHODS_CONTRACT_MANIFEST_INVALID",
+            "Methods contract manifest artifacts must be a list",
+            path=relative,
+        )
+        return
+    declared: dict[str, str] = {}
+    for entry in entries:
+        if not isinstance(entry, dict):
+            report.error(
+                "METHODS_CONTRACT_MANIFEST_INVALID", "Malformed artifact entry", path=relative
+            )
+            continue
+        path = _text(entry.get("path"))
+        digest = _text(entry.get("sha256"))
+        if not path or Path(path).is_absolute() or ".." in Path(path).parts:
+            report.error(
+                "METHODS_CONTRACT_MANIFEST_INVALID", f"Unsafe artifact path {path!r}", path=relative
+            )
+            continue
+        if path in declared:
+            report.error(
+                "METHODS_CONTRACT_MANIFEST_INVALID",
+                f"Duplicate artifact path {path}",
+                path=relative,
+            )
+            continue
+        declared[path] = digest
+    if set(declared) != required_paths:
+        report.error(
+            "METHODS_CONTRACT_MANIFEST_INVALID",
+            "Methods contract manifest artifact set does not match the v0.3 contract",
+            path=relative,
+        )
+        return
+    for path, expected in sorted(declared.items()):
+        candidate = project.root / path
+        if not candidate.is_file():
+            report.error(
+                "METHODS_CONTRACT_ARTIFACT_MISSING",
+                f"Missing methods artifact {path}",
+                path=relative,
+            )
+        elif sha256_file(candidate) != expected:
+            report.error(
+                "METHODS_CONTRACT_ARTIFACT_DRIFT",
+                f"Methods contract artifact checksum mismatch: {path}",
+                path=relative,
+            )
+
+
 def _validate_observation(
     project: Project,
     table: ValidatedTable,
@@ -358,14 +445,26 @@ def _validate_observation(
             path=path,
             row=index,
         )
-    if row.get("stage_start") and not row.get("stage_end"):
+    is_timeliness = _text(row.get("indicator_id")).startswith("TIME_")
+    if is_timeliness and (
+        not _text(row.get("stage_start"))
+        or not _text(row.get("stage_end"))
+        or not _text(row.get("denominator_definition"))
+    ):
+        report.error(
+            "OBSERVATION_TIMELINESS_SEMANTICS_INCOMPLETE",
+            "Timeliness observations require stage_start, stage_end and denominator_definition",
+            path=path,
+            row=index,
+        )
+    elif row.get("stage_start") and not row.get("stage_end"):
         report.warning(
             "OBSERVATION_STAGE_END_BLANK",
             "stage_start is set but stage_end is blank",
             path=path,
             row=index,
         )
-    if row.get("stage_end") and not row.get("stage_start"):
+    elif row.get("stage_end") and not row.get("stage_start"):
         report.warning(
             "OBSERVATION_STAGE_START_BLANK",
             "stage_end is set but stage_start is blank",

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "ontology_version": "0.3",
+  "artifacts": [
+    {"path": "docs/methods/scope-and-unit-of-analysis.md", "sha256": "3b675a0720b7d78ac62a287621af31237c8eff6bdde0fbe07deaae6d8230f23c"},
+    {"path": "docs/methods/indicator-framework.md", "sha256": "8202613b2aefc3dd358f6ea54c30f73b4c760dedcdc9b02df62b45f14476755d"},
+    {"path": "data/seed/jurisdiction_register.csv", "sha256": "23283ff0e5c2659055863fdccac173cdd5b1d85fd2eb672d6310103ace7520f7"},
+    {"path": "data/seed/institution_register.csv", "sha256": "a03da63c8b6188743297f8ca4534f5ac17a7f49f31937344a8c9e57908dc0b69"},
+    {"path": "data/seed/matter_type_dictionary.csv", "sha256": "6e5c0ff8aa80f34570846240f516b5cce5e988a3a44187e30de70c92e85c99e9"},
+    {"path": "data/seed/indicator_dictionary.csv", "sha256": "30e8c40438818f2e29c8cc5110049de9764ab21e5d7cfdd1f9d08e5ec0f3cb69"},
+    {"path": "schemas/indicator.schema.json", "sha256": "2bbfe78801a40a4d94eb0d6b798cad13b2aefbb992bff856e18349d4e138c7a0"},
+    {"path": "schemas/observation.schema.json", "sha256": "2b8a34ce286a4564ab55cf8f9dfad3cf037d891aa76d87b046184650673904d0"}
+  ]
+}

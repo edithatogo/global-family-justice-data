@@ -15,8 +15,11 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
 
+from jsonschema import Draft202012Validator, FormatChecker
+
 from .io import atomic_write_text, read_csv, sha256_file, write_csv, write_json
 from .project import Project, load_project
+from .schema_validation import coerce_row
 
 
 class CensusError(RuntimeError):
@@ -96,13 +99,40 @@ def build_census_readiness(
     _, assessments = read_csv(inputs["assessments"])
     _, search_logs = read_csv(inputs["search_logs"])
     _, enquiries = read_csv(inputs["enquiries"])
+    _validate_input_rows(project, universe, "schemas/jurisdiction_universe.schema.json")
+    _validate_input_rows(project, assessments, "schemas/coverage_assessment.schema.json")
+    _validate_input_rows(project, search_logs, "schemas/search_log.schema.json")
+    _validate_input_rows(project, enquiries, "schemas/direct_enquiry.schema.json")
     _unique(universe, "jurisdiction_id", "universe")
+    _unique(universe, "universe_entry_id", "universe")
+    _unique(assessments, "assessment_id", "coverage assessments")
+    _unique(search_logs, "search_log_id", "search logs")
+    _unique(enquiries, "enquiry_id", "direct enquiries")
+    gaps: list[dict[str, str]] = []
+    register_ids = {row["jurisdiction_id"] for row in jurisdictions}
+    for label, rows in (
+        ("universe", universe),
+        ("coverage assessments", assessments),
+        ("search logs", search_logs),
+        ("direct enquiries", enquiries),
+    ):
+        for row in rows:
+            if row.get("jurisdiction_id") not in register_ids:
+                gaps.append(
+                    {
+                        "jurisdiction_id": row.get("jurisdiction_id", ""),
+                        "gap_code": "ORPHAN_CENSUS_RECORD",
+                        "message": (
+                            f"{label.title()} record references a jurisdiction absent from "
+                            "the jurisdiction register."
+                        ),
+                    }
+                )
     assessments_by_id = _group(assessments)
     logs_by_id = _group(search_logs)
     enquiries_by_id = _group(enquiries)
     universe_by_id = {row["jurisdiction_id"]: row for row in universe}
     matrix: list[dict[str, str | int]] = []
-    gaps: list[dict[str, str]] = []
     for jurisdiction in sorted(jurisdictions, key=lambda row: row["jurisdiction_id"]):
         jid = jurisdiction["jurisdiction_id"]
         entry = universe_by_id.get(jid)
@@ -157,6 +187,16 @@ def build_census_readiness(
         enquiry = "not_required_or_unrecorded"
         if reviewed_enquiries:
             enquiry = ";".join(sorted({row.get("state", "") for row in reviewed_enquiries}))
+        if jurisdiction.get("pilot_phase") in {"1", "2"} and not any(
+            row.get("state") in {"answered", "closed_no_response", "not_required"}
+            for row in reviewed_enquiries
+        ):
+            reasons.append(
+                (
+                    "DIRECT_ENQUIRY_UNRESOLVED",
+                    "Priority jurisdiction has no reviewed enquiry outcome or transparent closure.",
+                )
+            )
         if any("direct_enquiry:closed" in row.get("notes", "") for row in reviewed_logs):
             enquiry = "closed"
         elif any("direct_enquiry:sent" in row.get("notes", "") for row in reviewed_logs):
@@ -326,6 +366,24 @@ def _group(rows: list[dict[str, str]]) -> defaultdict[str, list[dict[str, str]]]
     for row in rows:
         grouped[row.get("jurisdiction_id", "")].append(row)
     return grouped
+
+
+def _validate_input_rows(
+    project: Project, rows: list[dict[str, str]], schema_relative: str
+) -> None:
+    schema = json.loads((project.root / schema_relative).read_text(encoding="utf-8"))
+    validator = Draft202012Validator(schema, format_checker=FormatChecker())
+    errors: list[str] = []
+    for number, raw in enumerate(rows, start=2):
+        typed = coerce_row(raw, schema)
+        for error in sorted(validator.iter_errors(typed), key=lambda item: list(item.path)):
+            location = ".".join(str(part) for part in error.path)
+            errors.append(
+                f"{schema_relative} row {number}"
+                f"{' ' + location if location else ''}: {error.message}"
+            )
+    if errors:
+        raise CensusError("Census input validation failed: " + "; ".join(errors[:20]))
 
 
 def _unique(rows: list[dict[str, str]], field: str, label: str) -> None:

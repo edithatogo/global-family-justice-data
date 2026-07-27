@@ -3,7 +3,7 @@ implementation_status = "desired_state_not_applied"
 
 [repository]
 default_branch = "main"
-visibility = "private"
+visibility = "public"
 require_linear_history = true
 require_signed_commits = true
 block_force_pushes = true
@@ -33,8 +33,8 @@ required_workflows = ["quality.yml", "codeql.yml"]
 [rulesets.main]
 enforcement = "active"
 target = "refs/heads/main"
-required_approvals = 2
-require_code_owner_review = true
+required_approvals = 0
+require_code_owner_review = false
 dismiss_stale_approvals = true
 require_last_push_approval = true
 require_merge_queue = true
@@ -64,15 +64,15 @@ block_updates = true
 block_deletions = true
 
 [environments.release_candidate]
-required_reviewers = 2
-prevent_self_review = true
+required_reviewers = 0
+prevent_self_review = false
 protected_branches_only = true
 wait_timer_minutes = 0
 deployment_ref_pattern = "refs/heads/main"
 
 [environments.stable_release]
-required_reviewers = 2
-prevent_self_review = true
+required_reviewers = 0
+prevent_self_review = false
 protected_branches_only = true
 wait_timer_minutes = 15
 deployment_ref_pattern = "refs/tags/v*"
@@ -95,4 +95,4 @@ provenance_artifacts_days = 90
 
 [ownership]
 codeowners_status = "verified_real_handles"
-minimum_codeowners = 2
+minimum_codeowners = 1

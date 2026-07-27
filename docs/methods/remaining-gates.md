@@ -9,6 +9,12 @@ or assert institutional coverage without source and review evidence.
 1. **Rights review (five high-priority sources).** Record the publisher's
    licence or redistribution terms, retrieval date, and permitted use for each
    source in `data/seed/source_register.csv`.
+
+   Initial official leads (not clearance): Council of Europe requires prior
+   permission for reproduction beyond citation/excerpts ([copyright and
+   permissions](https://www.coe.int/en/web/portal/copyright-licensing-permissions));
+   HCCH publishes separate digital-publication sales terms ([HCCH terms](https://www.hcch.net/en/publications-and-studies/publications2/general-terms-conditions-sale)).
+   These links are leads for review, not a licence grant.
 2. **Pilot universe.** Populate `data/census/jurisdiction_universe.csv` only
    from approved pilot scope; attach a reviewed coverage assessment for every
    included jurisdiction.

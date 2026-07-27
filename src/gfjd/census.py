@@ -86,6 +86,7 @@ def build_census_readiness(
         "search_logs": _operational_input(
             project, "data/census/search_log.csv", "data/seed/search_log_template.csv"
         ),
+        "enquiries": _confined_input(project, "data/census/direct_enquiry_register.csv"),
     }
     for name, path in inputs.items():
         if not path.is_file():
@@ -94,9 +95,11 @@ def build_census_readiness(
     _, universe = read_csv(inputs["universe"])
     _, assessments = read_csv(inputs["assessments"])
     _, search_logs = read_csv(inputs["search_logs"])
+    _, enquiries = read_csv(inputs["enquiries"])
     _unique(universe, "jurisdiction_id", "universe")
     assessments_by_id = _group(assessments)
     logs_by_id = _group(search_logs)
+    enquiries_by_id = _group(enquiries)
     universe_by_id = {row["jurisdiction_id"]: row for row in universe}
     matrix: list[dict[str, str | int]] = []
     gaps: list[dict[str, str]] = []
@@ -146,7 +149,14 @@ def build_census_readiness(
         # Direct enquiry is deliberately not inferred from an empty log. It is only
         # considered closed when a reviewed log records it in notes using the exact
         # controlled marker, preserving a transparent audit trail without contacts.
+        reviewed_enquiries = [
+            row
+            for row in enquiries_by_id[jid]
+            if row.get("review_status") in {"reviewed", "accepted"}
+        ]
         enquiry = "not_required_or_unrecorded"
+        if reviewed_enquiries:
+            enquiry = ";".join(sorted({row.get("state", "") for row in reviewed_enquiries}))
         if any("direct_enquiry:closed" in row.get("notes", "") for row in reviewed_logs):
             enquiry = "closed"
         elif any("direct_enquiry:sent" in row.get("notes", "") for row in reviewed_logs):

@@ -28,6 +28,11 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/direct_enquiry.schema.json",
+      "sha256": "0399c9297e61211e89c576d5c943cb5fcf617a72523d0bea2dd1c1658fd2ec14"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/extraction.schema.json",
       "sha256": "91e56fe9da5d24c98040cd4b1fdc2d852c70c82211c65a9766766b4c01e74c56"
     },
@@ -104,7 +109,7 @@
     {
       "kind": "toml_contract",
       "path": "config/data_contracts.toml",
-      "sha256": "eebe69f6381dfc7d1364db1783d2dad95efa3d6421c54e582b04d588b128f1da"
+      "sha256": "789910106144522062c2ddc4f66b02468f9e48c1f40983111877ebcae7ef1139"
     },
     {
       "kind": "csv_header",
@@ -178,6 +183,11 @@
     },
     {
       "kind": "csv_header",
+      "path": "data/census/direct_enquiry_register.csv",
+      "sha256": "53e41609f39f648f897979a6ba62ecb60fc15c998358bb0723635e10c612fb29"
+    },
+    {
+      "kind": "csv_header",
       "path": "programme/decision_log.csv",
       "sha256": "6c404e69164e895a5ed83dc55b11e427b46af4e9c7e16e658f9c074ec1fcdae9"
     },
@@ -217,8 +227,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 43,
-  "inventory_sha256": "9fe18af9341b1c55660c3ddf3f12e12ba063fd5f2c7ae0b32d01e9387d18eef1",
+  "entry_count": 45,
+  "inventory_sha256": "c2576f68d10584403ecb9ce0650cfa0dc107c449f62c011daa68c964208ec62f",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

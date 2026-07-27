@@ -80,7 +80,7 @@ def test_census_verifier_rejects_summary_path_escape(project_root: Path, tmp_pat
 def test_census_prefers_operational_inputs(project_root: Path, tmp_path: Path) -> None:
     root = _copy(project_root, tmp_path / "repo")
     census_dir = root / "data/census"
-    census_dir.mkdir()
+    census_dir.mkdir(exist_ok=True)
     universe_headers, _ = read_csv(root / "data/seed/jurisdiction_universe_template.csv")
     write_csv(
         census_dir / "jurisdiction_universe.csv",

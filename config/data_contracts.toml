@@ -121,3 +121,11 @@ schema = "schemas/coverage_assessment.schema.json"
 required = true
 allow_empty = true
 layer = "seed"
+
+[[contracts]]
+id = "direct_enquiries"
+path = "data/census/direct_enquiry_register.csv"
+schema = "schemas/direct_enquiry.schema.json"
+required = true
+allow_empty = true
+layer = "census"

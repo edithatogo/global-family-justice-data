@@ -1,4 +1,5 @@
 """Create and verify a deterministic SHA-256 repository manifest."""
+
 from __future__ import annotations
 
 import argparse
@@ -8,8 +9,23 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / "MANIFEST.sha256"
-EXCLUDED_PARTS = {".git", ".venv", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", ".tox", "htmlcov", "dist", "build"}
+EXCLUDED_PARTS = {
+    ".git",
+    ".venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
+    ".tox",
+    "htmlcov",
+    "dist",
+    "build",
+}
 EXCLUDED_FILES = {"MANIFEST.sha256", ".DS_Store", ".coverage", "coverage.xml"}
+
+
+def _is_excluded_part(part: str) -> bool:
+    return part in EXCLUDED_PARTS or part.endswith(".egg-info")
 
 
 def iter_manifest_files() -> list[Path]:
@@ -18,7 +34,7 @@ def iter_manifest_files() -> list[Path]:
         if not path.is_file():
             continue
         relative = path.relative_to(ROOT)
-        if any(part in EXCLUDED_PARTS for part in relative.parts):
+        if any(_is_excluded_part(part) for part in relative.parts):
             continue
         if relative.name in EXCLUDED_FILES or relative.suffix == ".zip":
             continue

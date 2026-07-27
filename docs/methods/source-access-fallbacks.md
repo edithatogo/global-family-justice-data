@@ -8,7 +8,10 @@ The Council of Europe publication endpoint was reachable and the 2024
 evaluation report was downloaded to the ignored build workspace under
 `build/source-fetch/`. Its SHA-256 and retrieval details are recorded in the
 generated `cepej-fallback-manifest.json` (not committed because it is an
-acquisition receipt). The machine-readable mapping is tracked in
+acquisition receipt). Additional official backup publications (the earlier
+English Part 1 report, 2024 presentation, and 2020-22 report) are recorded in
+`build/source-fetch/cepej-alternatives-manifest.json`, with downloaded bytes
+under `build/source-fetch/alternatives/`. The machine-readable mapping is tracked in
 `data/seed/source_access_fallbacks.csv`.
 
 The report is not a substitute for the CEPEJ-STAT raw database. No values,

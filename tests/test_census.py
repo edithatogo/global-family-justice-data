@@ -103,3 +103,56 @@ def test_census_prefers_operational_inputs(project_root: Path, tmp_path: Path) -
     australia = next(row for row in matrix if row["jurisdiction_id"] == "AUS")
     assert australia["universe_state"] == "included"
     assert "UNIVERSE_ENTRY_MISSING" not in australia["gap_reason"]
+
+
+def test_census_rejects_malformed_operational_record(project_root: Path, tmp_path: Path) -> None:
+    root = _copy(project_root, tmp_path / "repo")
+    path = root / "data/census/jurisdiction_universe.csv"
+    headers, _ = read_csv(root / "data/seed/jurisdiction_universe_template.csv")
+    write_csv(
+        path,
+        headers,
+        [
+            {
+                "universe_entry_id": "BAD",
+                "jurisdiction_id": "AUS",
+                "inclusion_status": "invented",
+                "inclusion_reason": "",
+                "search_priority": "high",
+                "owner_role": "analyst",
+                "review_status": "draft",
+                "notes": "",
+            }
+        ],
+    )
+    try:
+        build_census_readiness(root, root / "build/census")
+    except CensusError as exc:
+        assert "Census input validation failed" in str(exc)
+    else:
+        raise AssertionError("expected schema validation failure")
+
+
+def test_census_reports_orphan_operational_record(project_root: Path, tmp_path: Path) -> None:
+    root = _copy(project_root, tmp_path / "repo")
+    path = root / "data/census/jurisdiction_universe.csv"
+    headers, _ = read_csv(root / "data/seed/jurisdiction_universe_template.csv")
+    write_csv(
+        path,
+        headers,
+        [
+            {
+                "universe_entry_id": "UNIVERSE_ORPHAN",
+                "jurisdiction_id": "ZZZ",
+                "inclusion_status": "included",
+                "inclusion_reason": "test",
+                "search_priority": "high",
+                "owner_role": "analyst",
+                "review_status": "reviewed",
+                "notes": "",
+            }
+        ],
+    )
+    result = build_census_readiness(root, root / "build/census")
+    _, gaps = read_csv(result.gaps_path)
+    assert any(row["gap_code"] == "ORPHAN_CENSUS_RECORD" for row in gaps)

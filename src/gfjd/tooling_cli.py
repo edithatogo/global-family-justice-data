@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import argparse
-from datetime import date
 import json
-from pathlib import Path
 import subprocess
+from datetime import date
+from pathlib import Path
 from typing import Any
 
 from . import __version__
@@ -23,7 +23,6 @@ from .bootstrap import (
 from .ci_policy import audit_workflows
 from .contract_lock import verify_contract_lock, write_contract_lock
 from .harness import (
-    HarnessReport,
     audit_lockfile,
     check_coverage_budget,
     check_test_runtime,
@@ -169,6 +168,16 @@ def register_tooling_commands(
     warehouse_query.add_argument("database", type=Path)
     warehouse_query.add_argument("sql")
     warehouse_query.add_argument("--limit", type=int, default=1000)
+
+    governance = commands.add_parser(
+        "governance", help="Build or verify the fail-closed governance assurance pack"
+    )
+    governance_sub = governance.add_subparsers(dest="governance_command", required=True)
+    governance_build = governance_sub.add_parser("build")
+    governance_build.add_argument("--output", type=Path, default=Path("build/governance"))
+    governance_build.add_argument("--as-of", type=date.fromisoformat)
+    governance_verify = governance_sub.add_parser("verify")
+    governance_verify.add_argument("--output", type=Path, default=Path("build/governance"))
 
 
 def _add_bootstrap_discovery(parser: argparse.ArgumentParser) -> None:
@@ -344,6 +353,15 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
         result = query_warehouse(_resolve(project, args.database), args.sql, limit=args.limit)
         print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False))
         return 0
+    if command == "governance":
+        from .governance import build_governance_pack, verify_governance_pack
+
+        output = _resolve(project, args.output)
+        if args.governance_command == "build":
+            governance_result = build_governance_pack(project, output, as_of=args.as_of)
+            print(json.dumps(governance_result.to_dict(), indent=2, sort_keys=True))
+            return 0
+        return _print_errors("Governance pack", verify_governance_pack(output))
     return None
 
 

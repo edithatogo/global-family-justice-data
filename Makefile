@@ -76,7 +76,7 @@ release-rehearsal:
 	PYTHONPATH=src $(PYTHON) -m gfjd release verify build/rehearsal/gfjd-$(REHEARSAL_VERSION)
 
 integration-rehearsals:
-	rm -rf build/demo build/evidence build/comparability build/warehouse build/backup build/restore-rehearsal build/bootstrap-rehearsal
+	rm -rf build/demo build/evidence build/comparability build/warehouse build/backup build/restore-rehearsal build/bootstrap-rehearsal build/governance
 	PYTHONPATH=src $(PYTHON) -m gfjd demo run --output build/demo
 	PYTHONPATH=src $(PYTHON) -m gfjd demo verify --output build/demo
 	PYTHONPATH=src $(PYTHON) -m gfjd evidence build --output build/evidence --as-of 2026-07-27
@@ -90,6 +90,8 @@ integration-rehearsals:
 	PYTHONPATH=src $(PYTHON) -m gfjd resilience restore-rehearsal build/backup/gfjd-critical-state.zip --output build/restore-rehearsal
 	PYTHONPATH=src $(PYTHON) -m gfjd resilience verify-restore build/restore-rehearsal/restore-receipt.json
 	PYTHONPATH=src $(PYTHON) -m gfjd bootstrap plan --scan-root .. --output build/bootstrap-rehearsal
+	PYTHONPATH=src $(PYTHON) -m gfjd governance build --output build/governance --as-of 2026-07-27
+	PYTHONPATH=src $(PYTHON) -m gfjd governance verify --output build/governance
 	$(MAKE) release-rehearsal
 
 package-reproducibility:

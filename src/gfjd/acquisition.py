@@ -1,4 +1,5 @@
 """Controlled acquisition with checksums, rights routing and SSRF-safe defaults."""
+
 from __future__ import annotations
 
 from datetime import datetime, timezone
@@ -117,7 +118,10 @@ def acquire_url(
     temp_path = Path(temp_name)
     try:
         try:
-            with urlopen(request, timeout=timeout_seconds) as response, temp_path.open("wb") as handle:
+            with (
+                urlopen(request, timeout=timeout_seconds) as response,
+                temp_path.open("wb") as handle,
+            ):
                 final_url = response.geturl()
                 validate_public_url(
                     final_url,
@@ -222,7 +226,6 @@ def validate_public_url(
             )
 
 
-
 def read_manifest(path: Path) -> dict[str, Any]:
     """Read an acquisition manifest as a plain JSON object."""
 
@@ -230,6 +233,7 @@ def read_manifest(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise AcquisitionError(f"Acquisition manifest must be a JSON object: {path}")
     return value
+
 
 def verify_acquisition_manifest(project: Project, manifest_path: Path) -> list[str]:
     manifest = read_json(manifest_path)

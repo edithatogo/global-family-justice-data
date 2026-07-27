@@ -1,4 +1,5 @@
 """Small deterministic I/O helpers used across the toolchain."""
+
 from __future__ import annotations
 
 import csv

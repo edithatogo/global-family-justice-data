@@ -38,21 +38,22 @@ def test_conductor_status_can_be_written(project_root: Path, tmp_path: Path) -> 
 
 def test_conductor_graph_and_next_commands(project_root: Path, tmp_path: Path, capsys) -> None:
     graph_path = tmp_path / "graph.mmd"
-    assert main(
-        [
-            "--root",
-            str(project_root),
-            "conductor",
-            "graph",
-            "--write",
-            str(graph_path),
-        ]
-    ) == 0
+    assert (
+        main(
+            [
+                "--root",
+                str(project_root),
+                "conductor",
+                "graph",
+                "--write",
+                str(graph_path),
+            ]
+        )
+        == 0
+    )
     capsys.readouterr()
     assert graph_path.read_text(encoding="utf-8").startswith("flowchart LR")
-    assert main(
-        ["--root", str(project_root), "conductor", "next", "--limit", "3", "--json"]
-    ) == 0
+    assert main(["--root", str(project_root), "conductor", "next", "--limit", "3", "--json"]) == 0
     actions = json.loads(capsys.readouterr().out)
     assert len(actions) == 3
 

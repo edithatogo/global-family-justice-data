@@ -1,4 +1,5 @@
 """Project discovery and configuration loading."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass

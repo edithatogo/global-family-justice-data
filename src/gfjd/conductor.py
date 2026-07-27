@@ -1,4 +1,5 @@
 """Evidence-driven programme conductor for tracks, work, maturity and gates."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field
@@ -602,7 +603,11 @@ class Conductor:
         criterion_ids: set[str] = set()
         for gate in self.gates.values():
             if not gate.criteria:
-                report.error("GATE_EMPTY", f"Gate {gate.id} has no criteria", path=self.project.paths["gates"])
+                report.error(
+                    "GATE_EMPTY",
+                    f"Gate {gate.id} has no criteria",
+                    path=self.project.paths["gates"],
+                )
             for dependency in gate.dependency_ids:
                 if dependency not in self.gates:
                     report.error(
@@ -678,7 +683,9 @@ class Conductor:
                     report.error("EVIDENCE_PATH_UNSAFE", str(exc), path=path_label)
                 else:
                     if not resolved_path.exists():
-                        severity = Severity.ERROR if evidence.status == "accepted" else Severity.WARNING
+                        severity = (
+                            Severity.ERROR if evidence.status == "accepted" else Severity.WARNING
+                        )
                         report.add(
                             severity,
                             "EVIDENCE_PATH_MISSING",
@@ -735,7 +742,11 @@ class Conductor:
                         f"Accepted evidence {evidence.id} has no reviewed_on date",
                         path=path_label,
                     )
-            if evidence.expires_on and evidence.expires_on < as_of and evidence.status == "accepted":
+            if (
+                evidence.expires_on
+                and evidence.expires_on < as_of
+                and evidence.status == "accepted"
+            ):
                 report.error(
                     "EVIDENCE_EXPIRED",
                     f"Accepted evidence {evidence.id} expired on {evidence.expires_on.isoformat()}",
@@ -870,13 +881,21 @@ class Conductor:
                     path=decision_path,
                 )
             if decision.status in {"accepted", "rejected", "conditional"}:
-                if decision.decided_on is None or not decision.decision_authority or not decision.decision_reference:
+                if (
+                    decision.decided_on is None
+                    or not decision.decision_authority
+                    or not decision.decision_reference
+                ):
                     report.error(
                         "GATE_DECISION_INCOMPLETE",
                         f"Gate {decision.gate_id} decision lacks date, authority or reference",
                         path=decision_path,
                     )
-            if decision.expires_on and decision.expires_on < as_of and decision.status in {"accepted", "conditional"}:
+            if (
+                decision.expires_on
+                and decision.expires_on < as_of
+                and decision.status in {"accepted", "conditional"}
+            ):
                 report.error(
                     "GATE_DECISION_EXPIRED",
                     f"Gate {decision.gate_id} decision expired on {decision.expires_on.isoformat()}",
@@ -925,7 +944,14 @@ class Conductor:
                     f"Defect {defect.id} has invalid severity {defect.severity!r}",
                     path=defect_path,
                 )
-            if defect.status not in {"open", "triaged", "in_progress", "resolved", "closed", "accepted"}:
+            if defect.status not in {
+                "open",
+                "triaged",
+                "in_progress",
+                "resolved",
+                "closed",
+                "accepted",
+            }:
                 report.error(
                     "DEFECT_STATUS_INVALID",
                     f"Defect {defect.id} has invalid status {defect.status!r}",
@@ -1015,9 +1041,7 @@ class Conductor:
                 f"required L{minimum_maturity}"
             )
 
-        mandatory_results = [
-            result for result in criteria_results if result.criterion.mandatory
-        ]
+        mandatory_results = [result for result in criteria_results if result.criterion.mandatory]
         ready = (
             not dependency_failures
             and not work_failures
@@ -1130,7 +1154,9 @@ class Conductor:
         if track_id not in self.tracks:
             raise KeyError(track_id)
         items = [item for item in self.work_items.values() if item.track_id == track_id]
-        implemented = [item for item in items if item.status in {"done", "in_review", "accepted", "waived"}]
+        implemented = [
+            item for item in items if item.status in {"done", "in_review", "accepted", "waived"}
+        ]
         accepted_items = [item for item in items if item.status in {"accepted", "waived"}]
         blocked = [item for item in items if item.status == "blocked"]
         evidence = [item for item in self.evidence.values() if item.track_id == track_id]
@@ -1141,8 +1167,12 @@ class Conductor:
             "work_items": len(items),
             "implemented_work_items": len(implemented),
             "completed_work_items": len(accepted_items),
-            "completion_percent": round((len(accepted_items) / len(items) * 100), 1) if items else 0.0,
-            "implementation_percent": round((len(implemented) / len(items) * 100), 1) if items else 0.0,
+            "completion_percent": round((len(accepted_items) / len(items) * 100), 1)
+            if items
+            else 0.0,
+            "implementation_percent": round((len(implemented) / len(items) * 100), 1)
+            if items
+            else 0.0,
             "blocked_work_items": len(blocked),
             "evidence_records": len(evidence),
             "accepted_evidence": len(accepted_evidence),
@@ -1150,7 +1180,9 @@ class Conductor:
 
     def dependencies_satisfied(self, item: WorkItem | dict[str, Any]) -> bool:
         dependency_ids = (
-            item.dependency_ids if isinstance(item, WorkItem) else tuple(item.get("dependencies", item.get("depends_on", ())))
+            item.dependency_ids
+            if isinstance(item, WorkItem)
+            else tuple(item.get("dependencies", item.get("depends_on", ())))
         )
         return all(
             self.work_items.get(dependency) is not None
@@ -1212,8 +1244,7 @@ class Conductor:
                 )
             )
             accepted = all(
-                evidence_id in self.evidence
-                and self.evidence[evidence_id].status in satisfactory
+                evidence_id in self.evidence and self.evidence[evidence_id].status in satisfactory
                 for evidence_id in item.evidence_ids
             )
             assured_level = item.assessed_level if accepted else 0
@@ -1275,7 +1306,10 @@ class Conductor:
                 }
             )
         return {
-            "generated_at": (generated_at or datetime.now(timezone.utc)).astimezone(timezone.utc).replace(microsecond=0).isoformat(),
+            "generated_at": (generated_at or datetime.now(timezone.utc))
+            .astimezone(timezone.utc)
+            .replace(microsecond=0)
+            .isoformat(),
             "project": dict(self.project.project_config),
             "validation": validation.to_dict(),
             "gates": gates,
@@ -1284,13 +1318,16 @@ class Conductor:
             "controls": {
                 "risks": len(self.risks),
                 "open_critical_or_high_risks": sum(
-                    1 for risk in self.risks.values()
+                    1
+                    for risk in self.risks.values()
                     if risk.residual_severity in {"critical", "high"} and risk.status != "closed"
                 ),
                 "defects": len(self.defects),
                 "open_p0_p1_defects": sum(
-                    1 for defect in self.defects.values()
-                    if defect.severity in {"P0", "P1"} and defect.status not in {"resolved", "closed"}
+                    1
+                    for defect in self.defects.values()
+                    if defect.severity in {"P0", "P1"}
+                    and defect.status not in {"resolved", "closed"}
                 ),
                 "exceptions": len(self.exceptions),
             },
@@ -1300,7 +1337,9 @@ class Conductor:
     def summary(self) -> dict[str, Any]:
         maturity = self.maturity_status()
         gate_results = [self.gate_result(gate_id) for gate_id in self.gates]
-        first_unpassed = next((result.gate.id for result in gate_results if not result.passed), None)
+        first_unpassed = next(
+            (result.gate.id for result in gate_results if not result.passed), None
+        )
         return {
             "programme_id": self.project.project_config.get("id", "GFJD"),
             "current_release": self.project.project_config.get("version", "unknown"),
@@ -1317,12 +1356,15 @@ class Conductor:
         }
 
     def canonical_summary_json(self, *, generated_at: datetime | None = None) -> str:
-        return json.dumps(
-            self.status_payload(generated_at=generated_at),
-            ensure_ascii=False,
-            sort_keys=True,
-            separators=(",", ":"),
-        ) + "\n"
+        return (
+            json.dumps(
+                self.status_payload(generated_at=generated_at),
+                ensure_ascii=False,
+                sort_keys=True,
+                separators=(",", ":"),
+            )
+            + "\n"
+        )
 
     def render_status_markdown(self, *, generated_at: datetime | None = None) -> str:
         return render_status_markdown(self.status_payload(generated_at=generated_at))
@@ -1419,7 +1461,9 @@ class Conductor:
                 raise ValueError(f"Cannot accept {evidence_id}; no evidence path is recorded")
             path = self._safe_project_path(current.path)
             if not path.is_file():
-                raise ValueError(f"Cannot accept {evidence_id}; evidence path is not a file: {current.path}")
+                raise ValueError(
+                    f"Cannot accept {evidence_id}; evidence path is not a file: {current.path}"
+                )
             if reviewer_role.casefold() == current.owner_role.casefold():
                 raise ValueError("Evidence reviewer must be independent of the evidence owner role")
             updates["sha256"] = sha256_file(path)

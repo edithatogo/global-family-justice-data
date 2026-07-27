@@ -1,4 +1,5 @@
 """Integrated project validation: contracts, semantics, programme and security."""
+
 from __future__ import annotations
 
 from datetime import date
@@ -84,7 +85,9 @@ def _semantic_validation(
     indicator_ids = _check_unique(indicators, "indicator_id", report, "indicators")
     matter_ids = _check_unique(matter_types, "matter_type_id", report, "matter_types")
     institution_ids = _check_unique(institutions, "institution_id", report, "institutions")
-    source_edition_ids = _check_unique(source_editions, "source_edition_id", report, "source_editions")
+    source_edition_ids = _check_unique(
+        source_editions, "source_edition_id", report, "source_editions"
+    )
     extraction_ids = _check_unique(extractions, "extraction_id", report, "extractions")
     review_ids = _check_unique(reviews, "review_id", report, "reviews")
     _check_unique(outcomes_evidence, "evidence_record_id", report, "outcomes_evidence")
@@ -107,7 +110,9 @@ def _semantic_validation(
             )
 
     staleness_cfg = project.config.get("validation", {}).get("source_staleness_days", {})
-    require_https = bool(project.config.get("validation", {}).get("require_https_for_sources", True))
+    require_https = bool(
+        project.config.get("validation", {}).get("require_https_for_sources", True)
+    )
     for index, row in enumerate(sources, start=2):
         jurisdiction_id = _text(row.get("jurisdiction_id"))
         if jurisdiction_id not in jurisdiction_ids:
@@ -146,7 +151,10 @@ def _semantic_validation(
                     row=index,
                     context={"source_id": row.get("source_id")},
                 )
-        if _text(row.get("licence_status")) in {"unknown", "restricted_or_unknown"} and _text(row.get("priority")) == "high":
+        if (
+            _text(row.get("licence_status")) in {"unknown", "restricted_or_unknown"}
+            and _text(row.get("priority")) == "high"
+        ):
             report.info(
                 "SOURCE_RIGHTS_REVIEW_NEEDED",
                 "High-priority source still needs a definitive rights/redistribution determination",
@@ -326,12 +334,21 @@ def _validate_observation(
     unit = _text(row.get("unit"))
     if isinstance(value, (int, float)):
         if unit == "percent" and not 0 <= float(value) <= 100:
-            report.error("OBSERVATION_PERCENT_RANGE", "percent value must be 0-100", path=path, row=index)
+            report.error(
+                "OBSERVATION_PERCENT_RANGE", "percent value must be 0-100", path=path, row=index
+            )
         if unit == "proportion" and not 0 <= float(value) <= 1:
-            report.error("OBSERVATION_PROPORTION_RANGE", "proportion value must be 0-1", path=path, row=index)
+            report.error(
+                "OBSERVATION_PROPORTION_RANGE", "proportion value must be 0-1", path=path, row=index
+            )
     denominator = row.get("denominator_value")
     if isinstance(denominator, (int, float)) and denominator < 0:
-        report.error("OBSERVATION_NEGATIVE_DENOMINATOR", "denominator_value cannot be negative", path=path, row=index)
+        report.error(
+            "OBSERVATION_NEGATIVE_DENOMINATOR",
+            "denominator_value cannot be negative",
+            path=path,
+            row=index,
+        )
     if bool(row.get("second_reviewed")) and not _text(row.get("second_reviewer")):
         report.warning(
             "OBSERVATION_SECOND_REVIEWER_BLANK",
@@ -340,9 +357,19 @@ def _validate_observation(
             row=index,
         )
     if row.get("stage_start") and not row.get("stage_end"):
-        report.warning("OBSERVATION_STAGE_END_BLANK", "stage_start is set but stage_end is blank", path=path, row=index)
+        report.warning(
+            "OBSERVATION_STAGE_END_BLANK",
+            "stage_start is set but stage_end is blank",
+            path=path,
+            row=index,
+        )
     if row.get("stage_end") and not row.get("stage_start"):
-        report.warning("OBSERVATION_STAGE_START_BLANK", "stage_end is set but stage_start is blank", path=path, row=index)
+        report.warning(
+            "OBSERVATION_STAGE_START_BLANK",
+            "stage_end is set but stage_start is blank",
+            path=path,
+            row=index,
+        )
 
     if is_gold:
         gold_requirements = {
@@ -355,17 +382,44 @@ def _validate_observation(
             if not _text(row.get(field)):
                 report.error("GOLD_LINEAGE_INCOMPLETE", message, path=path, row=index)
         if row.get("review_status") != "accepted":
-            report.error("GOLD_REVIEW_NOT_ACCEPTED", "Gold review_status must be accepted", path=path, row=index)
+            report.error(
+                "GOLD_REVIEW_NOT_ACCEPTED",
+                "Gold review_status must be accepted",
+                path=path,
+                row=index,
+            )
         if row.get("second_reviewed") is not True:
-            report.error("GOLD_SECOND_REVIEW_MISSING", "Gold observations must be second reviewed", path=path, row=index)
+            report.error(
+                "GOLD_SECOND_REVIEW_MISSING",
+                "Gold observations must be second reviewed",
+                path=path,
+                row=index,
+            )
         if row.get("quality_grade") not in {"A", "B", "C"}:
-            report.error("GOLD_QUALITY_TOO_LOW", "Gold quality grade must be A, B or C", path=path, row=index)
+            report.error(
+                "GOLD_QUALITY_TOO_LOW", "Gold quality grade must be A, B or C", path=path, row=index
+            )
         if row.get("comparability_tier") not in {1, 2}:
-            report.error("GOLD_COMPARABILITY_TOO_LOW", "Gold comparability tier must be 1 or 2", path=path, row=index)
+            report.error(
+                "GOLD_COMPARABILITY_TOO_LOW",
+                "Gold comparability tier must be 1 or 2",
+                path=path,
+                row=index,
+            )
         if row.get("release_eligible") is not True:
-            report.error("GOLD_NOT_RELEASE_ELIGIBLE", "Gold release_eligible must be true", path=path, row=index)
+            report.error(
+                "GOLD_NOT_RELEASE_ELIGIBLE",
+                "Gold release_eligible must be true",
+                path=path,
+                row=index,
+            )
         if row.get("suppression_status") == "suppressed":
-            report.error("GOLD_SUPPRESSED_VALUE", "Suppressed observations cannot contain a released value", path=path, row=index)
+            report.error(
+                "GOLD_SUPPRESSED_VALUE",
+                "Suppressed observations cannot contain a released value",
+                path=path,
+                row=index,
+            )
 
 
 def _rows(grouped: dict[str, list[ValidatedTable]], contract_id: str) -> list[dict[str, Any]]:
@@ -384,7 +438,9 @@ def _check_unique(
         if not value:
             continue
         if value in values:
-            report.error("REGISTER_DUPLICATE_ID", f"Duplicate {field} {value!r}", path=path, row=index)
+            report.error(
+                "REGISTER_DUPLICATE_ID", f"Duplicate {field} {value!r}", path=path, row=index
+            )
         values.add(value)
     return values
 

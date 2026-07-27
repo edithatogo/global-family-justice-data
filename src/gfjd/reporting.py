@@ -1,4 +1,5 @@
 """Structured reports shared by validation, programme and release commands."""
+
 from __future__ import annotations
 
 from dataclasses import dataclass, field

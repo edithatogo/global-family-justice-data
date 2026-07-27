@@ -537,8 +537,7 @@ def verify_sdist(path: Path, quality_config: Path) -> HarnessReport:
         str(item).lower() for item in config.get("forbidden_content_fragments", [])
     )
     content_allowlist = {
-        str(item).replace("\\", "/")
-        for item in config.get("forbidden_content_allowlist_paths", [])
+        str(item).replace("\\", "/") for item in config.get("forbidden_content_allowlist_paths", [])
     }
     member_names: list[str] = []
     relative_names: set[str] = set()

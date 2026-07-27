@@ -5,6 +5,7 @@ This avoids leaking prior build products into a package and avoids depending on
 ``python -m build`` at runtime.  The project still declares the standard PEP 517
 backend; this wrapper invokes that backend in a temporary clean room.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -38,7 +39,6 @@ def _ignore(directory: str, names: list[str]) -> set[str]:
     return ignored
 
 
-
 def _normalise_sdist(path: Path, epoch: int) -> None:
     """Rewrite a generated tar.gz with deterministic metadata and ordering."""
 
@@ -55,7 +55,9 @@ def _normalise_sdist(path: Path, epoch: int) -> None:
 
     temporary = path.with_suffix(path.suffix + ".normalised")
     with temporary.open("wb") as raw:
-        with gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=epoch, compresslevel=9) as compressed:
+        with gzip.GzipFile(
+            filename="", mode="wb", fileobj=raw, mtime=epoch, compresslevel=9
+        ) as compressed:
             with tarfile.open(fileobj=compressed, mode="w", format=tarfile.PAX_FORMAT) as target:
                 for original, payload in entries:
                     info = tarfile.TarInfo(original.name)
@@ -75,6 +77,7 @@ def _normalise_sdist(path: Path, epoch: int) -> None:
                         info.size = 0
                         target.addfile(info)
     os.replace(temporary, path)
+
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)

@@ -1,4 +1,5 @@
 """Deterministic release construction, verification and change reporting."""
+
 from __future__ import annotations
 
 import csv
@@ -22,7 +23,9 @@ from .io import read_csv, read_json, sha256_file, write_csv, write_json
 from .project import Project
 from .validation import validate_project
 
-SEMVER = re.compile(r"^(?P<major>0|[1-9]\d*)\.(?P<minor>0|[1-9]\d*)\.(?P<patch>0|[1-9]\d*)(?P<suffix>[-+][0-9A-Za-z.-]+)?$")
+SEMVER = re.compile(
+    r"^(?P<major>0|[1-9]\d*)\.(?P<minor>0|[1-9]\d*)\.(?P<patch>0|[1-9]\d*)(?P<suffix>[-+][0-9A-Za-z.-]+)?$"
+)
 
 
 class ReleaseError(RuntimeError):
@@ -56,8 +59,10 @@ def build_release(
             f"Release validation failed with {validation.error_count} error(s):\n"
             + "\n".join(issue.render() for issue in validation.issues[:30])
         )
-    if release_status == "stable" and validation.warning_count and bool(
-        project.config.get("validation", {}).get("fail_stable_release_on_warnings", True)
+    if (
+        release_status == "stable"
+        and validation.warning_count
+        and bool(project.config.get("validation", {}).get("fail_stable_release_on_warnings", True))
     ):
         raise ReleaseError(
             f"Stable release is blocked by {validation.warning_count} validation warning(s)"
@@ -150,7 +155,9 @@ def verify_release(release_dir: Path) -> list[str]:
         errors.append(f"Missing RELEASE.json in {release_dir}")
 
     expected: dict[str, str] = {}
-    for line_number, line in enumerate(manifest_path.read_text(encoding="utf-8").splitlines(), start=1):
+    for line_number, line in enumerate(
+        manifest_path.read_text(encoding="utf-8").splitlines(), start=1
+    ):
         if not line.strip():
             continue
         try:
@@ -202,8 +209,12 @@ def diff_releases(old_dir: Path, new_dir: Path) -> dict[str, Any]:
         result["tables"][name] = {
             "added": sorted(set(new_rows) - set(old_rows)),
             "removed": sorted(set(old_rows) - set(new_rows)),
-            "changed": sorted(identifier for identifier in common if old_rows[identifier] != new_rows[identifier]),
-            "unchanged_count": sum(old_rows[identifier] == new_rows[identifier] for identifier in common),
+            "changed": sorted(
+                identifier for identifier in common if old_rows[identifier] != new_rows[identifier]
+            ),
+            "unchanged_count": sum(
+                old_rows[identifier] == new_rows[identifier] for identifier in common
+            ),
         }
 
     old_observations = _release_observations(old_dir)
@@ -249,7 +260,10 @@ def _copy_release_inputs(project: Project, destination: Path) -> None:
         for source in sorted(project.root.glob(pattern)):
             if source.is_file():
                 _copy_file(source, destination / source.relative_to(project.root))
-    _copy_file(project.root / "config" / "data_contracts.toml", destination / "config" / "data_contracts.toml")
+    _copy_file(
+        project.root / "config" / "data_contracts.toml",
+        destination / "config" / "data_contracts.toml",
+    )
 
 
 def _copy_file(source: Path, destination: Path) -> None:
@@ -258,7 +272,11 @@ def _copy_file(source: Path, destination: Path) -> None:
 
 
 def _build_lineage_from_release(release_dir: Path) -> None:
-    observation_files = sorted((release_dir / "data" / "gold").rglob("*.csv")) if (release_dir / "data" / "gold").exists() else []
+    observation_files = (
+        sorted((release_dir / "data" / "gold").rglob("*.csv"))
+        if (release_dir / "data" / "gold").exists()
+        else []
+    )
     headers = [
         "observation_id",
         "source_id",
@@ -289,10 +307,11 @@ def _release_counts(release_dir: Path) -> dict[str, int]:
     }
     for name, path in table_map.items():
         counts[name] = len(read_csv(path)[1]) if path.exists() else 0
-    counts["gold_observations"] = sum(
-        len(read_csv(path)[1])
-        for path in (release_dir / "data" / "gold").rglob("*.csv")
-    ) if (release_dir / "data" / "gold").exists() else 0
+    counts["gold_observations"] = (
+        sum(len(read_csv(path)[1]) for path in (release_dir / "data" / "gold").rglob("*.csv"))
+        if (release_dir / "data" / "gold").exists()
+        else 0
+    )
     return counts
 
 
@@ -332,7 +351,7 @@ def _build_spdx_sbom(project: Project, version: str, created_at: datetime) -> di
             {
                 "SPDXID": spdx_id,
                 "name": name,
-                "versionInfo": dependency[len(name):] or "NOASSERTION",
+                "versionInfo": dependency[len(name) :] or "NOASSERTION",
                 "downloadLocation": "NOASSERTION",
                 "filesAnalyzed": False,
                 "licenseConcluded": "NOASSERTION",
@@ -385,7 +404,9 @@ def _normalise_file_timestamps(root: Path, epoch: int) -> None:
 
 def _deterministic_zip(source_dir: Path, destination: Path, epoch: int) -> None:
     timestamp = time.gmtime(max(epoch, 315532800))[:6]  # ZIP timestamps begin in 1980.
-    with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+    with zipfile.ZipFile(
+        destination, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9
+    ) as archive:
         for path in sorted(source_dir.rglob("*")):
             if not path.is_file():
                 continue
@@ -394,7 +415,9 @@ def _deterministic_zip(source_dir: Path, destination: Path, epoch: int) -> None:
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16
             info.create_system = 3
-            archive.writestr(info, path.read_bytes(), compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
+            archive.writestr(
+                info, path.read_bytes(), compress_type=zipfile.ZIP_DEFLATED, compresslevel=9
+            )
 
 
 def _source_date_epoch(value: int | None) -> int:

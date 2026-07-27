@@ -5,6 +5,7 @@ This script uses only the Python standard library.  It rejects traversal paths,
 absolute paths, links, duplicate/case-colliding members, excessive expansion,
 and unexpected multi-root archives.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -89,7 +90,9 @@ def validate_members(archive: zipfile.ZipFile) -> tuple[list[zipfile.ZipInfo], s
     return infos, next(iter(roots))
 
 
-def extract(archive_path: Path, destination: Path, sidecar: Path | None = None) -> dict[str, str | int]:
+def extract(
+    archive_path: Path, destination: Path, sidecar: Path | None = None
+) -> dict[str, str | int]:
     archive_path = archive_path.expanduser().resolve()
     destination = destination.expanduser().resolve()
     if not archive_path.is_file():

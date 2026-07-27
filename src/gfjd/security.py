@@ -1,4 +1,5 @@
 """Repository-level safety checks for a public aggregate-data project."""
+
 from __future__ import annotations
 
 import csv
@@ -93,7 +94,9 @@ def _scan_csv_headers(path: Path, root: Path, report: Report) -> None:
             headers = next(reader, [])
     except (OSError, UnicodeError, csv.Error):
         return
-    dangerous = sorted({header.strip().lower() for header in headers} & PROHIBITED_PUBLIC_DATA_HEADERS)
+    dangerous = sorted(
+        {header.strip().lower() for header in headers} & PROHIBITED_PUBLIC_DATA_HEADERS
+    )
     if dangerous:
         report.error(
             "PUBLIC_DATA_PROHIBITED_HEADER",

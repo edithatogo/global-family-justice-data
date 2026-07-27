@@ -4,6 +4,7 @@
 The script runs directly from a source checkout without requiring package installation.
 It is deliberately plan-first and requires ``--yes`` before any remote mutation.
 """
+
 from __future__ import annotations
 
 import argparse

@@ -8,9 +8,7 @@ from gfjd.project import load_project
 from tests.helpers import eligible_observation, observation_headers
 
 
-def test_promotion_accepts_and_quarantines_with_reasons(
-    project_root: Path, tmp_path: Path
-) -> None:
+def test_promotion_accepts_and_quarantines_with_reasons(project_root: Path, tmp_path: Path) -> None:
     project = load_project(project_root)
     headers = observation_headers(project_root)
     good = eligible_observation()
@@ -112,9 +110,7 @@ def test_declarative_mapping_builds_schema_valid_observation(
     assert rows[0]["definition_original"] == "Filing to disposition"
 
 
-def test_mapping_rejects_missing_required_input_column(
-    project_root: Path, tmp_path: Path
-) -> None:
+def test_mapping_rejects_missing_required_input_column(project_root: Path, tmp_path: Path) -> None:
     import json
 
     import pytest

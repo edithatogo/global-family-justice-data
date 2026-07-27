@@ -1,4 +1,5 @@
 """Controlled structured-source mapping and silver-to-gold promotion."""
+
 from __future__ import annotations
 
 from collections import Counter
@@ -70,7 +71,9 @@ def map_structured_csv(
         for field in output_fields:
             rule = field_rules.get(field)
             if rule is None:
-                output[field] = None if _allows_null(observation_schema["properties"][field]) else ""
+                output[field] = (
+                    None if _allows_null(observation_schema["properties"][field]) else ""
+                )
                 continue
             try:
                 output[field] = _evaluate_rule(rule, context)
@@ -173,7 +176,9 @@ def build_lineage_index(project: Project, observation_path: Path, output_path: P
         "review_id",
     }
     if not required.issubset(headers):
-        raise PipelineError(f"Observation file lacks lineage fields: {sorted(required - set(headers))}")
+        raise PipelineError(
+            f"Observation file lacks lineage fields: {sorted(required - set(headers))}"
+        )
     lineage_headers = [
         "observation_id",
         "source_id",

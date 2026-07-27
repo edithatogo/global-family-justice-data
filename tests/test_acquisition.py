@@ -41,7 +41,9 @@ def test_controlled_local_acquisition_writes_hash_and_manifest(
     schema = json.loads(
         (project_root / "schemas/acquisition_manifest.schema.json").read_text(encoding="utf-8")
     )
-    errors = list(Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(manifest))
+    errors = list(
+        Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(manifest)
+    )
     assert errors == []
 
 

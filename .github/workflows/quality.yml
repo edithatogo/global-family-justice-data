@@ -330,10 +330,10 @@ jobs:
           uv run python -m gfjd harness sdist dist/*.tar.gz
       - name: Require deterministic wheels
         run: uv run make package-reproducibility
-      - name: Install wheel without dependency resolution
+      - name: Install wheel with declared runtime dependencies
         run: |
           python -m venv build/wheel-smoke
-          build/wheel-smoke/bin/python -m pip install --disable-pip-version-check --no-deps dist/*.whl
+          build/wheel-smoke/bin/python -m pip install --disable-pip-version-check dist/*.whl
           build/wheel-smoke/bin/gfjd version --json
       - name: Upload distributions
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

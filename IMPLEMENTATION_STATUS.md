@@ -13,6 +13,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | Repository handoff | Multi-commit Git history with checkpoint tags, Git-bundle packaging, source manifest, `AGENTS.md`, internal Codex briefs and a plan-first bootstrap path |
 | Programme conductor | T0–T9 tracks, G1–G6 evidence gates, work/evidence/risk/defect/exception registers, dependency evaluation, generated status and programme graph |
 | Governance assurance | Deterministic six-gate assurance pack, criterion matrix, fail-closed defect/exception disposition, unsigned release-decision template and tamper-evident manifest; all T0 repository work is implemented and awaiting genuine review |
+| T0/T1/T2 decision handoff | Checksum-bound governance/methods/census controls are implemented; the pending decision and evidence packet is documented in `docs/governance/t012-decision-handoff.md` |
 | Autonomous solo operation | Checksum-bound resume context, explicit repository/external boundary routing, fast iteration gate and maximal checkpoint harness let one maintainer delegate implementation without relying on chat memory or self-approving governance |
 | Data contracts | Versioned JSON Schemas and CSV/TOML contracts for jurisdictions, institutions, sources, source editions, indicators, matter types, observations, evidence, reviews, search logs and coverage assessments |
 | Acquisition and ingestion | Rights-aware acquisition plus declarative CSV, JSON, HTML, XLSX and controlled manual-transcription adapters |

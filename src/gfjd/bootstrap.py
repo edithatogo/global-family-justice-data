@@ -5,22 +5,24 @@ inventory nearby Git repositories, inspect authenticated GitHub and Hugging Face
 accounts, initialise this repository, create/wire a GitHub remote, create private
 Hugging Face publication repositories, and emit checksum-bound receipts.
 """
+
 from __future__ import annotations
 
-from collections import defaultdict, deque
-from dataclasses import asdict, dataclass, field
-from datetime import UTC, datetime
 import hashlib
 import json
 import os
-from pathlib import Path
 import re
 import shutil
 import subprocess
 import sys
 import tempfile
 import tomllib
-from typing import Any, Iterable, Mapping, Sequence
+from collections import defaultdict, deque
+from collections.abc import Iterable, Mapping, Sequence
+from dataclasses import asdict, dataclass, field
+from datetime import UTC, datetime
+from pathlib import Path
+from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
 
@@ -204,7 +206,9 @@ def run_command(
     except subprocess.TimeoutExpired as exc:
         returncode = 124
         stdout = _truncate(str(exc.stdout or ""), context.max_output_bytes)
-        stderr = _truncate(str(exc.stderr or "") + f"\nTimed out after {timeout}s", context.max_output_bytes)
+        stderr = _truncate(
+            str(exc.stderr or "") + f"\nTimed out after {timeout}s", context.max_output_bytes
+        )
 
     result = CommandResult(
         command=tuple(redact_argument(str(part)) for part in arguments),
@@ -412,7 +416,11 @@ def _score_repository(
     score = 0
     reasons: list[str] = []
     searchable = " ".join(
-        [repository.name, repository.as_posix(), *(url for urls in remotes.values() for url in urls)]
+        [
+            repository.name,
+            repository.as_posix(),
+            *(url for urls in remotes.values() for url in urls),
+        ]
     ).lower()
     for keyword in keywords:
         if keyword.lower() in searchable:
@@ -555,7 +563,9 @@ def discover_github_account(context: BootstrapContext) -> dict[str, Any]:
         ["gh", "api", "user/orgs", "--paginate", "--jq", ".[].login"],
         timeout=60,
     )
-    organizations = sorted({line.strip() for line in org_result.stdout.splitlines() if line.strip()})
+    organizations = sorted(
+        {line.strip() for line in org_result.stdout.splitlines() if line.strip()}
+    )
     return {
         "available": True,
         "authenticated": bool(login),
@@ -600,7 +610,11 @@ def discover_huggingface_account(context: BootstrapContext) -> dict[str, Any]:
         lines = [line.strip() for line in fallback.stdout.splitlines() if line.strip()]
         if fallback.ok and lines:
             first = lines[0]
-            username = first.split(":", 1)[1].strip() if first.lower().startswith(("user:", "username:")) else first
+            username = (
+                first.split(":", 1)[1].strip()
+                if first.lower().startswith(("user:", "username:"))
+                else first
+            )
             for line in lines[1:]:
                 if line.lower().startswith(("orgs:", "organizations:")):
                     organizations.extend(
@@ -661,7 +675,9 @@ def _json_object_list(value: str) -> list[dict[str, Any]]:
     return [item for item in payload if isinstance(item, dict)]
 
 
-def list_huggingface_repositories(context: BootstrapContext, namespace: str) -> list[dict[str, Any]]:
+def list_huggingface_repositories(
+    context: BootstrapContext, namespace: str
+) -> list[dict[str, Any]]:
     """List Hub repositories across current and recent ``hf`` CLI layouts.
 
     ``hf repos ls`` is preferred.  Recent older releases expose type-specific
@@ -817,9 +833,15 @@ def build_portfolio_reconciliation(
                 reasons.append("declared_local_path")
             if repository.name.casefold() in expected_names:
                 reasons.append("repository_name")
-            if repository.github_slug and _repository_name(repository.github_slug).casefold() in expected_names:
+            if (
+                repository.github_slug
+                and _repository_name(repository.github_slug).casefold() in expected_names
+            ):
                 reasons.append("github_remote_name")
-            if repository.huggingface_slug and _repository_name(repository.huggingface_slug).casefold() in expected_names:
+            if (
+                repository.huggingface_slug
+                and _repository_name(repository.huggingface_slug).casefold() in expected_names
+            ):
                 reasons.append("huggingface_remote_name")
             if not reasons:
                 continue
@@ -919,8 +941,8 @@ def build_plan(
     huggingface_account = discover_huggingface_account(context)
     github_config = context.config.get("github", {})
     hf_config = context.config.get("huggingface", {})
-    inferred_owner = github_owner or str(github_config.get("owner", "")) or str(
-        github_account.get("login", "")
+    inferred_owner = (
+        github_owner or str(github_config.get("owner", "")) or str(github_account.get("login", ""))
     )
     repository_name = github_repository or str(
         github_config.get(
@@ -995,7 +1017,8 @@ def build_plan(
         actions.append(
             _action(
                 "create-github-remote",
-                f"Create or attach GitHub repository {github_slug} as origin; default visibility is {visibility}.",
+                f"Create or attach GitHub repository {github_slug} as origin; "
+                f"default visibility is {visibility}.",
                 mutating=True,
                 status="planned",
                 command=[
@@ -1069,13 +1092,16 @@ def build_plan(
     if not github_account.get("authenticated"):
         warnings.append("GitHub CLI is not authenticated; remote creation will remain blocked.")
     if hf_config.get("enabled", True) and not huggingface_account.get("authenticated"):
-        warnings.append("Hugging Face CLI is not authenticated; Hub inventory/creation will remain blocked.")
+        warnings.append(
+            "Hugging Face CLI is not authenticated; Hub inventory/creation will remain blocked."
+        )
     if existing_origin and github_slug:
         expected = normalise_remote_url(f"https://github.com/{github_slug}.git")
         observed = normalise_remote_url(existing_origin)
         if expected != observed:
             warnings.append(
-                f"Existing origin {existing_origin!r} does not match configured GitHub repository {github_slug!r}."
+                f"Existing origin {existing_origin!r} does not match configured "
+                f"GitHub repository {github_slug!r}."
             )
     github_repositories = list_github_repositories(context, inferred_owner)
     hf_repositories = list_huggingface_repositories(context, inferred_hf_namespace)
@@ -1134,7 +1160,9 @@ def validate_bootstrap_plan(context: BootstrapContext, plan: Mapping[str, Any]) 
 
 
 def _json_bytes(payload: Any) -> bytes:
-    return (json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n").encode("utf-8")
+    return (json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n").encode(
+        "utf-8"
+    )
 
 
 def atomic_write(path: Path, data: bytes) -> None:
@@ -1162,9 +1190,8 @@ def render_plan_markdown(plan: Mapping[str, Any]) -> str:
     ]
     for action in plan["actions"]:
         description = str(action["description"]).replace("|", "\\|")
-        lines.append(
-            f"| `{action['id']}` | {action['status']} | {'yes' if action['mutating'] else 'no'} | {description} |"
-        )
+        mutating = "yes" if action["mutating"] else "no"
+        lines.append(f"| `{action['id']}` | {action['status']} | {mutating} | {description} |")
     lines.extend(["", "## Relevant local repositories", ""])
     repositories = plan["local_repositories"]
     if repositories:
@@ -1189,17 +1216,21 @@ def render_plan_markdown(plan: Mapping[str, Any]) -> str:
     if products:
         lines.extend(
             [
-                "| Product | Status | Preferred/candidate local paths | GitHub matches | Hugging Face matches |",
+                "| Product | Status | Preferred/candidate local paths | "
+                "GitHub matches | Hugging Face matches |",
                 "|---|---|---|---:|---:|",
             ]
         )
         for product in products:
             local_candidates = product.get("local_candidates", [])
-            local_text = "<br>".join(
-                f"`{item.get('path', '')}`"
-                + (" (declared)" if item.get("declared_preferred") else "")
-                for item in local_candidates[:5]
-            ) or "—"
+            local_text = (
+                "<br>".join(
+                    f"`{item.get('path', '')}`"
+                    + (" (declared)" if item.get("declared_preferred") else "")
+                    for item in local_candidates[:5]
+                )
+                or "—"
+            )
             lines.append(
                 f"| `{product.get('product_id', '')}` | {product.get('status', '')} | "
                 f"{local_text} | {len(product.get('github_candidates', []))} | "
@@ -1236,7 +1267,9 @@ def write_plan(context: BootstrapContext, plan: Mapping[str, Any]) -> dict[str, 
     atomic_write(json_path, _json_bytes(plan))
     atomic_write(markdown_path, (render_plan_markdown(plan) + "\n").encode("utf-8"))
     atomic_write(local_path, _json_bytes(plan["local_repositories"]))
-    atomic_write(commands_path, _json_bytes([result.as_dict() for result in context.command_results]))
+    atomic_write(
+        commands_path, _json_bytes([result.as_dict() for result in context.command_results])
+    )
     atomic_write(portfolio_path, _json_bytes(plan["portfolio_reconciliation"]))
     return {
         "plan_json": str(json_path),
@@ -1423,7 +1456,9 @@ def ensure_github_remote(
             check=True,
         )
         local_head = _git_output(context, context.root, "rev-parse", "HEAD")
-        remote_head = _git_output(context, context.root, "ls-remote", remote_name, f"refs/heads/{branch}")
+        remote_head = _git_output(
+            context, context.root, "ls-remote", remote_name, f"refs/heads/{branch}"
+        )
         remote_sha = remote_head.split()[0] if remote_head else ""
         if not local_head or local_head != remote_sha:
             raise BootstrapError(
@@ -1508,7 +1543,7 @@ def create_huggingface_repositories(
         if visibility == "private":
             command.append("--private")
         if repo_type == "space" and entry.get("sdk"):
-            command.extend(["--sdk", str(entry["sdk"])])
+            command.extend(["--space-sdk", str(entry["sdk"])])
         result = run_command(context, command, timeout=180, check=True)
         plural = {"model": "models", "dataset": "datasets", "space": "spaces"}.get(repo_type)
         if not plural:
@@ -1531,13 +1566,16 @@ def create_huggingface_repositories(
         try:
             observed = json.loads(observed_result.stdout)
         except json.JSONDecodeError as exc:
-            raise BootstrapError(f"Could not parse Hugging Face repository evidence for {repo_id}") from exc
+            raise BootstrapError(
+                f"Could not parse Hugging Face repository evidence for {repo_id}"
+            ) from exc
         if not isinstance(observed, dict):
             raise BootstrapError(f"Unexpected Hugging Face repository evidence for {repo_id}")
         observed_id = str(observed.get("id") or observed.get("repo_id") or repo_id)
         if observed_id.casefold() != repo_id.casefold():
             raise BootstrapError(
-                f"Hugging Face repository identity mismatch: expected {repo_id}, observed {observed_id}"
+                f"Hugging Face repository identity mismatch: expected {repo_id}, "
+                f"observed {observed_id}"
             )
         if "private" in observed and bool(observed["private"]) != (visibility == "private"):
             raise BootstrapError(
@@ -1604,7 +1642,9 @@ def apply_bootstrap(
     if not github_owner:
         raise BootstrapError("A GitHub owner is required and could not be inferred")
     if not github_repository:
-        github_repository = str(context.config["bootstrap"].get("repository_name", context.root.name))
+        github_repository = str(
+            context.config["bootstrap"].get("repository_name", context.root.name)
+        )
     if not author_name or not author_email:
         account = discover_github_account(context)
         login = str(account.get("login", ""))
@@ -1618,7 +1658,11 @@ def apply_bootstrap(
     )
     commit_result = ensure_commit(
         context,
-        str(context.config["bootstrap"].get("initial_commit_message", "chore: initialise repository")),
+        str(
+            context.config["bootstrap"].get(
+                "initial_commit_message", "chore: initialise repository"
+            )
+        ),
     )
     remote_result = ensure_github_remote(
         context,
@@ -1687,7 +1731,9 @@ def verify_bootstrap_receipt(path: Path) -> list[str]:
     if not isinstance(github, dict) or not github.get("slug"):
         errors.append("Bootstrap receipt has no GitHub repository slug")
     commit = payload.get("commit", {})
-    if not isinstance(commit, dict) or not re.fullmatch(r"[0-9a-f]{40,64}", str(commit.get("head", ""))):
+    if not isinstance(commit, dict) or not re.fullmatch(
+        r"[0-9a-f]{40,64}", str(commit.get("head", ""))
+    ):
         errors.append("Bootstrap receipt has no valid Git commit identity")
     return errors
 

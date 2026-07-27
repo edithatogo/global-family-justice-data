@@ -17,7 +17,15 @@ def _copy_project(project_root: Path, destination: Path) -> Path:
             project_root,
             destination,
             ignore=shutil.ignore_patterns(
-                ".git", ".pytest_cache", "__pycache__", "build", "dist"
+                ".git",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".tox",
+                ".venv",
+                "__pycache__",
+                "build",
+                "dist",
             ),
         )
     )

@@ -75,3 +75,31 @@ def test_census_verifier_rejects_summary_path_escape(project_root: Path, tmp_pat
     assert "Unsafe census input path: ../outside.csv" in verify_census_readiness(
         result.output_dir, project_or_root=root
     )
+
+
+def test_census_prefers_operational_inputs(project_root: Path, tmp_path: Path) -> None:
+    root = _copy(project_root, tmp_path / "repo")
+    census_dir = root / "data/census"
+    census_dir.mkdir()
+    universe_headers, _ = read_csv(root / "data/seed/jurisdiction_universe_template.csv")
+    write_csv(
+        census_dir / "jurisdiction_universe.csv",
+        universe_headers,
+        [
+            {
+                "universe_entry_id": "UNIVERSE_AUS",
+                "jurisdiction_id": "AUS",
+                "inclusion_status": "included",
+                "inclusion_reason": "pilot",
+                "search_priority": "critical",
+                "owner_role": "analyst",
+                "review_status": "reviewed",
+                "notes": "",
+            }
+        ],
+    )
+    result = build_census_readiness(root, root / "build/census")
+    _, matrix = read_csv(result.matrix_path)
+    australia = next(row for row in matrix if row["jurisdiction_id"] == "AUS")
+    assert australia["universe_state"] == "included"
+    assert "UNIVERSE_ENTRY_MISSING" not in australia["gap_reason"]

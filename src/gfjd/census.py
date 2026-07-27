@@ -73,9 +73,19 @@ def build_census_readiness(
     destination.mkdir(parents=True, exist_ok=True)
     inputs = {
         "jurisdictions": project.root / "data/seed/jurisdiction_register.csv",
-        "universe": project.root / "data/seed/jurisdiction_universe_template.csv",
-        "assessments": project.root / "data/seed/coverage_assessment_template.csv",
-        "search_logs": project.root / "data/seed/search_log_template.csv",
+        "universe": _operational_input(
+            project,
+            "data/census/jurisdiction_universe.csv",
+            "data/seed/jurisdiction_universe_template.csv",
+        ),
+        "assessments": _operational_input(
+            project,
+            "data/census/coverage_assessment.csv",
+            "data/seed/coverage_assessment_template.csv",
+        ),
+        "search_logs": _operational_input(
+            project, "data/census/search_log.csv", "data/seed/search_log_template.csv"
+        ),
     }
     for name, path in inputs.items():
         if not path.is_file():
@@ -292,6 +302,13 @@ def _confined_input(project: Project, relative: str) -> Path:
     except ValueError as exc:
         raise CensusError(f"Census input path escapes repository root: {relative}") from exc
     return path
+
+
+def _operational_input(project: Project, operational: str, template: str) -> Path:
+    """Use the declared census data path when populated, otherwise its template."""
+
+    operational_path = _confined_input(project, operational)
+    return operational_path if operational_path.is_file() else _confined_input(project, template)
 
 
 def _group(rows: list[dict[str, str]]) -> defaultdict[str, list[dict[str, str]]]:

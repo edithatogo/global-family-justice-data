@@ -9,8 +9,10 @@ ready for methods review only when all of the following are recorded:
 - at least one reviewed search log; and
 - an explicit coverage state, supported by the referenced evidence path.
 
-`gfjd census build` emits a checksum-bound matrix and gap register. Missing
-records are rendered as `unresolved`; the command never promotes a seed
+`gfjd census build` emits a checksum-bound matrix and gap register. It reads
+`data/census/jurisdiction_universe.csv`, `data/census/coverage_assessment.csv`,
+and `data/census/search_log.csv` when present, falling back to the corresponding
+header-only seed templates for a clean baseline. Missing records are rendered as `unresolved`; the command never promotes a seed
 `coverage_status`, a source-register entry, or a blank search log into a
 coverage finding. The output is operational evidence only and cannot itself
 accept a Conductor gate.

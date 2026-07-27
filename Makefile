@@ -88,6 +88,7 @@ integration-rehearsals:
 	PYTHONPATH=src $(PYTHON) -m gfjd comparability verify --output build/comparability
 	PYTHONPATH=src $(PYTHON) -m gfjd census build --output build/census
 	PYTHONPATH=src $(PYTHON) -m gfjd census verify --output build/census
+	PYTHONPATH=src $(PYTHON) -m gfjd research-pack AUS --output build/research-packs
 	PYTHONPATH=src $(PYTHON) -m gfjd warehouse build --output build/warehouse/gfjd.sqlite --source-date-epoch $(SOURCE_DATE_EPOCH)
 	PYTHONPATH=src $(PYTHON) -m gfjd warehouse verify build/warehouse/gfjd.sqlite
 	PYTHONPATH=src $(PYTHON) -m gfjd resilience backup --output build/backup --source-date-epoch $(SOURCE_DATE_EPOCH)

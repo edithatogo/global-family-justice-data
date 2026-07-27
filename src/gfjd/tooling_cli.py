@@ -149,6 +149,12 @@ def register_tooling_commands(
     census_verify = census_sub.add_parser("verify")
     census_verify.add_argument("--output", type=Path, default=Path("build/census"))
 
+    research_pack = commands.add_parser(
+        "research-pack", help="Build a non-evidentiary jurisdiction research handoff"
+    )
+    research_pack.add_argument("jurisdiction_id")
+    research_pack.add_argument("--output", type=Path, default=Path("build/research-packs"))
+
     resilience = commands.add_parser(
         "resilience", help="Build, verify and rehearse critical-state backups"
     )
@@ -355,6 +361,14 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
         return _print_errors(
             "Census readiness", verify_census_readiness(output, project_or_root=project)
         )
+
+    if command == "research-pack":
+        from .research_pack import build_research_pack
+
+        output = _resolve(project, args.output)
+        destination = build_research_pack(project, args.jurisdiction_id, output)
+        print(json.dumps({"output": str(destination)}, indent=2, sort_keys=True))
+        return 0
 
     if command == "resilience":
         from .resilience import (

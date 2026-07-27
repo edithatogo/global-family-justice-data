@@ -2,19 +2,18 @@
 
 from __future__ import annotations
 
-import csv
-from datetime import datetime, timezone
-import json
 import os
-from pathlib import Path
 import re
 import shutil
 import subprocess
 import tempfile
 import time
 import tomllib
-from typing import Any, Iterable
 import zipfile
+from collections.abc import Iterable
+from datetime import UTC, datetime
+from pathlib import Path
+from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
 
@@ -46,11 +45,12 @@ def build_release(
     configured_version = str(project.project_config["version"])
     if version != configured_version and not allow_version_override:
         raise ReleaseError(
-            f"Requested version {version} does not match config/project.toml version {configured_version}; "
+            f"Requested version {version} does not match config/project.toml version "
+            f"{configured_version}; "
             "update the repository version or use an explicit controlled override"
         )
     epoch = _source_date_epoch(source_date_epoch)
-    created_at = datetime.fromtimestamp(epoch, timezone.utc).replace(microsecond=0)
+    created_at = datetime.fromtimestamp(epoch, UTC).replace(microsecond=0)
     release_status, required_gate = _release_status_and_gate(version)
 
     validation = validate_project(project.root, as_of=created_at.date(), include_security=True)
@@ -379,7 +379,9 @@ def _build_spdx_sbom(project: Project, version: str, created_at: datetime) -> di
         },
         "packages": packages,
         "relationships": relationships,
-        "comment": "This SBOM records declared project dependencies, not the full host environment.",
+        "comment": (
+            "This SBOM records declared project dependencies, not the full host environment."
+        ),
     }
 
 
@@ -426,7 +428,7 @@ def _source_date_epoch(value: int | None) -> int:
     env = os.getenv("SOURCE_DATE_EPOCH")
     if env:
         return int(env)
-    return int(datetime.now(timezone.utc).timestamp())
+    return int(datetime.now(UTC).timestamp())
 
 
 def _release_status_and_gate(version: str) -> tuple[str, str | None]:
@@ -462,7 +464,8 @@ def _known_limitations(status: str) -> list[str]:
     if status == "stable":
         return []
     return [
-        "This is a pre-v1 engineering or programme release and is not a stable comparative data product.",
+        "This is a pre-v1 engineering or programme release and is not a stable "
+        "comparative data product.",
         "Programme evidence may be draft or missing; consult programme/programme-status.json.",
         "The source census and outcomes evidence catalogue are incomplete.",
     ]

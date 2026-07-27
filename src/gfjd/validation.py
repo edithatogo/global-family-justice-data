@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from datetime import date
 import math
+from datetime import date
 from pathlib import Path
-from urllib.parse import urlparse
 from typing import Any
+from urllib.parse import urlparse
 
 from .conductor import Conductor
 from .project import Project, load_project
@@ -136,7 +136,8 @@ def _semantic_validation(
             if verified > as_of:
                 report.error(
                     "SOURCE_VERIFIED_IN_FUTURE",
-                    f"last_verified {verified.isoformat()} is after validation date {as_of.isoformat()}",
+                    f"last_verified {verified.isoformat()} is after validation date "
+                    f"{as_of.isoformat()}",
                     path=project.paths["sources"],
                     row=index,
                 )
@@ -146,7 +147,8 @@ def _semantic_validation(
             if age > threshold:
                 report.warning(
                     "SOURCE_STALE",
-                    f"{priority}-priority source was last verified {age} days ago (threshold {threshold})",
+                    f"{priority}-priority source was last verified {age} days ago "
+                    f"(threshold {threshold})",
                     path=project.paths["sources"],
                     row=index,
                     context={"source_id": row.get("source_id")},
@@ -328,12 +330,12 @@ def _validate_observation(
             report.error(code, f"Unknown {field} {value!r}", path=path, row=index)
 
     _check_period(row, report, path, index)
-    value = row.get("value")
-    if isinstance(value, (int, float)) and not math.isfinite(float(value)):
+    numeric_value = row.get("value")
+    if isinstance(numeric_value, (int, float)) and not math.isfinite(float(numeric_value)):
         report.error("OBSERVATION_VALUE_NONFINITE", "value must be finite", path=path, row=index)
     unit = _text(row.get("unit"))
-    if isinstance(value, (int, float)):
-        if unit == "percent" and not 0 <= float(value) <= 100:
+    if isinstance(numeric_value, (int, float)):
+        if unit == "percent" and not 0 <= float(numeric_value) <= 100:
             report.error(
                 "OBSERVATION_PERCENT_RANGE", "percent value must be 0-100", path=path, row=index
             )

@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import csv
-from pathlib import Path
 import re
-from typing import Iterable
+from collections.abc import Iterable
+from pathlib import Path
 
 from .reporting import Report
 

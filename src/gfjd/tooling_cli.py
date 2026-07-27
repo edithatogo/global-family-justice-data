@@ -175,15 +175,20 @@ def register_tooling_commands(
     governance_sub = governance.add_subparsers(dest="governance_command", required=True)
     governance_build = governance_sub.add_parser("build")
     governance_build.add_argument("--output", type=Path, default=Path("build/governance"))
-    governance_build.add_argument(
-        "--gate-output", type=Path, default=Path("build/gate-packs")
-    )
+    governance_build.add_argument("--gate-output", type=Path, default=Path("build/gate-packs"))
     governance_build.add_argument("--as-of", type=date.fromisoformat)
     governance_verify = governance_sub.add_parser("verify")
     governance_verify.add_argument("--output", type=Path, default=Path("build/governance"))
-    governance_verify.add_argument(
-        "--gate-output", type=Path, default=Path("build/gate-packs")
+    governance_verify.add_argument("--gate-output", type=Path, default=Path("build/gate-packs"))
+
+    autonomy = commands.add_parser(
+        "autonomy", help="Build or verify the single-maintainer resume context"
     )
+    autonomy_sub = autonomy.add_subparsers(dest="autonomy_command", required=True)
+    autonomy_context = autonomy_sub.add_parser("context")
+    autonomy_context.add_argument("--output", type=Path, default=Path("build/autonomy"))
+    autonomy_verify = autonomy_sub.add_parser("verify")
+    autonomy_verify.add_argument("--output", type=Path, default=Path("build/autonomy"))
 
 
 def _add_bootstrap_discovery(parser: argparse.ArgumentParser) -> None:
@@ -210,6 +215,8 @@ def _print_report(report: Any, *, json_output: bool = False) -> int:
 
 def run_tooling_command(project: Project, args: argparse.Namespace) -> int | None:
     command = args.command
+    report: Any
+    result: Any
     if command == "version":
         payload = {
             "software_version": __version__,
@@ -374,10 +381,17 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
             return 0
         return _print_errors(
             "Governance pack",
-            verify_governance_pack(
-                output, gate_output=_resolve(project, args.gate_output)
-            ),
+            verify_governance_pack(output, gate_output=_resolve(project, args.gate_output)),
         )
+    if command == "autonomy":
+        from .autonomy import build_autonomy_context, verify_autonomy_context
+
+        output = _resolve(project, args.output)
+        if args.autonomy_command == "context":
+            autonomy_result = build_autonomy_context(project, output)
+            print(json.dumps(autonomy_result.to_dict(), indent=2, sort_keys=True))
+            return 0
+        return _print_errors("Autonomy context", verify_autonomy_context(output))
     return None
 
 

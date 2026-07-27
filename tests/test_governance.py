@@ -50,9 +50,7 @@ def test_governance_pack_detects_tampering(tmp_path: Path) -> None:
 def test_governance_pack_rejects_manifest_path_injection(tmp_path: Path) -> None:
     project = load_project()
     build_governance_pack(project, tmp_path, as_of=date(2026, 7, 27))
-    (tmp_path / "manifest.json").write_text(
-        '{"../../outside":"untrusted"}\n', encoding="utf-8"
-    )
+    (tmp_path / "manifest.json").write_text('{"../../outside":"untrusted"}\n', encoding="utf-8")
 
     assert verify_governance_pack(tmp_path) == ["manifest artifact set is invalid"]
 
@@ -71,6 +69,4 @@ def test_governance_pack_detects_per_gate_tampering(tmp_path: Path) -> None:
     path = tmp_path / "gate-packs" / "G1" / "evidence-index.csv"
     path.write_text("tampered\n", encoding="utf-8")
 
-    assert verify_governance_pack(tmp_path) == [
-        "G1: checksum mismatch: evidence-index.csv"
-    ]
+    assert verify_governance_pack(tmp_path) == ["G1: checksum mismatch: evidence-index.csv"]

@@ -13,11 +13,10 @@ import gzip
 import io
 import json
 import os
-from pathlib import Path
 import shutil
 import tarfile
 import tempfile
-
+from pathlib import Path
 
 EXCLUDED_NAMES = {
     ".git",
@@ -54,28 +53,30 @@ def _normalise_sdist(path: Path, epoch: int) -> None:
             entries.append((member, payload))
 
     temporary = path.with_suffix(path.suffix + ".normalised")
-    with temporary.open("wb") as raw:
-        with gzip.GzipFile(
+    with (
+        temporary.open("wb") as raw,
+        gzip.GzipFile(
             filename="", mode="wb", fileobj=raw, mtime=epoch, compresslevel=9
-        ) as compressed:
-            with tarfile.open(fileobj=compressed, mode="w", format=tarfile.PAX_FORMAT) as target:
-                for original, payload in entries:
-                    info = tarfile.TarInfo(original.name)
-                    info.type = original.type
-                    info.mode = original.mode
-                    info.uid = 0
-                    info.gid = 0
-                    info.uname = ""
-                    info.gname = ""
-                    info.mtime = epoch
-                    info.linkname = original.linkname
-                    info.pax_headers = {}
-                    if payload is not None:
-                        info.size = len(payload)
-                        target.addfile(info, io.BytesIO(payload))
-                    else:
-                        info.size = 0
-                        target.addfile(info)
+        ) as compressed,
+        tarfile.open(fileobj=compressed, mode="w", format=tarfile.PAX_FORMAT) as target,
+    ):
+        for original, payload in entries:
+            info = tarfile.TarInfo(original.name)
+            info.type = original.type
+            info.mode = original.mode
+            info.uid = 0
+            info.gid = 0
+            info.uname = ""
+            info.gname = ""
+            info.mtime = epoch
+            info.linkname = original.linkname
+            info.pax_headers = {}
+            if payload is not None:
+                info.size = len(payload)
+                target.addfile(info, io.BytesIO(payload))
+            else:
+                info.size = 0
+                target.addfile(info)
     os.replace(temporary, path)
 
 

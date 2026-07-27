@@ -11,12 +11,12 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from pathlib import Path, PurePosixPath
 import shutil
 import stat
 import sys
 import tempfile
 import zipfile
+from pathlib import Path, PurePosixPath
 
 MAX_MEMBERS = 20_000
 MAX_EXPANDED_BYTES = 2 * 1024 * 1024 * 1024

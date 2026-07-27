@@ -6,9 +6,11 @@ import csv
 import hashlib
 import json
 import os
-from pathlib import Path
 import tempfile
-from typing import Any, Iterable, Mapping, Sequence
+from collections.abc import Iterable, Mapping, Sequence
+from pathlib import Path
+from types import TracebackType
+from typing import Any, Literal, TextIO
 
 
 def read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
@@ -86,13 +88,13 @@ def atomic_write_text(path: Path, text: str) -> None:
 class atomic_text_writer:
     """Context manager that atomically replaces a UTF-8 text file."""
 
-    def __init__(self, path: Path, newline: str | None = None):
+    def __init__(self, path: Path, newline: str | None = None) -> None:
         self.path = path
         self.newline = newline
-        self._handle = None
+        self._handle: TextIO | None = None
         self._tmp_path: Path | None = None
 
-    def __enter__(self):
+    def __enter__(self) -> TextIO:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         fd, temp_name = tempfile.mkstemp(
             prefix=f".{self.path.name}.",
@@ -104,7 +106,12 @@ class atomic_text_writer:
         self._handle = os.fdopen(fd, "w", encoding="utf-8", newline=self.newline)
         return self._handle
 
-    def __exit__(self, exc_type, exc, tb):
+    def __exit__(
+        self,
+        exc_type: type[BaseException] | None,
+        exc: BaseException | None,
+        tb: TracebackType | None,
+    ) -> Literal[False]:
         assert self._handle is not None
         assert self._tmp_path is not None
         try:

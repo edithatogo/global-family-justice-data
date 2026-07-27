@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 import argparse
-from datetime import date
 import json
-from pathlib import Path
 import re
 import sys
-from typing import Any, Sequence
+from collections.abc import Sequence
+from datetime import date
+from pathlib import Path
+from typing import Any
 
 from .acquisition import (
     AcquisitionError,
@@ -21,14 +22,16 @@ from .pipeline import PipelineError, map_structured_csv, promote_observations
 from .project import Project, ProjectError, load_project
 from .release import ReleaseError, build_release, diff_releases, verify_release
 from .security import scan_repository
-from .validation import validate_project
 from .tooling_cli import register_tooling_commands, run_tooling_command
+from .validation import validate_project
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="gfjd",
-        description="Global Family Justice Data validation, conductor, pipeline and release tooling.",
+        description=(
+            "Global Family Justice Data validation, conductor, pipeline and release tooling."
+        ),
     )
     parser.add_argument("--root", type=Path, help="Repository root (defaults to auto-discovery)")
     commands = parser.add_subparsers(dest="command", required=True)
@@ -261,7 +264,8 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
         else:
             print(f"{result.gate.id} — {result.gate.name}: {result.state}")
             print(
-                f"Ready: {result.ready}; passed: {result.passed}; decision: {result.decision_status}"
+                f"Ready: {result.ready}; passed: {result.passed}; "
+                f"decision: {result.decision_status}"
             )
             print(f"Controls complete: {result.completed_requirements}/{result.total_requirements}")
             for blocker in result.blockers:
@@ -278,7 +282,8 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
         else:
             for item in items:
                 print(
-                    f"{item.priority} {item.id} {item.track_id}/{item.gate_id} [{item.status}] {item.title}"
+                    f"{item.priority} {item.id} {item.track_id}/{item.gate_id} "
+                    f"[{item.status}] {item.title}"
                 )
         return 0
     if command == "graph":
@@ -296,8 +301,8 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
             print(content, end="")
         return 0
     if command == "render":
-        output = _project_path(project, args.output)
-        paths = conductor.render(output)
+        render_output = _project_path(project, args.output)
+        paths = conductor.render(render_output)
         print("\n".join(str(path) for path in paths))
         return 0
     if command == "check-generated":
@@ -322,23 +327,23 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
         print("Generated conductor artefacts are current.")
         return 0
     if command == "work":
-        item = conductor.set_work_status(
+        work_item = conductor.set_work_status(
             args.work_item_id, args.status, actor=args.actor, note=args.note
         )
-        print(json.dumps(work_item_to_dict(item), indent=2, ensure_ascii=False))
+        print(json.dumps(work_item_to_dict(work_item), indent=2, ensure_ascii=False))
         return 0
     if command == "evidence":
-        item = conductor.review_evidence(
+        evidence_item = conductor.review_evidence(
             args.evidence_id,
             args.status,
             reviewer_role=args.reviewer,
             reviewed_on=args.reviewed_on,
             notes=args.notes,
         )
-        print(json.dumps(_object_dict(item), indent=2, ensure_ascii=False))
+        print(json.dumps(_object_dict(evidence_item), indent=2, ensure_ascii=False))
         return 0
     if command == "decision":
-        item = conductor.record_gate_decision(
+        decision_item = conductor.record_gate_decision(
             args.gate_id,
             args.status,
             authority=args.authority,
@@ -347,10 +352,10 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
             expires_on=args.expires_on,
             notes=args.notes,
         )
-        print(json.dumps(_object_dict(item), indent=2, ensure_ascii=False))
+        print(json.dumps(_object_dict(decision_item), indent=2, ensure_ascii=False))
         return 0
     if command == "risk":
-        item = conductor.update_risk(
+        risk_item = conductor.update_risk(
             args.risk_id,
             actor=args.actor,
             status=args.status,
@@ -358,7 +363,7 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
             next_review_on=args.next_review_on,
             notes=args.notes,
         )
-        print(json.dumps(_object_dict(item), indent=2, ensure_ascii=False))
+        print(json.dumps(_object_dict(risk_item), indent=2, ensure_ascii=False))
         return 0
     raise ValueError(f"Unhandled conductor command {command}")
 
@@ -461,7 +466,7 @@ def _normalise_generated_status(value: str) -> str:
 
 def _object_dict(value: Any) -> dict[str, Any]:
     result: dict[str, Any] = {}
-    for name in value.__dataclass_fields__:  # type: ignore[attr-defined]
+    for name in value.__dataclass_fields__:
         item = getattr(value, name)
         if isinstance(item, date):
             result[name] = item.isoformat()

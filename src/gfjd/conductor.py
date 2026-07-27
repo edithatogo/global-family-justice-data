@@ -2,18 +2,19 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
-from contextlib import contextmanager
-from datetime import date, datetime, timezone
 import json
 import os
-from uuid import uuid4
+from collections.abc import Iterable, Iterator
+from contextlib import contextmanager
+from dataclasses import dataclass, field
+from datetime import UTC, date, datetime
 from pathlib import Path
-from typing import Any, Iterable, Iterator
+from typing import Any
+from uuid import uuid4
 
 from .io import read_csv, sha256_file, write_csv, write_json
 from .project import Project, load_project, load_toml
-from .reporting import Issue, Report, Severity
+from .reporting import Report, Severity
 
 EVIDENCE_STATUSES = {
     "missing",
@@ -294,7 +295,7 @@ class Conductor:
         self._gate_cache: dict[str, GateResult] = {}
 
     @classmethod
-    def load(cls, project: Project | Path | str | None = None) -> "Conductor":
+    def load(cls, project: Project | Path | str | None = None) -> Conductor:
         if isinstance(project, Project):
             resolved = project
         else:
@@ -557,16 +558,21 @@ class Conductor:
             (self.project.resolve(self.project.paths["defects"]), "defect_id"),
             (self.project.resolve(self.project.paths["exceptions"]), "exception_id"),
         ]
-        for path, field in checks:
+        for path, key_field in checks:
             if not path.exists():
                 report.error("PROGRAMME_FILE_MISSING", f"Missing programme file {path}", path=path)
                 continue
             _, rows = read_csv(path)
             seen: set[str] = set()
             for row_number, row in enumerate(rows, start=2):
-                value = row.get(field, "").strip()
+                value = row.get(key_field, "").strip()
                 if not value:
-                    report.error("PROGRAMME_ID_BLANK", f"Blank {field}", path=path, row=row_number)
+                    report.error(
+                        "PROGRAMME_ID_BLANK",
+                        f"Blank {key_field}",
+                        path=path,
+                        row=row_number,
+                    )
                 elif value in seen:
                     report.error(
                         "PROGRAMME_ID_DUPLICATE",
@@ -810,7 +816,8 @@ class Conductor:
                 if missing:
                     report.warning(
                         "WORK_DONE_WITH_MISSING_EVIDENCE",
-                        f"Work item {item.id} is done but evidence is missing: {', '.join(missing)}",
+                        f"Work item {item.id} is done but evidence is missing: "
+                        f"{', '.join(missing)}",
                         path=path_label,
                     )
             if item.status == "accepted":
@@ -823,7 +830,8 @@ class Conductor:
                 if unsatisfied:
                     report.error(
                         "WORK_ACCEPTED_WITHOUT_EVIDENCE",
-                        f"Work item {item.id} is accepted without accepted evidence: {', '.join(unsatisfied)}",
+                        f"Work item {item.id} is accepted without accepted evidence: "
+                        f"{', '.join(unsatisfied)}",
                         path=path_label,
                     )
         cycle = find_cycle({key: value.dependency_ids for key, value in self.work_items.items()})
@@ -880,17 +888,16 @@ class Conductor:
                     f"Gate {decision.gate_id} has invalid decision status {decision.status!r}",
                     path=decision_path,
                 )
-            if decision.status in {"accepted", "rejected", "conditional"}:
-                if (
-                    decision.decided_on is None
-                    or not decision.decision_authority
-                    or not decision.decision_reference
-                ):
-                    report.error(
-                        "GATE_DECISION_INCOMPLETE",
-                        f"Gate {decision.gate_id} decision lacks date, authority or reference",
-                        path=decision_path,
-                    )
+            if decision.status in {"accepted", "rejected", "conditional"} and (
+                decision.decided_on is None
+                or not decision.decision_authority
+                or not decision.decision_reference
+            ):
+                report.error(
+                    "GATE_DECISION_INCOMPLETE",
+                    f"Gate {decision.gate_id} decision lacks date, authority or reference",
+                    path=decision_path,
+                )
             if (
                 decision.expires_on
                 and decision.expires_on < as_of
@@ -898,7 +905,8 @@ class Conductor:
             ):
                 report.error(
                     "GATE_DECISION_EXPIRED",
-                    f"Gate {decision.gate_id} decision expired on {decision.expires_on.isoformat()}",
+                    f"Gate {decision.gate_id} decision expired on "
+                    f"{decision.expires_on.isoformat()}",
                     path=decision_path,
                 )
 
@@ -1306,8 +1314,8 @@ class Conductor:
                 }
             )
         return {
-            "generated_at": (generated_at or datetime.now(timezone.utc))
-            .astimezone(timezone.utc)
+            "generated_at": (generated_at or datetime.now(UTC))
+            .astimezone(UTC)
             .replace(microsecond=0)
             .isoformat(),
             "project": dict(self.project.project_config),
@@ -1567,7 +1575,8 @@ class Conductor:
             matching = [row for row in rows if row.get(key_field, "").strip() == key_value]
             if len(matching) != 1:
                 raise ValueError(
-                    f"Expected exactly one {key_field}={key_value!r} in {relative_path}; found {len(matching)}"
+                    f"Expected exactly one {key_field}={key_value!r} in "
+                    f"{relative_path}; found {len(matching)}"
                 )
             before = dict(matching[0])
             for field_name in updates:
@@ -1577,7 +1586,7 @@ class Conductor:
             write_csv(path, headers, rows)
             event = {
                 "event_id": f"AUD-{uuid4().hex.upper()}",
-                "occurred_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
+                "occurred_at": datetime.now(UTC).replace(microsecond=0).isoformat(),
                 "actor": actor,
                 "event_type": event_type,
                 "record_path": relative_path,
@@ -1593,7 +1602,8 @@ class Conductor:
                 handle.write(json.dumps(event, ensure_ascii=False, sort_keys=True) + "\n")
                 handle.flush()
                 os.fsync(handle.fileno())
-        self.__init__(load_project(self.project.root))
+        refreshed = Conductor(load_project(self.project.root))
+        self.__dict__.update(refreshed.__dict__)
 
     def render(
         self,
@@ -1652,7 +1662,10 @@ def programme_lock(path: Path) -> Iterator[None]:
                 handle.write(b"0")
                 handle.flush()
             handle.seek(0)
-            msvcrt.locking(handle.fileno(), msvcrt.LK_LOCK, 1)
+            lock_mode = msvcrt.LK_LOCK  # type: ignore[attr-defined]
+            msvcrt.locking(  # type: ignore[attr-defined]
+                handle.fileno(), lock_mode, 1
+            )
         else:
             import fcntl
 
@@ -1664,7 +1677,10 @@ def programme_lock(path: Path) -> Iterator[None]:
                 import msvcrt
 
                 handle.seek(0)
-                msvcrt.locking(handle.fileno(), msvcrt.LK_UNLCK, 1)
+                unlock_mode = msvcrt.LK_UNLCK  # type: ignore[attr-defined]
+                msvcrt.locking(  # type: ignore[attr-defined]
+                    handle.fileno(), unlock_mode, 1
+                )
             else:
                 import fcntl
 
@@ -1774,10 +1790,12 @@ def render_status_markdown(payload: dict[str, Any]) -> str:
     for track in payload["tracks"]:
         lines.append(
             f"| {track['track_id']} — {track['name']} | "
-            f"{track.get('implemented_work_items', track['completed_work_items'])}/{track['work_items']} "
+            f"{track.get('implemented_work_items', track['completed_work_items'])}/"
+            f"{track['work_items']} "
             f"({track.get('implementation_percent', track['completion_percent'])}%) | "
-            f"{track['completed_work_items']}/{track['work_items']} ({track['completion_percent']}%) | "
-            f"{track['blocked_work_items']} | {track['accepted_evidence']}/{track['evidence_records']} |"
+            f"{track['completed_work_items']}/{track['work_items']} "
+            f"({track['completion_percent']}%) | {track['blocked_work_items']} | "
+            f"{track['accepted_evidence']}/{track['evidence_records']} |"
         )
     maturity = payload["maturity"]
     lines.extend(
@@ -1794,7 +1812,8 @@ def render_status_markdown(payload: dict[str, Any]) -> str:
     )
     for dimension in maturity["dimensions"]:
         lines.append(
-            f"| {dimension['dimension_id']} — {dimension['name']} | L{dimension['assessed_level']} | "
+            f"| {dimension['dimension_id']} — {dimension['name']} | "
+            f"L{dimension['assessed_level']} | "
             f"L{dimension['assured_level']} | L{dimension['target_level']} |"
         )
     controls = payload.get("controls", {})
@@ -1815,7 +1834,8 @@ def render_status_markdown(payload: dict[str, Any]) -> str:
     )
     for item in payload["next_actions"]:
         lines.append(
-            f"- **{item['priority']} {item['work_item_id']}** ({item['track_id']}/{item['gate_id']}): "
+            f"- **{item['priority']} {item['work_item_id']}** "
+            f"({item['track_id']}/{item['gate_id']}): "
             f"{item['title']} — _{item['status']}_"
         )
     if not payload["next_actions"]:
@@ -1823,8 +1843,9 @@ def render_status_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         [
             "",
-            "> A gate is ready only after evidence, work, maturity, risk, defect and dependency controls pass. "
-            "It passes only after a recorded governance decision. Document presence and self-assessment do not "
+            "> A gate is ready only after evidence, work, maturity, risk, defect and "
+            "dependency controls pass. It passes only after a recorded governance "
+            "decision. Document presence and self-assessment do not "
             "constitute acceptance.",
             "",
         ]

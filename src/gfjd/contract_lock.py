@@ -12,8 +12,8 @@ import csv
 import hashlib
 import io
 import json
-from pathlib import Path
 import tomllib
+from pathlib import Path
 from typing import Any
 
 from .harness import HarnessIssue, HarnessReport

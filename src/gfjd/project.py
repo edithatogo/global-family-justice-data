@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 import os
-from pathlib import Path
 import tomllib
-from typing import Any, Mapping
+from collections.abc import Mapping
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, cast
 
 from .errors import ConfigurationError
 
@@ -24,11 +25,11 @@ class Project:
 
     @property
     def project_config(self) -> Mapping[str, Any]:
-        return self.config["project"]
+        return cast(Mapping[str, Any], self.config["project"])
 
     @property
     def paths(self) -> Mapping[str, str]:
-        return self.config.get("paths", {})
+        return cast(Mapping[str, str], self.config.get("paths", {}))
 
     def resolve(self, configured_path: str | Path) -> Path:
         path = Path(configured_path)

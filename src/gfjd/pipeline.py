@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from collections import Counter
-from datetime import datetime
-import json
 import math
-from pathlib import Path
 import re
-from typing import Any, Mapping
+from collections import Counter
+from collections.abc import Mapping
+from datetime import datetime
+from pathlib import Path
+from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
 
@@ -128,7 +128,7 @@ def promote_observations(
     reason_counts: Counter[str] = Counter()
     seen_ids: set[str] = set()
 
-    for row_number, raw in enumerate(raw_rows, start=2):
+    for _row_number, raw in enumerate(raw_rows, start=2):
         typed = coerce_row(raw, observation_schema)
         reasons: list[str] = []
         schema_errors = sorted(validator.iter_errors(typed), key=lambda error: list(error.path))

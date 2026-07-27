@@ -2,15 +2,14 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
 import ipaddress
-import json
 import mimetypes
 import os
-from pathlib import Path
 import shutil
 import socket
 import tempfile
+from datetime import UTC, datetime
+from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
@@ -46,7 +45,7 @@ def acquire_local_file(
         raise AcquisitionError(
             f"Checksum mismatch for {input_path}: expected {expected_sha256}, found {checksum}"
         )
-    retrieved_at = datetime.now(timezone.utc).replace(microsecond=0)
+    retrieved_at = datetime.now(UTC).replace(microsecond=0)
     acquisition_id = _acquisition_id(source_id, retrieved_at, checksum)
     stored_path = _store_if_allowed(
         input_path,
@@ -71,7 +70,7 @@ def acquire_local_file(
         "byte_count": input_path.stat().st_size,
         "sha256": checksum,
         "etag": None,
-        "last_modified": datetime.fromtimestamp(input_path.stat().st_mtime, timezone.utc)
+        "last_modified": datetime.fromtimestamp(input_path.stat().st_mtime, UTC)
         .replace(microsecond=0)
         .isoformat(),
         "rights_status": rights_status,
@@ -112,7 +111,7 @@ def acquire_url(
         },
         method="GET",
     )
-    retrieved_at = datetime.now(timezone.utc).replace(microsecond=0)
+    retrieved_at = datetime.now(UTC).replace(microsecond=0)
     fd, temp_name = tempfile.mkstemp(prefix=".gfjd-download-", dir=destination_root)
     os.close(fd)
     temp_path = Path(temp_name)

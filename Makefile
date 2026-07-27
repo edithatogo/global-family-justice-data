@@ -1,4 +1,4 @@
-.PHONY: help install validate validate-strict test unit property integration coverage compile format lint typecheck contracts policy generated status graph release-rehearsal integration-rehearsals package-reproducibility release-reproducibility bootstrap-preflight bootstrap-plan check clean
+.PHONY: help install validate validate-strict test unit property integration coverage compile format lint typecheck contracts policy generated status graph release-rehearsal integration-rehearsals package-reproducibility release-reproducibility bootstrap-preflight bootstrap-plan autonomy-context autonomy-fast autonomy-full check clean
 
 PYTHON ?= python
 SOURCE_DATE_EPOCH ?= 1784419200
@@ -14,6 +14,9 @@ help:
 	@echo "integration-rehearsals   Exercise data, evidence, warehouse, backup and release paths"
 	@echo "package-reproducibility  Build two wheels and require byte identity"
 	@echo "release-reproducibility  Build two release archives and require byte identity"
+	@echo "autonomy-context        Build and verify the deterministic agent resume packet"
+	@echo "autonomy-fast           Fast fail-closed autonomous iteration gate"
+	@echo "autonomy-full           Maximal autonomous checkpoint harness"
 	@echo "check                    Run the required local/CI quality gate"
 
 install:
@@ -119,6 +122,14 @@ bootstrap-preflight:
 
 bootstrap-plan:
 	PYTHONPATH=src $(PYTHON) -m gfjd bootstrap plan --scan-root .. --output build/bootstrap
+
+autonomy-context:
+	PYTHONPATH=src $(PYTHON) -m gfjd autonomy context --output build/autonomy
+	PYTHONPATH=src $(PYTHON) -m gfjd autonomy verify --output build/autonomy
+
+autonomy-fast: compile contracts validate-strict unit generated policy autonomy-context
+
+autonomy-full: format lint typecheck coverage check integration-rehearsals package-reproducibility release-reproducibility autonomy-context
 
 check: compile contracts validate test generated policy release-rehearsal
 

@@ -44,7 +44,8 @@ def assess_gold_eligibility(row: dict[str, Any]) -> GoldDecision:
     if str(row.get("comparability_tier")) not in {"1", "2"}:
         reasons.append("comparability_tier_must_be_1_or_2")
     try:
-        if float(row.get("value")) < 0:
+        raw_value = row.get("value")
+        if raw_value is None or float(raw_value) < 0:
             reasons.append("value_must_be_non_negative")
     except (TypeError, ValueError):
         reasons.append("value_must_be_numeric")
@@ -57,7 +58,10 @@ def assess_gold_eligibility(row: dict[str, Any]) -> GoldDecision:
             reasons.append("timeliness_requires_stage_end")
     if row.get("unit") == "percent":
         try:
-            value = float(row.get("value"))
+            percent_value = row.get("value")
+            if percent_value is None:
+                raise TypeError
+            value = float(percent_value)
             if not 0 <= value <= 100:
                 reasons.append("percent_out_of_range")
         except (TypeError, ValueError):

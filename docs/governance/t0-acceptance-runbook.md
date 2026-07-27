@@ -49,15 +49,17 @@ The accountable authority separately dispositions each critical risk:
 gfjd conductor risk RISK_ID \
   --actor "GENUINE ACCOUNTABLE ROLE" \
   --status accepted \
-  --residual-severity high \
   --notes "Immutable risk-acceptance reference"
 ```
 
-Risk severity must not be reduced merely to pass the conductor. When all G1
-criteria, work, risk and maturity controls are genuinely satisfied, record work
-acceptance and the gate decision using the conductor CLI. Rebuild the governance
-pack after every accepted record; reviewers approve a digest, never a moving
-branch.
+Risk severity must not be reduced merely to pass the conductor; supply
+`--residual-severity` only when the referenced assessment independently supports
+the change. Accepted critical risks may cease blocking early governance gates but
+continue to block release-candidate gates until closed or genuinely reduced. When
+all G1 criteria, work, risk and maturity controls are genuinely satisfied, record
+work acceptance and the gate decision using the conductor CLI. Rebuild the
+governance pack after every accepted record; reviewers approve a digest, never a
+moving branch.
 
 ## Solo-maintainer boundary
 

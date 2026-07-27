@@ -1024,11 +1024,12 @@ class Conductor:
             else "blocking_risk_severities_before_rc"
         )
         blocking_risk_severities = set(conductor_cfg.get(risk_key, ["critical"]))
+        resolved_risk_statuses = {"accepted", "closed"} if gate_number < 5 else {"closed"}
         risk_failures = [
             risk.id
             for risk in self.risks.values()
             if risk.residual_severity in blocking_risk_severities
-            and risk.status not in {"accepted", "closed"}
+            and risk.status not in resolved_risk_statuses
         ]
         blocking_defect_severities = set(
             conductor_cfg.get("blocking_defect_severities", ["P0", "P1"])

@@ -7,6 +7,27 @@ from pathlib import Path
 from gfjd.conductor import Conductor
 
 
+def _copy_project(project_root: Path, destination: Path) -> Path:
+    return Path(
+        shutil.copytree(
+            project_root,
+            destination,
+            ignore=shutil.ignore_patterns(
+                ".git",
+                ".mypy_cache",
+                ".pytest_cache",
+                ".ruff_cache",
+                ".tox",
+                ".venv",
+                "__pycache__",
+                "build",
+                "dist",
+                "*.egg-info",
+            ),
+        )
+    )
+
+
 def test_conductor_configuration_is_valid(project_root: Path) -> None:
     conductor = Conductor.load(project_root)
     report = conductor.validate()
@@ -55,12 +76,7 @@ def test_generated_status_contains_gate_and_track_tables(project_root: Path) -> 
 
 
 def test_controlled_mutation_is_audited(project_root: Path, tmp_path: Path) -> None:
-    root = tmp_path / "repo"
-    shutil.copytree(
-        project_root,
-        root,
-        ignore=shutil.ignore_patterns(".git", ".pytest_cache", "__pycache__", "build", "dist"),
-    )
+    root = _copy_project(project_root, tmp_path / "repo")
     conductor = Conductor.load(root)
     updated = conductor.update_risk(
         "R01",
@@ -79,12 +95,7 @@ def test_controlled_mutation_is_audited(project_root: Path, tmp_path: Path) -> N
 def test_accountably_accepted_risk_no_longer_blocks_gate(
     project_root: Path, tmp_path: Path
 ) -> None:
-    root = tmp_path / "repo"
-    shutil.copytree(
-        project_root,
-        root,
-        ignore=shutil.ignore_patterns(".git", ".pytest_cache", "__pycache__", "build", "dist"),
-    )
+    root = _copy_project(project_root, tmp_path / "repo")
     conductor = Conductor.load(root)
     assert "R02" in conductor.gate_result("G1").risk_failures
 
@@ -96,6 +107,7 @@ def test_accountably_accepted_risk_no_longer_blocks_gate(
     )
 
     assert "R02" not in conductor.gate_result("G1").risk_failures
+    assert "R02" in conductor.gate_result("G5").risk_failures
 
 
 def test_evidence_review_enforces_independence_and_unlocks_work_acceptance(
@@ -103,12 +115,7 @@ def test_evidence_review_enforces_independence_and_unlocks_work_acceptance(
 ) -> None:
     import pytest
 
-    root = tmp_path / "repo"
-    shutil.copytree(
-        project_root,
-        root,
-        ignore=shutil.ignore_patterns(".git", ".pytest_cache", "__pycache__", "build", "dist"),
-    )
+    root = _copy_project(project_root, tmp_path / "repo")
     conductor = Conductor.load(root)
     with pytest.raises(ValueError, match="independent"):
         conductor.review_evidence(
@@ -140,12 +147,7 @@ def test_evidence_review_enforces_independence_and_unlocks_work_acceptance(
 def test_invalid_work_transition_is_rejected(project_root: Path, tmp_path: Path) -> None:
     import pytest
 
-    root = tmp_path / "repo"
-    shutil.copytree(
-        project_root,
-        root,
-        ignore=shutil.ignore_patterns(".git", ".pytest_cache", "__pycache__", "build", "dist"),
-    )
+    root = _copy_project(project_root, tmp_path / "repo")
     conductor = Conductor.load(root)
     with pytest.raises(ValueError, match="Invalid work transition"):
         conductor.set_work_status("WI-G2-01", "accepted", actor="reviewer")

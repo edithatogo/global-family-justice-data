@@ -90,6 +90,8 @@ def build_census_readiness(
             project, "data/census/search_log.csv", "data/seed/search_log_template.csv"
         ),
         "enquiries": _confined_input(project, "data/census/direct_enquiry_register.csv"),
+        "institution_map": _confined_input(project, "data/census/institution_map.csv"),
+        "review_ledger": _confined_input(project, "data/census/review_ledger.csv"),
     }
     for name, path in inputs.items():
         if not path.is_file():
@@ -99,15 +101,21 @@ def build_census_readiness(
     _, assessments = read_csv(inputs["assessments"])
     _, search_logs = read_csv(inputs["search_logs"])
     _, enquiries = read_csv(inputs["enquiries"])
+    _, institution_map = read_csv(inputs["institution_map"])
+    _, review_ledger = read_csv(inputs["review_ledger"])
     _validate_input_rows(project, universe, "schemas/jurisdiction_universe.schema.json")
     _validate_input_rows(project, assessments, "schemas/coverage_assessment.schema.json")
     _validate_input_rows(project, search_logs, "schemas/search_log.schema.json")
     _validate_input_rows(project, enquiries, "schemas/direct_enquiry.schema.json")
+    _validate_input_rows(project, institution_map, "schemas/institution.schema.json")
+    _validate_input_rows(project, review_ledger, "schemas/review.schema.json")
     _unique(universe, "jurisdiction_id", "universe")
     _unique(universe, "universe_entry_id", "universe")
     _unique(assessments, "assessment_id", "coverage assessments")
     _unique(search_logs, "search_log_id", "search logs")
     _unique(enquiries, "enquiry_id", "direct enquiries")
+    _unique(institution_map, "institution_id", "institution map")
+    _unique(review_ledger, "review_id", "review ledger")
     gaps: list[dict[str, str]] = []
     register_ids = {row["jurisdiction_id"] for row in jurisdictions}
     for label, rows in (
@@ -115,6 +123,7 @@ def build_census_readiness(
         ("coverage assessments", assessments),
         ("search logs", search_logs),
         ("direct enquiries", enquiries),
+        ("institution map", institution_map),
     ):
         for row in rows:
             if row.get("jurisdiction_id") not in register_ids:
@@ -131,6 +140,10 @@ def build_census_readiness(
     assessments_by_id = _group(assessments)
     logs_by_id = _group(search_logs)
     enquiries_by_id = _group(enquiries)
+    institutions_by_id = _group(institution_map)
+    reviews_by_subject = defaultdict(list)
+    for row in review_ledger:
+        reviews_by_subject[row.get("subject_id", "")].append(row)
     universe_by_id = {row["jurisdiction_id"]: row for row in universe}
     matrix: list[dict[str, str | int]] = []
     for jurisdiction in sorted(jurisdictions, key=lambda row: row["jurisdiction_id"]):
@@ -176,6 +189,18 @@ def build_census_readiness(
             )
         if not reviewed_logs:
             reasons.append(("SEARCH_LOG_UNREVIEWED", "No reviewed source-search log exists."))
+        if not institutions_by_id[jid]:
+            reasons.append(("INSTITUTION_MAP_MISSING", "No institutional-map record exists."))
+        if not any(
+            row.get("decision", "") in {"accepted", "changes_required", "rejected", "quarantined"}
+            for row in reviews_by_subject[jid]
+        ):
+            reasons.append(
+                (
+                    "REVIEW_LEDGER_UNREVIEWED",
+                    "No reviewed jurisdiction review-ledger record exists.",
+                )
+            )
         # Direct enquiry is deliberately not inferred from an empty log. It is only
         # considered closed when a reviewed log records it in notes using the exact
         # controlled marker, preserving a transparent audit trail without contacts.

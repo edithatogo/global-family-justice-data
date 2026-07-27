@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/jurisdiction_universe.schema.json",
+  "title": "Jurisdiction universe record",
+  "type": "object",
+  "required": [
+    "universe_entry_id",
+    "jurisdiction_id",
+    "inclusion_status",
+    "inclusion_reason",
+    "search_priority",
+    "owner_role",
+    "review_status",
+    "notes"
+  ],
+  "properties": {
+    "universe_entry_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"},
+    "jurisdiction_id": {"type": "string", "pattern": "^[A-Z]{2,3}(?:-[A-Z0-9]{2,5})?$"},
+    "inclusion_status": {"enum": ["included", "deferred", "excluded_with_reason", "under_review"]},
+    "inclusion_reason": {"type": "string"},
+    "search_priority": {"enum": ["critical", "high", "medium", "low"]},
+    "owner_role": {"type": "string"},
+    "review_status": {"enum": ["draft", "reviewed", "accepted", "superseded"]},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,13 @@
+[connector]
+id = "SYN_MANUAL_CONNECTOR"
+source_id = "SYN-MANUAL-2026"
+source_edition_id = "SYN_MANUAL_EDITION_2026"
+adapter = "manual_transcription"
+input_path = "examples/synthetic_pilot/sources/manual-report.txt"
+output_path = "build/demo/bronze/manual.csv"
+receipt_path = "build/demo/receipts/manual-connector.json"
+header_row = 1
+expected_columns = ["record_key", "matter", "measure", "value"]
+transcription_path = "examples/synthetic_pilot/sources/manual-transcription.csv"
+locator_column = "_source_locator"
+notes = "FICTIONAL synthetic-pilot source; never publish as empirical data."

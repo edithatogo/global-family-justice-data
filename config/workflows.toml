@@ -248,10 +248,10 @@ operation = "build_release_rehearsal"
 description = "Build and verify a deterministic draft release bundle."
 depends_on = ["generated", "manifest"]
 inputs = ["data/seed/*.csv", "data/silver/**/*.csv", "data/gold/**/*.csv", "schemas/*.json", "docs/**/*.md", "programme/*.csv", "programme/*.json", "config/*.toml"]
-outputs = ["build/rehearsal/gfjd-0.4.0-alpha.1-rehearsal/RELEASE.json", "build/rehearsal/gfjd-0.4.0-alpha.1-rehearsal.zip"]
+outputs = ["build/rehearsal/gfjd-0.6.0-alpha.2-rehearsal/RELEASE.json", "build/rehearsal/gfjd-0.6.0-alpha.2-rehearsal.zip"]
 [workflows.steps.params]
 output_dir = "build/rehearsal"
-version = "0.4.0-alpha.1-rehearsal"
+version = "0.6.0-alpha.2-rehearsal"
 source_date_epoch = 1784419200
 
 [[workflows]]

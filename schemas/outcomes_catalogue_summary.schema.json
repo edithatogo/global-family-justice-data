@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/outcomes_catalogue_summary.schema.json",
+  "title": "Outcomes evidence catalogue build summary",
+  "type": "object",
+  "required": ["schema_version", "built_on", "input_path", "input_sha256", "record_count", "accepted_count", "appraised_count", "jurisdiction_count", "counts_by_design", "counts_by_domain", "coverage_cells", "artifacts"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "built_on": {"type": "string", "format": "date"},
+    "input_path": {"type": "string", "minLength": 1},
+    "input_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "record_count": {"type": "integer", "minimum": 0},
+    "accepted_count": {"type": "integer", "minimum": 0},
+    "appraised_count": {"type": "integer", "minimum": 0},
+    "jurisdiction_count": {"type": "integer", "minimum": 0},
+    "counts_by_design": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "counts_by_domain": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+    "coverage_cells": {"type": "integer", "minimum": 0},
+    "artifacts": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

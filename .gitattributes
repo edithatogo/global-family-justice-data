@@ -1,0 +1,15 @@
+# Canonical text representation. Repository manifests must hash the same bytes
+# on every supported operating system and in every clean checkout.
+* text=auto eol=lf
+
+# Binary artefacts must never undergo line-ending conversion.
+*.xlsx binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.whl binary
+*.bundle binary

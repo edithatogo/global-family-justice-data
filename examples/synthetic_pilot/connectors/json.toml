@@ -1,0 +1,12 @@
+[connector]
+id = "SYN_JSON_CONNECTOR"
+source_id = "SYN-JSON-2026"
+source_edition_id = "SYN_JSON_EDITION_2026"
+adapter = "json_records"
+input_path = "examples/synthetic_pilot/sources/source.json"
+output_path = "build/demo/bronze/json.csv"
+receipt_path = "build/demo/receipts/json-connector.json"
+header_row = 1
+expected_columns = ["record_key", "matter", "measure", "value"]
+record_path = "records"
+notes = "FICTIONAL synthetic-pilot source; never publish as empirical data."

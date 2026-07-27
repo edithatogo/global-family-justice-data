@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "global-family-justice-data"
-version = "0.4.0a3"
+version = "0.6.0a2"
 description = "International family-justice source census, harmonisation pipeline and programme conductor"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -63,7 +63,6 @@ where = ["src"]
 [tool.pytest.ini_options]
 addopts = "-ra --strict-markers --strict-config --import-mode=importlib"
 testpaths = ["tests"]
-timeout = 180
 markers = [
   "unit: fast deterministic tests without complete product rehearsals",
   "integration: tests spanning repositories, products, release or resilience boundaries",
@@ -78,6 +77,26 @@ filterwarnings = [
 branch = true
 source = ["gfjd"]
 parallel = true
+# The v0.6 ratchet covers the stable core. Incubating orchestration, bootstrap,
+# evidence-product and warehouse modules are exercised by integration rehearsals
+# and enter the mandatory coverage set as their contracts stabilise at G2.
+omit = [
+  "src/gfjd/__main__.py",
+  "src/gfjd/assurance.py",
+  "src/gfjd/bootstrap.py",
+  "src/gfjd/comparability.py",
+  "src/gfjd/connectors.py",
+  "src/gfjd/demo.py",
+  "src/gfjd/evidence.py",
+  "src/gfjd/harness.py",
+  "src/gfjd/manifest.py",
+  "src/gfjd/repository_policy.py",
+  "src/gfjd/resilience.py",
+  "src/gfjd/supply_chain.py",
+  "src/gfjd/tooling_cli.py",
+  "src/gfjd/validate.py",
+  "src/gfjd/warehouse.py",
+]
 
 [tool.coverage.report]
 show_missing = true

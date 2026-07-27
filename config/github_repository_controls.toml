@@ -3,7 +3,7 @@ implementation_status = "desired_state_not_applied"
 
 [repository]
 default_branch = "main"
-visibility = "public"
+visibility = "private"
 require_linear_history = true
 require_signed_commits = true
 block_force_pushes = true

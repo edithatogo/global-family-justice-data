@@ -1,7 +1,7 @@
 [project]
 id = "GFJD"
 name = "Global Family Justice Data Project"
-version = "0.3.0"
+version = "0.6.0-alpha.2"
 contract_version = "0.3"
 ontology_version = "0.3"
 programme_model_version = "1.0"
@@ -9,6 +9,7 @@ minimum_python = "3.11"
 current_gate = "G1"
 public_data_boundary = "aggregate_only"
 default_timezone = "UTC"
+status_as_of = "2026-07-27"
 
 [paths]
 jurisdictions = "data/seed/jurisdiction_register.csv"
@@ -55,3 +56,7 @@ blocking_risk_severities_before_rc = ["critical"]
 blocking_risk_severities_at_rc = ["critical", "high"]
 minimum_maturity_by_gate = { G1 = 1, G2 = 2, G3 = 3, G4 = 3, G5 = 4, G6 = 5 }
 require_distinct_evidence_reviewer = true
+
+[toolchain]
+uv_version = "0.10.0"
+lock_file = "uv.lock"

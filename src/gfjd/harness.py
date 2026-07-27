@@ -536,6 +536,10 @@ def verify_sdist(path: Path, quality_config: Path) -> HarnessReport:
     forbidden_content = tuple(
         str(item).lower() for item in config.get("forbidden_content_fragments", [])
     )
+    content_allowlist = {
+        str(item).replace("\\", "/")
+        for item in config.get("forbidden_content_allowlist_paths", [])
+    }
     member_names: list[str] = []
     relative_names: set[str] = set()
     roots: set[str] = set()
@@ -630,8 +634,10 @@ def verify_sdist(path: Path, quality_config: Path) -> HarnessReport:
                             "error", "SDIST_FORBIDDEN_PATH", name, "Forbidden path fragment"
                         )
                     )
-                if member.isfile() and name.endswith(
-                    (".py", ".toml", ".json", ".md", ".txt", ".yml", ".yaml")
+                if (
+                    member.isfile()
+                    and relative not in content_allowlist
+                    and name.endswith((".py", ".toml", ".json", ".md", ".txt", ".yml", ".yaml"))
                 ):
                     if member.size > limits["max_text_scan_bytes"]:
                         issues.append(

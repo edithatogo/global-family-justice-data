@@ -1,0 +1,11 @@
+[connector]
+id = "SYN_CSV_CONNECTOR"
+source_id = "SYN-CSV-2026"
+source_edition_id = "SYN_CSV_EDITION_2026"
+adapter = "csv"
+input_path = "examples/synthetic_pilot/sources/source.csv"
+output_path = "build/demo/bronze/csv.csv"
+receipt_path = "build/demo/receipts/csv-connector.json"
+header_row = 1
+expected_columns = ["record_key", "matter", "measure", "value"]
+notes = "FICTIONAL synthetic-pilot source; never publish as empirical data."

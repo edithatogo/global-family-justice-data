@@ -1,0 +1,130 @@
+{
+  "description": "Fictional synthetic-pilot mapping.",
+  "fields": {
+    "break_in_series": {
+      "constant": false
+    },
+    "cohort_basis": {
+      "constant": "fictional completed matters"
+    },
+    "comparability_tier": {
+      "constant": 2
+    },
+    "count_unit": {
+      "constant": "matters"
+    },
+    "definition_english": {
+      "constant": "Fictional elapsed days from filing to final disposition."
+    },
+    "definition_original": {
+      "constant": "Fictional elapsed days from filing to final disposition."
+    },
+    "extraction_id": {
+      "template": "EXT_SYN_JSON_{record_key}"
+    },
+    "extraction_method": {
+      "constant": "structured_file"
+    },
+    "indicator_id": {
+      "constant": "TIME_FILE_TO_DISP_MEDIAN"
+    },
+    "jurisdiction_id": {
+      "constant": "ZZ"
+    },
+    "matter_type_harmonised": {
+      "constant": "MAT_PARENTING_PRIVATE"
+    },
+    "matter_type_original": {
+      "column": "matter",
+      "required": true
+    },
+    "measure_original": {
+      "column": "measure",
+      "required": true
+    },
+    "notes": {
+      "constant": "FICTIONAL synthetic-pilot observation; not empirical family-justice data."
+    },
+    "observation_id": {
+      "template": "OBS_SYN_JSON_{record_key}"
+    },
+    "period_end": {
+      "constant": "2026-12-31"
+    },
+    "period_start": {
+      "constant": "2026-01-01"
+    },
+    "population_scope": {
+      "constant": "synthetic demonstration only"
+    },
+    "provenance_locator": {
+      "column": "_gfjd_source_locator",
+      "required": true
+    },
+    "quality_grade": {
+      "constant": "A"
+    },
+    "record_status": {
+      "constant": "accepted"
+    },
+    "release_eligible": {
+      "constant": true
+    },
+    "review_id": {
+      "template": "REV_SYN_JSON_{record_key}"
+    },
+    "review_status": {
+      "constant": "accepted"
+    },
+    "reviewer": {
+      "constant": "Synthetic reviewer one"
+    },
+    "schema_version": {
+      "constant": "1.0"
+    },
+    "second_reviewed": {
+      "constant": true
+    },
+    "second_reviewer": {
+      "constant": "Synthetic reviewer two"
+    },
+    "source_edition_id": {
+      "constant": "SYN_JSON_EDITION_2026"
+    },
+    "source_id": {
+      "constant": "SYN-JSON-2026"
+    },
+    "stage_end": {
+      "constant": "final_disposition"
+    },
+    "stage_start": {
+      "constant": "filing"
+    },
+    "statistic_type": {
+      "constant": "median"
+    },
+    "suppression_status": {
+      "constant": "not_required"
+    },
+    "time_basis": {
+      "constant": "calendar"
+    },
+    "transformation_rule_id": {
+      "constant": "MAP_SYN_JSON_V1"
+    },
+    "unit": {
+      "constant": "calendar_days"
+    },
+    "value": {
+      "column": "value",
+      "required": true,
+      "transforms": [
+        "parse_number"
+      ]
+    }
+  },
+  "mapping_id": "MAP_SYN_JSON_V1",
+  "schema_version": "1.0",
+  "source_edition_id": "SYN_JSON_EDITION_2026",
+  "source_id": "SYN-JSON-2026"
+}

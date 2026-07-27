@@ -20,12 +20,12 @@ The attestation subject is a SHA-256 digest over the sorted path-and-digest set 
 
 ```bash
 SOURCE_DATE_EPOCH=1784419200 gfjd release build \
-  --version 0.4.0-alpha.1-rehearsal \
+  --version 0.6.0-alpha.2-rehearsal \
   --output build/rehearsal \
   --source-date-epoch 1784419200
 
 gfjd release verify \
-  build/rehearsal/gfjd-0.4.0-alpha.1-rehearsal
+  build/rehearsal/gfjd-0.6.0-alpha.2-rehearsal
 ```
 
 Verification independently checks manifest syntax and path safety, required artifacts, missing and extra files, every file digest, release schema, SBOM minimum structure, attestation schema and the recomputed attestation subject. Rewriting the attestation and updating only the manifest therefore does not conceal a modified release tree.

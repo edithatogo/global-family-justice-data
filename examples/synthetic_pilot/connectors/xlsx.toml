@@ -1,0 +1,12 @@
+[connector]
+id = "SYN_XLSX_CONNECTOR"
+source_id = "SYN-XLSX-2026"
+source_edition_id = "SYN_XLSX_EDITION_2026"
+adapter = "xlsx"
+input_path = "examples/synthetic_pilot/sources/source.xlsx"
+output_path = "build/demo/bronze/xlsx.csv"
+receipt_path = "build/demo/receipts/xlsx-connector.json"
+header_row = 1
+expected_columns = ["record_key", "matter", "measure", "value"]
+sheet_name = "Fictional"
+notes = "FICTIONAL synthetic-pilot source; never publish as empirical data."

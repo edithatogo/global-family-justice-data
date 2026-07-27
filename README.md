@@ -2,31 +2,42 @@
 
 A reproducible international source census and harmonised data platform for family-justice process, performance, outputs, experiences and outcomes.
 
+## Bootstrap-ready handoff
+
+This distribution is **v0.6.0-alpha.2**. It is delivered as a Git bundle inside a self-contained handoff ZIP so that a new local checkout retains the reconstructed checkpoint history. The root `AGENTS.md` is automatically read by Codex and directs it to the authoritative bootstrap and implementation briefs.
+
+From a cloned checkout, the supported plan-first bootstrap is:
+
+```bash
+python scripts/bootstrap_workspace.py preflight
+python scripts/bootstrap_workspace.py plan --scan-root .. --output build/bootstrap
+# Apply only after reviewing the plan and authenticating `gh`:
+python scripts/bootstrap_workspace.py apply --yes --github-visibility private
+```
+
+The bootstrap never force-pushes, refuses a mismatched `origin`, creates GitHub repositories as private by default, inventories bounded nearby clones without modifying them, and records checksum-bound receipts. `HISTORY_PROVENANCE.md` explains how the checkpoint history was reconstructed.
+
 ## Current status
 
-This repository is a **v0.3.0 engineering and programme-control baseline**. It now contains an executable conductor, data contracts, validation, acquisition, harmonisation, quarantine, provenance and deterministic release tooling. It is **not** a completed international dataset and must not be represented as v1.0.
+The repository is an **alpha engineering, programme-control and autonomous-handoff baseline**. It contains a working conductor, data contracts, validation, acquisition, harmonisation, quarantine, provenance, deterministic release tooling, multi-format adapters, outcomes-evidence and comparability components, resilience tooling, CI policy controls, and the local/remote bootstrap layer. It is **not** a completed international dataset and must not be represented as v1.0.
 
-The repository is intentionally fail-closed. At this baseline:
+The repository remains deliberately fail-closed:
 
 - no stage gate has passed;
 - the declared active gate is **G1 — Foundation controls accepted**;
-- the evidence-assured maturity floor is **L0**, although the self-assessed implementation floor is L1;
-- the seed catalogue contains jurisdictions, sources, indicators and matter types, but the gold observation layer is empty;
-- draft documents and implemented code are not treated as accepted evidence without independent review.
-
-The target v1.0 is a governed, independently assured and maintainable public-data product with stable contracts, immutable releases, tested recovery, production-like soak and a funded 1.x operating model.
+- the seed material is illustrative and the gold observation layer remains empty unless explicitly populated through reviewed workflows;
+- implemented code and generated documents are not accepted institutional or scientific evidence by themselves;
+- GitHub/Hugging Face creation and live settings verification occur only on the operator’s authenticated machine.
 
 ## Start here
 
-- [`V1_HARDENING_REPORT.md`](V1_HARDENING_REPORT.md) — executive implementation assessment, verified baseline and recommended next steps;
-- [`ROADMAP.md`](ROADMAP.md) — integrated capability path from v0.3 to a stable v1.0;
-- [`V1_0_RELEASE_CRITERIA.md`](V1_0_RELEASE_CRITERIA.md) — binding definition of done and no-go conditions;
-- [`docs/architecture/conductor-system.md`](docs/architecture/conductor-system.md) — the programme control plane;
-- [`docs/development/implementation-status.md`](docs/development/implementation-status.md) — what is implemented and what is not;
-- [`docs/development/v1-gap-analysis.md`](docs/development/v1-gap-analysis.md) — prioritised improvements and remaining work;
-- [`docs/quality/testing-strategy.md`](docs/quality/testing-strategy.md) — enforced test baseline and gate-by-gate assurance ratchet;
-- [`PROJECT_PLAN.md`](PROJECT_PLAN.md) — full programme design, resourcing and operating model;
-- [`docs/programme/track-charters.md`](docs/programme/track-charters.md) — ten workstream accountabilities.
+- [`AGENTS.md`](AGENTS.md) — automatically loaded Codex instructions;
+- [`START_HERE.md`](START_HERE.md) — operator entry point;
+- [`BOOTSTRAP_AND_HANDOFF_PROMPT.md`](BOOTSTRAP_AND_HANDOFF_PROMPT.md) — local, GitHub and Hugging Face bootstrap brief;
+- [`CODEX_IMPLEMENTATION_PROMPT.md`](CODEX_IMPLEMENTATION_PROMPT.md) — autonomous continuation contract;
+- [`HISTORY_PROVENANCE.md`](HISTORY_PROVENANCE.md) — provenance of the reconstructed Git history;
+- [`V1_HARDENING_REPORT.md`](V1_HARDENING_REPORT.md) — implementation assessment;
+- [`ROADMAP.md`](ROADMAP.md) and [`V1_0_RELEASE_CRITERIA.md`](V1_0_RELEASE_CRITERIA.md) — route and binding evidence gates to stable v1.0.
 
 ## v1.0 product boundary
 

@@ -1,6 +1,6 @@
 # Start here: unpack, discover, initialise and publish safely
 
-This repository is designed to be copied as a ZIP into a working folder and handed to a capable coding agent.
+This repository is delivered in a self-contained handoff ZIP containing a Git bundle. The outer bootstrap clones the bundle with its commit history, names the bundle remote `handoff`, and leaves `origin` available for the canonical GitHub repository.
 
 The safest route is:
 
@@ -23,7 +23,7 @@ Apply after inspecting `build/bootstrap/bootstrap-plan.md`:
 python scripts/bootstrap_workspace.py apply \
   --github-owner YOUR_GITHUB_LOGIN_OR_ORG \
   --github-repository global-family-justice-data \
-  --visibility private \
+  --github-visibility private \
   --author-name "YOUR NAME" \
   --author-email "YOUR VERIFIED OR NOREPLY EMAIL" \
   --yes
@@ -35,7 +35,7 @@ Create the configured private Hugging Face dataset/Space repositories only after
 python scripts/bootstrap_workspace.py apply \
   --github-owner YOUR_GITHUB_LOGIN_OR_ORG \
   --github-repository global-family-justice-data \
-  --visibility private \
+  --github-visibility private \
   --huggingface-namespace YOUR_HF_NAMESPACE \
   --create-huggingface \
   --yes
@@ -45,10 +45,10 @@ The command is idempotent where the remote identities match. It refuses to overw
 
 See:
 
+- `AGENTS.md`
 - `BOOTSTRAP_AND_HANDOFF_PROMPT.md`
-- `docs/bootstrap/architecture-and-safety.md`
-- `docs/bootstrap/local-clone-discovery.md`
-- `docs/bootstrap/github-and-huggingface-setup.md`
+- `CODEX_IMPLEMENTATION_PROMPT.md`
+- `HISTORY_PROVENANCE.md`
 
 ## Locked local environment
 
@@ -56,7 +56,7 @@ After verifying `MANIFEST.sha256`, prepare the exact development and security to
 
 ```bash
 uv sync --frozen --all-extras
-uv run python -m gfjd doctor
+uv run python scripts/bootstrap_workspace.py preflight
 ```
 
 The bootstrap plan writes both a bounded clone inventory and `portfolio-reconciliation.json` before any remote mutation.

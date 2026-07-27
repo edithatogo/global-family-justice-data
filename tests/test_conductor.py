@@ -20,7 +20,7 @@ def test_conductor_configuration_is_valid(project_root: Path) -> None:
 def test_conductor_reports_honest_current_state(project_root: Path) -> None:
     conductor = Conductor.load(project_root)
     summary = conductor.summary()
-    assert summary["current_release"] == "0.3.0"
+    assert summary["current_release"] == "0.6.0-alpha.2"
     assert summary["target_release"] == "1.0.0"
     assert summary["current_gate"] == "G1"
     assert summary["programme_maturity"] == 0

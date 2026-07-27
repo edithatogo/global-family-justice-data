@@ -2,7 +2,7 @@
 
 ## Mission
 
-Take this repository from the current **0.6.0-alpha.1 harness-engineered preview** as far as responsibly possible toward a stable, hardened, mature v1.0 implementation. Work autonomously, use the entire repository as context, and make concrete changes rather than merely proposing them. Preserve the distinction between technical implementation and evidence that only real institutions, researchers, source owners, reviewers, or operators can provide.
+Take this repository from the current **0.6.0-alpha.2 bootstrap-ready alpha** as far as responsibly possible toward a stable, hardened, mature v1.0 implementation. Work autonomously, use the entire repository as context, and make concrete changes rather than merely proposing them. Preserve the distinction between technical implementation and evidence that only real institutions, researchers, source owners, reviewers, or operators can provide.
 
 The desired result is a repository that is easier to trust, operate, extend, audit, reproduce, and hand over. Every material feature should be accompanied by an executable contract, negative tests, deterministic evidence or receipts, documentation, and a clear failure mode.
 
@@ -46,16 +46,9 @@ Read these before changing the architecture:
 - `docs/engineering/release-provenance.md`
 - `VERIFICATION.md`
 
-The current code already includes:
+The current code includes a working T0–T9/G1–G6 programme conductor; schema-backed validation; rights-aware acquisition; mapping, promotion, quarantine and deterministic release controls; multi-format connector, outcomes-evidence, comparability, warehouse and resilience modules; CI/repository-policy and package-inspection modules; and a plan-first Git/GitHub/Hugging Face bootstrap. Some advanced modules are not yet exposed through the main CLI or covered by the original test suite. Treat them as implementation assets to integrate and test, not as completed production services.
 
-- a typed T0–T9 programme conductor and G1–G6 evidence gates, dependency-aware status, controlled register transitions, and append-only mutation records;
-- safe ZIP extraction and a two-phase workspace bootstrap covering bounded local-clone discovery, duplicate remotes, Git initialisation, private-by-default GitHub/Hugging Face creation, non-force push verification, and checksum-bound receipts;
-- catalogue, acquisition, connector, extraction, mapping, quarantine, promotion, outcomes-evidence, comparability, warehouse, public-product, release, backup/restore, policy-audit, and security paths;
-- synthetic CSV, JSON, HTML, XLSX, and manual-report vertical slices;
-- versioned schemas, a contract lock, dependency lock and deterministic repository manifest;
-- CI/repository policy auditing, immutable GitHub Action identities, dependency locking, CodeQL workflow definitions, deterministic release checks, and adversarial wheel/sdist/archive inspection.
-
-The workflow scheduler, hash-bound gate packs, applied-live-GitHub snapshot service, canonical quality summary, mutation service, complete global census, accessibility automation, signed publication provenance, and production platform are **planned work**, not existing capabilities. Implement them only with truthful contracts, tests and migration paths.
+The complete catalogue/public-product layer, general workflow scheduler, hash-bound gate packs, applied-live-GitHub snapshot service, canonical quality summary, mutation service, full global census, accessibility automation, signed publication provenance and production platform remain **planned work**. Implement them only with truthful contracts, tests and migration paths.
 
 Do not replace working controls with a fashionable framework unless the migration is demonstrably safer, simpler, fully tested, and backwards-compatible.
 
@@ -72,13 +65,13 @@ Do not replace working controls with a fashionable framework unless the migratio
 Preferred commands for the present tree:
 
 ```bash
-uv sync --frozen --extra dev --extra security
-uv run make check-pre-manifest
-uv run pytest
-uv run make integration-rehearsals
-uv run make package-reproducibility
-uv run make release-reproducibility
-uv run make manifest-update
+uv sync --frozen --extra dev
+uv run python -m compileall -q src tests scripts
+uv run python -m pytest -q
+uv run python -m gfjd validate
+uv run python -m gfjd conductor check-generated
+uv run python -m gfjd.manifest --verify
+uv run make release-rehearsal
 uv run make check
 ```
 

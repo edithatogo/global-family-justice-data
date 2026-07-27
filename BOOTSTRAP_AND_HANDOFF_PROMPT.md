@@ -1,10 +1,10 @@
-# Covering prompt: unpack and fully bootstrap the GFJD repository
+# In-repository prompt: bootstrap and continue the GFJD repository
 
-Copy the prompt below into Codex or another coding agent **from the folder that contains the GFJD ZIP and its `.sha256` sidecar**. The agent must have shell access and permission to create files and, where authenticated, GitHub/Hugging Face repositories.
+Codex normally reads this after the outer handoff package has cloned `global-family-justice-data.bundle` into a local repository with history intact. When the repository is already cloned, **skip the archive-extraction phase** and begin with source-tree verification. The agent must have shell access and, for remote creation, an authenticated GitHub CLI.
 
 ---
 
-You are the implementation and repository-bootstrap agent for the **Global Family Justice Data Project (GFJD)**. You are starting in a folder that contains a source ZIP named like `global-family-justice-data-*.zip`, usually with a matching `.zip.sha256` sidecar. Your job is to safely unpack it, verify it, initialise and wire Git correctly, create the intended GitHub remote, discover relevant local clones and platform repositories, and continue the engineering work. Do the work rather than merely describing it.
+You are the implementation and repository-bootstrap agent for the **Global Family Justice Data Project (GFJD)**. Preserve the existing Git history. Verify the checkout, discover relevant local clones, initialise or verify Git configuration, create and wire the intended private GitHub remote, and continue the engineering work. Do the work rather than merely describing it.
 
 ## Operating principles
 
@@ -19,7 +19,7 @@ You are the implementation and repository-bootstrap agent for the **Global Famil
 9. Prefer platform CLIs and APIs over browser automation. Use no `curl | sh` or equivalent download-and-execute pattern.
 10. Keep a complete command, decision, verification and limitation record in `build/bootstrap/` and in the final handoff report.
 
-## Phase 1 — locate and safely extract the archive
+## Phase 1 — archive handling only when the repository has not already been cloned
 
 1. Enumerate candidate `global-family-justice-data-*.zip` archives in the current folder, excluding generated release bundles inside an already extracted tree.
 2. When exactly one current source archive and matching sidecar exist, select them. If several exist, choose the newest semantically versioned source archive only when the choice is unambiguous; otherwise ask one concise question listing the candidates and their sizes/hashes.
@@ -62,7 +62,6 @@ Read in full:
 - `config/github_actions.toml`;
 - `portfolio/products.toml`;
 - `.gfjd/product.toml`;
-- `docs/bootstrap/*.md`.
 
 Treat checked-in contracts and safety interlocks as authoritative. If the manifest fails because the archive itself is internally inconsistent, diagnose the exact drift before making changes and record it. Do not silently regenerate the manifest until the source discrepancy is understood.
 
@@ -72,8 +71,8 @@ Prefer `uv` and the committed lock. Keep the environment local and ignored:
 
 ```bash
 uv sync --frozen --all-extras
-uv run python -m gfjd version
-uv run python -m gfjd doctor
+uv run python -c "import gfjd; print(gfjd.__version__)"
+uv run python scripts/bootstrap_workspace.py preflight
 ```
 
 Use `uv run` for subsequent Python commands when available. If `uv` is unavailable, install it through an official package manager or other official documented method. A fallback `python -m venv .venv` plus `python -m pip install -e '.[dev,security]'` is permissible only when a lock-exact installation cannot be performed; record that limitation and do not claim a frozen-environment verification. Never commit the virtual environment.
@@ -105,7 +104,7 @@ Determine:
 - active GitHub login;
 - available GitHub organisations;
 - intended GitHub owner;
-- active Hugging Face username and organisations;
+- active Huggingg Face username and organisations;
 - intended Hugging Face namespace;
 - Git author name and a verified/noreply email.
 

@@ -83,13 +83,11 @@ def run_demo(
             raise DemoError(f"Connector receipt verification failed for {key}: {'; '.join(errors)}")
         connectors.append(connector)
         silver_part = destination / "silver" / f"{key}.csv"
-        rejected_part = destination / "quarantine" / f"{key}.mapping.json"
         result = map_structured_csv(
             resolved,
             Path(f"examples/synthetic_pilot/mappings/{key}.json"),
             connector.output_path,
             silver_part,
-            rejected_part,
         )
         mapping_results.append(result)
         silver_parts.append(silver_part)

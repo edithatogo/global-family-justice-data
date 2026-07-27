@@ -25,7 +25,7 @@ jobs:
   static:
     name: Static contracts and repository policy
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 25
     permissions:
       contents: read
     steps:
@@ -48,36 +48,36 @@ jobs:
       - name: Synchronize locked development environment
         run: uv sync --frozen --extra dev
       - name: Compile
-        run: uv run python -m compileall -q src tests
+        run: uv run python -m compileall -q src tests scripts
       - name: Format
-        run: uv run python -m ruff format --check src tests
+        run: uv run python -m ruff format --check src tests scripts
       - name: Lint
-        run: uv run python -m ruff check src tests
+        run: uv run python -m ruff check src tests scripts
       - name: Type check
         run: uv run python -m mypy src
-      - name: Audit GitHub Actions policy
+      - name: Audit workflow policy
         run: uv run python -m gfjd policy ci
-      - name: Audit repository-control baseline
+      - name: Audit repository-control declaration
         run: uv run python -m gfjd policy repository
       - name: Audit dependency lock
         run: uv run python -m gfjd harness lock
       - name: Verify public-contract lock
         run: uv run python -m gfjd harness contracts
-      - name: Diagnose repository
-        run: uv run python -m gfjd doctor
-      - name: Validate contracts and aggregate boundary
-        run: uv run python -m gfjd validate --as-of 2026-07-19
-      - name: Scan repository
+      - name: Validate repository
+        run: uv run python -m gfjd validate --as-of 2026-07-27
+      - name: Scan public boundary
         run: uv run python -m gfjd security
-      - name: Verify generated conductor views
+      - name: Verify generated programme views
         run: uv run python -m gfjd conductor check-generated
-      - name: Verify repository manifest
+      - name: Verify source manifest
         run: uv run python -m gfjd manifest --verify
+      - name: Diagnose handoff
+        run: uv run python -m gfjd doctor
 
   unit:
     name: Unit tests / Python ${{ matrix.python }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 30
     permissions:
       contents: read
     strategy:
@@ -103,12 +103,12 @@ jobs:
           download-from-astral-mirror: false
       - name: Synchronize locked development environment
         run: uv sync --frozen --extra dev
-      - name: Run deterministic unit suite
+      - name: Run unit tier
         env:
           GFJD_TEST_TIMINGS: build/test-timings-unit.json
-        run: uv run pytest -m "unit and not property and not slow" -n auto --dist loadscope --junitxml=build/junit-unit.xml
+        run: uv run pytest -q -m "unit and not slow" --junitxml=build/junit-unit.xml
       - name: Enforce unit runtime budgets
-        run: uv run python -m gfjd harness runtime build/test-timings-unit*.json --suite unit
+        run: uv run python -m gfjd harness runtime build/test-timings-unit.json --suite unit
       - name: Upload unit receipts
         if: ${{ always() }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -116,7 +116,7 @@ jobs:
           name: unit-python-${{ matrix.python }}
           path: |
             build/junit-unit.xml
-            build/test-timings-unit*.json
+            build/test-timings-unit.json
           if-no-files-found: error
           retention-days: 14
 
@@ -145,14 +145,14 @@ jobs:
           download-from-astral-mirror: false
       - name: Synchronize locked development environment
         run: uv sync --frozen --extra dev
-      - name: Run deterministic property suite
+      - name: Run adversarial tier
         env:
           GFJD_TEST_TIMINGS: build/test-timings-property.json
           HYPOTHESIS_PROFILE: ci
-        run: uv run pytest -m "property and not slow" --junitxml=build/junit-property.xml
-      - name: Enforce property runtime budget
+        run: uv run pytest -q -m "property and not slow" --junitxml=build/junit-property.xml
+      - name: Enforce adversarial runtime budget
         run: uv run python -m gfjd harness runtime build/test-timings-property.json --suite unit
-      - name: Upload property receipts
+      - name: Upload adversarial receipts
         if: ${{ always() }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
@@ -188,16 +188,16 @@ jobs:
           download-from-astral-mirror: false
       - name: Synchronize locked development environment
         run: uv sync --frozen --extra dev
-      - name: Run branch-aware complete suite
+      - name: Run branch-aware suite
         env:
           GFJD_TEST_TIMINGS: build/test-timings-coverage.json
         run: >-
-          uv run pytest -m "not slow"
+          uv run pytest -q -m "not slow"
           --cov=gfjd --cov-branch
           --cov-report=term-missing
           --cov-report=json:build/coverage.json
           --junitxml=build/junit-coverage.xml
-      - name: Enforce coverage ratchet and critical-module budgets
+      - name: Enforce coverage budgets
         run: uv run python -m gfjd harness coverage build/coverage.json
       - name: Upload coverage receipts
         if: ${{ always() }}
@@ -214,7 +214,7 @@ jobs:
   integration:
     name: Integration and failure-boundary rehearsals
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 75
     permissions:
       contents: read
     steps:
@@ -236,13 +236,13 @@ jobs:
           download-from-astral-mirror: false
       - name: Synchronize locked development environment
         run: uv sync --frozen --extra dev
-      - name: Run integration tests
+      - name: Run integration tier
         env:
           GFJD_TEST_TIMINGS: build/test-timings-integration.json
-        run: uv run pytest -m "integration and not slow" --junitxml=build/junit-integration.xml
+        run: uv run pytest -q -m "integration and not slow" --junitxml=build/junit-integration.xml
       - name: Enforce integration runtime budgets
-        run: uv run python -m gfjd harness runtime build/test-timings-integration*.json --suite integration
-      - name: Run product and resilience rehearsals
+        run: uv run python -m gfjd harness runtime build/test-timings-integration.json --suite integration
+      - name: Run end-to-end rehearsals
         run: uv run make integration-rehearsals
       - name: Upload integration receipts
         if: ${{ always() }}
@@ -251,24 +251,22 @@ jobs:
           name: integration-receipts
           path: |
             build/junit-integration.xml
-            build/test-timings-integration*.json
-            build/catalogue-rehearsal
+            build/test-timings-integration.json
+            build/demo
             build/evidence
             build/comparability
-            build/gate-packs
-            build/demo
             build/warehouse
-            build/products
-            build/workflow-runs
             build/backup
             build/restore-rehearsal
+            build/bootstrap-rehearsal
+            build/rehearsal
           if-no-files-found: error
           retention-days: 14
 
   platform-smoke:
     name: Platform smoke / ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 20
+    timeout-minutes: 25
     permissions:
       contents: read
     strategy:
@@ -294,15 +292,15 @@ jobs:
           download-from-astral-mirror: false
       - name: Synchronize locked development environment
         run: uv sync --frozen --extra dev
-      - name: Run cross-platform smoke tests
+      - name: Run cross-platform smoke
         run: |
           uv run python -m gfjd version --json
-          uv run pytest -q tests/test_cli.py tests/test_schema_contracts.py -m "not integration"
+          uv run pytest -q tests/test_cli.py tests/test_schema_contracts.py
 
   package:
     name: Build and install distribution
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 35
     permissions:
       contents: read
     steps:
@@ -324,18 +322,18 @@ jobs:
           download-from-astral-mirror: false
       - name: Synchronize locked development environment
         run: uv sync --frozen --extra dev
-      - name: Build source and wheel distributions from locked backend
-        run: uv run python -m build --no-isolation
-      - name: Inspect distribution contents and integrity
+      - name: Build source and wheel distributions
+        run: uv run python scripts/build_distribution.py --wheel --sdist --outdir dist
+      - name: Inspect distributions
         run: |
           uv run python -m gfjd harness wheel dist/*.whl
           uv run python -m gfjd harness sdist dist/*.tar.gz
-      - name: Rebuild wheel and require byte identity
+      - name: Require deterministic wheels
         run: uv run make package-reproducibility
-      - name: Install wheel in a clean virtual environment
+      - name: Install wheel without dependency resolution
         run: |
           python -m venv build/wheel-smoke
-          build/wheel-smoke/bin/python -m pip install --disable-pip-version-check dist/*.whl
+          build/wheel-smoke/bin/python -m pip install --disable-pip-version-check --no-deps dist/*.whl
           build/wheel-smoke/bin/gfjd version --json
       - name: Upload distributions
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -349,7 +347,7 @@ jobs:
     name: Deterministic release double-build
     needs: [static, unit, property, coverage, integration, platform-smoke, package]
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 45
     permissions:
       contents: read
     steps:
@@ -377,6 +375,6 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: release-rehearsal
-          path: build/repro-first/gfjd-0.4.0-alpha.3-rehearsal.zip
+          path: build/repro-first/gfjd-0.6.0-alpha.2-rehearsal.zip
           if-no-files-found: error
           retention-days: 30

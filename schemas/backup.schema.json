@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/backup.schema.json",
+  "title": "GFJD critical-state backup metadata",
+  "type": "object",
+  "required": ["schema_version", "project_id", "project_version", "created_at", "source_date_epoch", "file_count", "payload_sha256", "included_patterns", "required_files", "scope_note"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "project_id": {"const": "GFJD"},
+    "project_version": {"type": "string", "minLength": 1},
+    "created_at": {"type": "string", "format": "date-time"},
+    "source_date_epoch": {"type": "integer", "minimum": 315532800},
+    "file_count": {"type": "integer", "minimum": 1},
+    "payload_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "included_patterns": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "required_files": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "scope_note": {"type": "string", "minLength": 10}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,40 @@
+include AGENTS.md
+include BOOTSTRAP_AND_HANDOFF_PROMPT.md
+include CHANGELOG.md
+include CITATION.cff
+include CODEX_IMPLEMENTATION_PROMPT.md
+include CONTRIBUTING.md
+include GOVERNANCE.md
+include HISTORY_PROVENANCE.md
+include IMPLEMENTATION_STATUS.md
+include LICENSE-NOTICE.md
+include MANIFEST.sha256
+include MATURITY_MODEL.md
+include PROJECT_PLAN.md
+include README.md
+include ROADMAP.md
+include SECURITY.md
+include START_HERE.md
+include V1_0_RELEASE_CRITERIA.md
+include V1_HARDENING_REPORT.md
+include VERIFICATION.md
+include VERSION
+include Makefile
+include pyproject.toml
+include uv.lock
+recursive-include .gfjd *.toml
+recursive-include .github *.yml *.yaml *.md
+recursive-include config *.toml *.json
+recursive-include data *.csv *.md *.json *.toml
+recursive-include docs *.md *.mmd *.json *.csv *.toml
+recursive-include examples *.md *.json *.toml *.csv *.html *.txt *.xlsx
+recursive-include portfolio *.toml *.md *.json
+recursive-include programme *.toml *.md *.json *.csv
+recursive-include schemas *.json
+recursive-include scripts *.py *.sh *.ps1
+recursive-include tests *.py
+prune build
+prune dist
+prune .git
+prune .venv
+global-exclude __pycache__ *.py[cod] .DS_Store

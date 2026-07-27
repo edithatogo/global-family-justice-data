@@ -21,6 +21,7 @@ from .project import Project, ProjectError, load_project
 from .release import ReleaseError, build_release, diff_releases, verify_release
 from .security import scan_repository
 from .validation import validate_project
+from .tooling_cli import register_tooling_commands, run_tooling_command
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -147,6 +148,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     security = commands.add_parser("security", help="Run secret and public-data safety scans")
     security.add_argument("--json", action="store_true", dest="json_output")
+    register_tooling_commands(commands)
     return parser
 
 
@@ -173,6 +175,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = parser.parse_args(argv)
     try:
         project = load_project(args.root)
+        tooling_result = run_tooling_command(project, args)
+        if tooling_result is not None:
+            return tooling_result
         if args.command == "validate":
             return _run_validate(project, args)
         if args.command in {"conductor", "programme"}:

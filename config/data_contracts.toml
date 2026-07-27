@@ -97,3 +97,27 @@ required = false
 allow_empty = false
 layer = "gold"
 exclude_names = ["README.md"]
+
+[[contracts]]
+id = "jurisdiction_universe"
+path = "data/seed/jurisdiction_universe_template.csv"
+schema = "schemas/jurisdiction_universe.schema.json"
+required = true
+allow_empty = true
+layer = "seed"
+
+[[contracts]]
+id = "search_logs"
+path = "data/seed/search_log_template.csv"
+schema = "schemas/search_log.schema.json"
+required = true
+allow_empty = true
+layer = "seed"
+
+[[contracts]]
+id = "coverage_assessments"
+path = "data/seed/coverage_assessment_template.csv"
+schema = "schemas/coverage_assessment.schema.json"
+required = true
+allow_empty = true
+layer = "seed"

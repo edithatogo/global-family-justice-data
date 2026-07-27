@@ -1698,7 +1698,7 @@ def render_status_markdown(payload: dict[str, Any]) -> str:
         "",
         f"Generated: `{payload['generated_at']}`",
         "",
-        f"Current repository version: **{project.get('version', 'unknown')}**  ",
+        f"Current repository version: **{project.get('version', 'unknown')}**",
         f"Declared current gate: **{project.get('current_gate', 'unknown')}**  ",
         f"Conductor validation: **{'PASS' if validation['counts']['errors'] == 0 else 'FAIL'}** "
         f"({validation['counts']['errors']} errors, {validation['counts']['warnings']} warnings)",

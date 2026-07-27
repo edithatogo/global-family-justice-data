@@ -1,0 +1,11 @@
+{
+  "critical_modules": {
+    "src/gfjd/acquisition.py": 61.67,
+    "src/gfjd/conductor.py": 75.3,
+    "src/gfjd/pipeline.py": 70.98,
+    "src/gfjd/release.py": 78.46
+  },
+  "overall_percent": 69.56,
+  "schema_version": "1.0",
+  "scope_note": "v0.6 stable-core ratchet; incubating modules are integration-rehearsal controlled until G2"
+}

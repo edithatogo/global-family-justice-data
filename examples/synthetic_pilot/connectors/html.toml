@@ -1,0 +1,12 @@
+[connector]
+id = "SYN_HTML_CONNECTOR"
+source_id = "SYN-HTML-2026"
+source_edition_id = "SYN_HTML_EDITION_2026"
+adapter = "html_table"
+input_path = "examples/synthetic_pilot/sources/source.html"
+output_path = "build/demo/bronze/html.csv"
+receipt_path = "build/demo/receipts/html-connector.json"
+header_row = 1
+expected_columns = ["record_key", "matter", "measure", "value"]
+table_index = 0
+notes = "FICTIONAL synthetic-pilot source; never publish as empirical data."

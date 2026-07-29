@@ -193,6 +193,11 @@
     },
     {
       "kind": "csv_header",
+      "path": "data/census/coverage_assessment.csv",
+      "sha256": "7ea2065e6387810bb935990d2e6210d1ba85e9b46744c5eaad6a161b0e0d78ef"
+    },
+    {
+      "kind": "csv_header",
       "path": "data/census/direct_enquiry_register.csv",
       "sha256": "53e41609f39f648f897979a6ba62ecb60fc15c998358bb0723635e10c612fb29"
     },
@@ -205,6 +210,11 @@
       "kind": "csv_header",
       "path": "data/census/review_ledger.csv",
       "sha256": "6597563c6d47f6ec01939ef450e05aef33130ebd293019e3ec16e7af23c4552a"
+    },
+    {
+      "kind": "csv_header",
+      "path": "data/census/search_log.csv",
+      "sha256": "e748e8000e83cb3be4231021007f99c228a4f9d71c33a9672e19e67db734351c"
     },
     {
       "kind": "csv_header",
@@ -247,8 +257,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 49,
-  "inventory_sha256": "a1cf7bbaf133cd6828b7ce7af5d5837c27bdd311b48c175e580f83c177084b16",
+  "entry_count": 51,
+  "inventory_sha256": "10330e0d964f9bc36023529b38ef204f56b80ee79f628770a468c7d8a9916a9a",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

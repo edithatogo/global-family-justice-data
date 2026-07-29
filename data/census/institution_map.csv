@@ -1,1 +1,6 @@
 institution_id,jurisdiction_id,name,institution_type,court_level,valid_from,valid_to,status,notes
+INST-CEPEJ,INT,Council of Europe CEPEJ,international justice data publisher,cross-national,,,active,Draft source-backed mapping from official landing page https://www.coe.int/en/web/cepej/cepej-stat; pending review ledger and owner adjudication.
+INST-FCFCOA,AUS,Federal Circuit and Family Court of Australia,court administration,federal,,,active,Draft source-backed mapping from official landing page https://www.fcfcoa.gov.au/fl/fcoa-annual-reports; pending review ledger and owner adjudication.
+INST-MNJB,USA-MN,Minnesota Judicial Branch,court administration,state,,,active,Draft source-backed mapping from official landing page https://mncourts.gov/help-topics/court-statistics; pending review ledger and owner adjudication.
+INST-CNJ,BRA,Conselho Nacional de Justiça,judicial statistics authority,national,,,active,Draft source-backed mapping from official landing page https://www.cnj.jus.br/estatistica/; pending review ledger and owner adjudication.
+INST-SAJUD,ZAF,South African Judiciary,judiciary,national,,,active,Draft source-backed mapping from official landing page https://www.judiciary.org.za/index.php/documents/judiciary-annual-reports; pending review ledger and owner adjudication.

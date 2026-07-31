@@ -28,6 +28,11 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/direct_enquiry.schema.json",
+      "sha256": "0399c9297e61211e89c576d5c943cb5fcf617a72523d0bea2dd1c1658fd2ec14"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/extraction.schema.json",
       "sha256": "91e56fe9da5d24c98040cd4b1fdc2d852c70c82211c65a9766766b4c01e74c56"
     },
@@ -83,6 +88,11 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/research_pack.schema.json",
+      "sha256": "b6ac34ed32458255cee299dd2d4c9d030c27d487adccccbb902a391748a355a5"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/review.schema.json",
       "sha256": "ea2408ae7487b89d054c7aa9f66807588d85e1326d99df32cdc183a908a46b33"
     },
@@ -104,7 +114,7 @@
     {
       "kind": "toml_contract",
       "path": "config/data_contracts.toml",
-      "sha256": "eebe69f6381dfc7d1364db1783d2dad95efa3d6421c54e582b04d588b128f1da"
+      "sha256": "e49314a867c06accdd34339c7662c7e285606a8af8f983752ff97bf458fb1ee6"
     },
     {
       "kind": "csv_header",
@@ -168,6 +178,11 @@
     },
     {
       "kind": "csv_header",
+      "path": "data/seed/source_access_fallbacks.csv",
+      "sha256": "9c013cc24c115d004a9b32def1ce7d4f4baf7ff3ce852cd6657e18086920a0c2"
+    },
+    {
+      "kind": "csv_header",
       "path": "data/seed/source_edition_template.csv",
       "sha256": "25da98e445ae381db03ee905289c13a0a57178a0fdd3893edd3e5411f26d878f"
     },
@@ -175,6 +190,36 @@
       "kind": "csv_header",
       "path": "data/seed/source_register.csv",
       "sha256": "f24914f62377bfd1274dec3ec9bce90583fde9022ac5a3a08fae8c0090e05afd"
+    },
+    {
+      "kind": "csv_header",
+      "path": "data/census/coverage_assessment.csv",
+      "sha256": "7ea2065e6387810bb935990d2e6210d1ba85e9b46744c5eaad6a161b0e0d78ef"
+    },
+    {
+      "kind": "csv_header",
+      "path": "data/census/direct_enquiry_register.csv",
+      "sha256": "53e41609f39f648f897979a6ba62ecb60fc15c998358bb0723635e10c612fb29"
+    },
+    {
+      "kind": "csv_header",
+      "path": "data/census/institution_map.csv",
+      "sha256": "d579da270ad18819e071fb850f75591ffcb8bb12efb35a3ce4e173266fe7da09"
+    },
+    {
+      "kind": "csv_header",
+      "path": "data/census/jurisdiction_universe.csv",
+      "sha256": "7c1599cdd3e36242a8d56a5e92efd7cc66387a01ded5a76681791ad72b5691c1"
+    },
+    {
+      "kind": "csv_header",
+      "path": "data/census/review_ledger.csv",
+      "sha256": "6597563c6d47f6ec01939ef450e05aef33130ebd293019e3ec16e7af23c4552a"
+    },
+    {
+      "kind": "csv_header",
+      "path": "data/census/search_log.csv",
+      "sha256": "e748e8000e83cb3be4231021007f99c228a4f9d71c33a9672e19e67db734351c"
     },
     {
       "kind": "csv_header",
@@ -217,8 +262,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 43,
-  "inventory_sha256": "9fe18af9341b1c55660c3ddf3f12e12ba063fd5f2c7ae0b32d01e9387d18eef1",
+  "entry_count": 52,
+  "inventory_sha256": "9f9d29f8fa0c9783208dc1e85e700b6ac5d242de8bdf7a0bcc240a122b2f3d21",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

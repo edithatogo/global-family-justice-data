@@ -1,9 +1,11 @@
 """CSV-to-JSON-Schema contract validation with deterministic coercion."""
+
 from __future__ import annotations
 
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
 
@@ -101,10 +103,7 @@ def coerce_csv_value(raw: str | None, fragment: dict[str, Any]) -> Any:
 
 def coerce_row(row: dict[str, str], schema: dict[str, Any]) -> dict[str, Any]:
     properties = schema.get("properties", {})
-    return {
-        key: coerce_csv_value(value, properties.get(key, {}))
-        for key, value in row.items()
-    }
+    return {key: coerce_csv_value(value, properties.get(key, {})) for key, value in row.items()}
 
 
 def _expand_contract(project: Project, contract: DataContract) -> list[Path]:

@@ -2,8 +2,8 @@ from __future__ import annotations
 
 import json
 import os
-from pathlib import Path
 import time
+from pathlib import Path
 from typing import Any
 
 import pytest
@@ -73,6 +73,8 @@ def pytest_sessionfinish(session: pytest.Session, exitstatus: int) -> None:  # n
         "exitstatus": exitstatus,
         "suite_duration_seconds": round(time.monotonic() - _SESSION_STARTED, 9),
         "test_count": len(_TEST_TIMINGS),
-        "tests": [value for _, value in sorted(_TEST_TIMINGS.items())],
+        "tests": {
+            nodeid: value["duration_seconds"] for nodeid, value in sorted(_TEST_TIMINGS.items())
+        },
     }
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")

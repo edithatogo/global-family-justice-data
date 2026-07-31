@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-from pathlib import Path
-
 import json
+from pathlib import Path
 
 import pytest
 from jsonschema import Draft202012Validator, FormatChecker
@@ -41,7 +40,9 @@ def test_controlled_local_acquisition_writes_hash_and_manifest(
     schema = json.loads(
         (project_root / "schemas/acquisition_manifest.schema.json").read_text(encoding="utf-8")
     )
-    errors = list(Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(manifest))
+    errors = list(
+        Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(manifest)
+    )
     assert errors == []
 
 
@@ -84,6 +85,16 @@ def test_local_acquisition_rejects_expected_checksum_mismatch(
             input_path=source,
             destination_root=tmp_path / "raw",
             expected_sha256="0" * 64,
+        )
+
+
+def test_local_acquisition_rejects_missing_input(project_root: Path, tmp_path: Path) -> None:
+    with pytest.raises(AcquisitionError, match="does not exist"):
+        acquire_local_file(
+            load_project(project_root),
+            source_id="TEST-MISSING",
+            input_path=tmp_path / "missing.csv",
+            destination_root=tmp_path / "raw",
         )
 
 

@@ -1,11 +1,12 @@
 """Additional operational CLI commands used by CI and the handoff bootstrap."""
+
 from __future__ import annotations
 
 import argparse
-from datetime import date
 import json
-from pathlib import Path
 import subprocess
+from datetime import date
+from pathlib import Path
 from typing import Any
 
 from . import __version__
@@ -22,7 +23,6 @@ from .bootstrap import (
 from .ci_policy import audit_workflows
 from .contract_lock import verify_contract_lock, write_contract_lock
 from .harness import (
-    HarnessReport,
     audit_lockfile,
     check_coverage_budget,
     check_test_runtime,
@@ -35,7 +35,9 @@ from .project import Project
 from .repository_policy import audit_repository_controls
 
 
-def register_tooling_commands(commands: argparse._SubParsersAction[argparse.ArgumentParser]) -> None:
+def register_tooling_commands(
+    commands: argparse._SubParsersAction[argparse.ArgumentParser],
+) -> None:
     version = commands.add_parser("version", help="Show software and repository contract versions")
     version.add_argument("--json", action="store_true", dest="json_output")
 
@@ -50,7 +52,9 @@ def register_tooling_commands(commands: argparse._SubParsersAction[argparse.Argu
     lock = harness_sub.add_parser("lock", help="Audit the frozen dependency lock")
     lock.add_argument("path", nargs="?", type=Path, default=Path("uv.lock"))
     lock.add_argument("--json", action="store_true", dest="json_output")
-    contracts = harness_sub.add_parser("contracts", help="Verify or regenerate the public-contract lock")
+    contracts = harness_sub.add_parser(
+        "contracts", help="Verify or regenerate the public-contract lock"
+    )
     contracts.add_argument("--write", action="store_true")
     contracts.add_argument("--json", action="store_true", dest="json_output")
     coverage = harness_sub.add_parser("coverage", help="Enforce coverage budgets and ratchets")
@@ -79,7 +83,9 @@ def register_tooling_commands(commands: argparse._SubParsersAction[argparse.Argu
     doctor = commands.add_parser("doctor", help="Run non-mutating repository diagnostics")
     doctor.add_argument("--json", action="store_true", dest="json_output")
 
-    bootstrap = commands.add_parser("bootstrap", help="Plan, apply and verify local/remote bootstrap")
+    bootstrap = commands.add_parser(
+        "bootstrap", help="Plan, apply and verify local/remote bootstrap"
+    )
     bootstrap_sub = bootstrap.add_subparsers(dest="bootstrap_command", required=True)
     bootstrap_sub.add_parser("preflight")
     plan = bootstrap_sub.add_parser("plan")
@@ -89,7 +95,9 @@ def register_tooling_commands(commands: argparse._SubParsersAction[argparse.Argu
     apply.add_argument("--output", type=Path, default=Path("build/bootstrap"))
     apply.add_argument("--github-owner", default="")
     apply.add_argument("--github-repository", default="")
-    apply.add_argument("--github-visibility", choices=("private", "public", "internal"), default="private")
+    apply.add_argument(
+        "--github-visibility", choices=("private", "public", "internal"), default="private"
+    )
     apply.add_argument("--author-name", default="")
     apply.add_argument("--author-email", default="")
     apply.add_argument("--no-push", action="store_true")
@@ -98,8 +106,12 @@ def register_tooling_commands(commands: argparse._SubParsersAction[argparse.Argu
     apply.add_argument("--huggingface-namespace", default="")
     apply.add_argument("--yes", action="store_true")
     verify = bootstrap_sub.add_parser("verify")
-    verify.add_argument("--receipt", type=Path, default=Path("build/bootstrap/bootstrap-receipt.json"))
-    verify.add_argument("--audit-log", type=Path, default=Path("build/bootstrap/bootstrap-audit.jsonl"))
+    verify.add_argument(
+        "--receipt", type=Path, default=Path("build/bootstrap/bootstrap-receipt.json")
+    )
+    verify.add_argument(
+        "--audit-log", type=Path, default=Path("build/bootstrap/bootstrap-audit.jsonl")
+    )
 
     demo = commands.add_parser("demo", help="Run or verify the fictional heterogeneous pilot")
     demo_sub = demo.add_subparsers(dest="demo_command", required=True)
@@ -110,13 +122,17 @@ def register_tooling_commands(commands: argparse._SubParsersAction[argparse.Argu
     evidence = commands.add_parser("evidence", help="Build or verify the outcomes evidence map")
     evidence_sub = evidence.add_subparsers(dest="evidence_command", required=True)
     evidence_build = evidence_sub.add_parser("build")
-    evidence_build.add_argument("--input", type=Path, default=Path("data/seed/outcomes_evidence_template.csv"))
+    evidence_build.add_argument(
+        "--input", type=Path, default=Path("data/seed/outcomes_evidence_template.csv")
+    )
     evidence_build.add_argument("--output", type=Path, default=Path("build/evidence"))
     evidence_build.add_argument("--as-of", type=date.fromisoformat)
     evidence_verify = evidence_sub.add_parser("verify")
     evidence_verify.add_argument("--output", type=Path, default=Path("build/evidence"))
 
-    comparability = commands.add_parser("comparability", help="Build or verify conservative comparability candidates")
+    comparability = commands.add_parser(
+        "comparability", help="Build or verify conservative comparability candidates"
+    )
     comp_sub = comparability.add_subparsers(dest="comparability_command", required=True)
     comp_build = comp_sub.add_parser("build")
     comp_build.add_argument("--input", action="append", default=[])
@@ -124,7 +140,24 @@ def register_tooling_commands(commands: argparse._SubParsersAction[argparse.Argu
     comp_verify = comp_sub.add_parser("verify")
     comp_verify.add_argument("--output", type=Path, default=Path("build/comparability"))
 
-    resilience = commands.add_parser("resilience", help="Build, verify and rehearse critical-state backups")
+    census = commands.add_parser(
+        "census", help="Build or verify conservative census readiness reports"
+    )
+    census_sub = census.add_subparsers(dest="census_command", required=True)
+    census_build = census_sub.add_parser("build")
+    census_build.add_argument("--output", type=Path, default=Path("build/census"))
+    census_verify = census_sub.add_parser("verify")
+    census_verify.add_argument("--output", type=Path, default=Path("build/census"))
+
+    research_pack = commands.add_parser(
+        "research-pack", help="Build a non-evidentiary jurisdiction research handoff"
+    )
+    research_pack.add_argument("jurisdiction_id")
+    research_pack.add_argument("--output", type=Path, default=Path("build/research-packs"))
+
+    resilience = commands.add_parser(
+        "resilience", help="Build, verify and rehearse critical-state backups"
+    )
     res_sub = resilience.add_subparsers(dest="resilience_command", required=True)
     backup = res_sub.add_parser("backup")
     backup.add_argument("--output", type=Path, default=Path("build/backup"))
@@ -137,7 +170,9 @@ def register_tooling_commands(commands: argparse._SubParsersAction[argparse.Argu
     verify_restore = res_sub.add_parser("verify-restore")
     verify_restore.add_argument("receipt", type=Path)
 
-    warehouse = commands.add_parser("warehouse", help="Build, verify or query the portable SQLite warehouse")
+    warehouse = commands.add_parser(
+        "warehouse", help="Build, verify or query the portable SQLite warehouse"
+    )
     warehouse_sub = warehouse.add_subparsers(dest="warehouse_command", required=True)
     warehouse_build = warehouse_sub.add_parser("build")
     warehouse_build.add_argument("--output", type=Path, default=Path("build/warehouse/gfjd.sqlite"))
@@ -148,6 +183,27 @@ def register_tooling_commands(commands: argparse._SubParsersAction[argparse.Argu
     warehouse_query.add_argument("database", type=Path)
     warehouse_query.add_argument("sql")
     warehouse_query.add_argument("--limit", type=int, default=1000)
+
+    governance = commands.add_parser(
+        "governance", help="Build or verify the fail-closed governance assurance pack"
+    )
+    governance_sub = governance.add_subparsers(dest="governance_command", required=True)
+    governance_build = governance_sub.add_parser("build")
+    governance_build.add_argument("--output", type=Path, default=Path("build/governance"))
+    governance_build.add_argument("--gate-output", type=Path, default=Path("build/gate-packs"))
+    governance_build.add_argument("--as-of", type=date.fromisoformat)
+    governance_verify = governance_sub.add_parser("verify")
+    governance_verify.add_argument("--output", type=Path, default=Path("build/governance"))
+    governance_verify.add_argument("--gate-output", type=Path, default=Path("build/gate-packs"))
+
+    autonomy = commands.add_parser(
+        "autonomy", help="Build or verify the single-maintainer resume context"
+    )
+    autonomy_sub = autonomy.add_subparsers(dest="autonomy_command", required=True)
+    autonomy_context = autonomy_sub.add_parser("context")
+    autonomy_context.add_argument("--output", type=Path, default=Path("build/autonomy"))
+    autonomy_verify = autonomy_sub.add_parser("verify")
+    autonomy_verify.add_argument("--output", type=Path, default=Path("build/autonomy"))
 
 
 def _add_bootstrap_discovery(parser: argparse.ArgumentParser) -> None:
@@ -174,6 +230,8 @@ def _print_report(report: Any, *, json_output: bool = False) -> int:
 
 def run_tooling_command(project: Project, args: argparse.Namespace) -> int | None:
     command = args.command
+    report: Any
+    result: Any
     if command == "version":
         payload = {
             "software_version": __version__,
@@ -182,11 +240,19 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
             "ontology_version": str(project.project_config.get("ontology_version", "")),
             "git_revision": _git_revision(project.root),
         }
-        print(json.dumps(payload, indent=2, sort_keys=True) if args.json_output else "\n".join(f"{key}: {value}" for key, value in payload.items()))
+        print(
+            json.dumps(payload, indent=2, sort_keys=True)
+            if args.json_output
+            else "\n".join(f"{key}: {value}" for key, value in payload.items())
+        )
         return 0
 
     if command == "policy":
-        report = audit_workflows(project.root) if args.policy_command == "ci" else audit_repository_controls(project.root)
+        report = (
+            audit_workflows(project.root)
+            if args.policy_command == "ci"
+            else audit_repository_controls(project.root)
+        )
         return _print_report(report, json_output=args.json_output)
 
     if command == "harness":
@@ -202,13 +268,17 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
         elif sub == "coverage":
             report = check_coverage_budget(_resolve(project, args.coverage_json), quality)
         elif sub == "runtime":
-            report = check_test_runtime([_resolve(project, value) for value in args.timing_paths], quality, suite=args.suite)
+            report = check_test_runtime(
+                [_resolve(project, value) for value in args.timing_paths], quality, suite=args.suite
+            )
         elif sub == "wheel":
             report = verify_wheel(_resolve(project, args.path), quality)
         elif sub == "sdist":
             report = verify_sdist(_resolve(project, args.path), quality)
         elif sub == "repro":
-            report = compare_artifacts(_resolve(project, args.first), _resolve(project, args.second))
+            report = compare_artifacts(
+                _resolve(project, args.first), _resolve(project, args.second)
+            )
         else:  # pragma: no cover - argparse prevents this
             raise ValueError(f"Unknown harness command {sub}")
         return _print_report(report, json_output=args.json_output)
@@ -227,7 +297,11 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
 
     if command == "doctor":
         payload = _doctor(project)
-        print(json.dumps(payload, indent=2, sort_keys=True) if args.json_output else _doctor_text(payload))
+        print(
+            json.dumps(payload, indent=2, sort_keys=True)
+            if args.json_output
+            else _doctor_text(payload)
+        )
         return 0 if not payload["errors"] else 1
 
     if command == "bootstrap":
@@ -248,10 +322,14 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
 
         output = _resolve(project, args.output)
         if args.evidence_command == "build":
-            result = build_evidence_catalogue(project, output, input_path=args.input, as_of=args.as_of)
+            result = build_evidence_catalogue(
+                project, output, input_path=args.input, as_of=args.as_of
+            )
             print(json.dumps(result.to_dict(), indent=2, sort_keys=True))
             return 0
-        return _print_errors("Evidence catalogue", verify_evidence_catalogue(output, project_or_root=project))
+        return _print_errors(
+            "Evidence catalogue", verify_evidence_catalogue(output, project_or_root=project)
+        )
 
     if command == "comparability":
         from .comparability import build_comparability_audit, verify_comparability_audit
@@ -265,10 +343,40 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
             )
             print(json.dumps(result.to_dict(), indent=2, sort_keys=True))
             return 0
-        return _print_errors("Comparability audit", verify_comparability_audit(output, project_or_root=project))
+        return _print_errors(
+            "Comparability audit", verify_comparability_audit(output, project_or_root=project)
+        )
+
+    if command == "census":
+        from .census import build_census_readiness, verify_census_readiness
+
+        output = _resolve(project, args.output)
+        if args.census_command == "build":
+            print(
+                json.dumps(
+                    build_census_readiness(project, output).to_dict(), indent=2, sort_keys=True
+                )
+            )
+            return 0
+        return _print_errors(
+            "Census readiness", verify_census_readiness(output, project_or_root=project)
+        )
+
+    if command == "research-pack":
+        from .research_pack import build_research_pack
+
+        output = _resolve(project, args.output)
+        destination = build_research_pack(project, args.jurisdiction_id, output)
+        print(json.dumps({"output": str(destination)}, indent=2, sort_keys=True))
+        return 0
 
     if command == "resilience":
-        from .resilience import build_backup, rehearse_restore, verify_backup, verify_restore_receipt
+        from .resilience import (
+            build_backup,
+            rehearse_restore,
+            verify_backup,
+            verify_restore_receipt,
+        )
 
         sub = args.resilience_command
         if sub == "backup":
@@ -296,6 +404,32 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
         result = query_warehouse(_resolve(project, args.database), args.sql, limit=args.limit)
         print(json.dumps(result.to_dict(), indent=2, ensure_ascii=False))
         return 0
+    if command == "governance":
+        from .governance import build_governance_pack, verify_governance_pack
+
+        output = _resolve(project, args.output)
+        if args.governance_command == "build":
+            governance_result = build_governance_pack(
+                project,
+                output,
+                as_of=args.as_of,
+                gate_output=_resolve(project, args.gate_output),
+            )
+            print(json.dumps(governance_result.to_dict(), indent=2, sort_keys=True))
+            return 0
+        return _print_errors(
+            "Governance pack",
+            verify_governance_pack(output, gate_output=_resolve(project, args.gate_output)),
+        )
+    if command == "autonomy":
+        from .autonomy import build_autonomy_context, verify_autonomy_context
+
+        output = _resolve(project, args.output)
+        if args.autonomy_command == "context":
+            autonomy_result = build_autonomy_context(project, output)
+            print(json.dumps(autonomy_result.to_dict(), indent=2, sort_keys=True))
+            return 0
+        return _print_errors("Autonomy context", verify_autonomy_context(output))
     return None
 
 
@@ -334,7 +468,9 @@ def _run_bootstrap(project: Project, args: argparse.Namespace) -> int:
         )
         print(json.dumps(receipt, indent=2, ensure_ascii=False, sort_keys=True))
         return 0
-    errors = verify_bootstrap_receipt(_resolve(project, args.receipt)) + verify_audit_log(_resolve(project, args.audit_log))
+    errors = verify_bootstrap_receipt(_resolve(project, args.receipt)) + verify_audit_log(
+        _resolve(project, args.audit_log)
+    )
     return _print_errors("Bootstrap", errors)
 
 
@@ -344,7 +480,9 @@ def _doctor(project: Project) -> dict[str, Any]:
     versions = {
         "package": __version__,
         "project": str(project.project_config.get("version", "")),
-        "version_file": (project.root / "VERSION").read_text(encoding="utf-8").strip() if (project.root / "VERSION").is_file() else "",
+        "version_file": (project.root / "VERSION").read_text(encoding="utf-8").strip()
+        if (project.root / "VERSION").is_file()
+        else "",
     }
     normalised_package = versions["package"].replace("a", "-alpha.", 1)
     if normalised_package != versions["project"]:
@@ -354,12 +492,27 @@ def _doctor(project: Project) -> dict[str, Any]:
     manifest_errors = verify_manifest()
     errors.extend(f"manifest: {item}" for item in manifest_errors)
     contract_report = verify_contract_lock(project)
-    errors.extend(f"contract: {item.message}" for item in contract_report.issues if item.severity == "error")
-    warnings.extend(f"contract: {item.message}" for item in contract_report.issues if item.severity == "warning")
-    for relative in ("AGENTS.md", "START_HERE.md", "BOOTSTRAP_AND_HANDOFF_PROMPT.md", "CODEX_IMPLEMENTATION_PROMPT.md", "HISTORY_PROVENANCE.md"):
+    errors.extend(
+        f"contract: {item.message}" for item in contract_report.issues if item.severity == "error"
+    )
+    warnings.extend(
+        f"contract: {item.message}" for item in contract_report.issues if item.severity == "warning"
+    )
+    for relative in (
+        "AGENTS.md",
+        "START_HERE.md",
+        "BOOTSTRAP_AND_HANDOFF_PROMPT.md",
+        "CODEX_IMPLEMENTATION_PROMPT.md",
+        "HISTORY_PROVENANCE.md",
+    ):
         if not (project.root / relative).is_file():
             errors.append(f"missing required handoff file: {relative}")
-    return {"versions": versions, "git_revision": _git_revision(project.root), "errors": errors, "warnings": warnings}
+    return {
+        "versions": versions,
+        "git_revision": _git_revision(project.root),
+        "errors": errors,
+        "warnings": warnings,
+    }
 
 
 def _doctor_text(payload: dict[str, Any]) -> str:

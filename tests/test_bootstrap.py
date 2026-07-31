@@ -78,7 +78,10 @@ def test_build_plan_is_schema_valid(monkeypatch: pytest.MonkeyPatch, tmp_path: P
     bootstrap.validate_bootstrap_plan(context, plan)
     outputs = bootstrap.write_plan(context, plan)
     assert Path(outputs["plan_json"]).is_file()
-    assert json.loads(Path(outputs["plan_json"]).read_text(encoding="utf-8"))["schema_version"] == "1.0"
+    assert (
+        json.loads(Path(outputs["plan_json"]).read_text(encoding="utf-8"))["schema_version"]
+        == "1.0"
+    )
 
 
 def test_apply_requires_explicit_confirmation(tmp_path: Path) -> None:
@@ -98,3 +101,46 @@ def test_apply_requires_explicit_confirmation(tmp_path: Path) -> None:
             huggingface_namespace="",
             confirmation=False,
         )
+
+
+def test_huggingface_space_uses_current_sdk_option(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    project = load_project(Path(__file__).resolve().parents[1])
+    context = bootstrap.create_context(project, tmp_path / "receipts")
+    commands: list[list[str]] = []
+
+    monkeypatch.setattr(bootstrap.shutil, "which", lambda _name: "/usr/bin/hf")
+    monkeypatch.setattr(
+        bootstrap,
+        "discover_huggingface_account",
+        lambda _context: {"authenticated": True},
+    )
+
+    def fake_run_command(
+        _context: bootstrap.BootstrapContext,
+        command: list[str],
+        **_kwargs: object,
+    ) -> bootstrap.CommandResult:
+        commands.append(command)
+        repo_id = command[3] if command[:3] == ["hf", "repos", "create"] else command[3]
+        return bootstrap.CommandResult(
+            command=tuple(command),
+            cwd=str(project.root),
+            returncode=0,
+            stdout=json.dumps({"id": repo_id, "private": True, "sha": None}),
+            stderr="",
+            started_at="2026-07-27T00:00:00Z",
+            finished_at="2026-07-27T00:00:00Z",
+        )
+
+    monkeypatch.setattr(bootstrap, "run_command", fake_run_command)
+    bootstrap.create_huggingface_repositories(context, namespace="example")
+
+    space_create = next(
+        command
+        for command in commands
+        if command[:3] == ["hf", "repos", "create"] and command[3].endswith("gfjd-explorer")
+    )
+    assert "--space-sdk" in space_create
+    assert "--sdk" not in space_create

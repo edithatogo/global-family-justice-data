@@ -9,9 +9,7 @@ from gfjd.project import load_project
 from gfjd.release import ReleaseError, build_release, diff_releases, verify_release
 
 
-def test_release_build_is_deterministic_and_verifiable(
-    project_root: Path, tmp_path: Path
-) -> None:
+def test_release_build_is_deterministic_and_verifiable(project_root: Path, tmp_path: Path) -> None:
     project = load_project(project_root)
     epoch = 1784419200
     first = build_release(

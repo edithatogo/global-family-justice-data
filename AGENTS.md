@@ -12,3 +12,4 @@ Codex reads this file before doing any work in the repository.
 8. Keep synthetic fixtures conspicuously fictional and the public repository aggregate-only.
 9. The programme conductor governs evidence and release authority; a passing technical workflow cannot certify a programme gate.
 10. Before ending a work session, rerun relevant checks, commit coherent completed work, and update `IMPLEMENTATION_STATUS.md` or a clearly identified continuation ledger.
+11. For single-maintainer autonomous work, build `build/autonomy/autonomy-context.md`, use `autonomy-fast` during iteration, and run `autonomy-full` at phase closeout. Treat its external-boundary list as fail-closed.

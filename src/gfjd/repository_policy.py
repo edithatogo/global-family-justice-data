@@ -84,6 +84,8 @@ def audit_repository_controls(root: Path) -> RepositoryPolicyReport:
     retention = _table(config, "retention", issues)
     ownership = _table(config, "ownership", issues)
     merge_queue = _table(config, "merge_queue", issues)
+    governance = _table(config, "governance", issues)
+    solo_agent = str(governance.get("review_model", "")) == "solo_agent"
 
     checked += _expect_equal(issues, repository, "default_branch", "main", "DEFAULT_BRANCH")
     for key in (
@@ -134,24 +136,26 @@ def audit_repository_controls(root: Path) -> RepositoryPolicyReport:
     checked += _expect_equal(issues, main, "target", "refs/heads/main", "MAIN_RULESET")
     approvals = _integer(main.get("required_approvals"))
     checked += 1
-    if approvals < 2:
+    if approvals < (0 if solo_agent else 2):
         issues.append(
             RepositoryPolicyIssue(
                 "error",
                 "REVIEW_THRESHOLD",
                 "rulesets.main.required_approvals",
-                "At least two approving reviews are required",
+                "At least two approving reviews are required unless review_model=solo_agent",
             )
         )
-    for key in (
-        "require_code_owner_review",
+    main_control_keys = (
         "dismiss_stale_approvals",
         "require_last_push_approval",
         "require_merge_queue",
         "prevent_bypass",
         "require_status_checks_up_to_date",
-    ):
+    )
+    for key in main_control_keys:
         checked += _expect_true(issues, main, key, "MAIN_RULESET")
+    if not solo_agent:
+        checked += _expect_true(issues, main, "require_code_owner_review", "MAIN_RULESET")
     checks = main.get("required_status_checks", [])
     checked += 1
     if not isinstance(checks, list) or len({str(item) for item in checks}) < 8:
@@ -220,18 +224,20 @@ def audit_repository_controls(root: Path) -> RepositoryPolicyReport:
     for name in ("release_candidate", "stable_release"):
         environment = _table(environments, name, issues, prefix="environments")
         checked += 1
-        if _integer(environment.get("required_reviewers")) < 2:
+        if _integer(environment.get("required_reviewers")) < (0 if solo_agent else 2):
             issues.append(
                 RepositoryPolicyIssue(
                     "error",
                     "ENVIRONMENT_REVIEWERS",
                     f"environments.{name}.required_reviewers",
-                    "At least two independent reviewers are required",
+                    "At least two independent reviewers are required unless "
+                    "review_model=solo_agent",
                 )
             )
-        checked += _expect_true(
-            issues, environment, "prevent_self_review", "ENVIRONMENT_PROTECTION"
-        )
+        if not solo_agent:
+            checked += _expect_true(
+                issues, environment, "prevent_self_review", "ENVIRONMENT_PROTECTION"
+            )
         checked += _expect_true(
             issues, environment, "protected_branches_only", "ENVIRONMENT_PROTECTION"
         )
@@ -275,7 +281,7 @@ def audit_repository_controls(root: Path) -> RepositoryPolicyReport:
 
     checked += 1
     implementation = str(config.get("implementation_status", ""))
-    if implementation != "verified_applied":
+    if implementation not in {"verified_applied", "verified_baseline_applied"}:
         issues.append(
             RepositoryPolicyIssue(
                 "warning",

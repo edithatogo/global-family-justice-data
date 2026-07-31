@@ -1,13 +1,14 @@
 """Controlled structured-source mapping and silver-to-gold promotion."""
+
 from __future__ import annotations
 
-from collections import Counter
-from datetime import datetime
-import json
 import math
-from pathlib import Path
 import re
-from typing import Any, Mapping
+from collections import Counter
+from collections.abc import Mapping
+from datetime import datetime
+from pathlib import Path
+from typing import Any
 
 from jsonschema import Draft202012Validator, FormatChecker
 
@@ -70,7 +71,9 @@ def map_structured_csv(
         for field in output_fields:
             rule = field_rules.get(field)
             if rule is None:
-                output[field] = None if _allows_null(observation_schema["properties"][field]) else ""
+                output[field] = (
+                    None if _allows_null(observation_schema["properties"][field]) else ""
+                )
                 continue
             try:
                 output[field] = _evaluate_rule(rule, context)
@@ -125,7 +128,7 @@ def promote_observations(
     reason_counts: Counter[str] = Counter()
     seen_ids: set[str] = set()
 
-    for row_number, raw in enumerate(raw_rows, start=2):
+    for _row_number, raw in enumerate(raw_rows, start=2):
         typed = coerce_row(raw, observation_schema)
         reasons: list[str] = []
         schema_errors = sorted(validator.iter_errors(typed), key=lambda error: list(error.path))
@@ -173,7 +176,9 @@ def build_lineage_index(project: Project, observation_path: Path, output_path: P
         "review_id",
     }
     if not required.issubset(headers):
-        raise PipelineError(f"Observation file lacks lineage fields: {sorted(required - set(headers))}")
+        raise PipelineError(
+            f"Observation file lacks lineage fields: {sorted(required - set(headers))}"
+        )
     lineage_headers = [
         "observation_id",
         "source_id",

@@ -5,14 +5,15 @@ contributor packs depend on. JSON schemas are canonicalised before hashing, CSV 
 contribute their exact header contract rather than mutable rows, and TOML contracts are
 hashed byte-for-byte.
 """
+
 from __future__ import annotations
 
 import csv
 import hashlib
 import io
 import json
-from pathlib import Path
 import tomllib
+from pathlib import Path
 from typing import Any
 
 from .harness import HarnessIssue, HarnessReport
@@ -52,21 +53,27 @@ def contract_inputs(project: Project) -> list[tuple[str, str, bytes]]:
     entries: list[tuple[str, str, bytes]] = []
     for path in sorted((root / "schemas").glob("*.json")):
         payload = json.loads(path.read_text(encoding="utf-8"))
-        entries.append((path.relative_to(root).as_posix(), "json_schema", canonical_json_bytes(payload)))
+        entries.append(
+            (path.relative_to(root).as_posix(), "json_schema", canonical_json_bytes(payload))
+        )
 
     contract_toml = root / "config" / "data_contracts.toml"
     if contract_toml.is_file():
-        entries.append((
-            contract_toml.relative_to(root).as_posix(),
-            "toml_contract",
-            _canonical_toml_bytes(contract_toml),
-        ))
+        entries.append(
+            (
+                contract_toml.relative_to(root).as_posix(),
+                "toml_contract",
+                _canonical_toml_bytes(contract_toml),
+            )
+        )
 
     for directory in (root / "data" / "seed", root / "data" / "census", root / "programme"):
         if not directory.exists():
             continue
         for path in sorted(directory.glob("*.csv")):
-            entries.append((path.relative_to(root).as_posix(), "csv_header", _csv_header_bytes(path)))
+            entries.append(
+                (path.relative_to(root).as_posix(), "csv_header", _csv_header_bytes(path))
+            )
     return entries
 
 
@@ -153,20 +160,15 @@ def verify_contract_lock(project: Project, path: Path | None = None) -> HarnessR
         if isinstance(item, dict)
     }
     actual_entries = {
-        str(item["path"]): (str(item["kind"]), str(item["sha256"]))
-        for item in actual["entries"]
+        str(item["path"]): (str(item["kind"]), str(item["sha256"])) for item in actual["entries"]
     }
     for relative in sorted(set(expected_entries) - set(actual_entries)):
         issues.append(
-            HarnessIssue(
-                "error", "CONTRACT_REMOVED", relative, "Locked contract input is missing"
-            )
+            HarnessIssue("error", "CONTRACT_REMOVED", relative, "Locked contract input is missing")
         )
     for relative in sorted(set(actual_entries) - set(expected_entries)):
         issues.append(
-            HarnessIssue(
-                "error", "CONTRACT_ADDED", relative, "New contract input is not locked"
-            )
+            HarnessIssue("error", "CONTRACT_ADDED", relative, "New contract input is not locked")
         )
     for relative in sorted(set(expected_entries) & set(actual_entries)):
         if expected_entries[relative] != actual_entries[relative]:

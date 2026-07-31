@@ -46,6 +46,7 @@ The command is idempotent where the remote identities match. It refuses to overw
 See:
 
 - `AGENTS.md`
+- `AUTONOMOUS_IMPLEMENTATION.md`
 - `BOOTSTRAP_AND_HANDOFF_PROMPT.md`
 - `CODEX_IMPLEMENTATION_PROMPT.md`
 - `HISTORY_PROVENANCE.md`

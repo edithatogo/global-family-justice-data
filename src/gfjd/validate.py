@@ -1,4 +1,5 @@
 """Compatibility entry point for ``python -m gfjd.validate``."""
+
 from __future__ import annotations
 
 import sys

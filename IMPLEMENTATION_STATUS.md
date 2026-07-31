@@ -12,6 +12,9 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 |---|---|
 | Repository handoff | Multi-commit Git history with checkpoint tags, Git-bundle packaging, source manifest, `AGENTS.md`, internal Codex briefs and a plan-first bootstrap path |
 | Programme conductor | T0–T9 tracks, G1–G6 evidence gates, work/evidence/risk/defect/exception registers, dependency evaluation, generated status and programme graph |
+| Governance assurance | Deterministic six-gate assurance pack, criterion matrix, fail-closed defect/exception disposition, unsigned release-decision template and tamper-evident manifest; all T0 repository work is implemented and awaiting genuine review |
+| T0/T1/T2 decision handoff | Checksum-bound governance/methods/census controls are implemented; the pending decision and evidence packet is documented in `docs/governance/t012-decision-handoff.md` |
+| Autonomous solo operation | Checksum-bound resume context, explicit repository/external boundary routing, fast iteration gate and maximal checkpoint harness let one maintainer delegate implementation without relying on chat memory or self-approving governance |
 | Data contracts | Versioned JSON Schemas and CSV/TOML contracts for jurisdictions, institutions, sources, source editions, indicators, matter types, observations, evidence, reviews, search logs and coverage assessments |
 | Acquisition and ingestion | Rights-aware acquisition plus declarative CSV, JSON, HTML, XLSX and controlled manual-transcription adapters |
 | Harmonisation | Source-to-silver mapping, deterministic quarantine, provenance fields and dual-review gold-promotion controls |
@@ -23,6 +26,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | CI/CD policy | SHA-pinned Actions policy, merge-queue-aware required checks, desired repository controls, lock/contract audits and private-by-default release/bootstrap policy |
 | Distribution assurance | Adversarial wheel and sdist checks plus deterministic wheel, normalised sdist and release double builds |
 | Local/remote bootstrap | Bounded local clone discovery, portfolio reconciliation, Git identity and remote checks, private GitHub creation/attachment, non-force push verification, and opt-in private Hugging Face creation |
+| Canonical platform topology | Private `edithatogo/global-family-justice-data` GitHub authority plus five private, generated-only Hugging Face repositories are attached; advanced GitHub controls and publication remain evidence-gated |
 
 ## Current programme state
 
@@ -30,7 +34,9 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 - Passed gates: **none**.
 - Gold empirical observations: **none**.
 - Synthetic fixtures: explicitly fictional and excluded from empirical release claims.
-- Canonical GitHub owner, publication identity, final licence, CODEOWNERS and live repository controls: pending authenticated local setup and real decisions.
+- Canonical GitHub owner: **`edithatogo`**, verified from authenticated GitHub state.
+- Canonical Hugging Face namespace: **`edithatogo`**; private generated-only repositories exist and contain no empirical uploads.
+- Publication identity, final licence, real CODEOWNERS, protected-environment reviewers and complete live repository-control conformance remain pending genuine decisions and evidence.
 
 ## Not supplied by code
 

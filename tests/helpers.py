@@ -5,7 +5,9 @@ from pathlib import Path
 
 
 def observation_headers(project_root: Path) -> list[str]:
-    schema = json.loads((project_root / "schemas/observation.schema.json").read_text(encoding="utf-8"))
+    schema = json.loads(
+        (project_root / "schemas/observation.schema.json").read_text(encoding="utf-8")
+    )
     return list(schema["properties"])
 
 

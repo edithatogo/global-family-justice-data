@@ -1,13 +1,15 @@
 """Command-line interface for the GFJD repository toolchain."""
+
 from __future__ import annotations
 
 import argparse
-from datetime import date
 import json
-from pathlib import Path
 import re
 import sys
-from typing import Any, Sequence
+from collections.abc import Sequence
+from datetime import date
+from pathlib import Path
+from typing import Any
 
 from .acquisition import (
     AcquisitionError,
@@ -20,14 +22,16 @@ from .pipeline import PipelineError, map_structured_csv, promote_observations
 from .project import Project, ProjectError, load_project
 from .release import ReleaseError, build_release, diff_releases, verify_release
 from .security import scan_repository
-from .validation import validate_project
 from .tooling_cli import register_tooling_commands, run_tooling_command
+from .validation import validate_project
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="gfjd",
-        description="Global Family Justice Data validation, conductor, pipeline and release tooling.",
+        description=(
+            "Global Family Justice Data validation, conductor, pipeline and release tooling."
+        ),
     )
     parser.add_argument("--root", type=Path, help="Repository root (defaults to auto-discovery)")
     commands = parser.add_subparsers(dest="command", required=True)
@@ -41,11 +45,15 @@ def build_parser() -> argparse.ArgumentParser:
     validate_parser.add_argument("--no-security", action="store_true")
 
     conductor = commands.add_parser(
-        "conductor", aliases=["programme"], help="Operate the evidence-driven v1 programme conductor"
+        "conductor",
+        aliases=["programme"],
+        help="Operate the evidence-driven v1 programme conductor",
     )
     conductor_sub = conductor.add_subparsers(dest="conductor_command", required=True)
 
-    status = conductor_sub.add_parser("status", help="Show integrated track, gate and maturity status")
+    status = conductor_sub.add_parser(
+        "status", help="Show integrated track, gate and maturity status"
+    )
     status.add_argument("--json", action="store_true", dest="json_output")
     status.add_argument("--write", type=Path)
 
@@ -75,7 +83,9 @@ def build_parser() -> argparse.ArgumentParser:
         "--graph-path", type=Path, default=Path("docs/programme/generated/programme-graph.mmd")
     )
 
-    work = conductor_sub.add_parser("work", help="Change a work item through the controlled state machine")
+    work = conductor_sub.add_parser(
+        "work", help="Change a work item through the controlled state machine"
+    )
     work.add_argument("work_item_id")
     work.add_argument("--status", required=True)
     work.add_argument("--actor", required=True)
@@ -111,15 +121,21 @@ def build_parser() -> argparse.ArgumentParser:
     map_parser.add_argument("--mapping", type=Path, required=True)
     map_parser.add_argument("--input", type=Path, required=True)
     map_parser.add_argument("--output", type=Path, required=True)
-    promote = pipeline_sub.add_parser("promote", help="Promote eligible silver rows and quarantine the rest")
+    promote = pipeline_sub.add_parser(
+        "promote", help="Promote eligible silver rows and quarantine the rest"
+    )
     promote.add_argument("--input", type=Path, required=True)
     promote.add_argument("--gold", type=Path, required=True)
     promote.add_argument("--quarantine", type=Path, required=True)
     promote.add_argument("--report", type=Path, required=True)
 
-    acquire = commands.add_parser("acquire", help="Create checksum and rights-aware source manifests")
+    acquire = commands.add_parser(
+        "acquire", help="Create checksum and rights-aware source manifests"
+    )
     acquire_sub = acquire.add_subparsers(dest="acquire_command", required=True)
-    acquire_file = acquire_sub.add_parser("file", help="Register and optionally preserve a local file")
+    acquire_file = acquire_sub.add_parser(
+        "file", help="Register and optionally preserve a local file"
+    )
     _add_acquisition_common(acquire_file)
     acquire_file.add_argument("--input", type=Path, required=True)
     acquire_http = acquire_sub.add_parser("url", help="Safely retrieve a public URL")
@@ -190,9 +206,18 @@ def main(argv: Sequence[str] | None = None) -> int:
             return _run_release(project, args)
         if args.command == "security":
             report = scan_repository(project.root)
-            print(json.dumps(report.to_dict(), indent=2) if args.json_output else report.render_text())
+            print(
+                json.dumps(report.to_dict(), indent=2) if args.json_output else report.render_text()
+            )
             return 0 if report.error_count == 0 else 1
-    except (ProjectError, PipelineError, AcquisitionError, ReleaseError, KeyError, ValueError) as exc:
+    except (
+        ProjectError,
+        PipelineError,
+        AcquisitionError,
+        ReleaseError,
+        KeyError,
+        ValueError,
+    ) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2
     return 2
@@ -238,7 +263,10 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
             print(json.dumps(payload, indent=2, ensure_ascii=False))
         else:
             print(f"{result.gate.id} — {result.gate.name}: {result.state}")
-            print(f"Ready: {result.ready}; passed: {result.passed}; decision: {result.decision_status}")
+            print(
+                f"Ready: {result.ready}; passed: {result.passed}; "
+                f"decision: {result.decision_status}"
+            )
             print(f"Controls complete: {result.completed_requirements}/{result.total_requirements}")
             for blocker in result.blockers:
                 print(f"- {blocker}")
@@ -246,13 +274,24 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
     if command == "next":
         items = conductor.next_actions(args.limit, gate_id=args.gate)
         if args.json_output:
-            print(json.dumps([work_item_to_dict(item) for item in items], indent=2, ensure_ascii=False))
+            print(
+                json.dumps(
+                    [work_item_to_dict(item) for item in items], indent=2, ensure_ascii=False
+                )
+            )
         else:
             for item in items:
-                print(f"{item.priority} {item.id} {item.track_id}/{item.gate_id} [{item.status}] {item.title}")
+                print(
+                    f"{item.priority} {item.id} {item.track_id}/{item.gate_id} "
+                    f"[{item.status}] {item.title}"
+                )
         return 0
     if command == "graph":
-        content = conductor.render_mermaid() if args.format == "mermaid" else conductor.render_dependency_graph()
+        content = (
+            conductor.render_mermaid()
+            if args.format == "mermaid"
+            else conductor.render_dependency_graph()
+        )
         if args.write:
             path = _project_path(project, args.write)
             path.parent.mkdir(parents=True, exist_ok=True)
@@ -262,8 +301,8 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
             print(content, end="")
         return 0
     if command == "render":
-        output = _project_path(project, args.output)
-        paths = conductor.render(output)
+        render_output = _project_path(project, args.output)
+        paths = conductor.render(render_output)
         print("\n".join(str(path) for path in paths))
         return 0
     if command == "check-generated":
@@ -274,7 +313,9 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
         expected_graph = conductor.render_mermaid()
         if not status_path.exists():
             errors.append(f"Missing generated status: {status_path}")
-        elif _normalise_generated_status(status_path.read_text(encoding="utf-8")) != _normalise_generated_status(expected_status):
+        elif _normalise_generated_status(
+            status_path.read_text(encoding="utf-8")
+        ) != _normalise_generated_status(expected_status):
             errors.append(f"Generated status is stale: {status_path}")
         if not graph_path.exists():
             errors.append(f"Missing generated graph: {graph_path}")
@@ -286,21 +327,23 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
         print("Generated conductor artefacts are current.")
         return 0
     if command == "work":
-        item = conductor.set_work_status(args.work_item_id, args.status, actor=args.actor, note=args.note)
-        print(json.dumps(work_item_to_dict(item), indent=2, ensure_ascii=False))
+        work_item = conductor.set_work_status(
+            args.work_item_id, args.status, actor=args.actor, note=args.note
+        )
+        print(json.dumps(work_item_to_dict(work_item), indent=2, ensure_ascii=False))
         return 0
     if command == "evidence":
-        item = conductor.review_evidence(
+        evidence_item = conductor.review_evidence(
             args.evidence_id,
             args.status,
             reviewer_role=args.reviewer,
             reviewed_on=args.reviewed_on,
             notes=args.notes,
         )
-        print(json.dumps(_object_dict(item), indent=2, ensure_ascii=False))
+        print(json.dumps(_object_dict(evidence_item), indent=2, ensure_ascii=False))
         return 0
     if command == "decision":
-        item = conductor.record_gate_decision(
+        decision_item = conductor.record_gate_decision(
             args.gate_id,
             args.status,
             authority=args.authority,
@@ -309,10 +352,10 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
             expires_on=args.expires_on,
             notes=args.notes,
         )
-        print(json.dumps(_object_dict(item), indent=2, ensure_ascii=False))
+        print(json.dumps(_object_dict(decision_item), indent=2, ensure_ascii=False))
         return 0
     if command == "risk":
-        item = conductor.update_risk(
+        risk_item = conductor.update_risk(
             args.risk_id,
             actor=args.actor,
             status=args.status,
@@ -320,7 +363,7 @@ def _run_conductor(project: Project, args: argparse.Namespace) -> int:
             next_review_on=args.next_review_on,
             notes=args.notes,
         )
-        print(json.dumps(_object_dict(item), indent=2, ensure_ascii=False))
+        print(json.dumps(_object_dict(risk_item), indent=2, ensure_ascii=False))
         return 0
     raise ValueError(f"Unhandled conductor command {command}")
 
@@ -374,7 +417,9 @@ def _run_acquisition(project: Project, args: argparse.Namespace) -> int:
             allow_http=args.allow_http,
             allow_private_network=args.allow_private_network,
         )
-    print(json.dumps({"manifest_path": str(path), "manifest": manifest}, indent=2, ensure_ascii=False))
+    print(
+        json.dumps({"manifest_path": str(path), "manifest": manifest}, indent=2, ensure_ascii=False)
+    )
     return 0
 
 
@@ -411,12 +456,17 @@ def _run_release(project: Project, args: argparse.Namespace) -> int:
 
 
 def _normalise_generated_status(value: str) -> str:
-    return re.sub(r"^Generated: `[^`]+`$", "Generated: `<dynamic>`", value, flags=re.MULTILINE).rstrip() + "\n"
+    return (
+        re.sub(
+            r"^Generated: `[^`]+`$", "Generated: `<dynamic>`", value, flags=re.MULTILINE
+        ).rstrip()
+        + "\n"
+    )
 
 
 def _object_dict(value: Any) -> dict[str, Any]:
     result: dict[str, Any] = {}
-    for name in value.__dataclass_fields__:  # type: ignore[attr-defined]
+    for name in value.__dataclass_fields__:
         item = getattr(value, name)
         if isinstance(item, date):
             result[name] = item.isoformat()

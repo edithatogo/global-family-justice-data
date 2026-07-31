@@ -1,5 +1,27 @@
 # Indicator framework
 
+## Versioned indicator dictionary
+
+`data/seed/indicator_dictionary.csv` is the v0.3 machine-readable indicator
+dictionary. It fixes each indicator ID, definition, preferred statistic and
+unit, numerator, denominator and core-release status. The observation contract
+in `schemas/observation.schema.json` carries the corresponding record-level
+fields. Narrative domain headings below are a readable crosswalk; the CSV values
+are authoritative where names differ.
+
+| Narrative heading | Dictionary domain values |
+|---|---|
+| Demand and access | `demand`, `access` |
+| Flow and backlog | `flow` |
+| Timeliness | `timeliness` |
+| Process quality | `process` |
+| Court outputs | `outputs` |
+| Administrative outcomes | `administrative_outcome` |
+| Child and family outcomes | `child_family_outcome` |
+| Equity | `equity` |
+| Inputs and context | `inputs` |
+| User experience | `experience` |
+
 ## Domains
 
 ### 1. Demand and access
@@ -12,7 +34,12 @@ Incoming, resolved, pending, clearance, reopened/reactivated matters and pending
 
 ### 3. Timeliness
 
-Each duration must specify a start event, end event and statistic. Core clocks include filing-to-first substantive hearing, ready-to-hearing, filing-to-interim order, filing-to-final disposition and age of active pending caseload.
+Each duration must specify a start event, end event, statistic and denominator
+definition. `TIME_*` observations with a blank `stage_start`, `stage_end` or
+`denominator_definition` fail semantic validation; a reported denominator value
+is retained whenever the source provides one. Core clocks include
+filing-to-first substantive hearing, ready-to-hearing, filing-to-interim order,
+filing-to-final disposition and age of active pending caseload.
 
 ### 4. Process quality
 

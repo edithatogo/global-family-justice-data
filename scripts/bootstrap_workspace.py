@@ -4,13 +4,14 @@
 The script runs directly from a source checkout without requiring package installation.
 It is deliberately plan-first and requires ``--yes`` before any remote mutation.
 """
+
 from __future__ import annotations
 
 import argparse
 import json
-from pathlib import Path
 import sys
-from typing import Sequence
+from collections.abc import Sequence
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))

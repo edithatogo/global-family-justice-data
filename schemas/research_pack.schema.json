@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/research_pack.schema.json",
+  "title": "Non-evidentiary jurisdiction research handoff pack",
+  "type": "object",
+  "required": ["schema_version", "jurisdiction_id", "generated_on", "status", "institutions", "sources", "search_plan", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "jurisdiction_id": {"type": "string", "minLength": 2},
+    "generated_on": {"type": "string", "format": "date"},
+    "status": {"const": "non_evidentiary_handoff"},
+    "institutions": {"type": "array", "items": {"type": "object", "required": ["institution_id", "name", "institution_type", "court_level"], "properties": {"institution_id": {"type": "string"}, "name": {"type": "string"}, "institution_type": {"type": "string"}, "court_level": {"type": "string"}}, "additionalProperties": false}},
+    "sources": {"type": "array", "items": {"type": "object", "required": ["source_id", "title", "source_type"], "properties": {"source_id": {"type": "string"}, "title": {"type": "string"}, "source_type": {"type": "string"}}, "additionalProperties": false}},
+    "search_plan": {"type": "array", "items": {"type": "object", "required": ["domain", "language", "query_guidance"], "properties": {"domain": {"type": "string"}, "language": {"type": "string"}, "query_guidance": {"type": "string"}}, "additionalProperties": false}},
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": false
+}

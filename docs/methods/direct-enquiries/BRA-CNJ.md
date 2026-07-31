@@ -1,6 +1,9 @@
 # Draft enquiry: Conselho Nacional de Justiça / DataJud
 
-Status: **planned; not sent**
+Status: **planned; not sent**. Reverification on 2026-07-31 found the public
+`Fale conosco` module unrendered. The official Ouvidoria form is reachable but
+requires telephone, city, a Brazilian UF, CPF/CNPJ selection, and reCAPTCHA.
+The DataJud support portal separately requires authentication.
 
 ## Official route
 

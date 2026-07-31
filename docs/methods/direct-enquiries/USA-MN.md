@@ -1,6 +1,7 @@
 # Draft enquiry: Minnesota Judicial Branch
 
-Status: **planned; not sent**
+Status: **planned; not sent**. The official statewide form was reverified and
+completed in-browser on 2026-07-31; final submission is gated by reCAPTCHA.
 
 ## Official route
 

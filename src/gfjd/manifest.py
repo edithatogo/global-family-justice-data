@@ -22,6 +22,7 @@ EXCLUDED_PARTS = {
     "build",
 }
 EXCLUDED_FILES = {"MANIFEST.sha256", ".DS_Store", ".coverage", "coverage.xml"}
+EXCLUDED_PREFIXES = {("data", "raw", "files")}
 
 
 def _is_excluded_part(part: str) -> bool:
@@ -35,6 +36,8 @@ def iter_manifest_files() -> list[Path]:
             continue
         relative = path.relative_to(ROOT)
         if any(_is_excluded_part(part) for part in relative.parts):
+            continue
+        if any(relative.parts[: len(prefix)] == prefix for prefix in EXCLUDED_PREFIXES):
             continue
         if relative.name in EXCLUDED_FILES or relative.suffix == ".zip":
             continue

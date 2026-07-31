@@ -1,8 +1,8 @@
 # Direct enquiry packet — CAN
 
 Status: sent 2026-07-31 07:08:14 UTC; controlled-mailbox message
-`19fb7008bbc6c7e3`. Provincial/territorial coverage and reuse terms remain
-unresolved.
+`19fb7008bbc6c7e3`; delivery acknowledgement `19fb700bc4fa5f5c`.
+Provincial/territorial coverage and reuse terms remain unresolved.
 
 Official route: [Statistics Canada Civil Court Survey](https://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&SDDS=5052). Use Statistics Canada's public survey or information-contact route; do not request litigant or case-level information.
 

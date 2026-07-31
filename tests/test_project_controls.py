@@ -5,7 +5,7 @@ import tomllib
 from pathlib import Path
 
 from gfjd import __version__, manifest
-from gfjd.manifest import verify_manifest
+from gfjd.manifest import iter_manifest_files, verify_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -24,6 +24,10 @@ def test_json_schemas_parse() -> None:
 
 def test_repository_manifest() -> None:
     assert verify_manifest() == []
+
+
+def test_repository_manifest_excludes_controlled_raw_evidence() -> None:
+    assert all(relative.parts[:3] != ("data", "raw", "files") for relative in iter_manifest_files())
 
 
 def test_manifest_ignores_editable_install_metadata(tmp_path: Path, monkeypatch: object) -> None:

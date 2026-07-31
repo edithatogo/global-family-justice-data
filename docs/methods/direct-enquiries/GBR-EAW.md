@@ -1,8 +1,9 @@
 # Direct enquiry packet — GBR-EAW
 
 Status: sent 2026-07-31 07:08:15 UTC; controlled-mailbox message
-`19fb7008f7315695`. Publication scope, definitions, and reuse terms remain
-unconfirmed.
+`19fb7008f7315695`; automated acknowledgement `19fb700b2433a6c6`. The
+acknowledgement points to ODS/CSV tables, visualisations, and the statistics
+guide but does not resolve publication scope, definitions, or reuse terms.
 
 Official route: [Family Court Statistics Quarterly](https://www.gov.uk/government/collections/family-court-statistics-quarterly). Use the Ministry of Justice public statistics contact route; do not contact litigants or court users.
 

@@ -1,0 +1,23 @@
+{
+  "acquisition_id": "ACQ-GBR-EAW-MOJ-FAMILY-Q-20260731T222608Z-8EA47087",
+  "agent_version": "0.6.0a2",
+  "byte_count": 1181359,
+  "content_type": "application/zip",
+  "etag": "\"6a3b9df8-1206af\"",
+  "final_url": "https://assets.publishing.service.gov.uk/media/6a3b9df8da47783d877238d4/FCSQ_2026_Q1.zip",
+  "http_status": 200,
+  "last_modified": "Wed, 24 Jun 2026 09:06:00 GMT",
+  "method": "http_get",
+  "notes": "Official Ministry of Justice Family Court CSVs (national and sub-national), January-March 2026; publication and guide state OGL v3 except where otherwise stated; acquired for controlled pilot assessment, no observations promoted.",
+  "query_or_filter": null,
+  "redistribution_status": "allowed",
+  "requested_url": "https://assets.publishing.service.gov.uk/media/6a3b9df8da47783d877238d4/FCSQ_2026_Q1.zip",
+  "retrieved_at": "2026-07-31T22:26:08+00:00",
+  "rights_status": "cleared",
+  "schema_version": "1.0",
+  "sha256": "8ea470874a6d24ca0db2c7253dd4141f595304262617248c2063ecd0e4cb1c96",
+  "source_edition_id": "ED-GBR-EAW-MOJ-FCSQ-2026Q1",
+  "source_id": "GBR-EAW-MOJ-FAMILY-Q",
+  "status": "success",
+  "stored_path": "files/GBR-EAW-MOJ-FAMILY-Q/ACQ-GBR-EAW-MOJ-FAMILY-Q-20260731T222608Z-8EA47087/FCSQ_2026_Q1.zip"
+}

@@ -488,7 +488,13 @@ def _entries(root: Path) -> list[tuple[str, str]]:
 
 
 def _entry_set_sha256(entries: Iterable[tuple[str, str]]) -> str:
-    payload = [{"path": relative, "sha256": digest} for digest, relative in entries]
+    # A payload digest represents a set of path/checksum pairs, not the traversal
+    # order returned by a host filesystem. Normalise here so build, archive, and
+    # restored-snapshot verification agree across operating systems.
+    payload = [
+        {"path": relative, "sha256": digest}
+        for digest, relative in sorted(entries, key=lambda item: item[1])
+    ]
     return sha256_bytes(canonical_json_bytes(payload))
 
 

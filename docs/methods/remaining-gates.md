@@ -27,6 +27,11 @@ or assert institutional coverage without source and review evidence.
    WJP publishes a copyright policy and separate terms ([copyright policy](https://worldjusticeproject.org/copyright-policy),
    [terms of service](https://worldjusticeproject.org/terms-service)); these do
    not by themselves establish redistribution rights for the dataset.
+   Separately, the exact England and Wales 2026 Q1 Family Court Statistics CSV
+   archive has been acquired and bound to an OGL v3 source-edition record. That
+   closes acquisition and edition-level rights for this one archive only; it
+   does not close taxonomy, missingness, continuity, validation, adjudication,
+   or jurisdiction-readiness gates.
 2. **Pilot universe.** Populate `data/census/jurisdiction_universe.csv` only
    from approved pilot scope; attach a reviewed coverage assessment for every
    included jurisdiction.

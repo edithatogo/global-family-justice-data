@@ -1,6 +1,7 @@
 # Draft enquiry: Judicial Council of California
 
-Status: **planned; not sent**
+Status: **sent 2026-07-31 07:04:13 UTC** — controlled-mailbox message
+`19fb6fbc642a71ab`.
 
 ## Official route
 
@@ -55,4 +56,3 @@ reviewer disposition in the controlled evidence store. Follow up after 15
 calendar days and allow a further 15 calendar days before a documented
 `closed_no_response` decision under this directory's README. Failed delivery is
 not a closure.
-

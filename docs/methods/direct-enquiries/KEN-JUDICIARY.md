@@ -1,6 +1,7 @@
 # Draft enquiry: Kenya Judiciary
 
-Status: **planned; not sent**
+Status: **sent 2026-07-31 07:04:13 UTC** — controlled-mailbox message
+`19fb6fc3ef39d4f5`.
 
 ## Official route
 

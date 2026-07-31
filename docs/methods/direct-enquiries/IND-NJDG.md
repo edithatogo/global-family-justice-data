@@ -1,6 +1,7 @@
 # Draft enquiry: National Judicial Data Grid, India
 
-Status: **planned; not sent**
+Status: **sent 2026-07-31 07:04:13 UTC** — controlled-mailbox message
+`19fb6fc9fe020bca`.
 
 ## Official route
 

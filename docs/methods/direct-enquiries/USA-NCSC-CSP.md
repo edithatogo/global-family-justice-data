@@ -1,6 +1,7 @@
 # Draft enquiry: National Center for State Courts Court Statistics Project
 
-Status: **planned; not sent**
+Status: **sent 2026-07-31 07:04:13 UTC** — controlled-mailbox message
+`19fb6fcc8ac3c66f`.
 
 ## Official route
 

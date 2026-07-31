@@ -1,6 +1,7 @@
 # Draft enquiry: Supreme Court of the Philippines
 
-Status: **planned; not sent**
+Status: **sent 2026-07-31 07:04:13 UTC** — controlled-mailbox message
+`19fb6fc80503d3e3`.
 
 ## Official route
 

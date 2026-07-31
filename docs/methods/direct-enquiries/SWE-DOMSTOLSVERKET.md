@@ -1,6 +1,7 @@
 # Draft enquiry: Swedish National Courts Administration
 
-Status: **planned; not sent**
+Status: **sent 2026-07-31 07:04:13 UTC** — controlled-mailbox message
+`19fb6fc1f366d800`.
 
 ## Official route
 

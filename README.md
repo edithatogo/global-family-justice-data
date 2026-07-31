@@ -114,7 +114,7 @@ python -m gfjd pipeline promote \
 python -m gfjd release build \
   --version 0.3.0 \
   --output dist \
-  --source-date-epoch 1784419200
+  --source-date-epoch 1785542400
 ```
 
 ## Repository principles

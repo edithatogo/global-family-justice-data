@@ -11,7 +11,7 @@ from gfjd.release import ReleaseError, build_release, diff_releases, verify_rele
 
 def test_release_build_is_deterministic_and_verifiable(project_root: Path, tmp_path: Path) -> None:
     project = load_project(project_root)
-    epoch = 1784419200
+    epoch = 1785542400
     first = build_release(
         project,
         version="0.3.0-test",
@@ -50,7 +50,7 @@ def test_stable_release_is_blocked_until_g6_passes(project_root: Path, tmp_path:
             project,
             version="1.0.0",
             output_root=tmp_path,
-            source_date_epoch=1784419200,
+            source_date_epoch=1785542400,
             allow_version_override=True,
         )
 
@@ -61,7 +61,7 @@ def test_release_verifier_detects_tampering(project_root: Path, tmp_path: Path) 
         project,
         version="0.3.0-tamper-test",
         output_root=tmp_path,
-        source_date_epoch=1784419200,
+        source_date_epoch=1785542400,
         allow_version_override=True,
     )
     release_dir = Path(result["release_dir"])

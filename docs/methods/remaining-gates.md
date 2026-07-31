@@ -6,15 +6,21 @@ or assert institutional coverage without source and review evidence.
 
 ## Queue
 
-1. **Rights review (five high-priority sources).** Record the publisher's
-   licence or redistribution terms, retrieval date, and permitted use for each
-   source in `data/seed/source_register.csv`.
+1. **Rights review (five high-priority sources).** The analyst-agent reviewed
+   and recorded public publisher terms on 2026-08-01 in
+   `docs/methods/high-priority-source-rights-review-2026-08-01.md` and
+   `data/seed/source_register.csv`. The review establishes restricted metadata,
+   citation, excerpt, and non-commercial website-use routes, but does not clear
+   general redistribution. Edition-level classification and any required
+   permission or owner rights adjudication remain open.
 
    Initial official leads (not clearance): Council of Europe requires prior
    permission for reproduction beyond citation/excerpts ([copyright and
    permissions](https://www.coe.int/en/web/portal/copyright-licensing-permissions));
    HCCH publishes separate digital-publication sales terms ([HCCH terms](https://www.hcch.net/en/publications-and-studies/publications2/general-terms-conditions-sale)).
-   These links are leads for review, not a licence grant.
+   These links are evidence of the reviewed restrictions, not a blanket licence
+   grant. No permission request was sent; explicit owner approval is required
+   immediately before any future outbound request.
 
    NCSC states that its library materials are copyright-protected and directs
    permission requests to its library ([NCSC permissions guidance](https://www.ncsc.org/ncsc-library-collection-research-hub)).
@@ -38,11 +44,13 @@ or assert institutional coverage without source and review evidence.
    become ready.
 
 The census harness remains fail-closed until these rows are real, validated,
-and traceable. Current baseline: 23 jurisdictions, 0 ready, 23 gaps, all
-`DIRECT_ENQUIRY_UNRESOLVED` (the generated census summary is authoritative;
-regenerate it after any data change). Eighteen enquiries were sent or submitted
-on 2026-07-31. Minnesota and the India fallback are completed in-browser but
-await CAPTCHA interaction. Brazil requires additional owner data plus CAPTCHA
-or authenticated CNJ portal access. Three other packets await submission
-through their documented phone-, postal-, or authenticated-form-only official
-channels.
+and traceable. Current baseline: 23 jurisdictions, 0 ready, 45 gaps: 23
+`COVERAGE_INCOMPLETE` and 22 `DIRECT_ENQUIRY_UNRESOLVED` (the generated census
+summary is authoritative; regenerate it after any data change). Eighteen
+enquiries were sent or submitted on 2026-07-31, including the completed
+Minnesota and India form routes; Sweden has one substantive answer. Brazil
+still requires owner-supplied contact data plus CAPTCHA or authenticated portal
+access. Japan, France, and the Netherlands await action through their documented
+phone-, postal-, authenticated-form-, or messaging-only official channels. No
+new outbound action may occur without explicit owner approval immediately
+before sending or submission.

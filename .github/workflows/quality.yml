@@ -17,7 +17,7 @@ permissions:
 
 env:
   PYTHONHASHSEED: '0'
-  SOURCE_DATE_EPOCH: '1784419200'
+  SOURCE_DATE_EPOCH: '1785542400'
   TZ: UTC
   UV_DEFAULT_INDEX: https://pypi.org/simple
 
@@ -64,7 +64,7 @@ jobs:
       - name: Verify public-contract lock
         run: uv run python -m gfjd harness contracts
       - name: Validate repository
-        run: uv run python -m gfjd validate --as-of 2026-07-27
+        run: uv run python -m gfjd validate --as-of 2026-07-31
       - name: Scan public boundary
         run: uv run python -m gfjd security
       - name: Verify generated programme views

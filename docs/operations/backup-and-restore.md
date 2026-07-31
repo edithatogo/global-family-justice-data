@@ -36,7 +36,7 @@ Restore uses manual member extraction rather than `extractall`, writes only bene
 ```bash
 gfjd resilience backup \
   --output build/backup \
-  --source-date-epoch 1784419200
+  --source-date-epoch 1785542400
 
 gfjd resilience verify build/backup/gfjd-critical-state.zip
 

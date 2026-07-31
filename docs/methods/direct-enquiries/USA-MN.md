@@ -1,7 +1,9 @@
-# Draft enquiry: Minnesota Judicial Branch
+# Enquiry: Minnesota Judicial Branch
 
-Status: **planned; not sent**. The official statewide form was reverified and
-completed in-browser on 2026-07-31; final submission is gated by reCAPTCHA.
+Status: **sent 2026-07-31 08:21:31 UTC** through the official statewide form.
+The confirmation stated: “Thank you for contacting us. Someone will be in
+touch with you shortly.” The controlled receipt has SHA-256
+`59784d9b8378fe3a0452991bbc83998539cd5156938bc24c308c4e45d4ff0b74`.
 
 ## Official route
 
@@ -53,5 +55,8 @@ Regards,
 ## Evidence and closure
 
 Retain the submitted form, confirmation, any fee notice, response, and reviewer
-decision in the controlled evidence store. Apply the follow-up and 30-day
-closure rule in this directory's README.
+decision in the controlled evidence store. Follow-up is due 2026-08-15. The
+earliest evidenced no-response closure is 2026-08-30 under the 15 + 15 day rule
+in this directory's README. The form confirmation establishes submission only;
+it is not a substantive response and does not resolve the jurisdiction's
+coverage or source-rights gaps.

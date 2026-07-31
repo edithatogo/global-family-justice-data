@@ -1,7 +1,10 @@
 # Draft enquiry: National Judicial Data Grid, India
 
 Status: **sent 2026-07-31 07:04:13 UTC** — controlled-mailbox message
-`19fb6fc9fe020bca`.
+`19fb6fc9fe020bca`. Automated response `19fb6fdb4d933dae` rejected processing
+without a Service Desk profile. The official feedback fallback was reverified
+and completed in-browser on 2026-07-31; CAPTCHA completion is still required
+before submission.
 
 ## Official route
 

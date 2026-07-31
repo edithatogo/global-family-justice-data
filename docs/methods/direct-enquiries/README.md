@@ -29,9 +29,11 @@ completeness, accuracy, or redistribution rights.
 
 Eighteen enquiries were sent or submitted on 2026-07-31 through the
 authenticated repository-owner Gmail account or an official public form.
-Minnesota and Brazil remain `planned` because their current official routes
-require CAPTCHA completion or authenticated portal access. Three other
-jurisdictions have phone-, postal-, or authenticated-form-only channels and
-remain `planned; not sent`. The checked-in coverage assessments
+Minnesota remains `planned` with its completed request form gated by reCAPTCHA.
+Brazil's public Ouvidoria form additionally requires owner contact/location
+fields and CPF/CNPJ selection before reCAPTCHA; the DataJud portal requires
+authentication. Three other jurisdictions have phone-, postal-, or
+authenticated-form-only channels and remain `planned; not sent`. The checked-in
+coverage assessments
 remain `partial`, their completeness basis expressly disclaims completeness,
 and the source register retains unresolved rights terms.

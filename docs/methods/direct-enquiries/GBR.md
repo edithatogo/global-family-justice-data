@@ -1,7 +1,9 @@
 # Direct enquiry packet — GBR
 
 Status: sent 2026-07-31 07:08:13 UTC; controlled-mailbox message
-`19fb700870eaabb7`. The source scope and reuse terms remain unconfirmed.
+`19fb700870eaabb7`; automated acknowledgement `19fb7013d4526341`. The
+acknowledgement points to ODS/CSV tables, visualisations, and the statistics
+guide but does not resolve the requested source scope or reuse terms.
 
 Official route: [UK Ministry of Justice family-court data](https://data.justice.gov.uk/courts/family-courts). Use only the publisher's public contact or data-enquiry route; do not contact individual court users.
 

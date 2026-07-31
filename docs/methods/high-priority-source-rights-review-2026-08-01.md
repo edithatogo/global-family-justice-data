@@ -1,6 +1,6 @@
 # High-priority source rights review
 
-Reviewed: 2026-08-01
+Reviewed: 2026-08-01 Australia/Sydney (2026-07-31 UTC)
 
 Reviewer: analyst-agent
 

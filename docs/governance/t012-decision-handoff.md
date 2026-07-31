@@ -29,7 +29,8 @@ source search, coverage conclusion, or institutional fact.
 
 ## Current technical baseline
 
-The current census baseline intentionally contains no operational jurisdiction
-records, assessments, search logs, or enquiries. It reports all such gaps as
-unresolved. This is the correct starting state until records are supplied and
-reviewed under the declared protocols.
+The current census baseline contains draft operational jurisdiction, assessment,
+search-log, institution-map, and enquiry records. It reports the remaining
+review, coverage, and enquiry gaps as unresolved. Draft records are evidence
+receipts only; they do not establish source completeness, rights clearance, or
+formal gate acceptance until reviewed under the declared protocols.

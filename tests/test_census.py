@@ -27,6 +27,15 @@ def test_census_reports_missing_evidence_as_unresolved(project_root: Path, tmp_p
     assert verify_census_readiness(result.output_dir, project_or_root=root) == []
 
 
+def test_census_resolves_mapping_review_by_institution_subject(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _copy(project_root, tmp_path / "repo")
+    result = build_census_readiness(root, root / "build/census")
+    _, gaps = read_csv(result.gaps_path)
+    assert not any(row["gap_code"] == "REVIEW_LEDGER_UNREVIEWED" for row in gaps)
+
+
 def test_census_rejects_duplicate_current_assessments(project_root: Path, tmp_path: Path) -> None:
     root = _copy(project_root, tmp_path / "repo")
     path = root / "data/seed/coverage_assessment_template.csv"

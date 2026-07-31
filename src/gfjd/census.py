@@ -191,9 +191,16 @@ def build_census_readiness(
             reasons.append(("SEARCH_LOG_UNREVIEWED", "No reviewed source-search log exists."))
         if not institutions_by_id[jid]:
             reasons.append(("INSTITUTION_MAP_MISSING", "No institutional-map record exists."))
+        # Mapping reviews are keyed by institution_id, while jurisdiction-level
+        # reviews (when present) are keyed by jurisdiction_id.  Resolve both
+        # forms so a valid mapping review is not misreported as an absent
+        # jurisdiction review.
+        institution_subjects = {row.get("institution_id", "") for row in institutions_by_id[jid]}
+        review_subjects = {jid, *institution_subjects}
         if not any(
             row.get("decision", "") in {"accepted", "changes_required", "rejected", "quarantined"}
-            for row in reviews_by_subject[jid]
+            for subject_id in review_subjects
+            for row in reviews_by_subject[subject_id]
         ):
             reasons.append(
                 (

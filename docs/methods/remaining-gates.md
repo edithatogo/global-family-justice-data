@@ -42,5 +42,6 @@ and traceable. Current baseline: 23 jurisdictions, 0 ready, 23 gaps, all
 `DIRECT_ENQUIRY_UNRESOLVED` (the generated census summary is authoritative;
 regenerate it after any data change). Three pilot enquiries were sent on
 2026-07-31; Minnesota awaits CAPTCHA completion and Brazil awaits authenticated
-CNJ portal access. The remaining jurisdictions require enquiry classification
-and, where necessary, an authenticated submission.
+CNJ portal access. Packets are prepared for the remaining 18 jurisdictions;
+each requires an authenticated submission through its documented official
+route.

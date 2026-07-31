@@ -1,6 +1,6 @@
 enquiry_id,jurisdiction_id,priority,state,sent_at,closed_at,evidence_path,review_status,notes
-ENQ-INT-001,INT,high,planned,,,docs/methods/rights-request-template.md,draft,Prepared only; no outbound request sent. Requires rights/licensing contact and owner-agent review.
-ENQ-AUS-001,AUS,high,planned,,,docs/methods/rights-request-template.md,draft,Prepared only; no outbound request sent. Requires rights/licensing contact and owner-agent review.
-ENQ-USA-MN-001,USA-MN,high,planned,,,docs/methods/rights-request-template.md,draft,Prepared only; no outbound request sent. Requires rights/licensing contact and owner-agent review.
-ENQ-BRA-001,BRA,high,planned,,,docs/methods/rights-request-template.md,draft,Prepared only; no outbound request sent. Requires rights/licensing contact and owner-agent review.
-ENQ-ZAF-001,ZAF,high,planned,,,docs/methods/rights-request-template.md,draft,Prepared only; no outbound request sent. Requires rights/licensing contact and owner-agent review.
+ENQ-INT-001,INT,high,planned,,,docs/methods/direct-enquiries/INT-CEPEJ.md,draft,"Prepared only; not sent. CEPEJ-STAT family scope, export/revision semantics, and reuse terms remain unresolved; official Secretariat and permissions routes documented."
+ENQ-AUS-001,AUS,high,planned,,,docs/methods/direct-enquiries/AUS-FCFCOA.md,draft,"Prepared only; not sent. Published CC BY-ND terms resolve some reuse questions, but historical-series scope, structural breaks, reusable tables, and transformed-output treatment remain unresolved."
+ENQ-USA-MN-001,USA-MN,high,planned,,,docs/methods/direct-enquiries/USA-MN.md,draft,"Prepared only; not sent. Statewide family categories, district coverage, series definitions, and dashboard/bulk reuse terms remain unresolved; official request routes documented."
+ENQ-BRA-001,BRA,high,planned,,,docs/methods/direct-enquiries/BRA-CNJ.md,draft,"Prepared only; not sent. Family taxonomy, API/panel coverage, revision semantics, and reuse terms remain unresolved; Portuguese official contact route documented."
+ENQ-ZAF-001,ZAF,high,planned,,,docs/methods/direct-enquiries/ZAF-OCJ.md,draft,"Prepared only; not sent. Cross-institution family jurisdiction, complete series coverage, machine-readable access, and reuse terms remain unresolved; OCJ enquiry and PAIA routes documented."

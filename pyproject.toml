@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=77", "wheel"]
+requires = ["setuptools>=83.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -32,7 +32,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
   "build>=1.2,<2",
-  "setuptools>=77,<81",
+  "setuptools>=83.0.0,<84",
   "wheel>=0.45,<1",
   "hypothesis>=6,<7",
   "mypy>=1.13,<2",

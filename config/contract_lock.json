@@ -208,6 +208,11 @@
     },
     {
       "kind": "csv_header",
+      "path": "data/census/jurisdiction_universe.csv",
+      "sha256": "7c1599cdd3e36242a8d56a5e92efd7cc66387a01ded5a76681791ad72b5691c1"
+    },
+    {
+      "kind": "csv_header",
       "path": "data/census/review_ledger.csv",
       "sha256": "6597563c6d47f6ec01939ef450e05aef33130ebd293019e3ec16e7af23c4552a"
     },
@@ -257,8 +262,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 51,
-  "inventory_sha256": "10330e0d964f9bc36023529b38ef204f56b80ee79f628770a468c7d8a9916a9a",
+  "entry_count": 52,
+  "inventory_sha256": "9f9d29f8fa0c9783208dc1e85e700b6ac5d242de8bdf7a0bcc240a122b2f3d21",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

@@ -389,7 +389,8 @@ def _operational_input(project: Project, operational: str, template: str) -> Pat
         if template_rows:
             raise CensusError(
                 "More than one non-superseded coverage assessment exists for a jurisdiction; "
-                f"seed template must remain header-only when operational census input is present: {template}"
+                "seed template must remain header-only when operational census input "
+                f"is present: {template}"
             )
     return operational_path if operational_path.is_file() else template_path
 

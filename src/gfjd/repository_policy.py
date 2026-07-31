@@ -230,7 +230,8 @@ def audit_repository_controls(root: Path) -> RepositoryPolicyReport:
                     "error",
                     "ENVIRONMENT_REVIEWERS",
                     f"environments.{name}.required_reviewers",
-                    "At least two independent reviewers are required unless review_model=solo_agent",
+                    "At least two independent reviewers are required unless "
+                    "review_model=solo_agent",
                 )
             )
         if not solo_agent:

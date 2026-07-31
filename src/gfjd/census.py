@@ -383,7 +383,15 @@ def _operational_input(project: Project, operational: str, template: str) -> Pat
     """Use the declared census data path when populated, otherwise its template."""
 
     operational_path = _confined_input(project, operational)
-    return operational_path if operational_path.is_file() else _confined_input(project, template)
+    template_path = _confined_input(project, template)
+    if operational_path.is_file() and template_path.is_file():
+        _, template_rows = read_csv(template_path)
+        if template_rows:
+            raise CensusError(
+                "More than one non-superseded coverage assessment exists for a jurisdiction; "
+                f"seed template must remain header-only when operational census input is present: {template}"
+            )
+    return operational_path if operational_path.is_file() else template_path
 
 
 def _group(rows: list[dict[str, str]]) -> defaultdict[str, list[dict[str, str]]]:

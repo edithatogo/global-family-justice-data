@@ -1,6 +1,10 @@
 # Draft enquiry: CEPEJ-STAT
 
-Status: **planned; not sent**
+Status: **sent 2026-07-31 06:53:46 UTC**
+
+Controlled-mailbox receipt: Gmail message `19fb6f2ede9de66c`. Follow-up is due
+2026-08-15; transparent no-response closure is not permitted before
+2026-08-30.
 
 ## Official route
 

@@ -38,6 +38,9 @@ or assert institutional coverage without source and review evidence.
    become ready.
 
 The census harness remains fail-closed until these rows are real, validated,
-and traceable. Current baseline: 23 jurisdictions, 0 ready, 92 gaps (the
-generated census summary is authoritative; regenerate it after any data
-change).
+and traceable. Current baseline: 23 jurisdictions, 0 ready, 23 gaps, all
+`DIRECT_ENQUIRY_UNRESOLVED` (the generated census summary is authoritative;
+regenerate it after any data change). Three pilot enquiries were sent on
+2026-07-31; Minnesota awaits CAPTCHA completion and Brazil awaits authenticated
+CNJ portal access. The remaining jurisdictions require enquiry classification
+and, where necessary, an authenticated submission.

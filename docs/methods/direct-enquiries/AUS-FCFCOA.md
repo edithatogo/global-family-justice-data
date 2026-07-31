@@ -1,6 +1,10 @@
 # Draft enquiry: Federal Circuit and Family Court of Australia
 
-Status: **planned; not sent**
+Status: **sent 2026-07-31 06:53:46 UTC**
+
+Controlled-mailbox receipt: Gmail message `19fb6f30e9830944`. Follow-up is due
+2026-08-15; transparent no-response closure is not permitted before
+2026-08-30.
 
 ## Official route
 

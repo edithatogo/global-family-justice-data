@@ -6,9 +6,9 @@ Status: **planned; not sent**
 
 - Use the CNJ's official [Fale conosco](https://www.cnj.jus.br/fale-conosco/)
   route for the initial request and retain its confirmation.
-- For a routed technical question, the DataJud FAQ identifies
-  `suporte.dpj [at] cnj.jus.br` for specified DataJud support requests; the
-  general form should be preferred unless CNJ directs otherwise.
+- DataJud's current support page directs specific requests to the CNJ IT
+  support portal at <https://suporteti.cnj.jus.br> and states that the former
+  `suporte.dpj [at] cnj.jus.br` address has been deactivated.
 
 The sender must submit in Portuguese and re-check the official route before
 sending.

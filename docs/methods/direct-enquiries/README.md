@@ -27,7 +27,9 @@ completeness, accuracy, or redistribution rights.
 
 ## Classification
 
-All five pilot enquiries remain `planned`. The checked-in coverage assessments
-are `partial`, their completeness basis expressly disclaims completeness, and
-the source register retains unresolved rights terms. Public pages identify
-official sources and contact routes, but do not resolve every scoped question.
+The CEPEJ, FCFCOA, and South Africa enquiries were sent on 2026-07-31 through
+the authenticated repository-owner Gmail account. Minnesota and Brazil remain
+`planned` because their current official routes require web-form or support-
+portal submission. The checked-in coverage assessments remain `partial`, their
+completeness basis expressly disclaims completeness, and the source register
+retains unresolved rights terms.

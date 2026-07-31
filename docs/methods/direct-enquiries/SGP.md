@@ -1,6 +1,8 @@
 # Direct enquiry packet — SGP
 
-Status: prepared; not sent. Required because the Family Justice Courts statistics mapping is partial and the series scope, edition, and reuse terms remain unconfirmed.
+Status: submitted 2026-07-31 07:12:04 UTC through the official Singapore
+Judiciary FormSG route; response ID `6a6c4ac4ad7267f6daafcca5`. The series
+scope, edition, and reuse terms remain unconfirmed.
 
 Official route: [Singapore Judiciary caseload statistics](https://www.judiciary.gov.sg/who-we-are/statistics/caseload-statistics-2023). Use the Judiciary's public statistics/contact route; do not contact court users or request case-level records.
 

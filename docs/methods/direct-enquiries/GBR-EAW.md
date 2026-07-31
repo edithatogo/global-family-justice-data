@@ -1,6 +1,8 @@
 # Direct enquiry packet — GBR-EAW
 
-Status: prepared; not sent. Required because the England-and-Wales assessment is partial and publication scope, definitions, and reuse terms remain unconfirmed.
+Status: sent 2026-07-31 07:08:15 UTC; controlled-mailbox message
+`19fb7008f7315695`. Publication scope, definitions, and reuse terms remain
+unconfirmed.
 
 Official route: [Family Court Statistics Quarterly](https://www.gov.uk/government/collections/family-court-statistics-quarterly). Use the Ministry of Justice public statistics contact route; do not contact litigants or court users.
 

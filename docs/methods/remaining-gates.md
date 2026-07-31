@@ -40,7 +40,7 @@ or assert institutional coverage without source and review evidence.
 The census harness remains fail-closed until these rows are real, validated,
 and traceable. Current baseline: 23 jurisdictions, 0 ready, 23 gaps, all
 `DIRECT_ENQUIRY_UNRESOLVED` (the generated census summary is authoritative;
-regenerate it after any data change). Twelve enquiries were sent on
-2026-07-31; Minnesota awaits CAPTCHA completion and Brazil awaits authenticated
-CNJ portal access. Nine other packets await submission through their documented
-form-, phone-, postal-, or routing-only official channels.
+regenerate it after any data change). Eighteen enquiries were sent or submitted
+on 2026-07-31; Minnesota awaits CAPTCHA completion and Brazil awaits
+authenticated CNJ portal access. Three other packets await submission through
+their documented phone-, postal-, or authenticated-form-only official channels.

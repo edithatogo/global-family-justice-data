@@ -1,6 +1,7 @@
 # Direct enquiry packet — GBR
 
-Status: prepared; not sent. Required because the current assessment is partial and the source scope and reuse terms are unconfirmed.
+Status: sent 2026-07-31 07:08:13 UTC; controlled-mailbox message
+`19fb700870eaabb7`. The source scope and reuse terms remain unconfirmed.
 
 Official route: [UK Ministry of Justice family-court data](https://data.justice.gov.uk/courts/family-courts). Use only the publisher's public contact or data-enquiry route; do not contact individual court users.
 

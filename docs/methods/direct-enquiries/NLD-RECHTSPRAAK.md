@@ -2,6 +2,10 @@
 
 Status: **planned; not sent**
 
+Route reverified 2026-07-31: statistics-only enquiries are routed by telephone
+or WhatsApp. The published research email is reserved for formal cooperation
+proposals and is not appropriate for this bounded statistics request.
+
 ## Official route
 
 - For requests limited to statistics, the official
@@ -55,4 +59,3 @@ reviewer disposition in the controlled evidence store. Follow up after 15
 calendar days and allow a further 15 calendar days before a documented
 `closed_no_response` decision under this directory's README. Failed delivery is
 not a closure.
-

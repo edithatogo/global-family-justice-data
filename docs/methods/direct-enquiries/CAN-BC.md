@@ -1,6 +1,8 @@
 # Direct enquiry packet — CAN-BC
 
-Status: prepared; not sent. Required because the provincial assessment is partial and the cited Statistics Canada material does not yet establish British Columbia family-justice completeness or reuse permission.
+Status: sent 2026-07-31 07:08:58 UTC to `infostats@statcan.gc.ca`;
+controlled-mailbox message `19fb70138ade1da4`. Provincial family-series
+coverage, definitions, continuity, and reuse terms remain unconfirmed.
 
 Official route: [Statistics Canada civil-court release](https://www150.statcan.gc.ca/n1/daily-quotidien/260326/dq260326b-eng.pdf). Use the publisher's public release/contact route; do not request personal or case-level information.
 

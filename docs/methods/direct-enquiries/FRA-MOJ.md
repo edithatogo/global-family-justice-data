@@ -2,6 +2,9 @@
 
 Status: **planned; not sent**
 
+Route reverified 2026-07-31: the official digital form requires FranceConnect
+or a `demarche.numerique.gouv.fr` account; the alternative is postal.
+
 ## Official route
 
 - Sub-direction de la statistique et des études (SDSE), Ministère de la

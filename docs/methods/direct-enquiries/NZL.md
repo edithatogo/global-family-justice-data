@@ -1,6 +1,9 @@
 # Direct enquiry packet — NZL
 
-Status: prepared; not sent. Required because the Ministry of Justice mapping is partial and the relevant family-justice series and reuse terms require confirmation.
+Status: sent 2026-07-31 07:08:48 UTC to
+`SectorInsights@justice.govt.nz`; controlled-mailbox message
+`19fb70110fd8e8ec`. The relevant family-justice series and reuse terms remain
+unconfirmed.
 
 Official route: [New Zealand justice statistics](https://www.justice.govt.nz/justice-sector-policy/research-data/justice-statistics/). Use the Ministry's public statistics contact route; do not contact parties, children, or court users.
 

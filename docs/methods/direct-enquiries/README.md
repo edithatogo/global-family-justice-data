@@ -27,10 +27,11 @@ completeness, accuracy, or redistribution rights.
 
 ## Classification
 
-Twelve enquiries were sent on 2026-07-31 through the authenticated repository-
-owner Gmail account. Minnesota and Brazil remain `planned` because their
-current official routes require CAPTCHA completion or authenticated portal
-access. Nine other jurisdictions have form-, phone-, postal-, or routing-only
-channels and remain `planned; not sent`. The checked-in coverage assessments
+Eighteen enquiries were sent or submitted on 2026-07-31 through the
+authenticated repository-owner Gmail account or an official public form.
+Minnesota and Brazil remain `planned` because their current official routes
+require CAPTCHA completion or authenticated portal access. Three other
+jurisdictions have phone-, postal-, or authenticated-form-only channels and
+remain `planned; not sent`. The checked-in coverage assessments
 remain `partial`, their completeness basis expressly disclaims completeness,
 and the source register retains unresolved rights terms.

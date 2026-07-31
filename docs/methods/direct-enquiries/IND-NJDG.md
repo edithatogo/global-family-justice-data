@@ -1,10 +1,12 @@
-# Draft enquiry: National Judicial Data Grid, India
+# Enquiry: National Judicial Data Grid, India
 
 Status: **sent 2026-07-31 07:04:13 UTC** — controlled-mailbox message
 `19fb6fc9fe020bca`. Automated response `19fb6fdb4d933dae` rejected processing
-without a Service Desk profile. The official feedback fallback was reverified
-and completed in-browser on 2026-07-31; CAPTCHA completion is still required
-before submission.
+without a Service Desk profile. The official feedback fallback was then
+successfully submitted at **2026-07-31 08:23:25 UTC**. Its confirmation stated
+“आपके संदेश के लिए धन्यवाद। इसे भेज दिया गया है।” (“Thank you for your message.
+It has been sent.”). The controlled fallback receipt has SHA-256
+`5207c6e54535a654eb704c34ee92fc2ad1177a36f395de6723892823bcfa51ba`.
 
 ## Official route
 
@@ -63,8 +65,9 @@ Regards,
 
 Retain the submitted form or service ticket, confirmation, delivery evidence,
 response, and reviewer decision in the controlled evidence store. Allow 15
-calendar days for an initial response, send one follow-up through the same
-official route, then allow a further 15 calendar days. Only after those
-**15 + 15 days** may a reviewer record `closed_no_response`. A delivery failure
-requires correction or an alternative official route and is not a no-response
-closure.
+calendar days for an initial response: follow-up is due 2026-08-15 through the
+successful feedback route. Then allow a further 15 calendar days. Only on or
+after 2026-08-30 may a reviewer record `closed_no_response`, and only with the
+required delivery evidence. The earlier Service Desk rejection remains part of
+the audit trail; the successful fallback resolves delivery, not the substantive
+taxonomy, coverage, missing-data, export, or reuse questions.

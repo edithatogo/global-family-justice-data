@@ -27,6 +27,16 @@ def test_census_reports_missing_evidence_as_unresolved(project_root: Path, tmp_p
     assert verify_census_readiness(result.output_dir, project_or_root=root) == []
 
 
+def test_census_keeps_partial_coverage_unresolved(project_root: Path, tmp_path: Path) -> None:
+    root = _copy(project_root, tmp_path / "repo")
+    result = build_census_readiness(root, root / "build/census")
+    _, matrix = read_csv(result.matrix_path)
+    sweden = next(row for row in matrix if row["jurisdiction_id"] == "SWE")
+    assert sweden["current_assessment_state"] == "partial"
+    assert sweden["readiness_state"] == "unresolved"
+    assert "COVERAGE_INCOMPLETE" in sweden["gap_reason"]
+
+
 def test_census_resolves_mapping_review_by_institution_subject(
     project_root: Path, tmp_path: Path
 ) -> None:

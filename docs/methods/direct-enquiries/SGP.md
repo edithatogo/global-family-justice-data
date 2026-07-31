@@ -5,6 +5,8 @@ Judiciary FormSG route; response ID `6a6c4ac4ad7267f6daafcca5` and
 acknowledgement `19fb7041d2c19007`. The receipt PDF is retained in the ignored
 controlled evidence store with SHA-256
 `9b1e3f63f343fe00e4ff90078d57629498d0882540807891cfeb65ea77d5ff2c`.
+An additional automated acknowledgement, `19fb714b431ef6a3`, assigned
+`CRM:0001601` and states a target of three working days for general enquiries.
 The series scope, edition, and reuse terms remain unconfirmed.
 
 Official route: [Singapore Judiciary caseload statistics](https://www.judiciary.gov.sg/who-we-are/statistics/caseload-statistics-2023). Use the Judiciary's public statistics/contact route; do not contact court users or request case-level records.

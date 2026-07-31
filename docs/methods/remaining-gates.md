@@ -38,4 +38,6 @@ or assert institutional coverage without source and review evidence.
    become ready.
 
 The census harness remains fail-closed until these rows are real, validated,
-and traceable. Current baseline: 23 jurisdictions, 0 ready, 138 gaps.
+and traceable. Current baseline: 23 jurisdictions, 0 ready, 115 gaps (the
+generated census summary is authoritative; regenerate it after any data
+change).

@@ -1,7 +1,21 @@
-# Draft enquiry: Swedish National Courts Administration
+# Enquiry: Swedish National Courts Administration
 
 Status: **sent 2026-07-31 07:04:13 UTC** — controlled-mailbox message
-`19fb6fc1f366d800`.
+`19fb6fc1f366d800`. A substantive response arrived at **2026-07-31 07:47:15
+UTC** in message `19fb724483ce3802`.
+
+The response confirms that official statistics cover all family-law cases
+handled by District Courts, Courts of Appeal, and the Supreme Court; available
+measures include filed, determined, pending, and processing time; case type is
+the lowest recorded level; some series extend to 2000; data are available
+through the previous day; and the database includes machine-readable tables.
+
+The attached 2025 District Court workbook identifies divorce/partnership
+dissolution, custody/residence/contact, maintenance, paternity/parenthood, and
+other-family case types. The controlled workbook has SHA-256
+`47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb`.
+Reuse/attribution, definition changes, and exact adoption, child-protection,
+protection-order, and joint-application scope remain unresolved.
 
 ## Official route
 
@@ -54,9 +68,7 @@ Regards,
 
 ## Evidence and closure
 
-Retain the sent message, delivery evidence, any registration number, response,
-and reviewer decision in the controlled evidence store. Allow 15 calendar days
-for an initial response, send one follow-up through the same official route,
-then allow a further 15 calendar days. Only after those **15 + 15 days** may a
-reviewer record `closed_no_response`. A delivery failure requires correction
-or an alternative official route and is not a no-response closure.
+Retain the sent message, delivery evidence, response, attachment, checksums, and
+reviewer decision in the controlled evidence store. This enquiry is answered
+but only partially resolved. Any clarification email requires the owner's
+explicit approval immediately before sending.

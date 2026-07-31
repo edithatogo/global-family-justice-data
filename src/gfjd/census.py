@@ -187,6 +187,14 @@ def build_census_readiness(
             reasons.append(
                 ("COVERAGE_STATE_INVALID", "Coverage assessment has an unrecognised state.")
             )
+        elif current.get("coverage_state") not in {"candidate_complete", "verified_complete"}:
+            reasons.append(
+                (
+                    "COVERAGE_INCOMPLETE",
+                    "Coverage remains partial, stale, or not started and cannot advance to "
+                    "methods review.",
+                )
+            )
         if not reviewed_logs:
             reasons.append(("SEARCH_LOG_UNREVIEWED", "No reviewed source-search log exists."))
         if not institutions_by_id[jid]:

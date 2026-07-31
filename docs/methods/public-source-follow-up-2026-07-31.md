@@ -57,6 +57,24 @@ https://www.gov.uk/government/collections/family-court-statistics-quarterly
 https://www.gov.uk/government/statistics/family-court-statistics-quarterly-october-to-december-2025
 https://www.gov.uk/government/statistics/family-court-statistics-quarterly-october-to-december-2025/guide-to-family-court-statistics
 
+Edition acquisition completed 2026-07-31 UTC:
+
+- edition: `ED-GBR-EAW-MOJ-FCSQ-2026Q1`;
+- publication: 25 June 2026, covering 1 January through 31 March 2026;
+- archive: `FCSQ_2026_Q1.zip`, 1,181,359 bytes, 25 safe top-level members;
+- SHA-256: `8ea470874a6d24ca0db2c7253dd4141f595304262617248c2063ecd0e4cb1c96`;
+- acquisition manifest:
+  `data/raw/manifests/ACQ-GBR-EAW-MOJ-FAMILY-Q-20260731T222608Z-8EA47087.json`;
+- rights: `cleared`; redistribution: `allowed`, on the exact release's OGL v3
+  statement except where otherwise stated.
+
+The ZIP passed integrity and path review without extraction. Its tables include
+children, private/public-law timeliness, divorce, domestic violence, adoption,
+financial remedy, legal representation, probate, and DFJ/region-level files.
+This is source-edition and acquisition evidence only. Native category mapping,
+missingness and revision review, historical continuity, agent validation, and
+owner adjudication remain open; no observation or readiness state was promoted.
+
 ### Canada and British Columbia
 
 Statistics Canada publishes a downloadable table, "Family law cases, by type

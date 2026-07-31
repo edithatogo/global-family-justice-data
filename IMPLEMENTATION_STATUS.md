@@ -1,7 +1,7 @@
 # Implementation status
 
 **Baseline:** `0.6.0-alpha.2`
-**Status date:** 2026-07-31
+**Status date:** 2026-08-01
 **Purpose:** distinguish executable engineering controls from international research and institutional evidence that remain to be completed.
 
 This repository is a bootstrap-ready engineering and programme-control baseline. It is not a completed international family-justice dataset and is not the stable v1.0 service.
@@ -27,6 +27,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | Distribution assurance | Adversarial wheel and sdist checks plus deterministic wheel, normalised sdist and release double builds |
 | Local/remote bootstrap | Bounded local clone discovery, portfolio reconciliation, Git identity and remote checks, private GitHub creation/attachment, non-force push verification, and opt-in private Hugging Face creation |
 | Canonical platform topology | Intentionally public `edithatogo/global-family-justice-data` GitHub authority plus five private, generated-only Hugging Face repositories are attached; empirical-data publication remains evidence-gated |
+| High-priority source rights routing | Official Council of Europe, NCSC and HCCH terms are recorded for five international sources with metadata/citation routes separated from permission-dependent or unclear redistribution; no source was promoted to open-licence status |
 
 ## Current programme state
 

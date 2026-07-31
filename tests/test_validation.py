@@ -39,7 +39,7 @@ def test_all_json_schemas_are_valid(project_root: Path) -> None:
 
 
 def test_repository_has_no_validation_errors(project_root: Path) -> None:
-    report = validate_repository(project_root, today=date(2026, 7, 19))
+    report = validate_repository(project_root, today=date(2026, 8, 1))
     assert report.errors == [], "\n".join(str(issue) for issue in report.errors)
     assert report.checks_run >= 15
 

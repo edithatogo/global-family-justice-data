@@ -1,0 +1,23 @@
+{
+  "acquisition_id": "ACQ-SWE-DOMSTOLSVERKET-20260801T034016Z-47A751D4",
+  "agent_version": "0.6.0a2",
+  "byte_count": 11657,
+  "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "etag": null,
+  "final_url": "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/direct-enquiries/SWE/Cases%20filed%20and%20determined%2C%20family%20cases%20in%20district%20courts%202025.xlsx",
+  "http_status": null,
+  "last_modified": "2026-07-31T08:56:30+00:00",
+  "method": "file",
+  "notes": "Aggregate workbook supplied in official statistics-support response 19fb724483ce3802; attachment filename preserved; metadata-only controlled acquisition because reuse terms and attachment redistribution rights remain unresolved.",
+  "query_or_filter": null,
+  "redistribution_status": "metadata_only",
+  "requested_url": "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/direct-enquiries/SWE/Cases%20filed%20and%20determined%2C%20family%20cases%20in%20district%20courts%202025.xlsx",
+  "retrieved_at": "2026-08-01T03:40:16+00:00",
+  "rights_status": "unknown",
+  "schema_version": "1.0",
+  "sha256": "47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb",
+  "source_edition_id": "ED-SWE-DOMSTOLSVERKET-FAMILY-2025",
+  "source_id": "SWE-DOMSTOLSVERKET",
+  "status": "metadata_only",
+  "stored_path": ""
+}

@@ -17,6 +17,19 @@ other-family case types. The controlled workbook has SHA-256
 Reuse/attribution, definition changes, and exact adoption, child-protection,
 protection-order, and joint-application scope remain unresolved.
 
+The workbook is recorded as source edition
+`ED-SWE-DOMSTOLSVERKET-FAMILY-2025` in the acquisition manifest
+`data/raw/manifests/ACQ-SWE-DOMSTOLSVERKET-20260801T034016Z-47A751D4.json`.
+The attachment is retained in the controlled ignored evidence store with
+`metadata_only` redistribution status. Parsed worksheet metadata records
+District Courts, year 2025, and these source-native rows (Swedish labels):
+fathers/parenthood, custody, divorce, divorce/partnership dissolution with
+custody/residence/contact questions, custody/residence/contact, maintenance,
+fatherhood/other parenthood, and other family cases. The workbook reports a
+total of 15,655 filed and 15,501 determined cases for the selected category;
+these values are descriptive attachment review only and are not GFJD
+observations.
+
 ## Official route
 
 - Send the enquiry to the statistics support address published on the official

@@ -3,6 +3,17 @@
 Status: **sent 2026-07-31 07:04:13 UTC** — controlled-mailbox message
 `19fb6fc06c1c9dc2`.
 
+## Response recorded
+
+On 2026-07-31 at 14:57:39 UTC, the Dirección de Estadística Judicial
+(`19fb8ae637a764a1`) advised that statistical requests should be made through
+the National Transparency Platform, `enlace_informacion [at] pjenl.gob.mx`,
+in person, or by written request to the Unidad de Enlace de Información. The
+reply did not answer the substantive coverage, definitions, missingness, or
+reuse questions. A `winmail.dat` attachment was present but is not readable by
+the connector and was not treated as evidence. No reroute was sent; any such
+message requires explicit owner approval immediately before sending.
+
 ## Official route
 
 - Dirección de Estadística Judicial:

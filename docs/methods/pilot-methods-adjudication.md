@@ -48,3 +48,8 @@ decisions against the preserved pilot material.
 genuine, checksum-bound pilot adjudication set has been independently reviewed
 and the applicable gate controls are satisfied. Templates, synthetic fixtures,
 and a green comparability audit remain implementation support only.
+
+The current owner decision queue is recorded in
+`data/methods/pilot_adjudication_register.csv`, with the corresponding packet
+at `docs/methods/t1-owner-decision-packet-2026-08-01.md`. These artifacts
+prepare adjudication; they do not constitute adjudication or a v0.3 freeze.

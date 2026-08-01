@@ -1,5 +1,5 @@
 name: Quality harness
-# Coverage uploads are OIDC-authenticated through Codecov.
+# Coverage uploads are OIDC-authenticated through Codecov; action patterns are allowlisted.
 
 on:
   pull_request:

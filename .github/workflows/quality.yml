@@ -203,7 +203,7 @@ jobs:
       - name: Enforce coverage budgets
         run: uv run python -m gfjd harness coverage build/coverage.json
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@4650159d642e33fdc30954ca22638caf0df6cac8 # v5.4.3
+        uses: codecov/codecov-action@0f8570b1a125f4937846a11fcfa3bcd548bd8c97 # v4.6.0
         with:
           files: build/coverage.xml
           use_oidc: true

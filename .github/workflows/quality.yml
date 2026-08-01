@@ -193,12 +193,20 @@ jobs:
           GFJD_TEST_TIMINGS: build/test-timings-coverage.json
         run: >-
           uv run pytest -q -m "not slow"
-          --cov=gfjd --cov-branch
-          --cov-report=term-missing
-          --cov-report=json:build/coverage.json
-          --junitxml=build/junit-coverage.xml
+            --cov=gfjd --cov-branch
+            --cov-report=term-missing
+            --cov-report=json:build/coverage.json
+            --cov-report=xml:build/coverage.xml
+            --junitxml=build/junit-coverage.xml
       - name: Enforce coverage budgets
         run: uv run python -m gfjd harness coverage build/coverage.json
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@4650159d642e33fdc30954ca22638caf0df6cac8 # v5.4.3
+        with:
+          files: build/coverage.xml
+          use_oidc: true
+          fail_ci_if_error: true
+          slug: edithatogo/global-family-justice-data
       - name: Upload coverage receipts
         if: ${{ always() }}
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1

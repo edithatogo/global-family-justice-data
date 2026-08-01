@@ -48,3 +48,9 @@ repository = "github/codeql-action"
 tag = "v4 / bundle 2.26.1"
 sha = "e58424170fb0262c8d7ed60a2e84b9bffe205c67"
 purpose = "CodeQL initialization and analysis"
+
+[[action]]
+repository = "codecov/codecov-action"
+tag = "v5.4.3"
+sha = "4650159d642e33fdc30954ca22638caf0df6cac8"
+purpose = "OIDC-authenticated coverage upload"

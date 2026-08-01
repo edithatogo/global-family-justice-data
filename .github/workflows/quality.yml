@@ -195,11 +195,11 @@ jobs:
           GFJD_TEST_TIMINGS: build/test-timings-coverage.json
         run: >-
           uv run pytest -q -m "not slow"
-            --cov=gfjd --cov-branch
-            --cov-report=term-missing
-            --cov-report=json:build/coverage.json
-            --cov-report=xml:build/coverage.xml
-            --junitxml=build/junit-coverage.xml
+          --cov=gfjd --cov-branch
+          --cov-report=term-missing
+          --cov-report=json:build/coverage.json
+          --cov-report=xml:build/coverage.xml
+          --junitxml=build/junit-coverage.xml
       - name: Enforce coverage budgets
         run: uv run python -m gfjd harness coverage build/coverage.json
       - name: Upload coverage to Codecov

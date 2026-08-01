@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 import subprocess
 from datetime import UTC, datetime
 from pathlib import Path
@@ -13,6 +14,8 @@ from gfjd.github_controls import classify_response, verify_capture
 
 
 def capture(repo: str) -> dict[str, Any]:
+    if shutil.which("gh") is None:
+        raise RuntimeError("GitHub CLI `gh` is required for live control capture")
     endpoints = {
         "repository": f"repos/{repo}",
         "rulesets": f"repos/{repo}/rulesets",
@@ -51,7 +54,21 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--verify", action="store_true")
     args = parser.parse_args()
-    payload = json.loads(args.output.read_text()) if args.verify else capture(args.repo)
+    if args.verify:
+        try:
+            payload = json.loads(args.output.read_text(encoding="utf-8"))
+        except FileNotFoundError:
+            print(f"Capture file not found: {args.output}")
+            return 1
+        except json.JSONDecodeError as exc:
+            print(f"Invalid capture JSON: {exc}")
+            return 1
+    else:
+        try:
+            payload = capture(args.repo)
+        except RuntimeError as exc:
+            print(exc)
+            return 1
     if args.verify:
         errors = verify_capture(payload)
         if errors:

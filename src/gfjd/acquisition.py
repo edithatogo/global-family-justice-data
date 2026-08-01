@@ -118,7 +118,9 @@ def acquire_url(
     try:
         try:
             with (
-                urlopen(request, timeout=timeout_seconds) as response,
+                # The destination and every redirect are validated against the
+                # public-network policy before bytes are accepted.
+                urlopen(request, timeout=timeout_seconds) as response,  # nosec B310
                 temp_path.open("wb") as handle,
             ):
                 final_url = response.geturl()

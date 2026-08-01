@@ -322,7 +322,7 @@ def inspect_warehouse(database_path: Path) -> dict[str, Any]:
             item: dict[str, Any] = {"type": object_type, "name": name}
             if object_type == "table" and name != "sqlite_sequence":
                 item["rows"] = connection.execute(
-                    f"SELECT COUNT(*) FROM {_quote(name)}"
+                    f"SELECT COUNT(*) FROM {_quote(name)}"  # nosec B608 - identifier is validated by _quote
                 ).fetchone()[0]
             objects.append(item)
     finally:
@@ -444,7 +444,9 @@ def _load_contract_table(
     columns = list(properties)
     definitions = [f"{_quote(column)} {_sql_type(properties[column])}" for column in columns]
     definitions.append('"_source_file" TEXT NOT NULL')
-    connection.execute(f"CREATE TABLE {_quote(table_name)} ({', '.join(definitions)})")
+    connection.execute(  # nosec B608 - table and column identifiers are validated by _quote
+        f"CREATE TABLE {_quote(table_name)} ({', '.join(definitions)})"
+    )
     rows: list[tuple[Any, ...]] = []
     for table in sorted(tables, key=lambda value: value.path.as_posix()):
         source_file = _relative(project.root, table.path)
@@ -455,7 +457,7 @@ def _load_contract_table(
     if rows:
         placeholders = ",".join("?" for _ in range(len(columns) + 1))
         connection.executemany(
-            f"INSERT INTO {_quote(table_name)} VALUES ({placeholders})",
+            f"INSERT INTO {_quote(table_name)} VALUES ({placeholders})",  # nosec B608 - identifier is validated
             rows,
         )
     return len(rows)

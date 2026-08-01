@@ -1,4 +1,4 @@
-.PHONY: help install validate validate-strict test unit property integration coverage compile format lint typecheck contracts policy generated status graph release-rehearsal integration-rehearsals package-reproducibility release-reproducibility bootstrap-preflight bootstrap-plan autonomy-context autonomy-fast autonomy-full check clean
+.PHONY: help install validate validate-strict test unit property integration coverage compile format lint typecheck contracts policy security generated status graph release-rehearsal integration-rehearsals package-reproducibility release-reproducibility bootstrap-preflight bootstrap-plan autonomy-context autonomy-fast autonomy-full check clean
 
 PYTHON ?= python
 SOURCE_DATE_EPOCH ?= 1785542400
@@ -65,6 +65,14 @@ policy:
 	PYTHONPATH=src $(PYTHON) -m gfjd policy ci
 	PYTHONPATH=src $(PYTHON) -m gfjd policy repository
 	PYTHONPATH=src $(PYTHON) -m gfjd harness lock
+
+security:
+	mkdir -p build
+	uv export --frozen --all-extras --format requirements-txt --no-emit-project --output-file build/pip-audit-requirements.txt
+	uv run pip-audit --strict -r build/pip-audit-requirements.txt --progress-spinner off --format json --output build/pip-audit.json
+	uv run bandit -r src/gfjd -ll -f json -o build/bandit.json
+	uv run zizmor --offline --pedantic --min-severity medium --format sarif .github > build/zizmor.sarif
+	$(PYTHON) -c 'import hashlib,pathlib; files=[pathlib.Path("build/pip-audit.json"),pathlib.Path("build/bandit.json"),pathlib.Path("build/zizmor.sarif")]; pathlib.Path("build/security-receipts.sha256").write_text("".join(f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p}\n" for p in files), encoding="utf-8")'
 
 generated:
 	PYTHONPATH=src $(PYTHON) -m gfjd conductor check-generated

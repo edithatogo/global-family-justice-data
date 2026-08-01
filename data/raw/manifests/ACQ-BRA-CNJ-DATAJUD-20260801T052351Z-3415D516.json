@@ -1,0 +1,23 @@
+{
+  "acquisition_id": "ACQ-BRA-CNJ-DATAJUD-20260801T052351Z-3415D516",
+  "agent_version": "0.6.0a2",
+  "byte_count": 26310437,
+  "content_type": "application/pdf",
+  "etag": null,
+  "final_url": "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/CNJ-JUSTICA-2026/justica-em-numeros-2026.pdf",
+  "http_status": null,
+  "last_modified": "2026-08-01T05:23:42+00:00",
+  "method": "file",
+  "notes": "Official CNJ Justiça em Números 2026 PDF; DataJud-based national judiciary statistics; controlled metadata-only preservation pending reuse review.",
+  "query_or_filter": null,
+  "redistribution_status": "metadata_only",
+  "requested_url": "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/CNJ-JUSTICA-2026/justica-em-numeros-2026.pdf",
+  "retrieved_at": "2026-08-01T05:23:51+00:00",
+  "rights_status": "unknown",
+  "schema_version": "1.0",
+  "sha256": "3415d516d756f48d7337e83e6faa8477644fe98b5cedb43cb04999f59fd5a71f",
+  "source_edition_id": "ED-BRA-CNJ-JUSTICA-2026",
+  "source_id": "BRA-CNJ-DATAJUD",
+  "status": "metadata_only",
+  "stored_path": ""
+}

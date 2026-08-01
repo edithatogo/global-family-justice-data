@@ -34,3 +34,9 @@ search-log, institution-map, and enquiry records. It reports the remaining
 review, coverage, and enquiry gaps as unresolved. Draft records are evidence
 receipts only; they do not establish source completeness, rights clearance, or
 formal gate acceptance until reviewed under the declared protocols.
+
+The owner has authorized the bounded-pilot and single-owner/agent operating
+model in `docs/methods/pilot-scope-decision-2026-08-01.md` and
+`docs/governance/single-owner-agent-operating-model.md`. This authorizes
+repository-owned implementation; it does not waive evidence, rights,
+independence, or external-assurance requirements.

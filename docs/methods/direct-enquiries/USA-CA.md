@@ -3,6 +3,16 @@
 Status: **sent 2026-07-31 07:04:13 UTC** — controlled-mailbox message
 `19fb6fbc642a71ab`.
 
+## Response recorded
+
+On 2026-07-31 at 23:02:58 UTC, PAJAR (`19fba6ab80e27bad`) advised that the
+request had been forwarded to the Judicial Council's Public Access to Judicial
+Administrative Records team. PAJAR is reviewing it and estimated a disclosure
+determination by Monday, 2026-08-10. Future records requests should be sent to
+`PAJAR [at] jud.ca.gov` or through the published PAJAR form. This is a routing
+and pending-determination response, not evidence that records are available or
+that California coverage or reuse terms are resolved. No follow-up was sent.
+
 ## Official route
 
 - Research, Analytics, and Data: `research [at] jud.ca.gov`, published on the

@@ -27,6 +27,7 @@ allowed_action_repositories = [
   "actions/setup-python",
   "actions/upload-artifact",
   "astral-sh/setup-uv",
+  "codecov/codecov-action",
   "github/codeql-action",
 ]
 

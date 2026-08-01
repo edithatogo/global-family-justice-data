@@ -11,6 +11,10 @@ These candidates have source-backed institution mappings and owner-adjudication
 records, but remain conditional until edition-level coverage, rights treatment,
 and source/matter mapping are complete.
 
+Australia now has a controlled, checksummed 2024-25 FCFCOA annual-report
+edition recorded in `data/seed/source_edition_template.csv`. It remains
+metadata-only because the PDF's reuse terms have not been cleared.
+
 The remaining jurisdictions stay in the approved global universe and continue
 through the census cycle. They are excluded from pilot outputs until their
 coverage and review gates pass.

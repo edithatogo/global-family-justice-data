@@ -1,0 +1,23 @@
+{
+  "acquisition_id": "ACQ-ZAF-JUD-ANNUAL-20260801T051403Z-24991662",
+  "agent_version": "0.6.0a2",
+  "byte_count": 6577186,
+  "content_type": "application/pdf",
+  "etag": null,
+  "final_url": "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/SA-JUDICIARY-2024-25/annual-judiciary-report-2024-25.pdf",
+  "http_status": null,
+  "last_modified": "2026-08-01T05:13:52+00:00",
+  "method": "file",
+  "notes": "Official South African Judiciary 2024/25 annual report acquired from judiciary.org.za; controlled metadata-only preservation pending reuse review.",
+  "query_or_filter": null,
+  "redistribution_status": "metadata_only",
+  "requested_url": "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/SA-JUDICIARY-2024-25/annual-judiciary-report-2024-25.pdf",
+  "retrieved_at": "2026-08-01T05:14:03+00:00",
+  "rights_status": "unknown",
+  "schema_version": "1.0",
+  "sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce",
+  "source_edition_id": "ED-ZAF-JUDICIARY-ANNUAL-2024-25",
+  "source_id": "ZAF-JUD-ANNUAL",
+  "status": "metadata_only",
+  "stored_path": ""
+}

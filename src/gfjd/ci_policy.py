@@ -438,6 +438,12 @@ def _check_job_permissions(
             continue
         if name == "security-events" and Path(path).name == "codeql.yml":
             continue
+        if name == "id-token" and any(
+            isinstance(step, Mapping)
+            and str(step.get("uses", "")).startswith("codecov/codecov-action@")
+            for step in job.get("steps", [])
+        ):
+            continue
         if name in {"contents", "id-token", "attestations"} and environment:
             continue
         issues.append(

@@ -1,0 +1,23 @@
+{
+  "acquisition_id": "ACQ-AUS-FCFCOA-AR-20260801T051117Z-E251DA7A",
+  "agent_version": "0.6.0a2",
+  "byte_count": 13442996,
+  "content_type": "application/pdf",
+  "etag": null,
+  "final_url": "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/FCFCOA-ANNUAL-2024-25/annual-report-2024-25.pdf",
+  "http_status": null,
+  "last_modified": "2026-08-01T05:10:55+00:00",
+  "method": "file",
+  "notes": "Official FCFCOA 2024-25 annual report PDF acquired from the official annual-report page; controlled metadata-only preservation pending reuse review.",
+  "query_or_filter": null,
+  "redistribution_status": "metadata_only",
+  "requested_url": "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/FCFCOA-ANNUAL-2024-25/annual-report-2024-25.pdf",
+  "retrieved_at": "2026-08-01T05:11:17+00:00",
+  "rights_status": "unknown",
+  "schema_version": "1.0",
+  "sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+  "source_edition_id": "ED-AUS-FCFCOA-ANNUAL-2024-25",
+  "source_id": "AUS-FCFCOA-AR",
+  "status": "metadata_only",
+  "stored_path": ""
+}

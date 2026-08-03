@@ -1,6 +1,6 @@
 # Generated programme status
 
-Generated: `2026-08-03T13:13:12+00:00`
+Generated: `2026-08-03T13:14:45+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G1**  
@@ -26,11 +26,11 @@ Conductor validation: **PASS** (0 errors, 0 warnings)
 | T2 — Jurisdiction universe and source census | 5/5 (100.0%) | 0/5 (0.0%) | 0 | 1/5 |
 | T3 — Acquisition, preservation and source monitoring | 3/3 (100.0%) | 0/3 (0.0%) | 0 | 1/3 |
 | T4 — Data platform and engineering | 3/6 (50.0%) | 0/6 (0.0%) | 0 | 2/7 |
-| T5 — Harmonisation, quality and assurance | 2/7 (28.6%) | 0/7 (0.0%) | 0 | 1/7 |
-| T6 — Product, documentation and accessibility | 0/7 (0.0%) | 0/7 (0.0%) | 0 | 0/7 |
+| T5 — Harmonisation, quality and assurance | 3/7 (42.9%) | 0/7 (0.0%) | 0 | 1/7 |
+| T6 — Product, documentation and accessibility | 1/7 (14.3%) | 0/7 (0.0%) | 0 | 0/7 |
 | T7 — Security, privacy, legal and supply-chain assurance | 2/6 (33.3%) | 0/6 (0.0%) | 0 | 0/9 |
 | T8 — Operations, reliability and release management | 1/6 (16.7%) | 0/6 (0.0%) | 0 | 1/6 |
-| T9 — International community, localisation and sustainability | 1/4 (25.0%) | 0/4 (0.0%) | 0 | 0/4 |
+| T9 — International community, localisation and sustainability | 2/4 (50.0%) | 0/4 (0.0%) | 0 | 0/4 |
 
 ## Evidence-assured maturity
 

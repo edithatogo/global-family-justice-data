@@ -1,6 +1,6 @@
 # Generated programme status
 
-Generated: `2026-08-03T04:10:02+00:00`
+Generated: `2026-08-03T13:11:56+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G1**  
@@ -10,7 +10,7 @@ Conductor validation: **PASS** (0 errors, 0 warnings)
 
 | Gate | Target | State | Ready | Decision | Controls complete | Principal blockers |
 |---|---:|---|---:|---|---:|---|
-| G1 — Foundation controls accepted | 0.4.0 | blocked_by_assurance | no | conditional | 4/13 | required work not accepted: WI-G1-01; required work not accepted: WI-G1-03; required work not accepted: WI-G1-04; +17 more |
+| G1 — Foundation controls accepted | 0.4.0 | blocked_by_assurance | no | conditional | 5/13 | required work not accepted: WI-G1-01; required work not accepted: WI-G1-03; required work not accepted: WI-G1-04; +16 more |
 | G2 — Reproducible pilot proven | 0.5.0 | blocked_by_dependency | no | not_evaluated | 4/13 | dependency gate not accepted: G1; required work not accepted: WI-G2-01; required work not accepted: WI-G2-02; +18 more |
 | G3 — Global source census complete | 0.6.0 | blocked_by_dependency | no | not_evaluated | 1/13 | dependency gate not accepted: G2; required work not accepted: WI-G3-01; required work not accepted: WI-G3-02; +21 more |
 | G4 — Feature-complete public beta | 0.7.0 | blocked_by_dependency | no | not_evaluated | 1/14 | dependency gate not accepted: G3; required work not accepted: WI-G4-01; required work not accepted: WI-G4-02; +23 more |
@@ -25,7 +25,7 @@ Conductor validation: **PASS** (0 errors, 0 warnings)
 | T1 — Scope, ontology and methods | 3/3 (100.0%) | 1/3 (33.3%) | 0 | 2/4 |
 | T2 — Jurisdiction universe and source census | 5/5 (100.0%) | 0/5 (0.0%) | 0 | 1/5 |
 | T3 — Acquisition, preservation and source monitoring | 3/3 (100.0%) | 0/3 (0.0%) | 0 | 1/3 |
-| T4 — Data platform and engineering | 3/6 (50.0%) | 0/6 (0.0%) | 0 | 1/7 |
+| T4 — Data platform and engineering | 3/6 (50.0%) | 0/6 (0.0%) | 0 | 2/7 |
 | T5 — Harmonisation, quality and assurance | 0/7 (0.0%) | 0/7 (0.0%) | 0 | 1/7 |
 | T6 — Product, documentation and accessibility | 0/7 (0.0%) | 0/7 (0.0%) | 0 | 0/7 |
 | T7 — Security, privacy, legal and supply-chain assurance | 2/6 (33.3%) | 0/6 (0.0%) | 0 | 0/9 |
@@ -44,7 +44,7 @@ Evidence-assured maturity floor: **L0**
 | M03 — Jurisdiction census | L1 | L1 | L5 |
 | M04 — Acquisition and preservation | L1 | L0 | L5 |
 | M05 — Data engineering | L2 | L0 | L5 |
-| M06 — Quality and assurance | L1 | L0 | L5 |
+| M06 — Quality and assurance | L1 | L1 | L5 |
 | M07 — Product and accessibility | L1 | L1 | L5 |
 | M08 — Security, privacy and legal | L1 | L0 | L5 |
 | M09 — Operations and reliability | L1 | L0 | L5 |

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import csv
 import json
 import math
 from datetime import date
@@ -30,6 +31,8 @@ def validate_project(
     tables = validate_contracts(project, report)
     _semantic_validation(project, tables, report, as_of=as_of)
     _validate_methods_contract_manifest(project, report)
+    _validate_source_rights_queue(project, report)
+    _validate_external_evidence_register(project, report)
 
     try:
         conductor = Conductor.load(project)
@@ -46,6 +49,168 @@ def validate_project(
     # A check is a separately meaningful control family rather than an individual row.
     report.checks_run = int(report.metrics.get("contracts", 0)) + 4
     return report
+
+
+def _validate_source_rights_queue(project: Project, report: Report) -> None:
+    """Keep unresolved rights routing tied to real manifests and fail-closed status."""
+    relative = "docs/governance/source-rights-review-queue.csv"
+    path = project.root / relative
+    if not path.is_file():
+        report.error(
+            "SOURCE_RIGHTS_QUEUE_MISSING", "Source-rights review queue is missing", path=relative
+        )
+        return
+    with path.open(encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    required = {
+        "source_id",
+        "manifest_path",
+        "manifest_status",
+        "rights_status",
+        "redistribution_status",
+        "release_boundary",
+    }
+    for index, row in enumerate(rows, start=2):
+        if not required.issubset(row):
+            report.error(
+                "SOURCE_RIGHTS_QUEUE_SCHEMA",
+                "Source-rights queue columns are incomplete",
+                path=relative,
+                row=index,
+            )
+            continue
+        manifest = project.root / row["manifest_path"]
+        if not manifest.is_file():
+            report.error(
+                "SOURCE_RIGHTS_MANIFEST_MISSING",
+                f"Queued source manifest is missing: {row['manifest_path']}",
+                path=relative,
+                row=index,
+            )
+        if (
+            row["manifest_status"] != "metadata_only"
+            or row["rights_status"] != "unknown"
+            or row["redistribution_status"] != "metadata_only"
+        ):
+            report.error(
+                "SOURCE_RIGHTS_QUEUE_NOT_FAIL_CLOSED",
+                "Unresolved rights queue entry is not metadata-only/unknown",
+                path=relative,
+                row=index,
+            )
+        if "metadata" not in row["release_boundary"].lower():
+            report.error(
+                "SOURCE_RIGHTS_QUEUE_BOUNDARY_MISSING",
+                "Rights queue entry lacks metadata-only release boundary",
+                path=relative,
+                row=index,
+            )
+
+
+def _validate_external_evidence_register(project: Project, report: Report) -> None:
+    """Validate the external-evidence register without treating plans as evidence."""
+    relative = "docs/governance/external-evidence-blocker-register.csv"
+    path = project.root / relative
+    if not path.is_file():
+        report.error(
+            "EXTERNAL_EVIDENCE_REGISTER_MISSING",
+            "External-evidence register is missing",
+            path=relative,
+        )
+        return
+    with path.open(encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    required = {
+        "blocker_id",
+        "track_id",
+        "gate",
+        "dependency",
+        "owner_action",
+        "status",
+        "evidence_required",
+        "recommended_option",
+        "fallback_option",
+        "approval_boundary",
+        # Assignment metadata is planning data, not proof of authority.  It
+        # must nevertheless be present so every blocker has an explicit
+        # owner route and freeze point rather than silently becoming orphaned.
+        "assigned_to_role",
+        "assignment_status",
+        "frozen_at",
+    }
+    if not rows or not required.issubset(rows[0]):
+        report.error(
+            "EXTERNAL_EVIDENCE_REGISTER_SCHEMA",
+            "External-evidence register columns are incomplete",
+            path=relative,
+        )
+        return
+    seen: set[str] = set()
+    allowed_status = {"pending", "accepted", "blocked", "closed"}
+    for index, row in enumerate(rows, start=2):
+        blocker_id = row.get("blocker_id", "")
+        if not blocker_id or blocker_id in seen:
+            report.error(
+                "EXTERNAL_EVIDENCE_REGISTER_ID",
+                "External-evidence blocker IDs must be unique and non-empty",
+                path=relative,
+                row=index,
+            )
+        seen.add(blocker_id)
+        if row.get("status") not in allowed_status:
+            report.error(
+                "EXTERNAL_EVIDENCE_REGISTER_STATUS",
+                "External-evidence blocker has an invalid status",
+                path=relative,
+                row=index,
+            )
+        for field in (
+            "evidence_required",
+            "recommended_option",
+            "fallback_option",
+            "approval_boundary",
+            "assigned_to_role",
+            "assignment_status",
+            "frozen_at",
+        ):
+            if not row.get(field, "").strip():
+                report.error(
+                    "EXTERNAL_EVIDENCE_REGISTER_BOUNDARY",
+                    f"External-evidence blocker lacks {field}",
+                    path=relative,
+                    row=index,
+                )
+        if row.get("assignment_status") not in {
+            "assigned-pending-authority",
+            "assigned-pending-acceptance",
+            "assigned-pending-panel-adjudication",
+            "assigned-pending-send-approval",
+            "assigned-pending-commitment",
+            "assigned-pending-safeguarding",
+        }:
+            report.error(
+                "EXTERNAL_EVIDENCE_REGISTER_ASSIGNMENT",
+                "External-evidence blocker has an invalid assignment status",
+                path=relative,
+                row=index,
+            )
+        try:
+            date.fromisoformat(row.get("frozen_at", ""))
+        except ValueError:
+            report.error(
+                "EXTERNAL_EVIDENCE_REGISTER_FREEZE_DATE",
+                "External-evidence blocker freeze date must be ISO-8601",
+                path=relative,
+                row=index,
+            )
+        if row.get("status") == "closed":
+            report.error(
+                "EXTERNAL_EVIDENCE_REGISTER_FAIL_CLOSED",
+                "External-evidence blocker cannot be marked closed in the planning register",
+                path=relative,
+                row=index,
+            )
+            return
 
 
 def validate_repository(

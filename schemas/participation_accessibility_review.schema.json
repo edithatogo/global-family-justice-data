@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/participation-accessibility-review.schema.json",
+  "title": "Participation, accessibility and independent-review packet",
+  "description": "A fail-closed review record. It records evidence and recommendations but never represents human consent, independent assurance or publication authority by itself.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "packet_digest", "review_id", "review_type", "status", "authority_boundary", "evidence", "contingencies"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "packet_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "review_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9._-]{2,63}$"},
+    "review_type": {"type": "string", "enum": ["accessibility", "localisation", "usability", "responsible_use", "participation", "independent_assurance"]},
+    "status": {"type": "string", "enum": ["not_started", "draft", "conditional", "blocked", "complete"]},
+    "reviewer": {"type": ["string", "null"]},
+    "reviewed_at": {"type": ["string", "null"], "format": "date-time"},
+    "evidence": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["ref", "kind", "status"], "properties": {"ref": {"type": "string"}, "kind": {"type": "string", "enum": ["automated_check", "human_review", "participant_feedback", "consent_record", "localisation_review", "independent_report", "contingency"]}, "status": {"type": "string", "enum": ["present", "missing", "not_applicable", "unresolved"]}}}},
+    "findings": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["id", "severity", "disposition"], "properties": {"id": {"type": "string"}, "severity": {"type": "string", "enum": ["P0", "P1", "P2", "P3"]}, "disposition": {"type": "string", "enum": ["open", "fix", "defer", "accept", "reject"]}, "note": {"type": "string"}}}},
+    "authority_boundary": {"type": "object", "additionalProperties": false, "required": ["human_review_required", "consent_required", "publication_authority_required"], "properties": {"human_review_required": {"const": true}, "consent_required": {"const": true}, "publication_authority_required": {"const": true}}},
+    "contingencies": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  }
+}

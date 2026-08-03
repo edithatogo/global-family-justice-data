@@ -43,6 +43,25 @@ MATRIX_HEADERS = [
     "gap_reason",
 ]
 GAP_HEADERS = ["jurisdiction_id", "gap_code", "message"]
+REMEDIATION_HEADERS = [
+    "jurisdiction_id",
+    "gap_code",
+    "required_artifact",
+    "accountable_track",
+    "next_action",
+    "review_boundary",
+]
+SEARCH_REVIEW_HEADERS = [
+    "search_log_id",
+    "jurisdiction_id",
+    "searched_at",
+    "language",
+    "result_state",
+    "review_status",
+    "required_action",
+    "review_boundary",
+    "queue_reason",
+]
 
 
 @dataclass(frozen=True, slots=True)
@@ -51,6 +70,8 @@ class CensusResult:
     summary_path: Path
     matrix_path: Path
     gaps_path: Path
+    remediation_path: Path
+    search_review_path: Path
     markdown_path: Path
     jurisdiction_count: int
     ready_count: int
@@ -58,7 +79,15 @@ class CensusResult:
 
     def to_dict(self) -> dict[str, Any]:
         result = asdict(self)
-        for key in ("output_dir", "summary_path", "matrix_path", "gaps_path", "markdown_path"):
+        for key in (
+            "output_dir",
+            "summary_path",
+            "matrix_path",
+            "gaps_path",
+            "remediation_path",
+            "search_review_path",
+            "markdown_path",
+        ):
             result[key] = str(result[key])
         return result
 
@@ -153,6 +182,11 @@ def build_census_readiness(
         reviewed_logs = [
             row for row in logs_by_id[jid] if row.get("review_status") in {"reviewed", "accepted"}
         ]
+        unresolved_access_logs = [
+            row
+            for row in logs_by_id[jid]
+            if row.get("result_state") in {"source_inaccessible", "search_incomplete"}
+        ]
         reasons: list[tuple[str, str]] = []
         if entry is None:
             reasons.append(
@@ -197,6 +231,27 @@ def build_census_readiness(
             )
         if not reviewed_logs:
             reasons.append(("SEARCH_LOG_UNREVIEWED", "No reviewed source-search log exists."))
+        if unresolved_access_logs:
+            reasons.append(
+                (
+                    "SEARCH_ACCESS_UNRESOLVED",
+                    "One or more searches remain inaccessible or incomplete; "
+                    "access failure is not evidence of no source.",
+                )
+            )
+            reviewed_subjects = {
+                row.get("subject_id", "") for row in review_ledger if row.get("subject_id")
+            }
+            if not any(
+                row.get("search_log_id") in reviewed_subjects for row in unresolved_access_logs
+            ):
+                reasons.append(
+                    (
+                        "SEARCH_SECOND_REVIEW_REQUIRED",
+                        "Inaccessible or incomplete search rows lack a second-review "
+                        "ledger record.",
+                    )
+                )
         if not institutions_by_id[jid]:
             reasons.append(("INSTITUTION_MAP_MISSING", "No institutional-map record exists."))
         # Mapping reviews are keyed by institution_id, while jurisdiction-level
@@ -268,16 +323,29 @@ def build_census_readiness(
                 "gap_reason": ";".join(code for code, _ in reasons),
             }
         )
-    matrix_path, gaps_path = (
+    matrix_path, gaps_path, remediation_path, search_review_path = (
         destination / "coverage-readiness-matrix.csv",
         destination / "census-gaps.csv",
+        destination / "census-remediation-queue.csv",
+        destination / "search-review-queue.csv",
     )
     write_csv(matrix_path, MATRIX_HEADERS, matrix)
     write_csv(gaps_path, GAP_HEADERS, gaps)
+    write_csv(remediation_path, REMEDIATION_HEADERS, [_remediation_row(gap) for gap in gaps])
+    write_csv(
+        search_review_path,
+        SEARCH_REVIEW_HEADERS,
+        [
+            _search_review_row(row)
+            for row in search_logs
+            if row.get("review_status") == "draft"
+            or row.get("result_state") in {"source_inaccessible", "search_incomplete"}
+        ],
+    )
     ready = sum(row["readiness_state"] == "ready_for_methods_review" for row in matrix)
     markdown_path = destination / "census-readiness.md"
     atomic_write_text(markdown_path, _markdown(len(matrix), ready, gaps))
-    artifacts = [matrix_path, gaps_path, markdown_path]
+    artifacts = [matrix_path, gaps_path, remediation_path, search_review_path, markdown_path]
     summary = {
         "schema_version": "1.0",
         "built_on": str(project.project_config["status_as_of"]),
@@ -301,6 +369,8 @@ def build_census_readiness(
         summary_path,
         matrix_path,
         gaps_path,
+        remediation_path,
+        search_review_path,
         markdown_path,
         len(matrix),
         ready,
@@ -323,6 +393,8 @@ def verify_census_readiness(
     required_artifacts = {
         "coverage-readiness-matrix.csv",
         "census-gaps.csv",
+        "census-remediation-queue.csv",
+        "search-review-queue.csv",
         "census-readiness.md",
     }
     listed_artifacts: set[str] = set()
@@ -368,7 +440,124 @@ def verify_census_readiness(
             errors.append("Census matrix columns do not match the contract")
         if len(rows) != summary.get("jurisdiction_count"):
             errors.append("Census matrix row count does not match summary")
+    remediation = directory / "census-remediation-queue.csv"
+    if remediation.is_file():
+        headers, rows = read_csv(remediation)
+        if headers != REMEDIATION_HEADERS:
+            errors.append("Census remediation columns do not match the contract")
+        if len(rows) != summary.get("gap_count"):
+            errors.append("Census remediation row count does not match summary")
+    search_review = directory / "search-review-queue.csv"
+    if search_review.is_file():
+        headers, rows = read_csv(search_review)
+        if headers != SEARCH_REVIEW_HEADERS:
+            errors.append("Census search-review columns do not match the contract")
+        if any(row.get("review_status") not in {"draft", "reviewed", "accepted"} for row in rows):
+            errors.append("Census search-review queue contains an invalid review status")
     return errors
+
+
+def _search_review_row(row: dict[str, str]) -> dict[str, str]:
+    return {
+        "search_log_id": row.get("search_log_id", ""),
+        "jurisdiction_id": row.get("jurisdiction_id", ""),
+        "searched_at": row.get("searched_at", ""),
+        "language": row.get("language", ""),
+        "result_state": row.get("result_state", ""),
+        "review_status": row.get("review_status", ""),
+        "required_action": "Complete second-person review of search result and access issues.",
+        "review_boundary": "Agent preparation is not independent source or methods assurance.",
+        "queue_reason": (
+            "draft_review"
+            if row.get("review_status") == "draft"
+            else "access_or_completeness_review"
+        ),
+    }
+
+
+def _remediation_row(gap: dict[str, str]) -> dict[str, str]:
+    """Map a gap to a bounded next action without claiming completion."""
+    actions = {
+        "UNIVERSE_ENTRY_MISSING": (
+            "data/census/jurisdiction_universe.csv",
+            "T2",
+            "Supply or review the controlled universe entry.",
+            "Accountable census review required.",
+        ),
+        "UNIVERSE_UNREVIEWED": (
+            "data/census/jurisdiction_universe.csv",
+            "T2",
+            "Complete second-person review of the universe entry.",
+            "Independent review required; agent cannot self-accept.",
+        ),
+        "COVERAGE_ASSESSMENT_MISSING": (
+            "data/census/coverage_assessment.csv",
+            "T2",
+            "Create a source-backed coverage assessment.",
+            "Source evidence and rights status must be recorded.",
+        ),
+        "COVERAGE_UNREVIEWED": (
+            "data/census/review_ledger.csv",
+            "T5",
+            "Review the current coverage assessment.",
+            "Methods/assurance review required.",
+        ),
+        "COVERAGE_INCOMPLETE": (
+            "data/census/coverage_assessment.csv",
+            "T2",
+            "Resolve partial, stale or not-started coverage with dated searches.",
+            "Cannot be closed without source-backed coverage evidence.",
+        ),
+        "SEARCH_LOG_UNREVIEWED": (
+            "data/census/search_log.csv",
+            "T2",
+            "Record and review multilingual/public-source searches.",
+            "Search result and access issue must be reproducible.",
+        ),
+        "INSTITUTION_MAP_MISSING": (
+            "data/census/institution_map.csv",
+            "T2",
+            "Add a source-backed institutional map.",
+            "Institutional facts require source and reviewer evidence.",
+        ),
+        "REVIEW_LEDGER_UNREVIEWED": (
+            "data/census/review_ledger.csv",
+            "T5",
+            "Record an independent review decision or quarantine outcome.",
+            "Agent preparation is not independent assurance.",
+        ),
+        "DIRECT_ENQUIRY_UNRESOLVED": (
+            "data/census/direct_enquiry_register.csv",
+            "T2",
+            "Record an approved enquiry outcome or transparent no-response closure.",
+            "No outbound contact is sent without explicit approval.",
+        ),
+        "SEARCH_ACCESS_UNRESOLVED": (
+            "data/census/search_log.csv",
+            "T2",
+            "Resolve access failure with an official receipt, documented fallback, "
+            "or dated unresolved status.",
+            "Do not convert access failure into a negative finding or readiness.",
+        ),
+        "SEARCH_SECOND_REVIEW_REQUIRED": (
+            "data/census/review_ledger.csv",
+            "T5",
+            "Record a second review of inaccessible/incomplete search rows.",
+            "Second review must be independent of the searching agent.",
+        ),
+    }
+    artifact, track, action, boundary = actions.get(
+        gap["gap_code"],
+        ("data/census/", "T2", "Investigate and document the census gap.", "Review required."),
+    )
+    return {
+        "jurisdiction_id": gap["jurisdiction_id"],
+        "gap_code": gap["gap_code"],
+        "required_artifact": artifact,
+        "accountable_track": track,
+        "next_action": action,
+        "review_boundary": boundary,
+    }
 
 
 def _project(value: Project | Path | str) -> Project:

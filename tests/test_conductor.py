@@ -5,6 +5,7 @@ import shutil
 from pathlib import Path
 
 from gfjd.conductor import Conductor
+from gfjd.validation import validate_project
 
 
 def _copy_project(project_root: Path, destination: Path) -> Path:
@@ -50,6 +51,41 @@ def test_conductor_reports_honest_current_state(project_root: Path) -> None:
     assert conductor.gate_result("G1").passed is False
 
 
+def test_g1_acceptance_requires_named_roles_and_digest_bound_packet(project_root: Path) -> None:
+    """Owner approval cannot bypass role or packet-integrity controls."""
+    conductor = Conductor.load(project_root)
+    result = conductor.gate_result("G1")
+    assert result.passed is False
+    # Current G1 is conditional, but the result must still expose incomplete
+    # work/evidence rather than treating conversational approval as acceptance.
+    assert result.work_failures or result.risk_failures or not result.ready
+
+    # A synthetic accepted decision with an invalid binding must remain blocked.
+    decision = conductor.gate_decisions["G1"]
+    object.__setattr__(decision, "status", "accepted")
+    object.__setattr__(decision, "decision_reference", "packet.md@not-a-sha")
+    conductor._gate_cache.clear()
+    blocked = conductor.gate_result("G1")
+    assert "G1:decision-reference-invalid-digest" in blocked.work_failures
+    assert blocked.passed is False
+
+
+def test_tracks_cannot_be_archive_ready_while_external_gate_is_pending(
+    project_root: Path,
+) -> None:
+    """Track completion is distinct from archive/publication authority."""
+    conductor = Conductor.load(project_root)
+
+    # The programme is deliberately still at G1 with external acceptance
+    # outstanding.  A track status may report implementation progress, but no
+    # track may be treated as archive eligible while the final release gate is
+    # not passed.
+    assert conductor.gate_result("G6").passed is False
+    statuses = [conductor.track_status(track_id) for track_id in conductor.tracks]
+    assert statuses
+    assert all(status["completed_work_items"] < status["work_items"] for status in statuses)
+
+
 def test_next_actions_have_satisfied_dependencies(project_root: Path) -> None:
     conductor = Conductor.load(project_root)
     actions = conductor.next_actions(limit=20)
@@ -73,6 +109,81 @@ def test_generated_status_contains_gate_and_track_tables(project_root: Path) -> 
     assert "## Evidence-assured maturity" in output
     assert "G6" in output
     assert "T9" in output
+
+
+def test_g4_g5_blocker_plans_are_explicit_and_fail_closed(project_root: Path) -> None:
+    """The documented beta/RC plans must retain options and promotion guards."""
+    programme = (
+        project_root / "docs/governance/programme-gate-resolution-plan-2026-08-02.md"
+    ).read_text(encoding="utf-8")
+    tracks = (project_root / "docs/governance/track-external-gate-plan-2026-08-02.md").read_text(
+        encoding="utf-8"
+    )
+    for marker in (
+        "## G4 beta blocker plan",
+        "## G5 release-candidate blocker plan",
+        "**Recommended**",
+        "Promotion rule:",
+        "adjudication_required",
+        "evidence_missing",
+        "no unresolved P0/P1",
+    ):
+        assert marker in programme
+    for marker in (
+        "## G4/G5 implementation sequence and track controls",
+        "role-separated agent panels",
+        "signed provenance",
+        "tested custody/restore",
+        "non-archive-eligible",
+    ):
+        assert marker in tracks
+
+
+def test_g6_evidence_sourcing_plan_has_redundant_routes_and_fallbacks(
+    project_root: Path,
+) -> None:
+    """G6 sourcing must specify redundancy without manufacturing authority."""
+    plan = (project_root / "docs/governance/g6-evidence-sourcing-plan-2026-08-02.md").read_text(
+        encoding="utf-8"
+    )
+    for marker in (
+        "## Evidence lanes and redundant routes",
+        "## Acquisition sequence",
+        "primary and backup receipts",
+        "adjudication_required",
+        "narrower fallback (private, unsigned, metadata-only",
+        "No route authorizes outbound contact",
+        "A — staged dual-route sourcing (recommended)",
+    ):
+        assert marker in plan
+
+
+def test_external_blocker_register_requires_assignment_and_freeze_metadata(
+    project_root: Path, tmp_path: Path
+) -> None:
+    """Planning rows must be routed and dated without implying acceptance."""
+    root = _copy_project(project_root, tmp_path / "repo")
+    register = root / "docs/governance/external-evidence-blocker-register.csv"
+    text = register.read_text(encoding="utf-8")
+    text = text.replace(
+        "international partnerships lead,assigned-pending-authority,2026-08-02",
+        "international partnerships lead,,2026-08-02",
+        1,
+    )
+    register.write_text(text, encoding="utf-8")
+    report = validate_project(root)
+    assert any(issue.code == "EXTERNAL_EVIDENCE_REGISTER_ASSIGNMENT" for issue in report.errors)
+
+    # A malformed freeze date is also rejected; this is metadata hygiene only,
+    # and never promotes a blocker to accepted.
+    text = text.replace(
+        "international partnerships lead,,2026-08-02",
+        "international partnerships lead,assigned-pending-authority,not-a-date",
+        1,
+    )
+    register.write_text(text, encoding="utf-8")
+    report = validate_project(root)
+    assert any(issue.code == "EXTERNAL_EVIDENCE_REGISTER_FREEZE_DATE" for issue in report.errors)
 
 
 def test_controlled_mutation_is_audited(project_root: Path, tmp_path: Path) -> None:

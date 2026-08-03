@@ -9,6 +9,20 @@ from gfjd.project import load_project
 from gfjd.release import ReleaseError, build_release, diff_releases, verify_release
 
 
+def test_release_rejects_invalid_version(project_root: Path, tmp_path: Path) -> None:
+    project = load_project(project_root)
+    with pytest.raises(ReleaseError, match="Invalid semantic version"):
+        build_release(project, version="not-semver", output_root=tmp_path)
+
+
+def test_release_requires_explicit_version_override(project_root: Path, tmp_path: Path) -> None:
+    project = load_project(project_root)
+    configured = str(project.project_config["version"])
+    with pytest.raises(ReleaseError, match="does not match config/project.toml version"):
+        build_release(project, version="9.9.9", output_root=tmp_path)
+    assert configured
+
+
 def test_release_build_is_deterministic_and_verifiable(project_root: Path, tmp_path: Path) -> None:
     project = load_project(project_root)
     epoch = 1785542400
@@ -67,3 +81,39 @@ def test_release_verifier_detects_tampering(project_root: Path, tmp_path: Path) 
     release_dir = Path(result["release_dir"])
     (release_dir / "README.md").write_text("tampered\n", encoding="utf-8")
     assert "Checksum mismatch: README.md" in verify_release(release_dir)
+
+
+def test_release_verifier_requires_structural_sbom(project_root: Path, tmp_path: Path) -> None:
+    project = load_project(project_root)
+    result = build_release(
+        project,
+        version="0.3.0-sbom-test",
+        output_root=tmp_path,
+        source_date_epoch=1785542400,
+        allow_version_override=True,
+    )
+    release_dir = Path(result["release_dir"])
+    (release_dir / "SBOM.spdx.json").write_text("{}\n", encoding="utf-8")
+    errors = verify_release(release_dir)
+    assert any("SBOM missing required SPDX fields" in error for error in errors)
+
+
+def test_release_verifier_requires_explicit_publication_boundary(
+    project_root: Path, tmp_path: Path
+) -> None:
+    project = load_project(project_root)
+    result = build_release(
+        project,
+        version="0.3.0-publication-boundary",
+        output_root=tmp_path,
+        source_date_epoch=1785542400,
+        allow_version_override=True,
+    )
+    release_dir = Path(result["release_dir"])
+    metadata = (release_dir / "RELEASE.json").read_text(encoding="utf-8")
+    assert '"authorized": false' in metadata
+    assert '"authority_reference": null' in metadata
+    (release_dir / "RELEASE.json").write_text(
+        metadata.replace('"publication": {', '"publication_removed": {'), encoding="utf-8"
+    )
+    assert any("publication authority boundary" in error for error in verify_release(release_dir))

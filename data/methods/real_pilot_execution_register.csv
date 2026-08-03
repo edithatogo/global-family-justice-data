@@ -1,0 +1,6 @@
+candidate_id,scope_status,source_edition_id,acquisition_receipt,content_sha256,rights_status,coverage_assessment,extraction_primary,extraction_secondary,comparison_report,methods_review,rights_security_review,independent_assurance,owner_adjudication,status,blocking_reason
+INT,approved_scope,,,,,,,,,,,,,pending,Edition-level export and family-category mapping unresolved
+AUS,approved_scope,,,,,,,,,,,,,pending,Exact-edition redistribution rights and taxonomy completeness unresolved
+USA-MN,approved_scope,,,,,,,,,,,,,pending,Access agreement/HTTP 403 and reproducible export unresolved
+BRA,approved_scope,,,,,,,,,,,,,pending,Family taxonomy, rights and authenticated route unresolved
+ZAF,approved_scope,,,,,,,,,,,,,pending,Exact-edition rights and denominator/taxonomy mapping unresolved

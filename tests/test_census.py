@@ -25,6 +25,13 @@ def test_census_reports_missing_evidence_as_unresolved(project_root: Path, tmp_p
     assert result.ready_count == 0
     assert all(row["readiness_state"] == "unresolved" for row in matrix)
     assert verify_census_readiness(result.output_dir, project_or_root=root) == []
+    _, remediation = read_csv(result.remediation_path)
+    assert len(remediation) == result.gap_count
+    assert all(row["review_boundary"] for row in remediation)
+    assert any(row["gap_code"] == "DIRECT_ENQUIRY_UNRESOLVED" for row in remediation)
+    enquiry_actions = [row for row in remediation if row["gap_code"] == "DIRECT_ENQUIRY_UNRESOLVED"]
+    assert enquiry_actions
+    assert all("explicit approval" in row["review_boundary"] for row in enquiry_actions)
 
 
 def test_census_keeps_partial_coverage_unresolved(project_root: Path, tmp_path: Path) -> None:

@@ -87,6 +87,15 @@ def build_autonomy_context(
     }
     external = _external_boundaries(status)
     autonomous_queue, external_actions = _classify_actions(status["next_actions"])
+    blocker_matrix = _blocker_matrix(status)
+    dependency_sequence = [
+        {
+            "track_id": track.id,
+            "depends_on": list(track.dependency_ids),
+            "ready_after": list(track.dependency_ids),
+        }
+        for track in conductor.tracks.values()
+    ]
     payload = {
         "schema_version": "1.0",
         "generated_at": timestamp.isoformat(),
@@ -101,6 +110,8 @@ def build_autonomy_context(
         "autonomous_queue": autonomous_queue,
         "external_actions": external_actions,
         "external_boundaries": external,
+        "blocker_matrix": blocker_matrix,
+        "dependency_sequence": dependency_sequence,
         "execution": {
             "fast_gate": ["make", "PYTHON=uv run python", "autonomy-fast"],
             "full_gate": ["make", "PYTHON=uv run python", "autonomy-full"],
@@ -202,6 +213,37 @@ def _classify_actions(
     return repository_owned, external
 
 
+def _blocker_matrix(status: dict[str, Any]) -> list[dict[str, Any]]:
+    """Flatten gate state into an actionable, fail-closed blocker register."""
+    matrix: list[dict[str, Any]] = []
+    for gate in status.get("gates", []):
+        matrix.append(
+            {
+                "gate_id": gate["gate_id"],
+                "state": gate["state"],
+                "status": "blocked" if not gate["passed"] else "passed",
+                "dependencies": list(gate.get("dependency_failures", [])),
+                "work_items": list(gate.get("work_failures", [])),
+                "risks": list(gate.get("risk_failures", [])),
+                "defects": list(gate.get("defect_failures", [])),
+                "criteria": [
+                    {
+                        "criterion_id": criterion["criterion_id"],
+                        "track_id": criterion["track_id"],
+                        "state": criterion["state"],
+                        "missing_evidence": list(criterion.get("missing_evidence", [])),
+                        "nonaccepted_evidence": list(criterion.get("nonaccepted_evidence", [])),
+                    }
+                    for criterion in gate.get("criteria", [])
+                    if not criterion.get("passed", False)
+                ],
+                "external_boundary": gate["gate_id"]
+                in {item["id"] for item in _external_boundaries(status)},
+            }
+        )
+    return matrix
+
+
 def _render_markdown(payload: dict[str, Any]) -> str:
     git = payload["git"]
     lines = [
@@ -241,6 +283,21 @@ def _render_markdown(payload: dict[str, Any]) -> str:
     lines.extend(
         f"- `{item['id']}`: {item['kind']} — {item['status']} ({item['reason']})"
         for item in payload["external_boundaries"]
+    )
+    lines.extend(["", "## Blocker matrix", ""])
+    for blocker in payload["blocker_matrix"]:
+        lines.append(
+            f"- `{blocker['gate_id']}` [{blocker['state']}]: "
+            f"{len(blocker['dependencies'])} dependencies, "
+            f"{len(blocker['work_items'])} work items, "
+            f"{len(blocker['risks'])} risks, "
+            f"{len(blocker['criteria'])} criteria"
+        )
+    lines.extend(["", "## Track dependency sequence", ""])
+    lines.extend(
+        f"- `{item['track_id']}` after "
+        f"{', '.join(item['depends_on']) if item['depends_on'] else 'no track dependencies'}"
+        for item in payload["dependency_sequence"]
     )
     lines.extend(["", "## Authoritative context inventory", ""])
     lines.extend(

@@ -1,0 +1,61 @@
+[archive]
+schema_version = "1.0"
+policy = "fail_closed"
+description = "Publication targets and byte-level rights boundary for reproducible GFJD archival exports."
+github_repository = "edithatogo/global-family-justice-data"
+github_branch = "main"
+github_release_mode = "release-candidate-then-stable"
+minimum_publish_gate = "G6"
+
+[huggingface]
+namespace = "edithatogo"
+targets_are_provisional = true
+private_by_default = true
+publication_mode = "generated_only"
+requires_exact_repository_approval = true
+minimum_publish_gate = "G6"
+
+[[huggingface.targets]]
+id = "source-catalogue"
+repository = "gfjd-source-catalogue"
+repo_type = "dataset"
+payload_policy = "metadata_and_cleared_bytes_only"
+
+[[huggingface.targets]]
+id = "observations"
+repository = "gfjd-observations"
+repo_type = "dataset"
+payload_policy = "generated_observations_only"
+
+[[huggingface.targets]]
+id = "outcomes-evidence"
+repository = "gfjd-outcomes-evidence"
+repo_type = "dataset"
+payload_policy = "generated_evidence_only"
+
+[[huggingface.targets]]
+id = "extraction-benchmark"
+repository = "gfjd-extraction-benchmark"
+repo_type = "dataset"
+payload_policy = "synthetic_or_cleared_only"
+
+[[huggingface.targets]]
+id = "explorer"
+repository = "gfjd-explorer"
+repo_type = "space"
+payload_policy = "generated_products_only"
+
+[rights]
+unknown = "retain_metadata_and_citation_receipt_only"
+restricted_or_unknown = "retain_metadata_and_citation_receipt_only"
+open_licence_verified = "bytes_allowed_only_for_exact_edition_and_manifest"
+public_domain = "bytes_allowed_when_edition_and_provenance_are_bound"
+
+[controls]
+require_source_manifest = true
+require_sha256 = true
+require_edition_bound_rights = true
+require_generated_product_lineage = true
+require_release_gate_acceptance = true
+require_published_receipt = true
+never_upload_unresolved_rights = true

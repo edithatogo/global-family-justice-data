@@ -71,6 +71,15 @@
       "items": {
         "type": "string"
       }
+    },
+    "publication": {
+      "type": "object",
+      "required": ["authorized", "authority_reference"],
+      "additionalProperties": false,
+      "properties": {
+        "authorized": {"type": "boolean"},
+        "authority_reference": {"type": ["string", "null"]}
+      }
     }
   },
   "additionalProperties": false

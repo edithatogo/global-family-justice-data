@@ -1,0 +1,62 @@
+[plan]
+schema_version = "1.0"
+status = "approved_preparation_pending_external_evidence"
+scope = ["INT", "AUS", "USA-MN", "BRA", "ZAF"]
+minimum_gate = "G2"
+no_outbound_without_owner_approval = true
+execution_register = "data/methods/real_pilot_execution_register.csv"
+execution_register_documentation = "docs/methods/real-pilot-execution-register-2026-08-03.md"
+promotion_requires_all_register_fields = true
+
+[receipts]
+require_source_url = true
+require_accessed_at = true
+require_language = true
+require_http_or_browser_outcome = true
+require_complete_bytes = true
+require_sha256 = true
+require_edition_identifier = true
+require_rights_classification = true
+require_review_ledger_entry = true
+
+[review]
+minimum_reviewers = 2
+independent_reviewer_required = true
+owner_adjudication_required = true
+real_source_only = true
+synthetic_substitute_allowed = false
+
+[[candidate]]
+jurisdiction_id = "INT"
+primary_route = "CEPEJ official statistics portal and edition-bound export"
+fallback_route = "CEPEJ publication/download receipt and metadata-only capture"
+blocked_by = "edition-level rights and family-category mapping"
+capture_strategy = "defer_until_allowed_export_or_browser_route"
+
+[[candidate]]
+jurisdiction_id = "AUS"
+primary_route = "FCFCOA official annual report and machine-readable tables"
+fallback_route = "official browser receipt plus metadata-only report capture"
+blocked_by = "exact-edition redistribution rights and taxonomy completeness"
+capture_strategy = "dual_route_primary_and_fallback"
+
+[[candidate]]
+jurisdiction_id = "USA-MN"
+primary_route = "Minnesota Judicial Branch dashboard export or accessible report"
+fallback_route = "official request route after explicit owner approval"
+blocked_by = "HTTP 403/access agreement and reproducible export"
+capture_strategy = "dual_route_primary_and_fallback"
+
+[[candidate]]
+jurisdiction_id = "BRA"
+primary_route = "CNJ Justiça em Números/DataJud official edition or export"
+fallback_route = "official portal receipt and metadata-only annual report"
+blocked_by = "family taxonomy, rights and authenticated/CAPTCHA route"
+capture_strategy = "dual_route_primary_and_fallback"
+
+[[candidate]]
+jurisdiction_id = "ZAF"
+primary_route = "South African Judiciary official annual report/tables"
+fallback_route = "official court statistics page and metadata-only report capture"
+blocked_by = "exact-edition rights and denominator/taxonomy mapping"
+capture_strategy = "dual_route_primary_and_fallback"

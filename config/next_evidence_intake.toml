@@ -1,0 +1,100 @@
+[intake]
+schema_version = "1.0"
+status = "queued_external_inputs"
+current_gate = "G1"
+no_publication_until = "G6"
+no_outbound_without_owner_approval = true
+assurance_preparation = "role_separated_agent_panel_advice"
+agent_panel_protocol = "docs/governance/agent-panel-assurance-delegation-2026-08-03.md"
+panel_advice_cannot_substitute_authority = true
+redistribution_policy = "government_origin_presumptive_reuse_with_exact_edition_exceptions"
+recommended_option = "D"
+recommended_strategy = "one evidence-complete candidate plus dual-route capture for remaining candidates"
+scope_substitution_decision = "pending_governance_owner_selection"
+authority_record_access_plan = "docs/governance/g1-authority-record-access-plan-2026-08-03.md"
+sourceable_information_plan = "docs/governance/g1-sourceable-information-plan-2026-08-03.md"
+sourceable_information_status = "docs/governance/g1-sourceable-intake-status-2026-08-03.md"
+non_substitutable_evidence_plan = "docs/governance/non-substitutable-evidence-sourcing-plan-2026-08-03.md"
+non_substitutable_intake_register = "docs/governance/non-substitutable-evidence-intake-register-2026-08-03.md"
+track_implementation_roadmap = "docs/governance/track-implementation-roadmap-2026-08-03.md"
+track_implementation_option = "A"
+triangulation_required = true
+triangulation_cannot_create_authority = true
+
+[execution]
+plan_id = "G1-G2-COMPLETION-2026-08-03"
+plan_path = "docs/governance/g1-g2-completion-plan-2026-08-03.md"
+execution_mode = "dependency_ordered_fail_closed"
+owner_approval_required_for_scope_change = true
+owner_approval_required_for_outbound_contact = true
+publication_gate = "G6"
+agent_panel_role = "advisory_preparation_and_validation"
+external_authority_substitution = "forbidden"
+
+[[execution.stage]]
+id = "S1-G1-CLOSE"
+gate = "G1"
+depends_on = []
+required = ["immutable_owner_decision", "charter_and_decision_rights", "named_roles_and_deputies", "ethics_security_boundary", "pilot_scope_approval"]
+fallback = "retain_conditional_g1_and_do_not_start_real_pilot"
+
+[[execution.stage]]
+id = "S2-G2-SCOPE"
+gate = "G2"
+depends_on = ["S1-G1-CLOSE"]
+required = ["frozen_candidate_scope", "edition_receipts", "complete_bytes_and_sha256", "rights_disposition"]
+fallback = "metadata_only_or_quarantine_candidate"
+
+[[execution.stage]]
+id = "S3-G2-ASSURE"
+gate = "G2"
+depends_on = ["S2-G2-SCOPE"]
+required = ["independent_second_extraction", "row_level_diff", "methods_adjudication", "rights_privacy_security_review", "independent_assurance", "operations_rehearsal"]
+fallback = "retain_g2_dependency_block_and_record_unresolved_evidence"
+
+[[execution.stage]]
+id = "S4-G3-COVERAGE"
+gate = "G3"
+depends_on = ["S3-G2-ASSURE"]
+required = ["reviewed_institutional_maps", "local_or_regional_verification", "multilingual_second_review", "enquiry_closure", "preservation_and_rights_audit"]
+fallback = "retain_partial_coverage_and_explicit_access_states"
+
+[[queue]]
+id = "INTAKE-G1-AUTHORITY"
+priority = "P0"
+gate = "G1"
+evidence_ids = ["E-GOV-CHARTER", "E-RACI", "E-ETHICS-BOUNDARY", "E-ARCH-V1"]
+required_artifacts = ["signed_or_immutable_owner_decision", "named_roles_and_deputies", "escalation_route", "conditions_and_expiry"]
+fallback = "retain conditional decision and record missing authority fields"
+
+[[queue]]
+id = "INTAKE-G2-REAL-PILOT"
+priority = "P0"
+gate = "G2"
+evidence_ids = ["E-PILOT-CENSUS", "E-PILOT-INDEPENDENT-ASSURANCE", "E-PILOT-METHODS-ADJUDICATION", "E-PILOT-RIGHTS-SECURITY"]
+required_artifacts = ["edition_receipts", "complete_bytes_and_sha256", "second_extraction", "row_level_diff", "methods_adjudication", "rights_security_review"]
+fallback = "metadata-only or quarantine; do not promote observations"
+
+[[queue]]
+id = "INTAKE-G3-COVERAGE-RIGHTS"
+priority = "P1"
+gate = "G3"
+evidence_ids = ["E-GLOBAL-UNIVERSE", "E-GLOBAL-COVERAGE-REPORT", "E-LOCAL-VERIFICATION-REPORT", "E-DIRECT-ENQUIRY-REGISTER", "E-SOURCE-PRESERVATION-AUDIT"]
+required_artifacts = ["reviewed_maps", "second_review", "local_verification", "transparent_enquiry_closure", "edition_rights" ]
+fallback = "retain partial coverage and explicit access/no-response states"
+
+[[candidate_preparation]]
+jurisdiction_id = "GBR-EAW"
+scope_status = "pending_governance_owner_selection"
+rights_class = "open_licence_verified"
+evidence_path = "docs/methods/gbr-eaw-candidate-preparation-2026-08-03.md"
+promotion_forbidden_until_scope_decision = true
+
+[acceptance]
+required_path = true
+required_sha256 = true
+required_reviewer = true
+independent_reviewer_for_critical = true
+owner_adjudication_for_gate = true
+agent_panel_is_advisory = true
+unknown_rights_publication = "forbidden"

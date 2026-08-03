@@ -55,6 +55,7 @@ def run_demo(
     output_dir: Path = Path("build/demo"),
     *,
     clean: bool = True,
+    connector_output_root: Path | None = None,
 ) -> DemoResult:
     """Run the full synthetic demonstration and verify every connector receipt."""
 
@@ -77,7 +78,12 @@ def run_demo(
     ).astimezone(UTC)
     for key in keys:
         connector_path = Path(f"examples/synthetic_pilot/connectors/{key}.toml")
-        connector = run_connector(resolved, connector_path, executed_at=fixed_time)
+        connector = run_connector(
+            resolved,
+            connector_path,
+            executed_at=fixed_time,
+            output_root=connector_output_root,
+        )
         errors = verify_connector_receipt(resolved, connector.receipt_path)
         if errors:
             raise DemoError(f"Connector receipt verification failed for {key}: {'; '.join(errors)}")

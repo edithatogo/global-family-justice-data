@@ -116,6 +116,13 @@ def build_release(
             },
             "source_revision": _source_revision(project.root),
             "known_limitations": _known_limitations(release_status),
+            # Publication authority is deliberately explicit.  Draft and RC
+            # artifacts must remain private; only a signed G6 decision may set
+            # this true in a separately authorised release process.
+            "publication": {
+                "authorized": False,
+                "authority_reference": None,
+            },
         }
         _validate_release_metadata(project, release_metadata)
         write_json(temp_dir / "RELEASE.json", release_metadata)
@@ -149,10 +156,50 @@ def verify_release(release_dir: Path) -> list[str]:
     errors: list[str] = []
     manifest_path = release_dir / "MANIFEST.sha256"
     metadata_path = release_dir / "RELEASE.json"
+    sbom_path = release_dir / "SBOM.spdx.json"
     if not manifest_path.exists():
         return [f"Missing MANIFEST.sha256 in {release_dir}"]
     if not metadata_path.exists():
         errors.append(f"Missing RELEASE.json in {release_dir}")
+    if not sbom_path.exists():
+        errors.append("Missing SBOM.spdx.json")
+    else:
+        try:
+            sbom = read_json(sbom_path)
+        except (OSError, ValueError) as exc:
+            errors.append(f"Invalid SBOM.spdx.json: {exc}")
+        else:
+            # This is a structural integrity check, not a substitute for
+            # independent supply-chain assurance or vulnerability review.
+            required = {"spdxVersion", "SPDXID", "creationInfo", "packages"}
+            missing_sbom = (
+                sorted(required - set(sbom)) if isinstance(sbom, dict) else sorted(required)
+            )
+            if missing_sbom:
+                errors.append("SBOM missing required SPDX fields: " + ", ".join(missing_sbom))
+
+    if metadata_path.exists():
+        try:
+            metadata = read_json(metadata_path)
+        except (OSError, ValueError):
+            metadata = None
+        if isinstance(metadata, dict):
+            publication = metadata.get("publication")
+            if not isinstance(publication, dict):
+                errors.append("RELEASE.json missing explicit publication authority boundary")
+            else:
+                authorized = publication.get("authorized")
+                reference = publication.get("authority_reference")
+                if metadata.get("status") != "stable" and authorized is not False:
+                    errors.append("Non-stable release must remain publication unauthorized")
+                if metadata.get("status") == "stable" and (
+                    authorized is not True
+                    or not isinstance(reference, str)
+                    or not reference.strip()
+                ):
+                    errors.append(
+                        "Stable release requires a signed publication authority reference"
+                    )
 
     expected: dict[str, str] = {}
     for line_number, line in enumerate(

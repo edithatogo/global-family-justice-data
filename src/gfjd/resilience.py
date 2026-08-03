@@ -168,6 +168,10 @@ def build_backup(
         "source_date_epoch": epoch,
         "file_count": len(source_files),
         "payload_sha256": payload_sha256,
+        # These explicit labels prevent a local rehearsal receipt from being
+        # mistaken for independently administered custody or signed provenance.
+        "custody_class": "local-rehearsal-only",
+        "signature_status": "unsigned",
         "verified": True,
     }
     write_json(receipt_path, receipt)
@@ -378,6 +382,8 @@ def rehearse_restore(
         "snapshot_path": snapshot.relative_to(project.root).as_posix(),
         "restored_file_count": restored,
         "payload_sha256": metadata["payload_sha256"],
+        "custody_class": "local-rehearsal-only",
+        "signature_status": "unsigned",
         "verification_errors": [],
         "verified": True,
     }
@@ -408,6 +414,10 @@ def verify_restore_receipt(
     if not isinstance(receipt, dict):
         return ["Restore receipt root must be an object"]
     errors: list[str] = []
+    if receipt.get("custody_class") != "local-rehearsal-only":
+        errors.append("Restore receipt custody_class must be local-rehearsal-only")
+    if receipt.get("signature_status") != "unsigned":
+        errors.append("Restore receipt signature_status must be unsigned")
     try:
         archive = _confined(project, Path(str(receipt.get("archive_path") or "")))
         snapshot = _confined(project, Path(str(receipt.get("snapshot_path") or "")))

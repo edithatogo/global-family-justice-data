@@ -1017,6 +1017,40 @@ class Conductor:
         ]
         work_failures = [item.id for item in required_work if item.status not in accepted_work]
 
+        # G1 has an additional, deliberately fail-closed control layer.  A
+        # recorded owner decision must not be enough on its own: every G1
+        # work item needs an accountable role and deputy, and an accepted
+        # decision must bind to a manifest-addressable packet digest.  These
+        # checks are kept here (rather than inferred from prose) so a future
+        # data edit cannot accidentally make G1 appear ready.
+        if gate_id == "G1":
+            for item in required_work:
+                if not item.owner_role.strip():
+                    work_failures.append(f"{item.id}:missing-owner-role")
+                if not item.deputy_role.strip():
+                    work_failures.append(f"{item.id}:missing-deputy-role")
+            decision = self.gate_decisions.get(gate_id)
+            if decision and decision.status == conductor_cfg.get(
+                "accepted_gate_decision_status", "accepted"
+            ):
+                reference = decision.decision_reference.strip()
+                if "@" not in reference:
+                    work_failures.append("G1:decision-reference-not-digest-bound")
+                else:
+                    packet, digest = reference.rsplit("@", 1)
+                    if (
+                        not packet
+                        or len(digest) != 64
+                        or any(character not in "0123456789abcdefABCDEF" for character in digest)
+                    ):
+                        work_failures.append("G1:decision-reference-invalid-digest")
+                    else:
+                        packet_path = self.project.resolve(packet)
+                        if not packet_path.is_file():
+                            work_failures.append("G1:decision-packet-missing")
+                        elif sha256_file(packet_path) != digest.lower():
+                            work_failures.append("G1:decision-packet-hash-mismatch")
+
         gate_number = int(gate_id[1:]) if gate_id[1:].isdigit() else 0
         risk_key = (
             "blocking_risk_severities_at_rc"

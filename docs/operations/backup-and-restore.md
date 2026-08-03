@@ -50,6 +50,20 @@ gfjd resilience verify-restore \
 
 The final command rechecks the archive hash, restored manifest, every restored file, metadata and payload digest. Editing either archive or snapshot after the rehearsal invalidates the receipt.
 
+Receipts deliberately label this result `custody_class:
+local-rehearsal-only` and `signature_status: unsigned`. These are boundary
+controls, not placeholders: a local ZIP and restore rehearsal do not prove a
+second custodian, archival deposit, key recovery, signed provenance, service
+availability or production recovery. Those claims require separately recorded
+evidence from the responsible host, custodian and release authority.
+
+The repository's `source_monitor_offline` workflow is likewise a deterministic
+calculation over the checked-in source register. It can identify stale review
+dates and broken metadata in a rehearsal, but it is not a live network monitor,
+alert route or incident-management service. A production monitoring claim must
+include an executed alert test, named primary/deputy owner and an incident
+record.
+
 ## Stable-v1 evidence still required
 
 Before G6, the project must additionally demonstrate protected and independently administered copies; encryption and key recovery where required; retention and deletion rules; recovery of restricted evidence stores under their rights conditions; timed service recovery; incident escalation; and primary/deputy ownership. The included rehearsal cannot establish those organisational facts.

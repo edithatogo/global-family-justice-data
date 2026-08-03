@@ -31,6 +31,7 @@ from .harness import (
     verify_wheel,
 )
 from .manifest import verify_manifest, write_manifest
+from .products import build_products, verify_products
 from .project import Project
 from .repository_policy import audit_repository_controls
 
@@ -118,6 +119,7 @@ def register_tooling_commands(
     for name in ("run", "verify"):
         parser = demo_sub.add_parser(name)
         parser.add_argument("--output", type=Path, default=Path("build/demo"))
+    demo_sub.choices["run"].add_argument("--connector-output-root", type=Path)
 
     evidence = commands.add_parser("evidence", help="Build or verify the outcomes evidence map")
     evidence_sub = evidence.add_subparsers(dest="evidence_command", required=True)
@@ -183,6 +185,15 @@ def register_tooling_commands(
     warehouse_query.add_argument("database", type=Path)
     warehouse_query.add_argument("sql")
     warehouse_query.add_argument("--limit", type=int, default=1000)
+
+    products = commands.add_parser(
+        "products", help="Build or verify a portable candidate product bundle"
+    )
+    products_sub = products.add_subparsers(dest="products_command", required=True)
+    products_build = products_sub.add_parser("build")
+    products_build.add_argument("--output", type=Path, default=Path("build/products"))
+    products_verify = products_sub.add_parser("verify")
+    products_verify.add_argument("--output", type=Path, default=Path("build/products"))
 
     governance = commands.add_parser(
         "governance", help="Build or verify the fail-closed governance assurance pack"
@@ -312,7 +323,17 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
 
         output = _resolve(project, args.output)
         if args.demo_command == "run":
-            print(json.dumps(run_demo(project, output).to_dict(), indent=2, sort_keys=True))
+            print(
+                json.dumps(
+                    run_demo(
+                        project,
+                        output,
+                        connector_output_root=args.connector_output_root,
+                    ).to_dict(),
+                    indent=2,
+                    sort_keys=True,
+                )
+            )
             return 0
         errors = verify_demo(project, output)
         return _print_errors("Synthetic pilot", errors)
@@ -368,6 +389,23 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
         output = _resolve(project, args.output)
         destination = build_research_pack(project, args.jurisdiction_id, output)
         print(json.dumps({"output": str(destination)}, indent=2, sort_keys=True))
+        return 0
+
+    if command == "products":
+        output = _resolve(project, args.output)
+        if args.products_command == "build":
+            result = build_products(project, output)
+            print(
+                json.dumps(
+                    {"output": str(result.output), "artifacts": list(result.artifacts)}, indent=2
+                )
+            )
+            return 0
+        errors = verify_products(project, output)
+        if errors:
+            print("Product verification failed:\n" + "\n".join(f"- {item}" for item in errors))
+            return 1
+        print("Product bundle verified.")
         return 0
 
     if command == "resilience":

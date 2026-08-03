@@ -83,8 +83,13 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/participation_accessibility_review.schema.json",
+      "sha256": "595d5869118c0d671b8b33a086c9c9f6f06e2aad9d64979df75d0df0ff57848b"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/release.schema.json",
-      "sha256": "428d20876f4313372f8542ee132f78d310910a286680e8624c4f6c6c90daa6d7"
+      "sha256": "46eac499615736a064f6bba88e42243b340da00dc0feada78ab69b51c0b9b0b9"
     },
     {
       "kind": "json_schema",
@@ -262,8 +267,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 52,
-  "inventory_sha256": "9f9d29f8fa0c9783208dc1e85e700b6ac5d242de8bdf7a0bcc240a122b2f3d21",
+  "entry_count": 53,
+  "inventory_sha256": "7b8021181404aee27a025dd7586136f5eb59baba0805532b5d87a06c498cbe64",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

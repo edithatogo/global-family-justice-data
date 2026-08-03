@@ -1,0 +1,37 @@
+name: Source register monitoring
+
+on:
+  schedule:
+    - cron: "17 2 * * 1"
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - data/seed/source_register.csv
+      - scripts/source_monitor_offline.py
+
+permissions:
+  contents: read
+
+concurrency:
+  group: source-monitor-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  source-register-health:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.13"
+      - run: python scripts/source_monitor_offline.py --as-of "$(date -u +%F)" --output build/source-monitor
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: source-register-health
+          path: build/source-monitor/

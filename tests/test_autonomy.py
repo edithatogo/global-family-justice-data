@@ -23,6 +23,11 @@ def test_autonomy_context_is_bounded_and_fail_closed(tmp_path: Path) -> None:
     assert all(item["kind"] == "governance_decision" for item in payload["external_boundaries"])
     assert payload["autonomous_queue"] == []
     assert payload["external_actions"]
+    assert len(payload["blocker_matrix"]) == 6
+    assert payload["blocker_matrix"][0]["gate_id"] == "G1"
+    assert {item["track_id"] for item in payload["dependency_sequence"]} == {
+        f"T{i}" for i in range(10)
+    }
     assert payload["context_bytes"] <= payload["context_byte_limit"]
     assert all(item["content"] for item in payload["files"])
     assert "environment" not in payload

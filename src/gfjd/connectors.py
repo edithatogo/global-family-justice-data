@@ -13,7 +13,7 @@ import json
 import os
 import tomllib
 from collections.abc import Iterable, Mapping, Sequence
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from datetime import UTC, datetime
 from html.parser import HTMLParser
 from pathlib import Path
@@ -205,11 +205,20 @@ def run_connector(
     connector_path: Path,
     *,
     executed_at: datetime | None = None,
+    output_root: Path | None = None,
 ) -> ConnectorResult:
     """Run one connector and atomically write bronze output plus its receipt."""
 
     resolved_project = _project(project)
     spec = load_connector(resolved_project, connector_path)
+    if output_root is not None:
+        root = Path(output_root)
+        spec = replace(
+            spec,
+            output_path=str(root / Path(spec.output_path).name),
+            receipt_path=str(root / "receipts" / Path(spec.receipt_path).name),
+        )
+        _validate_spec(resolved_project, spec)
     input_file = _resolve_confined(resolved_project, Path(spec.input_path))
     output_file = _resolve_confined(resolved_project, Path(spec.output_path))
     receipt_file = _resolve_confined(resolved_project, Path(spec.receipt_path))

@@ -40,3 +40,21 @@ model in `docs/methods/pilot-scope-decision-2026-08-01.md` and
 `docs/governance/single-owner-agent-operating-model.md`. This authorizes
 repository-owned implementation; it does not waive evidence, rights,
 independence, or external-assurance requirements.
+
+## 2026-08-02 owner policy approval
+
+The owner approved the external-gate operating policy recorded as
+`D-EXT-2026-08-02` in `programme/decision_log.csv`: retain owner governance
+and release authority while requiring independent named reviewers for
+specialist gates; use an evidence-complete pilot subset; publish only clearly
+permissive sources; require explicit approval for every outbound enquiry; keep
+the candidate private and unpublished through G5/G6; and apply fail-closed
+statuses when authority, evidence, rights, or assurance is missing. This is a
+repository policy decision, not the missing specialist appointments or signed
+gate decisions.
+
+The current unresolved acquisition-rights queue is maintained in
+`docs/governance/source-rights-review-queue.csv`. Its entries remain
+metadata/citation-only until authoritative rights and preservation decisions
+are recorded; no redistribution permission is inferred from a successful
+manifest checksum.

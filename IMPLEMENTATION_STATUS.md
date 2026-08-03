@@ -1,7 +1,7 @@
 # Implementation status
 
 **Baseline:** `0.6.0-alpha.2`
-**Status date:** 2026-08-01
+**Status date:** 2026-08-02
 **Purpose:** distinguish executable engineering controls from international research and institutional evidence that remain to be completed.
 
 This repository is a bootstrap-ready engineering and programme-control baseline. It is not a completed international family-justice dataset and is not the stable v1.0 service.
@@ -14,7 +14,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | Programme conductor | T0–T9 tracks, G1–G6 evidence gates, work/evidence/risk/defect/exception registers, dependency evaluation, generated status and programme graph |
 | Governance assurance | Deterministic six-gate assurance pack, criterion matrix, fail-closed defect/exception disposition, unsigned release-decision template and tamper-evident manifest; all T0 repository work is implemented and awaiting genuine review |
 | T0/T1/T2 decision handoff | Checksum-bound governance/methods/census controls are implemented; the pending decision and evidence packet is documented in `docs/governance/t012-decision-handoff.md` |
-| Autonomous solo operation | Checksum-bound resume context, explicit repository/external boundary routing, fast iteration gate and maximal checkpoint harness let one maintainer delegate implementation without relying on chat memory or self-approving governance |
+| Autonomous solo operation | Checksum-bound resume context, explicit repository/external boundary routing, fail-closed blocker matrix, track dependency sequence, fast iteration gate and maximal checkpoint harness let one maintainer delegate implementation without relying on chat memory or self-approving governance |
 | Data contracts | Versioned JSON Schemas and CSV/TOML contracts for jurisdictions, institutions, sources, source editions, indicators, matter types, observations, evidence, reviews, search logs and coverage assessments |
 | Acquisition and ingestion | Rights-aware acquisition plus declarative CSV, JSON, HTML, XLSX and controlled manual-transcription adapters |
 | Harmonisation | Source-to-silver mapping, deterministic quarantine, provenance fields and dual-review gold-promotion controls |
@@ -28,10 +28,26 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | Local/remote bootstrap | Bounded local clone discovery, portfolio reconciliation, Git identity and remote checks, private GitHub creation/attachment, non-force push verification, and opt-in private Hugging Face creation |
 | Canonical platform topology | Intentionally public `edithatogo/global-family-justice-data` GitHub authority plus five private, generated-only Hugging Face repositories are attached; empirical-data publication remains evidence-gated |
 | High-priority source rights routing | Official Council of Europe, NCSC and HCCH terms are recorded for five international sources with metadata/citation routes separated from permission-dependent or unclear redistribution; no source was promoted to open-licence status |
+| T6 product controls | Deterministic candidate product bundle, catalogue, portable warehouse, accessible HTML landing page, checksum manifest and fail-closed publication flag are implemented; publication and assurance gates remain external |
+| T7 assurance controls | Security/public-data scanning, rights-aware acquisition, contract/lock audits, release blockers, backup/recovery and fail-closed publication controls are implemented; independent legal/security assurance remains external |
+| T8 operations controls | Deterministic release, backup/restore rehearsal, manifest verification, correction boundaries and operational runbooks are implemented; live hosting, custody, signing, support rota and budget remain external |
+| T9 participation and sustainability controls | Translation/source-language and local-verification boundaries, feedback-disposition safeguards, operating-plan templates and explicit participation/funding gaps are documented; human engagement, safeguarding, staffing and committed funding remain external |
+| Subagent panel assurance | Digest-bound, role-separated panel protocol with structured reports, conflict matrix, owner adjudication and fail-closed contingencies is documented; it supplements but does not replace external authority or human consent |
+| Remaining-work execution register | All unresolved issues are mapped to repository actions, external inputs, approval boundaries and fallbacks in the remaining-work implementation plan |
+| Track external-gate plan | T0–T9 now have explicit external-gate options, recommended routes, contingencies, authority boundaries and fail-closed promotion/archive rules |
+| Approved external-gate policy | Owner approved D-EXT-2026-08-02: hybrid specialist review, evidence-complete pilot subset, permissive-rights publication only, explicit per-enquiry send approval, private candidate through G5/G6, and fail-closed missing-input statuses; external authorities and evidence remain pending |
+| External authority-gate plan | Authority types, digest-bound evidence packets and permitted status transitions are defined for governance, methods, coverage/rights, product, security/legal, operations, participation and sustainability gates |
+| Programme gate resolution plan | G1–G6 are mapped to remaining evidence, recommended routes, contingencies, tracks and fail-closed promotion rules |
 
 ## Current programme state
 
-- Active gate: **G1 — Foundation controls accepted**.
+- Active gate: **G1 — Foundation controls implemented; accountable acceptance pending**.
+- Track disposition: **T0–T9 implementation slices complete; all tracks remain
+  externally blocked and non-archive-eligible**. The authoritative per-track
+  external gates, recommended routes, contingencies and authority boundaries
+  are recorded in
+  `docs/governance/track-external-gate-plan-2026-08-02.md`; this status must
+  not be read as evidence that any track or gate has passed.
 - Passed gates: **none**.
 - Gold empirical observations: **none**.
 - Synthetic fixtures: explicitly fictional and excluded from empirical release claims.

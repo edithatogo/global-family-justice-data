@@ -1,6 +1,6 @@
 # Generated programme status
 
-Generated: `2026-08-03T13:28:11+00:00`
+Generated: `2026-08-03T13:30:03+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G1**  
@@ -28,7 +28,7 @@ Conductor validation: **PASS** (0 errors, 0 warnings)
 | T4 — Data platform and engineering | 6/6 (100.0%) | 0/6 (0.0%) | 0 | 2/7 |
 | T5 — Harmonisation, quality and assurance | 7/7 (100.0%) | 0/7 (0.0%) | 0 | 1/7 |
 | T6 — Product, documentation and accessibility | 7/7 (100.0%) | 0/7 (0.0%) | 0 | 0/7 |
-| T7 — Security, privacy, legal and supply-chain assurance | 5/6 (83.3%) | 0/6 (0.0%) | 0 | 0/9 |
+| T7 — Security, privacy, legal and supply-chain assurance | 6/6 (100.0%) | 0/6 (0.0%) | 0 | 0/9 |
 | T8 — Operations, reliability and release management | 6/6 (100.0%) | 0/6 (0.0%) | 0 | 1/6 |
 | T9 — International community, localisation and sustainability | 4/4 (100.0%) | 0/4 (0.0%) | 0 | 0/4 |
 

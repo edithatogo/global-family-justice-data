@@ -731,8 +731,14 @@ class Conductor:
                         "require_distinct_evidence_reviewer", True
                     )
                 )
+                owner_decidable = evidence.id in set(
+                    self.project.config.get("conductor", {}).get(
+                        "owner_decidable_evidence_ids", []
+                    )
+                )
                 if (
                     distinct_required
+                    and not owner_decidable
                     and evidence.reviewer_role
                     and evidence.owner_role
                     and evidence.reviewer_role.casefold() == evidence.owner_role.casefold()
@@ -1508,7 +1514,12 @@ class Conductor:
                 raise ValueError(
                     f"Cannot accept {evidence_id}; evidence path is not a file: {current.path}"
                 )
-            if reviewer_role.casefold() == current.owner_role.casefold():
+            owner_decidable = evidence_id in set(
+                self.project.config.get("conductor", {}).get(
+                    "owner_decidable_evidence_ids", []
+                )
+            )
+            if reviewer_role.casefold() == current.owner_role.casefold() and not owner_decidable:
                 raise ValueError("Evidence reviewer must be independent of the evidence owner role")
             updates["sha256"] = sha256_file(path)
         self._mutate_csv(

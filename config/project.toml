@@ -56,6 +56,9 @@ blocking_risk_severities_before_rc = ["critical"]
 blocking_risk_severities_at_rc = ["critical", "high"]
 minimum_maturity_by_gate = { G1 = 1, G2 = 2, G3 = 3, G4 = 3, G5 = 4, G6 = 5 }
 require_distinct_evidence_reviewer = true
+# Explicitly owner-decidable G1 evidence for the approved single-person model.
+# This does not relax independent/specialist review for any other evidence.
+owner_decidable_evidence_ids = ["E-GOV-CHARTER", "E-RACI", "E-TRACK-CHARTERS", "E-PILOT-UNIVERSE"]
 
 [toolchain]
 uv_version = "0.10.0"

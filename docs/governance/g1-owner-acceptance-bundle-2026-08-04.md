@@ -26,8 +26,9 @@ incomplete.
 
 ## Remaining G1 acceptance fields
 
-- genuine host/sponsor and independent decision rights;
-- named and consenting deputies or an explicit owner-approved exception;
+- owner-held host/sponsor and decision-rights record (supplied in the
+  single-person owner decision);
+- explicit no-deputy exception and owner-unavailability pause rule (supplied);
 - accountable ethics/security/architecture/risk/rights acceptance;
 - required specialist, local or human review records;
 - pilot-scope decision and supporting evidence;

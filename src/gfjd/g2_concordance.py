@@ -64,6 +64,7 @@ def compare_g2_extractions(
     threshold_policy: dict[str, str],
     source_commit: str,
     generated_at: str,
+    row_schema_path: Path = Path("schemas/g2_extraction_row.schema.json"),
     critical_fields: Sequence[str] = DEFAULT_CRITICAL_FIELDS,
     overall_threshold: float = 0.99,
     ignored_fields: Sequence[str] = DEFAULT_IGNORED_FIELDS,
@@ -83,7 +84,7 @@ def compare_g2_extractions(
     primary = _confined(resolved_root, primary_path)
     secondary = _confined(resolved_root, secondary_path)
     destination = _confined(resolved_root, output_dir, require_exists=False)
-    schema_path = resolved_root / "schemas/g2_extraction_row.schema.json"
+    schema_path = _confined(resolved_root, row_schema_path)
     receipt_schema_path = resolved_root / "schemas/g2_concordance.schema.json"
     if not 0.99 <= overall_threshold <= 1:
         raise G2ConcordanceError("overall_threshold must be between 0.99 and 1")
@@ -244,6 +245,7 @@ def compare_g2_extractions(
             "source_commit": source_commit,
         },
         "threshold_policy": threshold_policy,
+        "row_schema": _artifact(resolved_root, schema_path),
         "critical_fields": sorted(critical),
         "critical_threshold": 1.0,
         "overall_threshold": overall_threshold,

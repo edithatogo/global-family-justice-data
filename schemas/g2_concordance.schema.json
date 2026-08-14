@@ -6,7 +6,7 @@
   "required": [
     "schema_version", "comparison_id", "packet_id", "packet_sha256",
     "primary_receipt", "secondary_receipt", "primary_output", "secondary_output",
-    "comparator", "threshold_policy", "critical_fields", "critical_threshold",
+    "comparator", "threshold_policy", "row_schema", "critical_fields", "critical_threshold",
     "overall_threshold", "matched_rows", "primary_only_rows",
     "secondary_only_rows", "critical_field_comparisons", "critical_field_matches",
     "overall_field_comparisons", "overall_field_matches", "critical_concordance",
@@ -33,6 +33,7 @@
       "additionalProperties": false
     },
     "threshold_policy": {"$ref": "#/$defs/artifact"},
+    "row_schema": {"$ref": "#/$defs/artifact"},
     "critical_fields": {
       "type": "array", "minItems": 1, "uniqueItems": true,
       "items": {"type": "string", "minLength": 1}

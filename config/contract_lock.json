@@ -43,8 +43,18 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/g2_atomic_extraction_row.schema.json",
+      "sha256": "134d337c1650be90f96d43e4edf52eab4204f0515bd47b7fab81e4630dbfeb27"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_atomic_semantic_contract.schema.json",
+      "sha256": "21c7211a54f03eabcd1d049127b0e57ff9c16a4b70b23373fba6c9857c4f469a"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/g2_concordance.schema.json",
-      "sha256": "931d508f49f2701bc8ad2915a86ffb07c5aeaf0c562576b92354ff3f4730a3db"
+      "sha256": "70e4aa165fcc4d495f512739abb6b3fefd5c56c804d109a0027a4f4f0d6bd3d3"
     },
     {
       "kind": "json_schema",
@@ -312,8 +322,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 62,
-  "inventory_sha256": "e312a513a8b9abd39b20300881a6ed29a5900a64e08c0bb3929785ef19a87342",
+  "entry_count": 64,
+  "inventory_sha256": "4f096952040401dd78e463eba4e2b8d7814ded6d6d0918e6ba5baac7fa3242bb",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

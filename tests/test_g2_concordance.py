@@ -112,6 +112,7 @@ def test_comparator_passes_identical_rows_and_emits_schema_valid_receipt(
     validator = Draft202012Validator(schema, format_checker=FormatChecker())
     assert list(validator.iter_errors(receipt)) == []
     assert receipt["status"] == "pass"
+    assert receipt["row_schema"]["path"] == "schemas/g2_extraction_row.schema.json"
     assert receipt["difference_artifact"]["sha256"] == sha256_file(result.difference_path)
     assert differences["difference_count"] == 0
 
@@ -248,6 +249,91 @@ def test_comparator_rejects_invalid_scope_configuration(project_root: Path, tmp_
             [_row(1), _row(2)],
             expected_source_keys=[key, outside],
             required_component_values={key: []},
+        )
+
+
+def test_comparator_accepts_confined_alternate_row_schema(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    shutil.copyfile(
+        project_root / "schemas/g2_atomic_extraction_row.schema.json",
+        root / "schemas/g2_atomic_extraction_row.schema.json",
+    )
+    atomic = {
+        "schema_version": "1.0",
+        "extracted_row_id": "G2ROW-PACKET02-AUS01",
+        "sample_key": "AUS-D1-CLEARANCE-2024-25",
+        "source_record_key": SHA,
+        "candidate_id": "AUS",
+        "source_id": "AUS-FCFCOA-AR",
+        "source_edition_id": "ED-AUS-TEST",
+        "locator_pdf_page": 102,
+        "locator_printed_page": 84,
+        "locator_section_source": "Section 3.3",
+        "locator_object_source": "Figure 3.3.2(a)",
+        "domain_label_source": "Family law",
+        "domain_code": "family_justice",
+        "matter_label_source": "Applications for final orders",
+        "matter_type_code": "final_orders",
+        "measure_label_source": "Clearance rate",
+        "indicator_code": "clearance_rate",
+        "series_label_source": None,
+        "series_code": None,
+        "statistic_type": "percentage",
+        "unit_code": "percent",
+        "value": 105,
+        "component_values": {"transferred_count": 1015},
+        "denominator_value": 1015,
+        "denominator_definition_quote": "received by way of transfer",
+        "denominator_code": "transferred_applications",
+        "period_label_source": "2024–25",
+        "period_start": "2024-07-01",
+        "period_end": "2025-06-30",
+        "period_start_provenance": "exact_edition",
+        "period_end_provenance": "exact_edition",
+        "time_basis": "source_defined",
+        "clock_label_source": None,
+        "clock_code": "not_applicable",
+        "cohort_definition_quote": "applications finalised during 2024–25",
+        "cohort_code": "period_finalised",
+        "counted_entity_code": "applications",
+        "population_scope_code": "division_1_transfers",
+        "coverage_limitation_quote": None,
+        "ambiguity_codes": ["denominator_conflict"],
+        "ambiguity_evidence_quote": "ratio described in the opposite direction",
+        "quarantine_status": "hard_quarantine",
+        "suppression_or_disclosure_note": None,
+        "extraction_uncertainty": "material",
+        "notes": None,
+    }
+    critical_fields = sorted(
+        set(atomic) - {"schema_version", "extracted_row_id", "source_record_key", "notes"}
+    )
+
+    result = _compare(
+        root,
+        [atomic],
+        [{**atomic, "extracted_row_id": "G2ROW-PACKET02-SECONDARY01"}],
+        row_schema_path=Path("schemas/g2_atomic_extraction_row.schema.json"),
+        critical_fields=critical_fields,
+    )
+
+    receipt = json.loads(result.receipt_path.read_text(encoding="utf-8"))
+    assert result.threshold_passed is True
+    assert receipt["row_schema"]["path"] == "schemas/g2_atomic_extraction_row.schema.json"
+
+
+def test_comparator_rejects_row_schema_outside_repository(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    with pytest.raises(G2ConcordanceError, match="escapes repository root"):
+        _compare(
+            root,
+            [_row(1)],
+            [_row(1)],
+            row_schema_path=project_root / "schemas/g2_extraction_row.schema.json",
         )
 
 

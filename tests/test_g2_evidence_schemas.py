@@ -24,6 +24,138 @@ def _validate(project_root: Path, name: str, payload: dict[str, object]) -> None
     assert list(validator.iter_errors(payload)) == []
 
 
+def _atomic_row() -> dict[str, object]:
+    return {
+        "schema_version": "1.0",
+        "extracted_row_id": "G2ROW-PACKET02-AUS01",
+        "sample_key": "AUS-D1-CLEARANCE-2024-25",
+        "source_record_key": SHA,
+        "candidate_id": "AUS",
+        "source_id": "AUS-FCFCOA-AR",
+        "source_edition_id": "ED-AUS-TEST",
+        "locator_pdf_page": 102,
+        "locator_printed_page": 84,
+        "locator_section_source": "3.3 Applications for final orders",
+        "locator_object_source": "Figure 3.3.2(a)",
+        "domain_label_source": "Family law",
+        "domain_code": "family_justice",
+        "matter_label_source": "Applications for final orders",
+        "matter_type_code": "final_orders",
+        "measure_label_source": "Clearance rate",
+        "indicator_code": "clearance_rate",
+        "series_label_source": "Division 1",
+        "series_code": "division_1",
+        "statistic_type": "percentage",
+        "unit_code": "percent",
+        "value": 105,
+        "component_values": {"transferred_count": 1015, "finalised_count": 1063},
+        "denominator_value": 1015,
+        "denominator_definition_quote": "received by way of transfer",
+        "denominator_code": "transferred_applications",
+        "period_label_source": "2024–25",
+        "period_start": "2024-07-01",
+        "period_end": "2025-06-30",
+        "period_start_provenance": "exact_edition",
+        "period_end_provenance": "exact_edition",
+        "time_basis": "source_defined",
+        "clock_label_source": None,
+        "clock_code": "not_applicable",
+        "cohort_definition_quote": "applications finalised during 2024–25",
+        "cohort_code": "period_finalised",
+        "counted_entity_code": "applications",
+        "population_scope_code": "division_1_transfers",
+        "coverage_limitation_quote": None,
+        "ambiguity_codes": ["denominator_conflict"],
+        "ambiguity_evidence_quote": "the number transferred as a proportion of finalised",
+        "quarantine_status": "hard_quarantine",
+        "suppression_or_disclosure_note": None,
+        "extraction_uncertainty": "material",
+        "notes": None,
+    }
+
+
+def test_g2_atomic_extraction_row_accepts_exact_source_and_code_facets(
+    project_root: Path,
+) -> None:
+    _validate(project_root, "g2_atomic_extraction_row.schema.json", _atomic_row())
+
+
+def test_g2_atomic_extraction_row_rejects_contract_drift(project_root: Path) -> None:
+    schema = _schema(project_root, "g2_atomic_extraction_row.schema.json")
+    validator = Draft202012Validator(schema, format_checker=FormatChecker())
+
+    invalid_rows: list[dict[str, object]] = []
+    missing_matter = _atomic_row()
+    missing_matter.pop("matter_type_code")
+    invalid_rows.append(missing_matter)
+    extra_narrative = _atomic_row()
+    extra_narrative["interpretation"] = "owner-supplied prose"
+    invalid_rows.append(extra_narrative)
+    invalid_unit = _atomic_row()
+    invalid_unit["unit_code"] = "rate"
+    invalid_rows.append(invalid_unit)
+    invalid_code = _atomic_row()
+    invalid_code["domain_code"] = "Family Justice"
+    invalid_rows.append(invalid_code)
+    invalid_page = _atomic_row()
+    invalid_page["locator_pdf_page"] = 0
+    invalid_rows.append(invalid_page)
+    invalid_date = _atomic_row()
+    invalid_date["period_start"] = "2024-13-01"
+    invalid_rows.append(invalid_date)
+    duplicate_ambiguity = _atomic_row()
+    duplicate_ambiguity["ambiguity_codes"] = ["clock_conflict", "clock_conflict"]
+    invalid_rows.append(duplicate_ambiguity)
+    null_component = _atomic_row()
+    null_component["component_values"] = {"transferred_count": None}
+    invalid_rows.append(null_component)
+    blank_source_quote = _atomic_row()
+    blank_source_quote["cohort_definition_quote"] = ""
+    invalid_rows.append(blank_source_quote)
+    inconsistent_date_provenance = _atomic_row()
+    inconsistent_date_provenance["period_start"] = None
+    invalid_rows.append(inconsistent_date_provenance)
+    missing_ambiguity_evidence = _atomic_row()
+    missing_ambiguity_evidence["ambiguity_evidence_quote"] = None
+    invalid_rows.append(missing_ambiguity_evidence)
+    unnormalized_ambiguity_evidence = _atomic_row()
+    unnormalized_ambiguity_evidence["ambiguity_evidence_quote"] = " leading whitespace"
+    invalid_rows.append(unnormalized_ambiguity_evidence)
+
+    for row in invalid_rows:
+        assert list(validator.iter_errors(row)), row
+
+
+def test_g2_packet02_atomic_contract_is_schema_bound_and_complete(project_root: Path) -> None:
+    contract = json.loads(
+        (project_root / "config" / "g2_atomic_semantic_contract.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    _validate(project_root, "g2_atomic_semantic_contract.schema.json", contract)
+
+    row_schema = _schema(project_root, "g2_atomic_extraction_row.schema.json")
+    row_fields = set(row_schema["properties"])
+    critical = set(contract["critical_fields"])
+    ignored = set(contract["ignored_fields"])
+    assert critical <= row_fields
+    assert ignored <= row_fields
+    assert critical.isdisjoint(ignored)
+    assert len(contract["samples"]) == 4
+    assert len({item["sample_key"] for item in contract["samples"]}) == 4
+    assert len({item["source_record_key"] for item in contract["samples"]}) == 4
+
+    allowed_ambiguities = set(row_schema["properties"]["ambiguity_codes"]["items"]["enum"])
+    for sample in contract["samples"]:
+        assert set(sample["required_ambiguity_codes"]) <= allowed_ambiguities
+        expected_status = (
+            "hard_quarantine"
+            if sample["sample_key"].startswith(("AUS-", "ZAF-"))
+            else "quarantine"
+        )
+        assert sample["quarantine_status"] == expected_status
+
+
 def test_g2_evidence_chain_schemas_accept_bounded_receipts(project_root: Path) -> None:
     packet = {
         "schema_version": "1.0",
@@ -121,6 +253,7 @@ def test_g2_evidence_chain_schemas_accept_bounded_receipts(project_root: Path) -
         "secondary_output": _artifact("secondary.csv"),
         "comparator": {"name": "gfjd-concordance", "version": "1", "source_commit": COMMIT},
         "threshold_policy": _artifact("concordance-policy.json"),
+        "row_schema": _artifact("schemas/g2_extraction_row.schema.json"),
         "critical_fields": ["value"],
         "critical_threshold": 1.0,
         "overall_threshold": 0.99,

@@ -1,0 +1,23 @@
+{
+  "acquisition_id": "ACQ-USA-MN-MJB-20260814T144054Z-32931494",
+  "agent_version": "0.6.0a2",
+  "byte_count": 1402492,
+  "content_type": "application/pdf",
+  "etag": null,
+  "final_url": "file:///Users/doughnut/Downloads/Annual-Report-2024-Performance-Measures.pdf",
+  "http_status": null,
+  "last_modified": "2026-08-14T14:40:39+00:00",
+  "method": "file",
+  "notes": "Official Minnesota Judicial Branch 2024 Performance Measures Annual Report acquired through the public browser after the controlled HTTP client received 403; private G2 evidence preparation only; no publication or rights clearance.",
+  "query_or_filter": null,
+  "redistribution_status": "metadata_only",
+  "requested_url": "file:///Users/doughnut/Downloads/Annual-Report-2024-Performance-Measures.pdf",
+  "retrieved_at": "2026-08-14T14:40:54+00:00",
+  "rights_status": "review_required",
+  "schema_version": "1.0",
+  "sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b",
+  "source_edition_id": "ED-USA-MN-MJB-PERF-2024",
+  "source_id": "USA-MN-MJB",
+  "status": "success",
+  "stored_path": "files/USA-MN-MJB/ACQ-USA-MN-MJB-20260814T144054Z-32931494/Annual-Report-2024-Performance-Measures.pdf"
+}

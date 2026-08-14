@@ -254,10 +254,10 @@ def test_evidence_review_enforces_independence_and_unlocks_work_acceptance(
     assert item.status == "accepted"
 
 
-def test_invalid_work_transition_is_rejected(project_root: Path, tmp_path: Path) -> None:
+def test_work_acceptance_requires_accepted_evidence(project_root: Path, tmp_path: Path) -> None:
     import pytest
 
     root = _copy_project(project_root, tmp_path / "repo")
     conductor = Conductor.load(root)
-    with pytest.raises(ValueError, match="Invalid work transition"):
+    with pytest.raises(ValueError, match="evidence not accepted"):
         conductor.set_work_status("WI-G2-02", "accepted", actor="reviewer")

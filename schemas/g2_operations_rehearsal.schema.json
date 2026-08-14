@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/g2_operations_rehearsal.schema.json",
+  "title": "G2 private real-pilot operations rehearsal receipt",
+  "type": "object",
+  "required": [
+    "schema_version", "rehearsal_id", "packet_id", "packet_sha256",
+    "source_commit", "lockfile_sha256", "input_manifest", "build_command_id",
+    "first_build", "second_build", "deterministic_match", "validation_receipts",
+    "pre_correction_bundle", "correction_scenario", "correction_reference",
+    "post_correction_bundle", "rollback_or_republish_result", "backup_receipt",
+    "restore_receipt", "restored_payload_sha256", "restore_verified",
+    "restricted_source_inventory", "build_elapsed_seconds", "restore_elapsed_seconds",
+    "errors", "findings", "operations_panel_report", "custody_class",
+    "signature_status", "publication_authorized", "status"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "rehearsal_id": {"type": "string", "pattern": "^G2OPS-[A-Z0-9][A-Z0-9_-]{5,79}$"},
+    "packet_id": {"type": "string", "pattern": "^G2PKT-[A-Z0-9][A-Z0-9_-]{5,79}$"},
+    "packet_sha256": {"$ref": "#/$defs/sha256"},
+    "source_commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "lockfile_sha256": {"$ref": "#/$defs/sha256"},
+    "input_manifest": {"$ref": "#/$defs/artifact"},
+    "build_command_id": {"type": "string", "minLength": 2},
+    "first_build": {"$ref": "#/$defs/artifact"},
+    "second_build": {"$ref": "#/$defs/artifact"},
+    "deterministic_match": {"type": "boolean"},
+    "validation_receipts": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/artifact"}},
+    "pre_correction_bundle": {"$ref": "#/$defs/artifact"},
+    "correction_scenario": {"type": "string", "minLength": 3},
+    "correction_reference": {"$ref": "#/$defs/artifact"},
+    "post_correction_bundle": {"$ref": "#/$defs/artifact"},
+    "rollback_or_republish_result": {"enum": ["passed", "failed", "not_run"]},
+    "backup_receipt": {"$ref": "#/$defs/artifact"},
+    "restore_receipt": {"$ref": "#/$defs/artifact"},
+    "restored_payload_sha256": {"$ref": "#/$defs/sha256"},
+    "restore_verified": {"type": "boolean"},
+    "restricted_source_inventory": {"$ref": "#/$defs/artifact"},
+    "build_elapsed_seconds": {"type": "number", "minimum": 0},
+    "restore_elapsed_seconds": {"type": "number", "minimum": 0},
+    "errors": {"type": "array", "items": {"type": "string"}},
+    "findings": {"type": "array", "items": {"type": "string"}},
+    "operations_panel_report": {"$ref": "#/$defs/artifact"},
+    "custody_class": {"const": "local-rehearsal-only"},
+    "signature_status": {"const": "unsigned"},
+    "publication_authorized": {"const": false},
+    "status": {"enum": ["passed", "conditional", "failed"]}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "artifact": {
+      "type": "object", "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/sha256"}},
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -8,6 +8,11 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/agent_panel_report.schema.json",
+      "sha256": "87107e2e709f9d7fcb5669cefae37128a58ae2464580abf345694691c4c25415"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/backup.schema.json",
       "sha256": "3fa6b1d89001e77b8f3d1f2a111acba03289a8054e45e0612cb2f5739e128875"
     },
@@ -35,6 +40,41 @@
       "kind": "json_schema",
       "path": "schemas/extraction.schema.json",
       "sha256": "91e56fe9da5d24c98040cd4b1fdc2d852c70c82211c65a9766766b4c01e74c56"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_concordance.schema.json",
+      "sha256": "0d5feaa1d191f25dd522496cc85066e8dc56afcb79607363932d038dbfb49f00"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_evidence_packet.schema.json",
+      "sha256": "b2d3a1a476285550be9e1cada5275b64da5d046588907f55a19cde48d49e2e17"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_extraction_row.schema.json",
+      "sha256": "d6770cba584e2dfb65e097d8718da9ec6a6a7c46ba6b328332ffc7ae454c4779"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_extraction_run.schema.json",
+      "sha256": "43b8aff41c67556e431869aff9b4bd15a844e59c673f32db5fdb75f8880fcfbf"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_operations_rehearsal.schema.json",
+      "sha256": "e6bc048130a791cdc16c76affadfb0eab2f20cb3aef02c2abc9d6dc6bc0f4651"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_owner_adjudication.schema.json",
+      "sha256": "3ef892f018143bcf8cc1749e93e73d2867c97923d1f7598ad8e403e06af6ea42"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_rights_security_review.schema.json",
+      "sha256": "9fcc585c1d0ee3982e6909ee42d967191ece0e14199f185d749b0cb5bd862e71"
     },
     {
       "kind": "json_schema",
@@ -99,7 +139,7 @@
     {
       "kind": "json_schema",
       "path": "schemas/review.schema.json",
-      "sha256": "ea2408ae7487b89d054c7aa9f66807588d85e1326d99df32cdc183a908a46b33"
+      "sha256": "0e74d5bafac13a034691826bb0148f61208c09fd79169b2065a774e877b92421"
     },
     {
       "kind": "json_schema",
@@ -267,8 +307,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 53,
-  "inventory_sha256": "7b8021181404aee27a025dd7586136f5eb59baba0805532b5d87a06c498cbe64",
+  "entry_count": 61,
+  "inventory_sha256": "28fb87d33df482e6b12fa97b5b1c99f80eefc6ec40f40bb3cc23abe2d5a805e1",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

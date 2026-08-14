@@ -39,7 +39,7 @@ def test_all_json_schemas_are_valid(project_root: Path) -> None:
 
 
 def test_repository_has_no_validation_errors(project_root: Path) -> None:
-    report = validate_repository(project_root, today=date(2026, 8, 1))
+    report = validate_repository(project_root, today=date(2026, 8, 15))
     assert report.errors == [], "\n".join(str(issue) for issue in report.errors)
     assert report.checks_run >= 15
 
@@ -93,3 +93,32 @@ def test_methods_contract_manifest_detects_dictionary_drift(
     report = validate_repository(root, today=date(2026, 7, 19))
 
     assert any(issue.code == "METHODS_CONTRACT_ARTIFACT_DRIFT" for issue in report.errors)
+
+
+def test_archive_inventory_rejects_malformed_sha256(project_root: Path, tmp_path: Path) -> None:
+    root = _copy_project(project_root, tmp_path / "repo")
+    inventory = root / "data/raw/archive_inventory.csv"
+    with inventory.open(encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+        headers = list(rows[0])
+    rows[0]["sha256"] += "0"
+    with inventory.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=headers, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+
+    report = validate_repository(root, today=date(2026, 8, 15))
+
+    assert any(issue.code == "ARCHIVE_INVENTORY_SHA256_INVALID" for issue in report.errors)
+
+
+def test_archive_inventory_allows_payloads_to_remain_local(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _copy_project(project_root, tmp_path / "repo")
+    shutil.rmtree(root / "data/raw/files")
+
+    report = validate_repository(root, today=date(2026, 8, 15))
+
+    assert report.errors == []
+    assert any(issue.code == "ARCHIVE_INVENTORY_PAYLOAD_LOCAL_ONLY" for issue in report.infos)

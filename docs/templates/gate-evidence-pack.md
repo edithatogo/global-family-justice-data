@@ -3,8 +3,10 @@
 - Gate:
 - Candidate release/maturity level:
 - Decision date:
-- Executive owner:
-- Independent assurer:
+- Sole accountable owner:
+- Agent-panel synthesis:
+- Frozen packet SHA-256:
+- Pre-decision manifest SHA-256:
 
 ## Gate outcome
 
@@ -14,7 +16,7 @@
 
 ## Evidence by track
 
-| Track | Required evidence | Evidence link | Owner sign-off | Assurance finding |
+| Track | Required evidence | Evidence link | Owner disposition | Agent-panel finding |
 |---|---|---|---|---|
 | T0 | | | | |
 | T1 | | | | |
@@ -36,11 +38,15 @@
 - Compatibility impact:
 - Known limitations:
 
-## Sign-off
+## Advisory panel and owner decision
 
-- Data owner:
-- Methods owner:
-- Technical owner:
-- Security/privacy owner:
-- Executive release owner:
-- Independent assurance recommendation:
+- Panel roles and report digests:
+- Conflicts, abstentions and dissent:
+- Options, trade-offs and contingencies:
+- Panel recommendation and rationale:
+- Sole-owner adjudication reference:
+- Conditions, expiry and reopen triggers:
+- Publication authorization: no / separately authorized
+
+Agent-panel findings are advisory. They must not be labelled independent,
+external, specialist, legal, local-human or participant assurance.

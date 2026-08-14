@@ -11,7 +11,12 @@ repository-relative artifact and the artifact is manifest-bound.
 `acquisition_receipt` → `content_sha256` → `rights_status` →
 `coverage_assessment` → `extraction_primary` + `extraction_secondary` →
 `comparison_report` → `methods_review` + `rights_security_review` →
-`independent_assurance` → `owner_adjudication`.
+`agent_panel_assurance` → `owner_adjudication`.
+
+Historical review ledgers may retain `independent_assurance` as a deprecated
+value for backwards compatibility. New G2 records use
+`agent_panel_assurance` and must not describe analyst-agent work as independent
+or specialist assurance.
 
 Each artifact must identify the exact source edition, retrieval timestamp,
 language, route/outcome and reviewer role. `unknown`, `metadata_only`,
@@ -29,8 +34,9 @@ scope decision in `D-PILOT-SCOPE-2026-08-03`.
   available.
 - Keep uncertain-rights material metadata/citation-only and out of public
   outputs.
-- Do not infer local coverage from an official landing page or an agent-panel
-  review.
+- Do not infer local-human verification from an official landing page or an
+  agent-panel review; use source-language authoritative triangulation and
+  disclose its limits.
 - Do not mark a row complete based on synthetic fixtures or a single
   extraction.
 - The register cannot itself change G2 evidence status or gate state; only

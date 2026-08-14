@@ -465,8 +465,12 @@ def _search_review_row(row: dict[str, str]) -> dict[str, str]:
         "language": row.get("language", ""),
         "result_state": row.get("result_state", ""),
         "review_status": row.get("review_status", ""),
-        "required_action": "Complete second-person review of search result and access issues.",
-        "review_boundary": "Agent preparation is not independent source or methods assurance.",
+        "required_action": (
+            "Complete role-separated analyst-agent review of search result and access issues."
+        ),
+        "review_boundary": (
+            "Agent review is advisory; the sole owner retains accountable acceptance."
+        ),
         "queue_reason": (
             "draft_review"
             if row.get("review_status") == "draft"
@@ -487,8 +491,8 @@ def _remediation_row(gap: dict[str, str]) -> dict[str, str]:
         "UNIVERSE_UNREVIEWED": (
             "data/census/jurisdiction_universe.csv",
             "T2",
-            "Complete second-person review of the universe entry.",
-            "Independent review required; agent cannot self-accept.",
+            "Complete role-separated analyst-agent review of the universe entry.",
+            "Agent-panel advice is required; the sole owner retains accountable acceptance.",
         ),
         "COVERAGE_ASSESSMENT_MISSING": (
             "data/census/coverage_assessment.csv",
@@ -523,8 +527,8 @@ def _remediation_row(gap: dict[str, str]) -> dict[str, str]:
         "REVIEW_LEDGER_UNREVIEWED": (
             "data/census/review_ledger.csv",
             "T5",
-            "Record an independent review decision or quarantine outcome.",
-            "Agent preparation is not independent assurance.",
+            "Record role-separated agent-panel advice and an owner decision or quarantine outcome.",
+            "Agent-panel advice does not itself accept the evidence.",
         ),
         "DIRECT_ENQUIRY_UNRESOLVED": (
             "data/census/direct_enquiry_register.csv",

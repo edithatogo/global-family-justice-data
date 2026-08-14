@@ -18,7 +18,7 @@ permissions:
 
 env:
   PYTHONHASHSEED: '0'
-  SOURCE_DATE_EPOCH: '1785542400'
+  SOURCE_DATE_EPOCH: '1786752000'
   TZ: UTC
   UV_DEFAULT_INDEX: https://pypi.org/simple
 

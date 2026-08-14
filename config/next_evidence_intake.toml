@@ -49,7 +49,7 @@ fallback = "metadata_only_or_quarantine_candidate"
 id = "S3-G2-ASSURE"
 gate = "G2"
 depends_on = ["S2-G2-SCOPE"]
-required = ["independent_second_extraction", "row_level_diff", "methods_adjudication", "rights_privacy_security_review", "independent_assurance", "operations_rehearsal"]
+required = ["blinded_role_separated_second_extraction", "row_level_diff", "methods_adjudication", "rights_privacy_security_review", "agent_panel_assurance", "operations_rehearsal"]
 fallback = "retain_g2_dependency_block_and_record_unresolved_evidence"
 
 [[execution.stage]]

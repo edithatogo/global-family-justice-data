@@ -9,6 +9,8 @@ The methods packet is assembled from:
 Owner dispositions are fail-closed: descriptive-only, quarantine or exclude
 where clocks, denominators, taxonomy, missingness or source semantics are not
 resolved. The synthetic pilot confirms pipeline mechanics but supplies no real
-jurisdiction observations. An accountable methods authority and independent
-reviewer must still adjudicate the real pilot editions and freeze the methods
-package. This record is therefore draft evidence only and does not satisfy G2.
+jurisdiction observations. Under the sole-owner model, role-separated analyst
+agents must advise on the real pilot editions and the owner must adjudicate the
+methods dispositions and freeze the methods package. Panel advice is not
+accountable acceptance. This record is therefore draft evidence only and does
+not satisfy G2.

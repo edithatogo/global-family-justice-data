@@ -31,6 +31,7 @@ def validate_project(
     tables = validate_contracts(project, report)
     _semantic_validation(project, tables, report, as_of=as_of)
     _validate_methods_contract_manifest(project, report)
+    _validate_archive_inventory(project, report)
     _validate_source_rights_queue(project, report)
     _validate_external_evidence_register(project, report)
 
@@ -49,6 +50,91 @@ def validate_project(
     # A check is a separately meaningful control family rather than an individual row.
     report.checks_run = int(report.metrics.get("contracts", 0)) + 4
     return report
+
+
+def _validate_archive_inventory(project: Project, report: Report) -> None:
+    """Bind every retained source edition across inventory, manifest and payload bytes."""
+
+    relative = "data/raw/archive_inventory.csv"
+    path = project.root / relative
+    if not path.is_file():
+        report.error("ARCHIVE_INVENTORY_MISSING", "Archive inventory is missing", path=relative)
+        return
+
+    with path.open(encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    required = {"inventory_id", "source_id", "manifest_path", "payload_path", "sha256"}
+    if not rows or not required.issubset(rows[0]):
+        report.error(
+            "ARCHIVE_INVENTORY_SCHEMA",
+            "Archive inventory columns are incomplete",
+            path=relative,
+        )
+        return
+
+    for index, row in enumerate(rows, start=2):
+        expected = row.get("sha256", "")
+        if len(expected) != 64 or any(char not in "0123456789abcdef" for char in expected):
+            report.error(
+                "ARCHIVE_INVENTORY_SHA256_INVALID",
+                "Archive inventory SHA-256 must be exactly 64 lowercase hexadecimal characters",
+                path=relative,
+                row=index,
+            )
+            continue
+
+        manifest_relative = row.get("manifest_path", "")
+        payload_relative = row.get("payload_path", "")
+        manifest_path = project.root / manifest_relative
+        payload_path = project.root / payload_relative
+        if not manifest_path.is_file():
+            report.error(
+                "ARCHIVE_INVENTORY_MANIFEST_MISSING",
+                f"Archive manifest is missing: {manifest_relative}",
+                path=relative,
+                row=index,
+            )
+            continue
+        if not payload_path.is_file():
+            report.info(
+                "ARCHIVE_INVENTORY_PAYLOAD_LOCAL_ONLY",
+                f"Archive payload is not present in this checkout: {payload_relative}",
+                path=relative,
+                row=index,
+            )
+            continue
+
+        try:
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            report.error(
+                "ARCHIVE_INVENTORY_MANIFEST_INVALID",
+                f"Archive manifest cannot be read: {exc}",
+                path=manifest_relative,
+            )
+            continue
+        if manifest.get("sha256") != expected:
+            report.error(
+                "ARCHIVE_INVENTORY_MANIFEST_SHA256_MISMATCH",
+                "Archive inventory and acquisition manifest SHA-256 values differ",
+                path=relative,
+                row=index,
+            )
+        if manifest.get("source_id") != row.get("source_id"):
+            report.error(
+                "ARCHIVE_INVENTORY_SOURCE_MISMATCH",
+                "Archive inventory and acquisition manifest source IDs differ",
+                path=relative,
+                row=index,
+            )
+        actual = sha256_file(payload_path)
+        if actual != expected:
+            report.error(
+                "ARCHIVE_INVENTORY_PAYLOAD_SHA256_MISMATCH",
+                "Archived payload bytes do not match the recorded SHA-256",
+                path=payload_relative,
+                row=index,
+            )
 
 
 def _validate_source_rights_queue(project: Project, report: Report) -> None:

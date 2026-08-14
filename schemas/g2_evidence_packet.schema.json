@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/g2_evidence_packet.schema.json",
+  "title": "Frozen G2 real-pilot evidence packet",
+  "type": "object",
+  "required": [
+    "schema_version", "packet_id", "created_at", "source_commit",
+    "contract_version", "ontology_version", "cohort", "source_editions",
+    "methods_contracts", "schema_bindings", "extraction_instructions",
+    "concordance_policy", "excluded_inputs", "packet_manifest"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "packet_id": {"type": "string", "pattern": "^G2PKT-[A-Z0-9][A-Z0-9_-]{5,79}$"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "source_commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "contract_version": {"type": "string", "minLength": 1},
+    "ontology_version": {"type": "string", "minLength": 1},
+    "cohort": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "pattern": "^[A-Z]{2,3}(?:-[A-Z0-9]{2,5})?$"}
+    },
+    "source_editions": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "candidate_id", "source_id", "source_edition_id",
+          "acquisition_manifest", "content_sha256", "storage_class", "rights_status"
+        ],
+        "properties": {
+          "candidate_id": {"type": "string", "pattern": "^[A-Z]{2,3}(?:-[A-Z0-9]{2,5})?$"},
+          "source_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"},
+          "source_edition_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"},
+          "acquisition_manifest": {"$ref": "#/$defs/artifact"},
+          "content_sha256": {"$ref": "#/$defs/sha256"},
+          "storage_class": {"enum": ["repository", "local_private", "metadata_only", "quarantined"]},
+          "rights_status": {"enum": ["cleared", "review_required", "restricted", "unknown"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "methods_contracts": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/artifact"}},
+    "schema_bindings": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/artifact"}},
+    "extraction_instructions": {"$ref": "#/$defs/artifact"},
+    "concordance_policy": {"$ref": "#/$defs/artifact"},
+    "excluded_inputs": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "packet_manifest": {"$ref": "#/$defs/artifact"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

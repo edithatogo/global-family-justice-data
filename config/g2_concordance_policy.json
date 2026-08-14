@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "decision_id": "D-G2-CONCORDANCE-POLICY-20260815",
+  "decision_date": "2026-08-15",
+  "owner_role": "repository owner, founder and sole accountable decision-maker",
+  "sample_reference": "docs/methods/g2-real-pilot-preflight-panel-2026-08-15.md",
+  "sample_reference_sha256": "f3a01a21a666f0c519291ea1592e7a5ecf25ae354bf84eaca742f544a65708ec",
+  "sample_keys": [
+    "AUS-D1-CLEARANCE-2024-25",
+    "USA-MN-FAMILY-CLEARANCE-FY24",
+    "BRA-PROTECTIVE-MEASURES-2026-04-30",
+    "ZAF-MAINTENANCE-90D-2024-25"
+  ],
+  "critical_fields": [
+    "source_edition_id",
+    "candidate_id",
+    "provenance_locator",
+    "value",
+    "component_values",
+    "denominator_value",
+    "denominator_definition",
+    "statistic_type",
+    "unit",
+    "period_start",
+    "period_end",
+    "time_basis",
+    "cohort_basis",
+    "population_scope",
+    "matter_type_original",
+    "measure_original"
+  ],
+  "critical_concordance_required": 1.0,
+  "overall_populated_field_concordance_required": 0.99,
+  "unmatched_rows_fail": true,
+  "critical_discrepancy_waiver_allowed": false,
+  "clerical_correction_requires_documented_rerun": true,
+  "source_ambiguity_disposition": "quarantine_or_exclude",
+  "separate_digest_bound_outputs_required": true,
+  "comparator_recomputation_required": true,
+  "scope_limitations": [
+    "four-row sample only",
+    "no extracted value acceptance",
+    "no methods disposition",
+    "no source-rights decision",
+    "no G2 passage",
+    "no publication or release"
+  ],
+  "owner_decision_text_sha256": "9034c8e9cfaddc9d721a52a6ea57c327e1d764a7a11f28ac0f943da0f4bf45a2"
+}

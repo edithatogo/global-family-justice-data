@@ -6,7 +6,7 @@
   "required": [
     "schema_version", "extracted_row_id", "source_record_key", "candidate_id",
     "source_id", "source_edition_id", "provenance_locator", "measure_original",
-    "matter_type_original", "statistic_type", "unit", "value",
+    "matter_type_original", "statistic_type", "unit", "value", "component_values",
     "denominator_value", "denominator_definition", "period_start", "period_end",
     "time_basis", "cohort_basis", "population_scope",
     "suppression_or_disclosure_note", "extraction_uncertainty", "notes"
@@ -24,6 +24,12 @@
     "statistic_type": {"type": "string", "pattern": "^[a-z0-9_]+$"},
     "unit": {"type": "string", "minLength": 1},
     "value": {"type": ["number", "null"]},
+    "component_values": {
+      "type": "object",
+      "description": "Additional source-published numeric facts required by the frozen four-row target. Every populated component is compared as critical evidence.",
+      "propertyNames": {"pattern": "^[a-z0-9_]+$"},
+      "additionalProperties": {"type": ["number", "null"]}
+    },
     "denominator_value": {"type": ["number", "null"]},
     "denominator_definition": {"type": ["string", "null"]},
     "period_start": {"type": ["string", "null"], "format": "date"},

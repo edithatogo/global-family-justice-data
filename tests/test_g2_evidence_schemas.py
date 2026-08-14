@@ -66,6 +66,7 @@ def test_g2_evidence_chain_schemas_accept_bounded_receipts(project_root: Path) -
         "statistic_type": "count",
         "unit": "applications",
         "value": 10,
+        "component_values": {},
         "denominator_value": None,
         "denominator_definition": None,
         "period_start": "2025-01-01",
@@ -78,6 +79,11 @@ def test_g2_evidence_chain_schemas_accept_bounded_receipts(project_root: Path) -
         "notes": None,
     }
     _validate(project_root, "g2_extraction_row.schema.json", extraction_row)
+
+    policy = json.loads(
+        (project_root / "config" / "g2_concordance_policy.json").read_text(encoding="utf-8")
+    )
+    _validate(project_root, "g2_concordance_policy.schema.json", policy)
 
     run = {
         "schema_version": "1.0",

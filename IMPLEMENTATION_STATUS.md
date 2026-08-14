@@ -1,7 +1,7 @@
 # Implementation status
 
 **Baseline:** `0.6.0-alpha.2`
-**Status date:** 2026-08-02
+**Status date:** 2026-08-15
 **Purpose:** distinguish executable engineering controls from international research and institutional evidence that remain to be completed.
 
 This repository is a bootstrap-ready engineering and programme-control baseline. It is not a completed international family-justice dataset and is not the stable v1.0 service.
@@ -29,26 +29,25 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | Canonical platform topology | Intentionally public `edithatogo/global-family-justice-data` GitHub authority plus five private, generated-only Hugging Face repositories are attached; empirical-data publication remains evidence-gated |
 | High-priority source rights routing | Official Council of Europe, NCSC and HCCH terms are recorded for five international sources with metadata/citation routes separated from permission-dependent or unclear redistribution; no source was promoted to open-licence status |
 | T6 product controls | Deterministic candidate product bundle, catalogue, portable warehouse, accessible HTML landing page, checksum manifest and fail-closed publication flag are implemented; publication and assurance gates remain external |
-| T7 assurance controls | Security/public-data scanning, rights-aware acquisition, contract/lock audits, release blockers, backup/recovery and fail-closed publication controls are implemented; independent legal/security assurance remains external |
-| T8 operations controls | Deterministic release, backup/restore rehearsal, manifest verification, correction boundaries and operational runbooks are implemented; live hosting, custody, signing, support rota and budget remain external |
-| T9 participation and sustainability controls | Translation/source-language and local-verification boundaries, feedback-disposition safeguards, operating-plan templates and explicit participation/funding gaps are documented; human engagement, safeguarding, staffing and committed funding remain external |
-| Subagent panel assurance | Digest-bound, role-separated panel protocol with structured reports, conflict matrix, owner adjudication and fail-closed contingencies is documented; it supplements but does not replace external authority or human consent |
+| T7 assurance controls | Security/public-data scanning, rights-aware acquisition, contract/lock audits, release blockers, backup/recovery and fail-closed publication controls are implemented; role-separated agent panels advise and the sole owner adjudicates findings without claiming legal or specialist assurance |
+| T8 operations controls | Deterministic release, backup/restore rehearsal, manifest verification, correction boundaries and operational runbooks are implemented; actual live custody, signing, monitoring, restore and owner-resource evidence remain required |
+| T9 participation and sustainability controls | Source-language review, authoritative triangulation, non-participatory agent/tool accessibility testing and sole-owner operating-plan controls are documented; no local-human, lived-experience or participant-validation claim is made |
+| Subagent panel assurance | Digest-bound, role-separated panel protocol with structured reports, conflict matrix and owner adjudication is the advisory model; the repository owner remains the sole accountable decision-maker |
 | Remaining-work execution register | All unresolved issues are mapped to repository actions, external inputs, approval boundaries and fallbacks in the remaining-work implementation plan |
 | Track external-gate plan | T0–T9 now have explicit external-gate options, recommended routes, contingencies, authority boundaries and fail-closed promotion/archive rules |
-| Approved external-gate policy | Owner approved D-EXT-2026-08-02: hybrid specialist review, evidence-complete pilot subset, permissive-rights publication only, explicit per-enquiry send approval, private candidate through G5/G6, and fail-closed missing-input statuses; external authorities and evidence remain pending |
+| Sole-owner gate policy | The 2026-08-15 digest-bound decision supersedes multi-person assurance requirements: role-separated agents advise and verify, the sole owner decides, factual evidence remains mandatory, R20 remains a release hard no-go, and outbound contact/publication still requires separate authorization |
 | External authority-gate plan | Authority types, digest-bound evidence packets and permitted status transitions are defined for governance, methods, coverage/rights, product, security/legal, operations, participation and sustainability gates |
 | Programme gate resolution plan | G1–G6 are mapped to remaining evidence, recommended routes, contingencies, tracks and fail-closed promotion rules |
 
 ## Current programme state
 
-- Active gate: **G1 — Foundation controls implemented; accountable acceptance pending**.
-- Track disposition: **T0–T9 implementation slices complete; all tracks remain
-  externally blocked and non-archive-eligible**. The authoritative per-track
-  external gates, recommended routes, contingencies and authority boundaries
-  are recorded in
-  `docs/governance/track-external-gate-plan-2026-08-02.md`; this status must
-  not be read as evidence that any track or gate has passed.
-- Passed gates: **none**.
+- Active gate: **G2 — Reproducible pilot proven**.
+- Track disposition: **T0–T9 implementation slices complete; later acceptance
+  remains evidence-gated**. Role-separated agents advise and verify; the sole
+  owner decides. Real source, build, archive, restore, publication and resource
+  facts remain mandatory where the current gate contracts require them.
+- Passed gates: **G1** through the digest-bound sole-owner decision dated
+  2026-08-15. G2–G6 have not passed.
 - Gold empirical observations: **none**.
 - Synthetic fixtures: explicitly fictional and excluded from empirical release claims.
 - Canonical GitHub owner: **`edithatogo`**, verified from authenticated GitHub state.
@@ -60,6 +59,6 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 
 ## Not supplied by code
 
-Stable v1.0 still requires authentic evidence for institutional ownership, accountable deputies, source-rights decisions, multilingual searches, jurisdiction-specific legal verification, real source connectors and fixtures, independent re-extraction, methods adjudication, outcomes-evidence appraisal, lived-experience and child-rights review, accessibility review, production operations, external assurance, preservation and sustainable funding.
+Stable v1.0 still requires authentic evidence for real source editions and retrievals, source-rights facts and owner decisions, multilingual searches, jurisdiction-aware triangulation, real connectors and fixtures, blinded role-separated re-extraction, methods adjudication, outcomes-evidence appraisal, agent/tool accessibility review, production operations, two-location preservation, tested restore, publication state and the owner's dated 12-month resource commitment. Agent panels cannot manufacture those facts or create legal, independent-specialist, local-human or lived-experience claims.
 
 A passing technical workflow cannot approve a programme gate or transform process speed into evidence of child or family outcomes.

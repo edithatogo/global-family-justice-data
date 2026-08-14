@@ -6,10 +6,10 @@ contract_version = "0.3"
 ontology_version = "0.3"
 programme_model_version = "1.0"
 minimum_python = "3.11"
-current_gate = "G1"
+current_gate = "G2"
 public_data_boundary = "aggregate_only"
 default_timezone = "UTC"
-status_as_of = "2026-07-27"
+status_as_of = "2026-08-15"
 
 [paths]
 jurisdictions = "data/seed/jurisdiction_register.csv"
@@ -57,8 +57,8 @@ blocking_risk_severities_at_rc = ["critical", "high"]
 minimum_maturity_by_gate = { G1 = 1, G2 = 2, G3 = 3, G4 = 3, G5 = 4, G6 = 5 }
 require_distinct_evidence_reviewer = true
 # Explicitly owner-decidable G1 evidence for the approved single-person model.
-# This does not relax independent/specialist review for any other evidence.
-owner_decidable_evidence_ids = ["E-GOV-CHARTER", "E-RACI", "E-TRACK-CHARTERS", "E-PILOT-UNIVERSE"]
+# This does not turn agent advice into independent or specialist assurance.
+owner_decidable_evidence_ids = ["E-GOV-CHARTER", "E-RACI", "E-TRACK-CHARTERS", "E-PILOT-UNIVERSE", "E-ETHICS-BOUNDARY", "E-SECURITY-POLICY", "E-ARCH-V1", "E-RISK-REGISTER", "E-THREAT-BASELINE", "E-RIGHTS-BASELINE", "E-SOLE-OWNER-GATE-MODEL-DECISION-2026-08-15"]
 
 [toolchain]
 uv_version = "0.10.0"

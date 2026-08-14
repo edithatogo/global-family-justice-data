@@ -732,9 +732,7 @@ class Conductor:
                     )
                 )
                 owner_decidable = evidence.id in set(
-                    self.project.config.get("conductor", {}).get(
-                        "owner_decidable_evidence_ids", []
-                    )
+                    self.project.config.get("conductor", {}).get("owner_decidable_evidence_ids", [])
                 )
                 if (
                     distinct_required
@@ -1515,9 +1513,7 @@ class Conductor:
                     f"Cannot accept {evidence_id}; evidence path is not a file: {current.path}"
                 )
             owner_decidable = evidence_id in set(
-                self.project.config.get("conductor", {}).get(
-                    "owner_decidable_evidence_ids", []
-                )
+                self.project.config.get("conductor", {}).get("owner_decidable_evidence_ids", [])
             )
             if reviewer_role.casefold() == current.owner_role.casefold() and not owner_decidable:
                 raise ValueError("Evidence reviewer must be independent of the evidence owner role")
@@ -1806,7 +1802,7 @@ def render_status_markdown(payload: dict[str, Any]) -> str:
         f"Generated: `{payload['generated_at']}`",
         "",
         f"Current repository version: **{project.get('version', 'unknown')}**",
-        f"Declared current gate: **{project.get('current_gate', 'unknown')}**  ",
+        f"Declared current gate: **{project.get('current_gate', 'unknown')}**",
         f"Conductor validation: **{'PASS' if validation['counts']['errors'] == 0 else 'FAIL'}** "
         f"({validation['counts']['errors']} errors, {validation['counts']['warnings']} warnings)",
         "",

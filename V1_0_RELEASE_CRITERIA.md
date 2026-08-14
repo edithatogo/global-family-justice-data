@@ -8,15 +8,13 @@ A criterion is **mandatory** unless explicitly marked “target”. Release auth
 
 ## 2. Release decision model
 
-Five accountable owners sign the release evidence pack:
-
-- **Data owner** — coverage, provenance, rights and release contents;
-- **Methods owner** — ontology, indicators, comparability and interpretation;
-- **Technical owner** — build, schemas, software and service readiness;
-- **Security/privacy owner** — security, disclosure, legal and incident readiness;
-- **Executive release owner** — resources, independence and operational sustainability.
-
-An independent release assurer checks the evidence and provides a recommendation. The executive release owner makes the final go/no-go decision but cannot redefine a failed criterion after the fact.
+The repository owner is the sole accountable decision-maker and signs the
+digest-bound release evidence pack. Role-separated analyst-agent panels review
+data, methods, engineering, security/privacy/rights, accessibility and
+operations evidence and provide options, trade-offs, limitations,
+contingencies, rationale, recommendations and dissent. Panel advice is not
+independent specialist assurance or legal advice. The owner makes the final
+go/no-go decision but cannot redefine a failed criterion after the fact.
 
 ## 3. Mandatory acceptance criteria
 
@@ -49,19 +47,19 @@ An independent release assurer checks the evidence and provides a recommendation
 |---|---|---|
 | C1 | Matter taxonomy, indicator dictionary, duration clocks, cohort bases and denominator rules are frozen for v1.0. | Versioned methods bundle |
 | C2 | Every gold series has a quality grade, comparability tier, inclusion/exclusion definition and named review record. | Gold promotion report |
-| C3 | Every gold series has been independently second-reviewed at source/series level; all observations receive automated checks. | Review ledger |
-| C4 | A risk-based independent re-extraction sample achieves at least 99% exact concordance for values and provenance, with 100% concordance on critical classification fields. Any failure triggers root-cause analysis and expanded sampling. | Assurance sample report |
+| C3 | Every gold series has role-separated agent second review at source/series level; all observations receive automated checks and owner adjudication. | Review ledger |
+| C4 | A risk-based blinded role-separated agent re-extraction sample achieves at least 99% exact concordance for values and provenance, with 100% concordance on critical classification fields. Any failure triggers root-cause analysis, expanded sampling and owner adjudication. | Assurance sample report |
 | C5 | Means, medians, percentiles, threshold rates, prospective waits and pending-case ages remain distinct in storage and presentation. | Schema test and product review |
 | C6 | Tier 3 and Tier 4 observations are not displayed as directly comparable; Tier 2 transformations are visible. | Comparative-output test |
-| C7 | External methodological review has been completed and the project response is public. | Review and response document |
+| C7 | A role-separated agent-panel methodological review has been completed, owner-adjudicated and accompanied by a public response disclosing the absence of external assurance. | Review and response document |
 
 ### D. Security, privacy, ethics and legal readiness
 
 | ID | Criterion | Evidence |
 |---|---|---|
 | D1 | The public release contains no identifiable or linkable person-level case records, sealed material, credentials or secrets. | Automated scans and manual disclosure review |
-| D2 | A current threat model and privacy/disclosure impact assessment cover repository, storage, pipelines, website/API and contributor workflows. | Approved assessments |
-| D3 | Source rights and redistribution status are recorded; restricted raw materials are excluded from public artefacts. | Rights register and legal review |
+| D2 | A current threat model and agent-panel privacy/disclosure assessment cover repository, storage, pipelines, website/API and contributor workflows; findings are owner-adjudicated without a specialist-assurance claim. | Approved assessments |
+| D3 | Source rights and redistribution status are recorded through exact-edition factual evidence and owner decisions; restricted raw materials are excluded from public artefacts and no legal-advice claim is made. | Rights register and owner decision record |
 | D4 | Critical dependencies and build actions are inventoried; dependency, secret and supply-chain scans have no unresolved critical finding and no unaccepted high-impact finding. | Security scan bundle |
 | D5 | Release artefacts have checksums and cryptographic signatures or equivalent provenance attestations. | Signed release manifest |
 | D6 | Vulnerability, privacy incident and takedown/reporting channels are published and tested. | Exercise record and `SECURITY.md` |
@@ -85,9 +83,9 @@ An independent release assurer checks the evidence and provides a recommendation
 | ID | Criterion | Evidence |
 |---|---|---|
 | F1 | Release, correction, incident, source-change, access-review, backup and restore runbooks are approved. | Operations handbook |
-| F2 | Immutable release artefacts exist in at least two independently administered locations, one of which is an archival deposit. | Preservation report |
+| F2 | Immutable release artefacts exist in at least two technically and provider-separated locations under sole-owner custody, one of which is an archival deposit where available. | Preservation report |
 | F3 | Backup restoration has been tested; target recovery is no more than two business days for public access services, with no loss of an immutable release. | Restore-test report |
-| F4 | A support rota has a primary and deputy for every critical operational process. | On-call/ownership matrix |
+| F4 | The owner has documented response targets, correction and incident routes, monitoring responsibilities and a fail-closed unavailable-owner pause for every critical operational process. | Service ownership matrix |
 | F5 | Public correction reports are acknowledged within five working days and receive a disposition or progress update within 30 calendar days. | Service policy and test ticket |
 | F6 | A 12-month release calendar and maintenance budget are approved. | Operating plan |
 | F7 | The v1.0 candidate and most recent prior public release can be reproduced and served; after v1.1, the current and previous minor release remain supported. | Reproducibility exercise |
@@ -99,18 +97,18 @@ An independent release assurer checks the evidence and provides a recommendation
 | G1 | README, methods, data dictionary, source register, quality statement, limitations and citation guidance are complete. | Documentation inventory |
 | G2 | Release data are available in at least one simple open tabular format and one efficient analytical format, without proprietary software. | Release bundle |
 | G3 | Original-language source labels are retained and English translations are separated and reviewable. | Data/schema inspection |
-| G4 | Core public interfaces and documents pass the host’s adopted AA accessibility assessment. | Accessibility report |
-| G5 | Contributor guidance and the high-level methods summary are available in the programme’s selected launch languages, with human translation review. | Localisation report |
+| G4 | Core public interfaces and documents pass the adopted automated and role-separated-agent AA accessibility assessment, with the absence of human assistive-technology validation disclosed. | Accessibility report |
+| G5 | Contributor guidance and the high-level methods summary are available in the programme’s selected launch languages, with source-language agent review and authoritative-reference triangulation. | Localisation report |
 | G6 | Every chart/table exposes definitions, period, unit, source and comparability limitations. | Product QA report |
 
 ### H. Governance, people and sustainability
 
 | ID | Criterion | Evidence |
 |---|---|---|
-| H1 | Steering, methods, data operations and lived-experience/child-rights advisory bodies have current terms of reference and published membership or role disclosure. | Governance pack |
+| H1 | Governance, methods, data, security, accessibility and operations agent-panel roles have current terms of reference and public limitation disclosures. | Governance pack |
 | H2 | Decision rights, escalation and release authority are unambiguous. | RACI and charter |
-| H3 | Critical methods, build and release processes each have a documented deputy and handover material; no critical process has a bus factor of one. | Continuity assessment |
-| H4 | Regional and jurisdiction verification is materially represented in release review, including paid expertise where appropriate. | Participation report |
+| H3 | Critical methods, build and release processes have reproducible handover material and an unavailable-owner pause; agents provide continuity but cannot authorize governed decisions. | Continuity assessment |
+| H4 | Source-language, jurisdiction-aware agent review and authoritative-source triangulation are materially represented; no local-human or lived-experience validation is claimed. | Review report |
 | H5 | The v1.0 operating model has committed resources for at least 12 months after release. | Approved budget/work plan |
 | H6 | A benefits and harms evaluation plan is approved, including monitoring for misleading comparison or policy misuse. | Evaluation plan |
 
@@ -129,8 +127,8 @@ The following strengthen v1.0 but may be accepted as managed limitations when th
 - public query API in addition to downloadable files;
 - automated health monitoring for at least 80% of machine-accessible high-priority sources;
 - contributor guidance in at least four working languages;
-- two independent external methods reviewers from different legal/data traditions;
-- a public beta with documented testing by researchers, court administrators, advocates and people with lived experience.
+- two additional role-separated methods-agent panels using distinct review prompts and declared limitations;
+- a public beta with documented agent/tool usability scenarios and an explicit disclosure that no human-participant validation is claimed.
 
 Targets must never be met by weakening the gold rules or inventing data for silent jurisdictions.
 
@@ -149,8 +147,8 @@ The v1.0 tag must point to an evidence pack containing:
 2. release inventory and checksums;
 3. clean-room build and validation reports;
 4. coverage and negative-findings report;
-5. gold promotion and independent audit reports;
-6. external methods review and response;
+5. gold promotion and role-separated agent audit reports;
+6. agent-panel methods review, owner adjudication and limitations response;
 7. security, privacy, rights and disclosure assessments;
 8. accessibility and localisation reports;
 9. backup/restore and release-rehearsal records;

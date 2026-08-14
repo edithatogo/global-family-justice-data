@@ -10,7 +10,7 @@ objective = "Convert the concept into an authorised programme with controlled sc
 [[gates.criteria]]
 id = "G1-C01"
 track_id = "T0"
-description = "Host, sponsor, programme charter and independent decision rights are formally accepted."
+description = "Host, sponsor, programme charter and owner-held decision rights are formally accepted."
 evidence_ids = ["E-GOV-CHARTER"]
 mandatory = true
 waivable = false
@@ -42,7 +42,7 @@ waivable = false
 [[gates.criteria]]
 id = "G1-C05"
 track_id = "T0"
-description = "Every critical track has an accountable owner, deputy and escalation route."
+description = "Every critical track has an accountable owner, an explicit single-person deputy exception, an escalation route and an unavailable-owner pause."
 evidence_ids = ["E-RACI", "E-TRACK-CHARTERS"]
 mandatory = true
 waivable = false
@@ -66,7 +66,7 @@ waivable = false
 [[gates.criteria]]
 id = "G1-C08"
 track_id = "T2"
-description = "Pilot jurisdiction universe and local-verification strategy are approved."
+description = "Pilot jurisdiction universe and source-language authoritative-triangulation strategy are approved."
 evidence_ids = ["E-PILOT-UNIVERSE"]
 mandatory = true
 waivable = false
@@ -81,7 +81,7 @@ objective = "Demonstrate the full method and technical path on heterogeneous jur
 [[gates.criteria]]
 id = "G2-C01"
 track_id = "T2"
-description = "At least twelve heterogeneous pilot systems have institutional maps, search logs and reviewed coverage states."
+description = "The approved bounded pilot cohort has institutional maps, search logs and reviewed coverage states."
 evidence_ids = ["E-PILOT-CENSUS"]
 mandatory = true
 waivable = false
@@ -129,7 +129,7 @@ waivable = false
 [[gates.criteria]]
 id = "G2-C07"
 track_id = "T5"
-description = "Independent re-extraction of the pilot sample passes the approved concordance threshold."
+description = "Blinded role-separated agent re-extraction of the pilot sample passes the approved concordance threshold and is adjudicated by the owner."
 evidence_ids = ["E-PILOT-INDEPENDENT-ASSURANCE"]
 mandatory = true
 waivable = false
@@ -176,7 +176,7 @@ waivable = false
 [[gates.criteria]]
 id = "G3-C04"
 track_id = "T9"
-description = "Material language and legal-structure ambiguities have local or regional verification."
+description = "Material language and legal-structure ambiguities have source-language, jurisdiction-aware agent review and authoritative-source triangulation."
 evidence_ids = ["E-LOCAL-VERIFICATION-REPORT"]
 mandatory = true
 waivable = false
@@ -271,7 +271,7 @@ waivable = false
 [[gates.criteria]]
 id = "G4-C07"
 track_id = "T7"
-description = "Beta threat, privacy, rights, disclosure and supply-chain assessments are current."
+description = "Beta threat, privacy, rights, disclosure and supply-chain agent-panel reviews are current and owner-adjudicated."
 evidence_ids = ["E-BETA-ASSURANCE"]
 mandatory = true
 waivable = false
@@ -287,7 +287,7 @@ waivable = false
 [[gates.criteria]]
 id = "G4-C09"
 track_id = "T9"
-description = "Public beta testing includes regional experts and people with lived experience; findings are dispositioned."
+description = "Beta accessibility, localisation and usability testing uses role-separated agents and automated tools; findings and the absence of human-participant validation are dispositioned."
 evidence_ids = ["E-BETA-USER-RESEARCH"]
 mandatory = true
 waivable = false
@@ -318,7 +318,7 @@ waivable = false
 [[gates.criteria]]
 id = "G5-C03"
 track_id = "T5"
-description = "All candidate gold series have dual review and independent assurance thresholds pass."
+description = "All candidate gold series have role-separated dual review; agent-panel thresholds pass and findings are owner-adjudicated."
 evidence_ids = ["E-RC-DATA-ASSURANCE"]
 mandatory = true
 waivable = false
@@ -326,7 +326,7 @@ waivable = false
 [[gates.criteria]]
 id = "G5-C04"
 track_id = "T5"
-description = "External methodological review is complete and the programme response is public."
+description = "Role-separated agent-panel methodological review is complete, owner-adjudicated and accompanied by a public limitations response."
 evidence_ids = ["E-EXTERNAL-METHODS-REVIEW"]
 mandatory = true
 waivable = false
@@ -334,7 +334,7 @@ waivable = false
 [[gates.criteria]]
 id = "G5-C05"
 track_id = "T7"
-description = "Security, privacy, legal, rights, disclosure and supply-chain assurance has no open P0/P1 finding."
+description = "Security, privacy, rights, disclosure and supply-chain agent-panel review has no unadjudicated P0/P1 finding; no legal-advice claim is made."
 evidence_ids = ["E-RC-SECURITY-LEGAL-ASSURANCE"]
 mandatory = true
 waivable = false
@@ -342,7 +342,7 @@ waivable = false
 [[gates.criteria]]
 id = "G5-C06"
 track_id = "T6"
-description = "Accessibility, localisation, documentation, citation and responsible-use reviews pass."
+description = "Agent/tool accessibility, localisation, documentation, citation and responsible-use reviews pass with human-participant limitations disclosed."
 evidence_ids = ["E-RC-PUBLICATION-ASSURANCE"]
 mandatory = true
 waivable = false
@@ -374,7 +374,7 @@ waivable = false
 [[gates.criteria]]
 id = "G5-C10"
 track_id = "T9"
-description = "A costed 12-month 1.x operating plan, staffing model and succession plan are committed."
+description = "A costed 12-month sole-owner 1.x operating and resource plan is committed, including an unavailable-owner pause condition."
 evidence_ids = ["E-RC-OPERATING-PLAN"]
 mandatory = true
 waivable = false
@@ -384,7 +384,7 @@ id = "G6"
 name = "Stable v1.0 go-live"
 target_release = "1.0.0"
 dependency_ids = ["G5"]
-objective = "Publish a stable, supportable, independently assured release and transfer it into sustained operation."
+objective = "Publish a stable, supportable, owner-authorized release with role-separated agent-panel review and sustained operation."
 
 [[gates.criteria]]
 id = "G6-C01"
@@ -413,7 +413,7 @@ waivable = false
 [[gates.criteria]]
 id = "G6-C04"
 track_id = "T4"
-description = "The v1.0 artefact is reproducible, checksummed, signed or attested, contract-tested and independently verifiable."
+description = "The v1.0 artefact is reproducible, checksummed, signed or attested, contract-tested and verified by a role-separated agent from the immutable candidate."
 evidence_ids = ["E-V1-ARTEFACT-VERIFICATION"]
 mandatory = true
 waivable = false
@@ -421,7 +421,7 @@ waivable = false
 [[gates.criteria]]
 id = "G6-C05"
 track_id = "T8"
-description = "The immutable release exists in two independently administered locations and restore has been tested."
+description = "The immutable release exists in two technically and provider-separated locations under owner custody and restore has been tested."
 evidence_ids = ["E-V1-ARCHIVE-RESTORE"]
 mandatory = true
 waivable = false
@@ -429,7 +429,7 @@ waivable = false
 [[gates.criteria]]
 id = "G6-C06"
 track_id = "T8"
-description = "Service ownership, support rota, correction channel, monitoring and release calendar are live."
+description = "Owner-held service responsibility, response targets, correction channel, monitoring, release calendar and unavailable-owner pause are live."
 evidence_ids = ["E-V1-SERVICE-HANDOVER"]
 mandatory = true
 waivable = false
@@ -445,7 +445,7 @@ waivable = false
 [[gates.criteria]]
 id = "G6-C08"
 track_id = "T9"
-description = "Committed resources cover at least twelve months of post-release maintenance and international verification."
+description = "The owner records a dated resource commitment covering at least twelve months of post-release maintenance and international verification."
 evidence_ids = ["E-V1-FUNDING-CONTINUITY"]
 mandatory = true
 waivable = false

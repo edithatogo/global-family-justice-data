@@ -64,7 +64,7 @@ Contains large, restricted or non-redistributable source material where lawful. 
 
 ### Archive
 
-Each stable release is deposited in an independently administered preservation service. Archive identity and checksums are included in the release evidence pack.
+Each stable release is deposited in two technically and provider-separated preservation locations under sole-owner custody. Archive identities, custody records, restore receipts and checksums are included in the release evidence pack.
 
 ## 4. Environments
 
@@ -195,7 +195,7 @@ The website/dashboard/API must:
 ## 10. Non-functional requirements for v1
 
 - clean-room reproducibility of core release artefacts;
-- no single-person production step;
+- role-separated analyst-agent preparation and verification, followed by sole-owner authorization for every production, signing, publication or release step;
 - protected release branch and reviewed changes;
 - deterministic identifiers and stable public contracts;
 - observable failures and source staleness;

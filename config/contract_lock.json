@@ -44,7 +44,7 @@
     {
       "kind": "json_schema",
       "path": "schemas/g2_concordance.schema.json",
-      "sha256": "fc36a24b69aa2c6d23fa564653eb8059d93d42a172340220de2dd95cbfec19d4"
+      "sha256": "931d508f49f2701bc8ad2915a86ffb07c5aeaf0c562576b92354ff3f4730a3db"
     },
     {
       "kind": "json_schema",
@@ -313,7 +313,7 @@
     }
   ],
   "entry_count": 62,
-  "inventory_sha256": "1f0cb326f66d63391f12b21c2d6e8cf1895ee9abe0883e1dc40bdda91694f0c2",
+  "inventory_sha256": "e312a513a8b9abd39b20300881a6ed29a5900a64e08c0bb3929785ef19a87342",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

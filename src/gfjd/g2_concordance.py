@@ -3,7 +3,8 @@
 from __future__ import annotations
 
 import json
-from collections.abc import Iterable, Sequence
+import math
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -66,6 +67,8 @@ def compare_g2_extractions(
     critical_fields: Sequence[str] = DEFAULT_CRITICAL_FIELDS,
     overall_threshold: float = 0.99,
     ignored_fields: Sequence[str] = DEFAULT_IGNORED_FIELDS,
+    expected_source_keys: Sequence[str] | None = None,
+    required_component_values: Mapping[str, Sequence[str]] | None = None,
     limitations: Sequence[str] = (),
 ) -> G2ConcordanceResult:
     """Validate and compare two blinded extraction arrays.
@@ -107,11 +110,20 @@ def compare_g2_extractions(
     secondary_by_key = _index_rows(secondary_rows, label="secondary")
     primary_keys = set(primary_by_key)
     secondary_keys = set(secondary_by_key)
+    expected_keys = _normalised_source_keys(expected_source_keys)
+    component_requirements = _normalised_component_requirements(
+        required_component_values,
+        expected_keys if expected_keys is not None else primary_keys | secondary_keys,
+    )
     matched_keys = sorted(primary_keys & secondary_keys)
     primary_only = sorted(primary_keys - secondary_keys)
     secondary_only = sorted(secondary_keys - primary_keys)
 
     differences: list[dict[str, Any]] = []
+    differences.extend(_expected_scope_differences(primary_keys, secondary_keys, expected_keys))
+    differences.extend(
+        _required_component_differences(primary_by_key, secondary_by_key, component_requirements)
+    )
     for key in primary_only:
         differences.append(
             {
@@ -140,7 +152,7 @@ def compare_g2_extractions(
     critical_matches = 0
     overall_comparisons = 0
     overall_matches = 0
-    critical_difference_count = len(primary_only) + len(secondary_only)
+    critical_difference_count = len(differences)
 
     for key in matched_keys:
         primary_row = primary_by_key[key]
@@ -251,6 +263,12 @@ def compare_g2_extractions(
         "generated_at": generated_at,
         "limitations": list(limitations),
     }
+    if expected_keys is not None:
+        receipt["expected_source_keys"] = sorted(expected_keys)
+    if required_component_values is not None:
+        receipt["required_component_values"] = {
+            key: sorted(values) for key, values in sorted(component_requirements.items())
+        }
     _validate_object(receipt, _load_object(receipt_schema_path), label="receipt")
     receipt_path = destination / "concordance.json"
     write_json(receipt_path, receipt)
@@ -320,6 +338,167 @@ def _normalised_fields(fields: Sequence[str], schema_fields: set[str], *, label:
     if unknown:
         raise G2ConcordanceError(f"unknown {label} fields: {', '.join(unknown)}")
     return normalised
+
+
+def _normalised_source_keys(keys: Sequence[str] | None) -> set[str] | None:
+    if keys is None:
+        return None
+    normalised = [str(key) for key in keys]
+    if len(set(normalised)) != len(normalised):
+        raise G2ConcordanceError("expected_source_keys contains duplicates")
+    invalid = sorted(key for key in normalised if not _is_source_key(key))
+    if invalid:
+        raise G2ConcordanceError(f"invalid expected_source_keys: {', '.join(invalid)}")
+    return set(normalised)
+
+
+def _normalised_component_requirements(
+    requirements: Mapping[str, Sequence[str]] | None,
+    scope_keys: set[str],
+) -> dict[str, set[str]]:
+    if requirements is None:
+        return {}
+    normalised: dict[str, set[str]] = {}
+    for raw_key, raw_components in requirements.items():
+        key = str(raw_key)
+        if not _is_source_key(key):
+            raise G2ConcordanceError(f"invalid required component source key: {key}")
+        components = [str(component) for component in raw_components]
+        if len(set(components)) != len(components):
+            raise G2ConcordanceError(f"required components for {key} contain duplicates")
+        invalid = sorted(
+            component
+            for component in components
+            if not component
+            or not all(char.islower() or char.isdigit() or char == "_" for char in component)
+        )
+        if invalid:
+            raise G2ConcordanceError(f"invalid required components for {key}: {', '.join(invalid)}")
+        normalised[key] = set(components)
+    missing_requirements = sorted(scope_keys - set(normalised))
+    outside_scope = sorted(set(normalised) - scope_keys)
+    if missing_requirements or outside_scope:
+        details: list[str] = []
+        if missing_requirements:
+            details.append("missing source keys: " + ", ".join(missing_requirements))
+        if outside_scope:
+            details.append("outside scope: " + ", ".join(outside_scope))
+        raise G2ConcordanceError(
+            "required_component_values must exactly cover the comparison scope ("
+            + "; ".join(details)
+            + ")"
+        )
+    return normalised
+
+
+def _is_source_key(key: str) -> bool:
+    return len(key) == 64 and all(char in "0123456789abcdef" for char in key)
+
+
+def _expected_scope_differences(
+    primary_keys: set[str], secondary_keys: set[str], expected_keys: set[str] | None
+) -> list[dict[str, Any]]:
+    if expected_keys is None:
+        return []
+    differences: list[dict[str, Any]] = []
+    for key in sorted(expected_keys - (primary_keys | secondary_keys)):
+        differences.append(
+            {
+                "source_record_key": key,
+                "difference_type": "missing_expected_row_both",
+                "field": "source_record_key",
+                "critical": True,
+                "primary_value": None,
+                "secondary_value": None,
+            }
+        )
+    for key in sorted((primary_keys & secondary_keys) - expected_keys):
+        differences.append(
+            {
+                "source_record_key": key,
+                "difference_type": "unexpected_row_both",
+                "field": "source_record_key",
+                "critical": True,
+                "primary_value": "present",
+                "secondary_value": "present",
+            }
+        )
+    return differences
+
+
+def _required_component_differences(
+    primary_by_key: Mapping[str, Mapping[str, Any]],
+    secondary_by_key: Mapping[str, Mapping[str, Any]],
+    requirements: Mapping[str, set[str]],
+) -> list[dict[str, Any]]:
+    differences: list[dict[str, Any]] = []
+    for source_key, required in sorted(requirements.items()):
+        for extraction, rows in (
+            ("primary", primary_by_key),
+            ("secondary", secondary_by_key),
+        ):
+            row = rows.get(source_key)
+            if row is None:
+                differences.append(
+                    {
+                        "source_record_key": source_key,
+                        "difference_type": f"{extraction}_missing_required_component_row",
+                        "field": "component_values",
+                        "critical": True,
+                        "primary_value": None if extraction == "primary" else "not_checked",
+                        "secondary_value": None if extraction == "secondary" else "not_checked",
+                    }
+                )
+                continue
+            components = row.get("component_values")
+            component_map = components if isinstance(components, dict) else {}
+            actual = set(component_map)
+            for component in sorted(required - actual):
+                differences.append(
+                    _component_constraint_difference(
+                        source_key, extraction, component, "missing", None
+                    )
+                )
+            for component in sorted(actual - required):
+                differences.append(
+                    _component_constraint_difference(
+                        source_key,
+                        extraction,
+                        component,
+                        "unexpected",
+                        component_map[component],
+                    )
+                )
+            for component in sorted(required & actual):
+                value = component_map[component]
+                if not _populated_numeric(value):
+                    differences.append(
+                        _component_constraint_difference(
+                            source_key, extraction, component, "not_populated_numeric", value
+                        )
+                    )
+    return differences
+
+
+def _component_constraint_difference(
+    source_key: str,
+    extraction: str,
+    component: str,
+    condition: str,
+    value: Any,
+) -> dict[str, Any]:
+    return {
+        "source_record_key": source_key,
+        "difference_type": f"{extraction}_required_component_{condition}",
+        "field": f"component_values.{component}",
+        "critical": True,
+        "primary_value": value if extraction == "primary" else "not_checked",
+        "secondary_value": value if extraction == "secondary" else "not_checked",
+    }
+
+
+def _populated_numeric(value: Any) -> bool:
+    return not isinstance(value, bool) and isinstance(value, (int, float)) and math.isfinite(value)
 
 
 def _populated(value: Any) -> bool:

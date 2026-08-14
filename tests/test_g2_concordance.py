@@ -156,6 +156,101 @@ def test_comparator_expands_component_values_as_critical_fields(
     assert differences["differences"][0]["critical"] is True
 
 
+def test_comparator_binds_and_enforces_expected_scope_and_components(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    row = _row(1, component_values={"filed": 10, "disposed": 9})
+    key = str(row["source_record_key"])
+
+    result = _compare(
+        root,
+        [row],
+        [_row(1, component_values={"filed": 10, "disposed": 9})],
+        expected_source_keys=[key],
+        required_component_values={key: ["filed", "disposed"]},
+    )
+
+    receipt = json.loads(result.receipt_path.read_text(encoding="utf-8"))
+    assert result.threshold_passed is True
+    assert receipt["expected_source_keys"] == [key]
+    assert receipt["required_component_values"] == {key: ["disposed", "filed"]}
+
+
+def test_comparator_fails_when_both_extractions_share_scope_omissions_or_extras(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    expected = str(_row(1)["source_record_key"])
+    unexpected_row = _row(2)
+
+    result = _compare(
+        root,
+        [unexpected_row],
+        [_row(2, extracted_row_id="G2ROW-SECONDARY002")],
+        expected_source_keys=[expected],
+    )
+
+    differences = json.loads(result.difference_path.read_text(encoding="utf-8"))
+    assert result.threshold_passed is False
+    assert [item["difference_type"] for item in differences["differences"][:2]] == [
+        "missing_expected_row_both",
+        "unexpected_row_both",
+    ]
+
+
+def test_comparator_fails_shared_component_contract_violations(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    row = _row(1, component_values={"filed": None, "extra": 3})
+    key = str(row["source_record_key"])
+
+    result = _compare(
+        root,
+        [row],
+        [_row(1, component_values={"filed": None, "extra": 3})],
+        expected_source_keys=[key],
+        required_component_values={key: ["filed", "disposed"]},
+    )
+
+    differences = json.loads(result.difference_path.read_text(encoding="utf-8"))
+    difference_types = {item["difference_type"] for item in differences["differences"]}
+    assert result.threshold_passed is False
+    assert difference_types == {
+        "primary_required_component_missing",
+        "primary_required_component_unexpected",
+        "primary_required_component_not_populated_numeric",
+        "secondary_required_component_missing",
+        "secondary_required_component_unexpected",
+        "secondary_required_component_not_populated_numeric",
+    }
+
+
+def test_comparator_rejects_invalid_scope_configuration(project_root: Path, tmp_path: Path) -> None:
+    root = _root(project_root, tmp_path)
+    key = str(_row(1)["source_record_key"])
+    outside = str(_row(2)["source_record_key"])
+    with pytest.raises(G2ConcordanceError, match="contains duplicates"):
+        _compare(root, [_row(1)], [_row(1)], expected_source_keys=[key, key])
+    with pytest.raises(G2ConcordanceError, match="must exactly cover"):
+        _compare(
+            root,
+            [_row(1)],
+            [_row(1)],
+            expected_source_keys=[key],
+            required_component_values={outside: ["filed"]},
+        )
+    with pytest.raises(G2ConcordanceError, match="missing source keys"):
+        _compare(
+            root,
+            [_row(1), _row(2)],
+            [_row(1), _row(2)],
+            expected_source_keys=[key, outside],
+            required_component_values={key: []},
+        )
+
+
 @pytest.mark.parametrize("missing_from", ["primary", "secondary"])
 def test_comparator_fails_on_unmatched_rows(
     project_root: Path, tmp_path: Path, missing_from: str

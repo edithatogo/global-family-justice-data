@@ -39,6 +39,18 @@
     },
     "critical_threshold": {"const": 1.0},
     "overall_threshold": {"type": "number", "minimum": 0.99, "maximum": 1},
+    "expected_source_keys": {
+      "type": "array", "uniqueItems": true,
+      "items": {"$ref": "#/$defs/source_record_key"}
+    },
+    "required_component_values": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[a-f0-9]{64}$"},
+      "additionalProperties": {
+        "type": "array", "uniqueItems": true,
+        "items": {"type": "string", "pattern": "^[a-z0-9_]+$"}
+      }
+    },
     "matched_rows": {"type": "integer", "minimum": 0},
     "primary_only_rows": {"type": "integer", "minimum": 0},
     "secondary_only_rows": {"type": "integer", "minimum": 0},
@@ -70,6 +82,7 @@
   },
   "$defs": {
     "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source_record_key": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
     "artifact": {
       "type": "object", "required": ["path", "sha256"],
       "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/sha256"}},

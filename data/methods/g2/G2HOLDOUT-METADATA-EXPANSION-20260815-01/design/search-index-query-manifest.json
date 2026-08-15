@@ -29,6 +29,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "AUS",
       "language": "en",
+      "official_domain": "fcfcoa.gov.au",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "Federal Circuit and Family Court of Australia annual report statistics 2025 site:fcfcoa.gov.au text native PDF"
@@ -39,6 +40,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "AUS",
       "language": "en",
+      "official_domain": "fcfcoa.gov.au",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "family law court statistics annual report 2025 site:fcfcoa.gov.au text native PDF"
@@ -49,6 +51,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "AUS",
       "language": "en",
+      "official_domain": "fcfcoa.gov.au",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:fcfcoa.gov.au family court statistics report 2025 text native PDF"
@@ -59,6 +62,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "AUS",
       "language": "en",
+      "official_domain": "fcfcoa.gov.au",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:fcfcoa.gov.au family justice infographic dashboard report 2025 text native PDF"
@@ -69,6 +73,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "GBR-EAW",
       "language": "en",
+      "official_domain": "gov.uk",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "Family Court of England and Wales annual report statistics 2024 site:gov.uk text native PDF"
@@ -79,6 +84,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "GBR-EAW",
       "language": "en",
+      "official_domain": "gov.uk",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "family court court statistics annual report 2024 site:gov.uk text native PDF"
@@ -89,6 +95,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "GBR-EAW",
       "language": "en",
+      "official_domain": "gov.uk",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:gov.uk family court statistics report 2024 text native PDF"
@@ -99,6 +106,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "GBR-EAW",
       "language": "en",
+      "official_domain": "gov.uk",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:gov.uk family justice infographic dashboard report 2024 text native PDF"
@@ -109,6 +117,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "NZL",
       "language": "en",
+      "official_domain": "justice.govt.nz",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "Family Court of New Zealand annual report statistics 2023 site:justice.govt.nz text native PDF"
@@ -119,6 +128,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "NZL",
       "language": "en",
+      "official_domain": "justice.govt.nz",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "family court court statistics annual report 2023 site:justice.govt.nz text native PDF"
@@ -129,6 +139,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "NZL",
       "language": "en",
+      "official_domain": "justice.govt.nz",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:justice.govt.nz family court statistics report 2023 text native PDF"
@@ -139,6 +150,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "NZL",
       "language": "en",
+      "official_domain": "justice.govt.nz",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:justice.govt.nz family justice infographic dashboard report 2023 text native PDF"
@@ -149,6 +161,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "CAN-BC",
       "language": "en",
+      "official_domain": "provincialcourt.bc.ca",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "Provincial Court of British Columbia Family annual report statistics 2022 site:provincialcourt.bc.ca text native PDF"
@@ -159,6 +172,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "CAN-BC",
       "language": "en",
+      "official_domain": "provincialcourt.bc.ca",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "family court court statistics annual report 2022 site:provincialcourt.bc.ca text native PDF"
@@ -169,6 +183,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "CAN-BC",
       "language": "en",
+      "official_domain": "provincialcourt.bc.ca",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:provincialcourt.bc.ca family court statistics report 2022 text native PDF"
@@ -179,6 +194,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "CAN-BC",
       "language": "en",
+      "official_domain": "provincialcourt.bc.ca",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:provincialcourt.bc.ca family justice infographic dashboard report 2022 text native PDF"
@@ -189,6 +205,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "CAN-ON",
       "language": "en",
+      "official_domain": "ontariocourts.ca",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "Ontario Court of Justice Family Court annual report statistics 2025 site:ontariocourts.ca text native PDF"
@@ -199,6 +216,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "CAN-ON",
       "language": "en",
+      "official_domain": "ontariocourts.ca",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "family court court statistics annual report 2025 site:ontariocourts.ca text native PDF"
@@ -209,6 +227,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "CAN-ON",
       "language": "en",
+      "official_domain": "ontariocourts.ca",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:ontariocourts.ca family court statistics report 2025 text native PDF"
@@ -219,6 +238,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "CAN-ON",
       "language": "en",
+      "official_domain": "ontariocourts.ca",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:ontariocourts.ca family justice infographic dashboard report 2025 text native PDF"
@@ -229,6 +249,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-CA",
       "language": "en",
+      "official_domain": "courts.ca.gov",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "Judicial Council of California family law annual report statistics 2024 site:courts.ca.gov text native PDF"
@@ -239,6 +260,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-CA",
       "language": "en",
+      "official_domain": "courts.ca.gov",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "family law court statistics annual report 2024 site:courts.ca.gov text native PDF"
@@ -249,6 +271,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-CA",
       "language": "en",
+      "official_domain": "courts.ca.gov",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:courts.ca.gov family court statistics report 2024 text native PDF"
@@ -259,6 +282,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-CA",
       "language": "en",
+      "official_domain": "courts.ca.gov",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:courts.ca.gov family justice infographic dashboard report 2024 text native PDF"
@@ -269,6 +293,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-MN",
       "language": "en",
+      "official_domain": "mncourts.gov",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "Minnesota Judicial Branch Family annual report statistics 2023 site:mncourts.gov text native PDF"
@@ -279,6 +304,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-MN",
       "language": "en",
+      "official_domain": "mncourts.gov",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "family court court statistics annual report 2023 site:mncourts.gov text native PDF"
@@ -289,6 +315,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-MN",
       "language": "en",
+      "official_domain": "mncourts.gov",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:mncourts.gov family court statistics report 2023 text native PDF"
@@ -299,6 +326,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-MN",
       "language": "en",
+      "official_domain": "mncourts.gov",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:mncourts.gov family justice infographic dashboard report 2023 text native PDF"
@@ -309,6 +337,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-WA",
       "language": "en",
+      "official_domain": "courts.wa.gov",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "Washington Courts family law annual report statistics 2022 site:courts.wa.gov text native PDF"
@@ -319,6 +348,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-WA",
       "language": "en",
+      "official_domain": "courts.wa.gov",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "family law court statistics annual report 2022 site:courts.wa.gov text native PDF"
@@ -329,6 +359,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-WA",
       "language": "en",
+      "official_domain": "courts.wa.gov",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:courts.wa.gov family court statistics report 2022 text native PDF"
@@ -339,6 +370,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-WA",
       "language": "en",
+      "official_domain": "courts.wa.gov",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:courts.wa.gov family justice infographic dashboard report 2022 text native PDF"
@@ -349,6 +381,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-NY",
       "language": "en",
+      "official_domain": "nycourts.gov",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "New York State Family Court annual report statistics 2025 site:nycourts.gov text native PDF"
@@ -359,6 +392,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-NY",
       "language": "en",
+      "official_domain": "nycourts.gov",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "family court court statistics annual report 2025 site:nycourts.gov text native PDF"
@@ -369,6 +403,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-NY",
       "language": "en",
+      "official_domain": "nycourts.gov",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:nycourts.gov family court statistics report 2025 text native PDF"
@@ -379,6 +414,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "USA-NY",
       "language": "en",
+      "official_domain": "nycourts.gov",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:nycourts.gov family justice infographic dashboard report 2025 text native PDF"
@@ -389,6 +425,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "IRL",
       "language": "en",
+      "official_domain": "courts.ie",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "Courts Service of Ireland family law annual report statistics 2024 site:courts.ie text native PDF"
@@ -399,6 +436,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "IRL",
       "language": "en",
+      "official_domain": "courts.ie",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "family law court statistics annual report 2024 site:courts.ie text native PDF"
@@ -409,6 +447,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "IRL",
       "language": "en",
+      "official_domain": "courts.ie",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:courts.ie family court statistics report 2024 text native PDF"
@@ -419,6 +458,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "IRL",
       "language": "en",
+      "official_domain": "courts.ie",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:courts.ie family justice infographic dashboard report 2024 text native PDF"
@@ -429,6 +469,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "SGP",
       "language": "en",
+      "official_domain": "judiciary.gov.sg",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "Family Justice Courts Singapore annual report statistics 2023 site:judiciary.gov.sg text native PDF"
@@ -439,6 +480,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "SGP",
       "language": "en",
+      "official_domain": "judiciary.gov.sg",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "family justice courts court statistics annual report 2023 site:judiciary.gov.sg text native PDF"
@@ -449,6 +491,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "SGP",
       "language": "en",
+      "official_domain": "judiciary.gov.sg",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:judiciary.gov.sg family court statistics report 2023 text native PDF"
@@ -459,6 +502,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "SGP",
       "language": "en",
+      "official_domain": "judiciary.gov.sg",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:judiciary.gov.sg family justice infographic dashboard report 2023 text native PDF"
@@ -469,6 +513,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "ZAF",
       "language": "en",
+      "official_domain": "judiciary.org.za",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "South African Judiciary family court annual report statistics 2022 site:judiciary.org.za text native PDF"
@@ -479,6 +524,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "ZAF",
       "language": "en",
+      "official_domain": "judiciary.org.za",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "family court domestic violence court statistics annual report 2022 site:judiciary.org.za text native PDF"
@@ -489,6 +535,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "ZAF",
       "language": "en",
+      "official_domain": "judiciary.org.za",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:judiciary.org.za family court statistics report 2022 text native PDF"
@@ -499,6 +546,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "ZAF",
       "language": "en",
+      "official_domain": "judiciary.org.za",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:judiciary.org.za family justice infographic dashboard report 2022 text native PDF"
@@ -509,6 +557,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "KEN",
       "language": "en",
+      "official_domain": "judiciary.go.ke",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "Judiciary of Kenya family court annual report statistics 2025 site:judiciary.go.ke text native PDF"
@@ -519,6 +568,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "KEN",
       "language": "en",
+      "official_domain": "judiciary.go.ke",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "family court court statistics annual report 2025 site:judiciary.go.ke text native PDF"
@@ -529,6 +579,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "KEN",
       "language": "en",
+      "official_domain": "judiciary.go.ke",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:judiciary.go.ke family court statistics report 2025 text native PDF"
@@ -539,6 +590,7 @@
       "stream_id": "english_text_native",
       "jurisdiction_id": "KEN",
       "language": "en",
+      "official_domain": "judiciary.go.ke",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:judiciary.go.ke family justice infographic dashboard report 2025 text native PDF"
@@ -549,6 +601,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "FRA",
       "language": "fr",
+      "official_domain": "justice.gouv.fr",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "Ministère de la Justice affaires familiales annual report statistics 2024 site:justice.gouv.fr statistical yearbook PDF"
@@ -559,6 +612,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "FRA",
       "language": "fr",
+      "official_domain": "justice.gouv.fr",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "affaires familiales court statistics annual report 2024 site:justice.gouv.fr statistical yearbook PDF"
@@ -569,6 +623,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "FRA",
       "language": "fr",
+      "official_domain": "justice.gouv.fr",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:justice.gouv.fr family court statistics report 2024 statistical yearbook PDF"
@@ -579,6 +634,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "FRA",
       "language": "fr",
+      "official_domain": "justice.gouv.fr",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:justice.gouv.fr family justice infographic dashboard report 2024 statistical yearbook PDF"
@@ -589,6 +645,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "ESP",
       "language": "es",
+      "official_domain": "poderjudicial.es",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "Consejo General del Poder Judicial familia annual report statistics 2023 site:poderjudicial.es statistical yearbook PDF"
@@ -599,6 +656,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "ESP",
       "language": "es",
+      "official_domain": "poderjudicial.es",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "juzgados de familia violencia de género court statistics annual report 2023 site:poderjudicial.es statistical yearbook PDF"
@@ -609,6 +667,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "ESP",
       "language": "es",
+      "official_domain": "poderjudicial.es",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:poderjudicial.es family court statistics report 2023 statistical yearbook PDF"
@@ -619,6 +678,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "ESP",
       "language": "es",
+      "official_domain": "poderjudicial.es",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:poderjudicial.es family justice infographic dashboard report 2023 statistical yearbook PDF"
@@ -629,6 +689,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "BRA",
       "language": "pt",
+      "official_domain": "cnj.jus.br",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "Conselho Nacional de Justiça annual report statistics 2022 site:cnj.jus.br statistical yearbook PDF"
@@ -639,6 +700,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "BRA",
       "language": "pt",
+      "official_domain": "cnj.jus.br",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "justiça de família violência doméstica court statistics annual report 2022 site:cnj.jus.br statistical yearbook PDF"
@@ -649,6 +711,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "BRA",
       "language": "pt",
+      "official_domain": "cnj.jus.br",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:cnj.jus.br family court statistics report 2022 statistical yearbook PDF"
@@ -659,6 +722,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "BRA",
       "language": "pt",
+      "official_domain": "cnj.jus.br",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:cnj.jus.br family justice infographic dashboard report 2022 statistical yearbook PDF"
@@ -669,6 +733,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "MEX",
       "language": "es",
+      "official_domain": "cjf.gob.mx",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "Consejo de la Judicatura Federal materia familiar annual report statistics 2025 site:cjf.gob.mx statistical yearbook PDF"
@@ -679,6 +744,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "MEX",
       "language": "es",
+      "official_domain": "cjf.gob.mx",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "materia familiar juzgados familiares court statistics annual report 2025 site:cjf.gob.mx statistical yearbook PDF"
@@ -689,6 +755,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "MEX",
       "language": "es",
+      "official_domain": "cjf.gob.mx",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:cjf.gob.mx family court statistics report 2025 statistical yearbook PDF"
@@ -699,6 +766,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "MEX",
       "language": "es",
+      "official_domain": "cjf.gob.mx",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:cjf.gob.mx family justice infographic dashboard report 2025 statistical yearbook PDF"
@@ -709,6 +777,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "CHL",
       "language": "es",
+      "official_domain": "pjud.cl",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "Poder Judicial de Chile tribunales de familia annual report statistics 2024 site:pjud.cl statistical yearbook PDF"
@@ -719,6 +788,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "CHL",
       "language": "es",
+      "official_domain": "pjud.cl",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "tribunales de familia court statistics annual report 2024 site:pjud.cl statistical yearbook PDF"
@@ -729,6 +799,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "CHL",
       "language": "es",
+      "official_domain": "pjud.cl",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:pjud.cl family court statistics report 2024 statistical yearbook PDF"
@@ -739,6 +810,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "CHL",
       "language": "es",
+      "official_domain": "pjud.cl",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:pjud.cl family justice infographic dashboard report 2024 statistical yearbook PDF"
@@ -749,6 +821,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "PER",
       "language": "es",
+      "official_domain": "pj.gob.pe",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "Poder Judicial del Perú familia annual report statistics 2023 site:pj.gob.pe statistical yearbook PDF"
@@ -759,6 +832,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "PER",
       "language": "es",
+      "official_domain": "pj.gob.pe",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "familia violencia familiar court statistics annual report 2023 site:pj.gob.pe statistical yearbook PDF"
@@ -769,6 +843,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "PER",
       "language": "es",
+      "official_domain": "pj.gob.pe",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:pj.gob.pe family court statistics report 2023 statistical yearbook PDF"
@@ -779,6 +854,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "PER",
       "language": "es",
+      "official_domain": "pj.gob.pe",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:pj.gob.pe family justice infographic dashboard report 2023 statistical yearbook PDF"
@@ -789,6 +865,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "NLD",
       "language": "nl",
+      "official_domain": "rechtspraak.nl",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "Rechtspraak familie annual report statistics 2022 site:rechtspraak.nl statistical yearbook PDF"
@@ -799,6 +876,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "NLD",
       "language": "nl",
+      "official_domain": "rechtspraak.nl",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "familie jeugdrecht court statistics annual report 2022 site:rechtspraak.nl statistical yearbook PDF"
@@ -809,6 +887,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "NLD",
       "language": "nl",
+      "official_domain": "rechtspraak.nl",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:rechtspraak.nl family court statistics report 2022 statistical yearbook PDF"
@@ -819,6 +898,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "NLD",
       "language": "nl",
+      "official_domain": "rechtspraak.nl",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:rechtspraak.nl family justice infographic dashboard report 2022 statistical yearbook PDF"
@@ -829,6 +909,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "SWE",
       "language": "sv",
+      "official_domain": "domstol.se",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "Sveriges Domstolar familjemål annual report statistics 2025 site:domstol.se statistical yearbook PDF"
@@ -839,6 +920,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "SWE",
       "language": "sv",
+      "official_domain": "domstol.se",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "familjemål vårdnad court statistics annual report 2025 site:domstol.se statistical yearbook PDF"
@@ -849,6 +931,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "SWE",
       "language": "sv",
+      "official_domain": "domstol.se",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:domstol.se family court statistics report 2025 statistical yearbook PDF"
@@ -859,6 +942,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "SWE",
       "language": "sv",
+      "official_domain": "domstol.se",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:domstol.se family justice infographic dashboard report 2025 statistical yearbook PDF"
@@ -869,6 +953,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "DNK",
       "language": "da",
+      "official_domain": "domstol.dk",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "Danmarks Domstole Familieretten annual report statistics 2024 site:domstol.dk statistical yearbook PDF"
@@ -879,6 +964,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "DNK",
       "language": "da",
+      "official_domain": "domstol.dk",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "familieretten court statistics annual report 2024 site:domstol.dk statistical yearbook PDF"
@@ -889,6 +975,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "DNK",
       "language": "da",
+      "official_domain": "domstol.dk",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:domstol.dk family court statistics report 2024 statistical yearbook PDF"
@@ -899,6 +986,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "DNK",
       "language": "da",
+      "official_domain": "domstol.dk",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:domstol.dk family justice infographic dashboard report 2024 statistical yearbook PDF"
@@ -909,6 +997,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "NOR",
       "language": "no",
+      "official_domain": "domstol.no",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "Domstolene familiesaker annual report statistics 2023 site:domstol.no statistical yearbook PDF"
@@ -919,6 +1008,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "NOR",
       "language": "no",
+      "official_domain": "domstol.no",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "familiesaker foreldretvist court statistics annual report 2023 site:domstol.no statistical yearbook PDF"
@@ -929,6 +1019,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "NOR",
       "language": "no",
+      "official_domain": "domstol.no",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:domstol.no family court statistics report 2023 statistical yearbook PDF"
@@ -939,6 +1030,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "NOR",
       "language": "no",
+      "official_domain": "domstol.no",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:domstol.no family justice infographic dashboard report 2023 statistical yearbook PDF"
@@ -949,6 +1041,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "JPN",
       "language": "ja",
+      "official_domain": "courts.go.jp",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "Supreme Court of Japan Family Courts annual report statistics 2022 site:courts.go.jp statistical yearbook PDF"
@@ -959,6 +1052,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "JPN",
       "language": "ja",
+      "official_domain": "courts.go.jp",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "家庭裁判所 家事事件 court statistics annual report 2022 site:courts.go.jp statistical yearbook PDF"
@@ -969,6 +1063,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "JPN",
       "language": "ja",
+      "official_domain": "courts.go.jp",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:courts.go.jp family court statistics report 2022 statistical yearbook PDF"
@@ -979,6 +1074,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "JPN",
       "language": "ja",
+      "official_domain": "courts.go.jp",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:courts.go.jp family justice infographic dashboard report 2022 statistical yearbook PDF"
@@ -989,6 +1085,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "KOR",
       "language": "ko",
+      "official_domain": "scourt.go.kr",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "Supreme Court of Korea family court annual report statistics 2025 site:scourt.go.kr statistical yearbook PDF"
@@ -999,6 +1096,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "KOR",
       "language": "ko",
+      "official_domain": "scourt.go.kr",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "가정법원 가사 court statistics annual report 2025 site:scourt.go.kr statistical yearbook PDF"
@@ -1009,6 +1107,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "KOR",
       "language": "ko",
+      "official_domain": "scourt.go.kr",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:scourt.go.kr family court statistics report 2025 statistical yearbook PDF"
@@ -1019,6 +1118,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "KOR",
       "language": "ko",
+      "official_domain": "scourt.go.kr",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:scourt.go.kr family justice infographic dashboard report 2025 statistical yearbook PDF"
@@ -1029,6 +1129,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "POL",
       "language": "pl",
+      "official_domain": "gov.pl",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "Poland family courts annual report statistics 2024 site:gov.pl statistical yearbook PDF"
@@ -1039,6 +1140,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "POL",
       "language": "pl",
+      "official_domain": "gov.pl",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "sąd rodzinny sprawy rodzinne court statistics annual report 2024 site:gov.pl statistical yearbook PDF"
@@ -1049,6 +1151,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "POL",
       "language": "pl",
+      "official_domain": "gov.pl",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:gov.pl family court statistics report 2024 statistical yearbook PDF"
@@ -1059,6 +1162,7 @@
       "stream_id": "non_english_text_native",
       "jurisdiction_id": "POL",
       "language": "pl",
+      "official_domain": "gov.pl",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:gov.pl family justice infographic dashboard report 2024 statistical yearbook PDF"
@@ -1069,6 +1173,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "BRA",
       "language": "pt",
+      "official_domain": "cnj.jus.br",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "Conselho Nacional de Justiça annual report statistics 2023 site:cnj.jus.br infographic dashboard PDF"
@@ -1079,6 +1184,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "BRA",
       "language": "pt",
+      "official_domain": "cnj.jus.br",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "justiça de família violência doméstica court statistics annual report 2023 site:cnj.jus.br infographic dashboard PDF"
@@ -1089,6 +1195,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "BRA",
       "language": "pt",
+      "official_domain": "cnj.jus.br",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:cnj.jus.br family court statistics report 2023 infographic dashboard PDF"
@@ -1099,6 +1206,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "BRA",
       "language": "pt",
+      "official_domain": "cnj.jus.br",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:cnj.jus.br family justice infographic dashboard report 2023 infographic dashboard PDF"
@@ -1109,6 +1217,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "MEX",
       "language": "es",
+      "official_domain": "cjf.gob.mx",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "Consejo de la Judicatura Federal materia familiar annual report statistics 2022 site:cjf.gob.mx infographic dashboard PDF"
@@ -1119,6 +1228,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "MEX",
       "language": "es",
+      "official_domain": "cjf.gob.mx",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "materia familiar juzgados familiares court statistics annual report 2022 site:cjf.gob.mx infographic dashboard PDF"
@@ -1129,6 +1239,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "MEX",
       "language": "es",
+      "official_domain": "cjf.gob.mx",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:cjf.gob.mx family court statistics report 2022 infographic dashboard PDF"
@@ -1139,6 +1250,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "MEX",
       "language": "es",
+      "official_domain": "cjf.gob.mx",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:cjf.gob.mx family justice infographic dashboard report 2022 infographic dashboard PDF"
@@ -1149,6 +1261,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "CHL",
       "language": "es",
+      "official_domain": "pjud.cl",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "Poder Judicial de Chile tribunales de familia annual report statistics 2025 site:pjud.cl infographic dashboard PDF"
@@ -1159,6 +1272,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "CHL",
       "language": "es",
+      "official_domain": "pjud.cl",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "tribunales de familia court statistics annual report 2025 site:pjud.cl infographic dashboard PDF"
@@ -1169,6 +1283,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "CHL",
       "language": "es",
+      "official_domain": "pjud.cl",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:pjud.cl family court statistics report 2025 infographic dashboard PDF"
@@ -1179,6 +1294,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "CHL",
       "language": "es",
+      "official_domain": "pjud.cl",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:pjud.cl family justice infographic dashboard report 2025 infographic dashboard PDF"
@@ -1189,6 +1305,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "PER",
       "language": "es",
+      "official_domain": "pj.gob.pe",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "Poder Judicial del Perú familia annual report statistics 2024 site:pj.gob.pe infographic dashboard PDF"
@@ -1199,6 +1316,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "PER",
       "language": "es",
+      "official_domain": "pj.gob.pe",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "familia violencia familiar court statistics annual report 2024 site:pj.gob.pe infographic dashboard PDF"
@@ -1209,6 +1327,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "PER",
       "language": "es",
+      "official_domain": "pj.gob.pe",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:pj.gob.pe family court statistics report 2024 infographic dashboard PDF"
@@ -1219,6 +1338,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "PER",
       "language": "es",
+      "official_domain": "pj.gob.pe",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:pj.gob.pe family justice infographic dashboard report 2024 infographic dashboard PDF"
@@ -1229,6 +1349,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "ESP",
       "language": "es",
+      "official_domain": "poderjudicial.es",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "Consejo General del Poder Judicial familia annual report statistics 2023 site:poderjudicial.es infographic dashboard PDF"
@@ -1239,6 +1360,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "ESP",
       "language": "es",
+      "official_domain": "poderjudicial.es",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "juzgados de familia violencia de género court statistics annual report 2023 site:poderjudicial.es infographic dashboard PDF"
@@ -1249,6 +1371,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "ESP",
       "language": "es",
+      "official_domain": "poderjudicial.es",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:poderjudicial.es family court statistics report 2023 infographic dashboard PDF"
@@ -1259,6 +1382,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "ESP",
       "language": "es",
+      "official_domain": "poderjudicial.es",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:poderjudicial.es family justice infographic dashboard report 2023 infographic dashboard PDF"
@@ -1269,6 +1393,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "FRA",
       "language": "fr",
+      "official_domain": "justice.gouv.fr",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "Ministère de la Justice affaires familiales annual report statistics 2022 site:justice.gouv.fr infographic dashboard PDF"
@@ -1279,6 +1404,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "FRA",
       "language": "fr",
+      "official_domain": "justice.gouv.fr",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "affaires familiales court statistics annual report 2022 site:justice.gouv.fr infographic dashboard PDF"
@@ -1289,6 +1415,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "FRA",
       "language": "fr",
+      "official_domain": "justice.gouv.fr",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:justice.gouv.fr family court statistics report 2022 infographic dashboard PDF"
@@ -1299,6 +1426,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "FRA",
       "language": "fr",
+      "official_domain": "justice.gouv.fr",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:justice.gouv.fr family justice infographic dashboard report 2022 infographic dashboard PDF"
@@ -1309,6 +1437,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "NLD",
       "language": "nl",
+      "official_domain": "rechtspraak.nl",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "Rechtspraak familie annual report statistics 2025 site:rechtspraak.nl infographic dashboard PDF"
@@ -1319,6 +1448,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "NLD",
       "language": "nl",
+      "official_domain": "rechtspraak.nl",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "familie jeugdrecht court statistics annual report 2025 site:rechtspraak.nl infographic dashboard PDF"
@@ -1329,6 +1459,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "NLD",
       "language": "nl",
+      "official_domain": "rechtspraak.nl",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:rechtspraak.nl family court statistics report 2025 infographic dashboard PDF"
@@ -1339,6 +1470,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "NLD",
       "language": "nl",
+      "official_domain": "rechtspraak.nl",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:rechtspraak.nl family justice infographic dashboard report 2025 infographic dashboard PDF"
@@ -1349,6 +1481,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "SWE",
       "language": "sv",
+      "official_domain": "domstol.se",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "Sveriges Domstolar familjemål annual report statistics 2024 site:domstol.se infographic dashboard PDF"
@@ -1359,6 +1492,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "SWE",
       "language": "sv",
+      "official_domain": "domstol.se",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "familjemål vårdnad court statistics annual report 2024 site:domstol.se infographic dashboard PDF"
@@ -1369,6 +1503,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "SWE",
       "language": "sv",
+      "official_domain": "domstol.se",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:domstol.se family court statistics report 2024 infographic dashboard PDF"
@@ -1379,6 +1514,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "SWE",
       "language": "sv",
+      "official_domain": "domstol.se",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:domstol.se family justice infographic dashboard report 2024 infographic dashboard PDF"
@@ -1389,6 +1525,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "ZAF",
       "language": "en",
+      "official_domain": "judiciary.org.za",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "South African Judiciary family court annual report statistics 2023 site:judiciary.org.za infographic dashboard PDF"
@@ -1399,6 +1536,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "ZAF",
       "language": "en",
+      "official_domain": "judiciary.org.za",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "family court domestic violence court statistics annual report 2023 site:judiciary.org.za infographic dashboard PDF"
@@ -1409,6 +1547,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "ZAF",
       "language": "en",
+      "official_domain": "judiciary.org.za",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:judiciary.org.za family court statistics report 2023 infographic dashboard PDF"
@@ -1419,6 +1558,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "ZAF",
       "language": "en",
+      "official_domain": "judiciary.org.za",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:judiciary.org.za family justice infographic dashboard report 2023 infographic dashboard PDF"
@@ -1429,6 +1569,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "KEN",
       "language": "en",
+      "official_domain": "judiciary.go.ke",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "Judiciary of Kenya family court annual report statistics 2022 site:judiciary.go.ke infographic dashboard PDF"
@@ -1439,6 +1580,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "KEN",
       "language": "en",
+      "official_domain": "judiciary.go.ke",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "family court court statistics annual report 2022 site:judiciary.go.ke infographic dashboard PDF"
@@ -1449,6 +1591,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "KEN",
       "language": "en",
+      "official_domain": "judiciary.go.ke",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:judiciary.go.ke family court statistics report 2022 infographic dashboard PDF"
@@ -1459,6 +1602,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "KEN",
       "language": "en",
+      "official_domain": "judiciary.go.ke",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:judiciary.go.ke family justice infographic dashboard report 2022 infographic dashboard PDF"
@@ -1469,6 +1613,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "IND",
       "language": "en",
+      "official_domain": "doj.gov.in",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "Department of Justice India family courts annual report statistics 2025 site:doj.gov.in infographic dashboard PDF"
@@ -1479,6 +1624,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "IND",
       "language": "en",
+      "official_domain": "doj.gov.in",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "family courts court statistics annual report 2025 site:doj.gov.in infographic dashboard PDF"
@@ -1489,6 +1635,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "IND",
       "language": "en",
+      "official_domain": "doj.gov.in",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:doj.gov.in family court statistics report 2025 infographic dashboard PDF"
@@ -1499,6 +1646,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "IND",
       "language": "en",
+      "official_domain": "doj.gov.in",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:doj.gov.in family justice infographic dashboard report 2025 infographic dashboard PDF"
@@ -1509,6 +1657,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "PHL",
       "language": "en",
+      "official_domain": "judiciary.gov.ph",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "Supreme Court of the Philippines Family Courts annual report statistics 2024 site:judiciary.gov.ph infographic dashboard PDF"
@@ -1519,6 +1668,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "PHL",
       "language": "en",
+      "official_domain": "judiciary.gov.ph",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "family courts court statistics annual report 2024 site:judiciary.gov.ph infographic dashboard PDF"
@@ -1529,6 +1679,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "PHL",
       "language": "en",
+      "official_domain": "judiciary.gov.ph",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:judiciary.gov.ph family court statistics report 2024 infographic dashboard PDF"
@@ -1539,6 +1690,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "PHL",
       "language": "en",
+      "official_domain": "judiciary.gov.ph",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:judiciary.gov.ph family justice infographic dashboard report 2024 infographic dashboard PDF"
@@ -1549,6 +1701,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "JPN",
       "language": "ja",
+      "official_domain": "courts.go.jp",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "Supreme Court of Japan Family Courts annual report statistics 2023 site:courts.go.jp infographic dashboard PDF"
@@ -1559,6 +1712,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "JPN",
       "language": "ja",
+      "official_domain": "courts.go.jp",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "家庭裁判所 家事事件 court statistics annual report 2023 site:courts.go.jp infographic dashboard PDF"
@@ -1569,6 +1723,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "JPN",
       "language": "ja",
+      "official_domain": "courts.go.jp",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:courts.go.jp family court statistics report 2023 infographic dashboard PDF"
@@ -1579,6 +1734,7 @@
       "stream_id": "embedded_raster_or_dashboard_pdf",
       "jurisdiction_id": "JPN",
       "language": "ja",
+      "official_domain": "courts.go.jp",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:courts.go.jp family justice infographic dashboard report 2023 infographic dashboard PDF"
@@ -1589,6 +1745,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "CAN",
       "language": "en",
+      "official_domain": "justice.gc.ca",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "Department of Justice Canada family justice annual report statistics 2022 site:justice.gc.ca annex tables mixed layout PDF"
@@ -1599,6 +1756,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "CAN",
       "language": "en",
+      "official_domain": "justice.gc.ca",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "family justice court statistics annual report 2022 site:justice.gc.ca annex tables mixed layout PDF"
@@ -1609,6 +1767,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "CAN",
       "language": "en",
+      "official_domain": "justice.gc.ca",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:justice.gc.ca family court statistics report 2022 annex tables mixed layout PDF"
@@ -1619,6 +1778,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "CAN",
       "language": "en",
+      "official_domain": "justice.gc.ca",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:justice.gc.ca family justice infographic dashboard report 2022 annex tables mixed layout PDF"
@@ -1629,6 +1789,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "GBR",
       "language": "en",
+      "official_domain": "gov.uk",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "United Kingdom family court statistics annual report statistics 2025 site:gov.uk annex tables mixed layout PDF"
@@ -1639,6 +1800,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "GBR",
       "language": "en",
+      "official_domain": "gov.uk",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "family court court statistics annual report 2025 site:gov.uk annex tables mixed layout PDF"
@@ -1649,6 +1811,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "GBR",
       "language": "en",
+      "official_domain": "gov.uk",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:gov.uk family court statistics report 2025 annex tables mixed layout PDF"
@@ -1659,6 +1822,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "GBR",
       "language": "en",
+      "official_domain": "gov.uk",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:gov.uk family justice infographic dashboard report 2025 annex tables mixed layout PDF"
@@ -1669,6 +1833,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "USA",
       "language": "en",
+      "official_domain": "uscourts.gov",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "United States state family courts annual report statistics 2024 site:uscourts.gov annex tables mixed layout PDF"
@@ -1679,6 +1844,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "USA",
       "language": "en",
+      "official_domain": "uscourts.gov",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "family court court statistics annual report 2024 site:uscourts.gov annex tables mixed layout PDF"
@@ -1689,6 +1855,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "USA",
       "language": "en",
+      "official_domain": "uscourts.gov",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:uscourts.gov family court statistics report 2024 annex tables mixed layout PDF"
@@ -1699,6 +1866,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "USA",
       "language": "en",
+      "official_domain": "uscourts.gov",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:uscourts.gov family justice infographic dashboard report 2024 annex tables mixed layout PDF"
@@ -1709,6 +1877,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "AUS",
       "language": "en",
+      "official_domain": "fcfcoa.gov.au",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "Federal Circuit and Family Court of Australia annual report statistics 2023 site:fcfcoa.gov.au annex tables mixed layout PDF"
@@ -1719,6 +1888,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "AUS",
       "language": "en",
+      "official_domain": "fcfcoa.gov.au",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "family law court statistics annual report 2023 site:fcfcoa.gov.au annex tables mixed layout PDF"
@@ -1729,6 +1899,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "AUS",
       "language": "en",
+      "official_domain": "fcfcoa.gov.au",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:fcfcoa.gov.au family court statistics report 2023 annex tables mixed layout PDF"
@@ -1739,6 +1910,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "AUS",
       "language": "en",
+      "official_domain": "fcfcoa.gov.au",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:fcfcoa.gov.au family justice infographic dashboard report 2023 annex tables mixed layout PDF"
@@ -1749,6 +1921,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "NZL",
       "language": "en",
+      "official_domain": "justice.govt.nz",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "Family Court of New Zealand annual report statistics 2022 site:justice.govt.nz annex tables mixed layout PDF"
@@ -1759,6 +1932,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "NZL",
       "language": "en",
+      "official_domain": "justice.govt.nz",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "family court court statistics annual report 2022 site:justice.govt.nz annex tables mixed layout PDF"
@@ -1769,6 +1943,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "NZL",
       "language": "en",
+      "official_domain": "justice.govt.nz",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:justice.govt.nz family court statistics report 2022 annex tables mixed layout PDF"
@@ -1779,6 +1954,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "NZL",
       "language": "en",
+      "official_domain": "justice.govt.nz",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:justice.govt.nz family justice infographic dashboard report 2022 annex tables mixed layout PDF"
@@ -1789,6 +1965,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "FRA",
       "language": "fr",
+      "official_domain": "justice.gouv.fr",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "Ministère de la Justice affaires familiales annual report statistics 2025 site:justice.gouv.fr annex tables mixed layout PDF"
@@ -1799,6 +1976,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "FRA",
       "language": "fr",
+      "official_domain": "justice.gouv.fr",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "affaires familiales court statistics annual report 2025 site:justice.gouv.fr annex tables mixed layout PDF"
@@ -1809,6 +1987,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "FRA",
       "language": "fr",
+      "official_domain": "justice.gouv.fr",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:justice.gouv.fr family court statistics report 2025 annex tables mixed layout PDF"
@@ -1819,6 +1998,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "FRA",
       "language": "fr",
+      "official_domain": "justice.gouv.fr",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:justice.gouv.fr family justice infographic dashboard report 2025 annex tables mixed layout PDF"
@@ -1829,6 +2009,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "ESP",
       "language": "es",
+      "official_domain": "poderjudicial.es",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "Consejo General del Poder Judicial familia annual report statistics 2024 site:poderjudicial.es annex tables mixed layout PDF"
@@ -1839,6 +2020,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "ESP",
       "language": "es",
+      "official_domain": "poderjudicial.es",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "juzgados de familia violencia de género court statistics annual report 2024 site:poderjudicial.es annex tables mixed layout PDF"
@@ -1849,6 +2031,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "ESP",
       "language": "es",
+      "official_domain": "poderjudicial.es",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:poderjudicial.es family court statistics report 2024 annex tables mixed layout PDF"
@@ -1859,6 +2042,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "ESP",
       "language": "es",
+      "official_domain": "poderjudicial.es",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:poderjudicial.es family justice infographic dashboard report 2024 annex tables mixed layout PDF"
@@ -1869,6 +2053,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "BRA",
       "language": "pt",
+      "official_domain": "cnj.jus.br",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "Conselho Nacional de Justiça annual report statistics 2023 site:cnj.jus.br annex tables mixed layout PDF"
@@ -1879,6 +2064,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "BRA",
       "language": "pt",
+      "official_domain": "cnj.jus.br",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "justiça de família violência doméstica court statistics annual report 2023 site:cnj.jus.br annex tables mixed layout PDF"
@@ -1889,6 +2075,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "BRA",
       "language": "pt",
+      "official_domain": "cnj.jus.br",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:cnj.jus.br family court statistics report 2023 annex tables mixed layout PDF"
@@ -1899,6 +2086,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "BRA",
       "language": "pt",
+      "official_domain": "cnj.jus.br",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:cnj.jus.br family justice infographic dashboard report 2023 annex tables mixed layout PDF"
@@ -1909,6 +2097,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "ITA",
       "language": "it",
+      "official_domain": "giustizia.it",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "Ministero della Giustizia famiglia annual report statistics 2022 site:giustizia.it annex tables mixed layout PDF"
@@ -1919,6 +2108,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "ITA",
       "language": "it",
+      "official_domain": "giustizia.it",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "famiglia tribunale court statistics annual report 2022 site:giustizia.it annex tables mixed layout PDF"
@@ -1929,6 +2119,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "ITA",
       "language": "it",
+      "official_domain": "giustizia.it",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:giustizia.it family court statistics report 2022 annex tables mixed layout PDF"
@@ -1939,6 +2130,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "ITA",
       "language": "it",
+      "official_domain": "giustizia.it",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:giustizia.it family justice infographic dashboard report 2022 annex tables mixed layout PDF"
@@ -1949,6 +2141,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "JPN",
       "language": "ja",
+      "official_domain": "courts.go.jp",
       "year": 2025,
       "template_id": "Q1",
       "query_text": "Supreme Court of Japan Family Courts annual report statistics 2025 site:courts.go.jp annex tables mixed layout PDF"
@@ -1959,6 +2152,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "JPN",
       "language": "ja",
+      "official_domain": "courts.go.jp",
       "year": 2025,
       "template_id": "Q2",
       "query_text": "家庭裁判所 家事事件 court statistics annual report 2025 site:courts.go.jp annex tables mixed layout PDF"
@@ -1969,6 +2163,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "JPN",
       "language": "ja",
+      "official_domain": "courts.go.jp",
       "year": 2025,
       "template_id": "Q3",
       "query_text": "site:courts.go.jp family court statistics report 2025 annex tables mixed layout PDF"
@@ -1979,6 +2174,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "JPN",
       "language": "ja",
+      "official_domain": "courts.go.jp",
       "year": 2025,
       "template_id": "Q4",
       "query_text": "site:courts.go.jp family justice infographic dashboard report 2025 annex tables mixed layout PDF"
@@ -1989,6 +2185,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "KOR",
       "language": "ko",
+      "official_domain": "scourt.go.kr",
       "year": 2024,
       "template_id": "Q1",
       "query_text": "Supreme Court of Korea family court annual report statistics 2024 site:scourt.go.kr annex tables mixed layout PDF"
@@ -1999,6 +2196,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "KOR",
       "language": "ko",
+      "official_domain": "scourt.go.kr",
       "year": 2024,
       "template_id": "Q2",
       "query_text": "가정법원 가사 court statistics annual report 2024 site:scourt.go.kr annex tables mixed layout PDF"
@@ -2009,6 +2207,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "KOR",
       "language": "ko",
+      "official_domain": "scourt.go.kr",
       "year": 2024,
       "template_id": "Q3",
       "query_text": "site:scourt.go.kr family court statistics report 2024 annex tables mixed layout PDF"
@@ -2019,6 +2218,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "KOR",
       "language": "ko",
+      "official_domain": "scourt.go.kr",
       "year": 2024,
       "template_id": "Q4",
       "query_text": "site:scourt.go.kr family justice infographic dashboard report 2024 annex tables mixed layout PDF"
@@ -2029,6 +2229,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "IND",
       "language": "en",
+      "official_domain": "doj.gov.in",
       "year": 2023,
       "template_id": "Q1",
       "query_text": "Department of Justice India family courts annual report statistics 2023 site:doj.gov.in annex tables mixed layout PDF"
@@ -2039,6 +2240,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "IND",
       "language": "en",
+      "official_domain": "doj.gov.in",
       "year": 2023,
       "template_id": "Q2",
       "query_text": "family courts court statistics annual report 2023 site:doj.gov.in annex tables mixed layout PDF"
@@ -2049,6 +2251,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "IND",
       "language": "en",
+      "official_domain": "doj.gov.in",
       "year": 2023,
       "template_id": "Q3",
       "query_text": "site:doj.gov.in family court statistics report 2023 annex tables mixed layout PDF"
@@ -2059,6 +2262,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "IND",
       "language": "en",
+      "official_domain": "doj.gov.in",
       "year": 2023,
       "template_id": "Q4",
       "query_text": "site:doj.gov.in family justice infographic dashboard report 2023 annex tables mixed layout PDF"
@@ -2069,6 +2273,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "SGP",
       "language": "en",
+      "official_domain": "judiciary.gov.sg",
       "year": 2022,
       "template_id": "Q1",
       "query_text": "Family Justice Courts Singapore annual report statistics 2022 site:judiciary.gov.sg annex tables mixed layout PDF"
@@ -2079,6 +2284,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "SGP",
       "language": "en",
+      "official_domain": "judiciary.gov.sg",
       "year": 2022,
       "template_id": "Q2",
       "query_text": "family justice courts court statistics annual report 2022 site:judiciary.gov.sg annex tables mixed layout PDF"
@@ -2089,6 +2295,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "SGP",
       "language": "en",
+      "official_domain": "judiciary.gov.sg",
       "year": 2022,
       "template_id": "Q3",
       "query_text": "site:judiciary.gov.sg family court statistics report 2022 annex tables mixed layout PDF"
@@ -2099,6 +2306,7 @@
       "stream_id": "structurally_complex_mixed_layout_pdf",
       "jurisdiction_id": "SGP",
       "language": "en",
+      "official_domain": "judiciary.gov.sg",
       "year": 2022,
       "template_id": "Q4",
       "query_text": "site:judiciary.gov.sg family justice infographic dashboard report 2022 annex tables mixed layout PDF"

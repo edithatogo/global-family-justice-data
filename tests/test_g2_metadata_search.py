@@ -19,6 +19,11 @@ def _bundle(root: Path) -> dict[str, object]:
     )
     path = root / relative
     manifest = json.loads(path.read_text())
+    exposure_relative = Path(
+        "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/"
+        "url-resolution/exposure-ledger.json"
+    )
+    exposure_path = root / exposure_relative
     events = []
     for query in manifest["queries"]:
         results: list[object] = []
@@ -43,12 +48,17 @@ def _bundle(root: Path) -> dict[str, object]:
             "path": relative.as_posix(),
             "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         },
+        "predecessor_exposure_ledger": {
+            "path": exposure_relative.as_posix(),
+            "sha256": hashlib.sha256(exposure_path.read_bytes()).hexdigest(),
+        },
         "tool_name": "web__run.search_query",
         "tool_version": "test",
         "provider_config": manifest["provider_config"],
         "query_events": events,
         "candidate_hypotheses": [],
         "exposure_events": [],
+        "non_overlap_receipt": {"checked_urls": [], "overlaps": []},
         "proposed_official_html_allowlist": [],
         "violations": [],
         "result_url_requests": 0,
@@ -76,5 +86,29 @@ def test_search_index_bundle_rejects_mutations(project_root: Path) -> None:
     missing = deepcopy(valid)
     missing["query_events"].pop()
     mutations.append(missing)
+    bad_result = {
+        "rank": 1,
+        "title": "report",
+        "url": "file:///tmp/report.pdf",
+        "domain": "fcfcoa.gov.au",
+        "official_host_candidate": True,
+    }
+    unsafe = deepcopy(valid)
+    unsafe["query_events"][0]["results"] = [bad_result]
+    unsafe["query_events"][0]["result_count"] = 1
+    unsafe["query_events"][0]["result_sha256"] = hashlib.sha256(
+        _canonical([bad_result])
+    ).hexdigest()
+    unsafe["candidate_hypotheses"] = [bad_result["url"]]
+    unsafe["exposure_events"] = [
+        {
+            "url": bad_result["url"],
+            "exposure_class": "search_index_metadata_seen",
+            "requested": False,
+        }
+    ]
+    unsafe["non_overlap_receipt"]["checked_urls"] = [bad_result["url"]]
+    unsafe["proposed_official_html_allowlist"] = [bad_result["url"]]
+    mutations.append(unsafe)
     for mutation in mutations:
         assert verify_search_index_bundle(project_root, mutation)

@@ -87,6 +87,7 @@ def main() -> int:
                         "stream_id": stream["stream_id"],
                         "jurisdiction_id": jurisdiction_id,
                         "language": LANGUAGE[jurisdiction_id],
+                        "official_domain": values["official_domain"],
                         "year": year,
                         "template_id": template["query_id"],
                         "query_text": query_text,

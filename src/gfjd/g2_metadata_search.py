@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit, urlunsplit
 
 from jsonschema import Draft202012Validator, FormatChecker
 
@@ -16,6 +17,23 @@ def _sha(path: Path) -> str:
 
 def _canonical(value: Any) -> bytes:
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()
+
+
+def _canonical_https_html_url(value: str, official_domain: str) -> tuple[str, str] | None:
+    parsed = urlsplit(value)
+    host = (parsed.hostname or "").rstrip(".").lower()
+    allowed = official_domain.rstrip(".").lower()
+    if parsed.scheme.lower() != "https" or not host:
+        return None
+    if host != allowed and not host.endswith(f".{allowed}"):
+        return None
+    if parsed.username or parsed.password or parsed.port not in (None, 443):
+        return None
+    file_suffixes = {".pdf", ".xls", ".xlsx", ".csv", ".zip", ".doc", ".docx"}
+    if Path(parsed.path.lower()).suffix in file_suffixes:
+        return None
+    canonical = urlunsplit(("https", host, parsed.path or "/", parsed.query, ""))
+    return canonical, host
 
 
 def verify_search_index_bundle(root: Path, bundle: dict[str, Any]) -> list[str]:
@@ -35,6 +53,18 @@ def verify_search_index_bundle(root: Path, bundle: dict[str, Any]) -> list[str]:
         errors.append("query manifest binding mismatch")
         return errors
     manifest = json.loads(manifest_path.read_text())
+    exposure_descriptor = bundle["predecessor_exposure_ledger"]
+    exposure_path = root / exposure_descriptor["path"]
+    if not exposure_path.is_file() or _sha(exposure_path) != exposure_descriptor["sha256"]:
+        errors.append("predecessor exposure ledger binding mismatch")
+        return errors
+    predecessor = json.loads(exposure_path.read_text())
+    denied_urls = set(predecessor.get("denied_urls", []))
+    denied_urls.update(
+        entry.get("landing_page_url")
+        for entry in predecessor.get("entries", [])
+        if entry.get("landing_page_url")
+    )
     if bundle["provider_config"] != manifest["provider_config"]:
         errors.append("provider configuration mismatch")
     all_urls: list[str] = []
@@ -49,10 +79,21 @@ def verify_search_index_bundle(root: Path, bundle: dict[str, Any]) -> list[str]:
             errors.append(f"query {expected['query_id']} result count mismatch")
         if event["result_sha256"] != hashlib.sha256(_canonical(event["results"])).hexdigest():
             errors.append(f"query {expected['query_id']} result digest mismatch")
+        if [result["rank"] for result in event["results"]] != list(
+            range(1, len(event["results"]) + 1)
+        ):
+            errors.append(f"query {expected['query_id']} result ranks invalid")
         for result in event["results"]:
-            all_urls.append(result["url"])
+            parsed = _canonical_https_html_url(result["url"], expected["official_domain"])
+            if parsed is None:
+                errors.append(f"query {expected['query_id']} result URL is not allowed HTML")
+                continue
+            canonical_url, host = parsed
+            if result["domain"].rstrip(".").lower() != host:
+                errors.append(f"query {expected['query_id']} result domain mismatch")
+            all_urls.append(canonical_url)
             if result["official_host_candidate"]:
-                official_urls.append(result["url"])
+                official_urls.append(canonical_url)
     if bundle["candidate_hypotheses"] != sorted(set(all_urls)):
         errors.append("candidate hypothesis projection mismatch")
     if bundle["proposed_official_html_allowlist"] != sorted(set(official_urls)):
@@ -60,4 +101,9 @@ def verify_search_index_bundle(root: Path, bundle: dict[str, Any]) -> list[str]:
     exposure = sorted(event["url"] for event in bundle["exposure_events"])
     if exposure != sorted(set(all_urls)):
         errors.append("exposure projection mismatch")
+    checked = bundle["non_overlap_receipt"]["checked_urls"]
+    if checked != sorted(set(all_urls)):
+        errors.append("non-overlap checked URL projection mismatch")
+    if set(all_urls) & denied_urls:
+        errors.append("candidate overlaps predecessor exposure ledger")
     return sorted(set(errors))

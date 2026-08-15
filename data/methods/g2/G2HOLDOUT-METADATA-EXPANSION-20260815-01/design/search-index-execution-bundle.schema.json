@@ -2,11 +2,12 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://global-family-justice-data.org/schemas/g2_search_index_execution_bundle.schema.json",
   "type": "object",
-  "required": ["schema_version", "bundle_id", "query_manifest", "tool_name", "tool_version", "provider_config", "query_events", "candidate_hypotheses", "exposure_events", "proposed_official_html_allowlist", "violations", "result_url_requests", "landing_page_requests", "source_file_requests"],
+  "required": ["schema_version", "bundle_id", "query_manifest", "predecessor_exposure_ledger", "tool_name", "tool_version", "provider_config", "query_events", "candidate_hypotheses", "exposure_events", "non_overlap_receipt", "proposed_official_html_allowlist", "violations", "result_url_requests", "landing_page_requests", "source_file_requests"],
   "properties": {
     "schema_version": {"const": "1.0"},
     "bundle_id": {"type": "string", "minLength": 8},
     "query_manifest": {"$ref": "#/$defs/artifact"},
+    "predecessor_exposure_ledger": {"$ref": "#/$defs/artifact"},
     "tool_name": {"const": "web__run.search_query"},
     "tool_version": {"type": "string", "minLength": 1},
     "provider_config": {"type": "object"},
@@ -57,6 +58,15 @@
         },
         "additionalProperties": false
       }
+    },
+    "non_overlap_receipt": {
+      "type": "object",
+      "required": ["checked_urls", "overlaps"],
+      "properties": {
+        "checked_urls": {"type": "array", "uniqueItems": true, "items": {"type": "string", "format": "uri"}},
+        "overlaps": {"const": []}
+      },
+      "additionalProperties": false
     },
     "proposed_official_html_allowlist": {"type": "array", "uniqueItems": true, "items": {"type": "string", "format": "uri"}},
     "violations": {"const": []},

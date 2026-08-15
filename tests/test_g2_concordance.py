@@ -178,6 +178,49 @@ def test_comparator_binds_and_enforces_expected_scope_and_components(
     assert receipt["required_component_values"] == {key: ["disposed", "filed"]}
 
 
+def test_comparator_fails_when_both_extractions_share_wrong_required_field(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    row = _row(1, extraction_uncertainty="low")
+    key = str(row["source_record_key"])
+
+    result = _compare(
+        root,
+        [row],
+        [_row(1, extraction_uncertainty="low")],
+        expected_source_keys=[key],
+        required_field_values={key: {"extraction_uncertainty": "none"}},
+    )
+
+    receipt = json.loads(result.receipt_path.read_text(encoding="utf-8"))
+    differences = json.loads(result.difference_path.read_text(encoding="utf-8"))
+    assert result.threshold_passed is False
+    assert receipt["required_field_values"] == {key: {"extraction_uncertainty": "none"}}
+    assert [item["difference_type"] for item in differences["differences"][:2]] == [
+        "primary_required_field_mismatch",
+        "secondary_required_field_mismatch",
+    ]
+
+
+def test_comparator_accepts_matching_required_field_values(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    row = _row(1, extraction_uncertainty="none")
+    key = str(row["source_record_key"])
+
+    result = _compare(
+        root,
+        [row],
+        [_row(1, extraction_uncertainty="none")],
+        expected_source_keys=[key],
+        required_field_values={key: {"extraction_uncertainty": "none"}},
+    )
+
+    assert result.threshold_passed is True
+
+
 def test_comparator_fails_when_both_extractions_share_scope_omissions_or_extras(
     project_root: Path, tmp_path: Path
 ) -> None:
@@ -249,6 +292,22 @@ def test_comparator_rejects_invalid_scope_configuration(project_root: Path, tmp_
             [_row(1), _row(2)],
             expected_source_keys=[key, outside],
             required_component_values={key: []},
+        )
+    with pytest.raises(G2ConcordanceError, match="outside scope"):
+        _compare(
+            root,
+            [_row(1)],
+            [_row(1)],
+            expected_source_keys=[key],
+            required_field_values={outside: {"extraction_uncertainty": "none"}},
+        )
+    with pytest.raises(G2ConcordanceError, match="cannot be ignored"):
+        _compare(
+            root,
+            [_row(1)],
+            [_row(1)],
+            expected_source_keys=[key],
+            required_field_values={key: {"source_record_key": key}},
         )
 
 

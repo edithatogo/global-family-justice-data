@@ -52,6 +52,15 @@
         "items": {"type": "string", "pattern": "^[a-z0-9_]+$"}
       }
     },
+    "required_field_values": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[a-f0-9]{64}$"},
+      "additionalProperties": {
+        "type": "object",
+        "minProperties": 1,
+        "propertyNames": {"pattern": "^[a-z0-9_]+$"}
+      }
+    },
     "matched_rows": {"type": "integer", "minimum": 0},
     "primary_only_rows": {"type": "integer", "minimum": 0},
     "secondary_only_rows": {"type": "integer", "minimum": 0},

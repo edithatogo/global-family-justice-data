@@ -152,6 +152,39 @@ def test_g2_packet02_atomic_contract_is_schema_bound_and_complete(project_root: 
         assert sample["quarantine_status"] == expected_status
 
 
+def test_g2_packet04_methods_amendment_is_schema_bound_and_deterministic(
+    project_root: Path,
+) -> None:
+    amendment = json.loads(
+        (project_root / "config" / "g2_atomic_methods_amendment_packet04.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    _validate(project_root, "g2_atomic_methods_amendment.schema.json", amendment)
+
+    mappings = amendment["field_mappings"]
+    assert len(mappings) == 8
+    identities = {(item["source_record_key"], item["field"]) for item in mappings}
+    assert len(identities) == 8
+    assert {
+        item["required_value"] for item in mappings if item["field"] == "extraction_uncertainty"
+    } == {"none", "unresolved"}
+    assert amendment["uncertainty_rule"]["allowed_values"] == ["none", "unresolved"]
+    assert amendment["uncertainty_rule"]["prohibited_values"] == ["low", "material"]
+    base_contract = json.loads(
+        (project_root / "config" / "g2_atomic_semantic_contract.json").read_text(encoding="utf-8")
+    )
+    expected_uncertainty = {
+        sample["sample_key"]: ("unresolved" if sample["required_ambiguity_codes"] else "none")
+        for sample in base_contract["samples"]
+    }
+    assert amendment["required_uncertainty_by_sample"] == expected_uncertainty
+    assert amendment["critical_threshold"] == 1.0
+    assert amendment["overall_threshold"] == 0.99
+    assert amendment["requires_both_runs"] is True
+    assert amendment["publication_authorized"] is False
+
+
 def test_g2_evidence_chain_schemas_accept_bounded_receipts(project_root: Path) -> None:
     packet = {
         "schema_version": "1.0",

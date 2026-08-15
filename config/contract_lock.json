@@ -53,13 +53,18 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/g2_atomic_methods_amendment.schema.json",
+      "sha256": "32ff34cc09470da9482928d0d104441c4d0f8a8eb0a1d9ae74a9263a538fbd53"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/g2_atomic_semantic_contract.schema.json",
       "sha256": "21c7211a54f03eabcd1d049127b0e57ff9c16a4b70b23373fba6c9857c4f469a"
     },
     {
       "kind": "json_schema",
       "path": "schemas/g2_concordance.schema.json",
-      "sha256": "70e4aa165fcc4d495f512739abb6b3fefd5c56c804d109a0027a4f4f0d6bd3d3"
+      "sha256": "4c3de7463905aa59749ef4a05a756b57c47150a3d7103aa1b06542781c99ad32"
     },
     {
       "kind": "json_schema",
@@ -327,8 +332,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 65,
-  "inventory_sha256": "2881c701d705bc80156f77b025f7bad8050aaab62c0cfeb899b0d1d832b41044",
+  "entry_count": 66,
+  "inventory_sha256": "24f952a769f0b3cb40bc1e5b4fbb42d02fb6b2908795962578339b9a37b7faa7",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

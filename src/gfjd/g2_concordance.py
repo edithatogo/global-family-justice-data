@@ -70,6 +70,7 @@ def compare_g2_extractions(
     ignored_fields: Sequence[str] = DEFAULT_IGNORED_FIELDS,
     expected_source_keys: Sequence[str] | None = None,
     required_component_values: Mapping[str, Sequence[str]] | None = None,
+    required_field_values: Mapping[str, Mapping[str, Any]] | None = None,
     limitations: Sequence[str] = (),
 ) -> G2ConcordanceResult:
     """Validate and compare two blinded extraction arrays.
@@ -116,6 +117,12 @@ def compare_g2_extractions(
         required_component_values,
         expected_keys if expected_keys is not None else primary_keys | secondary_keys,
     )
+    field_requirements = _normalised_field_requirements(
+        required_field_values,
+        expected_keys if expected_keys is not None else primary_keys | secondary_keys,
+        schema_fields,
+        ignored,
+    )
     matched_keys = sorted(primary_keys & secondary_keys)
     primary_only = sorted(primary_keys - secondary_keys)
     secondary_only = sorted(secondary_keys - primary_keys)
@@ -124,6 +131,9 @@ def compare_g2_extractions(
     differences.extend(_expected_scope_differences(primary_keys, secondary_keys, expected_keys))
     differences.extend(
         _required_component_differences(primary_by_key, secondary_by_key, component_requirements)
+    )
+    differences.extend(
+        _required_field_differences(primary_by_key, secondary_by_key, field_requirements)
     )
     for key in primary_only:
         differences.append(
@@ -271,6 +281,10 @@ def compare_g2_extractions(
         receipt["required_component_values"] = {
             key: sorted(values) for key, values in sorted(component_requirements.items())
         }
+    if required_field_values is not None:
+        receipt["required_field_values"] = {
+            key: dict(sorted(values.items())) for key, values in sorted(field_requirements.items())
+        }
     _validate_object(receipt, _load_object(receipt_schema_path), label="receipt")
     receipt_path = destination / "concordance.json"
     write_json(receipt_path, receipt)
@@ -393,6 +407,36 @@ def _normalised_component_requirements(
     return normalised
 
 
+def _normalised_field_requirements(
+    requirements: Mapping[str, Mapping[str, Any]] | None,
+    scope_keys: set[str],
+    schema_fields: set[str],
+    ignored_fields: set[str],
+) -> dict[str, dict[str, Any]]:
+    if requirements is None:
+        return {}
+    normalised: dict[str, dict[str, Any]] = {}
+    for raw_key, raw_fields in requirements.items():
+        key = str(raw_key)
+        if not _is_source_key(key):
+            raise G2ConcordanceError(f"invalid required field source key: {key}")
+        if key not in scope_keys:
+            raise G2ConcordanceError(f"required field source key is outside scope: {key}")
+        fields = {str(field): value for field, value in raw_fields.items()}
+        if not fields:
+            raise G2ConcordanceError(f"required field values for {key} cannot be empty")
+        unknown = sorted(set(fields) - schema_fields)
+        if unknown:
+            raise G2ConcordanceError(f"unknown required fields for {key}: {', '.join(unknown)}")
+        ignored = sorted(set(fields) & ignored_fields)
+        if ignored:
+            raise G2ConcordanceError(
+                f"required fields cannot be ignored for {key}: {', '.join(ignored)}"
+            )
+        normalised[key] = fields
+    return normalised
+
+
 def _is_source_key(key: str) -> bool:
     return len(key) == 64 and all(char in "0123456789abcdef" for char in key)
 
@@ -497,6 +541,48 @@ def _component_constraint_difference(
         "primary_value": value if extraction == "primary" else "not_checked",
         "secondary_value": value if extraction == "secondary" else "not_checked",
     }
+
+
+def _required_field_differences(
+    primary_by_key: Mapping[str, Mapping[str, Any]],
+    secondary_by_key: Mapping[str, Mapping[str, Any]],
+    requirements: Mapping[str, Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    differences: list[dict[str, Any]] = []
+    for source_key, required_fields in sorted(requirements.items()):
+        for extraction, rows in (
+            ("primary", primary_by_key),
+            ("secondary", secondary_by_key),
+        ):
+            row = rows.get(source_key)
+            if row is None:
+                differences.append(
+                    {
+                        "source_record_key": source_key,
+                        "difference_type": f"{extraction}_missing_required_field_row",
+                        "field": None,
+                        "critical": True,
+                        "primary_value": None if extraction == "primary" else "not_checked",
+                        "secondary_value": None if extraction == "secondary" else "not_checked",
+                    }
+                )
+                continue
+            for field, expected in sorted(required_fields.items()):
+                actual = row.get(field)
+                if not _equal(actual, expected):
+                    differences.append(
+                        {
+                            "source_record_key": source_key,
+                            "difference_type": f"{extraction}_required_field_mismatch",
+                            "field": field,
+                            "critical": True,
+                            "primary_value": actual if extraction == "primary" else "not_checked",
+                            "secondary_value": actual
+                            if extraction == "secondary"
+                            else "not_checked",
+                        }
+                    )
+    return differences
 
 
 def _populated_numeric(value: Any) -> bool:

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_atomic_methods_amendment.schema.json",
+  "title": "Owner-approved G2 atomic methods amendment",
+  "type": "object",
+  "required": [
+    "schema_version", "amendment_id", "owner_decision", "owner_decision_sha256",
+    "owner_decision_commit", "proposal_sha256", "prior_packet_id",
+    "prior_packet_sha256", "prior_comparison_sha256", "prior_differences_sha256",
+    "advisory_reports", "classification", "critical_threshold", "overall_threshold",
+    "field_mappings", "uncertainty_rule", "required_uncertainty_by_sample",
+    "unchanged_invariants",
+    "requires_both_runs", "publication_authorized"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "amendment_id": {"const": "G2AMEND-PACKET04-20260815"},
+    "owner_decision": {"const": "docs/governance/g2-packet04-methods-owner-decision-2026-08-15.md"},
+    "owner_decision_sha256": {"$ref": "#/$defs/sha256"},
+    "owner_decision_commit": {"$ref": "#/$defs/commit"},
+    "proposal_sha256": {"$ref": "#/$defs/sha256"},
+    "prior_packet_id": {"const": "G2PKT-REAL-PILOT-20260815-03"},
+    "prior_packet_sha256": {"$ref": "#/$defs/sha256"},
+    "prior_comparison_sha256": {"$ref": "#/$defs/sha256"},
+    "prior_differences_sha256": {"$ref": "#/$defs/sha256"},
+    "advisory_reports": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {"$ref": "#/$defs/artifact"}
+    },
+    "classification": {"const": "pre_extraction_hierarchy_and_uncertainty_methods_amendment"},
+    "critical_threshold": {"const": 1.0},
+    "overall_threshold": {"const": 0.99},
+    "field_mappings": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["sample_key", "source_record_key", "field", "required_value", "mapping_kind"],
+        "properties": {
+          "sample_key": {"type": "string", "minLength": 1},
+          "source_record_key": {"$ref": "#/$defs/sha256"},
+          "field": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+          "required_value": {"type": "string", "minLength": 1},
+          "mapping_kind": {"enum": ["exact_source_hierarchy", "deterministic_uncertainty"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "uncertainty_rule": {
+      "type": "object",
+      "required": ["allowed_values", "none_when", "unresolved_when", "prohibited_values"],
+      "properties": {
+        "allowed_values": {"const": ["none", "unresolved"]},
+        "none_when": {"type": "string", "minLength": 1},
+        "unresolved_when": {"type": "string", "minLength": 1},
+        "prohibited_values": {"const": ["low", "material"]}
+      },
+      "additionalProperties": false
+    },
+    "required_uncertainty_by_sample": {
+      "type": "object",
+      "minProperties": 4,
+      "maxProperties": 4,
+      "propertyNames": {"pattern": "^[A-Z0-9][A-Z0-9_-]{5,79}$"},
+      "additionalProperties": {"enum": ["none", "unresolved"]}
+    },
+    "unchanged_invariants": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "requires_both_runs": {"const": true},
+    "publication_authorized": {"const": false}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

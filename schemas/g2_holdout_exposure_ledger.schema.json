@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_holdout_exposure_ledger.schema.json",
+  "title": "G2 blind-holdout exposure ledger",
+  "type": "object",
+  "required": ["schema_version", "ledger_id", "design_id", "as_of", "metadata_only", "source_content_accessed_during_registration", "entries", "denied_edition_ids", "denied_source_series_ids", "denied_urls", "evidence_artifacts", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "ledger_id": {"type": "string", "pattern": "^G2HOLDOUT-EXPOSURE-[A-Z0-9_-]+$"},
+    "design_id": {"const": "G2HOLDOUT-PROSPECTIVE-20260815-01"},
+    "as_of": {"type": "string", "format": "date-time"},
+    "metadata_only": {"const": true},
+    "source_content_accessed_during_registration": {"const": false},
+    "entries": {"type": "array", "items": {"type": "object", "required": ["edition_id", "source_series_id", "urls", "exposure_class", "reason", "evidence_paths"], "properties": {"edition_id": {"type": ["string", "null"]}, "source_series_id": {"type": ["string", "null"]}, "urls": {"type": "array", "uniqueItems": true, "items": {"type": "string", "format": "uri"}}, "exposure_class": {"enum": ["content_inspected", "calibration_or_test", "extractor_preparation", "uncertain_prior_exposure"]}, "reason": {"type": "string", "minLength": 5}, "evidence_paths": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}}, "additionalProperties": false}},
+    "denied_edition_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "denied_source_series_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "denied_urls": {"type": "array", "uniqueItems": true, "items": {"type": "string", "format": "uri"}},
+    "evidence_artifacts": {"type": "array", "items": {"$ref": "#/$defs/artifact"}},
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {"artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

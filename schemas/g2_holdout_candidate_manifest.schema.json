@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_holdout_candidate_manifest.schema.json",
+  "title": "G2 blind-holdout exact candidate manifest",
+  "type": "object",
+  "required": ["schema_version", "manifest_id", "design_id", "design_commit", "selection_seed", "selection_algorithm", "metadata_only", "source_content_accessed", "scope_complete", "primary", "reserves", "reserve_allocation", "generated_at", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "manifest_id": {"const": "G2HOLDOUT-MANIFEST-PROSPECTIVE-20260815-01"},
+    "design_id": {"const": "G2HOLDOUT-PROSPECTIVE-20260815-01"},
+    "design_commit": {"const": "42b89486b7d71a60ed01eb7e7b1d862e6a736820"},
+    "selection_seed": {"type": "string", "minLength": 16},
+    "selection_algorithm": {"const": "sha256_seed_nul_candidate_id_ascending_backtracking_v1"},
+    "metadata_only": {"const": true},
+    "source_content_accessed": {"const": false},
+    "scope_complete": {"type": "boolean"},
+    "primary": {"type": "array", "maxItems": 24, "items": {"$ref": "#/$defs/item"}},
+    "reserves": {"type": "array", "maxItems": 6, "items": {"$ref": "#/$defs/item"}},
+    "reserve_allocation": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 1}},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {"item": {"type": "object", "required": ["assignment", "rank", "candidate_id", "edition_id", "jurisdiction_id", "source_series_id", "proposed_stratum", "landing_page_url", "source_url", "selection_score"], "properties": {"assignment": {"enum": ["primary", "reserve"]}, "rank": {"type": "integer", "minimum": 1}, "candidate_id": {"type": "string"}, "edition_id": {"type": "string"}, "jurisdiction_id": {"type": "string"}, "source_series_id": {"type": "string"}, "proposed_stratum": {"type": "string"}, "landing_page_url": {"type": "string", "format": "uri"}, "source_url": {"type": ["string", "null"], "format": "uri"}, "selection_score": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

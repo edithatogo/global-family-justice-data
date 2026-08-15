@@ -83,6 +83,7 @@ ff2225046414cf9052b8216d3831cad55b5987fa3641e3a3ba99a512b8a7ceb8  data/gold/READ
 0c21b82781d7483882a909bdf0ee124dd349acce9e44363e908ebca8448c70a2  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/metadata-expansion-plan.schema.json
 fa179ab2b8409fc6a28aa8043889a35bd7c0cff13d1804628a93801493821edd  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/search-index-execution-bundle.schema.json
 d7419c0bc281ac9e940819d01005a922e2e6612e40ab1b573ba941eee3b8dddc  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/search-index-query-manifest.json
+ed3ac2f08c5e6c54e27351f536cbbee15d10dc45ad9d9ea0b45fd5189e5a74a3  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/authority/owner-decision.json
 716eb47a691a7d2f1826ba8c9154e4f2013dadcaa3c0dc7d7f1cbe00f1ce33db  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/SUCCESSOR_DESIGN_MANIFEST.sha256
 7cb2969282bfe5152f12524a261e034bf6b20f61fa2fd3183ae640a105cbaab2  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/successor-authority-receipt.schema.json
 d5cb9c91f3862eb5e3878105ad6c2d169d2c11e148e109e09a36c97c6eec0c25  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/successor-execution-bundle.schema.json

@@ -77,6 +77,9 @@ dd534f70f4620bcd7a240ef3eca2f3a96efeac0150511b61fb25c6d2eb88b8cf  data/methods/g
 9d8506cd76f2bf2e3a3ec253464e2d1871a16700d79de97ea28d4ca0757dc93e  data/methods/g2/G2PKT-REAL-PILOT-20260815-03/extraction-instructions.md
 6132622876389a1325d326bb9b83115a03d53a9492a6362cbd07018a4e3918e9  data/methods/g2/G2PKT-REAL-PILOT-20260815-03/input-manifest.sha256
 6e9e21f8ffeaeb217f93b0d279cd0bb21de2dbf23f0766604b3660ec1ade542d  data/methods/g2/G2PKT-REAL-PILOT-20260815-03/packet.json
+8e08d33ac0ea18088ffe4ce72cdbfcdc2166619dec2086246b32cc718eb0156e  data/methods/g2/G2PKT-REAL-PILOT-20260815-04/extraction-instructions.md
+d515988f1e3717b7e04eebf017e0644dc3362a8c573640a1abea75d9d08a4b51  data/methods/g2/G2PKT-REAL-PILOT-20260815-04/input-manifest.sha256
+804cce08e4100132beb8b3bfa022f45daeeabf048e6f3b9ad4ed62a153f43b86  data/methods/g2/G2PKT-REAL-PILOT-20260815-04/packet.json
 c557462a834f022568ceb76559d0ac08faa4ebd36310a58b39ffda2e3a25876d  data/methods/g2/datajud-api-path-receipt-2026-08-14.json
 cfa1f52390d4e0bb52818a41787205da633319997f50221e997728af90641d29  data/methods/pilot_adjudication_register.csv
 cdf1271360d3e71286f4de19125f3fc97cf227aa4054fb4c10c03591f9eb02db  data/methods/real_pilot_execution_register.csv

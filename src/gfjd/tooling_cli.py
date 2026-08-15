@@ -157,6 +157,19 @@ def register_tooling_commands(
     research_pack.add_argument("jurisdiction_id")
     research_pack.add_argument("--output", type=Path, default=Path("build/research-packs"))
 
+    holdout = commands.add_parser(
+        "g2-holdout", help="Run fail-closed metadata-only G2 holdout selection"
+    )
+    holdout_sub = holdout.add_subparsers(dest="holdout_command", required=True)
+    holdout_select = holdout_sub.add_parser("select")
+    holdout_select.add_argument("--candidates", type=Path, required=True)
+    holdout_select.add_argument("--exposure-ledger", type=Path, required=True)
+    holdout_select.add_argument("--seed", required=True)
+    holdout_select.add_argument("--generated-at", required=True)
+    holdout_select.add_argument(
+        "--output", type=Path, default=Path("build/g2-blind-holdout/selection")
+    )
+
     resilience = commands.add_parser(
         "resilience", help="Build, verify and rehearse critical-state backups"
     )
@@ -389,6 +402,34 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
         output = _resolve(project, args.output)
         destination = build_research_pack(project, args.jurisdiction_id, output)
         print(json.dumps({"output": str(destination)}, indent=2, sort_keys=True))
+        return 0
+
+    if command == "g2-holdout":
+        from .g2_holdout import G2HoldoutError, select_g2_holdout
+
+        try:
+            selection = select_g2_holdout(
+                project.root,
+                candidate_universe_path=args.candidates,
+                exposure_ledger_path=args.exposure_ledger,
+                output_dir=args.output,
+                seed=args.seed,
+                generated_at=args.generated_at,
+            )
+        except G2HoldoutError as exc:
+            print(f"G2 holdout selection stopped: {exc}")
+            return 1
+        print(
+            json.dumps(
+                {
+                    "manifest": str(selection.manifest_path),
+                    "receipt": str(selection.receipt_path),
+                    "scope_complete": selection.scope_complete,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
         return 0
 
     if command == "products":

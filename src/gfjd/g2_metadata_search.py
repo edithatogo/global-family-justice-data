@@ -36,6 +36,46 @@ def _canonical_https_html_url(value: str, official_domain: str) -> tuple[str, st
     return canonical, host
 
 
+def _canonical_exposure_url(value: str) -> str:
+    parsed = urlsplit(value)
+    host = (parsed.hostname or "").rstrip(".").lower()
+    if parsed.scheme.lower() not in {"http", "https"} or not host:
+        return value
+    scheme = parsed.scheme.lower()
+    return urlunsplit((scheme, host, parsed.path or "/", parsed.query, ""))
+
+
+def _collect_denied_urls(
+    root: Path, descriptor: dict[str, str], *, seen: set[str] | None = None, depth: int = 0
+) -> tuple[set[str], list[str]]:
+    seen = set() if seen is None else seen
+    if depth > 8:
+        return set(), ["exposure predecessor depth exceeded"]
+    relative = descriptor["path"]
+    if relative in seen:
+        return set(), ["exposure predecessor cycle"]
+    seen.add(relative)
+    path = root / relative
+    if not path.is_file() or _sha(path) != descriptor["sha256"]:
+        return set(), ["predecessor exposure ledger binding mismatch"]
+    ledger = json.loads(path.read_text())
+    denied = {_canonical_exposure_url(url) for url in ledger.get("denied_urls", [])}
+    for entry in ledger.get("entries", []):
+        for key in ("url", "landing_page_url"):
+            if entry.get(key):
+                denied.add(_canonical_exposure_url(entry[key]))
+        denied.update(_canonical_exposure_url(url) for url in entry.get("urls", []))
+    predecessor = ledger.get("predecessor")
+    errors: list[str] = []
+    if predecessor:
+        inherited, inherited_errors = _collect_denied_urls(
+            root, predecessor, seen=seen, depth=depth + 1
+        )
+        denied.update(inherited)
+        errors.extend(inherited_errors)
+    return denied, errors
+
+
 def verify_search_index_bundle(root: Path, bundle: dict[str, Any]) -> list[str]:
     design = root / "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design"
     schema = json.loads((design / "search-index-execution-bundle.schema.json").read_text())
@@ -53,18 +93,10 @@ def verify_search_index_bundle(root: Path, bundle: dict[str, Any]) -> list[str]:
         errors.append("query manifest binding mismatch")
         return errors
     manifest = json.loads(manifest_path.read_text())
-    exposure_descriptor = bundle["predecessor_exposure_ledger"]
-    exposure_path = root / exposure_descriptor["path"]
-    if not exposure_path.is_file() or _sha(exposure_path) != exposure_descriptor["sha256"]:
-        errors.append("predecessor exposure ledger binding mismatch")
+    denied_urls, exposure_errors = _collect_denied_urls(root, bundle["predecessor_exposure_ledger"])
+    errors.extend(exposure_errors)
+    if exposure_errors:
         return errors
-    predecessor = json.loads(exposure_path.read_text())
-    denied_urls = set(predecessor.get("denied_urls", []))
-    denied_urls.update(
-        entry.get("landing_page_url")
-        for entry in predecessor.get("entries", [])
-        if entry.get("landing_page_url")
-    )
     if bundle["provider_config"] != manifest["provider_config"]:
         errors.append("provider configuration mismatch")
     all_urls: list[str] = []
@@ -104,6 +136,6 @@ def verify_search_index_bundle(root: Path, bundle: dict[str, Any]) -> list[str]:
     checked = bundle["non_overlap_receipt"]["checked_urls"]
     if checked != sorted(set(all_urls)):
         errors.append("non-overlap checked URL projection mismatch")
-    if set(all_urls) & denied_urls:
+    if {_canonical_exposure_url(url) for url in all_urls} & denied_urls:
         errors.append("candidate overlaps predecessor exposure ledger")
     return sorted(set(errors))

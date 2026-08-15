@@ -110,5 +110,29 @@ def test_search_index_bundle_rejects_mutations(project_root: Path) -> None:
     unsafe["non_overlap_receipt"]["checked_urls"] = [bad_result["url"]]
     unsafe["proposed_official_html_allowlist"] = [bad_result["url"]]
     mutations.append(unsafe)
+    known_exposed = deepcopy(valid)
+    exposed_result = {
+        "rank": 1,
+        "title": "Annual report",
+        "url": "https://www.fcfcoa.gov.au/fcfcoa-annual-reports/2024-25",
+        "domain": "www.fcfcoa.gov.au",
+        "official_host_candidate": True,
+    }
+    known_exposed["query_events"][0]["results"] = [exposed_result]
+    known_exposed["query_events"][0]["result_count"] = 1
+    known_exposed["query_events"][0]["result_sha256"] = hashlib.sha256(
+        _canonical([exposed_result])
+    ).hexdigest()
+    known_exposed["candidate_hypotheses"] = [exposed_result["url"]]
+    known_exposed["exposure_events"] = [
+        {
+            "url": exposed_result["url"],
+            "exposure_class": "search_index_metadata_seen",
+            "requested": False,
+        }
+    ]
+    known_exposed["non_overlap_receipt"]["checked_urls"] = [exposed_result["url"]]
+    known_exposed["proposed_official_html_allowlist"] = [exposed_result["url"]]
+    mutations.append(known_exposed)
     for mutation in mutations:
         assert verify_search_index_bundle(project_root, mutation)

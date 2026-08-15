@@ -185,6 +185,35 @@ def test_g2_packet04_methods_amendment_is_schema_bound_and_deterministic(
     assert amendment["publication_authorized"] is False
 
 
+def test_g2_packet05_domain_amendment_is_schema_bound_and_final(
+    project_root: Path,
+) -> None:
+    amendment = json.loads(
+        (project_root / "config" / "g2_atomic_domain_amendment_packet05.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    _validate(project_root, "g2_atomic_domain_amendment.schema.json", amendment)
+
+    mappings = amendment["field_mappings"]
+    assert len(mappings) == 4
+    assert {item["sample_key"] for item in mappings} == {
+        "AUS-D1-CLEARANCE-2024-25",
+        "USA-MN-FAMILY-CLEARANCE-FY24",
+        "BRA-PROTECTIVE-MEASURES-2026-04-30",
+        "ZAF-MAINTENANCE-90D-2024-25",
+    }
+    assert len({item["source_record_key"] for item in mappings}) == 4
+    assert {item["field"] for item in mappings} == {"domain_label_source"}
+    assert amendment["critical_threshold"] == 1.0
+    assert amendment["overall_threshold"] == 0.99
+    assert amendment["requires_both_runs"] is True
+    assert amendment["final_calibration"] is True
+    assert amendment["packet06_authorized"] is False
+    assert amendment["blind_holdout_required_for_generalisation"] is True
+    assert amendment["publication_authorized"] is False
+
+
 def test_g2_evidence_chain_schemas_accept_bounded_receipts(project_root: Path) -> None:
     packet = {
         "schema_version": "1.0",

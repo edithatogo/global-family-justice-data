@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "amendment_id": "G2AMEND-PACKET05-DOMAIN-20260815",
+  "owner_decision": "docs/governance/g2-packet05-domain-owner-decision-2026-08-15.md",
+  "owner_decision_sha256": "b1593ef058d7697c7302430bd2bf9f99ccc33d4d8ca8db14c9e41f9e78214367",
+  "owner_decision_commit": "a22330fe5ae53dfc2782bea00e85feacfeefc400",
+  "proposal_sha256": "23e93096b28d3682c4148831493f1bdf4c0a8131d8ed4ecfce5d08828675e44d",
+  "prior_packet_id": "G2PKT-REAL-PILOT-20260815-04",
+  "prior_packet_sha256": "804cce08e4100132beb8b3bfa022f45daeeabf048e6f3b9ad4ed62a153f43b86",
+  "prior_comparison_sha256": "66689d646929a44991245c2a2fa93714b9433543fdb7f4fe9f2b0f551ab32b25",
+  "prior_differences_sha256": "d36adaf964382fe335c7c41fe2b59e9e3f5548a0e9a8161ad7f238d42a777478",
+  "advisory_reports": [
+    {"path": "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-04/panels/domain-source-report.json", "sha256": "4b5be8d38723de0a5d2bea903fa7c24d61d3bb049639578280b420e9d8fd7aaa"},
+    {"path": "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-04/panels/domain-methods-report.json", "sha256": "16350d1e4fb2dfed6334d4d3740ea71b76ff137dc66b4a07fd3721512db3b62a"},
+    {"path": "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-04/panels/contingency-report.json", "sha256": "fe3db86a1368011be8c93a0ddc52c26a2472a442c20d856a6ced399124ad00ca"}
+  ],
+  "classification": "final_pre_extraction_domain_hierarchy_calibration",
+  "domain_rule": "complete lexical text of the nearest enclosing broader-domain heading not assigned as locator, matter or measure; exclude structural section-number tokens and layout-only line breaks; preserve subtitles, dashes and every other lexical component",
+  "field_mappings": [
+    {"sample_key": "AUS-D1-CLEARANCE-2024-25", "source_record_key": "fef623eab55f14f9bbd888287ddf37de464ed287d2af5ac8f0d02150e0bf1b80", "field": "domain_label_source", "required_value": "Court Performance and Statistics – Original Jurisdiction", "mapping_kind": "complete_enclosing_domain_heading"},
+    {"sample_key": "USA-MN-FAMILY-CLEARANCE-FY24", "source_record_key": "c0f8ec4b54648507110f35d5d4307213104ed31c412faa9225a95bcb38e6f89d", "field": "domain_label_source", "required_value": "Timeliness", "mapping_kind": "complete_enclosing_domain_heading"},
+    {"sample_key": "BRA-PROTECTIVE-MEASURES-2026-04-30", "source_record_key": "164cfa1e58300975fbe0a49e0cd223079d57574e1b5961026d06d073a7baf38a", "field": "domain_label_source", "required_value": "Violência contra a Mulher", "mapping_kind": "complete_enclosing_domain_heading"},
+    {"sample_key": "ZAF-MAINTENANCE-90D-2024-25", "source_record_key": "bffeecd35b755dd473cb450f7c19a9c158e54e43aba88369686b4bb5f78e1243", "field": "domain_label_source", "required_value": "District Courts Court Performance Overview", "mapping_kind": "complete_enclosing_domain_heading"}
+  ],
+  "critical_threshold": 1.0,
+  "overall_threshold": 0.99,
+  "unchanged_invariants": [
+    "same four exact source editions and content digests",
+    "same four sample and source-record keys",
+    "same empirical and component numeric facts",
+    "same canonical semantic codes and ambiguity evidence",
+    "packet-04 deterministic uncertainty rule",
+    "explicit-only date rule",
+    "AUS and ZAF hard quarantine",
+    "BRA and USA-MN quarantine",
+    "100 percent critical and 99 percent overall thresholds",
+    "local-private evidence and metadata/citation-only public boundary"
+  ],
+  "requires_both_runs": true,
+  "final_calibration": true,
+  "packet06_authorized": false,
+  "blind_holdout_required_for_generalisation": true,
+  "publication_authorized": false
+}

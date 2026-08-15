@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_atomic_domain_amendment.schema.json",
+  "title": "Owner-approved final G2 domain calibration amendment",
+  "type": "object",
+  "required": [
+    "schema_version", "amendment_id", "owner_decision", "owner_decision_sha256",
+    "owner_decision_commit", "proposal_sha256", "prior_packet_id",
+    "prior_packet_sha256", "prior_comparison_sha256", "prior_differences_sha256",
+    "advisory_reports", "classification", "domain_rule", "field_mappings",
+    "critical_threshold", "overall_threshold", "unchanged_invariants",
+    "requires_both_runs", "final_calibration", "packet06_authorized",
+    "blind_holdout_required_for_generalisation", "publication_authorized"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "amendment_id": {"const": "G2AMEND-PACKET05-DOMAIN-20260815"},
+    "owner_decision": {"const": "docs/governance/g2-packet05-domain-owner-decision-2026-08-15.md"},
+    "owner_decision_sha256": {"$ref": "#/$defs/sha256"},
+    "owner_decision_commit": {"$ref": "#/$defs/commit"},
+    "proposal_sha256": {"$ref": "#/$defs/sha256"},
+    "prior_packet_id": {"const": "G2PKT-REAL-PILOT-20260815-04"},
+    "prior_packet_sha256": {"$ref": "#/$defs/sha256"},
+    "prior_comparison_sha256": {"$ref": "#/$defs/sha256"},
+    "prior_differences_sha256": {"$ref": "#/$defs/sha256"},
+    "advisory_reports": {
+      "type": "array", "minItems": 3, "maxItems": 3,
+      "items": {"$ref": "#/$defs/artifact"}
+    },
+    "classification": {"const": "final_pre_extraction_domain_hierarchy_calibration"},
+    "domain_rule": {
+      "const": "complete lexical text of the nearest enclosing broader-domain heading not assigned as locator, matter or measure; exclude structural section-number tokens and layout-only line breaks; preserve subtitles, dashes and every other lexical component"
+    },
+    "field_mappings": {
+      "type": "array", "minItems": 4, "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["sample_key", "source_record_key", "field", "required_value", "mapping_kind"],
+        "properties": {
+          "sample_key": {"type": "string", "minLength": 1},
+          "source_record_key": {"$ref": "#/$defs/sha256"},
+          "field": {"const": "domain_label_source"},
+          "required_value": {"type": "string", "minLength": 1},
+          "mapping_kind": {"const": "complete_enclosing_domain_heading"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "critical_threshold": {"const": 1.0},
+    "overall_threshold": {"const": 0.99},
+    "unchanged_invariants": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "requires_both_runs": {"const": true},
+    "final_calibration": {"const": true},
+    "packet06_authorized": {"const": false},
+    "blind_holdout_required_for_generalisation": {"const": true},
+    "publication_authorized": {"const": false}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_structural_role_bundles.schema.json",
+  "title": "G2 structural-preflight artifact-isolation role bundles",
+  "type": "object",
+  "required": ["schema_version", "bundle_set_id", "fresh_sessions_required", "access_receipt_required", "roles", "owner_role", "owner_unavailable_disposition"],
+  "properties": {
+    "schema_version": {"const": "1.0"}, "bundle_set_id": {"const": "G2-STRUCTURAL-ROLES-20260815-01"}, "fresh_sessions_required": {"const": true}, "access_receipt_required": {"const": true},
+    "roles": {"const": [
+      {"role": "metadata_url_resolver", "network": "exact_allowlist_only", "input_allowlist": ["url_resolution_manifest", "owner_authorization", "candidate_metadata"], "input_denylist": ["source_bytes", "extraction_contract", "prior_evidence", "extraction_output", "comparison_output"], "output_class": "resolved_url_metadata_receipt"},
+      {"role": "exposure_auditor", "network": "none", "input_allowlist": ["exposure_ledger", "prior_evidence"], "input_denylist": ["source_bytes", "extraction_contract", "extraction_output", "comparison_output"], "output_class": "exposure_receipt"},
+      {"role": "frame_freezer", "network": "none", "input_allowlist": ["candidate_metadata", "exposure_receipt", "selection_policy"], "input_denylist": ["source_bytes", "extraction_contract", "extraction_output", "comparison_output"], "output_class": "frozen_frame"},
+      {"role": "acquisition_custodian", "network": "exact_allowlist_only", "input_allowlist": ["proposed_acquisition_manifest", "owner_authorization", "frozen_frame"], "input_denylist": ["extraction_contract", "prior_evidence", "extraction_output", "comparison_output"], "output_class": "sealed_source_bytes"},
+      {"role": "binary_security_scanner", "network": "none", "input_allowlist": ["sealed_source_bytes", "owner_authorization"], "input_denylist": ["extraction_contract", "prior_evidence", "extraction_output", "comparison_output"], "output_class": "binary_security_receipt"},
+      {"role": "structural_eligibility_reviewer", "network": "none", "input_allowlist": ["sealed_source_bytes", "binary_security_receipt", "structural_policy"], "input_denylist": ["extraction_contract", "prior_evidence", "extraction_output", "comparison_output"], "output_class": "structural_receipt"},
+      {"role": "eligibility_verifier", "network": "none", "input_allowlist": ["structural_receipt", "structural_policy", "frozen_frame"], "input_denylist": ["source_bytes", "extraction_contract", "extraction_output", "comparison_output"], "output_class": "eligibility_receipt"},
+      {"role": "deterministic_selector", "network": "none", "input_allowlist": ["eligibility_receipt", "selection_policy", "frozen_frame"], "input_denylist": ["source_bytes", "extraction_contract", "prior_evidence", "extraction_output", "comparison_output"], "output_class": "sealed_selection"},
+      {"role": "packet_sealer", "network": "none", "input_allowlist": ["sealed_selection", "extraction_contract", "sealed_source_bytes", "owner_authorization"], "input_denylist": ["prior_evidence", "extraction_output", "comparison_output"], "output_class": "extractor_bundle"},
+      {"role": "primary_extractor", "network": "none", "input_allowlist": ["extractor_bundle"], "input_denylist": ["candidate_metadata", "exposure_ledger", "prior_evidence", "structural_receipt", "eligibility_receipt", "reserve_metadata", "extraction_output", "comparison_output"], "output_class": "primary_extraction_output"},
+      {"role": "secondary_extractor", "network": "none", "input_allowlist": ["extractor_bundle"], "input_denylist": ["candidate_metadata", "exposure_ledger", "prior_evidence", "structural_receipt", "eligibility_receipt", "reserve_metadata", "extraction_output", "comparison_output"], "output_class": "secondary_extraction_output"},
+      {"role": "comparator", "network": "none", "input_allowlist": ["primary_extraction_output", "secondary_extraction_output", "extraction_contract", "sealed_selection"], "input_denylist": ["source_bytes", "candidate_metadata", "prior_evidence", "structural_receipt", "reserve_metadata"], "output_class": "comparison_output"},
+      {"role": "postseal_advisory_panel", "network": "none", "input_allowlist": ["comparison_output", "eligibility_receipt", "binary_security_receipt", "exposure_receipt"], "input_denylist": ["source_bytes"], "output_class": "panel_report"}
+    ]},
+    "owner_role": {"const": "sole_accountable_decision_maker"}, "owner_unavailable_disposition": {"const": "pause"}
+  },
+  "additionalProperties": false
+}

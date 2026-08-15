@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "policy_id": "G2-STRUCTURAL-SELECTION-20260815-01",
+  "frame_order": "ascending_frame_rank",
+  "prefix_rule": "first_prefix_with_feasible_exact_assignment",
+  "assignment_algorithm": "slot_order_rank_ascending_backtracking_v1",
+  "slot_order": [
+    "primary:embedded_raster_or_dashboard_pdf:1-6",
+    "primary:structurally_complex_mixed_layout_pdf:1-6",
+    "primary:non_english_text_native:1-6",
+    "primary:english_text_native:1-6",
+    "reserve:embedded_raster_or_dashboard_pdf:1-2",
+    "reserve:structurally_complex_mixed_layout_pdf:1-2",
+    "reserve:non_english_text_native:1",
+    "reserve:english_text_native:1"
+  ],
+  "candidate_iteration": "ascending_frame_rank",
+  "maximum_search_nodes": 1000000,
+  "primary_count": 24,
+  "reserve_count": 6,
+  "minimum_primary_jurisdictions": 12,
+  "maximum_selected_per_jurisdiction": 2,
+  "maximum_selected_per_source_series": 1,
+  "post_seal_substitution": false,
+  "adaptive_replenishment": false,
+  "frame_exhaustion_disposition": "experiment_stopped"
+}

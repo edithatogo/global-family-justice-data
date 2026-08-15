@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2-STRUCTURAL-METHODS-20260815-07",
+  "packet_id": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01",
+  "packet_sha256": "c7781285ec8598721a7c1fdc6da344c59b8c22560ddced4e54d3be55fc3630f3",
+  "role": "role-separated methods design advisory agent",
+  "agent_session_id": "g2_successor_methods_rereview",
+  "tool_or_model": "Codex analyst agent",
+  "tool_or_model_version": "2026-08-15",
+  "generated_at": "2026-08-15T06:44:29Z",
+  "evidence_inputs": [
+    {"path": "config/g2_structural_preflight_plan.json", "sha256": "c7781285ec8598721a7c1fdc6da344c59b8c22560ddced4e54d3be55fc3630f3"},
+    {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json", "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"},
+    {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-acquisition-manifest.json", "sha256": "09f5ca6edbbfec9604e79a1269da0a1604f94ea4349cb0e8d5afaf336e2eba05"},
+    {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-url-resolution-manifest.json", "sha256": "d8f703f725befafd33d116bba7809fcceac23f8a84c846f11277d3edadbdb2a9"},
+    {"path": "config/g2_holdout_generic_extraction_contract.json", "sha256": "484019520ef9b3f3e8b4ad914a8f8c3f11380c1f7039461f98e886019f2267d8"},
+    {"path": "config/g2_holdout_semantic_vocabulary.json", "sha256": "4f51d7f3b690fd1945f0c7f112a4a293ee43bfafad4c66f3dfe05d6e80fb2bd5"},
+    {"path": "schemas/g2_holdout_extraction_row.schema.json", "sha256": "1922ba45e421c504e897f68f8c92267291e5104e2265fcb38fa9449d415520aa"},
+    {"path": "config/g2_structural_eligibility_policy.json", "sha256": "bf88f843b24a575b9d56c569dffcb0849e6e9fa3b7d0fafa7c9033508008db39"},
+    {"path": "schemas/g2_structural_preflight_record.schema.json", "sha256": "28584dbed59fabe1ad5b28fc4c5a7f62920422ccfa863c74350626d5d69d32e4"},
+    {"path": "config/g2_structural_selection_policy.json", "sha256": "528e53150bf94d1c76575f221ccbde4ff61e6ef3fc008e820a9bd72ea3a52439"},
+    {"path": "schemas/g2_merged_eligibility_receipt.schema.json", "sha256": "784cd2ce114bbe87d12c766afdd7cce2e82597b6797e3942db15a3e9814d66f3"},
+    {"path": "schemas/g2_extractor_bundle.schema.json", "sha256": "d74613bc2ae9408d1a89df5a9bdb2715a228d2304269aa308efa1245479e5c92"},
+    {"path": "schemas/g2_sealed_selection.schema.json", "sha256": "d9a0455363af78c72c047224071328486c496ed4cf37af0b14d5d3fc2a50d738"},
+    {"path": "schemas/g2_holdout_extraction_run_receipt.schema.json", "sha256": "da879f0697893ce18e723bf0352ece31c4e8590a6399adf61c413c6221548054"},
+    {"path": "schemas/g2_artifact_access_receipt.schema.json", "sha256": "3f9b0a555baf7647f0104a62286c6ec4b1de35c7b13d1e66aa1b56b553f860d0"},
+    {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"},
+    {"path": "tests/test_g2_structural_preflight.py", "sha256": "b3f575ae2a3ce432b4405a2f298e99f8e3ab9af54bd59a5cd5f33f227922cef9"}
+  ],
+  "verdict": "pass",
+  "findings": [
+    {
+      "finding_id": "G2SP-M01",
+      "severity": "medium",
+      "claim": "The deterministic 44-edition frame is methodologically valid as a fail-closed option but carries material scope-exhaustion risk: it is only 1.47 times the required 30-edition sealed scope, includes one metadata-hypothesized raster candidate, has 11 exact PDF URLs and requires separately authorized metadata resolution for 33 editions.",
+      "evidence_references": [
+        {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json", "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"},
+        {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-acquisition-manifest.json", "sha256": "09f5ca6edbbfec9604e79a1269da0a1604f94ea4349cb0e8d5afaf336e2eba05"},
+        {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-url-resolution-manifest.json", "sha256": "d8f703f725befafd33d116bba7809fcceac23f8a84c846f11277d3edadbdb2a9"}
+      ],
+      "uncertainty": "Actual structural yield cannot be inferred from metadata without the source access that remains prohibited.",
+      "remediation": "Prefer a separately authorized metadata-only expansion to 96 exact candidates; otherwise retain the exact frame and accept a fail-closed scope stop without shrinkage, replenishment or rerun."
+    },
+    {
+      "finding_id": "G2SP-M02",
+      "severity": "info",
+      "claim": "The scientific claim is correctly bounded to reproducibility on frozen editions unseen by both extraction paths; structural classification supports only a document-level format claim.",
+      "evidence_references": [
+        {"path": "config/g2_structural_preflight_plan.json", "sha256": "c7781285ec8598721a7c1fdc6da344c59b8c22560ddced4e54d3be55fc3630f3"},
+        {"path": "config/g2_structural_eligibility_policy.json", "sha256": "bf88f843b24a575b9d56c569dffcb0849e6e9fa3b7d0fafa7c9033508008db39"}
+      ],
+      "uncertainty": "A structural reviewer may incidentally perceive facts, so blindness applies to the two fresh extraction paths rather than every repository role.",
+      "remediation": "Preserve the permanent role separation that excludes structural reviewers from extraction, comparison and adjudication."
+    },
+    {
+      "finding_id": "G2SP-M03",
+      "severity": "info",
+      "claim": "The comparator now reproduces the exact 24-primary sealed selection from its complete-prefix eligibility receipt and canonical policy, verifies source digests and primary-only bundles, binds both bundle and access receipts to the externally supplied owner-authority artifact, authenticates role, session, allowlisted input bundle and output bindings across two distinct runs, and derives the exact identity scope and threshold policy without caller override.",
+      "evidence_references": [
+        {"path": "config/g2_holdout_generic_extraction_contract.json", "sha256": "484019520ef9b3f3e8b4ad914a8f8c3f11380c1f7039461f98e886019f2267d8"},
+        {"path": "schemas/g2_sealed_selection.schema.json", "sha256": "d9a0455363af78c72c047224071328486c496ed4cf37af0b14d5d3fc2a50d738"},
+        {"path": "schemas/g2_holdout_extraction_run_receipt.schema.json", "sha256": "da879f0697893ce18e723bf0352ece31c4e8590a6399adf61c413c6221548054"},
+        {"path": "schemas/g2_artifact_access_receipt.schema.json", "sha256": "3f9b0a555baf7647f0104a62286c6ec4b1de35c7b13d1e66aa1b56b553f860d0"},
+        {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"},
+        {"path": "tests/test_g2_structural_preflight.py", "sha256": "b3f575ae2a3ce432b4405a2f298e99f8e3ab9af54bd59a5cd5f33f227922cef9"}
+      ],
+      "uncertainty": "A passing comparator result would establish concordance only for the frozen 24-edition exercise, not general validity or correctness.",
+      "remediation": "Retain exact 100 percent critical and at least 99 percent populated-field thresholds with no waiver or repair."
+    },
+    {
+      "finding_id": "G2SP-M04",
+      "severity": "info",
+      "claim": "The selector now consumes a schema-validated merged eligibility receipt, verifies every record digest and canonical frame, policy and identity binding, reclassifies every structural record and requires exactly one record for every rank from one through the declared inspected-prefix end.",
+      "evidence_references": [
+        {"path": "schemas/g2_merged_eligibility_receipt.schema.json", "sha256": "784cd2ce114bbe87d12c766afdd7cce2e82597b6797e3942db15a3e9814d66f3"},
+        {"path": "schemas/g2_structural_preflight_record.schema.json", "sha256": "28584dbed59fabe1ad5b28fc4c5a7f62920422ccfa863c74350626d5d69d32e4"},
+        {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"}
+      ],
+      "uncertainty": "No real eligibility receipts exist yet because source acquisition and structural inspection remain unauthorized.",
+      "remediation": "At execution, produce fresh role and access receipts and stop on any binding mismatch."
+    },
+    {
+      "finding_id": "G2SP-M05",
+      "severity": "info",
+      "claim": "The fixed-slot rank-ascending backtracking selector now has a frozen search-node cap plus positive, negative and end-to-end digest-bound handoff tests for exact 24-plus-six allocation, insufficient scope, duplicate series, jurisdiction caps, duplicate rank and infeasible scope.",
+      "evidence_references": [
+        {"path": "config/g2_structural_selection_policy.json", "sha256": "528e53150bf94d1c76575f221ccbde4ff61e6ef3fc008e820a9bd72ea3a52439"},
+        {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"},
+        {"path": "tests/test_g2_structural_preflight.py", "sha256": "b3f575ae2a3ce432b4405a2f298e99f8e3ab9af54bd59a5cd5f33f227922cef9"}
+      ],
+      "uncertainty": "The tests establish implementation behavior, not future candidate yield.",
+      "remediation": "Freeze the algorithm before access and treat frame exhaustion as an experiment stop."
+    },
+    {
+      "finding_id": "G2SP-M06",
+      "severity": "low",
+      "claim": "A source-agnostic semantic vocabulary is now frozen and enforced by the extraction-row schema, removing open-ended analyst-created canonical codes.",
+      "evidence_references": [
+        {"path": "config/g2_holdout_semantic_vocabulary.json", "sha256": "4f51d7f3b690fd1945f0c7f112a4a293ee43bfafad4c66f3dfe05d6e80fb2bd5"},
+        {"path": "schemas/g2_holdout_extraction_row.schema.json", "sha256": "1922ba45e421c504e897f68f8c92267291e5104e2265fcb38fa9449d415520aa"}
+      ],
+      "uncertainty": "An unseen edition may contain a qualifying concept outside the frozen vocabulary.",
+      "remediation": "Treat an unmappable concept as a documented extraction failure; do not expand the vocabulary after source access."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "A",
+      "description": "After non-method security and authorization prerequisites pass, separately authorize resolution and execution of the exact 44-edition frame.",
+      "trade_offs": ["Avoids further discovery", "Preserves the current deterministic frame", "Accepts materially higher frame-exhaustion risk"],
+      "limitations": ["Only 11 exact PDF URLs are currently proposed", "Thirty-three landing pages require separately authorized metadata resolution", "Only one raster candidate is hypothesized"],
+      "contingency": "Stop without scope shrink, replenishment, repair or rerun if the exact scope cannot be assembled."
+    },
+    {
+      "option_id": "B",
+      "description": "Separately authorize a bounded metadata-only expansion to 96 exact candidates and prospectively refreeze before any source acquisition.",
+      "trade_offs": ["Adds metadata preparation and exposure", "Reduces avoidable structural-class exhaustion risk", "Requires a new exact frame and manifest owner decision"],
+      "limitations": ["Metadata cannot guarantee structural yield", "Expansion cannot inspect content or adapt to observed eligibility"],
+      "contingency": "Stop if 96 compliant non-overlapping exact candidates cannot be assembled under the frozen prospective rules."
+    },
+    {
+      "option_id": "C",
+      "description": "Retain the valid fail-closed stop and defer the holdout exercise.",
+      "trade_offs": ["No additional exposure", "No real-pilot reproducibility evidence"],
+      "limitations": ["G2 remains blocked"],
+      "contingency": "Resume only under a new digest-bound owner decision."
+    }
+  ],
+  "recommendation": "Choose Option B. The repository-owned methods design now passes this advisory review, but source access should remain disabled until the expanded exact manifest, security controls, role and access bindings, resources and signed freeze commit return for separate owner authorization.",
+  "rationale": "The prior contract, receipt, selection-test and semantic-vocabulary gaps are remediated. Expansion remains preferable because it adds prospective redundancy without weakening the exact 24-plus-six scope, no-waiver thresholds or extraction-path blindness.",
+  "conflicts": [],
+  "abstentions": [
+    "The panel did not access any candidate or source URL.",
+    "A methods-design pass is not source-access authorization, real-pilot evidence, methods acceptance or G2 passage.",
+    "The panel does not authorize metadata-page access, acquisition, inspection, extraction, rights acceptance, publication or release."
+  ],
+  "dissent": [
+    "Executing the exact 44-frame remains scientifically defensible if the owner knowingly accepts the higher fail-closed stop probability.",
+    "A complete-frame structural inspection is simpler than prefix stopping but would increase source exposure without changing the frozen reproducibility claim."
+  ],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

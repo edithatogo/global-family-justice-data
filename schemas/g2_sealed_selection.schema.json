@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_sealed_selection.schema.json",
+  "title": "G2 sealed deterministic 24 plus 6 selection",
+  "type": "object",
+  "required": ["schema_version", "selection_id", "plan_id", "eligibility_receipt", "selection_policy", "prefix_end_rank", "primary", "reserves", "scope_complete", "generated_at"],
+  "properties": {
+    "schema_version": {"const": "1.0"}, "selection_id": {"type": "string", "minLength": 8},
+    "plan_id": {"const": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01"},
+    "eligibility_receipt": {"$ref": "#/$defs/artifact"}, "selection_policy": {"$ref": "#/$defs/artifact"},
+    "prefix_end_rank": {"type": "integer", "minimum": 30, "maximum": 44},
+    "primary": {"type": "array", "minItems": 24, "maxItems": 24, "items": {"$ref": "#/$defs/entry"}},
+    "reserves": {"type": "array", "minItems": 6, "maxItems": 6, "items": {"$ref": "#/$defs/entry"}},
+    "scope_complete": {"const": true}, "generated_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/sha256"}}, "additionalProperties": false},
+    "entry": {"type": "object", "required": ["source_record_key", "candidate_id", "source_id", "source_edition_id", "source_sha256", "assigned_stratum", "frame_rank"], "properties": {"source_record_key": {"$ref": "#/$defs/sha256"}, "candidate_id": {"type": "string", "minLength": 2}, "source_id": {"type": "string", "minLength": 2}, "source_edition_id": {"type": "string", "minLength": 2}, "source_sha256": {"$ref": "#/$defs/sha256"}, "assigned_stratum": {"enum": ["embedded_raster_or_dashboard_pdf", "structurally_complex_mixed_layout_pdf", "non_english_text_native", "english_text_native"]}, "frame_rank": {"type": "integer", "minimum": 1, "maximum": 44}}, "additionalProperties": false}
+  },
+  "additionalProperties": false
+}

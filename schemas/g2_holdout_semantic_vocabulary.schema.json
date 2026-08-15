@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_holdout_semantic_vocabulary.schema.json",
+  "title": "G2 generic holdout semantic vocabulary",
+  "type": "object",
+  "properties": {
+    "schema_version": {"const": "1.0"}, "vocabulary_id": {"const": "G2-HOLDOUT-SEMANTIC-VOCABULARY-20260815-01"},
+    "domain_codes": {"const": ["domestic_family_violence", "family_justice"]},
+    "matter_type_codes": {"const": ["domestic_family_violence_application", "protective_order", "family_case", "child_contact_or_custody", "divorce_or_dissolution", "other_family"]},
+    "indicator_codes": {"const": ["domestic_or_family_violence_application_or_order_count", "family_case_filing_or_disposition_count", "family_case_clearance_or_timeliness_statistic", "family_case_pending_or_caseload_count"]},
+    "statistic_types": {"const": ["count", "percent", "rate", "median", "mean", "ratio"]},
+    "denominator_codes": {"const": ["not_applicable", "source_defined", "case_filings", "case_dispositions", "population"]},
+    "clock_codes": {"const": ["not_applicable", "source_defined", "calendar_days", "working_days"]},
+    "cohort_codes": {"const": ["filed_in_period", "disposed_in_period", "pending_at_period_end", "source_defined"]},
+    "counted_entity_codes": {"const": ["applications", "orders", "cases", "persons", "families", "other"]},
+    "population_scope_codes": {"const": ["court", "statewide", "national", "regional", "source_defined"]}
+  },
+  "required": ["schema_version", "vocabulary_id", "domain_codes", "matter_type_codes", "indicator_codes", "statistic_types", "denominator_codes", "clock_codes", "cohort_codes", "counted_entity_codes", "population_scope_codes"],
+  "additionalProperties": false
+}

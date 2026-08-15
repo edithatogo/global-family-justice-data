@@ -1,0 +1,1252 @@
+{
+  "candidate_count": 44,
+  "candidates": [
+    {
+      "candidate_id": "G2CAND-NOR-DOMSTOL-AR-2025",
+      "edition_id": "ED-NOR-DOMSTOL-AR-2025",
+      "edition_title": "Årsrapport 2025",
+      "frame_rank": 1,
+      "frame_score": "09cefac177e6994353c2dae094e4d5a2d99eee079f22c514a5c92af08121d15e",
+      "jurisdiction_id": "NOR",
+      "landing_page_url": "https://www.domstol.no/no/domstoladministrasjonen/publikasjoner/arsmeldingar/",
+      "languages": [
+        "no"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.domstol.no/no/domstoladministrasjonen/publikasjoner/arsmeldingar/"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": "non_english_text_native",
+      "publisher": "www.domstol.no",
+      "retrieval_entrypoint": "https://www.domstol.no/no/domstoladministrasjonen/publikasjoner/arsmeldingar/",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Domstoladministrasjonen — annual reports",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-PER-PJ-LALIBERTAD-BULLETIN-01-2024",
+      "edition_id": "ED-PER-PJ-LALIBERTAD-BULLETIN-01-2024",
+      "edition_title": "Boletín Estadístico Institucional N° 01-2024 — Corte Superior de Justicia de La Libertad",
+      "frame_rank": 2,
+      "frame_score": "0ff340bdcaa04243d06fd118d752fb0275dd781678ed3da1363a0b400219129c",
+      "jurisdiction_id": "PER",
+      "landing_page_url": "https://www.pj.gob.pe/wps/wcm/connect/Corte Superior La Libertad PJ/s_csj_LaLibertad_nuevo/as_corte_superior_LaLibertad/as_presidencia/as_documentos/as_resoluciones_administrativas/as_2024/?WCM_PI=1&WCM_Page.dcd566804ddc2df4838cdbcdee6548b3=47",
+      "languages": [
+        "es"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.pj.gob.pe/wps/wcm/connect/Corte Superior La Libertad PJ/s_csj_LaLibertad_nuevo/as_corte_superior_LaLibertad/as_presidencia/as_documentos/as_resoluciones_administrativas/as_2024/?WCM_PI=1&WCM_Page.dcd566804ddc2df4838cdbcdee6548b3=47"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.pj.gob.pe",
+      "retrieval_entrypoint": "https://www.pj.gob.pe/wps/wcm/connect/Corte Superior La Libertad PJ/s_csj_LaLibertad_nuevo/as_corte_superior_LaLibertad/as_presidencia/as_documentos/as_resoluciones_administrativas/as_2024/?WCM_PI=1&WCM_Page.dcd566804ddc2df4838cdbcdee6548b3=47",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Poder Judicial del Perú, CSJ La Libertad — institutional statistical bulletins",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-GBR-EAW-CAFCASS-ARA-2024-25",
+      "edition_id": "ED-GBR-EAW-CAFCASS-ARA-2024-25",
+      "edition_title": "Cafcass annual report and accounts 2024 to 2025",
+      "frame_rank": 3,
+      "frame_score": "1090c66effcc2e7b87e2cb0b190eb372049cb767f6346d093fdda5dcfe44e7c9",
+      "jurisdiction_id": "GBR-EAW",
+      "landing_page_url": "https://www.gov.uk/government/publications/cafcass-annual-report-and-accounts-2024-to-2025",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.gov.uk/government/publications/cafcass-annual-report-and-accounts-2024-to-2025"
+      ],
+      "prior_metadata_eligibility": "eligible_metadata_only",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.gov.uk",
+      "retrieval_entrypoint": "https://www.gov.uk/government/publications/cafcass-annual-report-and-accounts-2024-to-2025",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "no_known_metadata_blocker",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "GBR-EAW-CAFCASS-ANNUAL-REPORT-ACCOUNTS",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-AUS-VIC-MCV-AR-2024-25",
+      "edition_id": "ED-AUS-VIC-MCV-AR-2024-25",
+      "edition_title": "MCV Annual Report 2024-2025",
+      "frame_rank": 4,
+      "frame_score": "19b4dc254a5572cbeaf078e3c8fa15052e96e99cabbecae95f7fd11343b7d78e",
+      "jurisdiction_id": "AUS-VIC",
+      "landing_page_url": "https://www.mcv.vic.gov.au/news-and-resources/publications/annual-report-2024-2025",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.mcv.vic.gov.au/news-and-resources/publications/annual-report-2024-2025"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": null,
+      "publisher": "www.mcv.vic.gov.au",
+      "retrieval_entrypoint": "https://www.mcv.vic.gov.au/news-and-resources/publications/annual-report-2024-2025",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "AUS-VIC-MAGISTRATES-COURT-ANNUAL-REPORT",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-GBR-NIR-NICTS-INFOGRAPHIC-2023",
+      "edition_id": "ED-GBR-NIR-NICTS-INFOGRAPHIC-2023",
+      "edition_title": "Judicial Statistics 2023 - Infographic",
+      "frame_rank": 5,
+      "frame_score": "223244febf916640b292b42ebea6eddd9d3e7bac6980e5a138b3708274aef594",
+      "jurisdiction_id": "GBR-NIR",
+      "landing_page_url": "https://www.justice-ni.gov.uk/publications/nicts-judicial-statistics",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.justice-ni.gov.uk/publications/nicts-judicial-statistics"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "embedded_raster_or_dashboard_pdf",
+      "publisher": "www.justice-ni.gov.uk",
+      "retrieval_entrypoint": "https://www.justice-ni.gov.uk/publications/nicts-judicial-statistics",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "GBR-NIR-NICTS-JUDICIAL-STATISTICS-INFOGRAPHIC",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-AUS-NSW-LOCAL-AR-2024",
+      "edition_id": "ED-AUS-NSW-LOCAL-AR-2024",
+      "edition_title": "2024 Annual Review",
+      "frame_rank": 6,
+      "frame_score": "242f8097895f631248756ecefeb42e8e64b0299d0d176d42e74259f0b6e91902",
+      "jurisdiction_id": "AUS-NSW",
+      "landing_page_url": "https://localcourt.nsw.gov.au/practice-publications/publications/annual-reviews.html",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://localcourt.nsw.gov.au/practice-publications/publications/annual-reviews.html"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": null,
+      "publisher": "localcourt.nsw.gov.au",
+      "retrieval_entrypoint": "https://localcourt.nsw.gov.au/practice-publications/publications/annual-reviews.html",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "AUS-NSW-LOCAL-COURT-ANNUAL-REVIEW",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-DNK-COURTS-NATIONAL-AR-2024",
+      "edition_id": "ED-DNK-COURTS-NATIONAL-AR-2024",
+      "edition_title": "Danmarks Domstoles Årsrapport 2024",
+      "frame_rank": 7,
+      "frame_score": "2b3943fa135af9b6e090aed511871e34c9ed9c4ec02bed55a17ea6348381e724",
+      "jurisdiction_id": "DNK",
+      "landing_page_url": "https://www.domstol.dk/om-os/aarsrapporter/",
+      "languages": [
+        "da"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.domstol.dk/om-os/aarsrapporter/"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.domstol.dk",
+      "retrieval_entrypoint": "https://www.domstol.dk/om-os/aarsrapporter/",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Danmarks Domstole — national annual reports",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-NLD-RECHTSPRAAK-OVERIJSSEL-AR-2024",
+      "edition_id": "ED-NLD-RECHTSPRAAK-OVERIJSSEL-AR-2024",
+      "edition_title": "Jaarverslag 2024 rechtbank Overijssel",
+      "frame_rank": 8,
+      "frame_score": "2faab3de490a4f9da64340e4fb70a6289792b0d2748fcfccd221a14fa4d363b0",
+      "jurisdiction_id": "NLD",
+      "landing_page_url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-overijssel/over-de-rechtbank/publicaties",
+      "languages": [
+        "nl"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-overijssel/over-de-rechtbank/publicaties"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": "non_english_text_native",
+      "publisher": "www.rechtspraak.nl",
+      "retrieval_entrypoint": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-overijssel/over-de-rechtbank/publicaties",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "no_known_metadata_blocker",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Rechtbank Overijssel — annual reports",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-IRL-COURTS-AR-2024",
+      "edition_id": "ED-IRL-COURTS-AR-2024",
+      "edition_title": "Courts Service Annual Report 2024",
+      "frame_rank": 9,
+      "frame_score": "35a013e1984fa96255acdf65916dc3ee3bd7799068d27b0d597c8d66aa9a5470",
+      "jurisdiction_id": "IRL",
+      "landing_page_url": "https://www.courts.ie/annual-reports/annual-report-2024",
+      "languages": [
+        "en",
+        "ga"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.courts.ie/annual-reports/annual-report-2024"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": null,
+      "publisher": "www.courts.ie",
+      "retrieval_entrypoint": "https://www.courts.ie/docs/default-source/courts-annual-reports/courts-service-annual-report-2024.pdf",
+      "retrieval_entrypoint_kind": "exact_pdf_url",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "IRL-COURTS-SERVICE-ANNUAL-REPORT",
+      "source_url": "https://www.courts.ie/docs/default-source/courts-annual-reports/courts-service-annual-report-2024.pdf"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-PC-ROGS-COURTS-2026",
+      "edition_id": "ED-AUS-PC-ROGS-COURTS-2026",
+      "edition_title": "Report on Government Services 2026 — 7 Courts",
+      "frame_rank": 10,
+      "frame_score": "36545a18d7b9b9139da86ceea0cc5c83192932e3c4f98442edae8669e6e2227d",
+      "jurisdiction_id": "AUS-NAT",
+      "landing_page_url": "https://www.pc.gov.au/ongoing/report-on-government-services/justice/courts/",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.pc.gov.au/ongoing/report-on-government-services/justice/courts/"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.pc.gov.au",
+      "retrieval_entrypoint": "https://assets.pc.gov.au/2026-02/rogs-2026-partc-overview-and-sections.pdf?VersionId=m9KjA4PjvM2x7YMrT2EhW92NpOHZC2PC",
+      "retrieval_entrypoint_kind": "exact_pdf_url",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "AUS-PC-REPORT-ON-GOVERNMENT-SERVICES-COURTS",
+      "source_url": "https://assets.pc.gov.au/2026-02/rogs-2026-partc-overview-and-sections.pdf?VersionId=m9KjA4PjvM2x7YMrT2EhW92NpOHZC2PC"
+    },
+    {
+      "candidate_id": "G2CAND-USA-NC-FAMILY-AR-2024",
+      "edition_id": "ED-USA-NC-FAMILY-AR-2024",
+      "edition_title": "2024 Family Court Annual Report",
+      "frame_rank": 11,
+      "frame_score": "4e8fab55b80b3b1c697a737d6c7b2f1fca3c2c44289271104316673593704cb5",
+      "jurisdiction_id": "USA-NC",
+      "landing_page_url": "https://www.nccourts.gov/documents/publications/family-court-program-annual-report",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.nccourts.gov/documents/publications/family-court-program-annual-report"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "english_text_native",
+      "publisher": "www.nccourts.gov",
+      "retrieval_entrypoint": "https://www.nccourts.gov/assets/documents/publications/2024-Family-Court-Annual-Report-as-of-3-11-2024.pdf?VersionId=XIZWD35iFlbNkPYbCL3Z6.ZI.t4V0A54",
+      "retrieval_entrypoint_kind": "exact_pdf_url",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "USA-NC-FAMILY-COURT-PROGRAM-ANNUAL-REPORT",
+      "source_url": "https://www.nccourts.gov/assets/documents/publications/2024-Family-Court-Annual-Report-as-of-3-11-2024.pdf?VersionId=XIZWD35iFlbNkPYbCL3Z6.ZI.t4V0A54"
+    },
+    {
+      "candidate_id": "G2CAND-GBR-NIR-NICTS-JUDSTAT-2025",
+      "edition_id": "ED-GBR-NIR-NICTS-JUDSTAT-2025",
+      "edition_title": "Judicial Statistics 2025",
+      "frame_rank": 12,
+      "frame_score": "53ad95c9958b37ab0b882c92bcb17b9526af483da6952f4d00090a79e286fc8a",
+      "jurisdiction_id": "GBR-NIR",
+      "landing_page_url": "https://www.justice-ni.gov.uk/publications/nicts-judicial-statistics",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.justice-ni.gov.uk/publications/nicts-judicial-statistics"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "english_text_native",
+      "publisher": "www.justice-ni.gov.uk",
+      "retrieval_entrypoint": "https://www.justice-ni.gov.uk/publications/nicts-judicial-statistics",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "GBR-NIR-NICTS-JUDICIAL-STATISTICS",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-ESP-CGPJ-KEYIND-2024",
+      "edition_id": "ED-ESP-CGPJ-KEYIND-2024",
+      "edition_title": "Indicadores clave del conjunto de las jurisdicciones — Anual Trimestre 2024",
+      "frame_rank": 13,
+      "frame_score": "53f96349fce2478a19863547df6e55daf76ac2b2e678f1f91a5aa73f54ba5a7c",
+      "jurisdiction_id": "ESP",
+      "landing_page_url": "https://www.poderjudicial.es/cgpj/es/Temas/Estadistica-Judicial/Estudios-e-Informes/Indicadores-Clave/Indicadores-clave-del-conjunto-de-las-jurisdicciones----Anual-Trimestre-2024",
+      "languages": [
+        "es"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.poderjudicial.es/cgpj/es/Temas/Estadistica-Judicial/Estudios-e-Informes/Indicadores-Clave/Indicadores-clave-del-conjunto-de-las-jurisdicciones----Anual-Trimestre-2024"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": "non_english_text_native",
+      "publisher": "www.poderjudicial.es",
+      "retrieval_entrypoint": "https://www.poderjudicial.es/cgpj/es/Temas/Estadistica-Judicial/Estudios-e-Informes/Indicadores-Clave/Indicadores-clave-del-conjunto-de-las-jurisdicciones----Anual-Trimestre-2024",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "no_known_metadata_blocker",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "CGPJ Sección de Estadística Judicial — Indicadores clave",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-USA-TX-STATEWIDE-FAMILY-FY24",
+      "edition_id": "ED-USA-TX-STATEWIDE-FAMILY-FY24",
+      "edition_title": "Statewide Family Case Activity, Fiscal Year 2024",
+      "frame_rank": 14,
+      "frame_score": "55dd80fb2b27722175786fdbebd12aa7bcd790af279f090381bd8ced83029792",
+      "jurisdiction_id": "USA-TX",
+      "landing_page_url": "https://www.txcourts.gov/statistics/annual-statistical-reports/2024/",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.txcourts.gov/statistics/annual-statistical-reports/2024/"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "english_text_native",
+      "publisher": "www.txcourts.gov",
+      "retrieval_entrypoint": "https://www.txcourts.gov/statistics/annual-statistical-reports/2024/",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "USA-TX-OCA-STATEWIDE-FAMILY-CASE-ACTIVITY",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-KOR-SCOURT-JUDICIAL-YEARBOOK-2024",
+      "edition_id": "ED-KOR-SCOURT-JUDICIAL-YEARBOOK-2024",
+      "edition_title": "2024 사법연감",
+      "frame_rank": 15,
+      "frame_score": "5d700a0e82c1700bbd69cfb230afb7f6040d8dbeb54da247c73d4b515c2ff921",
+      "jurisdiction_id": "KOR",
+      "landing_page_url": "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=6&seqnum=2696",
+      "languages": [
+        "ko"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=6&seqnum=2696"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "non_english_text_native",
+      "publisher": "www.scourt.go.kr",
+      "retrieval_entrypoint": "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=6&seqnum=2696",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "대한민국 법원 — 사법연감",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-PER-PJ-ONAJUP-BULLETIN-JJA-2024",
+      "edition_id": "ED-PER-PJ-ONAJUP-BULLETIN-JJA-2024",
+      "edition_title": "Boletín Estadístico ONAJUP — Junio, Julio, Agosto 2024",
+      "frame_rank": 16,
+      "frame_score": "631863e2ebd66da6f37e76c664a4a712dc96dcd589f3a51ea6545c92f5e1de33",
+      "jurisdiction_id": "PER",
+      "landing_page_url": "https://www.pj.gob.pe/wps/wcm/connect/onajup/s_onajup/as_documentos/as_documentos?WCM_PI=1&WCM_Page.8602c10048781bfa9f489f50d8336ffa=2",
+      "languages": [
+        "es"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.pj.gob.pe/wps/wcm/connect/onajup/s_onajup/as_documentos/as_documentos?WCM_PI=1&WCM_Page.8602c10048781bfa9f489f50d8336ffa=2"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "non_english_text_native",
+      "publisher": "www.pj.gob.pe",
+      "retrieval_entrypoint": "https://www.pj.gob.pe/wps/wcm/connect/onajup/s_onajup/as_documentos/as_documentos?WCM_PI=1&WCM_Page.8602c10048781bfa9f489f50d8336ffa=2",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Poder Judicial del Perú ONAJUP — statistical bulletins",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-CAN-NS-COA-AR-2024",
+      "edition_id": "ED-CAN-NS-COA-AR-2024",
+      "edition_title": "Nova Scotia Court of Appeal 2024 Annual Report",
+      "frame_rank": 17,
+      "frame_score": "6f7051010b942173d91c6695eba6f68a359acd9d69657faaf8ace8f30d419a06",
+      "jurisdiction_id": "CAN-NS",
+      "landing_page_url": "https://courts.ns.ca/resources/news/nova-scotia-court-of-appeal-releases-2024-annual-report",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://courts.ns.ca/resources/news/nova-scotia-court-of-appeal-releases-2024-annual-report"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": null,
+      "publisher": "courts.ns.ca",
+      "retrieval_entrypoint": "https://www.courts.ns.ca/sites/default/files/courts/Court of Appeal/NSCourtOfAppealAR2024_WEB.pdf",
+      "retrieval_entrypoint_kind": "exact_pdf_url",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "CAN-NS-COURT-OF-APPEAL-ANNUAL-REPORT",
+      "source_url": "https://www.courts.ns.ca/sites/default/files/courts/Court of Appeal/NSCourtOfAppealAR2024_WEB.pdf"
+    },
+    {
+      "candidate_id": "G2CAND-NOR-DOMSTOL-LIVET-2025",
+      "edition_id": "ED-NOR-DOMSTOL-LIVET-2025",
+      "edition_title": "Livet i domstolane 2025",
+      "frame_rank": 18,
+      "frame_score": "721e8915331af50c60363d63ddbe69fbc6bfa0a84d8e1cd8ce53e2b064fe1426",
+      "jurisdiction_id": "NOR",
+      "landing_page_url": "https://www.domstol.no/no/domstoladministrasjonen/publikasjoner/arsmeldingar/",
+      "languages": [
+        "no"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.domstol.no/no/domstoladministrasjonen/publikasjoner/arsmeldingar/"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.domstol.no",
+      "retrieval_entrypoint": "https://www.domstol.no/no/domstoladministrasjonen/publikasjoner/arsmeldingar/",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Domstoladministrasjonen — Livet i domstolane",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-BEL-SPF-JUSTICE-AR-2024",
+      "edition_id": "ED-BEL-SPF-JUSTICE-AR-2024",
+      "edition_title": "Rapport annuel 2024 — SPF Justice",
+      "frame_rank": 19,
+      "frame_score": "7c2f6b3ad39b4f735641ab20f1099a204f46f27b1b3e98b393dd4b07d956b7d8",
+      "jurisdiction_id": "BEL",
+      "landing_page_url": "https://justice.belgium.be/fr/publications/rapport_annuel_2024",
+      "languages": [
+        "fr",
+        "nl"
+      ],
+      "metadata_provenance_urls": [
+        "https://justice.belgium.be/fr/publications/rapport_annuel_2024"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "justice.belgium.be",
+      "retrieval_entrypoint": "https://justice.belgium.be/fr/publications/rapport_annuel_2024",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "SPF Justice — annual report",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-SGP-COURTS-AR-2024",
+      "edition_id": "ED-SGP-COURTS-AR-2024",
+      "edition_title": "SG Courts Annual Report 2024",
+      "frame_rank": 20,
+      "frame_score": "7d960a57f56fd576b640b3e7090b2862866931649a125540267dbab871720796",
+      "jurisdiction_id": "SGP",
+      "landing_page_url": "https://www.judiciary.gov.sg/news-and-resources/publications/publication-details/sg-courts-annual-report-2024",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.judiciary.gov.sg/news-and-resources/publications/publication-details/sg-courts-annual-report-2024"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": null,
+      "publisher": "www.judiciary.gov.sg",
+      "retrieval_entrypoint": "https://www.judiciary.gov.sg/news-and-resources/publications/publication-details/sg-courts-annual-report-2024",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "SGP-JUDICIARY-SG-COURTS-ANNUAL-REPORT",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-FRA-MJ-LOPJ-REPORT-2024",
+      "edition_id": "ED-FRA-MJ-LOPJ-REPORT-2024",
+      "edition_title": "Rapport 2024 sur la loi d'orientation et de programmation du ministère de la Justice 2023-2027",
+      "frame_rank": 21,
+      "frame_score": "7db8d28372e731fe4b72b20150cdb3503313836e4ed9a0d53a4364eff17a593e",
+      "jurisdiction_id": "FRA",
+      "landing_page_url": "https://www.justice.gouv.fr/documentation/ressources/rapport-2024-loi-dorientation-programmation-du-ministere-justice-2023-2027",
+      "languages": [
+        "fr"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.justice.gouv.fr/documentation/ressources/rapport-2024-loi-dorientation-programmation-du-ministere-justice-2023-2027"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.justice.gouv.fr",
+      "retrieval_entrypoint": "https://www.justice.gouv.fr/documentation/ressources/rapport-2024-loi-dorientation-programmation-du-ministere-justice-2023-2027",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "no_known_metadata_blocker",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Ministère de la justice — annual LOPJ implementation report",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-ESP-CGPJ-DATOSJUSTICIA-B118-2024",
+      "edition_id": "ED-ESP-CGPJ-DATOSJUSTICIA-B118-2024",
+      "edition_title": "Boletín nº 118 — Características de los partidos judiciales. 2024",
+      "frame_rank": 22,
+      "frame_score": "80ea7b10cb4d962a18885f12983529b16aff9ac241d504f49c5ceb650df25198",
+      "jurisdiction_id": "ESP",
+      "landing_page_url": "https://www.poderjudicial.es/cgpj/es/Temas/Estadistica-Judicial/Estudios-e-Informes/Datos-de-Justicia/Datos-de-Justicia",
+      "languages": [
+        "es"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.poderjudicial.es/cgpj/es/Temas/Estadistica-Judicial/Estudios-e-Informes/Datos-de-Justicia/Datos-de-Justicia"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.poderjudicial.es",
+      "retrieval_entrypoint": "https://www.poderjudicial.es/cgpj/es/Temas/Estadistica-Judicial/Estudios-e-Informes/Datos-de-Justicia/Datos-de-Justicia",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "no_known_metadata_blocker",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "CGPJ — Datos de Justicia thematic bulletins",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-ITA-MG-ADMINJUSTICE-2024",
+      "edition_id": "ED-ITA-MG-ADMINJUSTICE-2024",
+      "edition_title": "Relazione sull'amministrazione della Giustizia nell'anno 2024",
+      "frame_rank": 23,
+      "frame_score": "88f33a1bfcbbc3e33ebfcf4a6d91577cb7ffde21e323ea5c5c07646c21d97a52",
+      "jurisdiction_id": "ITA",
+      "landing_page_url": "https://www.giustizia.it/giustizia/it/contentview.page?contentId=ART1439564",
+      "languages": [
+        "it"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.giustizia.it/giustizia/it/contentview.page?contentId=ART1439564"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.giustizia.it",
+      "retrieval_entrypoint": "https://www.giustizia.it/giustizia/it/contentview.page?contentId=ART1439564",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Ministero della giustizia — annual administration of justice report",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-ESP-CGPJ-VGD-2024",
+      "edition_id": "ED-ESP-CGPJ-VGD-2024",
+      "edition_title": "Informe sobre víctimas mortales de la violencia de género y doméstica en el ámbito de la pareja o expareja en 2024",
+      "frame_rank": 24,
+      "frame_score": "8a22a2a603fae777152b44755c87b0d1c8d4eedee01c46663120b4e3026e6b11",
+      "jurisdiction_id": "ESP",
+      "landing_page_url": "https://www.poderjudicial.es/cgpj/es/Temas/Violencia-domestica-y-de-genero/Actividad-del-Observatorio/Informes-de-violencia-domestica-y-de-genero/Informe-sobre-victimas-mortales-de-la-violencia-de-genero-y-domestica-en-el-ambito-de-la-pareja-o-expareja-en-2024",
+      "languages": [
+        "es"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.poderjudicial.es/cgpj/es/Temas/Violencia-domestica-y-de-genero/Actividad-del-Observatorio/Informes-de-violencia-domestica-y-de-genero/Informe-sobre-victimas-mortales-de-la-violencia-de-genero-y-domestica-en-el-ambito-de-la-pareja-o-expareja-en-2024"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.poderjudicial.es",
+      "retrieval_entrypoint": "https://www.poderjudicial.es/cgpj/es/Temas/Violencia-domestica-y-de-genero/Actividad-del-Observatorio/Informes-de-violencia-domestica-y-de-genero/Informe-sobre-victimas-mortales-de-la-violencia-de-genero-y-domestica-en-el-ambito-de-la-pareja-o-expareja-en-2024",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "no_known_metadata_blocker",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "CGPJ Observatorio — annual domestic and gender violence statistical report",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-USA-WA-SUPERIOR-CASELOAD-2025",
+      "edition_id": "ED-USA-WA-SUPERIOR-CASELOAD-2025",
+      "edition_title": "Superior Courts Annual Report 2025",
+      "frame_rank": 25,
+      "frame_score": "8f394afc9ac43719bc4e6e4ba79263094538cce58dc39c20f82a433c22c8f1ce",
+      "jurisdiction_id": "USA-WA",
+      "landing_page_url": "https://www.courts.wa.gov/caseload/?fa=caseload.showarchived",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.courts.wa.gov/caseload/?fa=caseload.showarchived"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "english_text_native",
+      "publisher": "www.courts.wa.gov",
+      "retrieval_entrypoint": "https://www.courts.wa.gov/caseload/?fa=caseload.showarchived",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "USA-WA-COURTS-SUPERIOR-COURT-ANNUAL-CASELOAD",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-JPN-COURTS-YEARBOOK-FAMILY-2025",
+      "edition_id": "ED-JPN-COURTS-YEARBOOK-FAMILY-2025",
+      "edition_title": "令和7年 司法統計年報 3.家事編",
+      "frame_rank": 26,
+      "frame_score": "9b2920d33adb80f4a0e81d2836776dcc2935d180716a892bb966755af02d70de",
+      "jurisdiction_id": "JPN",
+      "landing_page_url": "https://www.courts.go.jp/toukei_siryou/shihotokei_nenpo/index.html",
+      "languages": [
+        "ja"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.courts.go.jp/toukei_siryou/shihotokei_nenpo/index.html"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "non_english_text_native",
+      "publisher": "www.courts.go.jp",
+      "retrieval_entrypoint": "https://www.courts.go.jp/toukei_siryou/shihotokei_nenpo/index.html",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "最高裁判所 — 司法統計年報 家事編",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-ITA-MG-CIVIL-MONITOR-Q4-2024",
+      "edition_id": "ED-ITA-MG-CIVIL-MONITOR-Q4-2024",
+      "edition_title": "Sistema Informativo Contenzioso Civile Distrettuale — IV trimestre 2024",
+      "frame_rank": 27,
+      "frame_score": "a665954c406be56371a0eea771c4ab6efe19a9cd73ec450e5760ce8ec5646514",
+      "jurisdiction_id": "ITA",
+      "landing_page_url": "https://www.giustizia.it/giustizia/it/mg_1_14_1.page?contentId=SST243984",
+      "languages": [
+        "it"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.giustizia.it/giustizia/it/mg_1_14_1.page?contentId=SST243984"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "non_english_text_native",
+      "publisher": "www.giustizia.it",
+      "retrieval_entrypoint": "https://www.giustizia.it/giustizia/it/mg_1_14_1.page?contentId=SST243984",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Ministero della giustizia — civil-caseflow quarterly monitoring",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-BEL-CASSATION-AR-2024",
+      "edition_id": "ED-BEL-CASSATION-AR-2024",
+      "edition_title": "Rapport annuel de la Cour de cassation — activité juridictionnelle 2024",
+      "frame_rank": 28,
+      "frame_score": "aa65534cc608229261df1b9261c7c84238f1e330da0911083bf69004b6c83a1e",
+      "jurisdiction_id": "BEL",
+      "landing_page_url": "https://justice.belgium.be/fr/statistiques/cour_de_cassation",
+      "languages": [
+        "fr"
+      ],
+      "metadata_provenance_urls": [
+        "https://justice.belgium.be/fr/statistiques/cour_de_cassation"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "justice.belgium.be",
+      "retrieval_entrypoint": "https://justice.belgium.be/fr/statistiques/cour_de_cassation",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Cour de cassation de Belgique — annual report",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-USA-MD-STAT-ABSTRACT-FY24",
+      "edition_id": "ED-USA-MD-STAT-ABSTRACT-FY24",
+      "edition_title": "FY 2024 Statistical Abstract",
+      "frame_rank": 29,
+      "frame_score": "b6b950aa934e35ce3c8447126472af61695ee62a2c6b18140cf658b05806a829",
+      "jurisdiction_id": "USA-MD",
+      "landing_page_url": "https://www.mdcourts.gov/publications/annualreports",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.mdcourts.gov/publications/annualreports"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": null,
+      "publisher": "www.mdcourts.gov",
+      "retrieval_entrypoint": "https://www.mdcourts.gov/publications/annualreports",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "USA-MD-JUDICIARY-STATISTICAL-ABSTRACT",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-AUS-NSW-SUPREME-AR-2024",
+      "edition_id": "ED-AUS-NSW-SUPREME-AR-2024",
+      "edition_title": "Supreme Court of New South Wales 2024 Annual Review",
+      "frame_rank": 30,
+      "frame_score": "b7bf89bc71b57d299f10afbf12e38431dd8f4ba874fed647d4cfe033534940a8",
+      "jurisdiction_id": "AUS-NSW",
+      "landing_page_url": "https://dcj.nsw.gov.au/content/dcj/ctsd/supreme-court/supreme-court-home/about-us/publications/annual-reviews.html",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://dcj.nsw.gov.au/content/dcj/ctsd/supreme-court/supreme-court-home/about-us/publications/annual-reviews.html"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "dcj.nsw.gov.au",
+      "retrieval_entrypoint": "https://supremecourt.nsw.gov.au/documents/Publications/Annual-Reviews-+-Stats/2024-annual-review/SCNSW-Annual-Review-2024.pdf",
+      "retrieval_entrypoint_kind": "exact_pdf_url",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "AUS-NSW-SUPREME-COURT-ANNUAL-REVIEW",
+      "source_url": "https://supremecourt.nsw.gov.au/documents/Publications/Annual-Reviews-+-Stats/2024-annual-review/SCNSW-Annual-Review-2024.pdf"
+    },
+    {
+      "candidate_id": "G2CAND-NZL-DISTRICT-COURT-AR-2024",
+      "edition_id": "ED-NZL-DISTRICT-COURT-AR-2024",
+      "edition_title": "District Court Annual Report 2024",
+      "frame_rank": 31,
+      "frame_score": "bb040f7b32cce2fa828e8f5e6bd0e322b819a05d21d0e61303e9a1f18a16e9ff",
+      "jurisdiction_id": "NZL",
+      "landing_page_url": "https://www.districtcourts.govt.nz/reports-publications-and-statistics/district-court-annual-reports/new-annual-report-content-page-2",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.districtcourts.govt.nz/reports-publications-and-statistics/district-court-annual-reports/new-annual-report-content-page-2"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": null,
+      "publisher": "www.districtcourts.govt.nz",
+      "retrieval_entrypoint": "https://www.districtcourts.govt.nz/assets/Uploads/Publications/2025/District-Court-2024-Annual-Report.pdf",
+      "retrieval_entrypoint_kind": "exact_pdf_url",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "NZL-DISTRICT-COURT-ANNUAL-REPORT",
+      "source_url": "https://www.districtcourts.govt.nz/assets/Uploads/Publications/2025/District-Court-2024-Annual-Report.pdf"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-TAS-MAG-AR-2024-25",
+      "edition_id": "ED-AUS-TAS-MAG-AR-2024-25",
+      "edition_title": "Magistrates Court Annual Report 2024-2025",
+      "frame_rank": 32,
+      "frame_score": "c22c77688124d8c63e95dea6886fdd95b5b2e4cbb977570dad0ce0663ed8ec3e",
+      "jurisdiction_id": "AUS-TAS",
+      "landing_page_url": "https://www.magistratescourt.tas.gov.au/",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.magistratescourt.tas.gov.au/"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": null,
+      "publisher": "www.magistratescourt.tas.gov.au",
+      "retrieval_entrypoint": "https://www.magistratescourt.tas.gov.au/",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "AUS-TAS-MAGISTRATES-COURT-ANNUAL-REPORT",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-CAN-ON-SCJ-BIENNIAL-2024-25",
+      "edition_id": "ED-CAN-ON-SCJ-BIENNIAL-2024-25",
+      "edition_title": "2024–2025 Biennial Report",
+      "frame_rank": 33,
+      "frame_score": "c7c9d6d680aded960a54e441dec15749eaf26c930ab67173db162e33a31e9a03",
+      "jurisdiction_id": "CAN-ON",
+      "landing_page_url": "https://www.ontariocourts.ca/scj/news/2024-2025-biennial-report/",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.ontariocourts.ca/scj/news/2024-2025-biennial-report/"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": null,
+      "publisher": "www.ontariocourts.ca",
+      "retrieval_entrypoint": "https://www.ontariocourts.ca/scj/wp-content/uploads/2026/05/2024-2025_English.pdf",
+      "retrieval_entrypoint_kind": "exact_pdf_url",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "CAN-ON-SCJ-BIENNIAL-REPORT",
+      "source_url": "https://www.ontariocourts.ca/scj/wp-content/uploads/2026/05/2024-2025_English.pdf"
+    },
+    {
+      "candidate_id": "G2CAND-POL-WAW-DISTRICT-FAMILY-2024",
+      "edition_id": "ED-POL-WAW-DISTRICT-FAMILY-2024",
+      "edition_title": "Sprawozdanie w sprawach rodzinnych i nieletnich w 2024 roku",
+      "frame_rank": 34,
+      "frame_score": "c888a484c68ba6d030f18c88a88b3807627cc702b6bdaa77f023304a65813425",
+      "jurisdiction_id": "POL",
+      "landing_page_url": "https://warszawa.sr.gov.pl/sprawozdania-statystyczne-dotyczace-dzialalnosci-sadu-sporzadzane-w-ramach-programu-badan-statystycznych-statystyki-publicznej-za-2024-r,new,mg,211,221,386.html,1576",
+      "languages": [
+        "pl"
+      ],
+      "metadata_provenance_urls": [
+        "https://warszawa.sr.gov.pl/sprawozdania-statystyczne-dotyczace-dzialalnosci-sadu-sporzadzane-w-ramach-programu-badan-statystycznych-statystyki-publicznej-za-2024-r,new,mg,211,221,386.html,1576"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "non_english_text_native",
+      "publisher": "warszawa.sr.gov.pl",
+      "retrieval_entrypoint": "https://warszawa.sr.gov.pl/sprawozdania-statystyczne-dotyczace-dzialalnosci-sadu-sporzadzane-w-ramach-programu-badan-statystycznych-statystyki-publicznej-za-2024-r,new,mg,211,221,386.html,1576",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Sąd Rejonowy dla m.st. Warszawy — annual family and juvenile case statistics",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-DNK-AARHUS-AR-2024",
+      "edition_id": "ED-DNK-AARHUS-AR-2024",
+      "edition_title": "Årsberetning 2024 Retten i Aarhus",
+      "frame_rank": 35,
+      "frame_score": "cc4907ffc1e4a7ef66bbff76f23a48a243eecc633867cda309e9ab6588f94a31",
+      "jurisdiction_id": "DNK",
+      "landing_page_url": "https://www.domstol.dk/aarhus/om-retten-i-aarhus/aarsberetning-og-noegletal/",
+      "languages": [
+        "da"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.domstol.dk/aarhus/om-retten-i-aarhus/aarsberetning-og-noegletal/"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "non_english_text_native",
+      "publisher": "www.domstol.dk",
+      "retrieval_entrypoint": "https://www.domstol.dk/aarhus/om-retten-i-aarhus/aarsberetning-og-noegletal/",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Retten i Aarhus — annual reports and key figures",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-CAN-BC-PC-AR-2024-25",
+      "edition_id": "ED-CAN-BC-PC-AR-2024-25",
+      "edition_title": "Provincial Court Annual Report 2024-2025",
+      "frame_rank": 36,
+      "frame_score": "ce6a588f761931af087ff0e4898c02ab6c37f3cd9cea63a8fece36a3d2bb2926",
+      "jurisdiction_id": "CAN-BC",
+      "landing_page_url": "https://provincialcourt.bc.ca/news-notices-policies-and-practice-directions/provincial-court-annual-report-0",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://provincialcourt.bc.ca/news-notices-policies-and-practice-directions/provincial-court-annual-report-0"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "provincialcourt.bc.ca",
+      "retrieval_entrypoint": "https://provincialcourt.bc.ca/system/files/Provincial Court Annual Report 2024-2025.pdf",
+      "retrieval_entrypoint_kind": "exact_pdf_url",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "CAN-BC-PROVINCIAL-COURT-ANNUAL-REPORT",
+      "source_url": "https://provincialcourt.bc.ca/system/files/Provincial Court Annual Report 2024-2025.pdf"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-QLD-DISTRICT-AR-2024-25",
+      "edition_id": "ED-AUS-QLD-DISTRICT-AR-2024-25",
+      "edition_title": "District Court Annual Report 2024-2025",
+      "frame_rank": 37,
+      "frame_score": "d1401a2dd86093be63dec0c47ede16fb5c4c9132622ace5466f9485afa64054e",
+      "jurisdiction_id": "AUS-QLD",
+      "landing_page_url": "https://www.courts.qld.gov.au/newsroom/governance-and-reporting/publications?start_rank=21",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.courts.qld.gov.au/newsroom/governance-and-reporting/publications?start_rank=21"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": null,
+      "publisher": "www.courts.qld.gov.au",
+      "retrieval_entrypoint": "https://www.courts.qld.gov.au/newsroom/governance-and-reporting/publications?start_rank=21",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "AUS-QLD-DISTRICT-COURT-ANNUAL-REPORT",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-USA-MA-COURTS-AR-FY24",
+      "edition_id": "ED-USA-MA-COURTS-AR-FY24",
+      "edition_title": "FY2024 Annual Report of the Court System",
+      "frame_rank": 38,
+      "frame_score": "dba5d0dda7a6a735de6a17e80a13dc4299909461bdb8f51e396322976e0e31d2",
+      "jurisdiction_id": "USA-MA",
+      "landing_page_url": "https://www.mass.gov/lists/court-reports",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.mass.gov/lists/court-reports"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.mass.gov",
+      "retrieval_entrypoint": "https://www.mass.gov/lists/court-reports",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "no_known_metadata_blocker",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "USA-MA-COURT-SYSTEM-ANNUAL-REPORT",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-CAN-ON-OCJ-FAMSTATS-2025-26",
+      "edition_id": "ED-CAN-ON-OCJ-FAMSTATS-2025-26",
+      "edition_title": "Family Court Statistics: Number of Cases (Received, Disposed, Pending), 2025 and 2026",
+      "frame_rank": 39,
+      "frame_score": "de90b437c12b72fb50118557e6ebb274a649418c2126ae9a4c93f4a9434d2e63",
+      "jurisdiction_id": "CAN-ON",
+      "landing_page_url": "https://www.ontariocourts.ca/ocj/statistics/",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.ontariocourts.ca/ocj/statistics/"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.ontariocourts.ca",
+      "retrieval_entrypoint": "https://www.ontariocourts.ca/ocj/statistics/",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "CAN-ON-OCJ-FAMILY-COURT-STATISTICS",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-USA-TX-JUD-AR-FY24",
+      "edition_id": "ED-USA-TX-JUD-AR-FY24",
+      "edition_title": "Annual Statistical Report for the Texas Judiciary, Fiscal Year 2024",
+      "frame_rank": 40,
+      "frame_score": "e108dabdd4dca6f240cc81d08011e36d5df8a60a4e8d2f1684841f04fa2c9896",
+      "jurisdiction_id": "USA-TX",
+      "landing_page_url": "https://www.txcourts.gov/statistics/annual-statistical-reports/2024/",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.txcourts.gov/statistics/annual-statistical-reports/2024/"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.txcourts.gov",
+      "retrieval_entrypoint": "https://www.txcourts.gov/media/1461502/ar-statistical-fy24.pdf",
+      "retrieval_entrypoint_kind": "exact_pdf_url",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "USA-TX-OCA-ANNUAL-STATISTICAL-REPORT",
+      "source_url": "https://www.txcourts.gov/media/1461502/ar-statistical-fy24.pdf"
+    },
+    {
+      "candidate_id": "G2CAND-NLD-RECHTSPRAAK-ZWB-JAARBERICHT-2024",
+      "edition_id": "ED-NLD-RECHTSPRAAK-ZWB-JAARBERICHT-2024",
+      "edition_title": "Jaarbericht 2024 — Rechtbank Zeeland-West-Brabant",
+      "frame_rank": 41,
+      "frame_score": "e51822a0d652acdc90c8d326f2835d8f644ac5add81276f7a3e16008e2530834",
+      "jurisdiction_id": "NLD",
+      "landing_page_url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-zeeland-west-brabant/praktisch-a-tm-z",
+      "languages": [
+        "nl"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-zeeland-west-brabant/praktisch-a-tm-z"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "uncertain",
+      "prohibited_data_screen": "uncertain",
+      "proposed_stratum": "non_english_text_native",
+      "publisher": "www.rechtspraak.nl",
+      "retrieval_entrypoint": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-zeeland-west-brabant/praktisch-a-tm-z",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "no_known_metadata_blocker",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Rechtbank Zeeland-West-Brabant — annual reports",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-AUS-QLD-CHILDRENS-AR-2024-25",
+      "edition_id": "ED-AUS-QLD-CHILDRENS-AR-2024-25",
+      "edition_title": "Childrens Court Annual Report 2024-2025",
+      "frame_rank": 42,
+      "frame_score": "f0e9f9a00f920a2fdc099e0b181ed396a0c9e1db4e4ad7a81db70077f552aa93",
+      "jurisdiction_id": "AUS-QLD",
+      "landing_page_url": "https://www.courts.qld.gov.au/newsroom/governance-and-reporting/publications?start_rank=21",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.courts.qld.gov.au/newsroom/governance-and-reporting/publications?start_rank=21"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": null,
+      "publisher": "www.courts.qld.gov.au",
+      "retrieval_entrypoint": "https://www.courts.qld.gov.au/__data/assets/pdf_file/0010/891640/cc-ar-2024-2025.pdf",
+      "retrieval_entrypoint_kind": "exact_pdf_url",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "AUS-QLD-CHILDRENS-COURT-ANNUAL-REPORT",
+      "source_url": "https://www.courts.qld.gov.au/__data/assets/pdf_file/0010/891640/cc-ar-2024-2025.pdf"
+    },
+    {
+      "candidate_id": "G2CAND-USA-NY-FCA-AR-2024",
+      "edition_id": "ED-USA-NY-FCA-AR-2024",
+      "edition_title": "Family Court Act Annual Report 2024",
+      "frame_rank": 43,
+      "frame_score": "f9c7d77248dc2c1b6d144c97c582c4e1691076ef0555a501be5c5fbe2a103b09",
+      "jurisdiction_id": "USA-NY",
+      "landing_page_url": "https://www.nycourts.gov/division-technology-court-research/family-court-act-fca-annual-report",
+      "languages": [
+        "en"
+      ],
+      "metadata_provenance_urls": [
+        "https://www.nycourts.gov/division-technology-court-research/family-court-act-fca-annual-report"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "publisher": "www.nycourts.gov",
+      "retrieval_entrypoint": "https://www.nycourts.gov/division-technology-court-research/family-court-act-fca-annual-report",
+      "retrieval_entrypoint_kind": "official_landing_page_requires_resolution",
+      "rights_screen": "uncertain",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "USA-NY-UCS-FAMILY-COURT-ACT-ANNUAL-REPORT",
+      "source_url": null
+    },
+    {
+      "candidate_id": "G2CAND-SVN-MJ-JUDICIAL-STATS-2024",
+      "edition_id": "ED-SVN-MJ-JUDICIAL-STATS-2024",
+      "edition_title": "SODNA STATISTIKA 2024",
+      "frame_rank": 44,
+      "frame_score": "fd954714342f6d7f85e7b0afc1cff52c5b12e1baeab4dc0314d2d3f26501d111",
+      "jurisdiction_id": "SVN",
+      "landing_page_url": "https://podatki.gov.si/dataset/sodna-statistika-bilten/resource/baaced12-fa0a-486f-b55d-80821e41d325",
+      "languages": [
+        "sl"
+      ],
+      "metadata_provenance_urls": [
+        "https://podatki.gov.si/dataset/sodna-statistika-bilten/resource/baaced12-fa0a-486f-b55d-80821e41d325"
+      ],
+      "prior_metadata_eligibility": "uncertain",
+      "privacy_screen": "no_known_metadata_blocker",
+      "prohibited_data_screen": "no_known_metadata_blocker",
+      "proposed_stratum": "non_english_text_native",
+      "publisher": "podatki.gov.si",
+      "retrieval_entrypoint": "https://podatki.gov.si/dataset/43606a24-b254-40ef-846d-2b7df3db22ed/resource/baaced12-fa0a-486f-b55d-80821e41d325/download/sodnastatistika2024.pdf",
+      "retrieval_entrypoint_kind": "exact_pdf_url",
+      "rights_screen": "no_known_metadata_blocker",
+      "security_screen": "no_known_metadata_blocker",
+      "source_access_authorized": false,
+      "source_content_accessed": false,
+      "source_series_id": "Ministrstvo za pravosodje — Sodna statistika bilten",
+      "source_url": "https://podatki.gov.si/dataset/43606a24-b254-40ef-846d-2b7df3db22ed/resource/baaced12-fa0a-486f-b55d-80821e41d325/download/sodnastatistika2024.pdf"
+    }
+  ],
+  "frame_id": "G2HOLDOUT-STRUCTURAL-FRAME-20260815-01",
+  "limitations": [
+    "The 44-candidate frame is the complete safe projection of already archived metadata under the frozen rules; it is only 1.47 times the required 30-edition sealed scope.",
+    "Only metadata is frozen; exact bytes, content digests, structural classes and extraction eligibility remain unknown.",
+    "A landing-page entrypoint is not an exact PDF URL and must be resolved only after separate owner authorization.",
+    "The design may fail closed if the frozen frame cannot yield the exact 24-primary plus six-reserve scope."
+  ],
+  "metadata_only": true,
+  "ordering_algorithm": "sha256_seed_nul_candidate_id_nul_edition_id_nul_series_id_ascending_v1",
+  "ordering_seed": "46f1aa60959b2aa3543beeeef8aa001eac71ea3895dce62d115b0969fbcbb0bf",
+  "plan_id": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01",
+  "schema_version": "1.0",
+  "source_content_accessed": false
+}

@@ -43,6 +43,11 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/g2_artifact_access_receipt.schema.json",
+      "sha256": "b9260d2734d355a8ba8373602eae0371ebfe5812c40e44d378dd1049c3ca1fed"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/g2_atomic_boundary_correction.schema.json",
       "sha256": "c690165a3b9b488947032f6a862b927248580d13122a10143fb6a4a8b780870e"
     },
@@ -98,6 +103,11 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/g2_extractor_bundle.schema.json",
+      "sha256": "8e6db956c500085a534faac9d0f6168763195fce98d428c66fcd6f01c41c97d9"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/g2_holdout_candidate_manifest.schema.json",
       "sha256": "5568fa22eace765a13bcf174c423bc8301bbe7e2b7bd697da2bf4e58d7cb658a"
     },
@@ -113,8 +123,33 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/g2_holdout_extraction_contract.schema.json",
+      "sha256": "014e80cf6cff0fcdbdc4aa0157e8ae13f56f9500c508b2fdfd457036e2dcf45a"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_holdout_extraction_row.schema.json",
+      "sha256": "99436cbaed41f0872dadaaad1957645e3377161f30ff5cf467e519e4ec6e680b"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_holdout_extraction_run_receipt.schema.json",
+      "sha256": "593a9e6f54ce59832ba9a1da758e059eda49ccaf01a002e498b8eaf8aabdd3af"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/g2_holdout_selection_receipt.schema.json",
       "sha256": "a64ca56dd47711015236e5c965d129efeb75e84466e66d42c95ad9f83c323224"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_holdout_semantic_vocabulary.schema.json",
+      "sha256": "378c599f14310a9cc5516e2952b082cef07a26d5c945d11ea653f71bf38fc8f1"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_merged_eligibility_receipt.schema.json",
+      "sha256": "36a4ec2f12bb245baccfc07d1ac61c954a40e694aa8c0d320e37b492a9dc0d19"
     },
     {
       "kind": "json_schema",
@@ -128,8 +163,63 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/g2_proposed_acquisition_manifest.schema.json",
+      "sha256": "29aa7ef512fd34f73cc55d0e9b230574b94675edadbb359db08430335f2d3cc3"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_proposed_url_resolution_manifest.schema.json",
+      "sha256": "40aaf48d2faf44127a4a6f5c2fa9aac34fa2e2728c310cf13c4c8d3c2774f7c3"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/g2_rights_security_review.schema.json",
       "sha256": "9fcc585c1d0ee3982e6909ee42d967191ece0e14199f185d749b0cb5bd862e71"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_sealed_selection.schema.json",
+      "sha256": "51883dde6046919ed287c7010597e9d292bdd2de9e63f45a54cfd4ed799b051e"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_structural_capacity_receipt.schema.json",
+      "sha256": "ebd6e5310c5c196f15f76e1a2f49cd8832bdda6dde6e060e098a9f00db9f8ace"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_structural_eligibility_policy.schema.json",
+      "sha256": "e5ba628bb28d5365ff0876bf3a4a7717923ae7d9da2f05b6e494840f8dbf8063"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_structural_preflight_design_receipt.schema.json",
+      "sha256": "3ade98c8c1100a781592cd45be6bfa0bbd8aea452afb87f835739d5f1dc4c8ec"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_structural_preflight_frame.schema.json",
+      "sha256": "97bc98b33f30548977602e723c1b43107ebdb2340eb5714028dd148b1c6a67a6"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_structural_preflight_plan.schema.json",
+      "sha256": "11b526ea549d40ff5bcc92a697917860427719117b91d7950c79f59b7fdaf09a"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_structural_preflight_record.schema.json",
+      "sha256": "41a4e03fb3469071b8b8565d213b1f9e55fdd2d9439a30703c4517970316d80c"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_structural_role_bundles.schema.json",
+      "sha256": "2eb193c93bd612423136951164b0cc4a654b33270b5c82804f5bee291353b9e7"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_structural_selection_policy.schema.json",
+      "sha256": "eefc809549918e66f898a0a00115a015c2f8705004ae9c28b46bc821807c8e39"
     },
     {
       "kind": "json_schema",
@@ -362,8 +452,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 72,
-  "inventory_sha256": "1e1393be0054be8d69a7c747e1f2c866b693d194e7a4e4afcfbc482b21239847",
+  "entry_count": 90,
+  "inventory_sha256": "8e1f491a24855eaa8c828f08ca2565b55fcf893f5c4e79bfbdbcd62b734108a3",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

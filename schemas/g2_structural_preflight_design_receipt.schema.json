@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_structural_preflight_design_receipt.schema.json",
+  "title": "Digest-bound G2 structural-preflight design receipt",
+  "type": "object",
+  "required": ["schema_version", "receipt_id", "plan", "plan_schema", "owner_decision", "candidate_universe", "exposure_ledger", "frame", "frame_schema", "proposed_acquisition_manifest", "proposed_acquisition_schema", "proposed_url_resolution_manifest", "proposed_url_resolution_schema", "source_access_performed", "source_access_authorized", "frame_count", "generated_at"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "receipt_id": {"const": "G2HOLDOUT-STRUCTURAL-DESIGN-RECEIPT-20260815-01"},
+    "plan": {"$ref": "#/$defs/artifact"}, "plan_schema": {"$ref": "#/$defs/artifact"}, "owner_decision": {"$ref": "#/$defs/artifact"}, "candidate_universe": {"$ref": "#/$defs/artifact"}, "exposure_ledger": {"$ref": "#/$defs/artifact"}, "frame": {"$ref": "#/$defs/artifact"}, "frame_schema": {"$ref": "#/$defs/artifact"}, "proposed_acquisition_manifest": {"$ref": "#/$defs/artifact"}, "proposed_acquisition_schema": {"$ref": "#/$defs/artifact"}, "proposed_url_resolution_manifest": {"$ref": "#/$defs/artifact"}, "proposed_url_resolution_schema": {"$ref": "#/$defs/artifact"},
+    "source_access_performed": {"const": false}, "source_access_authorized": {"const": false}, "frame_count": {"const": 44}, "generated_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {"artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

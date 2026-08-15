@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_structural_preflight_record.schema.json",
+  "title": "Source-text-free G2 structural-preflight record",
+  "type": "object",
+  "required": ["schema_version", "record_id", "plan_id", "candidate_id", "source_id", "edition_id", "jurisdiction_id", "source_series_id", "source_url", "source_sha256", "frame_rank", "role_session_id", "role_bundle_sha256", "tool_bundle_sha256", "acquisition_receipt_sha256", "binary_security_receipt_sha256", "access_receipt_sha256", "owner_authorization_sha256", "telemetry_tool_receipt_sha256", "exact_edition_confirmed", "pdf_magic_valid", "encrypted", "malformed", "active_content", "embedded_files", "external_launch_actions", "page_count", "text_page_ratio", "raster_page_ratio", "complex_page_ratio", "primary_language_code", "aggregate_only", "personal_or_case_level_data", "prohibited_data", "critical_or_high_security_finding", "local_private_processing_approved", "assigned_stratum", "disposition", "reason_codes", "source_text_persisted", "target_fact_persisted", "screenshots_persisted", "generated_at"],
+  "properties": {
+    "schema_version": {"const": "1.0"}, "record_id": {"type": "string", "minLength": 3}, "plan_id": {"const": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01"},
+    "candidate_id": {"type": "string"}, "source_id": {"type": "string", "minLength": 2}, "edition_id": {"type": "string"}, "jurisdiction_id": {"type": "string", "minLength": 2}, "source_series_id": {"type": "string", "minLength": 2}, "source_url": {"type": "string", "format": "uri"}, "source_sha256": {"$ref": "#/$defs/sha256"}, "frame_rank": {"type": "integer", "minimum": 1, "maximum": 44},
+    "role_session_id": {"type": "string"}, "role_bundle_sha256": {"$ref": "#/$defs/sha256"}, "tool_bundle_sha256": {"$ref": "#/$defs/sha256"}, "acquisition_receipt_sha256": {"$ref": "#/$defs/sha256"}, "binary_security_receipt_sha256": {"$ref": "#/$defs/sha256"}, "access_receipt_sha256": {"$ref": "#/$defs/sha256"}, "owner_authorization_sha256": {"$ref": "#/$defs/sha256"}, "telemetry_tool_receipt_sha256": {"$ref": "#/$defs/sha256"},
+    "exact_edition_confirmed": {"type": "boolean"}, "pdf_magic_valid": {"type": "boolean"}, "encrypted": {"type": "boolean"}, "malformed": {"type": "boolean"}, "active_content": {"type": "boolean"}, "embedded_files": {"type": "boolean"}, "external_launch_actions": {"type": "boolean"},
+    "page_count": {"type": "integer", "minimum": 1, "maximum": 2000}, "text_page_ratio": {"type": "number", "minimum": 0, "maximum": 1}, "raster_page_ratio": {"type": "number", "minimum": 0, "maximum": 1}, "complex_page_ratio": {"type": "number", "minimum": 0, "maximum": 1}, "primary_language_code": {"type": "string", "pattern": "^[a-z]{2,3}$"},
+    "aggregate_only": {"type": "boolean"}, "personal_or_case_level_data": {"type": "boolean"}, "prohibited_data": {"type": "boolean"}, "critical_or_high_security_finding": {"type": "boolean"}, "local_private_processing_approved": {"type": "boolean"},
+    "assigned_stratum": {"enum": ["embedded_raster_or_dashboard_pdf", "structurally_complex_mixed_layout_pdf", "non_english_text_native", "english_text_native", "indeterminate"]},
+    "disposition": {"enum": ["structurally_eligible", "candidate_rejected"]}, "reason_codes": {"type": "array", "uniqueItems": true, "items": {"enum": ["unavailable_after_frozen_retries", "wrong_mime_or_pdf_magic", "edition_or_url_drift", "resource_limit_exceeded", "encrypted_or_malformed", "unsafe_active_or_embedded_content", "structural_class_indeterminate", "not_official_or_not_exact_edition", "not_aggregate_only", "personal_case_level_or_prohibited_data", "local_private_processing_not_approved", "prior_exposure_discovered"]}},
+    "source_text_persisted": {"const": false}, "target_fact_persisted": {"const": false}, "screenshots_persisted": {"const": false}, "generated_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+  "allOf": [
+    {
+      "if": {"properties": {"disposition": {"const": "structurally_eligible"}}, "required": ["disposition"]},
+      "then": {
+        "properties": {
+          "exact_edition_confirmed": {"const": true}, "pdf_magic_valid": {"const": true},
+          "encrypted": {"const": false}, "malformed": {"const": false},
+          "active_content": {"const": false}, "embedded_files": {"const": false},
+          "external_launch_actions": {"const": false}, "aggregate_only": {"const": true},
+          "personal_or_case_level_data": {"const": false}, "prohibited_data": {"const": false},
+          "critical_or_high_security_finding": {"const": false},
+          "local_private_processing_approved": {"const": true},
+          "assigned_stratum": {"not": {"const": "indeterminate"}},
+          "reason_codes": {"maxItems": 0}
+        }
+      },
+      "else": {"properties": {"reason_codes": {"minItems": 1}}}
+    }
+  ],
+  "additionalProperties": false
+}

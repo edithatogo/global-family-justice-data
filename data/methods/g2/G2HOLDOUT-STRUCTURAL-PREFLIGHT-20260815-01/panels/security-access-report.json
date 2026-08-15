@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2-STRUCTURAL-SECURITY-20260815-01",
+  "packet_id": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01",
+  "packet_sha256": "c7781285ec8598721a7c1fdc6da344c59b8c22560ddced4e54d3be55fc3630f3",
+  "role": "role-separated security exposure and access advisory agent",
+  "agent_session_id": "g2_successor_security",
+  "tool_or_model": "Codex analyst agent",
+  "tool_or_model_version": "2026-08-15",
+  "generated_at": "2026-08-15T06:44:33Z",
+  "evidence_inputs": [
+    {"path": "config/g2_structural_preflight_plan.json", "sha256": "c7781285ec8598721a7c1fdc6da344c59b8c22560ddced4e54d3be55fc3630f3"},
+    {"path": "config/g2_structural_role_bundles.json", "sha256": "a22eac75f219410257a8e41a62e57558544b29202d52dcc4301566db1b15e2b3"},
+    {"path": "schemas/g2_artifact_access_receipt.schema.json", "sha256": "3f9b0a555baf7647f0104a62286c6ec4b1de35c7b13d1e66aa1b56b553f860d0"},
+    {"path": "schemas/g2_structural_capacity_receipt.schema.json", "sha256": "29346fdd608eec770553b9981577592eb7a147f923f7fd79d750118a693e5a16"},
+    {"path": "config/g2_structural_eligibility_policy.json", "sha256": "bf88f843b24a575b9d56c569dffcb0849e6e9fa3b7d0fafa7c9033508008db39"},
+    {"path": "schemas/g2_structural_preflight_record.schema.json", "sha256": "28584dbed59fabe1ad5b28fc4c5a7f62920422ccfa863c74350626d5d69d32e4"},
+    {"path": "schemas/g2_merged_eligibility_receipt.schema.json", "sha256": "784cd2ce114bbe87d12c766afdd7cce2e82597b6797e3942db15a3e9814d66f3"},
+    {"path": "schemas/g2_extractor_bundle.schema.json", "sha256": "d74613bc2ae9408d1a89df5a9bdb2715a228d2304269aa308efa1245479e5c92"},
+    {"path": "schemas/g2_sealed_selection.schema.json", "sha256": "d9a0455363af78c72c047224071328486c496ed4cf37af0b14d5d3fc2a50d738"},
+    {"path": "schemas/g2_holdout_extraction_run_receipt.schema.json", "sha256": "da879f0697893ce18e723bf0352ece31c4e8590a6399adf61c413c6221548054"},
+    {"path": "config/g2_structural_selection_policy.json", "sha256": "528e53150bf94d1c76575f221ccbde4ff61e6ef3fc008e820a9bd72ea3a52439"},
+    {"path": "schemas/g2_structural_selection_policy.schema.json", "sha256": "4bcd60b12de355cc09bec8bbc248d29a029ddf513726e830fac27c79f405720b"},
+    {"path": "config/g2_holdout_semantic_vocabulary.json", "sha256": "4f51d7f3b690fd1945f0c7f112a4a293ee43bfafad4c66f3dfe05d6e80fb2bd5"},
+    {"path": "schemas/g2_holdout_semantic_vocabulary.schema.json", "sha256": "001f64a8b1be3c1e75619768fcb5e283945abdff272383a4efca072821e31ba4"},
+    {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"},
+    {"path": "tests/test_g2_structural_preflight.py", "sha256": "b3f575ae2a3ce432b4405a2f298e99f8e3ab9af54bd59a5cd5f33f227922cef9"},
+    {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json", "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"},
+    {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-acquisition-manifest.json", "sha256": "09f5ca6edbbfec9604e79a1269da0a1604f94ea4349cb0e8d5afaf336e2eba05"},
+    {"path": "schemas/g2_proposed_acquisition_manifest.schema.json", "sha256": "4f8fa06a0bdef633b38804ae31b484c2855f6c572b7fe990013a5359a8e53dd7"},
+    {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-url-resolution-manifest.json", "sha256": "d8f703f725befafd33d116bba7809fcceac23f8a84c846f11277d3edadbdb2a9"},
+    {"path": "schemas/g2_proposed_url_resolution_manifest.schema.json", "sha256": "4ef445f0dbf17064116f3ee33328de184891fee015cd3e98b3ca3e9dad36e332"},
+    {"path": "config/g2_holdout_generic_extraction_contract.json", "sha256": "484019520ef9b3f3e8b4ad914a8f8c3f11380c1f7039461f98e886019f2267d8"},
+    {"path": "schemas/g2_holdout_extraction_row.schema.json", "sha256": "1922ba45e421c504e897f68f8c92267291e5104e2265fcb38fa9449d415520aa"},
+    {"path": "src/gfjd/g2_concordance.py", "sha256": "b9a7e70516b556dcf0aad6d0bbef321ca27cf890d4f1df8aa2cea0fbca3eb6e2"},
+    {"path": "src/gfjd/acquisition.py", "sha256": "6d9aa9eb5dfaf68bd084a21ce54ec49ade548b995cec1987f7f8064f4ce9b424"}
+  ],
+  "verdict": "conditional",
+  "findings": [
+    {
+      "finding_id": "G2SP-S01",
+      "severity": "medium",
+      "claim": "The design cleanly separates 11 exact-PDF entries from 33 landing-page resolution entries, assigns the latter to a distinct metadata_url_resolver role and keeps both phases proposed and unauthorized.",
+      "evidence_references": [
+        {"path": "config/g2_structural_role_bundles.json", "sha256": "a22eac75f219410257a8e41a62e57558544b29202d52dcc4301566db1b15e2b3"},
+        {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-acquisition-manifest.json", "sha256": "09f5ca6edbbfec9604e79a1269da0a1604f94ea4349cb0e8d5afaf336e2eba05"},
+        {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-url-resolution-manifest.json", "sha256": "d8f703f725befafd33d116bba7809fcceac23f8a84c846f11277d3edadbdb2a9"}
+      ],
+      "uncertainty": "The 33 exact PDF URLs remain unknowable until separately authorized access to the official landing pages; no request was made in this review.",
+      "remediation": "Authorize and receipt only the 33-page resolution phase, then freeze and return the resolved exact-PDF manifest before any newly resolved PDF request."
+    },
+    {
+      "finding_id": "G2SP-S02",
+      "severity": "medium",
+      "claim": "Access receipts now dereference role, authority, input and tool artifacts; require nonempty access and output evidence; derive the exact canonical URL allowlist from the bound role-specific resolution or acquisition manifest; enforce output confinement and digests; and support exact role rosters with distinct sessions. Capacity receipts bind the resource plan and private-staging, network-sandbox and parser-sandbox artifacts.",
+      "evidence_references": [
+        {"path": "schemas/g2_artifact_access_receipt.schema.json", "sha256": "3f9b0a555baf7647f0104a62286c6ec4b1de35c7b13d1e66aa1b56b553f860d0"},
+        {"path": "schemas/g2_structural_capacity_receipt.schema.json", "sha256": "29346fdd608eec770553b9981577592eb7a147f923f7fd79d750118a693e5a16"},
+        {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"},
+        {"path": "tests/test_g2_structural_preflight.py", "sha256": "b3f575ae2a3ce432b4405a2f298e99f8e3ab9af54bd59a5cd5f33f227922cef9"}
+      ],
+      "uncertainty": "Receipts prove recorded artifacts and process claims, not absence of model pretraining knowledge or unrecorded access outside an enforced sandbox.",
+      "remediation": "At execution, require the network and parser sandboxes to enforce the same manifest-derived allowlist and resource policy, and validate chronological ordering of receipt timestamps."
+    },
+    {
+      "finding_id": "G2SP-S03",
+      "severity": "medium",
+      "claim": "Structural records carry acquisition, binary-security, access, authority and telemetry digests; merged eligibility binds each record to the frozen frame and policies and now requires every rank in the inspected prefix exactly once before deterministic selection.",
+      "evidence_references": [
+        {"path": "schemas/g2_structural_preflight_record.schema.json", "sha256": "28584dbed59fabe1ad5b28fc4c5a7f62920422ccfa863c74350626d5d69d32e4"},
+        {"path": "schemas/g2_merged_eligibility_receipt.schema.json", "sha256": "784cd2ce114bbe87d12c766afdd7cce2e82597b6797e3942db15a3e9814d66f3"},
+        {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"}
+      ],
+      "uncertainty": "The structural record stores linked receipt digests without paths, and selection currently verifies the record and frame but does not independently dereference those acquisition, scan, access, authority and telemetry receipts.",
+      "remediation": "Before structural evidence is accepted, add or operate a verifier that resolves every linked digest, proves source-digest continuity and role identity, and recomputes telemetry under the frozen scanner contract."
+    },
+    {
+      "finding_id": "G2SP-S04",
+      "severity": "medium",
+      "claim": "The comparator now authenticates an externally supplied owner-authorization artifact, its bindings through both primary-only extractor bundles and access receipts, a recorded access event for that authority input, the sealed 24-primary plus six-reserve selection, both extraction runs, source-file digests, distinct sessions, exact contract and row schema, fixed semantic vocabulary and exact 24-key identity scope before concordance.",
+      "evidence_references": [
+        {"path": "schemas/g2_extractor_bundle.schema.json", "sha256": "d74613bc2ae9408d1a89df5a9bdb2715a228d2304269aa308efa1245479e5c92"},
+        {"path": "schemas/g2_sealed_selection.schema.json", "sha256": "d9a0455363af78c72c047224071328486c496ed4cf37af0b14d5d3fc2a50d738"},
+        {"path": "schemas/g2_holdout_extraction_run_receipt.schema.json", "sha256": "da879f0697893ce18e723bf0352ece31c4e8590a6399adf61c413c6221548054"},
+        {"path": "config/g2_holdout_semantic_vocabulary.json", "sha256": "4f51d7f3b690fd1945f0c7f112a4a293ee43bfafad4c66f3dfe05d6e80fb2bd5"},
+        {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"},
+        {"path": "tests/test_g2_structural_preflight.py", "sha256": "b3f575ae2a3ce432b4405a2f298e99f8e3ab9af54bd59a5cd5f33f227922cef9"}
+      ],
+      "uncertainty": "The comparator now recomputes the sealed selection from its bound eligibility receipt and policy, but the caller-supplied packet SHA is not dereferenced to a packet artifact. Process receipts also cannot by themselves prove that declared sandbox controls operated outside the recorded evidence.",
+      "remediation": "Before a passing result is accepted, bind packet identity through a path-plus-digest artifact rather than an unverified digest string and require the operating sandbox to emit independently verifiable enforcement telemetry."
+    },
+    {
+      "finding_id": "G2SP-S05",
+      "severity": "critical",
+      "claim": "The general HTTP client remains the final hard pre-access blocker because it does not consume the bound authorization and URL manifest and does not validate every redirect hop and connection-time public-network destination before connection.",
+      "evidence_references": [
+        {"path": "src/gfjd/acquisition.py", "sha256": "6d9aa9eb5dfaf68bd084a21ce54ec49ade548b995cec1987f7f8064f4ce9b424"},
+        {"path": "config/g2_structural_preflight_plan.json", "sha256": "c7781285ec8598721a7c1fdc6da344c59b8c22560ddced4e54d3be55fc3630f3"}
+      ],
+      "uncertainty": "No live request, redirect, DNS-rebinding or hostile-document test was performed because all source access remains prohibited.",
+      "remediation": "Implement an exact decision-and-manifest-bound client or sandbox proxy with pre-connect hop validation, connection-time public-IP enforcement, bounded redirects, retries and aggregate budgets, private non-Git custody, content-type and file-magic checks, and adversarial redirect, rebinding and hostile-document tests."
+    },
+    {
+      "finding_id": "G2SP-S06",
+      "severity": "info",
+      "claim": "All source-resolution, acquisition, opening, inspection, extraction, contact, rights, publication, release and G2 authority states remain false; the design builder and this review perform no network operation.",
+      "evidence_references": [
+        {"path": "config/g2_structural_preflight_plan.json", "sha256": "c7781285ec8598721a7c1fdc6da344c59b8c22560ddced4e54d3be55fc3630f3"},
+        {"path": "tests/test_g2_structural_preflight.py", "sha256": "b3f575ae2a3ce432b4405a2f298e99f8e3ab9af54bd59a5cd5f33f227922cef9"}
+      ],
+      "uncertainty": "A reproducible no-access design is not evidence that future network, sandbox, custody or extraction controls have operated successfully.",
+      "remediation": "Preserve separate digest-bound owner decisions for metadata resolution, PDF acquisition, structural inspection and extraction."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "A",
+      "description": "Recommended: finish the manifest-bound network client and the remaining provenance bindings, then authorize only the 33 landing-page resolution phase.",
+      "trade_offs": ["Adds a controlled owner checkpoint", "Preserves exact separation between HTML resolution and PDF acquisition"],
+      "limitations": ["Does not authorize PDF acquisition", "The 44-candidate frame still has structural-exhaustion risk"],
+      "contingency": "If a landing page drifts, resolves ambiguously or violates network policy, reject it and stop if the required successor frame cannot be frozen; never request its linked file."
+    },
+    {
+      "option_id": "B",
+      "description": "After network hardening, authorize only the existing 11 direct PDFs as a bounded acquisition-control rehearsal.",
+      "trade_offs": ["Avoids landing-page resolution", "Exercises custody and scanning controls"],
+      "limitations": ["Cannot form the required 24 plus six scope", "Cannot constitute holdout execution or G2 evidence"],
+      "contingency": "Return the rehearsal receipts to the owner and keep the experiment stopped."
+    },
+    {
+      "option_id": "C",
+      "description": "Defer all source access and retain the reproducible no-access baseline.",
+      "trade_offs": ["No additional exposure", "No progress toward real holdout evidence"],
+      "limitations": ["G2 remains blocked"],
+      "contingency": "Resume only under a new digest-bound owner decision after the remaining controls pass."
+    }
+  ],
+  "recommendation": "Choose Option A, but do not authorize access from this bundle. The repository-owned role, receipt, capacity, eligibility, selector, bundle and comparator design gaps are now substantially remediated, including exact manifest-derived access allowlists. First implement the exact manifest-bound pre-connect network path, dereference structural-record provenance and bind packet identity through a path-plus-digest artifact. Then authorize only the 33 landing pages, freeze the resolved exact-PDF manifest and return before any PDF request.",
+  "rationale": "The current controls now authenticate almost the entire post-acquisition evidence chain, including deterministic selection recomputation and exact 24-key comparison scope. The remaining critical issue is the point where authority becomes a network request; that boundary must prevent unlisted destinations, unsafe redirects and connection-time address changes. Residual provenance bindings ensure later structural and comparison evidence cannot be detached from the records that created it.",
+  "conflicts": [
+    "The frame has 44 candidate identities but only 11 exact PDF URLs; the other 33 require separately authorized HTML access.",
+    "Canonical URL lists are now derived from the bound manifest, but receipt validation cannot substitute for connection-time enforcement by the operating network sandbox.",
+    "Structural safety review may reveal semantic content and permanently contaminates that role despite source-free persisted outputs."
+  ],
+  "abstentions": [
+    "No candidate URL, landing page, PDF, source byte, redirect, source content or sealed extraction artifact was requested, opened, rendered, downloaded, transcribed or inspected.",
+    "This review does not authorize metadata access, PDF acquisition, structural inspection, extraction, contact, rights acceptance, publication, release or G2 passage.",
+    "The panel does not provide legal, privacy, rights or independent security clearance."
+  ],
+  "dissent": [
+    "A combined conditional HTML-resolution and PDF-acquisition decision would reduce checkpoints but weakens exact manifest review and is not recommended.",
+    "A process-only shared-filesystem model remains weaker than OS-enforced artifact isolation even with complete receipts."
+  ],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

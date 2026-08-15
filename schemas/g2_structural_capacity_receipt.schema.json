@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_structural_capacity_receipt.schema.json",
+  "title": "G2 structural-preflight capacity receipt",
+  "type": "object",
+  "required": ["schema_version", "plan_id", "resource_plan", "resource_budget_sha256", "available_storage_bytes", "private_staging_receipt", "network_sandbox_receipt", "parser_sandbox_receipt", "private_staging_verified", "network_sandbox_verified", "parser_sandbox_verified", "capacity_passed", "verified_at"],
+  "properties": {
+    "schema_version": {"const": "1.0"}, "plan_id": {"const": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01"},
+    "resource_plan": {"$ref": "#/$defs/artifact"}, "resource_budget_sha256": {"$ref": "#/$defs/sha256"},
+    "available_storage_bytes": {"type": "integer", "minimum": 16106127360},
+    "private_staging_receipt": {"$ref": "#/$defs/artifact"}, "network_sandbox_receipt": {"$ref": "#/$defs/artifact"}, "parser_sandbox_receipt": {"$ref": "#/$defs/artifact"},
+    "private_staging_verified": {"const": true}, "network_sandbox_verified": {"const": true},
+    "parser_sandbox_verified": {"const": true}, "capacity_passed": {"const": true},
+    "verified_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/sha256"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

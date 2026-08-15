@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_proposed_acquisition_manifest.schema.json",
+  "title": "Proposed and unauthorized G2 source acquisition manifest",
+  "type": "object",
+  "required": ["schema_version", "manifest_id", "plan_id", "frame", "status", "source_request_performed", "entry_count", "entries", "limits"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "manifest_id": {"const": "G2HOLDOUT-PROPOSED-ACQUISITION-20260815-01"},
+    "plan_id": {"const": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01"},
+    "frame": {"$ref": "#/$defs/artifact"},
+    "status": {"const": "proposed_not_authorized"},
+    "source_request_performed": {"const": false},
+    "entry_count": {"const": 11},
+    "entries": {
+      "type": "array", "minItems": 11, "maxItems": 11,
+      "items": {
+        "type": "object",
+        "required": ["frame_rank", "candidate_id", "edition_id", "jurisdiction_id", "source_series_id", "requested_entrypoint", "entrypoint_kind", "expected_media_type", "method", "status", "maximum_bytes", "maximum_pages", "custody_class", "redistribution_boundary", "acquisition_role", "actual_sha256", "retrieved_at", "final_url", "byte_count", "actual_content_type", "stored_path"],
+        "properties": {
+          "frame_rank": {"type": "integer", "minimum": 1, "maximum": 44},
+          "candidate_id": {"type": "string"}, "edition_id": {"type": "string"}, "jurisdiction_id": {"type": "string"}, "source_series_id": {"type": "string"},
+          "requested_entrypoint": {"type": "string", "format": "uri"},
+          "entrypoint_kind": {"const": "exact_pdf_url"},
+          "expected_media_type": {"const": "application/pdf"}, "method": {"const": "proposed_https_get"}, "status": {"const": "proposed_not_authorized"},
+          "maximum_bytes": {"const": 104857600}, "maximum_pages": {"const": 2000},
+          "custody_class": {"const": "controlled_local_private"}, "redistribution_boundary": {"const": "metadata_and_citation_only"}, "acquisition_role": {"const": "acquisition_custodian"},
+          "actual_sha256": {"type": "null"}, "retrieved_at": {"type": "null"}, "final_url": {"type": "null"}, "byte_count": {"type": "null"}, "actual_content_type": {"type": "null"}, "stored_path": {"type": "null"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "limits": {"const": {"maximum_candidates": 44, "maximum_bytes_per_edition": 104857600, "maximum_total_source_bytes": 4613734400, "maximum_pages_per_edition": 2000, "maximum_total_pages": 44000, "minimum_free_working_storage_bytes": 16106127360, "maximum_redirects": 3, "maximum_retries_per_candidate": 2, "maximum_concurrency": 2, "estimated_agent_hours_low": 80, "estimated_agent_hours_high": 176, "owner_hours_low": 2, "owner_hours_high": 4}}
+  },
+  "$defs": {"artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

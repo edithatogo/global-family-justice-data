@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_url_resolution_network_access_receipt.schema.json",
+  "title": "G2 metadata URL-resolution network access receipt",
+  "type": "object",
+  "required": ["schema_version", "receipt_id", "plan_id", "status", "raw_access_draft", "owner_authorization", "manifest", "role_bundle", "role", "session_id", "fresh_session_attested", "network_mode", "method_allowlist", "network_url_allowlist", "counts", "access_events", "attestation", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "receipt_id": {"const": "G2URL-NETWORK-ACCESS-20260815-01"},
+    "plan_id": {"const": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01"},
+    "status": {"const": "completed_with_unresolved_and_self_attested_enforcement"},
+    "raw_access_draft": {"$ref": "#/$defs/artifact"},
+    "owner_authorization": {"$ref": "#/$defs/artifact"},
+    "manifest": {"$ref": "#/$defs/artifact"},
+    "role_bundle": {"$ref": "#/$defs/artifact"},
+    "role": {"const": "metadata_url_resolver"},
+    "session_id": {"type": "string", "minLength": 8},
+    "fresh_session_attested": {"const": true},
+    "network_mode": {"const": "exact_allowlist_only"},
+    "method_allowlist": {"const": ["GET"]},
+    "network_url_allowlist": {"type": "array", "minItems": 31, "maxItems": 31, "uniqueItems": true, "items": {"type": "string", "format": "uri"}},
+    "counts": {
+      "type": "object",
+      "required": ["manifest_entries", "recorded_get_attempts", "unique_allowlisted_urls", "html_bodies_inspected", "redirects_blocked", "request_or_http_errors", "forbidden_requests"],
+      "properties": {
+        "manifest_entries": {"const": 33},
+        "recorded_get_attempts": {"const": 33},
+        "unique_allowlisted_urls": {"const": 31},
+        "html_bodies_inspected": {"const": 22},
+        "redirects_blocked": {"const": 1},
+        "request_or_http_errors": {"const": 10},
+        "forbidden_requests": {"const": 0}
+      },
+      "additionalProperties": false
+    },
+    "access_events": {
+      "type": "array", "minItems": 33, "maxItems": 33,
+      "items": {
+        "type": "object",
+        "required": ["candidate_id", "edition_id", "requested_url", "method", "started_at", "ended_at", "status", "response_status", "response_content_type", "redirect_location", "bytes_consumed", "forbidden_access"],
+        "properties": {
+          "candidate_id": {"type": "string"},
+          "edition_id": {"type": "string"},
+          "requested_url": {"type": "string", "format": "uri"},
+          "method": {"const": "GET"},
+          "started_at": {"type": "string", "format": "date-time"},
+          "ended_at": {"type": "string", "format": "date-time"},
+          "status": {"enum": ["html_metadata_resolved", "html_metadata_inspected_no_exact_candidate_pdf", "http_error", "redirect_blocked", "request_error"]},
+          "response_status": {"type": ["integer", "null"], "minimum": 100, "maximum": 599},
+          "response_content_type": {"type": ["string", "null"]},
+          "redirect_location": {"type": ["string", "null"], "format": "uri"},
+          "bytes_consumed": {"type": "integer", "minimum": 0, "maximum": 2097152},
+          "forbidden_access": {"const": false}
+        },
+        "additionalProperties": false
+      }
+    },
+    "attestation": {
+      "type": "object",
+      "required": ["fresh_role_isolated_session", "no_head_request", "no_pdf_or_other_file_request", "no_redirect_followed", "no_search_engine_or_non_allowlisted_request", "no_contact", "no_html_excerpt_source_byte_or_target_content_persistence", "no_publication", "no_source_content_or_empirical_fact_extraction", "no_gate_decision"],
+      "additionalProperties": {"const": true}
+    },
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  },
+  "$defs": {"artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

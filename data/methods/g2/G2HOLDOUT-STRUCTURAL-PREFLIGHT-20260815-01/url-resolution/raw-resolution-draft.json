@@ -1,0 +1,1152 @@
+{
+  "schema_version": "1.0-draft",
+  "draft_id": "G2HOLDOUT-URL-RESOLUTION-DRAFT-20260815-01",
+  "plan_id": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01",
+  "manifest_id": "G2HOLDOUT-PROPOSED-URL-RESOLUTION-20260815-01",
+  "role": "metadata_url_resolver",
+  "session_id": "metadata-url-resolver-20260815-fresh-01",
+  "decision_commit": "cf9bce52b855c5a06e623af689edd4f79c5edbe0",
+  "decision_commit_signature_verified": true,
+  "started_at": "2026-08-15T06:55:50.756Z",
+  "ended_at": "2026-08-15T06:56:40.269Z",
+  "network_mode": "exact_allowlist_only",
+  "inputs": {
+    "url_resolution_manifest": {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-url-resolution-manifest.json",
+      "sha256": "d8f703f725befafd33d116bba7809fcceac23f8a84c846f11277d3edadbdb2a9"
+    },
+    "owner_authorization": {
+      "path": "docs/governance/g2-structural-preflight-url-resolution-owner-decision-2026-08-15.md",
+      "sha256": "7ce64586b7c38f0c9c40632ebf75b306732f864398ae1eaf424621adad820cd8"
+    },
+    "role_bundle": {
+      "path": "config/g2_structural_role_bundles.json",
+      "sha256": "a22eac75f219410257a8e41a62e57558544b29202d52dcc4301566db1b15e2b3"
+    },
+    "access_receipt_schema": {
+      "path": "schemas/g2_artifact_access_receipt.schema.json",
+      "sha256": "3f9b0a555baf7647f0104a62286c6ec4b1de35c7b13d1e66aa1b56b553f860d0"
+    }
+  },
+  "tool_config": {
+    "client": "python-stdlib-urllib",
+    "python_version": "3.14.7",
+    "openssl_version": "OpenSSL 3.6.3 9 Jun 2026",
+    "method": "GET",
+    "redirects": "disabled",
+    "timeout_seconds": 15,
+    "max_response_bytes": 2097152,
+    "accepted_declared_content_types": [
+      "text/html"
+    ],
+    "body_storage": "memory_only"
+  },
+  "tool_hashes": {
+    "python_executable": {
+      "path": "/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+      "sha256": "87d4df53fd91304be5bac391fb204643c36b7df2023c04a0953bcbc7d4fdf634"
+    },
+    "resolver_tool_config_sha256": "4ae04059479a91c7109cf11eac345cab66f438127322ebbd6f40a667f9a21923"
+  },
+  "counts": {
+    "manifest_entries": 33,
+    "actual_get_requests": 33,
+    "unique_allowlisted_urls": 31,
+    "redirects_blocked": 1,
+    "html_bodies_inspected": 22,
+    "exact_pdf_urls_resolved": 15,
+    "entries_with_alternate_pdf_urls": 13,
+    "non_html_bodies_refused": 0,
+    "request_or_http_errors": 10,
+    "forbidden_requests": 0
+  },
+  "attestation": {
+    "fresh_role_isolated_session": true,
+    "no_head_request": true,
+    "no_pdf_or_other_file_request": true,
+    "no_redirect_followed": true,
+    "no_search_engine_or_non_allowlisted_request": true,
+    "no_contact": true,
+    "no_html_excerpt_source_byte_or_target_content_persistence": true,
+    "no_publication": true,
+    "no_source_content_or_empirical_fact_extraction": true,
+    "no_gate_decision": true
+  },
+  "records": [
+    {
+      "candidate_id": "G2CAND-NOR-DOMSTOL-AR-2025",
+      "edition_id": "ED-NOR-DOMSTOL-AR-2025",
+      "frame_rank": 1,
+      "requested_landing_url": "https://www.domstol.no/no/domstoladministrasjonen/publikasjoner/arsmeldingar/",
+      "request_started_at": "2026-08-15T06:55:50.756Z",
+      "request_ended_at": "2026-08-15T06:55:53.284Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Årsmeldingar",
+      "resolved_exact_pdf_url": "https://www.domstol.no/contentassets/ec3597b125844ac4bfc66713d3c58895/da_arsrapport_2025.pdf",
+      "alternate_pdf_urls": [
+        "https://www.domstol.no/contentassets/ec3597b125844ac4bfc66713d3c58895/arsregnskap-2025.pdf",
+        "https://www.domstol.no/contentassets/ec3597b125844ac4bfc66713d3c58895/livet-i-domstolene-2025.pdf",
+        "https://www.domstol.no/contentassets/ec3597b125844ac4bfc66713d3c58895/revisjonsberetning-for-domstolene-i-norge-2025.pdf"
+      ],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-PER-PJ-LALIBERTAD-BULLETIN-01-2024",
+      "edition_id": "ED-PER-PJ-LALIBERTAD-BULLETIN-01-2024",
+      "frame_rank": 2,
+      "requested_landing_url": "https://www.pj.gob.pe/wps/wcm/connect/Corte Superior La Libertad PJ/s_csj_LaLibertad_nuevo/as_corte_superior_LaLibertad/as_presidencia/as_documentos/as_resoluciones_administrativas/as_2024/?WCM_PI=1&WCM_Page.dcd566804ddc2df4838cdbcdee6548b3=47",
+      "request_started_at": "2026-08-15T06:55:53.284Z",
+      "request_ended_at": "2026-08-15T06:55:53.285Z",
+      "status": "request_error",
+      "error": "InvalidURL: URL can't contain control characters. '/wps/wcm/connect/Corte Superior La Libertad PJ/s_csj_LaLibertad_nuevo/as_corte_superior_LaLibertad/as_presidencia/as_documentos/as_resoluciones_administrativas/as_2024/?WCM_PI=1&WCM_Page.dcd566804ddc2df4838cdbcdee6548b3=47' (found at least ' ')",
+      "response_status": null,
+      "response_content_type": null,
+      "redirect_location": null,
+      "page_title": null,
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-GBR-EAW-CAFCASS-ARA-2024-25",
+      "edition_id": "ED-GBR-EAW-CAFCASS-ARA-2024-25",
+      "frame_rank": 3,
+      "requested_landing_url": "https://www.gov.uk/government/publications/cafcass-annual-report-and-accounts-2024-to-2025",
+      "request_started_at": "2026-08-15T06:55:53.285Z",
+      "request_ended_at": "2026-08-15T06:55:54.789Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Cafcass annual report and accounts 2024 to 2025 - GOV.UK GOV.UK",
+      "resolved_exact_pdf_url": "https://assets.publishing.service.gov.uk/media/693acee5adb5707d9f33d608/Cafcass_Annual_Report_and_Accounts_2024-2025_-_DIGITAL.pdf",
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [
+          "https://www.gov.uk/help/terms-conditions"
+        ],
+        "rights": [
+          "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+          "https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        ],
+        "privacy": [
+          "https://www.gov.uk/help/cookies",
+          "https://www.gov.uk/help/privacy-notice"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-AUS-VIC-MCV-AR-2024-25",
+      "edition_id": "ED-AUS-VIC-MCV-AR-2024-25",
+      "frame_rank": 4,
+      "requested_landing_url": "https://www.mcv.vic.gov.au/news-and-resources/publications/annual-report-2024-2025",
+      "request_started_at": "2026-08-15T06:55:54.789Z",
+      "request_ended_at": "2026-08-15T06:55:55.424Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Annual report 2024-2025 | Magistrates Court of Victoria",
+      "resolved_exact_pdf_url": "https://www.mcv.vic.gov.au/sites/default/files/2025-11/MCV%20Annual%20Report%202024-2025.pdf",
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [
+          "https://www.mcv.vic.gov.au/disclaimer"
+        ],
+        "rights": [
+          "https://www.mcv.vic.gov.au/copyright"
+        ],
+        "privacy": [
+          "https://www.mcv.vic.gov.au/privacy"
+        ],
+        "security": [
+          "https://www.mcv.vic.gov.au/find-support/safety-and-security"
+        ]
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-GBR-NIR-NICTS-INFOGRAPHIC-2023",
+      "edition_id": "ED-GBR-NIR-NICTS-INFOGRAPHIC-2023",
+      "frame_rank": 5,
+      "requested_landing_url": "https://www.justice-ni.gov.uk/publications/nicts-judicial-statistics",
+      "request_started_at": "2026-08-15T06:55:55.424Z",
+      "request_ended_at": "2026-08-15T06:55:56.664Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "NICTS Judicial Statistics | Department of Justice Department of Justice Share on Facebook Share on X Share by email",
+      "resolved_exact_pdf_url": "https://www.justice-ni.gov.uk/sites/default/files/publications/justice/Judicial%20Statistics%202023%20%20infographic.pdf",
+      "alternate_pdf_urls": [
+        "https://www.justice-ni.gov.uk/sites/default/files/publications/justice/judicial-statistics-2023.pdf"
+      ],
+      "metadata_link_urls": {
+        "terms": [
+          "https://www.justice-ni.gov.uk/articles/terms-and-conditions-justice"
+        ],
+        "rights": [
+          "https://www.justice-ni.gov.uk/articles/crown-copyright-justice"
+        ],
+        "privacy": [
+          "https://www.justice-ni.gov.uk/articles/cookies-justice",
+          "https://www.justice-ni.gov.uk/articles/your-privacy-justice"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-AUS-NSW-LOCAL-AR-2024",
+      "edition_id": "ED-AUS-NSW-LOCAL-AR-2024",
+      "frame_rank": 6,
+      "requested_landing_url": "https://localcourt.nsw.gov.au/practice-publications/publications/annual-reviews.html",
+      "request_started_at": "2026-08-15T06:55:56.664Z",
+      "request_ended_at": "2026-08-15T06:55:56.739Z",
+      "status": "redirect_blocked",
+      "error": null,
+      "response_status": 302,
+      "response_content_type": "text/html",
+      "redirect_location": "https://localcourt.nsw.gov.au/errors/404.html",
+      "page_title": null,
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": [
+        "redirect_not_followed"
+      ]
+    },
+    {
+      "candidate_id": "G2CAND-DNK-COURTS-NATIONAL-AR-2024",
+      "edition_id": "ED-DNK-COURTS-NATIONAL-AR-2024",
+      "frame_rank": 7,
+      "requested_landing_url": "https://www.domstol.dk/om-os/aarsrapporter/",
+      "request_started_at": "2026-08-15T06:55:56.739Z",
+      "request_ended_at": "2026-08-15T06:55:57.592Z",
+      "status": "http_error",
+      "error": "HTTP 403",
+      "response_status": 403,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": null,
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": [
+        "error_response_body_not_consumed"
+      ]
+    },
+    {
+      "candidate_id": "G2CAND-NLD-RECHTSPRAAK-OVERIJSSEL-AR-2024",
+      "edition_id": "ED-NLD-RECHTSPRAAK-OVERIJSSEL-AR-2024",
+      "frame_rank": 8,
+      "requested_landing_url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-overijssel/over-de-rechtbank/publicaties",
+      "request_started_at": "2026-08-15T06:55:57.592Z",
+      "request_ended_at": "2026-08-15T06:55:58.440Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Publicaties | Rechtbank Overijssel | Rechtspraak",
+      "resolved_exact_pdf_url": "https://www.rechtspraak.nl/binaries/_rts_1768297874007/content/assets/rbove/jd/rbove-jd-jaarverslag-klachtenbehandeling-rechtbank-overijssel-2024.pdf",
+      "alternate_pdf_urls": [
+        "https://www.rechtspraak.nl/binaries/_rts_1768298105986/content/assets/rbove/jd/rbove-jd-jaarverslag-rechtbank-overijssel-2024.pdf"
+      ],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [
+          "https://www.rechtspraak.nl/cookies",
+          "https://www.rechtspraak.nl/privacy"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-GBR-NIR-NICTS-JUDSTAT-2025",
+      "edition_id": "ED-GBR-NIR-NICTS-JUDSTAT-2025",
+      "frame_rank": 12,
+      "requested_landing_url": "https://www.justice-ni.gov.uk/publications/nicts-judicial-statistics",
+      "request_started_at": "2026-08-15T06:55:58.440Z",
+      "request_ended_at": "2026-08-15T06:55:58.494Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "NICTS Judicial Statistics | Department of Justice Department of Justice Share on Facebook Share on X Share by email",
+      "resolved_exact_pdf_url": "https://www.justice-ni.gov.uk/sites/default/files/2025-06/judicial-statistics-2024_0.pdf",
+      "alternate_pdf_urls": [
+        "https://www.justice-ni.gov.uk/sites/default/files/2026-06/judicial-statistics-2025.pdf"
+      ],
+      "metadata_link_urls": {
+        "terms": [
+          "https://www.justice-ni.gov.uk/articles/terms-and-conditions-justice"
+        ],
+        "rights": [
+          "https://www.justice-ni.gov.uk/articles/crown-copyright-justice"
+        ],
+        "privacy": [
+          "https://www.justice-ni.gov.uk/articles/cookies-justice",
+          "https://www.justice-ni.gov.uk/articles/your-privacy-justice"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-ESP-CGPJ-KEYIND-2024",
+      "edition_id": "ED-ESP-CGPJ-KEYIND-2024",
+      "frame_rank": 13,
+      "requested_landing_url": "https://www.poderjudicial.es/cgpj/es/Temas/Estadistica-Judicial/Estudios-e-Informes/Indicadores-Clave/Indicadores-clave-del-conjunto-de-las-jurisdicciones----Anual-Trimestre-2024",
+      "request_started_at": "2026-08-15T06:55:58.494Z",
+      "request_ended_at": "2026-08-15T06:56:02.272Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Indicadores clave del conjunto de las jurisdicciones - Anual Trimestre 2024 | CGPJ | Temas | Estadística Judicial | Estudios e Informes | Indicadores Clave",
+      "resolved_exact_pdf_url": "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Andalucia%20-%20Anual%202024.pdf",
+      "alternate_pdf_urls": [
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Aragon%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Canarias%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Cantabria%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Castilla%20La%20Mancha%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Castilla%20y%20Leon%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Catalu%C3%B1a%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Comunidad%20Valenciana%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Comunidad%20de%20Madrid%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Extremadura%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Galicia%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Islas%20Baleares%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20La%20Rioja%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Navarra%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Pais%20Vasco%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Principado%20de%20Asturias%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20TSJ%20Region%20de%20Murcia%20-%20Anual%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20a%20Nivel%20Nacional%20-%20Anual%202024.pdf"
+      ],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [
+          "https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Politica-de-cookies",
+          "https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Politica-de-cookies/"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-USA-TX-STATEWIDE-FAMILY-FY24",
+      "edition_id": "ED-USA-TX-STATEWIDE-FAMILY-FY24",
+      "frame_rank": 14,
+      "requested_landing_url": "https://www.txcourts.gov/statistics/annual-statistical-reports/2024/",
+      "request_started_at": "2026-08-15T06:56:02.273Z",
+      "request_ended_at": "2026-08-15T06:56:02.588Z",
+      "status": "http_error",
+      "error": "HTTP 403",
+      "response_status": 403,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": null,
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": [
+        "error_response_body_not_consumed"
+      ]
+    },
+    {
+      "candidate_id": "G2CAND-KOR-SCOURT-JUDICIAL-YEARBOOK-2024",
+      "edition_id": "ED-KOR-SCOURT-JUDICIAL-YEARBOOK-2024",
+      "frame_rank": 15,
+      "requested_landing_url": "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=6&seqnum=2696",
+      "request_started_at": "2026-08-15T06:56:02.588Z",
+      "request_ended_at": "2026-08-15T06:56:04.721Z",
+      "status": "html_metadata_inspected_no_exact_candidate_pdf",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "2024 사법연감 발간 - 보도자료",
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [
+          "https://www.scourt.go.kr/portal/information/privacy/info/index.html"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-PER-PJ-ONAJUP-BULLETIN-JJA-2024",
+      "edition_id": "ED-PER-PJ-ONAJUP-BULLETIN-JJA-2024",
+      "frame_rank": 16,
+      "requested_landing_url": "https://www.pj.gob.pe/wps/wcm/connect/onajup/s_onajup/as_documentos/as_documentos?WCM_PI=1&WCM_Page.8602c10048781bfa9f489f50d8336ffa=2",
+      "request_started_at": "2026-08-15T06:56:04.721Z",
+      "request_ended_at": "2026-08-15T06:56:09.383Z",
+      "status": "html_metadata_inspected_no_exact_candidate_pdf",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": ".::ONAJUP::.",
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [
+        "https://www.pj.gob.pe/wps/wcm/connect/502bd9804062c3f0a8c0ba1666a80600/los_pro_elec_jueces_juezas_paz.pdf?MOD=AJPERES&CACHEID=502bd9804062c3f0a8c0ba1666a80600",
+        "https://www.pj.gob.pe/wps/wcm/connect/6b15f5804419cc1bbac7fae5406a4592/TERMINADO+Boletin+estadistico+I+trimestre+2025+(1).pdf?MOD=AJPERES&CACHEID=6b15f5804419cc1bbac7fae5406a4592",
+        "https://www.pj.gob.pe/wps/wcm/connect/7db465004c65ba718b62ebe93f7fa794/DIRECT-JUNIO26.pdf?MOD=AJPERES",
+        "https://www.pj.gob.pe/wps/wcm/connect/938b0580406262a19d7d9f1666a80600/Interculturalidad_pj_guia.pdf?MOD=AJPERES&CACHEID=938b0580406262a19d7d9f1666a80600",
+        "https://www.pj.gob.pe/wps/wcm/connect/a281230040629c15a271ba1666a80600/cart_info_justicia_pazlisto.pdf?MOD=AJPERES&CACHEID=a281230040629c15a271ba1666a80600",
+        "https://www.pj.gob.pe/wps/wcm/connect/a320748044de6b9f977adfe5406a4592/Ficha+de+Valoraci%C3%B3n+del+Riesgo_2025+(1).pdf?MOD=AJPERES&CACHEID=a320748044de6b9f977adfe5406a4592",
+        "https://www.pj.gob.pe/wps/wcm/connect/b0976200406271d79ec49e1666a80600/mapa_judicial_jpaz_y_+jintercultural.pdf?MOD=AJPERES&CACHEID=b0976200406271d79ec49e1666a80600",
+        "https://www.pj.gob.pe/wps/wcm/connect/b68957804062b1b6a66abe1666a80600/brochure_onajup.pdf?MOD=AJPERES&CACHEID=b68957804062b1b6a66abe1666a80600",
+        "https://www.pj.gob.pe/wps/wcm/connect/d56ea100417d543eb33ebb1666a80600/BOLETIN+WEB-jja.pdf?MOD=AJPERES&CACHEID=d56ea100417d543eb33ebb1666a80600",
+        "https://www.pj.gob.pe/wps/wcm/connect/d9363380457e2aa8a2e5eae5406a4592/BOLETIN-IITRIMESTRE-2025.pdf?MOD=AJPERES&CACHEID=d9363380457e2aa8a2e5eae5406a4592",
+        "https://www.pj.gob.pe/wps/wcm/connect/f32cc28044de52e594f0dce5406a4592/Pautas+para+la+articulaci%C3%B3n_2025_Sumaq+Justicia+(1).pdf?MOD=AJPERES&CACHEID=f32cc28044de52e594f0dce5406a4592"
+      ],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-NOR-DOMSTOL-LIVET-2025",
+      "edition_id": "ED-NOR-DOMSTOL-LIVET-2025",
+      "frame_rank": 18,
+      "requested_landing_url": "https://www.domstol.no/no/domstoladministrasjonen/publikasjoner/arsmeldingar/",
+      "request_started_at": "2026-08-15T06:56:09.383Z",
+      "request_ended_at": "2026-08-15T06:56:10.579Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Årsmeldingar",
+      "resolved_exact_pdf_url": "https://www.domstol.no/contentassets/ec3597b125844ac4bfc66713d3c58895/da_arsrapport_2025.pdf",
+      "alternate_pdf_urls": [
+        "https://www.domstol.no/contentassets/ec3597b125844ac4bfc66713d3c58895/arsregnskap-2025.pdf",
+        "https://www.domstol.no/contentassets/ec3597b125844ac4bfc66713d3c58895/livet-i-domstolene-2025.pdf",
+        "https://www.domstol.no/contentassets/ec3597b125844ac4bfc66713d3c58895/revisjonsberetning-for-domstolene-i-norge-2025.pdf"
+      ],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-BEL-SPF-JUSTICE-AR-2024",
+      "edition_id": "ED-BEL-SPF-JUSTICE-AR-2024",
+      "frame_rank": 19,
+      "requested_landing_url": "https://justice.belgium.be/fr/publications/rapport_annuel_2024",
+      "request_started_at": "2026-08-15T06:56:10.580Z",
+      "request_ended_at": "2026-08-15T06:56:12.327Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Rapport annuel 2024 | Service public federal Justice",
+      "resolved_exact_pdf_url": "http://justice.belgium.be/sites/default/files/Rapport-annuel-2024-SPF-Justice_0.pdf",
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [
+          "https://justice.belgium.be/fr/general_pages/gebruiksvoorwaarden"
+        ],
+        "rights": [],
+        "privacy": [
+          "https://justice.belgium.be/fr/general_pages/privacy"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-SGP-COURTS-AR-2024",
+      "edition_id": "ED-SGP-COURTS-AR-2024",
+      "frame_rank": 20,
+      "requested_landing_url": "https://www.judiciary.gov.sg/news-and-resources/publications/publication-details/sg-courts-annual-report-2024",
+      "request_started_at": "2026-08-15T06:56:12.327Z",
+      "request_ended_at": "2026-08-15T06:56:13.364Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "SG Courts Annual Report 2024 sg-crest Trusted websites",
+      "resolved_exact_pdf_url": "https://www.judiciary.gov.sg/docs/default-source/publication-docs/sg_courts_annual_report_2024.pdf?sfvrsn=61059197_3",
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [
+          "https://www.judiciary.gov.sg/terms-of-use"
+        ],
+        "rights": [],
+        "privacy": [
+          "https://www.judiciary.gov.sg/privacy-statement"
+        ],
+        "security": [
+          "https://tech.gov.sg/report_vulnerability"
+        ]
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-FRA-MJ-LOPJ-REPORT-2024",
+      "edition_id": "ED-FRA-MJ-LOPJ-REPORT-2024",
+      "frame_rank": 21,
+      "requested_landing_url": "https://www.justice.gouv.fr/documentation/ressources/rapport-2024-loi-dorientation-programmation-du-ministere-justice-2023-2027",
+      "request_started_at": "2026-08-15T06:56:13.364Z",
+      "request_ended_at": "2026-08-15T06:56:15.225Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Rapport 2024 sur la loi d'orientation et de programmation du ministère de la Justice 2023-2027 | Ministère de la justice",
+      "resolved_exact_pdf_url": "https://www.justice.gouv.fr/sites/default/files/2026-06/rapport_annuel_2024_lopj.pdf",
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [
+          "https://www.justice.gouv.fr/donnees-personnelles-et-cookies"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-ESP-CGPJ-DATOSJUSTICIA-B118-2024",
+      "edition_id": "ED-ESP-CGPJ-DATOSJUSTICIA-B118-2024",
+      "frame_rank": 22,
+      "requested_landing_url": "https://www.poderjudicial.es/cgpj/es/Temas/Estadistica-Judicial/Estudios-e-Informes/Datos-de-Justicia/Datos-de-Justicia",
+      "request_started_at": "2026-08-15T06:56:15.225Z",
+      "request_ended_at": "2026-08-15T06:56:18.016Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Datos de Justicia | CGPJ | Temas | Estadística Judicial | Estudios e Informes | Datos de Justicia",
+      "resolved_exact_pdf_url": "https://www.poderjudicial.es/stfls/ESTADISTICA%20JUDICIAL%20NUEVO/FICHEROS/Datos%20de%20Justicia/Boletines%20Anteriores/Bolet%C3%ADn%20n%C2%BA%2024%20Auxilio%20Judicial.pdf",
+      "alternate_pdf_urls": [
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Datos%20de%20Justicia/N114%20Instrumentos%20penales%20de%20reconocimiento%20mutuo%20penales%20UE.%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Datos%20de%20Justicia/N115%20auxilio%20judicial%20civil%202024%20v2.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Datos%20de%20Justicia/N116%20Calidad%20de%20las%20sentencias%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Datos%20de%20Justicia/N117%20Espa%C3%B1a%20en%20los%20Tribunales%20de%20Justicia%20Europeos%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Datos%20de%20Justicia/N118%20Caracteristicas%20de%20los%20PJs%202024.pdf",
+        "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Datos%20de%20Justicia/N119%20-%20An%C3%A1lisis%20sentencias%20asesinatos%20y%20homicidios%20dolosos.%20A%C3%B1o%202024.pdf"
+      ],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [
+          "https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Politica-de-cookies",
+          "https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Politica-de-cookies/"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-ITA-MG-ADMINJUSTICE-2024",
+      "edition_id": "ED-ITA-MG-ADMINJUSTICE-2024",
+      "frame_rank": 23,
+      "requested_landing_url": "https://www.giustizia.it/giustizia/it/contentview.page?contentId=ART1439564",
+      "request_started_at": "2026-08-15T06:56:18.016Z",
+      "request_ended_at": "2026-08-15T06:56:19.288Z",
+      "status": "request_error",
+      "error": "RemoteDisconnected: Remote end closed connection without response",
+      "response_status": null,
+      "response_content_type": null,
+      "redirect_location": null,
+      "page_title": null,
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-ESP-CGPJ-VGD-2024",
+      "edition_id": "ED-ESP-CGPJ-VGD-2024",
+      "frame_rank": 24,
+      "requested_landing_url": "https://www.poderjudicial.es/cgpj/es/Temas/Violencia-domestica-y-de-genero/Actividad-del-Observatorio/Informes-de-violencia-domestica-y-de-genero/Informe-sobre-victimas-mortales-de-la-violencia-de-genero-y-domestica-en-el-ambito-de-la-pareja-o-expareja-en-2024",
+      "request_started_at": "2026-08-15T06:56:19.288Z",
+      "request_ended_at": "2026-08-15T06:56:21.302Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Informe sobre víctimas mortales de la violencia de género y doméstica en el ámbito de la pareja o expareja en 2024 | CGPJ | Temas | Violencia doméstica y de género | Actividad del Observatorio | Informes de violencia doméstica y de género",
+      "resolved_exact_pdf_url": "https://www.poderjudicial.es/stfls/CGPJ/OBSERVATORIO%20DE%20VIOLENCIA%20DOM%C3%89STICA/INFORMES/FICHERO/20251128%20Informe%20sobre%20v%C3%ADctimas%20mortales%20de%20la%20violencia%20de%20g%C3%A9nero%202024V2.pdf",
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [
+          "https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Politica-de-cookies",
+          "https://www.poderjudicial.es/cgpj/es/Poder-Judicial/Politica-de-cookies/"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-USA-WA-SUPERIOR-CASELOAD-2025",
+      "edition_id": "ED-USA-WA-SUPERIOR-CASELOAD-2025",
+      "frame_rank": 25,
+      "requested_landing_url": "https://www.courts.wa.gov/caseload/?fa=caseload.showarchived",
+      "request_started_at": "2026-08-15T06:56:21.302Z",
+      "request_ended_at": "2026-08-15T06:56:26.124Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Washington State Courts - Caseloads of the Courts - Archived Caseload Reports",
+      "resolved_exact_pdf_url": "https://www.courts.wa.gov/caseload/content/archive/clj/Annual/2025.pdf",
+      "alternate_pdf_urls": [
+        "https://www.courts.wa.gov/caseload/content/archive/coa/Annual/2025.pdf",
+        "https://www.courts.wa.gov/caseload/content/archive/superior/Annual/2025.pdf",
+        "https://www.courts.wa.gov/caseload/content/archive/supreme/Annual/2025.pdf"
+      ],
+      "metadata_link_urls": {
+        "terms": [
+          "http://www.courts.wa.gov/?fa=home.notice"
+        ],
+        "rights": [],
+        "privacy": [
+          "http://www.courts.wa.gov/?fa=home.notice"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-JPN-COURTS-YEARBOOK-FAMILY-2025",
+      "edition_id": "ED-JPN-COURTS-YEARBOOK-FAMILY-2025",
+      "frame_rank": 26,
+      "requested_landing_url": "https://www.courts.go.jp/toukei_siryou/shihotokei_nenpo/index.html",
+      "request_started_at": "2026-08-15T06:56:26.124Z",
+      "request_ended_at": "2026-08-15T06:56:27.819Z",
+      "status": "html_metadata_inspected_no_exact_candidate_pdf",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "司法統計年報 | 裁判所",
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [
+          "https://www.courts.go.jp/privacy/index.html"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-ITA-MG-CIVIL-MONITOR-Q4-2024",
+      "edition_id": "ED-ITA-MG-CIVIL-MONITOR-Q4-2024",
+      "frame_rank": 27,
+      "requested_landing_url": "https://www.giustizia.it/giustizia/it/mg_1_14_1.page?contentId=SST243984",
+      "request_started_at": "2026-08-15T06:56:27.819Z",
+      "request_ended_at": "2026-08-15T06:56:28.398Z",
+      "status": "request_error",
+      "error": "RemoteDisconnected: Remote end closed connection without response",
+      "response_status": null,
+      "response_content_type": null,
+      "redirect_location": null,
+      "page_title": null,
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-BEL-CASSATION-AR-2024",
+      "edition_id": "ED-BEL-CASSATION-AR-2024",
+      "frame_rank": 28,
+      "requested_landing_url": "https://justice.belgium.be/fr/statistiques/cour_de_cassation",
+      "request_started_at": "2026-08-15T06:56:28.398Z",
+      "request_ended_at": "2026-08-15T06:56:29.735Z",
+      "status": "html_metadata_inspected_no_exact_candidate_pdf",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Cour de Cassation | Service public federal Justice",
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [
+          "https://justice.belgium.be/fr/general_pages/gebruiksvoorwaarden"
+        ],
+        "rights": [],
+        "privacy": [
+          "https://justice.belgium.be/fr/general_pages/privacy"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-USA-MD-STAT-ABSTRACT-FY24",
+      "edition_id": "ED-USA-MD-STAT-ABSTRACT-FY24",
+      "frame_rank": 29,
+      "requested_landing_url": "https://www.mdcourts.gov/publications/annualreports",
+      "request_started_at": "2026-08-15T06:56:29.735Z",
+      "request_ended_at": "2026-08-15T06:56:32.167Z",
+      "status": "html_metadata_inspected_no_exact_candidate_pdf",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Annual Reports | Maryland Courts",
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [
+        "https://www.mdcourts.gov/sites/default/files/import/judicialcouncil/pdfs/judicialcouncilannualreport2016.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/judicialcouncil/pdfs/judicialcouncilannualreport2017.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/judicialcouncil/pdfs/judicialcouncilannualreport2018.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/judicialcouncil/pdfs/judicialcouncilannualreport2019.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/judicialcouncil/pdfs/judicialcouncilannualreport2020.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2000/annualstats.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2001/annrepstats00-01.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2002/annrepstats01-02.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2003/annrepstats02-03.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2004/arstats0304.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2005/2005_annual_report.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2006/2006_annual_report.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2007/2007_annual_report.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/20082009/statisticaldigest.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2010/annualreport.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2011/annualreport2011.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2012/annualreport2012.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2013/fy2013statisticalabstract.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2014/fy2014statisticalabstract.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2015/fy2015statisticalabstract.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2016/fy2016statisticalabstract.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2017/fy2017statisticalabstract.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2018/fy2018statisticalabstract.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2019/fy2019statisticalabstract.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2020/fy2020statisticalabstract.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/122017strategicplanupdate.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/2017strategicplanupdate.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/2018strategicplanupdate.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/2019strategicplanupdate.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/2020strategicplanupdate.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2000/annualhighlights.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2001/annualreport01.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2002/areport01-02.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2003/areport02-03.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2004/ar04-1.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2004/ar04-2.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2004/ar04-3.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2004/areport03-04.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2005/areport04-05.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2005/circuit_courts_1.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2005/circuit_courts_2.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2005/court_of_appeals.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2005/court_of_special_appeals.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2005/district_court_1.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2005/district_court_2.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2005/district_court_3.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2006/areport05-06.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/annualreport/reports/2007/areport06-07.pdf",
+        "https://www.mdcourts.gov/sites/default/files/import/publications/progressreport/2016/progressreport2016.pdf"
+      ],
+      "metadata_link_urls": {
+        "terms": [
+          "https://jportal.mdcourts.gov/license/index_disclaimer.jsp",
+          "https://www.mdcourts.gov/reference/termsdisclaimer"
+        ],
+        "rights": [
+          "https://jportal.mdcourts.gov/license/index_disclaimer.jsp",
+          "https://www.mdcourts.gov/education#billofrights"
+        ],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-AUS-TAS-MAG-AR-2024-25",
+      "edition_id": "ED-AUS-TAS-MAG-AR-2024-25",
+      "frame_rank": 32,
+      "requested_landing_url": "https://www.magistratescourt.tas.gov.au/",
+      "request_started_at": "2026-08-15T06:56:32.167Z",
+      "request_ended_at": "2026-08-15T06:56:32.280Z",
+      "status": "http_error",
+      "error": "HTTP 403",
+      "response_status": 403,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": null,
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": [
+        "error_response_body_not_consumed"
+      ]
+    },
+    {
+      "candidate_id": "G2CAND-POL-WAW-DISTRICT-FAMILY-2024",
+      "edition_id": "ED-POL-WAW-DISTRICT-FAMILY-2024",
+      "frame_rank": 34,
+      "requested_landing_url": "https://warszawa.sr.gov.pl/sprawozdania-statystyczne-dotyczace-dzialalnosci-sadu-sporzadzane-w-ramach-programu-badan-statystycznych-statystyki-publicznej-za-2024-r,new,mg,211,221,386.html,1576",
+      "request_started_at": "2026-08-15T06:56:32.280Z",
+      "request_ended_at": "2026-08-15T06:56:33.214Z",
+      "status": "request_error",
+      "error": "URLError: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1082)>",
+      "response_status": null,
+      "response_content_type": null,
+      "redirect_location": null,
+      "page_title": null,
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-DNK-AARHUS-AR-2024",
+      "edition_id": "ED-DNK-AARHUS-AR-2024",
+      "frame_rank": 35,
+      "requested_landing_url": "https://www.domstol.dk/aarhus/om-retten-i-aarhus/aarsberetning-og-noegletal/",
+      "request_started_at": "2026-08-15T06:56:33.214Z",
+      "request_ended_at": "2026-08-15T06:56:33.258Z",
+      "status": "http_error",
+      "error": "HTTP 403",
+      "response_status": 403,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": null,
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": [
+        "error_response_body_not_consumed"
+      ]
+    },
+    {
+      "candidate_id": "G2CAND-AUS-QLD-DISTRICT-AR-2024-25",
+      "edition_id": "ED-AUS-QLD-DISTRICT-AR-2024-25",
+      "frame_rank": 37,
+      "requested_landing_url": "https://www.courts.qld.gov.au/newsroom/governance-and-reporting/publications?start_rank=21",
+      "request_started_at": "2026-08-15T06:56:33.258Z",
+      "request_ended_at": "2026-08-15T06:56:33.847Z",
+      "status": "html_metadata_resolved",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Publications | Queensland Courts Queensland Government",
+      "resolved_exact_pdf_url": "https://www.courts.qld.gov.au/__data/assets/pdf_file/0009/868095/mhc-ar-2023-2024.pdf",
+      "alternate_pdf_urls": [
+        "https://www.courts.qld.gov.au/__data/assets/pdf_file/0009/872127/dc-ar-2023-2024.pdf",
+        "https://www.courts.qld.gov.au/__data/assets/pdf_file/0011/891641/cc-ar-2024-2025.pdf",
+        "https://www.courts.qld.gov.au/__data/assets/pdf_file/0012/869574/sc-ar-2023-2024.pdf"
+      ],
+      "metadata_link_urls": {
+        "terms": [
+          "https://www.courts.qld.gov.au/footer/pages/disclaimer"
+        ],
+        "rights": [
+          "https://www.courts.qld.gov.au/footer/pages/copyright"
+        ],
+        "privacy": [
+          "https://www.courts.qld.gov.au/footer/pages/privacy"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-USA-MA-COURTS-AR-FY24",
+      "edition_id": "ED-USA-MA-COURTS-AR-FY24",
+      "frame_rank": 38,
+      "requested_landing_url": "https://www.mass.gov/lists/court-reports",
+      "request_started_at": "2026-08-15T06:56:33.847Z",
+      "request_ended_at": "2026-08-15T06:56:34.997Z",
+      "status": "http_error",
+      "error": "HTTP 403",
+      "response_status": 403,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": null,
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": [
+        "error_response_body_not_consumed"
+      ]
+    },
+    {
+      "candidate_id": "G2CAND-CAN-ON-OCJ-FAMSTATS-2025-26",
+      "edition_id": "ED-CAN-ON-OCJ-FAMSTATS-2025-26",
+      "frame_rank": 39,
+      "requested_landing_url": "https://www.ontariocourts.ca/ocj/statistics/",
+      "request_started_at": "2026-08-15T06:56:34.997Z",
+      "request_ended_at": "2026-08-15T06:56:38.574Z",
+      "status": "html_metadata_inspected_no_exact_candidate_pdf",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Statistics - Ontario Court of Justice",
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [
+        "https://www.ontariocourts.ca/ocj/files/stats/bail/2015/2015-Bail-Offence.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/bail/2015/2015-Bail-Region.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/bail/2016/2016-Bail-Offence.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/bail/2016/2016-Bail-Region.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/bail/2017/2017-Bail-Offence.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/bail/2017/2017-Bail-Region.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/bail/2018/2018-Bail-Offence.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/bail/2018/2018-Bail-Region.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/bail/2019/2019-Bail-Offence.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/bail/2019/2019-Bail-Region.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2012/2012-Clearance-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2012/2012-Clearance-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2012/2012-Disposition-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2012/2012-Disposition-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2012/2012-Offence-Based-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2012/2012-Offence-Based-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2013/2013-Clearance-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2013/2013-Clearance-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2013/2013-Disposition-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2013/2013-Disposition-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2013/2013-Offence-Based-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2013/2013-Offence-Based-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2014/2014-Clearance-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2014/2014-Clearance-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2014/2014-Disposition-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2014/2014-Disposition-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2014/2014-Offence-Based-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2014/2014-Offence-Based-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2015/2015-Clearance-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2015/2015-Clearance-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2015/2015-Disposition-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2015/2015-Disposition-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2015/2015-Offence-Based-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2015/2015-Offence-Based-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2016/2016-Clearance-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2016/2016-Clearance-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2016/2016-Disposition-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2016/2016-Disposition-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2016/2016-Offence-Based-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2016/2016-Offence-Based-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2017/2017-Clearance-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2017/2017-Clearance-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2017/2017-Disposition-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2017/2017-Disposition-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2017/2017-Offence-Based-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2017/2017-Offence-Based-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2018/2018-Clearance-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2018/2018-Clearance-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2018/2018-Disposition-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2018/2018-Disposition-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2018/2018-Offence-Based-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2018/2018-Offence-Based-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2019/2019-Clearance-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2019/2019-Clearance-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2019/2019-Disposition-Rate-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2019/2019-Disposition-Rate-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2019/2019-Offence-Based-Criminal.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/crim/2019/2019-Offence-Based-Youth.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2012/2012-Family-Appearances-Heard.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2012/2012-Family-Cases-Received.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2012/2012-Family-RDP.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2013/2013-Family-Appearances-Heard.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2013/2013-Family-Cases-Received.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2013/2013-Family-RDP.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2014/2014-Family-Appearances-Heard.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2014/2014-Family-Cases-Received.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2014/2014-Family-RDP.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2015/2015-Family-Appearances-Heard.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2015/2015-Family-Cases-Received.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2015/2015-Family-RDP.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2016/2016-Family-Appearances-Heard.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2016/2016-Family-Cases-Received.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2016/2016-Family-RDP.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2017/2017-Family-Appearances-Heard.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2017/2017-Family-Cases-Received.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2017/2017-Family-RDP.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2018/2018-Family-Appearances-Heard.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2018/2018-Family-Cases-Received.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2018/2018-Family-RDP.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2019/2019-Family-Appearances-Heard.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2019/2019-Family-Cases-Received.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/fam/2019/2019-Family-RDP.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2012/2012-POA-Court.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2013/2013-POA-Court.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2014/2014-POA-Court.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2015/2015-POA-Court.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2015/2015-POA-Fines.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2015/2015-POA-Statute.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2016/2016-POA-Court.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2016/2016-POA-Fines.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2016/2016-POA-Statute.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2017/2017-POA-Court.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2017/2017-POA-Fines.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2017/2017-POA-Statute.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2018/2018-POA-Court.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2018/2018-POA-Fines.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2018/2018-POA-Statute.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2019/2019-POA-Court.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2019/2019-POA-Fines.pdf",
+        "https://www.ontariocourts.ca/ocj/files/stats/poa/2019/2019-POA-Statute.pdf"
+      ],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-NLD-RECHTSPRAAK-ZWB-JAARBERICHT-2024",
+      "edition_id": "ED-NLD-RECHTSPRAAK-ZWB-JAARBERICHT-2024",
+      "frame_rank": 41,
+      "requested_landing_url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-zeeland-west-brabant/praktisch-a-tm-z",
+      "request_started_at": "2026-08-15T06:56:38.574Z",
+      "request_ended_at": "2026-08-15T06:56:39.761Z",
+      "status": "html_metadata_inspected_no_exact_candidate_pdf",
+      "error": null,
+      "response_status": 200,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": "Rechtbank Zeeland-West-Brabant A tot en met Z | Rechtspraak",
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [
+        "https://www.rechtspraak.nl/binaries/_rts_1768298206496/content/assets/rbzwb/jd/rbzwb-jd-jaarverslag-rechtbank-zeeland-west-brabant-klachten-2020.pdf",
+        "https://www.rechtspraak.nl/binaries/_rts_1768386153048/content/assets/rbzwb/rp/rbzwb-rp-nieuw-beleid-parkeerrol-1-feb-2014.pdf",
+        "https://www.rechtspraak.nl/binaries/_rts_1768900413205/content/assets/rbzwb/rp/rbzwb-rp-protocol-verschoning-rbzwb.pdf",
+        "https://www.rechtspraak.nl/binaries/_rts_1768924619835/content/assets/rbzwb/rp/rbzwb-rp-wrakingsprotocol.pdf",
+        "https://www.rechtspraak.nl/binaries/_rts_1773840935575/content/assets/rbzwb/rp/rbzwb-rp-besluit-artikel-4-lid-1-van-het-bestuursreglement.pdf"
+      ],
+      "metadata_link_urls": {
+        "terms": [
+          "https://www.rechtspraak.nl/zelf-regelen/algemene-voorwaarden-deponeren/algemene-voorwaarden-rbzwb",
+          "https://www.rechtspraak.nl/zelf-regelen/algemene-voorwaarden-opvragen/algemene-voorwaarden-rbzwb",
+          "https://www.rechtspraak.nl/zelf-regelen/huwelijkse-voorwaarden-partnerschapsvoorwaarden/opvragen-voorwaarden-rbzwb"
+        ],
+        "rights": [],
+        "privacy": [
+          "https://www.rechtspraak.nl/cookies",
+          "https://www.rechtspraak.nl/privacy"
+        ],
+        "security": []
+      },
+      "limitations": []
+    },
+    {
+      "candidate_id": "G2CAND-USA-NY-FCA-AR-2024",
+      "edition_id": "ED-USA-NY-FCA-AR-2024",
+      "frame_rank": 43,
+      "requested_landing_url": "https://www.nycourts.gov/division-technology-court-research/family-court-act-fca-annual-report",
+      "request_started_at": "2026-08-15T06:56:39.761Z",
+      "request_ended_at": "2026-08-15T06:56:40.268Z",
+      "status": "http_error",
+      "error": "HTTP 403",
+      "response_status": 403,
+      "response_content_type": "text/html",
+      "redirect_location": null,
+      "page_title": null,
+      "resolved_exact_pdf_url": null,
+      "alternate_pdf_urls": [],
+      "metadata_link_urls": {
+        "terms": [],
+        "rights": [],
+        "privacy": [],
+        "security": []
+      },
+      "limitations": [
+        "error_response_body_not_consumed"
+      ]
+    }
+  ],
+  "status": "local_draft_metadata_evidence_only_not_gate_evidence"
+}

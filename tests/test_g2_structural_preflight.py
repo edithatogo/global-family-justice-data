@@ -40,9 +40,21 @@ def _materialize_archived_metadata(root: Path) -> None:
     shutil.copyfile(archive, destination)
 
 
+def _require_local_private_evidence(root: Path) -> None:
+    ledger = _read(
+        root / "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/exposure-ledger.json"
+    )
+    artifacts = ledger["evidence_artifacts"]
+    assert isinstance(artifacts, list)
+    missing = [item["path"] for item in artifacts if not (root / item["path"]).is_file()]
+    if missing:
+        pytest.skip("frozen design reproduction requires local-private evidence artifacts")
+
+
 def test_prepare_structural_preflight_freezes_unauthorized_frame(
     project_root: Path,
 ) -> None:
+    _require_local_private_evidence(project_root)
     _materialize_archived_metadata(project_root)
     with tempfile.TemporaryDirectory(dir=project_root / "build") as temporary:
         output = Path(temporary)
@@ -86,6 +98,7 @@ def test_prepare_structural_preflight_freezes_unauthorized_frame(
 def test_verify_structural_preflight_rejects_frame_tampering(
     project_root: Path,
 ) -> None:
+    _require_local_private_evidence(project_root)
     _materialize_archived_metadata(project_root)
     with tempfile.TemporaryDirectory(dir=project_root / "build") as temporary:
         output = Path(temporary)

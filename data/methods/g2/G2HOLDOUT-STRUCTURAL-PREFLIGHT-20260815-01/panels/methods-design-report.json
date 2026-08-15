@@ -25,7 +25,7 @@
     {"path": "schemas/g2_holdout_extraction_run_receipt.schema.json", "sha256": "da879f0697893ce18e723bf0352ece31c4e8590a6399adf61c413c6221548054"},
     {"path": "schemas/g2_artifact_access_receipt.schema.json", "sha256": "3f9b0a555baf7647f0104a62286c6ec4b1de35c7b13d1e66aa1b56b553f860d0"},
     {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"},
-    {"path": "tests/test_g2_structural_preflight.py", "sha256": "e3eac3eed18d9dd5077d3be4fd2a0338f1be4bcd74edada100c11fc59e95e22d"}
+    {"path": "tests/test_g2_structural_preflight.py", "sha256": "3a8093bf1c3ec063924cc20383f7819d99c1540006bb71fe10620cd17b03e9e8"}
   ],
   "verdict": "pass",
   "findings": [
@@ -62,7 +62,7 @@
         {"path": "schemas/g2_holdout_extraction_run_receipt.schema.json", "sha256": "da879f0697893ce18e723bf0352ece31c4e8590a6399adf61c413c6221548054"},
         {"path": "schemas/g2_artifact_access_receipt.schema.json", "sha256": "3f9b0a555baf7647f0104a62286c6ec4b1de35c7b13d1e66aa1b56b553f860d0"},
         {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"},
-        {"path": "tests/test_g2_structural_preflight.py", "sha256": "e3eac3eed18d9dd5077d3be4fd2a0338f1be4bcd74edada100c11fc59e95e22d"}
+        {"path": "tests/test_g2_structural_preflight.py", "sha256": "3a8093bf1c3ec063924cc20383f7819d99c1540006bb71fe10620cd17b03e9e8"}
       ],
       "uncertainty": "A passing comparator result would establish concordance only for the frozen 24-edition exercise, not general validity or correctness.",
       "remediation": "Retain exact 100 percent critical and at least 99 percent populated-field thresholds with no waiver or repair."
@@ -86,7 +86,7 @@
       "evidence_references": [
         {"path": "config/g2_structural_selection_policy.json", "sha256": "528e53150bf94d1c76575f221ccbde4ff61e6ef3fc008e820a9bd72ea3a52439"},
         {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"},
-        {"path": "tests/test_g2_structural_preflight.py", "sha256": "e3eac3eed18d9dd5077d3be4fd2a0338f1be4bcd74edada100c11fc59e95e22d"}
+        {"path": "tests/test_g2_structural_preflight.py", "sha256": "3a8093bf1c3ec063924cc20383f7819d99c1540006bb71fe10620cd17b03e9e8"}
       ],
       "uncertainty": "The tests establish implementation behavior, not future candidate yield.",
       "remediation": "Freeze the algorithm before access and treat frame exhaustion as an experiment stop."

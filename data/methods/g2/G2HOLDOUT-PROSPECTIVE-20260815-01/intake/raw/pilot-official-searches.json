@@ -1,0 +1,91 @@
+{
+  "searched_at": "2026-07-29T00:00:00Z",
+  "searched_by_role": "analyst-agent",
+  "records": [
+    {
+      "jurisdiction_id": "INT",
+      "language": "English",
+      "domain": "statistics/open data",
+      "query": "CEPEJ-STAT official database",
+      "result_url": "https://www.coe.int/en/web/cepej/cepej-stat",
+      "result_title": "CEPEJ-STAT dynamic database",
+      "access_issue": "landing page available via browser; shell retrieval previously returned 403"
+    },
+    {
+      "jurisdiction_id": "AUS",
+      "language": "English",
+      "domain": "annual reports",
+      "query": "Australia family court annual reports official",
+      "result_url": "https://www.fcfcoa.gov.au/fl/fcoa-annual-reports",
+      "result_title": "Family Court Annual Reports",
+      "access_issue": ""
+    },
+    {
+      "jurisdiction_id": "USA-MN",
+      "language": "English",
+      "domain": "statistics/open data",
+      "query": "Minnesota Judicial Branch court statistics official",
+      "result_url": "https://mncourts.gov/help-topics/court-statistics",
+      "result_title": "Court Statistics and Reports",
+      "access_issue": ""
+    },
+    {
+      "jurisdiction_id": "BRA",
+      "language": "Portuguese",
+      "domain": "statistics/open data",
+      "query": "Brazil CNJ estatistica official",
+      "result_url": "https://www.cnj.jus.br/estatistica/",
+      "result_title": "Estat\u00edstica - Portal CNJ",
+      "access_issue": ""
+    },
+    {
+      "jurisdiction_id": "ZAF",
+      "language": "English",
+      "domain": "annual reports",
+      "query": "South Africa judiciary annual report official",
+      "result_url": "https://www.judiciary.org.za/index.php/documents/judiciary-annual-reports",
+      "result_title": "Judiciary annual reports",
+      "access_issue": ""
+    },
+    {
+      "jurisdiction_id": "AUS",
+      "language": "English",
+      "domain": "family justice statistics",
+      "query": "FCFCOA family law annual report statistics",
+      "result_url": "https://www.fcfcoa.gov.au/fcc-annual-reports/2020-21/part-1",
+      "result_title": "FCFCOA annual report statistics"
+    },
+    {
+      "jurisdiction_id": "USA-MN",
+      "language": "English",
+      "domain": "family justice statistics",
+      "query": "Minnesota family court reports official",
+      "result_url": "https://www.mncourts.gov/Find-Courts/Fourth-Judicial-District/Publications-and-Reports-Hennepin.aspx",
+      "result_title": "Minnesota Family Court Reports"
+    },
+    {
+      "jurisdiction_id": "BRA",
+      "language": "Portuguese",
+      "domain": "family justice statistics",
+      "query": "CNJ DataJud family law statistics official",
+      "result_url": "https://www.cnj.jus.br/paineis-cnj/",
+      "result_title": "CNJ statistical panels"
+    },
+    {
+      "jurisdiction_id": "ZAF",
+      "language": "English",
+      "domain": "family justice statistics",
+      "query": "South African Judiciary family court statistics official",
+      "result_url": "https://www.judiciary.org.za/index.php/documents/judiciary-annual-reports",
+      "result_title": "South African Judiciary annual reports"
+    },
+    {
+      "jurisdiction_id": "INT",
+      "language": "English",
+      "domain": "methodology/database",
+      "query": "CEPEJ-STAT official methodology database",
+      "result_url": "https://www.coe.int/en/web/cepej/cepej-stat",
+      "result_title": "CEPEJ-STAT dynamic database"
+    }
+  ]
+}

@@ -24,7 +24,7 @@
     {"path": "config/g2_holdout_semantic_vocabulary.json", "sha256": "4f51d7f3b690fd1945f0c7f112a4a293ee43bfafad4c66f3dfe05d6e80fb2bd5"},
     {"path": "schemas/g2_holdout_semantic_vocabulary.schema.json", "sha256": "001f64a8b1be3c1e75619768fcb5e283945abdff272383a4efca072821e31ba4"},
     {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"},
-    {"path": "tests/test_g2_structural_preflight.py", "sha256": "1558bf069c8ad127620e8baf446c52bca52e6df93c6b6fcaf0031f2c9053f9c5"},
+    {"path": "tests/test_g2_structural_preflight.py", "sha256": "e3eac3eed18d9dd5077d3be4fd2a0338f1be4bcd74edada100c11fc59e95e22d"},
     {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json", "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"},
     {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-acquisition-manifest.json", "sha256": "09f5ca6edbbfec9604e79a1269da0a1604f94ea4349cb0e8d5afaf336e2eba05"},
     {"path": "schemas/g2_proposed_acquisition_manifest.schema.json", "sha256": "4f8fa06a0bdef633b38804ae31b484c2855f6c572b7fe990013a5359a8e53dd7"},
@@ -57,7 +57,7 @@
         {"path": "schemas/g2_artifact_access_receipt.schema.json", "sha256": "3f9b0a555baf7647f0104a62286c6ec4b1de35c7b13d1e66aa1b56b553f860d0"},
         {"path": "schemas/g2_structural_capacity_receipt.schema.json", "sha256": "29346fdd608eec770553b9981577592eb7a147f923f7fd79d750118a693e5a16"},
         {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"},
-        {"path": "tests/test_g2_structural_preflight.py", "sha256": "1558bf069c8ad127620e8baf446c52bca52e6df93c6b6fcaf0031f2c9053f9c5"}
+        {"path": "tests/test_g2_structural_preflight.py", "sha256": "e3eac3eed18d9dd5077d3be4fd2a0338f1be4bcd74edada100c11fc59e95e22d"}
       ],
       "uncertainty": "Receipts prove recorded artifacts and process claims, not absence of model pretraining knowledge or unrecorded access outside an enforced sandbox.",
       "remediation": "At execution, require the network and parser sandboxes to enforce the same manifest-derived allowlist and resource policy, and validate chronological ordering of receipt timestamps."
@@ -84,7 +84,7 @@
         {"path": "schemas/g2_holdout_extraction_run_receipt.schema.json", "sha256": "da879f0697893ce18e723bf0352ece31c4e8590a6399adf61c413c6221548054"},
         {"path": "config/g2_holdout_semantic_vocabulary.json", "sha256": "4f51d7f3b690fd1945f0c7f112a4a293ee43bfafad4c66f3dfe05d6e80fb2bd5"},
         {"path": "src/gfjd/g2_structural_preflight.py", "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"},
-        {"path": "tests/test_g2_structural_preflight.py", "sha256": "1558bf069c8ad127620e8baf446c52bca52e6df93c6b6fcaf0031f2c9053f9c5"}
+        {"path": "tests/test_g2_structural_preflight.py", "sha256": "e3eac3eed18d9dd5077d3be4fd2a0338f1be4bcd74edada100c11fc59e95e22d"}
       ],
       "uncertainty": "The comparator now recomputes the sealed selection from its bound eligibility receipt and policy, but the caller-supplied packet SHA is not dereferenced to a packet artifact. Process receipts also cannot by themselves prove that declared sandbox controls operated outside the recorded evidence.",
       "remediation": "Before a passing result is accepted, bind packet identity through a path-plus-digest artifact rather than an unverified digest string and require the operating sandbox to emit independently verifiable enforcement telemetry."
@@ -106,7 +106,7 @@
       "claim": "All source-resolution, acquisition, opening, inspection, extraction, contact, rights, publication, release and G2 authority states remain false; the design builder and this review perform no network operation.",
       "evidence_references": [
         {"path": "config/g2_structural_preflight_plan.json", "sha256": "c7781285ec8598721a7c1fdc6da344c59b8c22560ddced4e54d3be55fc3630f3"},
-        {"path": "tests/test_g2_structural_preflight.py", "sha256": "1558bf069c8ad127620e8baf446c52bca52e6df93c6b6fcaf0031f2c9053f9c5"}
+        {"path": "tests/test_g2_structural_preflight.py", "sha256": "e3eac3eed18d9dd5077d3be4fd2a0338f1be4bcd74edada100c11fc59e95e22d"}
       ],
       "uncertainty": "A reproducible no-access design is not evidence that future network, sandbox, custody or extraction controls have operated successfully.",
       "remediation": "Preserve separate digest-bound owner decisions for metadata resolution, PDF acquisition, structural inspection and extraction."

@@ -91,6 +91,8 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+      - name: Configure repository commit verification
+        run: git config --local gpg.ssh.allowedSignersFile config/ssh_allowed_signers
       - name: Provision Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
@@ -177,6 +179,8 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+      - name: Configure repository commit verification
+        run: git config --local gpg.ssh.allowedSignersFile config/ssh_allowed_signers
       - name: Provision Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:

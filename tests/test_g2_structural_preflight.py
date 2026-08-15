@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import shutil
 import tempfile
 from copy import deepcopy
 from pathlib import Path
@@ -30,10 +31,19 @@ def _read(path: Path) -> dict[str, object]:
     return value
 
 
+def _materialize_archived_metadata(root: Path) -> None:
+    archive = root / (
+        "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/raw/pilot-official-searches.json"
+    )
+    destination = root / "build/pilot-official-searches.json"
+    destination.parent.mkdir(exist_ok=True)
+    shutil.copyfile(archive, destination)
+
+
 def test_prepare_structural_preflight_freezes_unauthorized_frame(
     project_root: Path,
 ) -> None:
-    (project_root / "build").mkdir(exist_ok=True)
+    _materialize_archived_metadata(project_root)
     with tempfile.TemporaryDirectory(dir=project_root / "build") as temporary:
         output = Path(temporary)
         frame_path, manifest_path, receipt_path = prepare_structural_preflight_design(
@@ -76,7 +86,7 @@ def test_prepare_structural_preflight_freezes_unauthorized_frame(
 def test_verify_structural_preflight_rejects_frame_tampering(
     project_root: Path,
 ) -> None:
-    (project_root / "build").mkdir(exist_ok=True)
+    _materialize_archived_metadata(project_root)
     with tempfile.TemporaryDirectory(dir=project_root / "build") as temporary:
         output = Path(temporary)
         frame_path, _, _ = prepare_structural_preflight_design(

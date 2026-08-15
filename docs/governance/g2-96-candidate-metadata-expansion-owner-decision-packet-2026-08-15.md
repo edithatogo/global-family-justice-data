@@ -24,8 +24,8 @@ was requested.
 - Search execution-bundle schema SHA-256:
   `fa179ab2b8409fc6a28aa8043889a35bd7c0cff13d1804628a93801493821edd`.
 - Detached expansion-design manifest SHA-256:
-  `0cdaa6bc1ae5f10cf0a710d9abea53688a59a77af0b3457bd0df66631a5f3e37`.
-- Signed freeze commit: `8a0e1c65d0e9dac9292c2ebd61efa3f496c99be9`.
+  `68f853669b0700aa17d2e1825b5f4afb062f4e01ca1abdc1ac4beda7376a3a8c`.
+- Signed freeze commit: `fd18ca981053e828055f6ca338a94a4050f1fea1`.
 
 The machine plan freezes four 13-record search streams, four ordered query
 templates, jurisdiction/language/year ordering, exact 44+52=96 frame counts,
@@ -117,8 +117,8 @@ stage cannot produce a sufficient hypothesis pool.
 > schema SHA-256
 > `0c21b82781d7483882a909bdf0ee124dd349acce9e44363e908ebca8448c70a2`,
 > detached manifest SHA-256
-> `0cdaa6bc1ae5f10cf0a710d9abea53688a59a77af0b3457bd0df66631a5f3e37`
-> and signed freeze commit `8a0e1c65d0e9dac9292c2ebd61efa3f496c99be9`.
+> `68f853669b0700aa17d2e1825b5f4afb062f4e01ca1abdc1ac4beda7376a3a8c`
+> and signed freeze commit `fd18ca981053e828055f6ca338a94a4050f1fea1`.
 >
 > I authorize only a fresh `metadata_expansion_registrar` agent to execute the
 > plan's 208-query public search-index stage in its frozen order. It may record

@@ -20,7 +20,7 @@ procedural agent/tool control and is not represented as OS/proxy attestation.
 
 Digest bindings:
 
-- Signed freeze commit: `8a0e1c65d0e9dac9292c2ebd61efa3f496c99be9`.
+- Signed freeze commit: `fd18ca981053e828055f6ca338a94a4050f1fea1`.
 - Machine plan:
   `95aee30f7c285b5d32950e87dcb2de56880a24e6d96d5241b1563d24068fdcfa`.
 - Query registry:
@@ -32,7 +32,7 @@ Digest bindings:
 - Search execution-bundle schema:
   `fa179ab2b8409fc6a28aa8043889a35bd7c0cff13d1804628a93801493821edd`.
 - Detached expansion-design manifest:
-  `0cdaa6bc1ae5f10cf0a710d9abea53688a59a77af0b3457bd0df66631a5f3e37`.
+  `68f853669b0700aa17d2e1825b5f4afb062f4e01ca1abdc1ac4beda7376a3a8c`.
 
 This evidence proves only that a source-disabled plan exists and is
 machine-validated. It does not authorize metadata execution, landing-page or

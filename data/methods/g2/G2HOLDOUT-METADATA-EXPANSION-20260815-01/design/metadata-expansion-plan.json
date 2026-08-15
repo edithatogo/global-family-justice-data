@@ -9,7 +9,7 @@
   },
   "url_resolution_manifest": {
     "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/URL_RESOLUTION_MANIFEST.sha256",
-    "sha256": "ed847df70513b92c3c5a695dc49b30a8b2fb57085ed505d1350dda7e350ce1db"
+    "sha256": "3aefc7a6803c1bf547046ca4c0dae74307a7d21f974e385fee34193bb0df18f9"
   },
   "query_registry": {
     "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/jurisdiction-query-registry.json",
@@ -28,10 +28,10 @@
     {
       "role_id": "metadata_expansion_registrar",
       "fresh_session_required": true,
-      "network_mode": "search_and_official_html_only",
+      "network_mode": "search_index_only",
       "may_read_source_files": false,
       "may_be_extractor_or_comparator": false,
-      "outputs": ["search_receipt", "candidate_metadata_universe", "access_receipt"]
+      "outputs": ["search_receipt", "candidate_hypothesis_universe", "search_access_receipt"]
     },
     {
       "role_id": "metadata_expansion_exposure_auditor",
@@ -157,8 +157,8 @@
   },
   "budgets": {
     "maximum_search_queries": 208,
-    "maximum_official_html_gets": 104,
-    "maximum_total_gets": 312,
+    "maximum_official_html_gets": 0,
+    "maximum_total_gets": 208,
     "maximum_redirects_followed": 0,
     "maximum_response_bytes_per_html_page": 2097152,
     "maximum_elapsed_minutes": 360,
@@ -171,20 +171,26 @@
     "any_unapproved_host_or_redirect_requested",
     "any_budget_exceeded",
     "any_role_or_access_receipt_violation",
-    "fewer_than_52_new_compliant_records_after_frozen_queries",
+    "any_result_or_landing_url_requested",
     "any baseline record changed",
     "any duplicate edition_or_series_in_selected_additions"
   ],
   "next_owner_decision_requires": [
-    "expanded_96_candidate_frame",
-    "search_and_html_access_receipts",
+    "search_index_receipt",
+    "candidate_hypothesis_universe",
     "cumulative_exposure_ledger",
-    "non_overlap_and_selection_receipts",
-    "pdf_locator_hypothesis_proposal",
+    "non_overlap_receipt",
+    "proposed_official_html_allowlist",
     "role_separated_agent_panel_reports",
     "detached_manifest",
     "signed_freeze_commit"
   ],
+  "later_unauthorized_stages": {
+    "official_html_get_budget": 104,
+    "required_new_compliant_records": 52,
+    "expanded_frame_records": 96,
+    "requires_separate_owner_decision": true
+  },
   "authorization_flags": {
     "metadata_expansion_prepared": true,
     "metadata_expansion_execution_authorized": false,

@@ -112,7 +112,12 @@ def test_metadata_expansion_design_manifest_is_exact(project_root: Path) -> None
             f"{DESIGN_ROOT.as_posix()}/metadata-expansion-plan.json",
             f"{DESIGN_ROOT.as_posix()}/metadata-expansion-plan.schema.json",
             f"{DESIGN_ROOT.as_posix()}/jurisdiction-query-registry.json",
+            f"{DESIGN_ROOT.as_posix()}/search-index-execution-bundle.schema.json",
+            f"{DESIGN_ROOT.as_posix()}/search-index-query-manifest.json",
+            "scripts/build_g2_metadata_search_manifest.py",
+            "src/gfjd/g2_metadata_search.py",
             "tests/test_g2_metadata_expansion_plan.py",
+            "tests/test_g2_metadata_search.py",
         ]
     )
     for expected_sha, relative_path in entries:

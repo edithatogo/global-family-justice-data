@@ -33,6 +33,7 @@ def _read(path: Path) -> dict[str, object]:
 def test_prepare_structural_preflight_freezes_unauthorized_frame(
     project_root: Path,
 ) -> None:
+    (project_root / "build").mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(dir=project_root / "build") as temporary:
         output = Path(temporary)
         frame_path, manifest_path, receipt_path = prepare_structural_preflight_design(
@@ -75,6 +76,7 @@ def test_prepare_structural_preflight_freezes_unauthorized_frame(
 def test_verify_structural_preflight_rejects_frame_tampering(
     project_root: Path,
 ) -> None:
+    (project_root / "build").mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(dir=project_root / "build") as temporary:
         output = Path(temporary)
         frame_path, _, _ = prepare_structural_preflight_design(
@@ -323,6 +325,7 @@ def test_selector_validates_digest_bound_frame_handoff(project_root: Path) -> No
         "design/oversampled-metadata-frame.json"
     )
     frame = _read(frame_path)
+    (project_root / "build").mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(dir=project_root / "build") as temporary:
         work = Path(temporary)
         test_frame = deepcopy(frame)
@@ -434,6 +437,7 @@ def _holdout_row(index: int = 0, **changes: object) -> dict[str, object]:
 def test_generic_comparator_binds_contract_and_rejects_semantic_mismatch(
     project_root: Path,
 ) -> None:
+    (project_root / "build").mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(dir=project_root / "build") as temporary:
         work = Path(temporary)
         primary = work / "primary.json"
@@ -723,6 +727,7 @@ def test_generic_comparator_binds_contract_and_rejects_semantic_mismatch(
 
 
 def test_access_receipt_verifier_enforces_role_matrix(project_root: Path) -> None:
+    (project_root / "build").mkdir(exist_ok=True)
     with tempfile.TemporaryDirectory(dir=project_root / "build") as temporary:
         work = Path(temporary)
         source = project_root / "config/g2_structural_selection_policy.json"

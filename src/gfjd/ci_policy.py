@@ -532,14 +532,14 @@ def _check_action(
                 )
             )
         depth = with_values.get("fetch-depth") if isinstance(with_values, Mapping) else None
-        if depth not in {1, "1"}:
+        if depth not in {0, "0", 1, "1"}:
             issues.append(
                 PolicyIssue(
                     "error",
                     "CHECKOUT_DEPTH",
                     path,
                     context,
-                    "actions/checkout must explicitly set fetch-depth: 1",
+                    "actions/checkout must explicitly set fetch-depth: 0 or 1",
                 )
             )
     if repository == _SETUP_UV_REPOSITORY:

@@ -65,7 +65,7 @@ jobs:
       - name: Verify public-contract lock
         run: uv run python -m gfjd harness contracts
       - name: Validate repository
-        run: uv run python -m gfjd validate --as-of 2026-08-01
+        run: uv run python -m gfjd validate --as-of 2026-08-15
       - name: Scan public boundary
         run: uv run python -m gfjd security
       - name: Verify generated programme views
@@ -90,7 +90,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
-          fetch-depth: 1
+          fetch-depth: 0
       - name: Provision Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
@@ -132,7 +132,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
-          fetch-depth: 1
+          fetch-depth: 0
       - name: Provision Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:
@@ -176,7 +176,7 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
         with:
           persist-credentials: false
-          fetch-depth: 1
+          fetch-depth: 0
       - name: Provision Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
         with:

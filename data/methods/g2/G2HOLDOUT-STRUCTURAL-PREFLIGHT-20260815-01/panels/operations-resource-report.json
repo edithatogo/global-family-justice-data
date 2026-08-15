@@ -59,7 +59,7 @@
     },
     {
       "path": "tests/test_g2_structural_preflight.py",
-      "sha256": "b3f575ae2a3ce432b4405a2f298e99f8e3ab9af54bd59a5cd5f33f227922cef9"
+      "sha256": "1558bf069c8ad127620e8baf446c52bca52e6df93c6b6fcaf0031f2c9053f9c5"
     },
     {
       "path": "config/contract_lock.json",
@@ -137,7 +137,7 @@
         },
         {
           "path": "tests/test_g2_structural_preflight.py",
-          "sha256": "b3f575ae2a3ce432b4405a2f298e99f8e3ab9af54bd59a5cd5f33f227922cef9"
+          "sha256": "1558bf069c8ad127620e8baf446c52bca52e6df93c6b6fcaf0031f2c9053f9c5"
         }
       ],
       "uncertainty": "The complete fixture is synthetic and cannot establish real-edition eligibility or yield. Structural records retain upstream receipt digests rather than independently resolving every referenced receipt at selector time.",
@@ -154,7 +154,7 @@
         },
         {
           "path": "tests/test_g2_structural_preflight.py",
-          "sha256": "b3f575ae2a3ce432b4405a2f298e99f8e3ab9af54bd59a5cd5f33f227922cef9"
+          "sha256": "1558bf069c8ad127620e8baf446c52bca52e6df93c6b6fcaf0031f2c9053f9c5"
         },
         {
           "path": "config/g2_structural_selection_policy.json",
@@ -246,7 +246,7 @@
         },
         {
           "path": "tests/test_g2_structural_preflight.py",
-          "sha256": "b3f575ae2a3ce432b4405a2f298e99f8e3ab9af54bd59a5cd5f33f227922cef9"
+          "sha256": "1558bf069c8ad127620e8baf446c52bca52e6df93c6b6fcaf0031f2c9053f9c5"
         }
       ],
       "uncertainty": "These are repository authenticity and isolation controls, not cryptographic identity proof or independent assurance. Their execution evidence does not yet exist because source access and extraction remain unauthorized.",

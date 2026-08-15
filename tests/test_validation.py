@@ -116,7 +116,7 @@ def test_archive_inventory_allows_payloads_to_remain_local(
     project_root: Path, tmp_path: Path
 ) -> None:
     root = _copy_project(project_root, tmp_path / "repo")
-    shutil.rmtree(root / "data/raw/files")
+    shutil.rmtree(root / "data/raw/files", ignore_errors=True)
 
     report = validate_repository(root, today=date(2026, 8, 15))
 

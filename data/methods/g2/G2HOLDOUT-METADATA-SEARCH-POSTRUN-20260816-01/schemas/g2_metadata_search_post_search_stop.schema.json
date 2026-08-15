@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/postrun/g2_metadata_search_post_search_stop.schema.json",
+  "title": "G2 metadata-search post-run fail-closed stop receipt",
+  "type": "object",
+  "required": ["schema_version", "stop_id", "generated_at", "registrar_bundle", "errors", "observed_boundary_counts", "boundary_violation_or_unknown", "harness_network_access", "harness_outbound_contacts", "candidate_content_opened", "source_content_opened", "panel_inputs_allowed", "terminal", "status", "g2_passage"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "stop_id": {"const": "G2-METADATA-SEARCH-POST-SEARCH-STOP"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "registrar_bundle": {"$ref": "#/$defs/artifact"},
+    "errors": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "observed_boundary_counts": {
+      "type": "object",
+      "required": ["result_url_requests", "landing_page_requests", "source_file_requests", "head_requests", "redirects_followed", "persisted_snippets", "persisted_source_excerpts", "persisted_target_facts"],
+      "additionalProperties": {"type": "integer", "minimum": -1}
+    },
+    "boundary_violation_or_unknown": {"type": "boolean"},
+    "harness_network_access": {"const": false},
+    "harness_outbound_contacts": {"const": 0},
+    "candidate_content_opened": {"const": false},
+    "source_content_opened": {"const": false},
+    "panel_inputs_allowed": {"const": false},
+    "terminal": {"const": true},
+    "status": {"const": "stopped_fail_closed"},
+    "g2_passage": {"const": false}
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

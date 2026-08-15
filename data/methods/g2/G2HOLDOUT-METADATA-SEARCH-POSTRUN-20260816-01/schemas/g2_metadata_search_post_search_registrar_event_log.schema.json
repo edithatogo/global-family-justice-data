@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/postrun/g2_metadata_search_post_search_registrar_event_log.schema.json",
+  "title": "G2 metadata-search registrar event log",
+  "type": "object",
+  "required": ["schema_version", "event_log_id", "registrar_session_id", "run_id", "generated_at", "registrar_bundle", "events"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "event_log_id": {"const": "G2-METADATA-SEARCH-REGISTRAR-EVENT-LOG"},
+    "registrar_session_id": {"type": "string", "minLength": 8},
+    "run_id": {"type": "string", "minLength": 8},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "registrar_bundle": {"$ref": "#/$defs/artifact"},
+    "events": {
+      "type": "array", "minItems": 209, "maxItems": 209,
+      "items": {
+        "type": "object",
+        "required": ["event_order", "occurred_at", "event_type", "query_id", "non_search_network_requests", "result_url_requests", "landing_page_requests", "source_file_requests", "head_requests", "redirects_followed", "outbound_contacts", "candidate_content_opened", "source_content_opened"],
+        "properties": {
+          "event_order": {"type": "integer", "minimum": 1, "maximum": 209},
+          "occurred_at": {"type": "string", "format": "date-time"},
+          "event_type": {"enum": ["search_provider_call_completed", "boundary_closed"]},
+          "query_id": {"type": ["string", "null"]},
+          "non_search_network_requests": {"const": 0},
+          "result_url_requests": {"const": 0},
+          "landing_page_requests": {"const": 0},
+          "source_file_requests": {"const": 0},
+          "head_requests": {"const": 0},
+          "redirects_followed": {"const": 0},
+          "outbound_contacts": {"const": 0},
+          "candidate_content_opened": {"const": false},
+          "source_content_opened": {"const": false}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

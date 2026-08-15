@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/postrun/g2_metadata_search_post_search_registrar_boundary.schema.json",
+  "title": "G2 metadata-search registrar boundary receipt",
+  "type": "object",
+  "required": ["schema_version", "boundary_receipt_id", "generated_at", "registrar_session_id", "run_id", "registrar_bundle", "registrar_event_log", "execution_identity", "execution_identity_sha256", "provider_config_sha256", "query_event_transcript_sha256", "first_provider_call_started_at", "last_provider_call_finished_at", "search_provider_calls", "logical_queries_submitted", "successor_retries", "prior_lineage_submissions", "cumulative_lineage_submissions", "non_search_network_requests", "result_url_requests", "landing_page_requests", "source_file_requests", "head_requests", "redirects_followed", "persisted_snippets", "persisted_source_excerpts", "persisted_target_facts", "outbound_contacts", "candidate_content_opened", "source_content_opened", "violations", "status"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "boundary_receipt_id": {"const": "G2-METADATA-SEARCH-REGISTRAR-BOUNDARY"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "registrar_session_id": {"type": "string", "minLength": 8},
+    "run_id": {"type": "string", "minLength": 8},
+    "registrar_bundle": {"$ref": "#/$defs/artifact"},
+    "registrar_event_log": {"$ref": "#/$defs/artifact"},
+    "execution_identity": {
+      "type": "object",
+      "required": ["bundle_id", "execution_date", "tool_name", "tool_version", "query_manifest", "design_manifest", "authority_receipt"],
+      "properties": {
+        "bundle_id": {"type": "string", "minLength": 8},
+        "execution_date": {"type": "string", "format": "date"},
+        "tool_name": {"const": "web__run.search_query"},
+        "tool_version": {"type": "string", "minLength": 1},
+        "query_manifest": {"$ref": "#/$defs/artifact"},
+        "design_manifest": {"$ref": "#/$defs/artifact"},
+        "authority_receipt": {"$ref": "#/$defs/artifact"}
+      },
+      "additionalProperties": false
+    },
+    "execution_identity_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "provider_config_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "query_event_transcript_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "first_provider_call_started_at": {"type": "string", "format": "date-time"},
+    "last_provider_call_finished_at": {"type": "string", "format": "date-time"},
+    "search_provider_calls": {"const": 208},
+    "logical_queries_submitted": {"const": 208},
+    "successor_retries": {"const": 0},
+    "prior_lineage_submissions": {"const": 4},
+    "cumulative_lineage_submissions": {"const": 212},
+    "non_search_network_requests": {"const": 0},
+    "result_url_requests": {"const": 0},
+    "landing_page_requests": {"const": 0},
+    "source_file_requests": {"const": 0},
+    "head_requests": {"const": 0},
+    "redirects_followed": {"const": 0},
+    "persisted_snippets": {"const": 0},
+    "persisted_source_excerpts": {"const": 0},
+    "persisted_target_facts": {"const": 0},
+    "outbound_contacts": {"const": 0},
+    "candidate_content_opened": {"const": false},
+    "source_content_opened": {"const": false},
+    "violations": {"const": []},
+    "status": {"const": "captured_zero_boundary"}
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

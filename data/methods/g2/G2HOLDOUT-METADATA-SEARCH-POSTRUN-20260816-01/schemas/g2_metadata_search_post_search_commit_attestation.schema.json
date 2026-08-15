@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/postrun/g2_metadata_search_post_search_commit_attestation.schema.json",
+  "title": "G2 metadata-search post-execution commit attestation",
+  "type": "object",
+  "required": ["schema_version", "attestation_id", "generated_at", "registrar_session_id", "run_id", "attested_commit", "attested_commit_object_type", "signature", "required_ancestor_commit", "registrar_bundle", "registrar_boundary_receipt", "registrar_event_log", "event_log_sha256", "tree_bindings"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "attestation_id": {"const": "G2-METADATA-SEARCH-POST-EXECUTION-COMMIT-ATTESTATION"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "registrar_session_id": {"type": "string", "minLength": 8},
+    "run_id": {"type": "string", "minLength": 8},
+    "attested_commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "attested_commit_object_type": {"const": "commit"},
+    "signature": {
+      "type": "object",
+      "required": ["command", "status", "verified_at"],
+      "properties": {
+        "command": {"const": ["git", "verify-commit"]},
+        "status": {"const": "good"},
+        "verified_at": {"type": "string", "format": "date-time"}
+      },
+      "additionalProperties": false
+    },
+    "required_ancestor_commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "registrar_bundle": {"$ref": "#/$defs/artifact"},
+    "registrar_boundary_receipt": {"$ref": "#/$defs/artifact"},
+    "registrar_event_log": {"$ref": "#/$defs/artifact"},
+    "event_log_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "tree_bindings": {
+      "const": {
+        "registrar_bundle": true,
+        "registrar_boundary_receipt": true,
+        "registrar_event_log": true
+      }
+    }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/postrun/g2_metadata_search_post_search_panel_input.schema.json",
+  "title": "G2 metadata-search post-run advisory panel input",
+  "type": "object",
+  "required": ["schema_version", "panel_input_id", "generated_at", "post_search_receipt", "registrar_bundle", "registrar_boundary_receipt", "registrar_event_log", "post_execution_commit_attestation", "query_manifest", "design_manifest", "authority_receipt", "panel_roles", "descriptor_only", "network_access", "candidate_content_opened", "source_content_opened", "advisory_only", "owner_decision_required", "g2_passage"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "panel_input_id": {"const": "G2-METADATA-SEARCH-POST-SEARCH-PANEL-INPUT"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "post_search_receipt": {"$ref": "#/$defs/artifact"},
+    "registrar_bundle": {"$ref": "#/$defs/artifact"},
+    "registrar_boundary_receipt": {"$ref": "#/$defs/artifact"},
+    "registrar_event_log": {"$ref": "#/$defs/artifact"},
+    "post_execution_commit_attestation": {"$ref": "#/$defs/artifact"},
+    "query_manifest": {"$ref": "#/$defs/artifact"},
+    "design_manifest": {"$ref": "#/$defs/artifact"},
+    "authority_receipt": {"$ref": "#/$defs/artifact"},
+    "panel_roles": {"const": ["methods_consistency_adviser", "exposure_boundary_adviser", "governance_risk_adviser"]},
+    "descriptor_only": {"const": true},
+    "network_access": {"const": false},
+    "candidate_content_opened": {"const": false},
+    "source_content_opened": {"const": false},
+    "advisory_only": {"const": true},
+    "owner_decision_required": {"const": true},
+    "g2_passage": {"const": false}
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "G2-METADATA-SEARCH-SUCCESSOR-AUTHORITY-20260816-01",
+  "generated_at": "2026-08-16T08:51:43+10:00",
+  "design_manifest": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/SUCCESSOR_DESIGN_MANIFEST.sha256",
+    "sha256": "716eb47a691a7d2f1826ba8c9154e4f2013dadcaa3c0dc7d7f1cbe00f1ce33db"
+  },
+  "freeze_commit": "76f7a1483978d69bbd29c32a6bbd67aac6ada881",
+  "freeze_commit_object_type": "commit",
+  "freeze_signature": {
+    "command": [
+      "git",
+      "verify-commit"
+    ],
+    "status": "good",
+    "verified_at": "2026-08-16T08:50:55+10:00"
+  },
+  "owner_decision": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/authority/owner-decision.json",
+    "sha256": "ed3ac2f08c5e6c54e27351f536cbbee15d10dc45ad9d9ea0b45fd5189e5a74a3"
+  },
+  "owner_decision_commit": "837968e30c37098cfdd25112c0d4821fd609ea9b",
+  "owner_decision_commit_object_type": "commit",
+  "owner_decision_signature": {
+    "command": [
+      "git",
+      "verify-commit"
+    ],
+    "status": "good",
+    "verified_at": "2026-08-16T08:51:38+10:00"
+  },
+  "tree_bindings": {
+    "freeze_commit_contains_design_manifest": true,
+    "owner_decision_commit_contains_owner_decision": true
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_metadata_search_successor_plan.schema.json",
+  "type": "object",
+  "required": ["schema_version", "plan_id", "lineage_type", "status", "failed_predecessor", "contamination_control", "query_contract", "result_contract", "role_contract", "stop_rules", "future_execution_requires", "authorization_flags"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "plan_id": {"const": "G2HOLDOUT-METADATA-EXPANSION-20260816-02"},
+    "lineage_type": {"const": "separately_identified_redesign"},
+    "status": {"const": "prepared_not_authorized"},
+    "purpose": {"type": "string", "minLength": 1},
+    "failed_predecessor": {
+      "type": "object",
+      "required": ["plan", "query_manifest", "execution_stop", "stop_receipt", "passive_exposure_annex", "stop_panel", "lineage_index", "prior_exposure_ledger"],
+      "additionalProperties": {"$ref": "#/$defs/artifact"}
+    },
+    "contamination_control": {
+      "type": "object",
+      "properties": {
+        "denied_prior_query_ids": {"const": ["G2Q-001", "G2Q-002", "G2Q-003", "G2Q-004"]},
+        "prior_aggregate_result_blocks_observed": {"const": 13},
+        "prior_passive_url_reconstruction_complete": {"const": false},
+        "unknown_prior_urls_captured": {"const": false},
+        "prior_queries_may_be_resubmitted": {"const": false},
+        "replacement_queries_must_be_textually_distinct": {"const": true},
+        "non_overlap_claim_available_for_unknown_prior_urls": {"const": false}
+      },
+      "required": ["denied_prior_query_ids", "prior_aggregate_result_blocks_observed", "prior_passive_url_reconstruction_complete", "unknown_prior_urls_captured", "prior_queries_may_be_resubmitted", "replacement_queries_must_be_textually_distinct", "non_overlap_claim_available_for_unknown_prior_urls"],
+      "additionalProperties": false
+    },
+    "query_contract": {
+      "type": "object",
+      "properties": {
+        "retained_unsubmitted_definitions": {"const": 204},
+        "prospective_replacement_definitions": {"const": 4},
+        "successor_logical_queries": {"const": 208},
+        "successor_provider_calls": {"const": 208},
+        "queries_per_provider_call": {"const": 1},
+        "successor_retries": {"const": 0},
+        "prior_lineage_submissions": {"const": 4},
+        "cumulative_lineage_submissions_after_complete_successor": {"const": 212},
+        "execution_date_policy": {"type": "string", "minLength": 1},
+        "execution_must_use_one_calendar_date": {"const": true}
+      },
+      "required": ["retained_unsubmitted_definitions", "prospective_replacement_definitions", "successor_logical_queries", "successor_provider_calls", "queries_per_provider_call", "successor_retries", "prior_lineage_submissions", "cumulative_lineage_submissions_after_complete_successor", "execution_date_policy", "execution_must_use_one_calendar_date"],
+      "additionalProperties": false
+    },
+    "result_contract": {"type": "object"},
+    "role_contract": {"type": "object"},
+    "stop_rules": {"type": "array", "minItems": 10, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "future_execution_requires": {
+      "type": "object",
+      "properties": {
+        "separate_digest_bound_owner_decision": {"const": true},
+        "signed_freeze_commit": {"const": true},
+        "exact_design_manifest": {"const": true},
+        "network_or_source_access_currently_authorized": {"const": false}
+      },
+      "required": ["separate_digest_bound_owner_decision", "signed_freeze_commit", "exact_design_manifest", "network_or_source_access_currently_authorized"],
+      "additionalProperties": false
+    },
+    "authorization_flags": {
+      "type": "object",
+      "properties": {"successor_design_prepared": {"const": true}},
+      "required": ["successor_design_prepared", "search_index_execution_authorized", "result_url_access_authorized", "landing_page_access_authorized", "source_file_access_authorized", "structural_inspection_authorized", "extraction_authorized", "outbound_contact_authorized", "publication_authorized", "release_authorized", "g2_passage_authorized"],
+      "additionalProperties": {"const": false}
+    }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

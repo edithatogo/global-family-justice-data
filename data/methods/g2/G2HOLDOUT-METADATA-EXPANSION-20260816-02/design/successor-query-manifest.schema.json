@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_metadata_search_successor_query_manifest.schema.json",
+  "type": "object",
+  "required": ["schema_version", "manifest_id", "status", "plan", "failed_predecessor_manifest", "provider_config", "query_count", "provider_call_count", "retry_count", "prior_lineage_submission_count", "cumulative_lineage_submission_count_after_execution", "denied_prior_query_ids", "prior_aggregate_exposure_reconstruction_complete", "unknown_prior_urls_captured", "queries", "authorization_flags"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "manifest_id": {"const": "G2HOLDOUT-METADATA-SEARCH-SUCCESSOR-QUERIES-20260816-02"},
+    "status": {"const": "prepared_not_authorized"},
+    "plan": {"$ref": "#/$defs/artifact"},
+    "failed_predecessor_manifest": {"$ref": "#/$defs/artifact"},
+    "provider_config": {
+      "type": "object",
+      "required": ["tool", "response_length", "logical_queries_per_call", "recorded_results_per_query_maximum", "pagination", "recency_filter", "domain_filter", "execution_date", "timezone", "indexing_basis"],
+      "properties": {
+        "tool": {"const": "web__run.search_query"},
+        "response_length": {"const": "short"},
+        "logical_queries_per_call": {"const": 1},
+        "recorded_results_per_query_maximum": {"const": 5},
+        "pagination": {"const": false},
+        "recency_filter": {"const": null},
+        "domain_filter": {"const": null},
+        "execution_date": {"const": null},
+        "timezone": {"const": "Australia/Sydney"},
+        "indexing_basis": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "query_count": {"const": 208},
+    "provider_call_count": {"const": 208},
+    "retry_count": {"const": 0},
+    "prior_lineage_submission_count": {"const": 4},
+    "cumulative_lineage_submission_count_after_execution": {"const": 212},
+    "denied_prior_query_ids": {"const": ["G2Q-001", "G2Q-002", "G2Q-003", "G2Q-004"]},
+    "prior_aggregate_exposure_reconstruction_complete": {"const": false},
+    "unknown_prior_urls_captured": {"const": false},
+    "queries": {
+      "type": "array", "minItems": 208, "maxItems": 208,
+      "items": {
+        "type": "object",
+        "required": ["query_order", "query_id", "origin", "replaces_or_retains_query_id", "stream_id", "jurisdiction_id", "language", "official_domain", "year", "template_id", "query_text", "query_sha256"],
+        "properties": {
+          "query_order": {"type": "integer", "minimum": 1, "maximum": 208},
+          "query_id": {"pattern": "^G2S2Q-[0-9]{3}$"},
+          "origin": {"enum": ["prospective_replacement", "retained_unsubmitted"]},
+          "replaces_or_retains_query_id": {"pattern": "^G2Q-[0-9]{3}$"},
+          "stream_id": {"type": "string", "minLength": 1},
+          "jurisdiction_id": {"type": "string", "minLength": 2},
+          "language": {"type": "string", "minLength": 2},
+          "official_domain": {"type": "string", "minLength": 3},
+          "year": {"type": "integer", "minimum": 2000, "maximum": 2100},
+          "template_id": {"type": "string", "minLength": 1},
+          "query_text": {"type": "string", "minLength": 10},
+          "query_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "authorization_flags": {
+      "type": "object",
+      "required": ["search_index_execution_authorized", "result_url_access_authorized", "landing_page_access_authorized", "source_file_access_authorized"],
+      "additionalProperties": {"const": false}
+    }
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

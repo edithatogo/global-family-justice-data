@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "G2-METADATA-EXPANSION-SEARCH-STOP-20260816-01",
+  "owner_decision": {
+    "path": "docs/governance/g2-96-candidate-metadata-expansion-owner-decision-2026-08-16.md",
+    "sha256": "e7e1fd87c60a326bbd62a7684c368a6a3f532128cc039642b0e789ab4779115f",
+    "commit": "d772f2bb15f559c4efb1b81297936ca0c37374e8",
+    "commit_signature_status": "good"
+  },
+  "query_manifest": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/search-index-query-manifest.json",
+    "sha256": "d7419c0bc281ac9e940819d01005a922e2e6612e40ab1b573ba941eee3b8dddc"
+  },
+  "execution_date": "2026-08-16",
+  "execution_time": null,
+  "timezone": "Australia/Sydney",
+  "receipt_recorded_at": "2026-08-16T01:54:17+10:00",
+  "provider_calls": 1,
+  "attempted_query_ids": [
+    "G2Q-001",
+    "G2Q-002",
+    "G2Q-003",
+    "G2Q-004"
+  ],
+  "persisted_snippet_count": 0,
+  "attributable_result_record_count": 0,
+  "result_url_requests": 0,
+  "landing_page_requests": 0,
+  "source_file_requests": 0,
+  "head_requests": 0,
+  "contacts": 0,
+  "blockers": [
+    {
+      "code": "EXECUTION_DATE_SCHEMA_MISMATCH",
+      "detail": "The frozen execution schema requires searched_on 2026-08-15, but the authorized run occurred on 2026-08-16."
+    },
+    {
+      "code": "AGGREGATED_RESULT_ATTRIBUTION_UNAVAILABLE",
+      "detail": "The authorized four-query provider call returned one unlabeled aggregate result stream, so no result can be attributed to an individual query ID without inference."
+    },
+    {
+      "code": "PASSIVE_FILE_URL_SCHEMA_MISMATCH",
+      "detail": "The passive search-index response included a file URL, but the frozen execution verifier accepts only official HTML result URLs and cannot faithfully represent that exposure."
+    }
+  ],
+  "boundary_violation": false,
+  "status": "stopped_fail_closed",
+  "terminal": true,
+  "network_retry_authorized": false,
+  "schema_valid_execution_bundle_created": false
+}

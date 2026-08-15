@@ -1,0 +1,239 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2-METADATA-EXPANSION-STOP-REVIEW-20260816",
+  "packet_id": "D-G2-METADATA-EXPANSION-SEARCH-20260816",
+  "packet_sha256": "e7e1fd87c60a326bbd62a7684c368a6a3f532128cc039642b0e789ab4779115f",
+  "role": "network_disabled_metadata_expansion_exposure_auditor",
+  "agent_session_id": "/root/g2_search_stop_auditor",
+  "tool_or_model": "OpenAI Codex",
+  "tool_or_model_version": "gpt-5",
+  "generated_at": "2026-08-16T01:56:16+10:00",
+  "evidence_inputs": [
+    {
+      "path": "docs/governance/g2-96-candidate-metadata-expansion-owner-decision-2026-08-16.md",
+      "sha256": "e7e1fd87c60a326bbd62a7684c368a6a3f532128cc039642b0e789ab4779115f"
+    },
+    {
+      "path": "docs/governance/g2-96-candidate-metadata-expansion-owner-decision-packet-2026-08-15.md",
+      "sha256": "abe350bf0df8d7cda1270679d6ee14541b5f530a86d3120f404e666455a69067"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/metadata-expansion-plan.json",
+      "sha256": "95aee30f7c285b5d32950e87dcb2de56880a24e6d96d5241b1563d24068fdcfa"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/search-index-query-manifest.json",
+      "sha256": "d7419c0bc281ac9e940819d01005a922e2e6612e40ab1b573ba941eee3b8dddc"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/search-index-execution-bundle.schema.json",
+      "sha256": "fa179ab2b8409fc6a28aa8043889a35bd7c0cff13d1804628a93801493821edd"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/EXPANSION_DESIGN_MANIFEST.sha256",
+      "sha256": "68f853669b0700aa17d2e1825b5f4afb062f4e01ca1abdc1ac4beda7376a3a8c"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/exposure-ledger.json",
+      "sha256": "1cd2ce0fc633b43e5ebf95635c5518e0dd974192378121d49b25d7d9bb29b9b3"
+    },
+    {
+      "path": "src/gfjd/g2_metadata_search.py",
+      "sha256": "07307386afca2bbe953592dd636c1b6b4c7ff99f9962944b3bef3a80e8913c5f"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/execution-stop.json",
+      "sha256": "e0a62b4e3e2082caa753e9705c811c7416123ca2502b30e9c5a8e619c3689c24"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/stop-receipt.json",
+      "sha256": "bdf034515b050d395ab0e30a40c23b2878643642b612ce4c6adbd3929e2e9fa2"
+    }
+  ],
+  "verdict": "fail",
+  "findings": [
+    {
+      "finding_id": "G2STOP_BINDINGS_VALID",
+      "severity": "info",
+      "claim": "The owner decision, packet, plan, plan schema, query manifest, execution schema, detached design manifest and predecessor exposure ledger match the recorded SHA-256 bindings; the decision commit and design-freeze commit also verify as signed Git objects.",
+      "evidence_references": [
+        {
+          "path": "docs/governance/g2-96-candidate-metadata-expansion-owner-decision-2026-08-16.md",
+          "sha256": "e7e1fd87c60a326bbd62a7684c368a6a3f532128cc039642b0e789ab4779115f"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/EXPANSION_DESIGN_MANIFEST.sha256",
+          "sha256": "68f853669b0700aa17d2e1825b5f4afb062f4e01ca1abdc1ac4beda7376a3a8c"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/stop-receipt.json",
+          "sha256": "bdf034515b050d395ab0e30a40c23b2878643642b612ce4c6adbd3929e2e9fa2"
+        }
+      ],
+      "uncertainty": "The Git signature verification is an observed repository check rather than a field expressible in the panel-report artifact schema.",
+      "remediation": "Preserve all frozen inputs and the stop receipt immutably; bind any successor to new exact hashes and a new signed freeze commit."
+    },
+    {
+      "finding_id": "G2STOP_DATE_IMPOSSIBLE",
+      "severity": "high",
+      "claim": "The frozen execution schema requires every searched_on value to equal 2026-08-15, while the signed authorization and actual execution occurred on 2026-08-16; a truthful schema-valid execution was therefore impossible.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/search-index-execution-bundle.schema.json",
+          "sha256": "fa179ab2b8409fc6a28aa8043889a35bd7c0cff13d1804628a93801493821edd"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/stop-receipt.json",
+          "sha256": "bdf034515b050d395ab0e30a40c23b2878643642b612ce4c6adbd3929e2e9fa2"
+        }
+      ],
+      "uncertainty": "None material; the constant and observed date are explicit.",
+      "remediation": "A successor schema must accept an actual ISO execution date and bind it in the receipt, rather than freezing a date before authorization."
+    },
+    {
+      "finding_id": "G2STOP_BATCH_ATTRIBUTION",
+      "severity": "high",
+      "claim": "Submitting G2Q-001 through G2Q-004 in one provider call produced an unlabeled aggregate result stream, so the required per-query results, ranks and digests cannot be created without inference.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/search-index-query-manifest.json",
+          "sha256": "d7419c0bc281ac9e940819d01005a922e2e6612e40ab1b573ba941eee3b8dddc"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/execution-stop.json",
+          "sha256": "e0a62b4e3e2082caa753e9705c811c7416123ca2502b30e9c5a8e619c3689c24"
+        }
+      ],
+      "uncertainty": "The provider's undocumented presentation semantics may vary, but this recorded response was not attributable.",
+      "remediation": "Freeze one logical query per provider call and require the provider output to retain query identity before any successor run."
+    },
+    {
+      "finding_id": "G2STOP_BUDGET_SEMANTICS",
+      "severity": "high",
+      "claim": "The plan limits 208 search queries and zero retries, but does not separately and unambiguously cap logical query submissions, provider calls and lineage-cumulative submissions. The first call consumed four authorized query submissions; repeating them under the current authorization would be a retry and would make a full run exceed 208 logical submissions.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/metadata-expansion-plan.json",
+          "sha256": "95aee30f7c285b5d32950e87dcb2de56880a24e6d96d5241b1563d24068fdcfa"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/stop-receipt.json",
+          "sha256": "bdf034515b050d395ab0e30a40c23b2878643642b612ce4c6adbd3929e2e9fa2"
+        }
+      ],
+      "uncertainty": "The phrase maximum_total_gets is not a reliable counter for search-index operations and the decision does not define provider-call aggregation.",
+      "remediation": "A successor must define separate counters for query strings submitted, provider calls, retries and cumulative lineage submissions, and must explicitly authorize or prohibit resubmission of G2Q-001 through G2Q-004."
+    },
+    {
+      "finding_id": "G2STOP_PASSIVE_FILE_EXPOSURE",
+      "severity": "high",
+      "claim": "The plan permits passive PDF or file URLs to be recorded as unrequested hypotheses, but the execution schema and verifier reject every direct-file result rather than preserving it as exposure distinct from the proposed official-HTML allowlist.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/metadata-expansion-plan.json",
+          "sha256": "95aee30f7c285b5d32950e87dcb2de56880a24e6d96d5241b1563d24068fdcfa"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/search-index-execution-bundle.schema.json",
+          "sha256": "fa179ab2b8409fc6a28aa8043889a35bd7c0cff13d1804628a93801493821edd"
+        },
+        {
+          "path": "src/gfjd/g2_metadata_search.py",
+          "sha256": "07307386afca2bbe953592dd636c1b6b4c7ff99f9962944b3bef3a80e8913c5f"
+        }
+      ],
+      "uncertainty": "The auditor did not inspect or retain the URL; only its recorded exposure class is considered.",
+      "remediation": "Model HTML, direct-file and other result kinds separately. Record every passively seen URL as requested false; include only verified HTML hypotheses in the proposed HTML allowlist and never request a file URL."
+    },
+    {
+      "finding_id": "G2STOP_CUMULATIVE_EXPOSURE",
+      "severity": "critical",
+      "claim": "G2Q-001 through G2Q-004 and every URL passively seen in their aggregate response are now part of the cumulative exposure history even though no result was retained as a candidate and no URL was requested. They cannot be omitted from a successor exposure ledger or treated as unseen evidence.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/execution-stop.json",
+          "sha256": "e0a62b4e3e2082caa753e9705c811c7416123ca2502b30e9c5a8e619c3689c24"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/exposure-ledger.json",
+          "sha256": "1cd2ce0fc633b43e5ebf95635c5518e0dd974192378121d49b25d7d9bb29b9b3"
+        }
+      ],
+      "uncertainty": "The current stop receipt deliberately retains no result metadata, so a registrar-private append-only exposure annex is required to bind the passively observed URLs without promoting them to candidates.",
+      "remediation": "Before successor execution, create a digest-bound cumulative exposure update covering the four submitted query IDs and all passively observed URLs, with requested false and no snippets or source facts. Fail closed if the registrar can no longer reconstruct that complete set."
+    },
+    {
+      "finding_id": "G2STOP_LEGITIMATE",
+      "severity": "info",
+      "claim": "Stopping without retry, inference, URL access or a fabricated schema-valid bundle was legitimate and required by the frozen fail-closed controls.",
+      "evidence_references": [
+        {
+          "path": "docs/governance/g2-96-candidate-metadata-expansion-owner-decision-2026-08-16.md",
+          "sha256": "e7e1fd87c60a326bbd62a7684c368a6a3f532128cc039642b0e789ab4779115f"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/stop-receipt.json",
+          "sha256": "bdf034515b050d395ab0e30a40c23b2878643642b612ce4c6adbd3929e2e9fa2"
+        }
+      ],
+      "uncertainty": "No claim is made about provider internals or unretained result content.",
+      "remediation": "Accept the stop as immutable failed-execution evidence; do not repair it retrospectively."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "A_CORRECT_REFREEZE_AND_FRESH_FULL_RUN",
+      "description": "Preserve the failed stop, reconstruct and bind its complete passive-exposure annex, correct the contract and verifier, then seek a new owner decision for a fresh registrar to submit all 208 queries individually, including explicitly authorized resubmission of G2Q-001 through G2Q-004.",
+      "trade_offs": [
+        "Retains complete per-query coverage and the original scientific frame.",
+        "Adds four deliberate resubmissions, making cumulative lineage submissions 212 rather than 208.",
+        "Requires a new signed freeze, owner decision and fresh role-separated execution."
+      ],
+      "limitations": [
+        "Repeated queries are not unseen actions, and all previously observed URLs remain denylisted.",
+        "Search-index results may drift between executions.",
+        "The corrected run still proves only bounded metadata discovery, not source eligibility or G2 passage."
+      ],
+      "contingency": "If the passive-exposure set cannot be reconstructed completely, or the provider cannot return one attributable result stream per call, terminate this lineage or redesign the provider contract before any further query."
+    },
+    {
+      "option_id": "B_CORRECT_AND_RESUME_UNATTEMPTED_204",
+      "description": "Record G2Q-001 through G2Q-004 as terminal unattributable attempts, correct the schema for inherited failed events, and run only G2Q-005 through G2Q-208 individually.",
+      "trade_offs": [
+        "Avoids repeated query exposure and keeps cumulative logical submissions at 208.",
+        "Leaves four query positions without attributable candidate results and therefore weakens search coverage."
+      ],
+      "limitations": [
+        "Cannot support a claim that all 208 queries produced independently attributable result streams.",
+        "May make the exact 52-record target less attainable."
+      ],
+      "contingency": "If the fixed 204-query remainder yields an insufficient bounded pool, stop and return for a strata redesign or termination decision without adaptive rescue."
+    },
+    {
+      "option_id": "C_TERMINATE_OR_REDESIGN",
+      "description": "Preserve the current stop as terminal evidence and either end the metadata-expansion lineage or prospectively design a different bounded search method.",
+      "trade_offs": [
+        "Has the lowest additional exposure risk and avoids retrospective contract changes.",
+        "Does not advance the current blind-holdout candidate frame."
+      ],
+      "limitations": [
+        "G2 remains blocked.",
+        "A redesigned method answers a changed procedural question and cannot be presented as continuation of the frozen 208-query execution."
+      ],
+      "contingency": "Retain the existing frame and failed evidence immutably while preparing a separately identified successor design."
+    }
+  ],
+  "recommendation": "Recommend Option A only after an exact passive-exposure annex is reconstructed and bound. Correct searched_on to a truthful ISO-date field, enforce exactly one logical query per provider call, define 208 new logical submissions and 208 provider calls with zero retries, explicitly authorize four resubmissions and disclose 212 cumulative lineage submissions, distinguish passive HTML, direct-file and other URLs, prohibit all URL requests, and project only HTML candidates into the proposed official-HTML allowlist. Freeze the corrected plan, schema, verifier, tests, exposure ledger and role bundle in a new signed commit before seeking owner authorization.",
+  "rationale": "The stop was legitimate because continuing would have required a false date, inferred per-query attribution, an unauthorized retry or omission of passive exposure. A prospectively corrected full run best preserves the intended finite frame while making the four prior submissions and every passively observed URL explicit cumulative exposure. Option B is safer on query count but structurally incomplete; Option C is the fail-closed contingency if complete exposure reconstruction or attributable single-query execution cannot be guaranteed.",
+  "conflicts": [
+    "The plan states that passive PDF URLs are unrequested hypotheses, while the frozen schema and verifier reject direct-file results entirely.",
+    "The plan's maximum_search_queries and maximum_total_gets do not distinguish logical query submissions, provider calls and lineage-cumulative submissions.",
+    "The frozen searched_on constant predates the signed execution authorization."
+  ],
+  "abstentions": [
+    "No opinion is offered on the factual relevance, rights status, structural eligibility or exact identity of any search result.",
+    "No candidate or result URL was accessed or inspected."
+  ],
+  "dissent": [],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

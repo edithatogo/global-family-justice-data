@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_metadata_search_successor_execution_bundle.schema.json",
+  "type": "object",
+  "required": ["schema_version", "bundle_id", "generated_at", "execution_date", "authorized_interval", "query_manifest", "design_manifest", "authority_receipt", "lineage_bindings", "tool_name", "tool_version", "provider_config", "query_events", "candidate_hypotheses", "exposure_events", "non_overlap_receipt", "proposed_official_html_allowlist", "successor_logical_query_submissions", "successor_provider_calls", "successor_retries", "prior_lineage_submissions", "cumulative_lineage_submissions", "violations", "result_url_requests", "landing_page_requests", "source_file_requests", "head_requests", "redirects_followed", "persisted_snippets", "persisted_source_excerpts", "persisted_target_facts"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "bundle_id": {"type": "string", "minLength": 8},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "execution_date": {"type": "string", "format": "date"},
+    "authorized_interval": {
+      "type": "object",
+      "required": ["valid_from", "valid_until"],
+      "properties": {
+        "valid_from": {"type": "string", "format": "date-time"},
+        "valid_until": {"type": "string", "format": "date-time"}
+      },
+      "additionalProperties": false
+    },
+    "query_manifest": {"$ref": "#/$defs/artifact"},
+    "design_manifest": {"$ref": "#/$defs/artifact"},
+    "authority_receipt": {"$ref": "#/$defs/artifact"},
+    "lineage_bindings": {
+      "type": "object",
+      "required": ["execution_stop", "stop_receipt", "passive_exposure_annex", "stop_panel", "lineage_index", "prior_exposure_ledger"],
+      "additionalProperties": {"$ref": "#/$defs/artifact"}
+    },
+    "tool_name": {"const": "web__run.search_query"},
+    "tool_version": {"type": "string", "minLength": 1},
+    "provider_config": {"type": "object"},
+    "query_events": {
+      "type": "array", "minItems": 208, "maxItems": 208,
+      "items": {
+        "type": "object",
+        "required": ["provider_call_order", "provider_call_started_at", "provider_call_finished_at", "query_order", "query_id", "query_text", "language", "searched_on", "result_count", "results", "query_sha256", "result_sha256", "access_issue"],
+        "properties": {
+          "provider_call_order": {"type": "integer", "minimum": 1, "maximum": 208},
+          "provider_call_started_at": {"type": "string", "format": "date-time"},
+          "provider_call_finished_at": {"type": "string", "format": "date-time"},
+          "query_order": {"type": "integer", "minimum": 1, "maximum": 208},
+          "query_id": {"pattern": "^G2S2Q-[0-9]{3}$"},
+          "query_text": {"type": "string", "minLength": 10},
+          "language": {"type": "string", "minLength": 2},
+          "searched_on": {"type": "string", "format": "date"},
+          "result_count": {"type": "integer", "minimum": 0, "maximum": 5},
+          "results": {
+            "type": "array", "maxItems": 5,
+            "items": {
+              "type": "object",
+              "required": ["rank", "title", "url", "domain", "url_kind", "requested", "official_host_candidate"],
+              "properties": {
+                "rank": {"type": "integer", "minimum": 1, "maximum": 5},
+                "title": {"type": "string"},
+                "url": {"type": "string", "format": "uri"},
+                "domain": {"type": "string"},
+                "url_kind": {"enum": ["html", "file", "other"]},
+                "requested": {"const": false},
+                "official_host_candidate": {"type": "boolean"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "query_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "result_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "access_issue": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "candidate_hypotheses": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/passive_url"}},
+    "exposure_events": {"type": "array", "uniqueItems": true, "items": {"$ref": "#/$defs/passive_url"}},
+    "non_overlap_receipt": {
+      "type": "object",
+      "required": ["checked_known_urls", "known_overlaps", "prior_aggregate_reconstruction_complete", "unknown_prior_urls_captured", "claim"],
+      "properties": {
+        "checked_known_urls": {"type": "array", "uniqueItems": true, "items": {"type": "string", "format": "uri"}},
+        "known_overlaps": {"const": []},
+        "prior_aggregate_reconstruction_complete": {"const": false},
+        "unknown_prior_urls_captured": {"const": false},
+        "claim": {"const": "no overlap found against reconstructable known URLs; non-overlap with unknown prior aggregate URLs cannot be established"}
+      },
+      "additionalProperties": false
+    },
+    "proposed_official_html_allowlist": {"type": "array", "uniqueItems": true, "items": {"type": "string", "format": "uri"}},
+    "successor_logical_query_submissions": {"const": 208},
+    "successor_provider_calls": {"const": 208},
+    "successor_retries": {"const": 0},
+    "prior_lineage_submissions": {"const": 4},
+    "cumulative_lineage_submissions": {"const": 212},
+    "violations": {"const": []},
+    "result_url_requests": {"const": 0},
+    "landing_page_requests": {"const": 0},
+    "source_file_requests": {"const": 0},
+    "head_requests": {"const": 0},
+    "redirects_followed": {"const": 0},
+    "persisted_snippets": {"const": 0},
+    "persisted_source_excerpts": {"const": 0},
+    "persisted_target_facts": {"const": 0}
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+      "additionalProperties": false
+    },
+    "passive_url": {
+      "type": "object",
+      "required": ["url", "url_kind", "requested"],
+      "properties": {
+        "url": {"type": "string", "format": "uri"},
+        "url_kind": {"enum": ["html", "file", "other"]},
+        "requested": {"const": false}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

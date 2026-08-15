@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "G2-METADATA-EXPANSION-SEARCH-STOP-20260816-01",
+  "decision_id": "D-G2-METADATA-EXPANSION-SEARCH-20260816",
+  "decision_commit": "d772f2bb15f559c4efb1b81297936ca0c37374e8",
+  "decision_commit_signature_status": "good",
+  "query_manifest": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/search-index-query-manifest.json",
+    "sha256": "d7419c0bc281ac9e940819d01005a922e2e6612e40ab1b573ba941eee3b8dddc"
+  },
+  "execution_schema": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/search-index-execution-bundle.schema.json",
+    "sha256": "fa179ab2b8409fc6a28aa8043889a35bd7c0cff13d1804628a93801493821edd"
+  },
+  "predecessor_exposure_ledger": {
+    "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/exposure-ledger.json",
+    "sha256": "1cd2ce0fc633b43e5ebf95635c5518e0dd974192378121d49b25d7d9bb29b9b3"
+  },
+  "actual_execution_date": "2026-08-16",
+  "timezone": "Australia/Sydney",
+  "queries_submitted": [
+    "G2Q-001",
+    "G2Q-002",
+    "G2Q-003",
+    "G2Q-004"
+  ],
+  "query_calls": 1,
+  "search_queries": 4,
+  "results_retained": 0,
+  "snippets_retained": 0,
+  "stop_reasons": [
+    "The frozen execution schema requires searched_on 2026-08-15, which cannot truthfully represent execution on 2026-08-16.",
+    "The four-query provider call returned an unlabeled aggregate result stream, so results cannot be attributed to individual query IDs without inference.",
+    "Repeating the first four queries individually would exceed the exact 208-query authorization and budget.",
+    "The provider result stream included a direct file URL, while the frozen verifier only permits official HTML result URLs and therefore cannot faithfully record all search-index exposure."
+  ],
+  "result_url_requests": 0,
+  "landing_page_requests": 0,
+  "source_file_requests": 0,
+  "head_requests": 0,
+  "contacts": 0,
+  "boundary_violation": false,
+  "lineage_status": "stopped_fail_closed",
+  "schema_valid_execution_bundle_created": false
+}

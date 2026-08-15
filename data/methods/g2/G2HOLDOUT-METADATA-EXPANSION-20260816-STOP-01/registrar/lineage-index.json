@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "index_id": "G2-METADATA-EXPANSION-STOP-LINEAGE-INDEX-20260816-01",
+  "status": "historical_path_reconciliation",
+  "execution_stop": {
+    "tracked_path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/execution-stop.json",
+    "historical_build_path": "build/g2-metadata-expansion-search/registrar/execution-stop.json",
+    "sha256": "e0a62b4e3e2082caa753e9705c811c7416123ca2502b30e9c5a8e619c3689c24",
+    "bytes_identical": true
+  },
+  "stop_receipt": {
+    "tracked_path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/stop-receipt.json",
+    "historical_build_path": "build/g2-metadata-expansion-search/registrar/stop-receipt.json",
+    "sha256": "bdf034515b050d395ab0e30a40c23b2878643642b612ce4c6adbd3929e2e9fa2",
+    "bytes_identical": true
+  },
+  "passive_exposure_annex": {
+    "tracked_path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/passive-exposure-annex.json",
+    "historical_stop_receipt_pointer": "build/g2-metadata-expansion-search/registrar/stop-receipt.json",
+    "tracked_stop_receipt_equivalent": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/stop-receipt.json",
+    "sha256": "4c91bf257d330e2a748940c2912e941a62397b63eb622ec8093e4152e34a41ed",
+    "historical_pointer_preserved": true
+  },
+  "notes": [
+    "This index does not alter or repair historical receipt bytes.",
+    "The passive annex remains reconstruction-incomplete and records no exact exposure entries.",
+    "The tracked files preserve the exact SHA-256 bytes previously held under the ignored build path."
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": "1.0",
+  "plan_id": "G2HOLDOUT-METADATA-EXPANSION-20260816-02",
+  "lineage_type": "separately_identified_redesign",
+  "status": "prepared_not_authorized",
+  "purpose": "Prospectively frozen provider-isolated metadata search design following an irreconstructable aggregate stop.",
+  "failed_predecessor": {
+    "plan": {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/metadata-expansion-plan.json",
+      "sha256": "95aee30f7c285b5d32950e87dcb2de56880a24e6d96d5241b1563d24068fdcfa"
+    },
+    "query_manifest": {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/search-index-query-manifest.json",
+      "sha256": "d7419c0bc281ac9e940819d01005a922e2e6612e40ab1b573ba941eee3b8dddc"
+    },
+    "execution_stop": {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/execution-stop.json",
+      "sha256": "e0a62b4e3e2082caa753e9705c811c7416123ca2502b30e9c5a8e619c3689c24"
+    },
+    "stop_receipt": {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/stop-receipt.json",
+      "sha256": "bdf034515b050d395ab0e30a40c23b2878643642b612ce4c6adbd3929e2e9fa2"
+    },
+    "passive_exposure_annex": {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/passive-exposure-annex.json",
+      "sha256": "4c91bf257d330e2a748940c2912e941a62397b63eb622ec8093e4152e34a41ed"
+    },
+    "stop_panel": {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/panels/stop-review.json",
+      "sha256": "6069cebff1df0a761ff7bf3005db56d202263084ed6cbad653e01f5e5b790ca0"
+    },
+    "lineage_index": {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/lineage-index.json",
+      "sha256": "fb515dac9d2deff87cc420d55d5c73d866345bafeb5b0adc4d59ab64b0b41600"
+    },
+    "prior_exposure_ledger": {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/exposure-ledger.json",
+      "sha256": "1cd2ce0fc633b43e5ebf95635c5518e0dd974192378121d49b25d7d9bb29b9b3"
+    }
+  },
+  "contamination_control": {
+    "denied_prior_query_ids": ["G2Q-001", "G2Q-002", "G2Q-003", "G2Q-004"],
+    "prior_aggregate_result_blocks_observed": 13,
+    "prior_passive_url_reconstruction_complete": false,
+    "unknown_prior_urls_captured": false,
+    "prior_queries_may_be_resubmitted": false,
+    "replacement_queries_must_be_textually_distinct": true,
+    "non_overlap_claim_available_for_unknown_prior_urls": false
+  },
+  "query_contract": {
+    "retained_unsubmitted_definitions": 204,
+    "prospective_replacement_definitions": 4,
+    "successor_logical_queries": 208,
+    "successor_provider_calls": 208,
+    "queries_per_provider_call": 1,
+    "successor_retries": 0,
+    "prior_lineage_submissions": 4,
+    "cumulative_lineage_submissions_after_complete_successor": 212,
+    "execution_date_policy": "Capture an ISO date and timezone-aware start and finish timestamps for each provider call; no date is frozen before authorization.",
+    "execution_must_use_one_calendar_date": true
+  },
+  "result_contract": {
+    "passive_kinds": ["html", "file", "other"],
+    "every_passive_result_requested": false,
+    "persist_snippets": false,
+    "persist_source_excerpts": false,
+    "persist_target_facts": false,
+    "candidate_records_may_include": ["html", "file", "other"],
+    "proposed_allowlist_requires_kind": "html",
+    "proposed_allowlist_requires_canonical_official_https": true,
+    "result_url_requests": 0,
+    "landing_page_requests": 0,
+    "source_file_requests": 0,
+    "head_requests": 0,
+    "redirects_followed": 0
+  },
+  "role_contract": {
+    "registrar": "fresh provider-isolated metadata registrar",
+    "exposure_auditor": "fresh network-disabled exposure auditor",
+    "selector": "fresh network-disabled selector",
+    "role_overlap": false
+  },
+  "stop_rules": [
+    "more_or_less_than_one_logical_query_submitted in any provider call",
+    "any retry",
+    "any denied prior query text resubmitted",
+    "any result URL landing page file HEAD or redirect request",
+    "any snippet source excerpt or target fact persisted",
+    "any missing non-ISO future inconsistent or nonmonotonic captured timestamp",
+    "any result domain or kind not recomputed from its URL",
+    "any passive result marked requested",
+    "any direct-file or other URL placed in the HTML allowlist",
+    "any claim that the incomplete prior aggregate exposure was reconstructed",
+    "any budget role binding or manifest violation"
+  ],
+  "future_execution_requires": {
+    "separate_digest_bound_owner_decision": true,
+    "signed_freeze_commit": true,
+    "exact_design_manifest": true,
+    "network_or_source_access_currently_authorized": false
+  },
+  "authorization_flags": {
+    "successor_design_prepared": true,
+    "search_index_execution_authorized": false,
+    "result_url_access_authorized": false,
+    "landing_page_access_authorized": false,
+    "source_file_access_authorized": false,
+    "structural_inspection_authorized": false,
+    "extraction_authorized": false,
+    "outbound_contact_authorized": false,
+    "publication_authorized": false,
+    "release_authorized": false,
+    "g2_passage_authorized": false
+  }
+}

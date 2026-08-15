@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "annex_id": "G2-METADATA-EXPANSION-PASSIVE-EXPOSURE-ANNEX-20260816-01",
+  "stop_receipt": {
+    "path": "build/g2-metadata-expansion-search/registrar/stop-receipt.json",
+    "sha256": "bdf034515b050d395ab0e30a40c23b2878643642b612ce4c6adbd3929e2e9fa2"
+  },
+  "query_manifest": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/search-index-query-manifest.json",
+    "sha256": "d7419c0bc281ac9e940819d01005a922e2e6612e40ab1b573ba941eee3b8dddc"
+  },
+  "provider_call_count": 1,
+  "call_query_ids": [
+    "G2Q-001",
+    "G2Q-002",
+    "G2Q-003",
+    "G2Q-004"
+  ],
+  "network_used_for_reconstruction": false,
+  "result_url_requests": 0,
+  "landing_page_requests": 0,
+  "source_file_requests": 0,
+  "passive_exposures": [],
+  "attribution_status": "unattributable_aggregate_for_G2Q-001_to_G2Q-004",
+  "observed_result_block_count": 13,
+  "exactly_reconstructable_result_count": null,
+  "count_uncertainty": "Thirteen result blocks were observed in the retained conversational output, but exact byte-for-byte title reconstruction cannot be guaranteed for every block; the final displayed title contains invisible and layout characters, and the provider supplied no structured per-query result object.",
+  "incompleteness_reasons": [
+    "Exact title fidelity cannot be guaranteed from the rendered provider output.",
+    "The final displayed result title contains invisible and layout characters whose original byte representation is unavailable.",
+    "The provider returned an aggregate stream without per-query attribution."
+  ],
+  "recorded_at": "2026-08-16T01:58:42+10:00",
+  "status": "reconstruction_incomplete",
+  "terminal": true
+}

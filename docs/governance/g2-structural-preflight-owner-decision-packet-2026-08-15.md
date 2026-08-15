@@ -5,7 +5,7 @@ Status: awaiting sole-owner decision. No source access is authorized.
 ## Exact prepared baseline
 
 - Successor plan ID: `G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01`.
-- Signed freeze commit: `[TO_BE_BOUND_AFTER_CLEAN_REVIEW]`.
+- Signed freeze commit: `adbf9b45aa8428295825d7dcb2ac447a0941d5cb`.
 - Detached design manifest SHA-256:
   `04bcfdeb41a590a3a510b541987c9a1c35e9416dc27db64fdbe9b433fe31ce93`.
 - Machine plan SHA-256:
@@ -25,8 +25,8 @@ Status: awaiting sole-owner decision. No source access is authorized.
 - Operations/resource panel SHA-256:
   `20b8a0d0c590dec4bf39cdef4e5cd2dc2cbd22c0d30b5b1578a77987cff8d864`.
 
-These placeholders must be replaced only after a clean adversarial review and
-signed freeze commit. No working-tree hash is a substitute.
+The signed commit and detached manifest were bound after a clean adversarial
+review. No working-tree hash is a substitute.
 
 ## Option A — resolve the 33 official landing pages — recommended
 
@@ -80,8 +80,10 @@ pass. The current general acquisition client does not yet meet that bar.
 
 > I approve Option A in the G2 structural-preflight successor owner decision
 > packet dated 2026-08-15. I accept the exact 44-edition frame and design bundle
-> bound by signed freeze commit `[FREEZE_COMMIT]` and detached design manifest
-> SHA-256 `[DESIGN_MANIFEST_SHA256]` as a reproducible no-source-access
+> bound by signed freeze commit `adbf9b45aa8428295825d7dcb2ac447a0941d5cb`
+> and detached design manifest SHA-256
+> `04bcfdeb41a590a3a510b541987c9a1c35e9416dc27db64fdbe9b433fe31ce93`
+> as a reproducible no-source-access
 > baseline, not as an execution packet or G2 acceptance evidence.
 >
 > I authorize only a fresh `metadata_url_resolver` agent to visit the exact 33

@@ -1,0 +1,4 @@
+005123dcf521f2c12b7f87f2ad6c3b3792cc262579b9a51bd7b2b1d1b3e5cf8c  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/jurisdiction-query-registry.json
+a4e2dd29b4bf7b7745051a55dda976c3431bf79978c1c9c534ffbdccd4180384  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/metadata-expansion-plan.json
+92bb24a1bdf218f44ec32f2451b8fe77c68643e726db332206e42d26b40da6de  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/metadata-expansion-plan.schema.json
+9fd9a5df6ddc0ac5f2e0765fbb2ed2f302fad1b23babbcd1a20df2aa0ac98dfb  tests/test_g2_metadata_expansion_plan.py

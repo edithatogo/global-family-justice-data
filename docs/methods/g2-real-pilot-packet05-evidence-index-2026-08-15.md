@@ -1,8 +1,8 @@
 # G2 packet-05 evidence index — 2026-08-15
 
-Status: final calibration rerun completed and failed closed. Local-private
-diagnostic evidence only. No output, method, right, gate, publication or release
-is accepted.
+Status: final calibration rerun completed, failed closed and terminated by the
+sole owner. Local-private diagnostic evidence only. No output, method, right,
+gate, publication or release is accepted.
 
 ## Frozen packet and authority
 
@@ -61,14 +61,8 @@ waiver, sealed-output correction or retroactive rule is authorized. The
 four-row exercise cannot establish reproducibility. All rows retain their
 quarantine state; the public boundary remains metadata and citation only.
 
-The sole owner must now choose between:
-
-1. terminating the four-row exercise (panel recommendation); or
-2. excluding BRA and authorizing a separately labelled, post-failure three-row
-   sensitivity recomputation from unchanged sealed outputs.
-
-The second option cannot convert packet 05 into a pass and is subject to severe
-post-observation selection bias. Neither option accepts G2. Any future claim of
-generalisability requires a new prospectively designed blind holdout using
-unseen editions.
-
+The owner selected termination in
+`docs/governance/g2-packet05-disposition-owner-decision-2026-08-15.md`.
+No three-row recomputation or packet 06 is authorized. Any future claim of
+generalisability requires a separately approved, prospectively designed blind
+holdout using unseen editions.

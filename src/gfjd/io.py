@@ -18,7 +18,12 @@ def read_csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
         reader = csv.DictReader(handle)
         if reader.fieldnames is None:
             return [], []
-        return list(reader.fieldnames), [dict(row) for row in reader]
+        rows: list[dict[str, str]] = []
+        for line_number, row in enumerate(reader, start=2):
+            if None in row:
+                raise ValueError(f"CSV row has more fields than its header: {path}:{line_number}")
+            rows.append(dict(row))
+        return list(reader.fieldnames), rows
 
 
 def write_csv(

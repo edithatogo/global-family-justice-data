@@ -1,6 +1,6 @@
 # Generated programme status
 
-Generated: `2026-08-15T16:23:52+00:00`
+Generated: `2026-08-15T23:50:44+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G2**
@@ -11,7 +11,7 @@ Conductor validation: **PASS** (0 errors, 0 warnings)
 | Gate | Target | State | Ready | Decision | Controls complete | Principal blockers |
 |---|---:|---|---:|---|---:|---|
 | G1 — Foundation controls accepted | 0.4.0 | passed | yes | accepted | 13/13 | — |
-| G2 — Reproducible pilot proven | 0.5.0 | blocked_by_maturity | no | not_evaluated | 4/13 | required work not accepted: WI-G2-01; required work not accepted: WI-G2-02; required work not accepted: WI-G2-03; +13 more |
+| G2 — Reproducible pilot proven | 0.5.0 | blocked_by_maturity | no | not_evaluated | 4/13 | required work not accepted: WI-G2-01; required work not accepted: WI-G2-02; required work not accepted: WI-G2-03; +12 more |
 | G3 — Global source census complete | 0.6.0 | blocked_by_dependency | no | not_evaluated | 2/13 | dependency gate not accepted: G2; required work not accepted: WI-G3-01; required work not accepted: WI-G3-02; +15 more |
 | G4 — Feature-complete public beta | 0.7.0 | blocked_by_dependency | no | not_evaluated | 2/14 | dependency gate not accepted: G3; required work not accepted: WI-G4-01; required work not accepted: WI-G4-02; +17 more |
 | G5 — v1.0 release candidate assured | 0.9.0 | blocked_by_dependency | no | not_evaluated | 1/15 | dependency gate not accepted: G4; required work not accepted: WI-G5-01; required work not accepted: WI-G5-02; +38 more |
@@ -29,7 +29,7 @@ Conductor validation: **PASS** (0 errors, 0 warnings)
 | T5 — Harmonisation, quality and assurance | 7/7 (100.0%) | 0/7 (0.0%) | 0 | 0/14 |
 | T6 — Product, documentation and accessibility | 7/7 (100.0%) | 0/7 (0.0%) | 0 | 0/7 |
 | T7 — Security, privacy, legal and supply-chain assurance | 6/6 (100.0%) | 2/6 (33.3%) | 0 | 5/9 |
-| T8 — Operations, reliability and release management | 6/6 (100.0%) | 0/6 (0.0%) | 0 | 1/6 |
+| T8 — Operations, reliability and release management | 6/6 (100.0%) | 1/6 (16.7%) | 0 | 1/6 |
 | T9 — International community, localisation and sustainability | 4/4 (100.0%) | 0/4 (0.0%) | 0 | 0/4 |
 
 ## Evidence-assured maturity
@@ -65,6 +65,5 @@ Evidence-assured maturity floor: **L1**
 - **P1 WI-G2-04** (T5/G2): Pilot extractions and mappings have documented dual review, adjudication and quarantine outcomes. — _in_review_
 - **P1 WI-G2-07** (T5/G2): Blinded role-separated agent re-extraction of the pilot sample passes the approved concordance threshold and is owner-adjudicated. — _in_review_
 - **P1 WI-G2-06** (T7/G2): Pilot source rights, privacy, security and disclosure assessments have no unresolved critical finding. — _in_review_
-- **P1 WI-G2-08** (T8/G2): The pilot release process, correction path and restoration of its artefacts have been rehearsed. — _done_
 
 > A gate is ready only after evidence, work, maturity, risk, defect and dependency controls pass. It passes only after a recorded governance decision. Document presence and self-assessment do not constitute acceptance.

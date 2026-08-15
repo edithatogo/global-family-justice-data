@@ -4,7 +4,10 @@ import json
 import tomllib
 from pathlib import Path
 
+import pytest
+
 from gfjd import __version__, manifest
+from gfjd.io import read_csv
 from gfjd.manifest import iter_manifest_files, verify_manifest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +23,17 @@ def test_json_schemas_parse() -> None:
         payload = json.loads(path.read_text(encoding="utf-8"))
         assert payload["$schema"] == "https://json-schema.org/draft/2020-12/schema"
         assert payload["title"]
+
+
+def test_csv_reader_rejects_surplus_fields_without_rewriting(tmp_path: Path) -> None:
+    path = tmp_path / "governed.csv"
+    original = b"id,notes\nA,unquoted,comma\n"
+    path.write_bytes(original)
+
+    with pytest.raises(ValueError, match="more fields than its header"):
+        read_csv(path)
+
+    assert path.read_bytes() == original
 
 
 def test_repository_manifest() -> None:

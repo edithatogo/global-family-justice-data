@@ -128,9 +128,7 @@ def test_g2_atomic_extraction_row_rejects_contract_drift(project_root: Path) -> 
 
 def test_g2_packet02_atomic_contract_is_schema_bound_and_complete(project_root: Path) -> None:
     contract = json.loads(
-        (project_root / "config" / "g2_atomic_semantic_contract.json").read_text(
-            encoding="utf-8"
-        )
+        (project_root / "config" / "g2_atomic_semantic_contract.json").read_text(encoding="utf-8")
     )
     _validate(project_root, "g2_atomic_semantic_contract.schema.json", contract)
 
@@ -149,9 +147,7 @@ def test_g2_packet02_atomic_contract_is_schema_bound_and_complete(project_root: 
     for sample in contract["samples"]:
         assert set(sample["required_ambiguity_codes"]) <= allowed_ambiguities
         expected_status = (
-            "hard_quarantine"
-            if sample["sample_key"].startswith(("AUS-", "ZAF-"))
-            else "quarantine"
+            "hard_quarantine" if sample["sample_key"].startswith(("AUS-", "ZAF-")) else "quarantine"
         )
         assert sample["quarantine_status"] == expected_status
 

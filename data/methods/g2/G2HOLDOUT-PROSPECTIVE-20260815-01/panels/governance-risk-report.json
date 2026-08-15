@@ -1,0 +1,251 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2_BLIND_HOLDOUT_GOVERNANCE_RISK_20260815",
+  "packet_id": "D-G2-PACKET05-DISPOSITION-20260815",
+  "packet_sha256": "6b7fde75b9ab5cd5aa364162a47b7216f1ea381a921b44a5d47039ae92327ff4",
+  "role": "governance, risk, rights-boundary and operations adviser",
+  "agent_session_id": "/root/g2_holdout_governance_panel",
+  "tool_or_model": "OpenAI Codex",
+  "tool_or_model_version": "GPT-5",
+  "generated_at": "2026-08-15T02:50:55Z",
+  "evidence_inputs": [
+    {
+      "path": "docs/governance/g2-packet05-disposition-owner-decision-2026-08-15.md",
+      "sha256": "6b7fde75b9ab5cd5aa364162a47b7216f1ea381a921b44a5d47039ae92327ff4"
+    },
+    {
+      "path": "docs/governance/g2-packet05-disposition-owner-decision-packet-2026-08-15.md",
+      "sha256": "57e559068b8b3f14439da1522ed6d64d46f75c0022217b3d4309e5fbbba27533"
+    },
+    {
+      "path": "docs/methods/g2-real-pilot-packet05-evidence-index-2026-08-15.md",
+      "sha256": "65147505740202c429687e961feee9bc8a7ce4df4dbddad60858aff31d0e0c7d"
+    },
+    {
+      "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-05/packet.json",
+      "sha256": "6e10d325249fe8942942e9139f04773bb6b169f3e75d06ef691145b34996e198"
+    },
+    {
+      "path": "config/g2_atomic_semantic_contract.json",
+      "sha256": "0d31cb445e51753086d8f5ccd931669ab8a69e84190093c0f83ae4ac85f16f5d"
+    },
+    {
+      "path": "config/g2_atomic_domain_amendment_packet05.json",
+      "sha256": "7e0c19957cc83a9b4720207df62b247893db6e2cbbedb9c58ee06f0627d76386"
+    },
+    {
+      "path": "config/g2_concordance_policy.json",
+      "sha256": "94e58bb2df83ca87df33eff0b5ed836d3ae61b64d941c6de39d782ac3758c6bc"
+    },
+    {
+      "path": "schemas/g2_rights_security_review.schema.json",
+      "sha256": "0da37153a416ec104009acf133d56cfec368a7238a71ca1774e85144d9305077"
+    },
+    {
+      "path": "docs/methods/exact-edition-rights-screening-2026-08-03.md",
+      "sha256": "3f1011855467ec386c7b6e1c64935668d12038e0332f89ef731f9fffc3101e1b"
+    },
+    {
+      "path": "docs/governance/g1-single-person-owner-decision-2026-08-05.md",
+      "sha256": "4bfa275537bd2cd7613274a0c46358fd094cead3d06c94073752869e7a81eef6"
+    },
+    {
+      "path": "docs/governance/sole-owner-gate-model-decision-2026-08-15.md",
+      "sha256": "6cff9a7c1daf2056df8508be90914291ce6f3fc07a1d47029cc89bd6ddea1ee3"
+    },
+    {
+      "path": "programme/risk_register.csv",
+      "sha256": "3f17d960b861bf409078c7b959b202e347cdb1a620458a2d8c30050803b70fa8"
+    }
+  ],
+  "verdict": "conditional",
+  "findings": [
+    {
+      "finding_id": "G2BH-GOV-01",
+      "severity": "critical",
+      "claim": "The approved termination is a hard experiment boundary: packets 01 through 05 remain failed evidence, packet 06 is prohibited, and the holdout must use a new packet lineage rather than extending, repairing or reclassifying the calibration chain.",
+      "evidence_references": [
+        {
+          "path": "docs/governance/g2-packet05-disposition-owner-decision-2026-08-15.md",
+          "sha256": "6b7fde75b9ab5cd5aa364162a47b7216f1ea381a921b44a5d47039ae92327ff4"
+        },
+        {
+          "path": "docs/governance/g2-packet05-disposition-owner-decision-packet-2026-08-15.md",
+          "sha256": "57e559068b8b3f14439da1522ed6d64d46f75c0022217b3d4309e5fbbba27533"
+        },
+        {
+          "path": "docs/methods/g2-real-pilot-packet05-evidence-index-2026-08-15.md",
+          "sha256": "65147505740202c429687e961feee9bc8a7ce4df4dbddad60858aff31d0e0c7d"
+        }
+      ],
+      "uncertainty": "The owner decision is now recorded at signed commit 5a685484ca09c954ed8dbb8227a6fc9b3f6a82ff; no holdout plan, packet or execution approval exists yet.",
+      "remediation": "Bind owner termination decision commit 5a685484ca09c954ed8dbb8227a6fc9b3f6a82ff, the decision and disposition-packet digests, the packet-05 evidence-index digest and the current source-manifest digest into the holdout plan. Assign a new holdout experiment ID that cannot be confused with packet 06."
+    },
+    {
+      "finding_id": "G2BH-DESIGN-02",
+      "severity": "high",
+      "claim": "Unseen-edition status and selection independence must be established before extraction; post-result exclusion, substitution, relabelling or scope reduction would recreate the outcome-conditioned calibration risk that termination was intended to end.",
+      "evidence_references": [
+        {
+          "path": "docs/governance/g2-packet05-disposition-owner-decision-packet-2026-08-15.md",
+          "sha256": "57e559068b8b3f14439da1522ed6d64d46f75c0022217b3d4309e5fbbba27533"
+        },
+        {
+          "path": "config/g2_atomic_domain_amendment_packet05.json",
+          "sha256": "7e0c19957cc83a9b4720207df62b247893db6e2cbbedb9c58ee06f0627d76386"
+        }
+      ],
+      "uncertainty": "The repository does not yet contain a frozen unseen-edition eligibility inventory, reserve list, deterministic selection receipt or explicit non-overlap check against all calibration inputs and development fixtures.",
+      "remediation": "Define unseen as an exact edition whose bytes, locator, target value and field-boundary answers were not used in packets 01 through 05, comparator diagnostics, contract calibration, tests or extractor preparation. Freeze eligibility rules, strata, sample size, reserve ordering, deterministic selection method and non-overlap receipt before either extractor sees source content. After sealing begins, do not substitute or exclude based on a value or discrepancy."
+    },
+    {
+      "finding_id": "G2BH-ROLE-03",
+      "severity": "high",
+      "claim": "Role-separated agents in this shared single-person repository can provide procedural blinding and advisory review, but cannot create independent assurance or guarantee that repository-visible material was technically inaccessible.",
+      "evidence_references": [
+        {
+          "path": "docs/governance/g1-single-person-owner-decision-2026-08-05.md",
+          "sha256": "4bfa275537bd2cd7613274a0c46358fd094cead3d06c94073752869e7a81eef6"
+        },
+        {
+          "path": "docs/governance/sole-owner-gate-model-decision-2026-08-15.md",
+          "sha256": "6cff9a7c1daf2056df8508be90914291ce6f3fc07a1d47029cc89bd6ddea1ee3"
+        }
+      ],
+      "uncertainty": "Agent process isolation and filesystem access controls for the future run have not yet been implemented or evidenced.",
+      "remediation": "Use fresh no-history agent sessions for selection, primary extraction, secondary extraction and comparison. Give extractors separate immutable input views containing only the frozen packet, contracts and exact sources; deny prior outputs, selection notes, other extractor output and comparator results by instruction and, where practical, filesystem allowlisting. Each receipt must enumerate every accessed artifact and digest. Describe the result as role-separated agent evidence, never independent assurance."
+    },
+    {
+      "finding_id": "G2BH-RIGHTS-04",
+      "severity": "high",
+      "claim": "Every proposed holdout edition requires edition-specific access, rights, privacy, binary-security and disclosure screening before it can enter the frozen packet; public discoverability alone is insufficient.",
+      "evidence_references": [
+        {
+          "path": "schemas/g2_rights_security_review.schema.json",
+          "sha256": "0da37153a416ec104009acf133d56cfec368a7238a71ca1774e85144d9305077"
+        },
+        {
+          "path": "docs/methods/exact-edition-rights-screening-2026-08-03.md",
+          "sha256": "3f1011855467ec386c7b6e1c64935668d12038e0332f89ef731f9fffc3101e1b"
+        }
+      ],
+      "uncertainty": "The candidate editions, their exact terms, third-party components and content characteristics are not yet known.",
+      "remediation": "For each candidate bind canonical URL, acquisition receipt, edition ID, content digest, terms evidence, permitted and prohibited acts, attribution, privacy inspection, binary-security scan, disclosure inspection and proposed disposition. Exclude personal or case-level material. Route ambiguous rights to metadata-only or quarantine; permit controlled local-private analysis only where lawful access and the owner-approved rights record expressly allow it. Never include source bytes or substantial extracts in public artifacts without a separate exact-edition redistribution decision."
+    },
+    {
+      "finding_id": "G2BH-METHODS-05",
+      "severity": "high",
+      "claim": "The holdout contract must be atomic and complete before extraction, with non-waivable critical concordance, deterministic comparison and no post-seal semantic corrections.",
+      "evidence_references": [
+        {
+          "path": "config/g2_atomic_semantic_contract.json",
+          "sha256": "0d31cb445e51753086d8f5ccd931669ab8a69e84190093c0f83ae4ac85f16f5d"
+        },
+        {
+          "path": "config/g2_concordance_policy.json",
+          "sha256": "94e58bb2df83ca87df33eff0b5ed836d3ae61b64d941c6de39d782ac3758c6bc"
+        },
+        {
+          "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-05/packet.json",
+          "sha256": "6e10d325249fe8942942e9139f04773bb6b169f3e75d06ef691145b34996e198"
+        }
+      ],
+      "uncertainty": "The future source families may require fields or ambiguity codes not represented in the current calibration contract; importing edition-specific answers before extraction would contaminate the blind test.",
+      "remediation": "Freeze generic field definitions, excerpt-boundary rules, canonical-code routing, explicit-only date rule, thresholds, comparator version, null semantics, ambiguity handling and failure rules without encoding target-edition answers. Require 100 percent agreement for every critical field and at least 99 percent across all populated fields. Any unmatched row, critical discrepancy, missing receipt, manifest drift or contract ambiguity after outputs are sealed fails the holdout; no repair or waiver is allowed."
+    },
+    {
+      "finding_id": "G2BH-SCOPE-06",
+      "severity": "medium",
+      "claim": "A small holdout can establish bounded workflow reproducibility but cannot support a claim of global, multilingual or source-family generalisability.",
+      "evidence_references": [
+        {
+          "path": "docs/methods/g2-real-pilot-packet05-evidence-index-2026-08-15.md",
+          "sha256": "65147505740202c429687e961feee9bc8a7ce4df4dbddad60858aff31d0e0c7d"
+        },
+        {
+          "path": "programme/risk_register.csv",
+          "sha256": "3f17d960b861bf409078c7b959b202e347cdb1a620458a2d8c30050803b70fa8"
+        }
+      ],
+      "uncertainty": "The eligible unseen-edition universe and feasible diversity across jurisdictions, languages, formats, clocks and statistics are not yet established.",
+      "remediation": "Predeclare the intended claim and design the sample to match it. Report edition-level success as well as field-level concordance, because fields within an edition are not independent. Preserve R02 quarantine for any comparison across clocks, denominators or statistics. If the eligible universe cannot support the planned strata, return to the owner before extraction with a claim-downgrade option rather than silently shrinking scope."
+    },
+    {
+      "finding_id": "G2BH-OPS-07",
+      "severity": "high",
+      "claim": "The holdout requires an atomic freeze and immutable evidence chain; a passing comparator is reproducibility evidence only and cannot itself accept methods, rights, G2, publication or release.",
+      "evidence_references": [
+        {
+          "path": "docs/governance/sole-owner-gate-model-decision-2026-08-15.md",
+          "sha256": "6cff9a7c1daf2056df8508be90914291ce6f3fc07a1d47029cc89bd6ddea1ee3"
+        },
+        {
+          "path": "programme/risk_register.csv",
+          "sha256": "3f17d960b861bf409078c7b959b202e347cdb1a620458a2d8c30050803b70fa8"
+        }
+      ],
+      "uncertainty": "No future packet manifest, signed freeze commit, clean-run receipt, dual output receipts, comparison receipt, panel evidence or owner adjudication exists yet.",
+      "remediation": "Bind the owner termination record; candidate and reserve inventory; source/acquisition/rights-security records; source bytes or metadata-only locators as authorized; source and packet manifests; exact Git commit and toolchain; contracts and schemas; role assignments and access declarations; output and receipt digests; comparator and differences; panel reports; and final owner adjudication. Keep R10 and R11 controls active and R20 a hard no-go. A pass advances only the named G2 reproducibility evidence and remains quarantined pending separate methods and rights decisions."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "A",
+      "description": "Run a minimal four-edition prospective holdout using one row from each of four eligible unseen exact editions.",
+      "trade_offs": [
+        "Lowest acquisition and review burden.",
+        "Fastest way to test whether the frozen atomic contract transfers beyond the failed calibration editions."
+      ],
+      "limitations": [
+        "Provides only narrow feasibility evidence.",
+        "Cannot support broad source-family, multilingual or international generalisation.",
+        "A single difficult edition materially determines the result."
+      ],
+      "contingency": "If fewer than four eligible editions exist, stop before freeze. Return a metadata-only gap report and an owner choice to defer or approve a smaller feasibility exercise with an explicit claim downgrade."
+    },
+    {
+      "option_id": "B",
+      "description": "Run a prospectively stratified twelve-edition holdout, one predeclared row per edition, targeting diversity across at least six jurisdictions, three source formats and two languages where the eligible universe permits.",
+      "trade_offs": [
+        "Materially stronger transfer evidence than a four-row repeat while remaining operationally bounded.",
+        "Requires more exact-edition acquisition, rights/security screening, source-boundary preparation and dual extraction effort.",
+        "Stratification reduces dependence on one jurisdiction or format but may make the eligible-source search slower."
+      ],
+      "limitations": [
+        "Still does not prove global generalisability or replace accountable methods adjudication.",
+        "Language and format targets depend on the sourceable, lawful, aggregate-only universe.",
+        "Field-level agreement counts are correlated within editions and must not be treated as independent observations."
+      ],
+      "contingency": "Freeze a ranked reserve list before extraction. Substitute only for a predeclared non-outcome eligibility failure discovered before either extractor accesses that edition, and record the reason. If the diversity floor cannot be met, return to the owner before freeze with a narrower claim and revised scope; do not relax criteria during or after extraction."
+    },
+    {
+      "option_id": "C",
+      "description": "Run a two-stage twenty-four-edition holdout with twelve editions in a primary stage and twelve separately sealed confirmatory editions, all selection and stopping rules frozen prospectively.",
+      "trade_offs": [
+        "Strongest evidence of repeatability and transfer among the options.",
+        "Allows a genuinely confirmatory second stage without redesign after seeing stage-one outputs.",
+        "Highest acquisition, rights-review, operations and extraction cost."
+      ],
+      "limitations": [
+        "May exceed the current eligible unseen-source universe.",
+        "Still constitutes role-separated agent evidence rather than independent assurance.",
+        "A stage-one failure should stop confirmatory execution unless the frozen plan explicitly requires completing both stages for diagnostic purposes."
+      ],
+      "contingency": "If twenty-four eligible editions cannot be frozen without weakening rights, privacy, security or scope rules, fall back to Option B only through a new pre-extraction owner decision that records the reduced claim."
+    }
+  ],
+  "recommendation": "Choose Option B: prepare a new twelve-edition, prospectively stratified blind holdout under a new experiment lineage. First complete a metadata-led candidate inventory, exact-edition non-overlap check, ranked reserve list and per-edition rights/privacy/security screening. Then freeze one atomic packet and return its packet and manifest hashes to the sole owner for explicit execution authorization. Use fresh role-separated agents for selection, primary extraction, secondary extraction, comparison and post-result advice. Preserve 100 percent critical and at least 99 percent overall concordance, with no fuzzy matching, post-seal correction, waiver, result-driven exclusion or follow-on packet.",
+  "rationale": "Option B is the best balance between anti-overfitting credibility and achievable repository operations. It materially broadens edition, jurisdiction, format and language coverage beyond the failed four-row calibration without committing immediately to a costly twenty-four-edition programme. Prospective freezing, reserve ordering and exact-edition reviews control selection, rights and security risk. The sole-owner model remains intact: agents prepare evidence and advice, while only the owner may authorize extraction and later adjudicate the result.",
+  "conflicts": [
+    "A shared repository permits procedural role separation but cannot prove absolute technical non-access; this limitation must be stated in every holdout claim.",
+    "Increasing sample diversity strengthens transfer evidence but also increases exposure to source-specific ambiguity, rights uncertainty and operational workload.",
+    "The current metadata-and-citation public boundary may coexist with controlled local-private analysis only when each exact-edition rights record and owner decision permits that act."
+  ],
+  "abstentions": [
+    "No legal opinion or source-rights clearance is provided.",
+    "No candidate edition, jurisdiction, source family, target value or extraction mapping is selected by this report.",
+    "No statistical claim that twelve editions is sufficient for global generalisation is made."
+  ],
+  "dissent": [],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

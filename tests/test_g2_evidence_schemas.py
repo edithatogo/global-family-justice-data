@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import copy
 import csv
+import hashlib
 import json
+import subprocess
 from pathlib import Path
 
 from jsonschema import Draft202012Validator, FormatChecker
@@ -212,6 +215,91 @@ def test_g2_packet05_domain_amendment_is_schema_bound_and_final(
     assert amendment["packet06_authorized"] is False
     assert amendment["blind_holdout_required_for_generalisation"] is True
     assert amendment["publication_authorized"] is False
+
+
+def test_g2_blind_holdout_plan_is_prospective_and_fail_closed(
+    project_root: Path,
+) -> None:
+    plan = json.loads(
+        (project_root / "config" / "g2_blind_holdout_plan.json").read_text(encoding="utf-8")
+    )
+    _validate(project_root, "g2_blind_holdout_plan.schema.json", plan)
+
+    assert plan["experiment_lineage"] == "new_lineage_not_packet06"
+    assert plan["design"]["recommended_sample_size"] == 24
+    assert plan["design"]["alternative_sample_size"] == 12
+    assert plan["design"]["rows_per_edition"] == 1
+    assert len(plan["design"]["strata"]) == 4
+    assert plan["design"]["stratum_assignment_precedence"][0] == (
+        "embedded_raster_or_dashboard_pdf"
+    )
+    assert plan["design"]["minimum_jurisdictions"] == 12
+    assert plan["design"]["maximum_editions_per_jurisdiction"] == 2
+    assert plan["design"]["maximum_editions_per_source_series"] == 1
+    assert plan["design"]["reserve_allocation"]["minimum_per_stratum"] == 1
+    assert plan["thresholds"]["critical_concordance"] == 1.0
+    assert plan["thresholds"]["overall_populated_concordance"] == 0.99
+    assert plan["stopping_rules"]["critical_discrepancy_stops"] is True
+    assert plan["stopping_rules"]["post_seal_correction_allowed"] is False
+    assert len(plan["role_separation"]["agent_roles"]) == 10
+    assert plan["role_separation"]["shared_history_for_extractors"] is False
+    assert plan["unseen_edition_controls"]["complete_exposure_ledger_required"] is True
+    assert set(plan["authorization"].values()) == {False}
+
+    for artifact in plan["advisory_reports"]:
+        digest = hashlib.sha256((project_root / artifact["path"]).read_bytes()).hexdigest()
+        assert digest == artifact["sha256"]
+    decision = project_root / plan["termination_decision"]
+    assert hashlib.sha256(decision.read_bytes()).hexdigest() == plan["termination_decision_sha256"]
+    if (project_root / ".git").exists():
+        subprocess.run(
+            ["git", "cat-file", "-e", f"{plan['termination_decision_commit']}^{{commit}}"],
+            cwd=project_root,
+            check=True,
+            capture_output=True,
+        )
+        subprocess.run(
+            ["git", "verify-commit", plan["termination_decision_commit"]],
+            cwd=project_root,
+            check=True,
+            capture_output=True,
+        )
+        committed_decision = subprocess.run(
+            [
+                "git",
+                "show",
+                f"{plan['termination_decision_commit']}:{plan['termination_decision']}",
+            ],
+            cwd=project_root,
+            check=True,
+            capture_output=True,
+        ).stdout
+        assert (
+            hashlib.sha256(committed_decision).hexdigest() == (plan["termination_decision_sha256"])
+        )
+
+
+def test_g2_blind_holdout_plan_rejects_weakened_controls(project_root: Path) -> None:
+    plan = json.loads(
+        (project_root / "config" / "g2_blind_holdout_plan.json").read_text(encoding="utf-8")
+    )
+    validator = Draft202012Validator(
+        _schema(project_root, "g2_blind_holdout_plan.schema.json"),
+        format_checker=FormatChecker(),
+    )
+    mutations: list[dict[str, object]] = []
+    for path, value in [
+        (("thresholds", "critical_concordance"), 0.99),
+        (("stopping_rules", "post_seal_correction_allowed"), True),
+        (("authorization", "extraction"), True),
+        (("unseen_edition_controls", "uncertain_prior_exposure_is_ineligible"), False),
+        (("role_separation", "shared_history_for_extractors"), True),
+    ]:
+        mutation = copy.deepcopy(plan)
+        mutation[path[0]][path[1]] = value
+        mutations.append(mutation)
+    for mutation in mutations:
+        assert list(validator.iter_errors(mutation)), mutation
 
 
 def test_g2_evidence_chain_schemas_accept_bounded_receipts(project_root: Path) -> None:

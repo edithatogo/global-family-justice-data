@@ -1,0 +1,229 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2-BLIND-HOLDOUT-METHODS-20260815",
+  "packet_id": "G2PKT-REAL-PILOT-20260815-05",
+  "packet_sha256": "6e10d325249fe8942942e9139f04773bb6b169f3e75d06ef691145b34996e198",
+  "role": "role-separated prospective blind-holdout methods design advisory agent",
+  "agent_session_id": "/root/g2_holdout_methods_panel",
+  "tool_or_model": "OpenAI Codex",
+  "tool_or_model_version": "GPT-5",
+  "generated_at": "2026-08-15T02:51:34Z",
+  "evidence_inputs": [
+    {
+      "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-05/packet.json",
+      "sha256": "6e10d325249fe8942942e9139f04773bb6b169f3e75d06ef691145b34996e198"
+    },
+    {
+      "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-05/extraction-instructions.md",
+      "sha256": "259b854e72d2227cd77846f3ca7fcf30851e18de294c3f25d206ce3798a9be39"
+    },
+    {
+      "path": "docs/governance/g2-packet05-disposition-owner-decision-2026-08-15.md",
+      "sha256": "6b7fde75b9ab5cd5aa364162a47b7216f1ea381a921b44a5d47039ae92327ff4"
+    },
+    {
+      "path": "docs/methods/g2-real-pilot-packet05-evidence-index-2026-08-15.md",
+      "sha256": "65147505740202c429687e961feee9bc8a7ce4df4dbddad60858aff31d0e0c7d"
+    },
+    {
+      "path": "config/g2_atomic_semantic_contract.json",
+      "sha256": "0d31cb445e51753086d8f5ccd931669ab8a69e84190093c0f83ae4ac85f16f5d"
+    },
+    {
+      "path": "config/g2_concordance_policy.json",
+      "sha256": "94e58bb2df83ca87df33eff0b5ed836d3ae61b64d941c6de39d782ac3758c6bc"
+    },
+    {
+      "path": "config/g2_atomic_domain_amendment_packet05.json",
+      "sha256": "7e0c19957cc83a9b4720207df62b247893db6e2cbbedb9c58ee06f0627d76386"
+    },
+    {
+      "path": "schemas/g2_atomic_extraction_row.schema.json",
+      "sha256": "48c30583b1af054d61ea06ea633e53ea1b9f40cd986af16b812bf58bcb21b31b"
+    }
+  ],
+  "verdict": "conditional",
+  "findings": [
+    {
+      "finding_id": "HOLDOUT_NEW_STUDY_BOUNDARY",
+      "severity": "critical",
+      "claim": "The owner terminated packets 01 through 05 and authorized planning only for a new prospectively frozen holdout. The holdout must be a new study identifier, must not be packet 06, and must not use, repair, re-extract or promote any calibration edition or sealed calibration output.",
+      "evidence_references": [
+        {
+          "path": "docs/governance/g2-packet05-disposition-owner-decision-2026-08-15.md",
+          "sha256": "6b7fde75b9ab5cd5aa364162a47b7216f1ea381a921b44a5d47039ae92327ff4"
+        },
+        {
+          "path": "docs/methods/g2-real-pilot-packet05-evidence-index-2026-08-15.md",
+          "sha256": "65147505740202c429687e961feee9bc8a7ce4df4dbddad60858aff31d0e0c7d"
+        }
+      ],
+      "uncertainty": "There is no uncertainty about the terminated state. The owner has not yet approved a holdout protocol, candidate universe, edition selection or execution.",
+      "remediation": "Create a separately named holdout protocol and decision packet, bind it before edition selection or extraction, and preserve a denylist containing every packet-01 through packet-05 edition and artifact digest."
+    },
+    {
+      "finding_id": "HOLDOUT_ESTIMAND_AND_SCOPE",
+      "severity": "high",
+      "claim": "The defensible primary estimand is observed row-level reproducibility under the frozen atomic extraction contract: whether two isolated extraction roles independently produce exact agreement on every critical field for every selected eligible edition. The secondary endpoint is populated-field concordance. This is not an accuracy, validity, rights, comparability or publication estimand.",
+      "evidence_references": [
+        {
+          "path": "config/g2_atomic_semantic_contract.json",
+          "sha256": "0d31cb445e51753086d8f5ccd931669ab8a69e84190093c0f83ae4ac85f16f5d"
+        },
+        {
+          "path": "config/g2_concordance_policy.json",
+          "sha256": "94e58bb2df83ca87df33eff0b5ed836d3ae61b64d941c6de39d782ac3758c6bc"
+        }
+      ],
+      "uncertainty": "Agreement can be perfect when both extractors make the same error. Post-seal source adjudication can diagnose source fidelity but does not turn agent-panel advice into independent assurance.",
+      "remediation": "Pre-register reproducibility as the primary claim, retain all rows in quarantine, and require a separate post-comparison source-fidelity panel and sole-owner adjudication before any G2 criterion is accepted."
+    },
+    {
+      "finding_id": "HOLDOUT_PDF_SCOPE_CONSTRAINT",
+      "severity": "high",
+      "claim": "The current atomic row schema requires PDF page locators and therefore cannot honestly support a first holdout spanning native HTML, API, CSV or spreadsheet editions without a prior schema and comparator revision. The first holdout should be limited to exact official aggregate PDF editions and stratified by PDF structure and language.",
+      "evidence_references": [
+        {
+          "path": "schemas/g2_atomic_extraction_row.schema.json",
+          "sha256": "48c30583b1af054d61ea06ea633e53ea1b9f40cd986af16b812bf58bcb21b31b"
+        },
+        {
+          "path": "config/g2_atomic_semantic_contract.json",
+          "sha256": "0d31cb445e51753086d8f5ccd931669ab8a69e84190093c0f83ae4ac85f16f5d"
+        }
+      ],
+      "uncertainty": "The number of presently discoverable but genuinely unseen eligible editions in each proposed stratum has not been established and must not be learned by this design role through content inspection.",
+      "remediation": "Freeze metadata-only eligibility criteria and a PDF-only sampling frame first. Treat non-PDF source families as a separately versioned future protocol with a source-type-neutral locator schema."
+    },
+    {
+      "finding_id": "HOLDOUT_SAMPLE_SIZE",
+      "severity": "medium",
+      "claim": "A 24-edition, one-row-per-edition holdout is a practical confirmatory minimum for this repository: six English text-native table or narrative PDFs, six non-English text-native PDFs, six embedded raster or dashboard PDFs, and six structurally complex mixed-layout PDFs. Require at least 12 jurisdictions, no more than two editions per jurisdiction, one edition per source series and no calibration source edition. With zero row-level critical failures, 24 observations still leave an approximate exact one-sided 95 percent upper bound of 11.7 percent on the row-level failure probability, so broad reliability claims remain unjustified.",
+      "evidence_references": [
+        {
+          "path": "docs/methods/g2-real-pilot-packet05-evidence-index-2026-08-15.md",
+          "sha256": "65147505740202c429687e961feee9bc8a7ce4df4dbddad60858aff31d0e0c7d"
+        },
+        {
+          "path": "config/g2_atomic_domain_amendment_packet05.json",
+          "sha256": "7e0c19957cc83a9b4720207df62b247893db6e2cbbedb9c58ee06f0627d76386"
+        }
+      ],
+      "uncertainty": "The 24 rows are clustered by document conventions, jurisdictions and agent behavior; binomial precision is descriptive, not proof that observations are independent or representative.",
+      "remediation": "Report exact sample composition, stratum-specific results and the zero-failure bound. Limit conclusions to the frozen eligible PDF frame and do not claim global, non-PDF, human-extractor or production generalisability."
+    },
+    {
+      "finding_id": "HOLDOUT_PREREGISTRATION",
+      "severity": "critical",
+      "claim": "Before candidate content is exposed, the protocol must bind the research question, eligible universe snapshot, calibration denylist, strata, sample size, source-series and jurisdiction caps, deterministic selection algorithm and seed procedure, ordered reserve list, exact row schema, semantic contract, normalization, critical and ignored fields, required component semantics, null and applicability rules, comparator source hash, endpoints, threshold calculations, permitted pre-extraction substitutions, stopping rules, quarantine, analysis tables, generalisation boundary and owner-decision route.",
+      "evidence_references": [
+        {
+          "path": "config/g2_concordance_policy.json",
+          "sha256": "94e58bb2df83ca87df33eff0b5ed836d3ae61b64d941c6de39d782ac3758c6bc"
+        },
+        {
+          "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-05/extraction-instructions.md",
+          "sha256": "259b854e72d2227cd77846f3ca7fcf30851e18de294c3f25d206ce3798a9be39"
+        }
+      ],
+      "uncertainty": "A metadata-only universe may contain editions that later prove ineligible or inaccessible. Unbounded replacement after source inspection would permit selection bias.",
+      "remediation": "Freeze six stratum-matched reserve editions with the primary sample. Permit substitution only before either extractor receives any source and only for predeclared objective reason codes such as byte unavailability, digest mismatch, personal-data presence or absence of an eligible aggregate target. After packet release, any removal, replacement or eligibility reinterpretation fails the study."
+    },
+    {
+      "finding_id": "HOLDOUT_ROLE_AND_LEAKAGE_CONTROLS",
+      "severity": "critical",
+      "claim": "Conversation-level role labels alone do not establish blinding because agents share repository access. The holdout needs artifact-level isolation: a universe registrar using metadata only; a deterministic selector; an acquisition custodian; a locator and eligibility role that cannot extract; two fresh extraction roles with no inherited conversation and separate read-only allowlisted bundles; a comparator that receives both outputs only after sealing; post-seal source, methods and risk panels; and the sole owner as the only adjudicator.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-05/packet.json",
+          "sha256": "6e10d325249fe8942942e9139f04773bb6b169f3e75d06ef691145b34996e198"
+        },
+        {
+          "path": "docs/governance/g2-packet05-disposition-owner-decision-2026-08-15.md",
+          "sha256": "6b7fde75b9ab5cd5aa364162a47b7216f1ea381a921b44a5d47039ae92327ff4"
+        }
+      ],
+      "uncertainty": "Agent receipts and declarations can document process but cannot prove that a model retained no prior knowledge. Novel edition digests, no-history agent sessions and filesystem allowlists materially reduce but do not eliminate leakage risk.",
+      "remediation": "Generate per-role sealed bundles containing only the approved protocol, schemas, exact selected editions and locator-only assignments; exclude Git history, calibration artifacts, expected values, the other output and comparator results. Record bundle hashes, allowlists and signed access declarations in each receipt."
+    },
+    {
+      "finding_id": "HOLDOUT_THRESHOLDS_AND_STOPPING",
+      "severity": "critical",
+      "claim": "Retain 100 percent concordance for all critical fields and at least 99 percent across fields populated in either output, with exact row-scope matching and no fuzzy comparison, waiver or post-seal contract change. Any digest mismatch, schema-invalid output, missing or extra row, critical discrepancy, unauthorized access, role overlap, comparator drift or post-release substitution fails and stops the holdout. There is no correction rerun within the same study.",
+      "evidence_references": [
+        {
+          "path": "config/g2_concordance_policy.json",
+          "sha256": "94e58bb2df83ca87df33eff0b5ed836d3ae61b64d941c6de39d782ac3758c6bc"
+        },
+        {
+          "path": "docs/governance/g2-packet05-disposition-owner-decision-2026-08-15.md",
+          "sha256": "6b7fde75b9ab5cd5aa364162a47b7216f1ea381a921b44a5d47039ae92327ff4"
+        }
+      ],
+      "uncertainty": "A comparator implementation defect discovered after sealing may invalidate evidence even if both extraction outputs are sound.",
+      "remediation": "Pin and test the comparator before selection. If a comparator defect is later confirmed, invalidate the study and return to the owner; do not recompute a pass under the same study identifier. A replacement study must use still-unseen editions and a new prospectively approved protocol."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "O1_TWELVE_ROW_FEASIBILITY",
+      "description": "Run a 12-edition PDF-only feasibility holdout with three editions in each structural and language stratum, at least eight jurisdictions, no more than two editions per jurisdiction and one edition per source series.",
+      "trade_offs": [
+        "Lowest acquisition and dual-extraction burden and useful for testing the new isolation machinery.",
+        "With zero row-level critical failures, the approximate exact one-sided 95 percent upper failure bound remains about 22.1 percent."
+      ],
+      "limitations": [
+        "Too small for more than bounded feasibility evidence.",
+        "Cannot support broad reliability or non-PDF generalisation and may leave rare structural problems unobserved."
+      ],
+      "contingency": "Choose this only if a frozen metadata-only universe cannot supply 24 eligible primary editions. Label the result feasibility-only and require a separately approved larger unseen study before broader G2 reliance."
+    },
+    {
+      "option_id": "O2_TWENTY_FOUR_ROW_CONFIRMATORY",
+      "description": "Recommended: run one prospectively frozen 24-edition, one-row-per-edition PDF holdout with six editions in each of four mutually exclusive strata: English text-native table or narrative; non-English text-native; embedded raster or dashboard; and structurally complex mixed-layout. Require at least 12 jurisdictions, no more than two editions per jurisdiction, one edition per source series, plus six frozen stratum-matched reserves.",
+      "trade_offs": [
+        "Provides materially broader structural and language stress than the four-row calibration while remaining feasible for two complete extractions and source review.",
+        "A perfect result still leaves an approximate exact one-sided 95 percent upper row-failure bound near 11.7 percent and therefore supports only bounded reproducibility evidence."
+      ],
+      "limitations": [
+        "Does not validate source truth, methods appropriateness, rights, comparability, human performance, non-PDF formats or global representativeness.",
+        "Requires a sufficiently large genuinely unseen metadata frame and strong artifact-level isolation."
+      ],
+      "contingency": "If fewer than 24 eligible primaries and six reserves exist before selection, do not silently shrink or relax strata. Return to the owner to choose O1 or authorize additional metadata-only discovery. If any failure occurs after packet release, terminate the study and preserve it as failed evidence."
+    },
+    {
+      "option_id": "O3_SIXTY_ROW_PRECISION",
+      "description": "Run a 60-edition PDF-only holdout with proportional strata, at least 20 jurisdictions, no more than three editions per jurisdiction and one edition per source series wherever the frame permits.",
+      "trade_offs": [
+        "A zero-failure result has an approximate exact one-sided 95 percent upper row-failure bound near 4.9 percent and exposes more structural variation.",
+        "Acquisition, packetization, dual extraction and source adjudication effort is about two and a half times O2 and increases fatigue and process-drift risk."
+      ],
+      "limitations": [
+        "Still does not establish independence, source accuracy, rights, non-PDF behavior or global representativeness.",
+        "The current unseen source frame may not support 60 unique source series without compromising eligibility or diversity."
+      ],
+      "contingency": "Use only if the metadata-only frame and operating capacity are verified before owner approval. Do not start with 24 and adaptively extend after seeing results; all 60 and reserves must be selected under one frozen protocol."
+    }
+  ],
+  "recommendation": "Choose O2_TWENTY_FOUR_ROW_CONFIRMATORY. First create and owner-approve a digest-bound protocol, metadata-only eligibility-frame schema, calibration denylist, four-stratum allocation, deterministic selection and reserve procedure, role-isolated bundle mechanism, pinned comparator and exact stopping rules. Do not identify or inspect actual holdout editions until that decision is immutable. After approval, select and acquire the editions, freeze one new-study packet, run two fresh isolated extraction roles once, compare once, obtain post-seal panel advice and return the evidence to the sole owner for adjudication.",
+  "rationale": "O2 is the smallest option that materially expands jurisdiction, language and document-structure coverage beyond the failed four-row calibration without imposing the operational burden and likely source-frame strain of 60 rows. Retaining the existing 100 percent critical and 99 percent overall thresholds respects the owner-approved fail-closed standard. Prospective metadata-only selection, fixed reserves, single-use sealed outputs and filesystem-isolated roles address the dominant overfitting, post-selection and leakage threats. The result remains deliberately narrow: even a perfect 24-row run is reproducibility evidence only for the frozen eligible PDF sample and cannot alone establish accuracy, rights, comparability, G2 passage, publication or release.",
+  "conflicts": [
+    "Greater sample size improves the zero-failure precision bound but increases extraction fatigue, source-acquisition effort and exposure to protocol drift.",
+    "Exact edition-specific expected mappings would improve concordance but would convert the holdout back into calibration; the holdout should freeze general rules and locator-only assignments without expected values.",
+    "A locator and eligibility role must inspect selected editions to construct usable assignments, but that role must not extract, compare or advise on passing status.",
+    "The current schema enables PDF evidence but conflicts with any immediate claim that the holdout covers native HTML, API, CSV or spreadsheet sources.",
+    "Publicly accessible sources may still have rights or privacy restrictions; private holdout processing and later publication are distinct decisions."
+  ],
+  "abstentions": [
+    "No actual unseen edition, candidate content, source page or empirical value was inspected or selected for this report.",
+    "No extraction, comparator run, source acquisition, outbound contact, publication or release was performed or authorized.",
+    "No G2 criterion, source right, method, factual value, comparability state or release state is accepted.",
+    "This agent-panel report is advisory and is not independent, human, specialist or institutional assurance."
+  ],
+  "dissent": [
+    "A resource-conservative position favors O1 because a first run may reveal defects in the new isolation and selection machinery before 24 editions are spent; its evidence must remain feasibility-only.",
+    "A precision-focused position favors O3 because 24 zero-failure observations still permit a substantial upper failure bound; O3 is not preferred until the unseen metadata frame and workload are demonstrated.",
+    "A stricter design could require every edition to come from a source series and institution never used anywhere in the repository. This would reduce template leakage further but may make the frame infeasible and would not eliminate model pretraining exposure."
+  ],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

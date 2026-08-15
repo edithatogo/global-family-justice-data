@@ -68,6 +68,11 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/g2_blind_holdout_plan.schema.json",
+      "sha256": "dd5f68c0df30b5f1c091292eb0fbe2cd992cc171f60658ee582cf79c37c50bc0"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/g2_concordance.schema.json",
       "sha256": "4c3de7463905aa59749ef4a05a756b57c47150a3d7103aa1b06542781c99ad32"
     },
@@ -337,8 +342,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 67,
-  "inventory_sha256": "fa43a9f3fdf78f515cfad45e40e39308d9b7e0b4adda086e41908bdeb17f0a4c",
+  "entry_count": 68,
+  "inventory_sha256": "86f9c4a50b418f408513fe8f357dfd42f2e392a24a2105af8c8034860d38b3fb",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

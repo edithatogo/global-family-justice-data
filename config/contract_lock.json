@@ -99,12 +99,12 @@
     {
       "kind": "json_schema",
       "path": "schemas/g2_holdout_candidate_manifest.schema.json",
-      "sha256": "54ee272871f888b8a351510079a448afd57cf2d6ad993bc893c68e543840e33e"
+      "sha256": "5568fa22eace765a13bcf174c423bc8301bbe7e2b7bd697da2bf4e58d7cb658a"
     },
     {
       "kind": "json_schema",
       "path": "schemas/g2_holdout_candidate_universe.schema.json",
-      "sha256": "015e1ed51394cf9641d1bb10c612e68de24b72ea895cafd9d8973053e14b68b0"
+      "sha256": "e1a014cf63241c2b57373f7f4b40fcff7e8056fcd40f1917f5986eb46a5f26be"
     },
     {
       "kind": "json_schema",
@@ -114,7 +114,7 @@
     {
       "kind": "json_schema",
       "path": "schemas/g2_holdout_selection_receipt.schema.json",
-      "sha256": "ae1feb19c6fd5c199be88a51e80d4618d783815f9fb2efb96060e30d38663839"
+      "sha256": "a64ca56dd47711015236e5c965d129efeb75e84466e66d42c95ad9f83c323224"
     },
     {
       "kind": "json_schema",
@@ -363,7 +363,7 @@
     }
   ],
   "entry_count": 72,
-  "inventory_sha256": "72e5791e6dc8578f3eb119c27452b80276287a6d1f3a74b1556976d596868681",
+  "inventory_sha256": "1e1393be0054be8d69a7c747e1f2c866b693d194e7a4e4afcfbc482b21239847",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

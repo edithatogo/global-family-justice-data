@@ -1,0 +1,650 @@
+{
+  "as_of": "2026-08-15T04:12:10Z",
+  "denied_edition_ids": [
+    "ED-AUS-FCFCOA-2025",
+    "ED-AUS-FCFCOA-ANNUAL-2024-25",
+    "ED-AUS-TEST",
+    "ED-BRA-CNJ-JUSTICA-2026",
+    "ED-GBR-EAW-MOJ-FCSQ-2025Q4",
+    "ED-GBR-EAW-MOJ-FCSQ-2026Q1",
+    "ED-GBR-SCT-CIVJUST-2013-14",
+    "ED-GBR-SCT-CIVJUST-2022-23",
+    "ED-NZL-MOJ-2025",
+    "ED-SWE-DOMSTOLSVERKET-FAMILY-2025",
+    "ED-USA-MN-MJB-PERF-2024",
+    "ED-ZAF-JUDICIARY-ANNUAL-2024-25"
+  ],
+  "denied_source_series_ids": [
+    "AUS-FCFCOA-AR",
+    "BRA-CNJ-DATAJUD",
+    "CAN-BC-PC-TTT",
+    "ESP-CGPJ-DURATION",
+    "GBR-EAW-MOJ-FAMILY-Q",
+    "GBR-EAW-MOJ-FAMILY-COURT-STATISTICS-QUARTERLY",
+    "GBR-EAW-NUFFIELD-DT",
+    "GBR-SCT-GOV-CIVIL-JUSTICE-STATISTICS",
+    "IND-NJDG",
+    "INT-CEPEJ-2024",
+    "INT-CEPEJ-STAT",
+    "INT-HCCH-CA",
+    "INT-NCSC-COURTOOLS",
+    "INT-NCSC-FAMILY",
+    "INT-WJP-A2J",
+    "MEX-INEGI-CNIJE",
+    "NZL-MOJ-RESEARCH-DATA",
+    "SGP-JUD-STATS",
+    "SWE-DOMSTOLSVERKET",
+    "USA-CA-JCC-CSR",
+    "USA-MN-MJB",
+    "ZAF-JUD-ANNUAL"
+  ],
+  "denied_urls": [
+    "file:///Users/doughnut/Downloads/Annual-Report-2024-Performance-Measures.pdf",
+    "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/CNJ-JUSTICA-2026/justica-em-numeros-2026.pdf",
+    "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/FCFCOA-ANNUAL-2024-25/annual-report-2024-25.pdf",
+    "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/SA-JUDICIARY-2024-25/annual-judiciary-report-2024-25.pdf",
+    "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/direct-enquiries/SWE/Cases%20filed%20and%20determined%2C%20family%20cases%20in%20district%20courts%202025.xlsx",
+    "https://assets.publishing.service.gov.uk/media/6a3b9df8da47783d877238d4/FCSQ_2026_Q1.zip",
+    "https://assets.publishing.service.gov.uk/media/5aba29e1ed915d78b9a45d32/family-court-stats-guide.pdf",
+    "https://courts.ca.gov/news-reference/research-data/court-statistics",
+    "https://datajud-wiki.cnj.jus.br/api-publica/",
+    "https://mncourts.gov/help-topics/court-statistics",
+    "https://mncourts.gov/help-topics/court-statistics/publications-and-reports",
+    "https://njdg.ecourts.gov.in/",
+    "https://njdg.ecourts.gov.in/njdg_v3/",
+    "https://provincialcourt.bc.ca/about-court/reports-and-court-data",
+    "https://rm.coe.int/cepej-evaluation-report-2024-general-analyses/1680b1e91d",
+    "https://rm.coe.int/cepej-report-2020-22-e-web/1680a86279",
+    "https://rm.coe.int/evaluation-report-part-1-english/16809fc058",
+    "https://rm.coe.int/presentation-cepej-2024-eval-en/1680b1fb97",
+    "https://worldjusticeproject.org/access-to-justice-data/",
+    "https://www.cnj.jus.br/estatistica/",
+    "https://www.cnj.jus.br/paineis-cnj/",
+    "https://www.cnj.jus.br/pesquisas-judiciarias/justica-em-numeros/",
+    "https://www.cnj.jus.br/wp-content/uploads/2026/06/justica-em-numeros-2026.pdf",
+    "https://www.coe.int/en/web/cepej/cepej-stat",
+    "https://www.coe.int/en/web/cepej/special-file",
+    "https://www.domstol.se/domstolsverket/om-sveriges-domstolar/statistik-styrning-och-utveckling/statistik/officiell-domstolsstatistik/",
+    "https://www.fcfcoa.gov.au/fcc-annual-reports/2020-21/part-1",
+    "https://www.fcfcoa.gov.au/fcfcoa-annual-reports",
+    "https://www.fcfcoa.gov.au/fcfcoa-annual-reports/2024-25",
+    "https://www.fcfcoa.gov.au/fl/fcoa-annual-reports",
+    "https://www.gov.uk/government/collections/family-court-statistics-quarterly",
+    "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-october-to-december-2025",
+    "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-october-to-december-2025/family-court-statistics-quarterly-october-to-december-2025",
+    "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-october-to-december-2025/guide-to-family-court-statistics",
+    "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-january-to-march-2026",
+    "https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2015/07/civil-justice-statistics-scotland-2013-14/documents/civil-justice-statistics-scotland-2013-14/civil-justice-statistics-scotland-2013-14/govscot%3Adocument/00489564.pdf",
+    "https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2024/04/civil-justice-statistics-scotland-2022-23/documents/civil-justice-statistics-scotland-2022-23/civil-justice-statistics-scotland-2022-23/govscot%3Adocument/civil-justice-statistics-scotland-2022-23.pdf",
+    "https://www.gov.scot/collections/civil-justice-statistics/",
+    "https://www.gov.scot/publications/civil-justice-statistics-scotland-2013-14/",
+    "https://www.gov.scot/publications/civil-justice-statistics-scotland-2013-14/documents/",
+    "https://www.gov.scot/publications/civil-justice-statistics-scotland-2013-14/pages/3/",
+    "https://www.gov.scot/publications/civil-justice-statistics-scotland-2022-23/",
+    "https://www.gov.scot/publications/civil-justice-statistics-scotland-2022-23/pages/2/",
+    "https://www.hcch.net/en/instruments/conventions/specialised-sections/child-abduction",
+    "https://www.inegi.org.mx/programas/cnije/2025/",
+    "https://www.judiciary.gov.sg/who-we-are/statistics",
+    "https://www.judiciary.org.za/",
+    "https://www.judiciary.org.za/index.php/documents/judiciary-annual-reports",
+    "https://www.justice.govt.nz/justice-sector-policy/research-data/",
+    "https://www.mncourts.gov/Find-Courts/Fourth-Judicial-District/Publications-and-Reports-Hennepin.aspx",
+    "https://www.mncourts.gov/dashboards",
+    "https://www.ncsc.org/our-centers-projects/courtools",
+    "https://www.ncsc.org/resources-courts/family-justice-performance-measures",
+    "https://www.nuffieldfjo.org.uk/data-tracker",
+    "https://www.poderjudicial.es/cgpj/es/Temas/Transparencia/Estimacion-de-los-tiempos-medios-de-duracion-de-los-procedimientos-judiciales/"
+  ],
+  "design_id": "G2HOLDOUT-PROSPECTIVE-20260815-01",
+  "entries": [
+    {
+      "edition_id": "ED-AUS-FCFCOA-ANNUAL-2024-25",
+      "evidence_paths": [
+        "data/raw/manifests/ACQ-AUS-FCFCOA-AR-20260801T051117Z-E251DA7A.json",
+        "data/methods/g2/G2PKT-REAL-PILOT-20260815-01/packet.json",
+        "data/methods/g2/G2PKT-REAL-PILOT-20260815-05/packet.json",
+        "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-05/primary/receipt.json",
+        "build/pilot-official-searches.json"
+      ],
+      "exposure_class": "content_inspected",
+      "reason": "The exact edition was acquired, bound into packets 01 through 05, repeatedly extracted and directly inspected during diagnostic and reconciliation work; the series also appeared in earlier metadata fetches and pilot searches.",
+      "source_series_id": "AUS-FCFCOA-AR",
+      "urls": [
+        "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/FCFCOA-ANNUAL-2024-25/annual-report-2024-25.pdf",
+        "https://www.fcfcoa.gov.au/fcfcoa-annual-reports/2024-25",
+        "https://www.fcfcoa.gov.au/fcfcoa-annual-reports",
+        "https://www.fcfcoa.gov.au/fl/fcoa-annual-reports",
+        "https://www.fcfcoa.gov.au/fcc-annual-reports/2020-21/part-1"
+      ]
+    },
+    {
+      "edition_id": "ED-USA-MN-MJB-PERF-2024",
+      "evidence_paths": [
+        "data/raw/manifests/ACQ-USA-MN-MJB-20260814T144054Z-32931494.json",
+        "data/methods/g2/G2PKT-REAL-PILOT-20260815-01/packet.json",
+        "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-03/panels/reconciliation-report.json",
+        "build/pilot-official-searches.json"
+      ],
+      "exposure_class": "content_inspected",
+      "reason": "The exact edition was acquired, bound into packets 01 through 05, repeatedly extracted and directly inspected during hierarchy reconciliation; related dashboard and reporting routes were also used during preparation.",
+      "source_series_id": "USA-MN-MJB",
+      "urls": [
+        "file:///Users/doughnut/Downloads/Annual-Report-2024-Performance-Measures.pdf",
+        "https://mncourts.gov/help-topics/court-statistics/publications-and-reports",
+        "https://www.mncourts.gov/dashboards",
+        "https://mncourts.gov/help-topics/court-statistics",
+        "https://www.mncourts.gov/Find-Courts/Fourth-Judicial-District/Publications-and-Reports-Hennepin.aspx"
+      ]
+    },
+    {
+      "edition_id": "ED-BRA-CNJ-JUSTICA-2026",
+      "evidence_paths": [
+        "data/raw/manifests/ACQ-BRA-CNJ-DATAJUD-20260801T052351Z-3415D516.json",
+        "data/methods/g2/G2PKT-REAL-PILOT-20260815-05/packet.json",
+        "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-03/panels/reconciliation-report.json",
+        "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-05/panels/source-boundary-report.json",
+        "build/pilot-official-searches.json"
+      ],
+      "exposure_class": "content_inspected",
+      "reason": "The exact edition and embedded dashboard figure were acquired, bound into packets 01 through 05, repeatedly extracted and directly rendered for reconciliation; related DataJud routes were previously fetched or searched.",
+      "source_series_id": "BRA-CNJ-DATAJUD",
+      "urls": [
+        "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/CNJ-JUSTICA-2026/justica-em-numeros-2026.pdf",
+        "https://www.cnj.jus.br/wp-content/uploads/2026/06/justica-em-numeros-2026.pdf",
+        "https://datajud-wiki.cnj.jus.br/api-publica/",
+        "https://www.cnj.jus.br/estatistica/",
+        "https://www.cnj.jus.br/paineis-cnj/",
+        "https://www.cnj.jus.br/pesquisas-judiciarias/justica-em-numeros/"
+      ]
+    },
+    {
+      "edition_id": "ED-ZAF-JUDICIARY-ANNUAL-2024-25",
+      "evidence_paths": [
+        "data/raw/manifests/ACQ-ZAF-JUD-ANNUAL-20260801T051403Z-24991662.json",
+        "data/methods/g2/G2PKT-REAL-PILOT-20260815-01/packet.json",
+        "data/methods/g2/G2PKT-REAL-PILOT-20260815-05/packet.json",
+        "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-05/primary/receipt.json",
+        "build/pilot-official-searches.json"
+      ],
+      "exposure_class": "content_inspected",
+      "reason": "The exact edition was acquired, bound into packets 01 through 05, repeatedly extracted and directly inspected; the annual-report series and landing routes were also used in earlier sourcing.",
+      "source_series_id": "ZAF-JUD-ANNUAL",
+      "urls": [
+        "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/SA-JUDICIARY-2024-25/annual-judiciary-report-2024-25.pdf",
+        "https://www.judiciary.org.za/",
+        "https://www.judiciary.org.za/index.php/documents/judiciary-annual-reports"
+      ]
+    },
+    {
+      "edition_id": "ED-SWE-DOMSTOLSVERKET-FAMILY-2025",
+      "evidence_paths": [
+        "data/raw/manifests/ACQ-SWE-DOMSTOLSVERKET-20260801T034016Z-47A751D4.json",
+        "data/census/direct_enquiry_register.csv",
+        "data/seed/source_edition_template.csv",
+        "data/raw/archive_inventory.csv"
+      ],
+      "exposure_class": "content_inspected",
+      "reason": "The exact workbook was acquired from an official response and the repository records content-level categories and selected aggregate totals; it is therefore not unseen even though it was not part of packets 01 through 05.",
+      "source_series_id": "SWE-DOMSTOLSVERKET",
+      "urls": [
+        "file:///Volumes/PortableSSD/GitHub/global-family-justice-data/global-family-justice-data/data/raw/files/direct-enquiries/SWE/Cases%20filed%20and%20determined%2C%20family%20cases%20in%20district%20courts%202025.xlsx",
+        "https://www.domstol.se/domstolsverket/om-sveriges-domstolar/statistik-styrning-och-utveckling/statistik/officiell-domstolsstatistik/"
+      ]
+    },
+    {
+      "edition_id": "ED-GBR-EAW-MOJ-FCSQ-2026Q1",
+      "evidence_paths": [
+        "data/raw/manifests/ACQ-GBR-EAW-MOJ-FAMILY-Q-20260731T222608Z-8EA47087.json",
+        "data/seed/source_edition_template.csv",
+        "data/raw/archive_inventory.csv",
+        "data/census/search_log.csv"
+      ],
+      "exposure_class": "extractor_preparation",
+      "reason": "The exact archive was acquired and its member-level acquisition and candidate-preparation evidence was reviewed before the prospective holdout; treating it as unseen would be unsafe even though it was not in packets 01 through 05.",
+      "source_series_id": "GBR-EAW-MOJ-FAMILY-Q",
+      "urls": [
+        "https://assets.publishing.service.gov.uk/media/6a3b9df8da47783d877238d4/FCSQ_2026_Q1.zip",
+        "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-january-to-march-2026",
+        "https://www.gov.uk/government/collections/family-court-statistics-quarterly"
+      ]
+    },
+    {
+      "edition_id": "ED-GBR-EAW-MOJ-FCSQ-2026Q1",
+      "evidence_paths": [
+        "data/seed/source_edition_template.csv",
+        "build/g2-blind-holdout/intake/candidates-west.json"
+      ],
+      "exposure_class": "content_inspected",
+      "reason": "This is the normalized-series alias for the already acquired 2026 Q1 exact edition. The alias is denied to prevent the selector from treating a naming difference as non-overlap.",
+      "source_series_id": "GBR-EAW-MOJ-FAMILY-COURT-STATISTICS-QUARTERLY",
+      "urls": [
+        "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-january-to-march-2026",
+        "https://www.gov.uk/government/collections/family-court-statistics-quarterly"
+      ]
+    },
+    {
+      "edition_id": "ED-GBR-EAW-MOJ-FCSQ-2025Q4",
+      "evidence_paths": [
+        "build/g2-blind-holdout/intake/candidates-west.json"
+      ],
+      "exposure_class": "content_inspected",
+      "reason": "Official search-index metadata exposed substantive 2025 Q4 family-court values and older guide/PDF snippets during candidate discovery. The exact edition, series alias and surfaced URLs are contaminated and denied even though no PDF was opened.",
+      "source_series_id": "GBR-EAW-MOJ-FAMILY-COURT-STATISTICS-QUARTERLY",
+      "urls": [
+        "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-october-to-december-2025",
+        "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-october-to-december-2025/family-court-statistics-quarterly-october-to-december-2025",
+        "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-october-to-december-2025/guide-to-family-court-statistics",
+        "https://assets.publishing.service.gov.uk/media/5aba29e1ed915d78b9a45d32/family-court-stats-guide.pdf"
+      ]
+    },
+    {
+      "edition_id": "ED-GBR-SCT-CIVJUST-2022-23",
+      "evidence_paths": [
+        "build/g2-blind-holdout/intake/candidates-west.json"
+      ],
+      "exposure_class": "content_inspected",
+      "reason": "Official search-index metadata exposed source-content snippets and family-case context for the 2022-23 edition. The edition, series and URLs are denied without opening the PDF.",
+      "source_series_id": "GBR-SCT-GOV-CIVIL-JUSTICE-STATISTICS",
+      "urls": [
+        "https://www.gov.scot/collections/civil-justice-statistics/",
+        "https://www.gov.scot/publications/civil-justice-statistics-scotland-2022-23/",
+        "https://www.gov.scot/publications/civil-justice-statistics-scotland-2022-23/pages/2/",
+        "https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2024/04/civil-justice-statistics-scotland-2022-23/documents/civil-justice-statistics-scotland-2022-23/civil-justice-statistics-scotland-2022-23/govscot%3Adocument/civil-justice-statistics-scotland-2022-23.pdf"
+      ]
+    },
+    {
+      "edition_id": "ED-GBR-SCT-CIVJUST-2013-14",
+      "evidence_paths": [
+        "build/g2-blind-holdout/intake/candidates-west.json"
+      ],
+      "exposure_class": "content_inspected",
+      "reason": "Official search-index metadata exposed source-content snippets, supporting-document structure and family statistics context for the 2013-14 edition. The edition, series and URLs are denied without opening the PDF.",
+      "source_series_id": "GBR-SCT-GOV-CIVIL-JUSTICE-STATISTICS",
+      "urls": [
+        "https://www.gov.scot/publications/civil-justice-statistics-scotland-2013-14/",
+        "https://www.gov.scot/publications/civil-justice-statistics-scotland-2013-14/documents/",
+        "https://www.gov.scot/publications/civil-justice-statistics-scotland-2013-14/pages/3/",
+        "https://www.gov.scot/binaries/content/documents/govscot/publications/statistics/2015/07/civil-justice-statistics-scotland-2013-14/documents/civil-justice-statistics-scotland-2013-14/civil-justice-statistics-scotland-2013-14/govscot%3Adocument/00489564.pdf"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "build/source-fetch/cepej-fallback-manifest.json",
+        "build/source-fetch/cepej-alternatives-manifest.json",
+        "data/seed/source_access_fallbacks.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The database route was used and an official report fallback with recorded bytes and digest was downloaded. The repository does not prove that content inspection was absent, so the series and recorded URLs are denied.",
+      "source_series_id": "INT-CEPEJ-STAT",
+      "urls": [
+        "https://www.coe.int/en/web/cepej/cepej-stat",
+        "https://rm.coe.int/cepej-evaluation-report-2024-general-analyses/1680b1e91d"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/cepej-fallback-manifest.json",
+        "build/source-fetch/cepej-alternatives-manifest.json",
+        "data/seed/source_access_fallbacks.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "Four official CEPEJ PDF alternatives were downloaded and checksummed before the holdout. Exact formal edition identifiers and the extent of any content review are not completely recorded, so all objects and the series are denied.",
+      "source_series_id": "INT-CEPEJ-2024",
+      "urls": [
+        "https://www.coe.int/en/web/cepej/special-file",
+        "https://rm.coe.int/cepej-evaluation-report-2024-general-analyses/1680b1e91d",
+        "https://rm.coe.int/evaluation-report-part-1-english/16809fc058",
+        "https://rm.coe.int/presentation-cepej-2024-eval-en/1680b1fb97",
+        "https://rm.coe.int/cepej-report-2020-22-e-web/1680a86279"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "data/seed/source_register.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The live HTML content was fetched and checksummed during prior source review; no exact PDF edition boundary was recorded, so the series and URL are denied.",
+      "source_series_id": "INT-NCSC-COURTOOLS",
+      "urls": [
+        "https://www.ncsc.org/our-centers-projects/courtools"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "data/seed/source_register.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The live HTML content was fetched and checksummed during prior source review; no exact publication-edition boundary was recorded, so the series and URL are denied.",
+      "source_series_id": "INT-NCSC-FAMILY",
+      "urls": [
+        "https://www.ncsc.org/resources-courts/family-justice-performance-measures"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "data/seed/source_register.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The live portal content was fetched and checksummed during prior source review; no exact publication-edition boundary was recorded, so the series and URL are denied.",
+      "source_series_id": "INT-HCCH-CA",
+      "urls": [
+        "https://www.hcch.net/en/instruments/conventions/specialised-sections/child-abduction"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "data/seed/source_register.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The live source content was fetched and checksummed during prior source review; no exact publication-edition boundary was recorded, so the series and URL are denied.",
+      "source_series_id": "INT-WJP-A2J",
+      "urls": [
+        "https://worldjusticeproject.org/access-to-justice-data/"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "tests/test_comparability.py",
+        "data/seed/source_register.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The live source content was fetched and checksummed during prior source review and the series was also used in comparability fixtures; absent an exact prior-edition boundary, the series and URL are denied.",
+      "source_series_id": "NZL-MOJ-RESEARCH-DATA",
+      "urls": [
+        "https://www.justice.govt.nz/justice-sector-policy/research-data/"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "data/seed/source_register.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The live statistics page was fetched and checksummed during prior source review; no exact report-edition boundary was recorded, so the series and URL are denied.",
+      "source_series_id": "SGP-JUD-STATS",
+      "urls": [
+        "https://www.judiciary.gov.sg/who-we-are/statistics"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "data/seed/source_register.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The live reports-and-data page was fetched and checksummed during prior source review; no exact report-edition boundary was recorded, so the series and URL are denied.",
+      "source_series_id": "CAN-BC-PC-TTT",
+      "urls": [
+        "https://provincialcourt.bc.ca/about-court/reports-and-court-data"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "data/seed/source_register.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The live court-statistics page was fetched and checksummed during prior source review; no exact report-edition boundary was recorded, so the series and URL are denied.",
+      "source_series_id": "USA-CA-JCC-CSR",
+      "urls": [
+        "https://courts.ca.gov/news-reference/research-data/court-statistics"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "data/seed/source_register.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The live dashboard route was fetched and checksummed during prior source review; no exact snapshot-edition boundary was recorded, so the series and URLs are denied.",
+      "source_series_id": "IND-NJDG",
+      "urls": [
+        "https://njdg.ecourts.gov.in/",
+        "https://njdg.ecourts.gov.in/njdg_v3/"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "data/seed/source_register.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The live 2025 census-programme page was fetched and checksummed during prior source review; no exact PDF-edition boundary was recorded, so the series and URL are denied.",
+      "source_series_id": "MEX-INEGI-CNIJE",
+      "urls": [
+        "https://www.inegi.org.mx/programas/cnije/2025/"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "data/seed/source_register.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The live duration-statistics page was fetched and checksummed during prior source review; no exact export-edition boundary was recorded, so the series and URL are denied.",
+      "source_series_id": "ESP-CGPJ-DURATION",
+      "urls": [
+        "https://www.poderjudicial.es/cgpj/es/Temas/Transparencia/Estimacion-de-los-tiempos-medios-de-duracion-de-los-procedimientos-judiciales/"
+      ]
+    },
+    {
+      "edition_id": null,
+      "evidence_paths": [
+        "build/source-fetch/source-fetch-manifest.json",
+        "data/seed/source_register.csv"
+      ],
+      "exposure_class": "uncertain_prior_exposure",
+      "reason": "The live data-tracker content was fetched and checksummed during prior source review; no exact snapshot-edition boundary was recorded, so the series and URL are denied.",
+      "source_series_id": "GBR-EAW-NUFFIELD-DT",
+      "urls": [
+        "https://www.nuffieldfjo.org.uk/data-tracker"
+      ]
+    },
+    {
+      "edition_id": "ED-AUS-FCFCOA-2025",
+      "evidence_paths": [
+        "tests/helpers.py"
+      ],
+      "exposure_class": "calibration_or_test",
+      "reason": "This exact edition identity and real-series identifier are embedded in reusable pipeline, quality and comparability test fixtures, so the identity is denied even though the fixture values are synthetic.",
+      "source_series_id": "AUS-FCFCOA-AR",
+      "urls": []
+    },
+    {
+      "edition_id": "ED-NZL-MOJ-2025",
+      "evidence_paths": [
+        "tests/test_comparability.py"
+      ],
+      "exposure_class": "calibration_or_test",
+      "reason": "This exact edition identity and real-series identifier are embedded in comparability test fixtures, so the identity is denied even though the fixture values are synthetic.",
+      "source_series_id": "NZL-MOJ-RESEARCH-DATA",
+      "urls": []
+    },
+    {
+      "edition_id": "ED-AUS-TEST",
+      "evidence_paths": [
+        "tests/test_g2_concordance.py",
+        "tests/test_g2_evidence_schemas.py"
+      ],
+      "exposure_class": "calibration_or_test",
+      "reason": "This exact edition identity and source-series identifier are used throughout the G2 comparator and evidence-schema calibration tests and therefore cannot be admitted as unseen.",
+      "source_series_id": "AUS-FCFCOA-AR",
+      "urls": []
+    }
+  ],
+  "evidence_artifacts": [
+    {
+      "path": "config/g2_blind_holdout_plan.json",
+      "sha256": "ab78bb8a609cda84931b1a441c91205a10db28793e0f9f2aabf5371df412a83e"
+    },
+    {
+      "path": "docs/methods/g2-prospective-blind-holdout-plan-2026-08-15.md",
+      "sha256": "5a8bee0524970cc25831461be8c5bb9164ca328907c9090220d9c104d640d5ad"
+    },
+    {
+      "path": "docs/governance/g2-blind-holdout-design-owner-decision-2026-08-15.md",
+      "sha256": "f3b12478c7c17bfcbd9bc84f7bdb50b050ed522b65ae61679d04f586d06c3340"
+    },
+    {
+      "path": "data/seed/source_register.csv",
+      "sha256": "16023b6b560c141bb81be13b23f061481aa5b598ead7a24db4cff1f327c9fa4e"
+    },
+    {
+      "path": "data/seed/source_edition_template.csv",
+      "sha256": "c0a97f57e63b1bd8d53604b7a8dd5184285252c0159541caf52d0874dd23f130"
+    },
+    {
+      "path": "data/seed/source_access_fallbacks.csv",
+      "sha256": "205d4f4c364aa79e86d202784a3daa1e0f8a650cd5d42b28a67521a4105e1925"
+    },
+    {
+      "path": "data/raw/archive_inventory.csv",
+      "sha256": "1f65970b53a46c41f02eb23b3ba1168680589ad60a5257a7974448acb416e431"
+    },
+    {
+      "path": "data/raw/manifests/ACQ-AUS-FCFCOA-AR-20260801T051117Z-E251DA7A.json",
+      "sha256": "4df2b158bd6975f8222c943e7d186774a8b122a85983ae57bec516d2a2452fb6"
+    },
+    {
+      "path": "data/raw/manifests/ACQ-BRA-CNJ-DATAJUD-20260801T052351Z-3415D516.json",
+      "sha256": "aaa22969f265f0a9021c8355d3f2357994753aeb6465c69d14a18e9bd9509a0c"
+    },
+    {
+      "path": "data/raw/manifests/ACQ-GBR-EAW-MOJ-FAMILY-Q-20260731T222608Z-8EA47087.json",
+      "sha256": "eecddb07e787c703113bcc7363b68cc91f1c0890ed1e3757b8abed5b832f8c31"
+    },
+    {
+      "path": "data/raw/manifests/ACQ-SWE-DOMSTOLSVERKET-20260801T034016Z-47A751D4.json",
+      "sha256": "1a56bcfb3cce545d5102d91efc6871120502c2f09ea2eee39a383cc7000bc3b1"
+    },
+    {
+      "path": "data/raw/manifests/ACQ-USA-MN-MJB-20260814T144054Z-32931494.json",
+      "sha256": "0a4e45a77393dc7f316a2242a0d5788c8a6c0a8c966c0395b64fff471808eb69"
+    },
+    {
+      "path": "data/raw/manifests/ACQ-ZAF-JUD-ANNUAL-20260801T051403Z-24991662.json",
+      "sha256": "463fe5c79e03492d258dda47c4190af286ace08df31a8c2e15247dc3d567e8e8"
+    },
+    {
+      "path": "data/census/search_log.csv",
+      "sha256": "06370c4b17f019e72b27d93ac97ebd0b731d6283ee6753e9d2a864a4ac373af6"
+    },
+    {
+      "path": "data/census/direct_enquiry_register.csv",
+      "sha256": "6257e95dd34cc8c030b2aec8f62a06cafb01413e0cdc2e27cb7a3ec2a322937c"
+    },
+    {
+      "path": "build/pilot-official-searches.json",
+      "sha256": "26bb431edc2d74d280d5302d33df4d8c5f328627076f1f0918c039adc44d0a54"
+    },
+    {
+      "path": "build/g2-blind-holdout/intake/candidates-west.json",
+      "sha256": "86270a362611d217a3aeb48ba6c1a3aebffe134c4464ffa77afdb12bb7852733"
+    },
+    {
+      "path": "build/public-searches/search-receipts.json",
+      "sha256": "e670143cbfc2a38a786cf29972f3e18efb4f1a12d62d15409cc6c4a316501f6c"
+    },
+    {
+      "path": "build/source-fetch/source-fetch-manifest.json",
+      "sha256": "6e91433c3bb762f295aa5b3d6a1531b14356aaa71628d8827ea81f4257373dbb"
+    },
+    {
+      "path": "build/source-fetch/cepej-fallback-manifest.json",
+      "sha256": "318c31b778ca304e92092541639fb774b2aee724febc87f8ee28dcbb519d2980"
+    },
+    {
+      "path": "build/source-fetch/cepej-alternatives-manifest.json",
+      "sha256": "3c38ce0cdc35a439ff79b96df4755635a3f0fd316fad476ca70b362b8a302ffb"
+    },
+    {
+      "path": "tests/helpers.py",
+      "sha256": "c279aaaab9ade7b67565513d8caf88ca178c611271a18c308946e3a893a74b62"
+    },
+    {
+      "path": "tests/test_comparability.py",
+      "sha256": "e71260a0eb8f620deae3223cf43fecfdc2d599fb7132d251329caa8981c826ae"
+    },
+    {
+      "path": "tests/test_g2_concordance.py",
+      "sha256": "033e5f925294e3028f55d688ce51f52ac14673271236df70556ec8845d52c234"
+    },
+    {
+      "path": "tests/test_g2_evidence_schemas.py",
+      "sha256": "567e1d169806952d085f539164498bc3376d6adadc4d767abba920376d150cc0"
+    },
+    {
+      "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-01/packet.json",
+      "sha256": "c76b2314c68d3bf269e1e8ce3c8abd02206a6ea26ee8aaedcabc2dcdbf723e06"
+    },
+    {
+      "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-02/packet.json",
+      "sha256": "1b090a4e9e8a856755870cf7ec779f91439e7c5460a86f230c4a5447e3129e29"
+    },
+    {
+      "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-03/packet.json",
+      "sha256": "6e9e21f8ffeaeb217f93b0d279cd0bb21de2dbf23f0766604b3660ec1ade542d"
+    },
+    {
+      "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-04/packet.json",
+      "sha256": "804cce08e4100132beb8b3bfa022f45daeeabf048e6f3b9ad4ed62a153f43b86"
+    },
+    {
+      "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-05/packet.json",
+      "sha256": "6e10d325249fe8942942e9139f04773bb6b169f3e75d06ef691145b34996e198"
+    },
+    {
+      "path": "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-01/primary/receipt.json",
+      "sha256": "0def41bcf2a36a7ce963c3fe447f7e980b445cff5834ba65c721dd3e0f4208c0"
+    },
+    {
+      "path": "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-03/secondary/receipt.json",
+      "sha256": "22d7822ba49ef25c69ae784435abea92b98ba991bd40162ab6a9615f955b8234"
+    },
+    {
+      "path": "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-05/primary/receipt.json",
+      "sha256": "e5d9858e1e434f0471a5239f6d1f9b5bd026b315ca4a366e0e65947649cbd173"
+    },
+    {
+      "path": "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-03/panels/reconciliation-report.json",
+      "sha256": "7fe7a64de4611ad09ca360ccb6b3a94464a66b05b5bcffb8cfedfc6f5af60c12"
+    },
+    {
+      "path": "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-05/panels/source-boundary-report.json",
+      "sha256": "81b4f35cc67bfd2c2af7fe69f04a7e7a9de62508f0d6875456c6c55b7351789e"
+    }
+  ],
+  "ledger_id": "G2HOLDOUT-EXPOSURE-PROSPECTIVE-20260815-01",
+  "limitations": [
+    "This ledger is intentionally conservative: all 20 pre-existing registered source series are denied because prior content fetch, exact-edition use, fixture use or the boundary between metadata and content exposure cannot be proven absent.",
+    "The four packet editions are definite content exposures; the Swedish workbook is also definite content exposure; the England and Wales archive is denied as extractor preparation even though it was not used in packets 01 through 05.",
+    "The four CEPEJ alternatives were downloaded before this registration. Their recorded metadata digests were used, but their bytes were not opened or re-hashed during this registration.",
+    "The 164 public-search receipts record failed search-endpoint attempts with zero result bytes; their DuckDuckGo query URLs are not source-content URLs and are therefore evidenced but not added to the candidate denylist.",
+    "Official search-index metadata surfaced substantive snippets for England and Wales 2025 Q4 and Scottish 2022-23 and 2013-14 editions. Those editions and series were denied immediately; no linked PDF was opened, rendered, downloaded, transcribed or hashed.",
+    "Synthetic fixture identities are denied to prevent accidental collision with prospective candidates; no claim is made that their fictional values represent real source content.",
+    "No PDF, spreadsheet, archive, image, source byte, sealed extraction output or source excerpt was opened, rendered, read, downloaded, transcribed or newly hashed while producing this ledger.",
+    "This is a draft universe-registrar receipt. It is not owner acceptance, acquisition authority, content-inspection authority, extraction authority, a rights decision, G2 passage, publication or release authority."
+  ],
+  "metadata_only": true,
+  "schema_version": "1.0",
+  "source_content_accessed_during_registration": false
+}

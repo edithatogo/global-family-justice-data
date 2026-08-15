@@ -1,0 +1,213 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2_HOLDOUT_INTAKE_STOP_RISK_20260815",
+  "packet_id": "G2HOLDOUT-SELECTION-PROSPECTIVE-20260815-01",
+  "packet_sha256": "2cff56251b1a7ac333b192e757ccdf4a65ee7d7af425bdf860ed0fe140cf4bf1",
+  "role": "risk, rights-boundary and operations stop-review adviser",
+  "agent_session_id": "/root/g2_holdout_stop_risk_panel",
+  "tool_or_model": "OpenAI Codex",
+  "tool_or_model_version": "GPT-5.6",
+  "generated_at": "2026-08-15T04:32:01Z",
+  "evidence_inputs": [
+    {
+      "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/selection/selection-receipt.json",
+      "sha256": "2cff56251b1a7ac333b192e757ccdf4a65ee7d7af425bdf860ed0fe140cf4bf1"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/selection/candidate-manifest.json",
+      "sha256": "ede06118d1c121b428ca5bb746ae0d70efdceb306455359fa0ae16bc9daee1a3"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/candidate-universe.json",
+      "sha256": "3b5642e3e24ca73bc174f86f61bfc2a83671970019873f841025f49c81b50529"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/exposure-ledger.json",
+      "sha256": "44cb2c2671000751daa340eceabac9ccfe452132a4c91e3e393e3740aaef0492"
+    },
+    {
+      "path": "docs/governance/g2-blind-holdout-design-owner-decision-2026-08-15.md",
+      "sha256": "f3b12478c7c17bfcbd9bc84f7bdb50b050ed522b65ae61679d04f586d06c3340"
+    },
+    {
+      "path": "docs/methods/g2-prospective-blind-holdout-plan-2026-08-15.md",
+      "sha256": "5a8bee0524970cc25831461be8c5bb9164ca328907c9090220d9c104d640d5ad"
+    },
+    {
+      "path": "config/g2_blind_holdout_plan.json",
+      "sha256": "ab78bb8a609cda84931b1a441c91205a10db28793e0f9f2aabf5371df412a83e"
+    }
+  ],
+  "verdict": "fail",
+  "findings": [
+    {
+      "finding_id": "G2INTAKE-STOP-01",
+      "severity": "critical",
+      "claim": "The frozen metadata intake correctly stopped: the 58-candidate universe yielded zero selector-eligible candidates, an empty primary and reserve manifest, and scope_complete=false for the required 24 primaries plus six reserves.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/selection/selection-receipt.json",
+          "sha256": "2cff56251b1a7ac333b192e757ccdf4a65ee7d7af425bdf860ed0fe140cf4bf1"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/selection/candidate-manifest.json",
+          "sha256": "ede06118d1c121b428ca5bb746ae0d70efdceb306455359fa0ae16bc9daee1a3"
+        }
+      ],
+      "uncertainty": "This review did not access candidate source content and therefore cannot test whether any rejected candidate would prove suitable after acquisition.",
+      "remediation": "Preserve the intake, universe, manifest and receipt as immutable stopped evidence. Do not rerun selection over revised metadata under the same frozen intake without a new owner decision and a separately identified, prospectively bounded intake lineage."
+    },
+    {
+      "finding_id": "G2INTAKE-RIGHTS-02",
+      "severity": "high",
+      "claim": "A further metadata-only pass may resolve some landing-page, direct-URL and public-licence evidence, but it cannot realistically be relied on to establish all exact-edition rights screens required by this design: 43 of 58 candidates have uncertain rights and terms screens, while only 15 have no known metadata blocker.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/candidate-universe.json",
+          "sha256": "3b5642e3e24ca73bc174f86f61bfc2a83671970019873f841025f49c81b50529"
+        },
+        {
+          "path": "docs/governance/g2-blind-holdout-design-owner-decision-2026-08-15.md",
+          "sha256": "f3b12478c7c17bfcbd9bc84f7bdb50b050ed522b65ae61679d04f586d06c3340"
+        }
+      ],
+      "uncertainty": "A publisher may expose edition-linked licence or reuse metadata on an unexamined public catalogue page, but a generic site notice would not necessarily establish the acts permitted for a particular PDF or its third-party components. This is advisory screening, not a legal or rights determination.",
+      "remediation": "If the owner authorizes one more metadata pass, restrict eligibility to editions with an official edition record, exact PDF locator, explicit edition-linked or clearly applicable public licence or reuse statement, and documented metadata-only privacy, security and aggregate-data screens. Anything ambiguous remains ineligible; no owner rights acceptance may be inferred."
+    },
+    {
+      "finding_id": "G2INTAKE-RASTER-03",
+      "severity": "critical",
+      "claim": "The embedded-raster-or-dashboard stratum is not realistically fillable under the present metadata-only rule and frozen sample size: only one of 58 candidates has that stratum supported by public metadata, but the frozen allocation requires six primaries and two raster reserves.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/candidate-universe.json",
+          "sha256": "3b5642e3e24ca73bc174f86f61bfc2a83671970019873f841025f49c81b50529"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/selection/candidate-manifest.json",
+          "sha256": "ede06118d1c121b428ca5bb746ae0d70efdceb306455359fa0ae16bc9daee1a3"
+        },
+        {
+          "path": "docs/methods/g2-prospective-blind-holdout-plan-2026-08-15.md",
+          "sha256": "5a8bee0524970cc25831461be8c5bb9164ca328907c9090220d9c104d640d5ad"
+        }
+      ],
+      "uncertainty": "Additional official catalogue records may explicitly call a PDF an infographic, image-only report or dashboard export. However, rasterization and text-layer properties are ordinarily file characteristics and cannot be established safely from a title, language or generic annual-report description.",
+      "remediation": "Do not relabel uncertain candidates. Either find at least eight official edition records whose public metadata expressly supports the raster/dashboard class, or prepare a successor design that allows a fresh role-isolated custodian to perform a tightly limited structural preflight before selection while keeping all extractor roles blind. The latter changes the current design and requires separate owner authorization before any byte acquisition."
+    },
+    {
+      "finding_id": "G2INTAKE-METADATA-04",
+      "severity": "high",
+      "claim": "The remaining metadata gaps are too large for an unbounded retry: 41 of 58 candidates lack an exact source URL, 52 lack metadata-supported stratum classification, eight lack established exact-edition identity, and only one candidate is marked eligible_metadata_only before exposure and selector checks.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/candidate-universe.json",
+          "sha256": "3b5642e3e24ca73bc174f86f61bfc2a83671970019873f841025f49c81b50529"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/selection/selection-receipt.json",
+          "sha256": "2cff56251b1a7ac333b192e757ccdf4a65ee7d7af425bdf860ed0fe140cf4bf1"
+        }
+      ],
+      "uncertainty": "Some exact links may be recoverable from official HTML indexes, catalog APIs or machine-readable metadata without fetching the PDF, but this review cannot estimate how many would also satisfy rights, structure, privacy and exposure criteria.",
+      "remediation": "Any rescue pass must have a fixed query/source budget, immutable candidate additions and corrections, an explicit deadline, complete access logs, and the same fail-closed screens. It must stop unless all 30 slots and every frozen distribution constraint are satisfied without source-content access."
+    },
+    {
+      "finding_id": "G2INTAKE-EXPOSURE-05",
+      "severity": "high",
+      "claim": "The complete exposure denylist remains binding and further candidate work must not rehabilitate an exposed edition or source series merely because another edition or URL is discovered.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/exposure-ledger.json",
+          "sha256": "44cb2c2671000751daa340eceabac9ccfe452132a4c91e3e393e3740aaef0492"
+        },
+        {
+          "path": "docs/governance/g2-blind-holdout-design-owner-decision-2026-08-15.md",
+          "sha256": "f3b12478c7c17bfcbd9bc84f7bdb50b050ed522b65ae61679d04f586d06c3340"
+        }
+      ],
+      "uncertainty": "The ledger records 27 exposure entries, but no claim is made that public discovery outside the repository would reveal no additional overlap. Uncertainty itself remains disqualifying.",
+      "remediation": "Carry the current denied edition IDs, series IDs and URLs forward unchanged; append newly discovered exposure evidence rather than replacing history. Require the deterministic selector to verify non-overlap again against the complete cumulative ledger."
+    },
+    {
+      "finding_id": "G2INTAKE-AUTHORITY-06",
+      "severity": "critical",
+      "claim": "The current owner decision authorized metadata preparation but required any inability to assemble scope to stop and return to the owner; it did not authorize a second intake, source-byte acquisition, structural inspection, rights acceptance, extraction or execution.",
+      "evidence_references": [
+        {
+          "path": "docs/governance/g2-blind-holdout-design-owner-decision-2026-08-15.md",
+          "sha256": "f3b12478c7c17bfcbd9bc84f7bdb50b050ed522b65ae61679d04f586d06c3340"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/selection/selection-receipt.json",
+          "sha256": "2cff56251b1a7ac333b192e757ccdf4a65ee7d7af425bdf860ed0fe140cf4bf1"
+        }
+      ],
+      "uncertainty": "The sole owner may choose a bounded metadata rescue or a successor design, but neither follows automatically from the prior authorization.",
+      "remediation": "Obtain a new digest-bound owner decision identifying the stopped receipt and selecting exactly one next phase. Preserve the frozen concordance thresholds, role isolation, exposure controls, no-rights-acceptance boundary and publication/release prohibition."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "A",
+      "description": "Close this intake as a valid stopped result and prepare, but do not execute, a successor design that permits role-isolated acquisition custody and a non-substantive structural preflight before final selection.",
+      "trade_offs": [
+        "Addresses the core raster-classification evidence gap directly while preserving extractor blindness.",
+        "Requires a new prospective design, new lineage, new packet and another owner decision before any bytes are acquired.",
+        "Creates controlled local exposure for the custodian and eligibility reviewer even though extraction agents remain unseen."
+      ],
+      "limitations": [
+        "Structural preflight cannot itself clear rights, privacy, security or prohibited-data issues.",
+        "This changes the approved metadata-before-acquisition sequence and therefore cannot be represented as execution of the frozen design.",
+        "No guarantee exists that 24 plus six lawful, eligible editions will be found."
+      ],
+      "contingency": "If the successor design cannot define a content-minimizing structural inspection, exact access logs and enforceable role isolation, terminate the holdout and retain G2 as blocked. Minimum owner wording: I accept G2HOLDOUT-SELECTION-PROSPECTIVE-20260815-01 as a stopped metadata intake. I authorize preparation only, not execution, of a new prospectively frozen successor design permitting a fresh role-isolated custodian to acquire candidate bytes and inspect only edition identity, integrity, file structure and text-layer or raster characteristics. Extractors must remain blind; no substantive fact extraction, rights acceptance, outbound contact, publication, release or G2 passage is authorized. Return the exact design, controls and hashes for separate approval before acquisition."
+    },
+    {
+      "option_id": "B",
+      "description": "Authorize one final bounded metadata-only rescue pass over official catalogues and landing pages, retaining the current design and prohibiting every PDF request or source-content access.",
+      "trade_offs": [
+        "Lowest new exposure and no change to the current content boundary.",
+        "May resolve exact URLs and explicit public terms for some candidates.",
+        "Has a low realistic probability of finding the required eight metadata-proven raster/dashboard editions and 30 total eligible editions."
+      ],
+      "limitations": [
+        "Cannot infer raster or text-layer characteristics from generic publication descriptions.",
+        "Cannot convert generic terms into edition-specific rights where applicability is ambiguous.",
+        "Must not become an iterative search that chases eligibility after seeing failure reasons."
+      ],
+      "contingency": "Set a fixed catalogue/query budget and stop after one receipt. If all 24 primaries, six reserves, four strata, jurisdiction cap, series cap and screens do not pass, terminate without another retry. Minimum owner wording: I accept the current intake as stopped and authorize one final separately identified metadata-only rescue pass limited to official HTML catalogue, landing-page, terms and licence metadata. No PDF or source-content request, opening, rendering, download or transcription is authorized. The cumulative exposure denylist and frozen 24 plus six scope remain unchanged. The pass must stop after one digest-bound receipt unless every criterion is satisfied; no further pass, rights acceptance, extraction, contact, publication, release or G2 passage is authorized."
+    },
+    {
+      "option_id": "C",
+      "description": "Terminate the blind-holdout programme at the metadata stop and leave G2 blocked pending a materially different future evidence strategy.",
+      "trade_offs": [
+        "Avoids further acquisition, rights and contamination risk.",
+        "Preserves the failed intake as useful design-feasibility evidence.",
+        "Provides no new reproducibility evidence and does not advance G2."
+      ],
+      "limitations": [
+        "The repository remains unable to satisfy the real-pilot reproducibility evidence requirement.",
+        "Future resumption still requires a prospectively frozen design and owner authorization."
+      ],
+      "contingency": "Retain all current artifacts and hashes, document G2 as blocked by eligible unseen-source feasibility, and revisit only when a new source universe or evidence method is available."
+    }
+  ],
+  "recommendation": "Choose Option A. Treat the current result as a successful fail-closed stop, not as an invitation to keep searching under the same intake. A second metadata-only pass is unlikely to bridge the gap from one eligible candidate to 30, especially the gap from one metadata-supported raster/dashboard candidate to the required eight. Authorize only preparation of a successor design with a fresh lineage and a tightly bounded, role-isolated structural preflight; require its exact packet, access controls, rights boundary, resource estimate and hashes to return for a separate owner decision before any source bytes are acquired.",
+  "rationale": "The decisive bottleneck is not deterministic ranking but evidence availability. Public metadata can often identify an edition and sometimes a licence, yet it rarely proves whether a PDF is rasterized, text-native or structurally complex. Repeating metadata discovery without a strict bound risks eligibility chasing and still cannot establish the frozen raster allocation. A successor design can preserve the substantive blind holdout by isolating a custodian and eligibility reviewer from the fresh extraction agents, while making the necessary structure test explicit and auditable. This recommendation does not accept rights, lower thresholds, authorize acquisition or advance G2.",
+  "conflicts": [
+    "The frozen design requires metadata-only classification before acquisition, while the raster/text-layer distinction is ordinarily a property of the source file rather than its public catalogue metadata.",
+    "Increasing the metadata search may identify more candidate editions but also increases exposure-ledger complexity and the risk of result-driven eligibility chasing.",
+    "A site-wide reuse statement may be relevant evidence but may not determine exact-edition rights or third-party components."
+  ],
+  "abstentions": [
+    "No candidate PDF or source content was fetched, opened, rendered, downloaded, transcribed or inspected.",
+    "No legal opinion, rights acceptance, privacy clearance, security clearance or exact-edition eligibility determination is provided.",
+    "No candidate is selected, relabelled, rehabilitated or removed by this report.",
+    "No outbound contact, publication, release, G2 passage or gate acceptance is authorized."
+  ],
+  "dissent": [
+    "A narrowly bounded metadata-only rescue pass is defensible because it is low exposure and could locate machine-readable licence and format records not present in the first universe; however, the observed deficit makes it a low-probability route to the frozen 24 plus six design."
+  ],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

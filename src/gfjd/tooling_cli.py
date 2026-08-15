@@ -169,6 +169,10 @@ def register_tooling_commands(
     holdout_select.add_argument(
         "--output", type=Path, default=Path("build/g2-blind-holdout/selection")
     )
+    holdout_verify = holdout_sub.add_parser("verify")
+    holdout_verify.add_argument(
+        "--output", type=Path, default=Path("build/g2-blind-holdout/selection")
+    )
 
     resilience = commands.add_parser(
         "resilience", help="Build, verify and rehearse critical-state backups"
@@ -405,7 +409,15 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
         return 0
 
     if command == "g2-holdout":
-        from .g2_holdout import G2HoldoutError, select_g2_holdout
+        from .g2_holdout import (
+            G2HoldoutError,
+            select_g2_holdout,
+            verify_g2_holdout_selection,
+        )
+
+        if args.holdout_command == "verify":
+            errors = verify_g2_holdout_selection(project.root, args.output)
+            return _print_errors("G2 holdout selection", errors)
 
         try:
             selection = select_g2_holdout(

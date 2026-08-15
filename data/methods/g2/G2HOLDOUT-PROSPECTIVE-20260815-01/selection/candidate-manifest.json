@@ -1,0 +1,23 @@
+{
+  "design_commit": "42b89486b7d71a60ed01eb7e7b1d862e6a736820",
+  "design_id": "G2HOLDOUT-PROSPECTIVE-20260815-01",
+  "generated_at": "2026-08-15T04:35:00Z",
+  "limitations": [
+    "eligible metadata cannot satisfy the frozen 24+6 scope"
+  ],
+  "manifest_id": "G2HOLDOUT-MANIFEST-PROSPECTIVE-20260815-01",
+  "metadata_only": true,
+  "primary": [],
+  "reserve_allocation": {
+    "embedded_raster_or_dashboard_pdf": 2,
+    "english_text_native": 2,
+    "non_english_text_native": 1,
+    "structurally_complex_mixed_layout_pdf": 1
+  },
+  "reserves": [],
+  "schema_version": "1.0",
+  "scope_complete": false,
+  "selection_algorithm": "sha256_seed_nul_candidate_id_ascending_backtracking_v2",
+  "selection_seed": "be8e191cb9bf85a8ebdc3e09d8a27202ddf1fac784a5f3f1a1efe90ff424dad1",
+  "source_content_accessed": false
+}

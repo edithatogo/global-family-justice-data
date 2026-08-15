@@ -36,11 +36,17 @@
       "minLength": 2
     },
     "review_type": {
+      "description": "Review category. independent_assurance is retained only for backwards compatibility and must not be used for new agent-panel records.",
+      "x-deprecated-values": ["independent_assurance"],
       "enum": [
         "first_review",
         "second_review",
         "adjudication",
         "independent_assurance",
+        "agent_panel_advice",
+        "methods_review",
+        "security_privacy_review",
+        "operations_review",
         "disclosure_review",
         "rights_review"
       ]

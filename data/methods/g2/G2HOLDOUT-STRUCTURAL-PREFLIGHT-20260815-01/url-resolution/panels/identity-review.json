@@ -1,0 +1,606 @@
+{
+  "abstentions": [
+    "No determination is made about file availability, response media type, exact bytes, document content, rights, privacy, security, legal status, accessibility, suitability for extraction, or G2 acceptance."
+  ],
+  "agent_session_id": "g2_url_resolution_identity_panel-20260815-01",
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority",
+  "conflicts": [
+    "The resolver labels 15 first links as resolved_exact_pdf_url, but seven conflict with the frozen candidate title, year, geography, format or court level.",
+    "Duplicate landing pages for ranks 1/18 and 5/12 produced the same first-link behavior for different target editions, showing that landing-page identity cannot be inherited across candidates."
+  ],
+  "dissent": [
+    "A stricter reviewer could classify BOLETIN WEB-jja.pdf as category (b) rather than (a) because its filename lacks an explicit 2024 token; the recommendation therefore requires later year verification before acquisition."
+  ],
+  "evidence_inputs": [
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+      "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-url-resolution-manifest.json",
+      "sha256": "d8f703f725befafd33d116bba7809fcceac23f8a84c846f11277d3edadbdb2a9"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+      "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+    }
+  ],
+  "findings": [
+    {
+      "claim": "Rank 1: (a) da_arsrapport_2025.pdf is a candidate-specific strong hypothesis for Årsrapport 2025. All three alternates are (c) contradicted/wrong source: årsregnskap, Livet i domstolene, and revisjonsberetning are separately titled works.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK01",
+      "remediation": "Retain only da_arsrapport_2025.pdf as the candidate-specific hypothesis and preserve the other three as rejected identity alternatives.",
+      "severity": "info",
+      "uncertainty": "Identity is inferred from URL and title metadata only; no PDF was accessed."
+    },
+    {
+      "claim": "Rank 2: no PDF URL was identified because the frozen landing-page URL contains unencoded spaces and the client rejected it.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK02",
+      "remediation": "Keep unresolved; do not silently rewrite or retry the frozen URL.",
+      "severity": "medium",
+      "uncertainty": "No identity assessment is possible without a separately authorized canonicalized landing-page request."
+    },
+    {
+      "claim": "Rank 3: (a) Cafcass_Annual_Report_and_Accounts_2024-2025_-_DIGITAL.pdf is a candidate-specific strong hypothesis; publisher, title, reporting period, and filename align.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK03",
+      "remediation": "Carry forward as a strong hypothesis, not a verified edition.",
+      "severity": "info",
+      "uncertainty": "No PDF content or response metadata was inspected."
+    },
+    {
+      "claim": "Rank 4: (a) MCV Annual Report 2024-2025.pdf is a candidate-specific strong hypothesis; court, title, and period align.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK04",
+      "remediation": "Carry forward as a strong hypothesis only.",
+      "severity": "info",
+      "uncertainty": "The dated upload path is consistent but not itself edition verification."
+    },
+    {
+      "claim": "Rank 5: (a) Judicial Statistics 2023 infographic.pdf is a candidate-specific strong hypothesis. The alternate judicial-statistics-2023.pdf is (c) contradicted/wrong source format because the frozen candidate is specifically the infographic.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK05",
+      "remediation": "Retain the infographic URL; reject the full-report alternate for this candidate identity.",
+      "severity": "info",
+      "uncertainty": "No source content was inspected."
+    },
+    {
+      "claim": "Rank 6: no PDF URL was identified; the allowlisted landing page returned a blocked redirect to an official 404 path.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK06",
+      "remediation": "Keep unresolved and require a separately frozen canonical landing page or bounded metadata expansion.",
+      "severity": "medium",
+      "uncertainty": "The current official location is unknown."
+    },
+    {
+      "claim": "Rank 7: no PDF URL was identified because the official landing page returned HTTP 403.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK07",
+      "remediation": "Keep unresolved; do not treat access failure as negative evidence.",
+      "severity": "medium",
+      "uncertainty": "No page metadata was available for identity assessment."
+    },
+    {
+      "claim": "Rank 8: the draft resolved URL containing jaarverslag-klachtenbehandeling is (c) contradicted/wrong source. The alternate rbove-jd-jaarverslag-rechtbank-overijssel-2024.pdf is (a) the candidate-specific strong hypothesis.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK08",
+      "remediation": "Replace the proposed exact URL with the alternate hypothesis and retain the complaints report as rejected.",
+      "severity": "high",
+      "uncertainty": "URL lexical identity is strong but source content was not inspected."
+    },
+    {
+      "claim": "Rank 12: the draft resolved judicial-statistics-2024_0.pdf is (c) the wrong edition. The alternate judicial-statistics-2025.pdf is (a) the candidate-specific strong hypothesis.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK12",
+      "remediation": "Carry forward only the 2025 alternate as the identity hypothesis.",
+      "severity": "high",
+      "uncertainty": "The 2026 upload path for the 2025 report is plausible but unverified without requesting it."
+    },
+    {
+      "claim": "Rank 13: the draft resolved Andalucía URL and the 16 other TSJ regional alternates are all (c) contradicted by the target's national all-jurisdictions scope. The sole alternate named Indicadores a Nivel Nacional - Anual 2024.pdf is (a) the candidate-specific strong hypothesis. This disposition covers all 18 URLs for the row.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK13",
+      "remediation": "Select only the national URL hypothesis; reject every TSJ-specific URL for this candidate.",
+      "severity": "high",
+      "uncertainty": "National-scope identity is inferred from lexical metadata only."
+    },
+    {
+      "claim": "Rank 14: no PDF URL was identified because the official landing page returned HTTP 403.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK14",
+      "remediation": "Keep unresolved and use only a separately authorized metadata route.",
+      "severity": "medium",
+      "uncertainty": "No page metadata was available."
+    },
+    {
+      "claim": "Rank 15: the landing-page title aligns with the 2024 Judicial Yearbook, but no PDF URL was present in the draft; no URL classification is available.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK15",
+      "remediation": "Keep unresolved; preserve the positive landing-page title match as metadata only.",
+      "severity": "low",
+      "uncertainty": "The target may require a separately authorized attachment-resolution mechanism."
+    },
+    {
+      "claim": "Rank 16: alternate BOLETIN WEB-jja.pdf is (a) a candidate-specific strong hypothesis for the June-July-August bulletin. The other 10 alternates are (c) contradicted/wrong source or edition by their filenames, including 2025 bulletins, guidance, maps, brochures, protocols and a 2026 directive. This covers all 11 URLs.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK16",
+      "remediation": "Carry BOLETIN WEB-jja.pdf forward as a strong hypothesis with an explicit year-verification requirement.",
+      "severity": "medium",
+      "uncertainty": "The JJA acronym is strongly consistent with the target but the URL lacks an explicit 2024 token."
+    },
+    {
+      "claim": "Rank 18: the draft resolved da_arsrapport_2025.pdf and alternates arsregnskap-2025.pdf and revisjonsberetning-for-domstolene-i-norge-2025.pdf are (c) wrong sources. Alternate livet-i-domstolene-2025.pdf is (a) the candidate-specific strong hypothesis.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK18",
+      "remediation": "Replace the proposed exact URL with the Livet alternate hypothesis.",
+      "severity": "high",
+      "uncertainty": "No source content was inspected."
+    },
+    {
+      "claim": "Rank 19: (a) Rapport-annuel-2024-SPF-Justice_0.pdf is a candidate-specific strong hypothesis; title, publisher and year align. The URL is HTTP rather than HTTPS and therefore carries a transport-security caveat.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK19",
+      "remediation": "Retain only as a hypothesis and require an explicit secure-transport decision before any request.",
+      "severity": "medium",
+      "uncertainty": "No redirect, TLS upgrade or file response was tested."
+    },
+    {
+      "claim": "Rank 20: (a) sg_courts_annual_report_2024.pdf is a candidate-specific strong hypothesis; institution, report type and year align.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK20",
+      "remediation": "Carry forward as a strong hypothesis.",
+      "severity": "info",
+      "uncertainty": "The query-version suffix was not dereferenced."
+    },
+    {
+      "claim": "Rank 21: (a) rapport_annuel_2024_lopj.pdf is a candidate-specific strong hypothesis; report title and year align. Its 2026-06 upload path is a metadata caveat, not a contradiction.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK21",
+      "remediation": "Carry forward with a version-date verification requirement.",
+      "severity": "low",
+      "uncertainty": "The later upload date could represent delayed publication or replacement; content was not inspected."
+    },
+    {
+      "claim": "Rank 22: the draft resolved Boletín nº 24 URL is (c) the wrong bulletin. Alternates N114, N115, N116, N117 and N119 are also (c) wrong bulletin numbers. Alternate N118 Caracteristicas de los PJs 2024.pdf is (a) the candidate-specific strong hypothesis. This covers all seven URLs.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK22",
+      "remediation": "Carry forward only N118 as the candidate hypothesis.",
+      "severity": "high",
+      "uncertainty": "The N118 filename strongly aligns but was not requested."
+    },
+    {
+      "claim": "Rank 23: no PDF URL was identified because the remote endpoint closed the landing-page request.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK23",
+      "remediation": "Keep unresolved; do not infer absence.",
+      "severity": "medium",
+      "uncertainty": "No page metadata was obtained."
+    },
+    {
+      "claim": "Rank 24: (a) the URL named Informe sobre víctimas mortales de la violencia de género 2024V2.pdf is a candidate-specific strong hypothesis; subject and year match, and V2 signals a version that must later be bound exactly.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK24",
+      "remediation": "Carry forward as the V2 hypothesis and preserve the version suffix.",
+      "severity": "info",
+      "uncertainty": "No file request was made, so version identity is not verified."
+    },
+    {
+      "claim": "Rank 25: the draft resolved clj/Annual/2025.pdf and alternates coa/Annual/2025.pdf and supreme/Annual/2025.pdf are (c) wrong court levels. Alternate superior/Annual/2025.pdf is (a) the candidate-specific strong hypothesis.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK25",
+      "remediation": "Carry forward only the superior-court URL hypothesis.",
+      "severity": "high",
+      "uncertainty": "Court-level identity is inferred from path metadata only."
+    },
+    {
+      "claim": "Rank 26: the yearbook landing page produced no exact family-court yearbook PDF URL, so no URL classification is available.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK26",
+      "remediation": "Keep unresolved pending separately authorized structural metadata resolution.",
+      "severity": "low",
+      "uncertainty": "The relevant edition may be linked through non-PDF navigation or separate volumes."
+    },
+    {
+      "claim": "Rank 27: no PDF URL was identified because the remote endpoint closed the landing-page request.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK27",
+      "remediation": "Keep unresolved; do not infer absence.",
+      "severity": "medium",
+      "uncertainty": "No metadata was obtained."
+    },
+    {
+      "claim": "Rank 28: the general Cour de Cassation page produced no exact 2024 annual-report PDF URL, so no URL classification is available.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK28",
+      "remediation": "Keep unresolved.",
+      "severity": "low",
+      "uncertainty": "The page may not expose annual-report links in the inspected HTML metadata."
+    },
+    {
+      "claim": "Rank 29: all 49 alternate PDF URLs are (c) contradicted/wrong edition or source for FY 2024 Statistical Abstract. Their lexical metadata points to 2000-2020 reports, Judicial Council reports, strategic-plan updates, highlights, progress reports or court-specific historical files; none identifies FY 2024.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK29",
+      "remediation": "Reject all 49 for this candidate and keep FY 2024 unresolved.",
+      "severity": "medium",
+      "uncertainty": "This grouped determination relies solely on every URL's explicit filename/path year and subject tokens."
+    },
+    {
+      "claim": "Rank 32: no PDF URL was identified because the official landing page returned HTTP 403.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK32",
+      "remediation": "Keep unresolved.",
+      "severity": "medium",
+      "uncertainty": "No page metadata was available."
+    },
+    {
+      "claim": "Rank 34: no PDF URL was identified because TLS certificate verification failed for the frozen landing page.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK34",
+      "remediation": "Keep unresolved; do not disable TLS verification.",
+      "severity": "medium",
+      "uncertainty": "The endpoint identity and chain were not bypassed or weakened."
+    },
+    {
+      "claim": "Rank 35: no PDF URL was identified because the official landing page returned HTTP 403.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK35",
+      "remediation": "Keep unresolved.",
+      "severity": "medium",
+      "uncertainty": "No page metadata was available."
+    },
+    {
+      "claim": "Rank 37: all four URLs are (c) contradicted/wrong edition or source. The resolved mhc-ar-2023-2024.pdf is Mental Health Court and wrong year; dc-ar-2023-2024.pdf is the right court but wrong year; cc-ar-2024-2025.pdf is Children's Court; sc-ar-2023-2024.pdf is Supreme Court and wrong year. No District Court 2024-2025 URL was identified.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK37",
+      "remediation": "Reject all four and keep the candidate unresolved.",
+      "severity": "high",
+      "uncertainty": "Classification follows explicit court and year tokens in each URL."
+    },
+    {
+      "claim": "Rank 38: no PDF URL was identified because the official landing page returned HTTP 403.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK38",
+      "remediation": "Keep unresolved.",
+      "severity": "medium",
+      "uncertainty": "No page metadata was available."
+    },
+    {
+      "claim": "Rank 39: all 100 alternate PDF URLs are (c) contradicted/wrong edition or source for the 2025-2026 family statistics candidate. Every URL is explicitly dated 2012-2019 and/or belongs to bail, criminal, youth or provincial-offences statistics; even family-series links are years 2012-2019 rather than 2025-2026.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK39",
+      "remediation": "Reject all 100 for the target edition and keep 2025-2026 unresolved.",
+      "severity": "medium",
+      "uncertainty": "This grouped determination is based on explicit year and subject tokens across every listed URL."
+    },
+    {
+      "claim": "Rank 41: all five alternate URLs are (c) contradicted/wrong edition or source: one is a 2020 complaints report, one is a 2014 parking policy, and three are protocols or administrative decisions rather than a 2024 annual report.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "RANK41",
+      "remediation": "Reject all five and keep the candidate unresolved.",
+      "severity": "medium",
+      "uncertainty": "Classification follows explicit filenames only."
+    },
+    {
+      "claim": "Rank 43: no PDF URL was identified because the official landing page returned HTTP 403.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        }
+      ],
+      "finding_id": "RANK43",
+      "remediation": "Keep unresolved.",
+      "severity": "medium",
+      "uncertainty": "No page metadata was available."
+    },
+    {
+      "claim": "Across all 218 non-null resolved and alternate PDF URLs, metadata-only identity review classifies 15 as (a) candidate-specific strong hypotheses, zero as (b) ambiguous/alternate-only, and 203 as (c) contradicted/wrong edition or source. Seven of the draft's 15 resolved_exact_pdf_url values are category (c), demonstrating that first-link selection is not identity-safe.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "PORTFOLIO_SUMMARY",
+      "remediation": "Do not promote the draft's resolved field mechanically. Build the refreshed proposal from the 15 strong hypotheses and mark every other row unresolved or rejected.",
+      "severity": "high",
+      "uncertainty": "All classifications are hypotheses derived from frozen titles, page titles and URL strings; none verifies file existence, media type, bytes, version, rights or content."
+    }
+  ],
+  "generated_at": "2026-08-15T06:59:58Z",
+  "options": [
+    {
+      "contingency": "If the corrected 15-hypothesis set cannot support the frozen scope, stop and present the already specified bounded 96-candidate metadata-only expansion.",
+      "description": "Recommended: produce a corrected metadata-only proposal containing the 15 category-(a) hypotheses, explicit rejection receipts for 203 category-(c) URLs, and unresolved status for the remaining 18 candidate rows.",
+      "limitations": [
+        "Does not prove URL reachability, media type, edition identity, rights or source content",
+        "No category-(b) URL survived this strict lexical review"
+      ],
+      "option_id": "A",
+      "trade_offs": [
+        "Maximizes edition specificity from already captured metadata",
+        "Leaves substantial attrition and requires a later owner decision before any PDF request"
+      ]
+    },
+    {
+      "contingency": "Proceed directly to a separately authorized bounded metadata expansion.",
+      "description": "Treat all 218 URLs as unresolved hypotheses and perform no metadata-based correction.",
+      "limitations": [
+        "Does not advance candidate attrition assessment"
+      ],
+      "option_id": "B",
+      "trade_offs": [
+        "Most conservative",
+        "Discards useful exact title, year and court-level distinctions already present in the authorized metadata"
+      ]
+    },
+    {
+      "contingency": "Not recommended; any downstream verifier should fail closed on title, year, geography and court-level mismatches.",
+      "description": "Preserve the resolver's first-link resolved values without correction.",
+      "limitations": [
+        "Fails the frozen edition-specific identity objective"
+      ],
+      "option_id": "C",
+      "trade_offs": [
+        "Operationally simple",
+        "Carries seven demonstrably mismatched resolved identities and risks wrong-edition acquisition"
+      ]
+    }
+  ],
+  "packet_id": "G2HOLDOUT-URL-RESOLUTION-DRAFT-20260815-01",
+  "packet_sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b",
+  "rationale": "The frozen metadata contains enough lexical information to prevent obvious wrong-edition and wrong-source selection. A fail-closed corrected proposal preserves that value while respecting the no-source-access boundary and accurately exposes attrition before any acquisition decision.",
+  "recommendation": "Choose Option A. Correct the seven wrong resolved selections using the row dispositions, retain only 15 candidate-specific URL hypotheses, reject all 203 contradicted URLs, and leave all other candidates unresolved. Do not request any PDF or infer G2 progress from this metadata-only classification.",
+  "report_id": "PANEL-G2-URL-IDENTITY-20260815-01",
+  "role": "source_edition_identity_adviser",
+  "schema_version": "1.0",
+  "tool_or_model": "OpenAI Codex",
+  "tool_or_model_version": "gpt-5",
+  "verdict": "conditional"
+}

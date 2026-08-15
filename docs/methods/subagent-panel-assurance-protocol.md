@@ -16,6 +16,11 @@ packet:
 6. product, accessibility and responsible use;
 7. security, supply chain, reliability and provenance.
 
+Role separation is a procedural control within the single-person repository.
+It does not create institutional, human or specialist independence. Each agent
+must receive the same frozen packet without another role's draft output, and
+the orchestration record must preserve session, prompt and report digests.
+
 ## Required report
 
 Each report must include the packet digest, role, timestamp, tool/model version,
@@ -27,7 +32,7 @@ consent, empirical data or release authority.
 ## Orchestration and adjudication
 
 The orchestrator verifies packet identity, report schema, role completeness and
-independence, then writes a conflict matrix. The owner adjudicates every finding
+role separation, then writes a conflict matrix. The owner adjudicates every finding
 as `accept`, `fix`, `defer` or `reject`, recording rationale, residual risk and
 deadline. A panel consensus is never treated as external acceptance.
 
@@ -43,5 +48,7 @@ update gate evidence.
 - Missing local evidence or consent: use unresolved/synthetic-only status.
 - Missing host, custody or signing authority: retain an unsigned local candidate.
 
-Archive eligibility still requires the applicable external rights, governance,
-participation, assurance, operational and funding evidence.
+Archive or gate eligibility still requires the factual evidence named by the
+applicable contract. Agent-panel advice cannot manufacture source permissions,
+participant evidence, test results, archive receipts, resource commitments or
+an owner decision.

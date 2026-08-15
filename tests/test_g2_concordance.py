@@ -1,0 +1,472 @@
+from __future__ import annotations
+
+import hashlib
+import json
+import shutil
+from pathlib import Path
+
+import pytest
+from jsonschema import Draft202012Validator, FormatChecker
+
+from gfjd.g2_concordance import G2ConcordanceError, compare_g2_extractions
+from gfjd.io import sha256_file
+
+SHA = "a" * 64
+COMMIT = "b" * 40
+
+
+def _root(project_root: Path, tmp_path: Path) -> Path:
+    root = tmp_path / "repo"
+    schemas = root / "schemas"
+    schemas.mkdir(parents=True)
+    for name in ("g2_extraction_row.schema.json", "g2_concordance.schema.json"):
+        shutil.copyfile(project_root / "schemas" / name, schemas / name)
+    return root
+
+
+def _row(index: int, **changes: object) -> dict[str, object]:
+    payload: dict[str, object] = {
+        "schema_version": "1.0",
+        "extracted_row_id": f"G2ROW-TEST{index:03d}",
+        "source_record_key": hashlib.sha256(f"record-{index}".encode()).hexdigest(),
+        "candidate_id": "AUS",
+        "source_id": "AUS-FCFCOA-AR",
+        "source_edition_id": "ED-AUS-TEST",
+        "provenance_locator": f"page 1 row {index}",
+        "measure_original": "Applications",
+        "matter_type_original": "Family",
+        "statistic_type": "count",
+        "unit": "applications",
+        "value": index,
+        "component_values": {},
+        "denominator_value": None,
+        "denominator_definition": None,
+        "period_start": "2025-01-01",
+        "period_end": "2025-12-31",
+        "time_basis": "not_applicable",
+        "cohort_basis": "filed",
+        "population_scope": "national",
+        "suppression_or_disclosure_note": None,
+        "extraction_uncertainty": "none",
+        "notes": None,
+    }
+    payload.update(changes)
+    return payload
+
+
+def _write(path: Path, payload: object) -> Path:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    return path
+
+
+def _artifact(path: str) -> dict[str, str]:
+    return {"path": path, "sha256": SHA}
+
+
+def _compare(
+    root: Path,
+    primary: list[dict[str, object]],
+    secondary: list[dict[str, object]],
+    *,
+    output: str = "build/compare",
+    **kwargs: object,
+):
+    primary_path = _write(root / "inputs/primary.json", primary)
+    secondary_path = _write(root / "inputs/secondary.json", secondary)
+    return compare_g2_extractions(
+        root,
+        primary_path=primary_path,
+        secondary_path=secondary_path,
+        output_dir=Path(output),
+        comparison_id="G2CMP-TEST01",
+        packet_id="G2PKT-TEST01",
+        packet_sha256=SHA,
+        primary_receipt=_artifact("primary-receipt.json"),
+        secondary_receipt=_artifact("secondary-receipt.json"),
+        threshold_policy=_artifact("threshold-policy.json"),
+        source_commit=COMMIT,
+        generated_at="2026-08-15T00:00:00Z",
+        **kwargs,
+    )
+
+
+def test_comparator_passes_identical_rows_and_emits_schema_valid_receipt(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    primary = [_row(1), _row(2)]
+    secondary = [
+        _row(2, extracted_row_id="G2ROW-SECONDARY002"),
+        _row(1, extracted_row_id="G2ROW-SECONDARY001"),
+    ]
+
+    result = _compare(root, primary, secondary)
+
+    assert result.threshold_passed is True
+    assert result.critical_concordance == 1.0
+    assert result.overall_concordance == 1.0
+    receipt = json.loads(result.receipt_path.read_text(encoding="utf-8"))
+    differences = json.loads(result.difference_path.read_text(encoding="utf-8"))
+    schema = json.loads((root / "schemas/g2_concordance.schema.json").read_text(encoding="utf-8"))
+    validator = Draft202012Validator(schema, format_checker=FormatChecker())
+    assert list(validator.iter_errors(receipt)) == []
+    assert receipt["status"] == "pass"
+    assert receipt["row_schema"]["path"] == "schemas/g2_extraction_row.schema.json"
+    assert receipt["difference_artifact"]["sha256"] == sha256_file(result.difference_path)
+    assert differences["difference_count"] == 0
+
+
+def test_comparator_never_waives_critical_difference_above_overall_threshold(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    primary = [_row(index) for index in range(100)]
+    secondary = [_row(index) for index in range(100)]
+    secondary[0]["value"] = 999
+
+    result = _compare(root, primary, secondary)
+
+    receipt = json.loads(result.receipt_path.read_text(encoding="utf-8"))
+    differences = json.loads(result.difference_path.read_text(encoding="utf-8"))
+    assert receipt["overall_concordance"] >= 0.99
+    assert receipt["critical_concordance"] < 1.0
+    assert result.threshold_passed is False
+    assert receipt["status"] == "fail"
+    assert differences["differences"][0]["field"] == "value"
+    assert differences["differences"][0]["critical"] is True
+
+
+def test_comparator_expands_component_values_as_critical_fields(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    primary = [_row(index, component_values={"filed": index}) for index in range(100)]
+    secondary = [_row(index, component_values={"filed": index}) for index in range(100)]
+    secondary[0]["component_values"] = {"filed": 999}
+
+    result = _compare(root, primary, secondary)
+
+    receipt = json.loads(result.receipt_path.read_text(encoding="utf-8"))
+    differences = json.loads(result.difference_path.read_text(encoding="utf-8"))
+    assert receipt["overall_concordance"] >= 0.99
+    assert receipt["field_metrics"]["component_values.filed"]["critical"] is True
+    assert receipt["field_metrics"]["component_values.filed"]["concordance"] == 0.99
+    assert result.threshold_passed is False
+    assert differences["differences"][0]["field"] == "component_values.filed"
+    assert differences["differences"][0]["critical"] is True
+
+
+def test_comparator_binds_and_enforces_expected_scope_and_components(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    row = _row(1, component_values={"filed": 10, "disposed": 9})
+    key = str(row["source_record_key"])
+
+    result = _compare(
+        root,
+        [row],
+        [_row(1, component_values={"filed": 10, "disposed": 9})],
+        expected_source_keys=[key],
+        required_component_values={key: ["filed", "disposed"]},
+    )
+
+    receipt = json.loads(result.receipt_path.read_text(encoding="utf-8"))
+    assert result.threshold_passed is True
+    assert receipt["expected_source_keys"] == [key]
+    assert receipt["required_component_values"] == {key: ["disposed", "filed"]}
+
+
+def test_comparator_fails_when_both_extractions_share_wrong_required_field(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    row = _row(1, extraction_uncertainty="low")
+    key = str(row["source_record_key"])
+
+    result = _compare(
+        root,
+        [row],
+        [_row(1, extraction_uncertainty="low")],
+        expected_source_keys=[key],
+        required_field_values={key: {"extraction_uncertainty": "none"}},
+    )
+
+    receipt = json.loads(result.receipt_path.read_text(encoding="utf-8"))
+    differences = json.loads(result.difference_path.read_text(encoding="utf-8"))
+    assert result.threshold_passed is False
+    assert receipt["required_field_values"] == {key: {"extraction_uncertainty": "none"}}
+    assert [item["difference_type"] for item in differences["differences"][:2]] == [
+        "primary_required_field_mismatch",
+        "secondary_required_field_mismatch",
+    ]
+
+
+def test_comparator_accepts_matching_required_field_values(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    row = _row(1, extraction_uncertainty="none")
+    key = str(row["source_record_key"])
+
+    result = _compare(
+        root,
+        [row],
+        [_row(1, extraction_uncertainty="none")],
+        expected_source_keys=[key],
+        required_field_values={key: {"extraction_uncertainty": "none"}},
+    )
+
+    assert result.threshold_passed is True
+
+
+def test_comparator_fails_when_both_extractions_share_scope_omissions_or_extras(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    expected = str(_row(1)["source_record_key"])
+    unexpected_row = _row(2)
+
+    result = _compare(
+        root,
+        [unexpected_row],
+        [_row(2, extracted_row_id="G2ROW-SECONDARY002")],
+        expected_source_keys=[expected],
+    )
+
+    differences = json.loads(result.difference_path.read_text(encoding="utf-8"))
+    assert result.threshold_passed is False
+    assert [item["difference_type"] for item in differences["differences"][:2]] == [
+        "missing_expected_row_both",
+        "unexpected_row_both",
+    ]
+
+
+def test_comparator_fails_shared_component_contract_violations(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    row = _row(1, component_values={"filed": None, "extra": 3})
+    key = str(row["source_record_key"])
+
+    result = _compare(
+        root,
+        [row],
+        [_row(1, component_values={"filed": None, "extra": 3})],
+        expected_source_keys=[key],
+        required_component_values={key: ["filed", "disposed"]},
+    )
+
+    differences = json.loads(result.difference_path.read_text(encoding="utf-8"))
+    difference_types = {item["difference_type"] for item in differences["differences"]}
+    assert result.threshold_passed is False
+    assert difference_types == {
+        "primary_required_component_missing",
+        "primary_required_component_unexpected",
+        "primary_required_component_not_populated_numeric",
+        "secondary_required_component_missing",
+        "secondary_required_component_unexpected",
+        "secondary_required_component_not_populated_numeric",
+    }
+
+
+def test_comparator_rejects_invalid_scope_configuration(project_root: Path, tmp_path: Path) -> None:
+    root = _root(project_root, tmp_path)
+    key = str(_row(1)["source_record_key"])
+    outside = str(_row(2)["source_record_key"])
+    with pytest.raises(G2ConcordanceError, match="contains duplicates"):
+        _compare(root, [_row(1)], [_row(1)], expected_source_keys=[key, key])
+    with pytest.raises(G2ConcordanceError, match="must exactly cover"):
+        _compare(
+            root,
+            [_row(1)],
+            [_row(1)],
+            expected_source_keys=[key],
+            required_component_values={outside: ["filed"]},
+        )
+    with pytest.raises(G2ConcordanceError, match="missing source keys"):
+        _compare(
+            root,
+            [_row(1), _row(2)],
+            [_row(1), _row(2)],
+            expected_source_keys=[key, outside],
+            required_component_values={key: []},
+        )
+    with pytest.raises(G2ConcordanceError, match="outside scope"):
+        _compare(
+            root,
+            [_row(1)],
+            [_row(1)],
+            expected_source_keys=[key],
+            required_field_values={outside: {"extraction_uncertainty": "none"}},
+        )
+    with pytest.raises(G2ConcordanceError, match="cannot be ignored"):
+        _compare(
+            root,
+            [_row(1)],
+            [_row(1)],
+            expected_source_keys=[key],
+            required_field_values={key: {"source_record_key": key}},
+        )
+
+
+def test_comparator_accepts_confined_alternate_row_schema(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    shutil.copyfile(
+        project_root / "schemas/g2_atomic_extraction_row.schema.json",
+        root / "schemas/g2_atomic_extraction_row.schema.json",
+    )
+    atomic = {
+        "schema_version": "1.0",
+        "extracted_row_id": "G2ROW-PACKET02-AUS01",
+        "sample_key": "AUS-D1-CLEARANCE-2024-25",
+        "source_record_key": SHA,
+        "candidate_id": "AUS",
+        "source_id": "AUS-FCFCOA-AR",
+        "source_edition_id": "ED-AUS-TEST",
+        "locator_pdf_page": 102,
+        "locator_printed_page": 84,
+        "locator_section_source": "Section 3.3",
+        "locator_object_source": "Figure 3.3.2(a)",
+        "domain_label_source": "Family law",
+        "domain_code": "family_justice",
+        "matter_label_source": "Applications for final orders",
+        "matter_type_code": "final_orders",
+        "measure_label_source": "Clearance rate",
+        "indicator_code": "clearance_rate",
+        "series_label_source": None,
+        "series_code": None,
+        "statistic_type": "percentage",
+        "unit_code": "percent",
+        "value": 105,
+        "component_values": {"transferred_count": 1015},
+        "denominator_value": 1015,
+        "denominator_definition_quote": "received by way of transfer",
+        "denominator_code": "transferred_applications",
+        "period_label_source": "2024–25",
+        "period_start": "2024-07-01",
+        "period_end": "2025-06-30",
+        "period_start_provenance": "exact_edition",
+        "period_end_provenance": "exact_edition",
+        "time_basis": "source_defined",
+        "clock_label_source": None,
+        "clock_code": "not_applicable",
+        "cohort_definition_quote": "applications finalised during 2024–25",
+        "cohort_code": "period_finalised",
+        "counted_entity_code": "applications",
+        "population_scope_code": "division_1_transfers",
+        "coverage_limitation_quote": None,
+        "ambiguity_codes": ["denominator_conflict"],
+        "ambiguity_evidence_quote": "ratio described in the opposite direction",
+        "quarantine_status": "hard_quarantine",
+        "suppression_or_disclosure_note": None,
+        "extraction_uncertainty": "material",
+        "notes": None,
+    }
+    critical_fields = sorted(
+        set(atomic) - {"schema_version", "extracted_row_id", "source_record_key", "notes"}
+    )
+
+    result = _compare(
+        root,
+        [atomic],
+        [{**atomic, "extracted_row_id": "G2ROW-PACKET02-SECONDARY01"}],
+        row_schema_path=Path("schemas/g2_atomic_extraction_row.schema.json"),
+        critical_fields=critical_fields,
+    )
+
+    receipt = json.loads(result.receipt_path.read_text(encoding="utf-8"))
+    assert result.threshold_passed is True
+    assert receipt["row_schema"]["path"] == "schemas/g2_atomic_extraction_row.schema.json"
+
+
+def test_comparator_rejects_row_schema_outside_repository(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    with pytest.raises(G2ConcordanceError, match="escapes repository root"):
+        _compare(
+            root,
+            [_row(1)],
+            [_row(1)],
+            row_schema_path=project_root / "schemas/g2_extraction_row.schema.json",
+        )
+
+
+@pytest.mark.parametrize("missing_from", ["primary", "secondary"])
+def test_comparator_fails_on_unmatched_rows(
+    project_root: Path, tmp_path: Path, missing_from: str
+) -> None:
+    root = _root(project_root, tmp_path)
+    primary = [_row(1), _row(2)]
+    secondary = [_row(1), _row(2)]
+    if missing_from == "primary":
+        primary.pop()
+    else:
+        secondary.pop()
+
+    result = _compare(root, primary, secondary)
+
+    receipt = json.loads(result.receipt_path.read_text(encoding="utf-8"))
+    differences = json.loads(result.difference_path.read_text(encoding="utf-8"))
+    assert result.threshold_passed is False
+    assert receipt[f"{missing_from}_only_rows"] == 0
+    opposite = "secondary" if missing_from == "primary" else "primary"
+    assert receipt[f"{opposite}_only_rows"] == 1
+    assert differences["differences"][0]["difference_type"] == f"{opposite}_only_row"
+
+
+def test_comparator_enforces_overall_populated_field_threshold(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    primary = [_row(1, notes="primary")]
+    secondary = [_row(1, extracted_row_id="G2ROW-SECONDARY001", notes="secondary")]
+
+    result = _compare(root, primary, secondary)
+
+    assert result.critical_concordance == 1.0
+    assert result.overall_concordance < 0.99
+    assert result.threshold_passed is False
+
+
+def test_comparator_rejects_weakened_threshold_and_empty_evidence(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    with pytest.raises(G2ConcordanceError, match="between 0.99 and 1"):
+        _compare(root, [_row(1)], [_row(1)], overall_threshold=0.98)
+    with pytest.raises(G2ConcordanceError, match="at least one critical field"):
+        _compare(root, [_row(1)], [_row(1)], critical_fields=[])
+
+    result = _compare(root, [], [])
+    assert result.threshold_passed is False
+
+
+def test_comparator_rejects_invalid_rows_and_duplicate_keys(
+    project_root: Path, tmp_path: Path
+) -> None:
+    root = _root(project_root, tmp_path)
+    invalid = _row(1)
+    invalid["value"] = "not-a-number"
+    with pytest.raises(G2ConcordanceError, match="primary"):
+        _compare(root, [invalid], [_row(1)])
+
+    duplicate = [_row(1), _row(1, extracted_row_id="G2ROW-DUPLICATE001")]
+    with pytest.raises(G2ConcordanceError, match="duplicate source_record_key"):
+        _compare(root, duplicate, [_row(1)])
+
+
+def test_difference_artifact_is_deterministic(project_root: Path, tmp_path: Path) -> None:
+    root = _root(project_root, tmp_path)
+    primary = [_row(1, notes="first")]
+    secondary = [_row(1, extracted_row_id="G2ROW-SECONDARY001", notes="second")]
+
+    first = _compare(root, primary, secondary, output="build/first")
+    first_bytes = first.difference_path.read_bytes()
+    second = _compare(root, primary, secondary, output="build/second")
+
+    assert second.difference_path.read_bytes() == first_bytes

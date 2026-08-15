@@ -157,6 +157,42 @@ def register_tooling_commands(
     research_pack.add_argument("jurisdiction_id")
     research_pack.add_argument("--output", type=Path, default=Path("build/research-packs"))
 
+    holdout = commands.add_parser(
+        "g2-holdout", help="Run fail-closed metadata-only G2 holdout selection"
+    )
+    holdout_sub = holdout.add_subparsers(dest="holdout_command", required=True)
+    holdout_select = holdout_sub.add_parser("select")
+    holdout_select.add_argument("--candidates", type=Path, required=True)
+    holdout_select.add_argument("--exposure-ledger", type=Path, required=True)
+    holdout_select.add_argument("--seed", required=True)
+    holdout_select.add_argument("--generated-at", required=True)
+    holdout_select.add_argument(
+        "--output", type=Path, default=Path("build/g2-blind-holdout/selection")
+    )
+    holdout_verify = holdout_sub.add_parser("verify")
+    holdout_verify.add_argument(
+        "--output", type=Path, default=Path("build/g2-blind-holdout/selection")
+    )
+
+    structural = commands.add_parser(
+        "g2-structural-preflight",
+        help="Prepare or verify the source-access-disabled G2 successor design",
+    )
+    structural_sub = structural.add_subparsers(dest="structural_command", required=True)
+    structural_prepare = structural_sub.add_parser("prepare")
+    structural_prepare.add_argument("--generated-at", required=True)
+    structural_prepare.add_argument(
+        "--output",
+        type=Path,
+        default=Path("data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design"),
+    )
+    structural_verify = structural_sub.add_parser("verify")
+    structural_verify.add_argument(
+        "--output",
+        type=Path,
+        default=Path("data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design"),
+    )
+
     resilience = commands.add_parser(
         "resilience", help="Build, verify and rehearse critical-state backups"
     )
@@ -389,6 +425,75 @@ def run_tooling_command(project: Project, args: argparse.Namespace) -> int | Non
         output = _resolve(project, args.output)
         destination = build_research_pack(project, args.jurisdiction_id, output)
         print(json.dumps({"output": str(destination)}, indent=2, sort_keys=True))
+        return 0
+
+    if command == "g2-holdout":
+        from .g2_holdout import (
+            G2HoldoutError,
+            select_g2_holdout,
+            verify_g2_holdout_selection,
+        )
+
+        if args.holdout_command == "verify":
+            errors = verify_g2_holdout_selection(project.root, args.output)
+            return _print_errors("G2 holdout selection", errors)
+
+        try:
+            selection = select_g2_holdout(
+                project.root,
+                candidate_universe_path=args.candidates,
+                exposure_ledger_path=args.exposure_ledger,
+                output_dir=args.output,
+                seed=args.seed,
+                generated_at=args.generated_at,
+            )
+        except G2HoldoutError as exc:
+            print(f"G2 holdout selection stopped: {exc}")
+            return 1
+        print(
+            json.dumps(
+                {
+                    "manifest": str(selection.manifest_path),
+                    "receipt": str(selection.receipt_path),
+                    "scope_complete": selection.scope_complete,
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
+        return 0
+
+    if command == "g2-structural-preflight":
+        from .g2_structural_preflight import (
+            G2StructuralPreflightError,
+            prepare_structural_preflight_design,
+            verify_structural_preflight_design,
+        )
+
+        if args.structural_command == "verify":
+            errors = verify_structural_preflight_design(project.root, output_dir=args.output)
+            return _print_errors("G2 structural-preflight design", errors)
+        try:
+            frame, manifest, receipt = prepare_structural_preflight_design(
+                project.root, output_dir=args.output, generated_at=args.generated_at
+            )
+        except G2StructuralPreflightError as exc:
+            print(f"G2 structural-preflight design stopped: {exc}")
+            return 1
+        print(
+            json.dumps(
+                {
+                    "frame": str(frame),
+                    "proposed_acquisition_manifest": str(manifest),
+                    "proposed_url_resolution_manifest": str(
+                        manifest.parent / "proposed-url-resolution-manifest.json"
+                    ),
+                    "receipt": str(receipt),
+                },
+                indent=2,
+                sort_keys=True,
+            )
+        )
         return 0
 
     if command == "products":

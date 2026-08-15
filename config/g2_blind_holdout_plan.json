@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "plan_id": "G2HOLDOUT-PROSPECTIVE-20260815-01",
+  "status": "design_prepared_execution_not_authorized",
+  "experiment_lineage": "new_lineage_not_packet06",
+  "termination_decision": "docs/governance/g2-packet05-disposition-owner-decision-2026-08-15.md",
+  "termination_decision_sha256": "6b7fde75b9ab5cd5aa364162a47b7216f1ea381a921b44a5d47039ae92327ff4",
+  "termination_decision_commit": "5a685484ca09c954ed8dbb8227a6fc9b3f6a82ff",
+  "terminated_packet_id": "G2PKT-REAL-PILOT-20260815-05",
+  "advisory_reports": [
+    {"path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/panels/methods-design-report.json", "sha256": "e30a1014eafa0f595b1c37cfd596e5c9672067179661775d128667f1ab8e1179"},
+    {"path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/panels/governance-risk-report.json", "sha256": "0b9e1424c46e9a80cf1ee0b98d85800f960ee2b24442ad54cbffb714ce739f2e"}
+  ],
+  "design": {
+    "recommended_sample_size": 24,
+    "alternative_sample_size": 12,
+    "rows_per_edition": 1,
+    "format_scope": ["pdf"],
+    "strata": ["english_text_native", "non_english_text_native", "embedded_raster_or_dashboard_pdf", "structurally_complex_mixed_layout_pdf"],
+    "stratum_assignment_precedence": ["embedded_raster_or_dashboard_pdf", "structurally_complex_mixed_layout_pdf", "non_english_text_native", "english_text_native"],
+    "editions_per_stratum": 6,
+    "minimum_jurisdictions": 12,
+    "maximum_editions_per_jurisdiction": 2,
+    "maximum_editions_per_source_series": 1,
+    "reserve_count": 6,
+    "reserve_policy": "stratum_matched_and_pre_ranked_before_content_exposure",
+    "reserve_allocation": {"minimum_per_stratum": 1, "remaining_two": "largest_eligible_strata_then_lexical_stratum_tiebreak", "ranking": "sha256_seeded_metadata_only_with_seed_frozen_in_candidate_manifest"},
+    "selection_phase": "metadata_only_before_candidate_manifest_freeze"
+  },
+  "thresholds": {"critical_concordance": 1.0, "overall_populated_concordance": 0.99, "exact_comparison": true, "fuzzy_matching": false, "critical_waiver": false},
+  "stopping_rules": {
+    "critical_discrepancy_stops": true,
+    "digest_or_manifest_failure_stops": true,
+    "schema_or_scope_failure_stops": true,
+    "unauthorized_access_or_role_overlap_stops": true,
+    "rights_privacy_security_or_prohibited_data_failure_stops": true,
+    "post_seal_correction_allowed": false,
+    "post_seal_exclusion_allowed": false,
+    "post_seal_reserve_substitution_allowed": false,
+    "scope_adjustment_allowed": false,
+    "same_lineage_rerun_allowed": false,
+    "owner_disposition_required_after_stop": true
+  },
+  "role_separation": {
+    "agent_roles": ["universe_registrar", "deterministic_selector", "acquisition_custodian", "locator_eligibility_reviewer", "primary_extractor", "secondary_extractor", "comparator", "postseal_source_adviser", "postseal_methods_adviser", "postseal_risk_adviser"],
+    "owner_role": "sole_accountable_adjudicator",
+    "fresh_sessions": true,
+    "per_role_bundles": true,
+    "artifact_access_receipts": true,
+    "shared_history_for_extractors": false
+  },
+  "unseen_edition_controls": {
+    "exclude_packet01_through_packet05_editions": true,
+    "exclude_diagnostic_and_comparator_editions": true,
+    "exclude_test_fixture_and_contract_calibration_editions": true,
+    "exclude_extractor_preparation_editions": true,
+    "exclude_any_prior_content_inspection": true,
+    "uncertain_prior_exposure_is_ineligible": true,
+    "metadata_only_selection_before_content_exposure": true,
+    "complete_exposure_ledger_required": true,
+    "candidate_and_reserve_manifest_frozen_before_extraction": true
+  },
+  "authorization": {"metadata_candidate_sourcing": false, "source_download": false, "content_inspection": false, "extraction": false, "outbound_contact": false, "publication": false, "release": false, "g2_acceptance": false},
+  "next_owner_decision_requires": {
+    "selected_design_and_claim": true,
+    "candidate_and_reserve_manifest": true,
+    "complete_exposure_ledger_and_nonoverlap_receipt": true,
+    "deterministic_selection_algorithm_seed_and_receipt": true,
+    "exact_edition_acquisition_and_integrity_plan": true,
+    "edition_specific_rights_privacy_security_and_prohibited_data_screens": true,
+    "frozen_contract_schema_fields_null_rules_and_comparator": true,
+    "role_assignments_bundles_denylist_and_access_receipts": true,
+    "resource_estimate_and_bounded_schedule": true,
+    "exact_packet_manifest_and_signed_freeze_commit": true,
+    "explicit_source_download_content_inspection_and_extraction_authorization": true
+  }
+}

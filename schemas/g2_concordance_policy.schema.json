@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_concordance_policy.schema.json",
+  "title": "Owner-approved G2 extraction concordance policy",
+  "type": "object",
+  "required": [
+    "schema_version", "decision_id", "decision_date", "owner_role",
+    "sample_reference", "sample_reference_sha256", "sample_keys",
+    "critical_fields", "critical_concordance_required",
+    "overall_populated_field_concordance_required", "unmatched_rows_fail",
+    "critical_discrepancy_waiver_allowed",
+    "clerical_correction_requires_documented_rerun",
+    "source_ambiguity_disposition", "separate_digest_bound_outputs_required",
+    "comparator_recomputation_required", "scope_limitations",
+    "owner_decision_text_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "decision_id": {"type": "string", "pattern": "^D-G2-[A-Z0-9_-]{5,80}$"},
+    "decision_date": {"type": "string", "format": "date"},
+    "owner_role": {"type": "string", "minLength": 1},
+    "sample_reference": {"type": "string", "minLength": 1},
+    "sample_reference_sha256": {"$ref": "#/$defs/sha256"},
+    "sample_keys": {
+      "type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "critical_fields": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "critical_concordance_required": {"const": 1.0},
+    "overall_populated_field_concordance_required": {"type": "number", "minimum": 0.99, "maximum": 1.0},
+    "unmatched_rows_fail": {"const": true},
+    "critical_discrepancy_waiver_allowed": {"const": false},
+    "clerical_correction_requires_documented_rerun": {"const": true},
+    "source_ambiguity_disposition": {"const": "quarantine_or_exclude"},
+    "separate_digest_bound_outputs_required": {"const": true},
+    "comparator_recomputation_required": {"const": true},
+    "scope_limitations": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "owner_decision_text_sha256": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+  "additionalProperties": false
+}

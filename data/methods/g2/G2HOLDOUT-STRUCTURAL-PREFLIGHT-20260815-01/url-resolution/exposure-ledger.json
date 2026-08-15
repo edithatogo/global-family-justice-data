@@ -1,0 +1,518 @@
+{
+  "entries": [
+    {
+      "candidate_id": "G2CAND-NOR-DOMSTOL-AR-2025",
+      "edition_id": "ED-NOR-DOMSTOL-AR-2025",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 1,
+      "landing_page_url": "https://www.domstol.no/no/domstoladministrasjonen/publikasjoner/arsmeldingar/",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Domstoladministrasjonen — annual reports"
+    },
+    {
+      "candidate_id": "G2CAND-PER-PJ-LALIBERTAD-BULLETIN-01-2024",
+      "edition_id": "ED-PER-PJ-LALIBERTAD-BULLETIN-01-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_request_error",
+      "extractor_eligible_role": false,
+      "frame_rank": 2,
+      "landing_page_url": "https://www.pj.gob.pe/wps/wcm/connect/Corte Superior La Libertad PJ/s_csj_LaLibertad_nuevo/as_corte_superior_LaLibertad/as_presidencia/as_documentos/as_resoluciones_administrativas/as_2024/?WCM_PI=1&WCM_Page.dcd566804ddc2df4838cdbcdee6548b3=47",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Poder Judicial del Perú, CSJ La Libertad — institutional statistical bulletins"
+    },
+    {
+      "candidate_id": "G2CAND-GBR-EAW-CAFCASS-ARA-2024-25",
+      "edition_id": "ED-GBR-EAW-CAFCASS-ARA-2024-25",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 3,
+      "landing_page_url": "https://www.gov.uk/government/publications/cafcass-annual-report-and-accounts-2024-to-2025",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "GBR-EAW-CAFCASS-ANNUAL-REPORT-ACCOUNTS"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-VIC-MCV-AR-2024-25",
+      "edition_id": "ED-AUS-VIC-MCV-AR-2024-25",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 4,
+      "landing_page_url": "https://www.mcv.vic.gov.au/news-and-resources/publications/annual-report-2024-2025",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "AUS-VIC-MAGISTRATES-COURT-ANNUAL-REPORT"
+    },
+    {
+      "candidate_id": "G2CAND-GBR-NIR-NICTS-INFOGRAPHIC-2023",
+      "edition_id": "ED-GBR-NIR-NICTS-INFOGRAPHIC-2023",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 5,
+      "landing_page_url": "https://www.justice-ni.gov.uk/publications/nicts-judicial-statistics",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "GBR-NIR-NICTS-JUDICIAL-STATISTICS-INFOGRAPHIC"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-NSW-LOCAL-AR-2024",
+      "edition_id": "ED-AUS-NSW-LOCAL-AR-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_redirect_blocked",
+      "extractor_eligible_role": false,
+      "frame_rank": 6,
+      "landing_page_url": "https://localcourt.nsw.gov.au/practice-publications/publications/annual-reviews.html",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "AUS-NSW-LOCAL-COURT-ANNUAL-REVIEW"
+    },
+    {
+      "candidate_id": "G2CAND-DNK-COURTS-NATIONAL-AR-2024",
+      "edition_id": "ED-DNK-COURTS-NATIONAL-AR-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_http_error",
+      "extractor_eligible_role": false,
+      "frame_rank": 7,
+      "landing_page_url": "https://www.domstol.dk/om-os/aarsrapporter/",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Danmarks Domstole — national annual reports"
+    },
+    {
+      "candidate_id": "G2CAND-NLD-RECHTSPRAAK-OVERIJSSEL-AR-2024",
+      "edition_id": "ED-NLD-RECHTSPRAAK-OVERIJSSEL-AR-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 8,
+      "landing_page_url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-overijssel/over-de-rechtbank/publicaties",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Rechtbank Overijssel — annual reports"
+    },
+    {
+      "candidate_id": "G2CAND-GBR-NIR-NICTS-JUDSTAT-2025",
+      "edition_id": "ED-GBR-NIR-NICTS-JUDSTAT-2025",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 12,
+      "landing_page_url": "https://www.justice-ni.gov.uk/publications/nicts-judicial-statistics",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "GBR-NIR-NICTS-JUDICIAL-STATISTICS"
+    },
+    {
+      "candidate_id": "G2CAND-ESP-CGPJ-KEYIND-2024",
+      "edition_id": "ED-ESP-CGPJ-KEYIND-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 13,
+      "landing_page_url": "https://www.poderjudicial.es/cgpj/es/Temas/Estadistica-Judicial/Estudios-e-Informes/Indicadores-Clave/Indicadores-clave-del-conjunto-de-las-jurisdicciones----Anual-Trimestre-2024",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "CGPJ Sección de Estadística Judicial — Indicadores clave"
+    },
+    {
+      "candidate_id": "G2CAND-USA-TX-STATEWIDE-FAMILY-FY24",
+      "edition_id": "ED-USA-TX-STATEWIDE-FAMILY-FY24",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_http_error",
+      "extractor_eligible_role": false,
+      "frame_rank": 14,
+      "landing_page_url": "https://www.txcourts.gov/statistics/annual-statistical-reports/2024/",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "USA-TX-OCA-STATEWIDE-FAMILY-CASE-ACTIVITY"
+    },
+    {
+      "candidate_id": "G2CAND-KOR-SCOURT-JUDICIAL-YEARBOOK-2024",
+      "edition_id": "ED-KOR-SCOURT-JUDICIAL-YEARBOOK-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 15,
+      "landing_page_url": "https://www.scourt.go.kr/portal/news/NewsViewAction.work?gubun=6&seqnum=2696",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "대한민국 법원 — 사법연감"
+    },
+    {
+      "candidate_id": "G2CAND-PER-PJ-ONAJUP-BULLETIN-JJA-2024",
+      "edition_id": "ED-PER-PJ-ONAJUP-BULLETIN-JJA-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 16,
+      "landing_page_url": "https://www.pj.gob.pe/wps/wcm/connect/onajup/s_onajup/as_documentos/as_documentos?WCM_PI=1&WCM_Page.8602c10048781bfa9f489f50d8336ffa=2",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Poder Judicial del Perú ONAJUP — statistical bulletins"
+    },
+    {
+      "candidate_id": "G2CAND-NOR-DOMSTOL-LIVET-2025",
+      "edition_id": "ED-NOR-DOMSTOL-LIVET-2025",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 18,
+      "landing_page_url": "https://www.domstol.no/no/domstoladministrasjonen/publikasjoner/arsmeldingar/",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Domstoladministrasjonen — Livet i domstolane"
+    },
+    {
+      "candidate_id": "G2CAND-BEL-SPF-JUSTICE-AR-2024",
+      "edition_id": "ED-BEL-SPF-JUSTICE-AR-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 19,
+      "landing_page_url": "https://justice.belgium.be/fr/publications/rapport_annuel_2024",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "SPF Justice — annual report"
+    },
+    {
+      "candidate_id": "G2CAND-SGP-COURTS-AR-2024",
+      "edition_id": "ED-SGP-COURTS-AR-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 20,
+      "landing_page_url": "https://www.judiciary.gov.sg/news-and-resources/publications/publication-details/sg-courts-annual-report-2024",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "SGP-JUDICIARY-SG-COURTS-ANNUAL-REPORT"
+    },
+    {
+      "candidate_id": "G2CAND-FRA-MJ-LOPJ-REPORT-2024",
+      "edition_id": "ED-FRA-MJ-LOPJ-REPORT-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 21,
+      "landing_page_url": "https://www.justice.gouv.fr/documentation/ressources/rapport-2024-loi-dorientation-programmation-du-ministere-justice-2023-2027",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Ministère de la justice — annual LOPJ implementation report"
+    },
+    {
+      "candidate_id": "G2CAND-ESP-CGPJ-DATOSJUSTICIA-B118-2024",
+      "edition_id": "ED-ESP-CGPJ-DATOSJUSTICIA-B118-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 22,
+      "landing_page_url": "https://www.poderjudicial.es/cgpj/es/Temas/Estadistica-Judicial/Estudios-e-Informes/Datos-de-Justicia/Datos-de-Justicia",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "CGPJ — Datos de Justicia thematic bulletins"
+    },
+    {
+      "candidate_id": "G2CAND-ITA-MG-ADMINJUSTICE-2024",
+      "edition_id": "ED-ITA-MG-ADMINJUSTICE-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_request_error",
+      "extractor_eligible_role": false,
+      "frame_rank": 23,
+      "landing_page_url": "https://www.giustizia.it/giustizia/it/contentview.page?contentId=ART1439564",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Ministero della giustizia — annual administration of justice report"
+    },
+    {
+      "candidate_id": "G2CAND-ESP-CGPJ-VGD-2024",
+      "edition_id": "ED-ESP-CGPJ-VGD-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 24,
+      "landing_page_url": "https://www.poderjudicial.es/cgpj/es/Temas/Violencia-domestica-y-de-genero/Actividad-del-Observatorio/Informes-de-violencia-domestica-y-de-genero/Informe-sobre-victimas-mortales-de-la-violencia-de-genero-y-domestica-en-el-ambito-de-la-pareja-o-expareja-en-2024",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "CGPJ Observatorio — annual domestic and gender violence statistical report"
+    },
+    {
+      "candidate_id": "G2CAND-USA-WA-SUPERIOR-CASELOAD-2025",
+      "edition_id": "ED-USA-WA-SUPERIOR-CASELOAD-2025",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 25,
+      "landing_page_url": "https://www.courts.wa.gov/caseload/?fa=caseload.showarchived",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "USA-WA-COURTS-SUPERIOR-COURT-ANNUAL-CASELOAD"
+    },
+    {
+      "candidate_id": "G2CAND-JPN-COURTS-YEARBOOK-FAMILY-2025",
+      "edition_id": "ED-JPN-COURTS-YEARBOOK-FAMILY-2025",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 26,
+      "landing_page_url": "https://www.courts.go.jp/toukei_siryou/shihotokei_nenpo/index.html",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "最高裁判所 — 司法統計年報 家事編"
+    },
+    {
+      "candidate_id": "G2CAND-ITA-MG-CIVIL-MONITOR-Q4-2024",
+      "edition_id": "ED-ITA-MG-CIVIL-MONITOR-Q4-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_request_error",
+      "extractor_eligible_role": false,
+      "frame_rank": 27,
+      "landing_page_url": "https://www.giustizia.it/giustizia/it/mg_1_14_1.page?contentId=SST243984",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Ministero della giustizia — civil-caseflow quarterly monitoring"
+    },
+    {
+      "candidate_id": "G2CAND-BEL-CASSATION-AR-2024",
+      "edition_id": "ED-BEL-CASSATION-AR-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 28,
+      "landing_page_url": "https://justice.belgium.be/fr/statistiques/cour_de_cassation",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Cour de cassation de Belgique — annual report"
+    },
+    {
+      "candidate_id": "G2CAND-USA-MD-STAT-ABSTRACT-FY24",
+      "edition_id": "ED-USA-MD-STAT-ABSTRACT-FY24",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 29,
+      "landing_page_url": "https://www.mdcourts.gov/publications/annualreports",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "USA-MD-JUDICIARY-STATISTICAL-ABSTRACT"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-TAS-MAG-AR-2024-25",
+      "edition_id": "ED-AUS-TAS-MAG-AR-2024-25",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_http_error",
+      "extractor_eligible_role": false,
+      "frame_rank": 32,
+      "landing_page_url": "https://www.magistratescourt.tas.gov.au/",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "AUS-TAS-MAGISTRATES-COURT-ANNUAL-REPORT"
+    },
+    {
+      "candidate_id": "G2CAND-POL-WAW-DISTRICT-FAMILY-2024",
+      "edition_id": "ED-POL-WAW-DISTRICT-FAMILY-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_request_error",
+      "extractor_eligible_role": false,
+      "frame_rank": 34,
+      "landing_page_url": "https://warszawa.sr.gov.pl/sprawozdania-statystyczne-dotyczace-dzialalnosci-sadu-sporzadzane-w-ramach-programu-badan-statystycznych-statystyki-publicznej-za-2024-r,new,mg,211,221,386.html,1576",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Sąd Rejonowy dla m.st. Warszawy — annual family and juvenile case statistics"
+    },
+    {
+      "candidate_id": "G2CAND-DNK-AARHUS-AR-2024",
+      "edition_id": "ED-DNK-AARHUS-AR-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_http_error",
+      "extractor_eligible_role": false,
+      "frame_rank": 35,
+      "landing_page_url": "https://www.domstol.dk/aarhus/om-retten-i-aarhus/aarsberetning-og-noegletal/",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Retten i Aarhus — annual reports and key figures"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-QLD-DISTRICT-AR-2024-25",
+      "edition_id": "ED-AUS-QLD-DISTRICT-AR-2024-25",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 37,
+      "landing_page_url": "https://www.courts.qld.gov.au/newsroom/governance-and-reporting/publications?start_rank=21",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "AUS-QLD-DISTRICT-COURT-ANNUAL-REPORT"
+    },
+    {
+      "candidate_id": "G2CAND-USA-MA-COURTS-AR-FY24",
+      "edition_id": "ED-USA-MA-COURTS-AR-FY24",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_http_error",
+      "extractor_eligible_role": false,
+      "frame_rank": 38,
+      "landing_page_url": "https://www.mass.gov/lists/court-reports",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "USA-MA-COURT-SYSTEM-ANNUAL-REPORT"
+    },
+    {
+      "candidate_id": "G2CAND-CAN-ON-OCJ-FAMSTATS-2025-26",
+      "edition_id": "ED-CAN-ON-OCJ-FAMSTATS-2025-26",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 39,
+      "landing_page_url": "https://www.ontariocourts.ca/ocj/statistics/",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "CAN-ON-OCJ-FAMILY-COURT-STATISTICS"
+    },
+    {
+      "candidate_id": "G2CAND-NLD-RECHTSPRAAK-ZWB-JAARBERICHT-2024",
+      "edition_id": "ED-NLD-RECHTSPRAAK-ZWB-JAARBERICHT-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_metadata_seen",
+      "extractor_eligible_role": false,
+      "frame_rank": 41,
+      "landing_page_url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-zeeland-west-brabant/praktisch-a-tm-z",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "Rechtbank Zeeland-West-Brabant — annual reports"
+    },
+    {
+      "candidate_id": "G2CAND-USA-NY-FCA-AR-2024",
+      "edition_id": "ED-USA-NY-FCA-AR-2024",
+      "evidence": {
+        "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+        "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+      },
+      "exposure_class": "landing_page_http_error",
+      "extractor_eligible_role": false,
+      "frame_rank": 43,
+      "landing_page_url": "https://www.nycourts.gov/division-technology-court-research/family-court-act-fca-annual-report",
+      "resolver_session_id": "metadata-url-resolver-20260815-fresh-01",
+      "source_content_accessed": false,
+      "source_series_id": "USA-NY-UCS-FAMILY-COURT-ACT-ANNUAL-REPORT"
+    }
+  ],
+  "entry_count": 33,
+  "ledger_id": "G2URL-EXPOSURE-20260815-01",
+  "limitations": [
+    "This ledger extends, but does not rewrite, the predecessor project-wide exposure ledger.",
+    "Landing-page metadata exposure does not verify any linked source edition or authorize a source request."
+  ],
+  "metadata_only": true,
+  "plan_id": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01",
+  "predecessor": {
+    "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/exposure-ledger.json",
+    "sha256": "44cb2c2671000751daa340eceabac9ccfe452132a4c91e3e393e3740aaef0492"
+  },
+  "resolution_receipt": {
+    "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/corrected-resolution-receipt.json",
+    "sha256": "ad7a595afb5d04e318b87071dda956a82238ca0bd72f2b07fc8da195ecd62432"
+  },
+  "resolver_role_contaminated_for_extraction": true,
+  "schema_version": "1.0",
+  "source_content_accessed": false
+}

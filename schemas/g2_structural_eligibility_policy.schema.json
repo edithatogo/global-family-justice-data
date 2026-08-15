@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_structural_eligibility_policy.schema.json",
+  "title": "G2 structural eligibility policy",
+  "type": "object",
+  "required": ["schema_version", "policy_id", "claim_scope", "stratum_precedence", "classifier", "required_safe_conditions", "permitted_persistent_outputs", "prohibited_persistent_outputs", "indeterminate_disposition", "structural_reviewer_may_later_extract_compare_or_adjudicate"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "policy_id": {"const": "G2-STRUCTURAL-ELIGIBILITY-20260815-01"},
+    "claim_scope": {"const": "document_level_structure_not_target_fact_structure"},
+    "stratum_precedence": {"const": ["embedded_raster_or_dashboard_pdf", "structurally_complex_mixed_layout_pdf", "non_english_text_native", "english_text_native"]},
+    "classifier": {"const": {"embedded_raster_or_dashboard_pdf": {"minimum_raster_page_ratio": 0.5}, "structurally_complex_mixed_layout_pdf": {"minimum_complex_page_ratio": 0.25}, "non_english_text_native": {"primary_language_must_not_equal": "en"}, "english_text_native": {"primary_language_must_equal": "en"}}},
+    "required_safe_conditions": {"const": {"exact_edition_confirmed": true, "pdf_magic_valid": true, "encrypted": false, "malformed": false, "active_content": false, "embedded_files": false, "external_launch_actions": false, "aggregate_only": true, "personal_or_case_level_data": false, "prohibited_data": false, "critical_or_high_security_finding": false, "local_private_processing_approved": true}},
+    "permitted_persistent_outputs": {"const": ["controlled_codes", "booleans", "bounded_counts", "bounded_ratios", "input_digest", "tool_and_bundle_digests", "timing_and_access_receipts"]},
+    "prohibited_persistent_outputs": {"const": ["source_text", "source_excerpt", "target_value", "target_locator", "screenshot", "page_image", "ocr_output", "substantial_extract"]},
+    "indeterminate_disposition": {"const": "candidate_rejected"},
+    "structural_reviewer_may_later_extract_compare_or_adjudicate": {"const": false}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,694 @@
+{
+  "access_date": "2026-08-15",
+  "authorization_boundary": {
+    "allowed": [
+      "official_html_catalogue_and_landing_page_search",
+      "metadata_recording",
+      "direct_pdf_url_recording_only_when_exposed_by_html_metadata"
+    ],
+    "prohibited_and_not_performed": [
+      "pdf_fetch",
+      "source_byte_download",
+      "source_content_open_or_render",
+      "source_content_transcription",
+      "outbound_contact",
+      "rights_acceptance",
+      "selection_or_g2_decision"
+    ]
+  },
+  "candidates": [
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "GBR-EAW-MOJ-FCSQ-2025Q4",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2025-10-01/2025-12-31",
+      "edition_title": "Family court statistics quarterly: October to December 2025",
+      "jurisdiction": "England and Wales",
+      "jurisdiction_code": "GBR-EAW",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official landing metadata identifies the main report as HTML, so the edition is outside the frozen PDF format scope.",
+      "mime_or_format_claim": "HTML bulletin with ODS, CSV/ZIP and HTML supporting documents; no PDF edition identified by the landing page",
+      "official_landing_page_url": "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-october-to-december-2025",
+      "pre_screen_status": "ineligible_format",
+      "privacy_url": "https://www.gov.uk/help/privacy-notice",
+      "proposed_stratum": null,
+      "security_url": "https://www.gov.uk/help/report-vulnerability",
+      "source_series_id": "GBR-EAW-MOJ-FAMILY-COURT-STATISTICS-QUARTERLY",
+      "terms_or_licence_urls": [
+        "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      ],
+      "uncertainty": "No PDF main report was exposed in official HTML metadata; do not substitute a print-to-PDF rendering."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "GBR-EAW-CAFCASS-ARA-2024-25",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2024-04-01/2025-03-31",
+      "edition_title": "Cafcass annual report and accounts 2024 to 2025",
+      "jurisdiction": "England and Wales",
+      "jurisdiction_code": "GBR-EAW",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official landing metadata describes a long audited annual report combining activity, performance and accounts; mixed sections are explicit without reading the PDF.",
+      "mime_or_format_claim": "PDF, 9.35 MB, 113 pages",
+      "official_landing_page_url": "https://www.gov.uk/government/publications/cafcass-annual-report-and-accounts-2024-to-2025",
+      "pre_screen_status": "plausible_pending_nonoverlap_and_edition_screen",
+      "privacy_url": "https://www.gov.uk/help/privacy-notice",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "security_url": "https://www.gov.uk/help/report-vulnerability",
+      "source_series_id": "GBR-EAW-CAFCASS-ANNUAL-REPORT-ACCOUNTS",
+      "terms_or_licence_urls": [
+        "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+      ],
+      "uncertainty": "Stratum still requires the frozen metadata classifier to accept annual-report mixed-section evidence; PDF content was not inspected."
+    },
+    {
+      "access_status": "official_html_collection_metadata_accessible",
+      "candidate_id": "GBR-SCT-CIVJUST-2022-23",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2022-04-01/2023-03-31",
+      "edition_title": "Civil justice statistics in Scotland 2022-23",
+      "jurisdiction": "Scotland",
+      "jurisdiction_code": "GBR-SCT",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "The collection metadata confirms family disputes and divorces within a civil-court statistical bulletin but does not expose enough edition-format metadata to classify PDF structure.",
+      "mime_or_format_claim": "Statistical bulletin and supporting documents; PDF presence requires edition-page metadata confirmation",
+      "official_landing_page_url": "https://www.gov.scot/collections/civil-justice-statistics/",
+      "pre_screen_status": "uncertain_format_and_structure",
+      "privacy_url": null,
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "GBR-SCT-GOV-CIVIL-JUSTICE-STATISTICS",
+      "terms_or_licence_urls": [],
+      "uncertainty": "Exact PDF-format claim, edition landing page, licence and structure remain to be established without opening source content."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "GBR-NIR-NICTS-JUDSTAT-2025",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2025",
+      "edition_title": "Judicial Statistics 2025",
+      "jurisdiction": "Northern Ireland",
+      "jurisdiction_code": "GBR-NIR",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official landing metadata identifies a conventional statistical PDF and separate spreadsheet; no infographic label applies to this edition.",
+      "mime_or_format_claim": "Adobe PDF, 599.58 KB",
+      "official_landing_page_url": "https://www.justice-ni.gov.uk/publications/nicts-judicial-statistics",
+      "pre_screen_status": "plausible_pending_structure_confirmation",
+      "privacy_url": null,
+      "proposed_stratum": "english_text_native",
+      "security_url": null,
+      "source_series_id": "GBR-NIR-NICTS-JUDICIAL-STATISTICS",
+      "terms_or_licence_urls": [],
+      "uncertainty": "Text-native status is proposed from the conventional PDF-plus-table publication pattern only; content must remain unopened before manifest freeze."
+    },
+    {
+      "access_status": "official_html_metadata_accessible_direct_pdf_not_fetched",
+      "candidate_id": "IRL-COURTS-AR-2024",
+      "direct_pdf_url": "https://www.courts.ie/docs/default-source/courts-annual-reports/courts-service-annual-report-2024.pdf",
+      "edition_date_or_period": "2024",
+      "edition_title": "Courts Service Annual Report 2024",
+      "jurisdiction": "Ireland",
+      "jurisdiction_code": "IRL",
+      "language": [
+        "en",
+        "ga"
+      ],
+      "metadata_only_stratum_basis": "Official HTML confirms the report and PDF, but does not establish text/raster or mixed-layout structure without content inspection.",
+      "mime_or_format_claim": "PDF link identified by the official annual-report and announcement pages",
+      "official_landing_page_url": "https://www.courts.ie/annual-reports/annual-report-2024",
+      "pre_screen_status": "uncertain_structure_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "IRL-COURTS-SERVICE-ANNUAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "Language composition, structure, edition-specific terms and reuse conditions require metadata evidence beyond the landing page."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "CAN-ON-OCJ-FAMSTATS-2025-26",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2025-2026",
+      "edition_title": "Family Court Statistics: Number of Cases (Received, Disposed, Pending), 2025 and 2026",
+      "jurisdiction": "Ontario, Canada",
+      "jurisdiction_code": "CAN-ON",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "The official page explicitly identifies bookmarks and multiple regional/location layers within the PDF.",
+      "mime_or_format_claim": "PDF; official page states that the PDFs contain bookmarks to court regions and courthouse locations",
+      "official_landing_page_url": "https://www.ontariocourts.ca/ocj/statistics/",
+      "pre_screen_status": "plausible_pending_exact_link_and_nonoverlap",
+      "privacy_url": null,
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "security_url": null,
+      "source_series_id": "CAN-ON-OCJ-FAMILY-COURT-STATISTICS",
+      "terms_or_licence_urls": [],
+      "uncertainty": "The edition label spans two years and may resolve to multiple PDFs; exact one-edition identity must be proven before selection."
+    },
+    {
+      "access_status": "official_html_metadata_accessible_direct_pdf_not_fetched",
+      "candidate_id": "CAN-ON-SCJ-BIENNIAL-2024-25",
+      "direct_pdf_url": "https://www.ontariocourts.ca/scj/wp-content/uploads/2026/05/2024-2025_English.pdf",
+      "edition_date_or_period": "2024-2025",
+      "edition_title": "2024–2025 Biennial Report",
+      "jurisdiction": "Ontario, Canada",
+      "jurisdiction_code": "CAN-ON",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official HTML identifies the biennial report and its Family Court coverage, but not enough structure metadata for a frozen stratum.",
+      "mime_or_format_claim": "PDF link exposed by the official release page",
+      "official_landing_page_url": "https://www.ontariocourts.ca/scj/news/2024-2025-biennial-report/",
+      "pre_screen_status": "uncertain_structure_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "CAN-ON-SCJ-BIENNIAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "A French counterpart may exist; exact language-edition identity and one-edition rule require resolution."
+    },
+    {
+      "access_status": "official_html_metadata_accessible_direct_pdf_not_fetched",
+      "candidate_id": "CAN-BC-PC-AR-2024-25",
+      "direct_pdf_url": "https://provincialcourt.bc.ca/system/files/Provincial%20Court%20Annual%20Report%202024-2025.pdf",
+      "edition_date_or_period": "2024-04-01/2025-03-31",
+      "edition_title": "Provincial Court Annual Report 2024-2025",
+      "jurisdiction": "British Columbia, Canada",
+      "jurisdiction_code": "CAN-BC",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official landing metadata explicitly describes detailed operational data together with colourful graphics, photos and paintings.",
+      "mime_or_format_claim": "PDF linked from official court page",
+      "official_landing_page_url": "https://provincialcourt.bc.ca/news-notices-policies-and-practice-directions/provincial-court-annual-report-0",
+      "pre_screen_status": "plausible_pending_nonoverlap_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "security_url": null,
+      "source_series_id": "CAN-BC-PROVINCIAL-COURT-ANNUAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "The page does not state text-layer status or edition-specific reuse conditions."
+    },
+    {
+      "access_status": "official_html_metadata_accessible_direct_pdf_not_fetched",
+      "candidate_id": "CAN-NS-COA-AR-2024",
+      "direct_pdf_url": "https://www.courts.ns.ca/sites/default/files/courts/Court%20of%20Appeal/NSCourtOfAppealAR2024_WEB.pdf",
+      "edition_date_or_period": "2024",
+      "edition_title": "Nova Scotia Court of Appeal 2024 Annual Report",
+      "jurisdiction": "Nova Scotia, Canada",
+      "jurisdiction_code": "CAN-NS",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official HTML states that the report covers caseload and timelines including civil/family appeals, but gives no reliable PDF-structure signal.",
+      "mime_or_format_claim": "PDF linked as the full annual report",
+      "official_landing_page_url": "https://courts.ns.ca/resources/news/nova-scotia-court-of-appeal-releases-2024-annual-report",
+      "pre_screen_status": "uncertain_structure_and_family_specificity",
+      "privacy_url": null,
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "CAN-NS-COURT-OF-APPEAL-ANNUAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "Family matters are a subset of civil appeals and may not yield a qualifying one-row family-justice statistic."
+    },
+    {
+      "access_status": "official_html_metadata_accessible_direct_pdf_not_fetched",
+      "candidate_id": "NZL-DISTRICT-COURT-AR-2024",
+      "direct_pdf_url": "https://www.districtcourts.govt.nz/assets/Uploads/Publications/2025/District-Court-2024-Annual-Report.pdf",
+      "edition_date_or_period": "2024",
+      "edition_title": "District Court Annual Report 2024",
+      "jurisdiction": "New Zealand",
+      "jurisdiction_code": "NZL",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official archive metadata confirms a substantial PDF annual report; structure cannot be assigned without stronger metadata.",
+      "mime_or_format_claim": "PDF, 14 MB",
+      "official_landing_page_url": "https://www.districtcourts.govt.nz/reports-publications-and-statistics/district-court-annual-reports/new-annual-report-content-page-2",
+      "pre_screen_status": "uncertain_structure_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "NZL-DISTRICT-COURT-ANNUAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "The landing page does not state text-layer status, mixed-layout features, or exact reuse terms."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "AUS-NSW-LOCAL-AR-2024",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2024",
+      "edition_title": "2024 Annual Review",
+      "jurisdiction": "New South Wales, Australia",
+      "jurisdiction_code": "AUS-NSW",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official annual-review index confirms the edition and PDF format but not a qualifying family-justice aggregate or PDF structure.",
+      "mime_or_format_claim": "PDF, 5.4 MB",
+      "official_landing_page_url": "https://localcourt.nsw.gov.au/practice-publications/publications/annual-reviews.html",
+      "pre_screen_status": "uncertain_family_specificity_structure_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "AUS-NSW-LOCAL-COURT-ANNUAL-REVIEW",
+      "terms_or_licence_urls": [],
+      "uncertainty": "Family-violence or related jurisdiction coverage must be established from non-content metadata before eligibility."
+    },
+    {
+      "access_status": "official_html_metadata_accessible_direct_pdf_not_fetched",
+      "candidate_id": "AUS-NSW-SUPREME-AR-2024",
+      "direct_pdf_url": "https://supremecourt.nsw.gov.au/documents/Publications/Annual-Reviews-%2B-Stats/2024-annual-review/SCNSW-Annual-Review-2024.pdf",
+      "edition_date_or_period": "2024",
+      "edition_title": "Supreme Court of New South Wales 2024 Annual Review",
+      "jurisdiction": "New South Wales, Australia",
+      "jurisdiction_code": "AUS-NSW",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official HTML exposes multiple qualitative and quantitative sections, court profile, operations and appendices before linking the full PDF.",
+      "mime_or_format_claim": "Full 2024 Annual Review available in PDF",
+      "official_landing_page_url": "https://dcj.nsw.gov.au/content/dcj/ctsd/supreme-court/supreme-court-home/about-us/publications/annual-reviews.html",
+      "pre_screen_status": "uncertain_family_specificity_otherwise_plausible_structure",
+      "privacy_url": null,
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "security_url": null,
+      "source_series_id": "AUS-NSW-SUPREME-COURT-ANNUAL-REVIEW",
+      "terms_or_licence_urls": [],
+      "uncertainty": "A qualifying family-justice aggregate has not been established from the landing metadata."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "AUS-VIC-MCV-AR-2024-25",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2024-07-01/2025-06-30",
+      "edition_title": "MCV Annual Report 2024-2025",
+      "jurisdiction": "Victoria, Australia",
+      "jurisdiction_code": "AUS-VIC",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official HTML confirms only the annual-report identity and PDF size; no structure inference is permitted.",
+      "mime_or_format_claim": "PDF, 13.64 MB",
+      "official_landing_page_url": "https://www.mcv.vic.gov.au/news-and-resources/publications/annual-report-2024-2025",
+      "pre_screen_status": "uncertain_structure_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "AUS-VIC-MAGISTRATES-COURT-ANNUAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "Family-violence relevance is expected from the court remit but must be supported by allowed metadata before eligibility."
+    },
+    {
+      "access_status": "official_html_catalogue_metadata_accessible_direct_pdf_not_fetched",
+      "candidate_id": "AUS-QLD-CHILDRENS-AR-2024-25",
+      "direct_pdf_url": "https://www.courts.qld.gov.au/__data/assets/pdf_file/0010/891640/cc-ar-2024-2025.pdf",
+      "edition_date_or_period": "2024-07-01/2025-06-30",
+      "edition_title": "Childrens Court Annual Report 2024-2025",
+      "jurisdiction": "Queensland, Australia",
+      "jurisdiction_code": "AUS-QLD",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official catalogue metadata confirms an annual statistical report but does not expose structural characteristics.",
+      "mime_or_format_claim": "PDF, 1.1 MB",
+      "official_landing_page_url": "https://www.courts.qld.gov.au/newsroom/governance-and-reporting/publications?start_rank=21",
+      "pre_screen_status": "uncertain_structure_rights_and_scope",
+      "privacy_url": null,
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "AUS-QLD-CHILDRENS-COURT-ANNUAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "Childrens Court includes criminal/youth justice as well as child-related matters; family-justice scope must be pre-specified without inspecting content."
+    },
+    {
+      "access_status": "official_html_catalogue_metadata_accessible",
+      "candidate_id": "AUS-QLD-DISTRICT-AR-2024-25",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2024-07-01/2025-06-30",
+      "edition_title": "District Court Annual Report 2024-2025",
+      "jurisdiction": "Queensland, Australia",
+      "jurisdiction_code": "AUS-QLD",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official catalogue metadata confirms the edition but not family-justice content or PDF structure.",
+      "mime_or_format_claim": "PDF, 437.4 KB",
+      "official_landing_page_url": "https://www.courts.qld.gov.au/newsroom/governance-and-reporting/publications?start_rank=21",
+      "pre_screen_status": "uncertain_family_specificity_structure_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "AUS-QLD-DISTRICT-COURT-ANNUAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "Likely too broad unless an allowed metadata record identifies a qualifying family-related aggregate."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "AUS-TAS-MAG-AR-2024-25",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2024-07-01/2025-06-30",
+      "edition_title": "Magistrates Court Annual Report 2024-2025",
+      "jurisdiction": "Tasmania, Australia",
+      "jurisdiction_code": "AUS-TAS",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official court homepage exposes the report link and family-violence jurisdiction but not the report's structure or aggregate coverage.",
+      "mime_or_format_claim": "PDF, 2021 KB",
+      "official_landing_page_url": "https://www.magistratescourt.tas.gov.au/",
+      "pre_screen_status": "uncertain_structure_rights_and_family_statistic",
+      "privacy_url": null,
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "AUS-TAS-MAGISTRATES-COURT-ANNUAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "The homepage is not an edition-specific landing page; an exact metadata record is required."
+    },
+    {
+      "access_status": "official_html_metadata_accessible_direct_pdf_not_fetched",
+      "candidate_id": "AUS-PC-ROGS-COURTS-2026",
+      "direct_pdf_url": "https://assets.pc.gov.au/2026-02/rogs-2026-partc-overview-and-sections.pdf?VersionId=m9KjA4PjvM2x7YMrT2EhW92NpOHZC2PC",
+      "edition_date_or_period": "2024-07-01/2025-06-30",
+      "edition_title": "Report on Government Services 2026 — 7 Courts",
+      "jurisdiction": "Australia",
+      "jurisdiction_code": "AUS-NAT",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official HTML identifies a multi-jurisdiction report with context, indicator framework, results, explanatory material and associated datasets.",
+      "mime_or_format_claim": "Justice sector overview and sections PDF, 7.4 MB",
+      "official_landing_page_url": "https://www.pc.gov.au/ongoing/report-on-government-services/justice/courts/",
+      "pre_screen_status": "uncertain_prior_exposure_otherwise_plausible",
+      "privacy_url": null,
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "security_url": null,
+      "source_series_id": "AUS-PC-REPORT-ON-GOVERNMENT-SERVICES-COURTS",
+      "terms_or_licence_urls": [],
+      "uncertainty": "Non-overlap must check whether this cross-jurisdiction series or its FCFCOA data were used in prior preparation; exact one-row jurisdiction semantics also require a frozen rule."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "USA-CA-CSR-2026",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2024-07-01/2025-06-30",
+      "edition_title": "2026 Court Statistics Report: Statewide Caseload Trends",
+      "jurisdiction": "California, United States",
+      "jurisdiction_code": "USA-CA",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official page describes ten-year statewide summaries, individual-court filings and dispositions, and multiple workload indicators.",
+      "mime_or_format_claim": "PDF exposed as View PDF on the official page",
+      "official_landing_page_url": "https://courts.ca.gov/news-reference/research-data/court-statistics",
+      "pre_screen_status": "plausible_pending_nonoverlap_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "security_url": null,
+      "source_series_id": "USA-CA-JC-COURT-STATISTICS-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "The exact PDF link and family-law table presence must be captured from metadata without source-content access."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "USA-NY-FCA-AR-2024",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2024",
+      "edition_title": "Family Court Act Annual Report 2024",
+      "jurisdiction": "New York, United States",
+      "jurisdiction_code": "USA-NY",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official page explicitly identifies region/county breakdowns, multiple case types, outcomes, ages, timing measures and a bookmark table reference.",
+      "mime_or_format_claim": "PDF",
+      "official_landing_page_url": "https://www.nycourts.gov/division-technology-court-research/family-court-act-fca-annual-report",
+      "pre_screen_status": "plausible_pending_nonoverlap_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "security_url": null,
+      "source_series_id": "USA-NY-UCS-FAMILY-COURT-ACT-ANNUAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "The direct edition link, page count, text-layer status and reuse conditions remain unverified."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "USA-MA-COURTS-AR-FY24",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "FY2024",
+      "edition_title": "FY2024 Annual Report of the Court System",
+      "jurisdiction": "Massachusetts, United States",
+      "jurisdiction_code": "USA-MA",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official HTML says the annual series combines operations with selected funding, criminal-charge and case-filing statistics; the very large PDF is a mixed-section report by metadata.",
+      "mime_or_format_claim": "English PDF, 39.35 MB",
+      "official_landing_page_url": "https://www.mass.gov/lists/court-reports",
+      "pre_screen_status": "plausible_pending_family_locator_nonoverlap_and_rights",
+      "privacy_url": "https://www.mass.gov/massgov-site-policies",
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "security_url": null,
+      "source_series_id": "USA-MA-COURT-SYSTEM-ANNUAL-REPORT",
+      "terms_or_licence_urls": [
+        "https://www.mass.gov/massgov-site-policies"
+      ],
+      "uncertainty": "A qualifying Probate and Family Court aggregate and exact locator cannot be assumed from the landing page alone."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "USA-WA-SUPERIOR-CASELOAD-2025",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2025",
+      "edition_title": "Superior Courts Annual Report 2025",
+      "jurisdiction": "Washington, United States",
+      "jurisdiction_code": "USA-WA",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official archive identifies a conventional annual caseload-report PDF series by court level and year; no dashboard or infographic label is present.",
+      "mime_or_format_claim": "All archived reports are PDF",
+      "official_landing_page_url": "https://www.courts.wa.gov/caseload/?fa=caseload.showarchived",
+      "pre_screen_status": "plausible_pending_family_scope_structure_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": "english_text_native",
+      "security_url": null,
+      "source_series_id": "USA-WA-COURTS-SUPERIOR-COURT-ANNUAL-CASELOAD",
+      "terms_or_licence_urls": [],
+      "uncertainty": "Family/domestic-relations coverage and text-native status need allowed metadata corroboration."
+    },
+    {
+      "access_status": "official_html_metadata_accessible_direct_pdf_not_fetched",
+      "candidate_id": "USA-TX-JUD-AR-FY24",
+      "direct_pdf_url": "https://www.txcourts.gov/media/1461502/ar-statistical-fy24.pdf",
+      "edition_date_or_period": "2023-09-01/2024-08-31",
+      "edition_title": "Annual Statistical Report for the Texas Judiciary, Fiscal Year 2024",
+      "jurisdiction": "Texas, United States",
+      "jurisdiction_code": "USA-TX",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official page lists structure/operation, multiple court levels, activity, age, performance, county breakdowns and a dedicated statewide family-case PDF.",
+      "mime_or_format_claim": "PDF and Excel outputs",
+      "official_landing_page_url": "https://www.txcourts.gov/statistics/annual-statistical-reports/2024/",
+      "pre_screen_status": "plausible_pending_exact_component_choice_nonoverlap_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": "structurally_complex_mixed_layout_pdf",
+      "security_url": null,
+      "source_series_id": "USA-TX-OCA-ANNUAL-STATISTICAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "The full annual report and dedicated family component are distinct PDF objects; the exact one-edition object must be frozen prospectively."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "USA-MD-STAT-ABSTRACT-FY24",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "FY2024",
+      "edition_title": "FY 2024 Statistical Abstract",
+      "jurisdiction": "Maryland, United States",
+      "jurisdiction_code": "USA-MD",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official index identifies the statistical abstract edition, but not family-justice content or PDF structure.",
+      "mime_or_format_claim": "PDF link is listed by the official annual-report index; exact file metadata not captured",
+      "official_landing_page_url": "https://www.mdcourts.gov/publications/annualreports",
+      "pre_screen_status": "uncertain_family_specificity_structure_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "USA-MD-JUDICIARY-STATISTICAL-ABSTRACT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "Requires an edition-specific HTML metadata record or catalogue fields before classification."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "USA-CO-JUDSTAT-FY24",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2023-07-01/2024-06-30",
+      "edition_title": "Colorado Judicial Branch Annual Statistical Report FY 2024",
+      "jurisdiction": "Colorado, United States",
+      "jurisdiction_code": "USA-CO",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official page describes a conventional annual statistical report and separately warns about navigability/accessibility rather than identifying infographic/dashboard construction.",
+      "mime_or_format_claim": "Official report document linked from annual statistical reports page",
+      "official_landing_page_url": "https://www.coloradojudicial.gov/annual-statistical-reports?language=en",
+      "pre_screen_status": "plausible_pending_exact_pdf_family_locator_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": "english_text_native",
+      "security_url": null,
+      "source_series_id": "USA-CO-JUDICIAL-ANNUAL-STATISTICAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "The accessibility warning may reflect document structure problems; text-native classification remains provisional."
+    },
+    {
+      "access_status": "official_html_metadata_accessible_direct_pdf_not_fetched",
+      "candidate_id": "USA-NC-FAMILY-AR-2024",
+      "direct_pdf_url": "https://www.nccourts.gov/assets/documents/publications/2024-Family-Court-Annual-Report-as-of-3-11-2024.pdf?VersionId=XIZWD35iFlbNkPYbCL3Z6.ZI.t4V0A54",
+      "edition_date_or_period": "2024",
+      "edition_title": "2024 Family Court Annual Report",
+      "jurisdiction": "North Carolina, United States",
+      "jurisdiction_code": "USA-NC",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official landing page identifies a dedicated family-court programme report in a conventional annual PDF series; no infographic or dashboard marker is present.",
+      "mime_or_format_claim": "PDF, 727 KB",
+      "official_landing_page_url": "https://www.nccourts.gov/documents/publications/family-court-program-annual-report",
+      "pre_screen_status": "plausible_pending_structure_nonoverlap_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": "english_text_native",
+      "security_url": null,
+      "source_series_id": "USA-NC-FAMILY-COURT-PROGRAM-ANNUAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "The page does not establish text-layer status or confirm that every annual-report measure is an administrative court statistic."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "SGP-COURTS-AR-2024",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2024",
+      "edition_title": "SG Courts Annual Report 2024",
+      "jurisdiction": "Singapore",
+      "jurisdiction_code": "SGP",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official publication page confirms a Supreme Court, State Courts and Family Justice Courts annual report but exposes no structure metadata.",
+      "mime_or_format_claim": "PDF, 11 MB",
+      "official_landing_page_url": "https://www.judiciary.gov.sg/news-and-resources/publications/publication-details/sg-courts-annual-report-2024",
+      "pre_screen_status": "uncertain_structure_family_locator_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "SGP-JUDICIARY-SG-COURTS-ANNUAL-REPORT",
+      "terms_or_licence_urls": [],
+      "uncertainty": "The exact Family Justice Courts aggregate, reuse conditions and structural stratum remain unverified."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "GBR-NIR-NICTS-INFOGRAPHIC-2023",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2023",
+      "edition_title": "Judicial Statistics 2023 - Infographic",
+      "jurisdiction": "Northern Ireland",
+      "jurisdiction_code": "GBR-NIR",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "The official catalogue expressly labels this exact PDF edition as an infographic.",
+      "mime_or_format_claim": "Adobe PDF, 216.22 KB",
+      "official_landing_page_url": "https://www.justice-ni.gov.uk/publications/nicts-judicial-statistics",
+      "pre_screen_status": "plausible_pending_series-cap_interpretation_nonoverlap_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": "embedded_raster_or_dashboard_pdf",
+      "security_url": null,
+      "source_series_id": "GBR-NIR-NICTS-JUDICIAL-STATISTICS-INFOGRAPHIC",
+      "terms_or_licence_urls": [],
+      "uncertainty": "It may be a derivative output of the same underlying NICTS Judicial Statistics source series and therefore conflict with the one-edition-per-series rule."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "USA-TX-STATEWIDE-FAMILY-FY24",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "2023-09-01/2024-08-31",
+      "edition_title": "Statewide Family Case Activity, Fiscal Year 2024",
+      "jurisdiction": "Texas, United States",
+      "jurisdiction_code": "USA-TX",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "Official HTML identifies this as a dedicated statewide family-case activity PDF within the annual statistical supplement.",
+      "mime_or_format_claim": "Dedicated PDF and Excel outputs",
+      "official_landing_page_url": "https://www.txcourts.gov/statistics/annual-statistical-reports/2024/",
+      "pre_screen_status": "plausible_pending_series-cap_interpretation_nonoverlap_and_rights",
+      "privacy_url": null,
+      "proposed_stratum": "english_text_native",
+      "security_url": null,
+      "source_series_id": "USA-TX-OCA-STATEWIDE-FAMILY-CASE-ACTIVITY",
+      "terms_or_licence_urls": [],
+      "uncertainty": "It may be a component of the same annual statistical source series as the full report; the series identifier and one-edition rule need deterministic resolution."
+    },
+    {
+      "access_status": "official_html_metadata_accessible",
+      "candidate_id": "USA-MA-PFC-FILINGS-FY24",
+      "direct_pdf_url": null,
+      "edition_date_or_period": "FY2024",
+      "edition_title": "Probate & Family Court Case Filings by Court Location, Fiscal Year 2024",
+      "jurisdiction": "Massachusetts, United States",
+      "jurisdiction_code": "USA-MA",
+      "language": [
+        "en"
+      ],
+      "metadata_only_stratum_basis": "The official page provides family-court aggregate statistics but does not establish a PDF edition within the frozen scope.",
+      "mime_or_format_claim": "Landing page exposes web tables and XLSX data; no PDF edition identified",
+      "official_landing_page_url": "https://www.mass.gov/lists/trial-court-statistics-for-fiscal-year-2024",
+      "pre_screen_status": "uncertain_or_ineligible_format",
+      "privacy_url": "https://www.mass.gov/massgov-site-policies",
+      "proposed_stratum": null,
+      "security_url": null,
+      "source_series_id": "USA-MA-TRIAL-COURT-PROBATE-FAMILY-FILING-STATISTICS",
+      "terms_or_licence_urls": [
+        "https://www.mass.gov/massgov-site-policies"
+      ],
+      "uncertainty": "Do not convert the web table or spreadsheet to PDF; a separately issued official PDF must be identified to qualify."
+    }
+  ],
+  "created_at": "2026-08-15T14:14:41+10:00",
+  "intake_lane": "metadata_only_official_source_discovery_west",
+  "known_packet01_05_series_excluded": [
+    "AUS-FCFCOA-AR",
+    "USA-MN-MJB",
+    "BRA-CNJ-DATAJUD",
+    "ZAF-JUD-ANNUAL"
+  ],
+  "schema_version": "draft-1.0",
+  "source_limitations": [
+    "Search-engine results occasionally exposed direct PDF URLs and indexed snippets. No direct PDF result was opened or fetched; indexed source-content snippets were not used as factual or structural evidence.",
+    "Most annual-report landing pages do not identify whether a PDF is text-native, raster-heavy or structurally mixed. Those candidates remain structure-uncertain.",
+    "Terms, licence, privacy and security URLs are recorded only where the official landing metadata or stable government policy page was available; empty values mean pending metadata capture, not adverse findings.",
+    "Family relevance for broad court annual reports is not assumed to imply a qualifying aggregate row. Broad reports remain uncertain until allowed metadata establishes a family-justice measure.",
+    "This intake does not establish unseen status. The complete exposure ledger and deterministic non-overlap receipt remain authoritative and may exclude any candidate here.",
+    "Candidate and source-series identifiers are discovery labels only and require registrar normalization before deterministic selection."
+  ],
+  "summary": {
+    "candidate_count": 29,
+    "distinct_source_series_count": 29,
+    "jurisdiction_code_count": 22,
+    "metadata_ineligible_count": 1,
+    "metadata_plausible_count": 13,
+    "metadata_uncertain_count": 15,
+    "note": "Plausible means only that official HTML metadata supports PDF scope, aggregate family-justice relevance and a proposed frozen stratum. It is not an eligibility, rights or selection decision."
+  }
+}

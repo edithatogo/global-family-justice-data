@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_search_index_execution_bundle.schema.json",
+  "type": "object",
+  "required": ["schema_version", "bundle_id", "query_manifest", "predecessor_exposure_ledger", "tool_name", "tool_version", "provider_config", "query_events", "candidate_hypotheses", "exposure_events", "non_overlap_receipt", "proposed_official_html_allowlist", "violations", "result_url_requests", "landing_page_requests", "source_file_requests"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "bundle_id": {"type": "string", "minLength": 8},
+    "query_manifest": {"$ref": "#/$defs/artifact"},
+    "predecessor_exposure_ledger": {"$ref": "#/$defs/artifact"},
+    "tool_name": {"const": "web__run.search_query"},
+    "tool_version": {"type": "string", "minLength": 1},
+    "provider_config": {"type": "object"},
+    "query_events": {
+      "type": "array", "minItems": 208, "maxItems": 208,
+      "items": {
+        "type": "object",
+        "required": ["query_order", "query_id", "query_text", "language", "searched_on", "result_count", "results", "query_sha256", "result_sha256", "access_issue"],
+        "properties": {
+          "query_order": {"type": "integer", "minimum": 1, "maximum": 208},
+          "query_id": {"type": "string"},
+          "query_text": {"type": "string"},
+          "language": {"type": "string"},
+          "searched_on": {"const": "2026-08-15"},
+          "result_count": {"type": "integer", "minimum": 0, "maximum": 5},
+          "results": {
+            "type": "array", "maxItems": 5,
+            "items": {
+              "type": "object",
+              "required": ["rank", "title", "url", "domain", "official_host_candidate"],
+              "properties": {
+                "rank": {"type": "integer", "minimum": 1, "maximum": 5},
+                "title": {"type": "string"},
+                "url": {"type": "string", "format": "uri"},
+                "domain": {"type": "string"},
+                "official_host_candidate": {"type": "boolean"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "query_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "result_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+          "access_issue": {"type": ["string", "null"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "candidate_hypotheses": {"type": "array", "uniqueItems": true, "items": {"type": "string", "format": "uri"}},
+    "exposure_events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url", "exposure_class", "requested"],
+        "properties": {
+          "url": {"type": "string", "format": "uri"},
+          "exposure_class": {"const": "search_index_metadata_seen"},
+          "requested": {"const": false}
+        },
+        "additionalProperties": false
+      }
+    },
+    "non_overlap_receipt": {
+      "type": "object",
+      "required": ["checked_urls", "overlaps"],
+      "properties": {
+        "checked_urls": {"type": "array", "uniqueItems": true, "items": {"type": "string", "format": "uri"}},
+        "overlaps": {"const": []}
+      },
+      "additionalProperties": false
+    },
+    "proposed_official_html_allowlist": {"type": "array", "uniqueItems": true, "items": {"type": "string", "format": "uri"}},
+    "violations": {"const": []},
+    "result_url_requests": {"const": 0},
+    "landing_page_requests": {"const": 0},
+    "source_file_requests": {"const": 0}
+  },
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string"},
+        "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

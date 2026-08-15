@@ -14,24 +14,24 @@ A capability is assigned the lowest level for which all required evidence exists
 | M1 | Controlled foundation | Decision rights, scope, architecture, identifiers and basic controls are documented |
 | M2 | Reproducible alpha | A heterogeneous pilot runs end to end and can be rebuilt with traceable lineage |
 | M3 | Governed beta | Global discovery, quality review, public beta products and operating workflows function at scale |
-| M4 | Release candidate | Scope is frozen; independent assurance, security, continuity and operational rehearsals pass |
+| M4 | Release candidate | Scope is frozen; role-separated agent-panel assurance advice is owner-adjudicated and security, continuity and operational rehearsals pass |
 | M5 | Stable v1.0 | Release contracts are supportable, immutable artefacts are published, and a funded 1.x service operates |
 
 ## 3. Capability matrix
 
 | Dimension | M0 | M1 | M2 | M3 | M4 | M5 |
 |---|---|---|---|---|---|---|
-| Governance | Informal sponsor | Charter and owners | Pilot decisions logged | Standing bodies and public minutes | Release authority and independent assurance | 1.x governance, succession and annual review operating |
+| Governance | Informal sponsor | Charter and owner | Pilot decisions logged | Sole-owner decisions and public records | Digest-bound release authority and role-separated agent-panel advice | 1.x governance, unavailable-owner pause and annual review operating |
 | Scope and methods | Broad ambition | Draft universe and ontology | Pilot-tested definitions | Stable beta dictionary and comparability rules | v1 methods freeze | Backwards-compatible v1 methods with deprecation policy |
-| Jurisdiction coverage | Illustrative examples | Universe rule defined | 12 pilot systems | All systems have a status in beta | Negative findings and gaps assured | Global census released and maintained |
+| Jurisdiction coverage | Illustrative examples | Universe rule defined | Approved bounded pilot cohort | All systems have a status in beta | Negative findings and gaps owner-adjudicated after role-separated review | Global census released and maintained |
 | Source provenance | URLs and notes | Source metadata standard | Page/cell/query lineage in pilot | Preservation and drift monitoring at scale | Rights and lineage audit passed | Every release observation remains traceable and archived |
 | Data engineering | Ad hoc files | Schemas and repository layout | Reproducible pilot pipeline | Automated/controlled production pipelines | Clean-room build and migration rehearsal | Deterministic signed releases and supported contracts |
-| Data quality | Manual checking | Validation rules drafted | Dual-reviewed pilot gold data | Risk-based review and quarantine operating | Independent audit threshold met | Routine quality scorecard and correction SLA operating |
+| Data quality | Manual checking | Validation rules drafted | Role-separated dual-reviewed pilot data | Risk-based review and quarantine operating | Blinded agent re-extraction threshold met and owner-adjudicated | Routine quality scorecard and correction SLA operating |
 | Product | Concept dashboard | Product boundary defined | Pilot downloads/profiles | Public beta and user testing | Accessible, documented release candidate | Stable files, profiles and derived services with support |
 | Security/privacy/legal | General caution | Baseline policy and data boundary | Threat model for pilot | Continuous scans and rights register | Full assessment and incident exercise | Signed release, tested response and ongoing review |
-| Operations | Individual effort | Owners and draft runbooks | Repeatable pilot release | Monitoring, ticketing and scheduled beta releases | Restore/rollback/release rehearsal | Release calendar, support rota and service objectives met |
-| International legitimacy | A few contacts | Regional engagement plan | Pilot correspondents | Paid multilingual verification network | Launch localisation and external review | Sustained representative network and feedback loop |
-| Sustainability | Grant concept | Costed plan | Pilot resourcing | Operating-model options tested | 12-month funding approved | Maintenance runway, succession and preservation commitments |
+| Operations | Individual effort | Owner and draft runbooks | Repeatable pilot release | Monitoring, ticketing and scheduled beta releases | Restore/rollback/release rehearsal | Release calendar, owner response targets and unavailable-owner pause operating |
+| International legitimacy | Initial source map | Source-language review plan | Source-language agent review with authoritative triangulation | Multilingual review coverage | Launch localisation and limitations review | Sustained review cycle and feedback route |
+| Sustainability | Resource concept | Costed plan | Owner pilot-resource commitment | Operating-model options tested | Dated 12-month owner commitment approved | Maintenance runway, reproducible continuity and preservation commitments |
 
 ## 4. Evidence rules
 
@@ -44,7 +44,7 @@ Maturity claims require artefacts, not intentions. Acceptable evidence includes:
 - issue, incident and correction records;
 - restore and release rehearsal reports;
 - signed release manifests and archival identifiers;
-- named role holders and deputies;
+- the named sole owner, role-separated agent-panel records and unavailable-owner pause;
 - approved budgets and work programmes.
 
 A document saying that a control “will exist” supports the roadmap, not a maturity claim.
@@ -53,13 +53,13 @@ A document saying that a control “will exist” supports the roadmap, not a ma
 
 - Progression from M1 to M2 requires an end-to-end pilot, not just more planning.
 - Progression from M2 to M3 requires scale across the approved global universe and a public beta.
-- Progression from M3 to M4 requires feature freeze and independent assurance.
+- Progression from M3 to M4 requires feature freeze, role-separated agent-panel assurance advice and digest-bound owner adjudication.
 - Progression from M4 to M5 requires every mandatory v1 criterion, a stability soak, archival publication and operational handover.
 - Any P0 incident may temporarily reduce the operational maturity assessment until corrective actions are verified.
 
 ## 6. Recommended review cadence
 
 - Track leads self-assess monthly with linked evidence.
-- Programme assurance reviews maturity at every stage gate.
-- An independent reviewer challenges the M4 and M5 assessments.
+- Role-separated agent panels review maturity evidence at every stage gate.
+- A separately prompted adversarial agent panel challenges the M4 and M5 assessments; the owner adjudicates every finding.
 - The public v1.0 methods report includes the final maturity assessment and unresolved limitations.

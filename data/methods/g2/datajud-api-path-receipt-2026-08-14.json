@@ -1,0 +1,41 @@
+{
+  "receipt_id": "G2-API-BRA-DATAJUD-20260814T144720Z",
+  "accessed_at": "2026-08-14T14:47:20Z",
+  "source_id": "BRA-CNJ-DATAJUD",
+  "endpoint": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsp/_search",
+  "documentation_url": "https://datajud-wiki.cnj.jus.br/api-publica/acesso/",
+  "terms_url": "https://formularios.cnj.jus.br/wp-content/uploads/2023/11/Termos-de-uso-api-publica-V1.2.pdf",
+  "method": "POST",
+  "query": {
+    "query": {
+      "match_none": {}
+    },
+    "size": 0,
+    "track_total_hits": false
+  },
+  "query_sha256": "c529c36e939e18557e18990317351d1a1162978622e73436aea21b3e74f6087b",
+  "response": {
+    "_shards": {
+      "failed": 0,
+      "skipped": 0,
+      "successful": 20,
+      "total": 20
+    },
+    "hits": {
+      "hits": [],
+      "max_score": null
+    },
+    "timed_out": false,
+    "took": 7
+  },
+  "response_sha256": "2ac126f1463daae5c753c78e9367fa4f8f23a1358dee1171b2683c0127dd7026",
+  "authentication": "current CNJ-published public API key discovered at request time; key not persisted",
+  "privacy_boundary": "Deliberately used match_none with size zero; no process, party, case-level or personal records were requested or returned.",
+  "result": "success",
+  "limitations": [
+    "This proves the documented public API route and authentication path only.",
+    "It does not prove family-category mapping, a data-bearing extraction, completeness, rights clearance or publication readiness.",
+    "The endpoint alias was used only as a harmless connectivity target and is not the bounded national pilot sample."
+  ],
+  "source_commit": "0d0cbf9f5a0e7b439125b0ec1f514a9652bc7c7a"
+}

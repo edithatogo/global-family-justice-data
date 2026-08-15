@@ -1,0 +1,52 @@
+{
+  "candidate_universe": {
+    "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/candidate-universe.json",
+    "sha256": "3b5642e3e24ca73bc174f86f61bfc2a83671970019873f841025f49c81b50529"
+  },
+  "exposure_ledger": {
+    "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/exposure-ledger.json",
+    "sha256": "44cb2c2671000751daa340eceabac9ccfe452132a4c91e3e393e3740aaef0492"
+  },
+  "frame": {
+    "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+    "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+  },
+  "frame_count": 44,
+  "frame_schema": {
+    "path": "schemas/g2_structural_preflight_frame.schema.json",
+    "sha256": "f9a42c8bdd9d40ec9d10c454326d1c6b5fb9d42982c730798e19fc70ab09a509"
+  },
+  "generated_at": "2026-08-15T05:15:00Z",
+  "owner_decision": {
+    "path": "docs/governance/g2-blind-holdout-intake-stop-owner-decision-2026-08-15.md",
+    "sha256": "7b6c604ba283dec020b2f65f3ecebf5b80b1d13a460224b7a37f7da4d2dcfe4c"
+  },
+  "plan": {
+    "path": "config/g2_structural_preflight_plan.json",
+    "sha256": "c7781285ec8598721a7c1fdc6da344c59b8c22560ddced4e54d3be55fc3630f3"
+  },
+  "plan_schema": {
+    "path": "schemas/g2_structural_preflight_plan.schema.json",
+    "sha256": "d2428d914e43a8ccb75be3eaf0b71e7a3072ff92a05c3dc85509faf5c9affc51"
+  },
+  "proposed_acquisition_manifest": {
+    "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-acquisition-manifest.json",
+    "sha256": "09f5ca6edbbfec9604e79a1269da0a1604f94ea4349cb0e8d5afaf336e2eba05"
+  },
+  "proposed_acquisition_schema": {
+    "path": "schemas/g2_proposed_acquisition_manifest.schema.json",
+    "sha256": "4f8fa06a0bdef633b38804ae31b484c2855f6c572b7fe990013a5359a8e53dd7"
+  },
+  "proposed_url_resolution_manifest": {
+    "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-url-resolution-manifest.json",
+    "sha256": "d8f703f725befafd33d116bba7809fcceac23f8a84c846f11277d3edadbdb2a9"
+  },
+  "proposed_url_resolution_schema": {
+    "path": "schemas/g2_proposed_url_resolution_manifest.schema.json",
+    "sha256": "4ef445f0dbf17064116f3ee33328de184891fee015cd3e98b3ca3e9dad36e332"
+  },
+  "receipt_id": "G2HOLDOUT-STRUCTURAL-DESIGN-RECEIPT-20260815-01",
+  "schema_version": "1.0",
+  "source_access_authorized": false,
+  "source_access_performed": false
+}

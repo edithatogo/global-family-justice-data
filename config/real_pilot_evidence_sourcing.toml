@@ -1,6 +1,6 @@
 [plan]
 schema_version = "1.0"
-status = "approved_preparation_pending_external_evidence"
+status = "approved_preparation_pending_factual_evidence"
 scope = ["INT", "AUS", "USA-MN", "BRA", "ZAF"]
 minimum_gate = "G2"
 no_outbound_without_owner_approval = true
@@ -20,8 +20,8 @@ require_rights_classification = true
 require_review_ledger_entry = true
 
 [review]
-minimum_reviewers = 2
-independent_reviewer_required = true
+minimum_role_separated_agent_reviewers = 2
+blinded_secondary_agent_required = true
 owner_adjudication_required = true
 real_source_only = true
 synthetic_substitute_allowed = false

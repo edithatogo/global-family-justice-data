@@ -89,7 +89,7 @@ inputs = [".github/**/*.yml", "*.md", "*.cff", "Makefile", "pyproject.toml", "co
 outputs = ["build/backup/gfjd-critical-state.zip", "build/backup/backup-build.json"]
 [workflows.steps.params]
 output_dir = "build/backup"
-source_date_epoch = 1785542400
+source_date_epoch = 1786752000
 
 [[workflows.steps]]
 id = "restore-rehearsal"
@@ -182,7 +182,7 @@ inputs = ["config/data_contracts.toml", "schemas/*.json", "data/seed/*.csv", "da
 outputs = ["build/warehouse/gfjd.sqlite", "build/warehouse/gfjd.sqlite.metadata.json"]
 [workflows.steps.params]
 output = "build/warehouse/gfjd.sqlite"
-source_date_epoch = 1785542400
+source_date_epoch = 1786752000
 
 [[workflows.steps]]
 id = "verify-warehouse"
@@ -252,7 +252,7 @@ outputs = ["build/rehearsal/gfjd-0.6.0-alpha.2-rehearsal/RELEASE.json", "build/r
 [workflows.steps.params]
 output_dir = "build/rehearsal"
 version = "0.6.0-alpha.2-rehearsal"
-source_date_epoch = 1785542400
+source_date_epoch = 1786752000
 
 [[workflows]]
 id = "data-cycle"
@@ -287,7 +287,7 @@ inputs = ["config/data_contracts.toml", "schemas/*.json", "data/seed/*.csv", "da
 outputs = ["build/warehouse/gfjd.sqlite", "build/warehouse/gfjd.sqlite.metadata.json"]
 [workflows.steps.params]
 output = "build/warehouse/gfjd.sqlite"
-source_date_epoch = 1785542400
+source_date_epoch = 1786752000
 
 [[workflows.steps]]
 id = "products"

@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2-STRUCTURAL-OPERATIONS-20260815-01",
+  "packet_id": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01",
+  "packet_sha256": "c7781285ec8598721a7c1fdc6da344c59b8c22560ddced4e54d3be55fc3630f3",
+  "role": "role-separated operations resource and provenance advisory agent",
+  "agent_session_id": "g2_successor_operations",
+  "tool_or_model": "Codex analyst agent",
+  "tool_or_model_version": "2026-08-15",
+  "generated_at": "2026-08-15T06:44:39Z",
+  "evidence_inputs": [
+    {
+      "path": "config/g2_structural_preflight_plan.json",
+      "sha256": "c7781285ec8598721a7c1fdc6da344c59b8c22560ddced4e54d3be55fc3630f3"
+    },
+    {
+      "path": "config/g2_structural_selection_policy.json",
+      "sha256": "528e53150bf94d1c76575f221ccbde4ff61e6ef3fc008e820a9bd72ea3a52439"
+    },
+    {
+      "path": "config/g2_structural_role_bundles.json",
+      "sha256": "a22eac75f219410257a8e41a62e57558544b29202d52dcc4301566db1b15e2b3"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/design-receipt.json",
+      "sha256": "6a3f6179a0e06f8a51b0cf92304c804a9926f1ba2b70718dfeb04527f862307c"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+      "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-acquisition-manifest.json",
+      "sha256": "09f5ca6edbbfec9604e79a1269da0a1604f94ea4349cb0e8d5afaf336e2eba05"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-url-resolution-manifest.json",
+      "sha256": "d8f703f725befafd33d116bba7809fcceac23f8a84c846f11277d3edadbdb2a9"
+    },
+    {
+      "path": "schemas/g2_structural_preflight_record.schema.json",
+      "sha256": "28584dbed59fabe1ad5b28fc4c5a7f62920422ccfa863c74350626d5d69d32e4"
+    },
+    {
+      "path": "schemas/g2_merged_eligibility_receipt.schema.json",
+      "sha256": "784cd2ce114bbe87d12c766afdd7cce2e82597b6797e3942db15a3e9814d66f3"
+    },
+    {
+      "path": "schemas/g2_artifact_access_receipt.schema.json",
+      "sha256": "3f9b0a555baf7647f0104a62286c6ec4b1de35c7b13d1e66aa1b56b553f860d0"
+    },
+    {
+      "path": "schemas/g2_structural_capacity_receipt.schema.json",
+      "sha256": "29346fdd608eec770553b9981577592eb7a147f923f7fd79d750118a693e5a16"
+    },
+    {
+      "path": "src/gfjd/g2_structural_preflight.py",
+      "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"
+    },
+    {
+      "path": "tests/test_g2_structural_preflight.py",
+      "sha256": "3a8093bf1c3ec063924cc20383f7819d99c1540006bb71fe10620cd17b03e9e8"
+    },
+    {
+      "path": "config/contract_lock.json",
+      "sha256": "019cbe63b7e6033db256695d305833df09300ae8df1244d42c1c554689146929"
+    },
+    {
+      "path": "schemas/g2_sealed_selection.schema.json",
+      "sha256": "d9a0455363af78c72c047224071328486c496ed4cf37af0b14d5d3fc2a50d738"
+    },
+    {
+      "path": "schemas/g2_holdout_extraction_run_receipt.schema.json",
+      "sha256": "da879f0697893ce18e723bf0352ece31c4e8590a6399adf61c413c6221548054"
+    },
+    {
+      "path": "schemas/g2_extractor_bundle.schema.json",
+      "sha256": "d74613bc2ae9408d1a89df5a9bdb2715a228d2304269aa308efa1245479e5c92"
+    },
+    {
+      "path": "src/gfjd/tooling_cli.py",
+      "sha256": "a576541bab127f9c6ce133fec57664539623031698a5c49338d7ec6bdbd82740"
+    }
+  ],
+  "verdict": "conditional",
+  "findings": [
+    {
+      "finding_id": "G2SP-O01",
+      "severity": "high",
+      "claim": "The deterministic 44-candidate frame has only 14 aggregate rejection slots beyond the exact 30-edition scope and must yield at least eight raster, eight mixed-layout, seven non-English text-native and seven English text-native eligible editions under the fixed reserve allocation.",
+      "evidence_references": [
+        {
+          "path": "config/g2_structural_selection_policy.json",
+          "sha256": "528e53150bf94d1c76575f221ccbde4ff61e6ef3fc008e820a9bd72ea3a52439"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "uncertainty": "The frame contains 44 unique source series across 31 jurisdictions, so identity and geographic capacity are adequate in the abstract, but structural eligibility and per-stratum yield are unknowable without the separately prohibited inspection. Existing metadata labels are not valid substitutes for structural classification.",
+      "remediation": "Retain the exact 44-entry order and treat frame exhaustion as terminal. Before source-byte authorization, disclose that any fifteenth rejection makes the total scope impossible and that a smaller number of rejections can still make a stratum or jurisdiction assignment impossible. Do not replenish, reorder, shrink or relabel the frame after inspection."
+    },
+    {
+      "finding_id": "G2SP-O02",
+      "severity": "critical",
+      "claim": "Only 11 of 44 candidates currently have exact PDF URLs in the proposed acquisition manifest; the other 33 are unauthorized landing-page resolution entries, so the current acquisition manifest cannot possibly support the required 24 plus six scope.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-acquisition-manifest.json",
+          "sha256": "09f5ca6edbbfec9604e79a1269da0a1604f94ea4349cb0e8d5afaf336e2eba05"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-url-resolution-manifest.json",
+          "sha256": "d8f703f725befafd33d116bba7809fcceac23f8a84c846f11277d3edadbdb2a9"
+        }
+      ],
+      "uncertainty": "Some or all of the 33 official landing pages may resolve to exact PDFs, but no metadata request was performed and no resolved URL is presently bound. Resolution failures will consume the frame's already limited attrition capacity.",
+      "remediation": "Use a separate owner decision to authorize only metadata HTML resolution for the exact 33-entry resolution manifest, with source-file requests still prohibited. Record every success, failure, redirect and incidental exposure in frozen rank order; then build and bind a complete exact-URL acquisition manifest and return it to the owner for a second source-byte decision. If fewer than 30 exact URLs remain, stop immediately; regardless of count, do not acquire a source byte before the owner sees the exact resolved manifest and residual attrition."
+    },
+    {
+      "finding_id": "G2SP-O03",
+      "severity": "low",
+      "claim": "The remediated selector consumes a digest-bound merged eligibility receipt, requires exactly one record for every inspected frame rank, schema-validates every structural record, recomputes its class and binds candidate, source, edition, jurisdiction, source series, source URL and rank to the frozen frame. Tests cover incomplete-prefix rejection and a complete 30-record 24-plus-six selection feeding the sealed extraction path.",
+      "evidence_references": [
+        {
+          "path": "schemas/g2_structural_preflight_record.schema.json",
+          "sha256": "28584dbed59fabe1ad5b28fc4c5a7f62920422ccfa863c74350626d5d69d32e4"
+        },
+        {
+          "path": "schemas/g2_merged_eligibility_receipt.schema.json",
+          "sha256": "784cd2ce114bbe87d12c766afdd7cce2e82597b6797e3942db15a3e9814d66f3"
+        },
+        {
+          "path": "src/gfjd/g2_structural_preflight.py",
+          "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"
+        },
+        {
+          "path": "tests/test_g2_structural_preflight.py",
+          "sha256": "3a8093bf1c3ec063924cc20383f7819d99c1540006bb71fe10620cd17b03e9e8"
+        }
+      ],
+      "uncertainty": "The complete fixture is synthetic and cannot establish real-edition eligibility or yield. Structural records retain upstream receipt digests rather than independently resolving every referenced receipt at selector time.",
+      "remediation": "Retain the complete-prefix and 30-record tests. At execution, require the eligibility verifier and receipt-set verifier to resolve and validate all upstream acquisition, security, access, authority and telemetry receipts before producing the merged receipt."
+    },
+    {
+      "finding_id": "G2SP-O04",
+      "severity": "medium",
+      "claim": "The rank-ordered backtracking selector is now deterministically bounded at 1,000,000 search nodes and fails closed when that ceiling is exceeded. This remediates the previously unbounded search observed on a synthetic balanced 44-record case.",
+      "evidence_references": [
+        {
+          "path": "src/gfjd/g2_structural_preflight.py",
+          "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"
+        },
+        {
+          "path": "tests/test_g2_structural_preflight.py",
+          "sha256": "3a8093bf1c3ec063924cc20383f7819d99c1540006bb71fe10620cd17b03e9e8"
+        },
+        {
+          "path": "config/g2_structural_selection_policy.json",
+          "sha256": "528e53150bf94d1c76575f221ccbde4ff61e6ef3fc008e820a9bd72ea3a52439"
+        }
+      ],
+      "uncertainty": "The fixed node ceiling guarantees termination but may stop a feasible difficult assignment; the focused suite does not yet exercise ceiling exhaustion or a full 44-record near-feasible case.",
+      "remediation": "Map search-node exhaustion explicitly to resource_budget_exhausted, record it in the selection receipt, and add deterministic cap-exhaustion and adversarial 44-record tests. Do not raise the frozen ceiling after inspecting results without a new owner decision."
+    },
+    {
+      "finding_id": "G2SP-O05",
+      "severity": "medium",
+      "claim": "The remediated role bundle names 13 roles, including a dedicated metadata URL resolver. Individual receipt verification now binds the exact role, authority, input and tool artifacts; derives role-specific canonical network allowlists from the frozen URL-resolution or acquisition manifest; enforces class and path controls; verifies output class, path and digest; and a receipt-set verifier enforces the required role multiset and distinct sessions.",
+      "evidence_references": [
+        {
+          "path": "config/g2_structural_role_bundles.json",
+          "sha256": "a22eac75f219410257a8e41a62e57558544b29202d52dcc4301566db1b15e2b3"
+        },
+        {
+          "path": "schemas/g2_artifact_access_receipt.schema.json",
+          "sha256": "3f9b0a555baf7647f0104a62286c6ec4b1de35c7b13d1e66aa1b56b553f860d0"
+        },
+        {
+          "path": "src/gfjd/g2_structural_preflight.py",
+          "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"
+        }
+      ],
+      "uncertainty": "The caller must still supply the exact required-role roster; the plan does not freeze panel multiplicity and no focused receipt-set test is currently recorded.",
+      "remediation": "Freeze an execution roster with 12 single-session operational roles plus at least three separately identified post-seal advisory sessions, for a minimum of 15 fresh agent sessions. Add a focused receipt-set test and bind that exact roster in the signed execution packet."
+    },
+    {
+      "finding_id": "G2SP-O06",
+      "severity": "medium",
+      "claim": "The resource budget is arithmetically bounded at 44 candidates, 100 MiB per edition, 4.3 GiB total source bytes, 2,000 pages per edition, 44,000 pages total, two concurrent tasks, 80 to 176 agent-hours, two to four owner hours and 15 GiB minimum free private storage. Capacity verification now binds the current plan, canonical resource-budget digest and private-staging, network-sandbox and parser-sandbox evidence artifacts.",
+      "evidence_references": [
+        {
+          "path": "config/g2_structural_preflight_plan.json",
+          "sha256": "c7781285ec8598721a7c1fdc6da344c59b8c22560ddced4e54d3be55fc3630f3"
+        },
+        {
+          "path": "schemas/g2_structural_capacity_receipt.schema.json",
+          "sha256": "29346fdd608eec770553b9981577592eb7a147f923f7fd79d750118a693e5a16"
+        }
+      ],
+      "uncertainty": "Actual source sizes, page counts, parser expansion and isolated-copy overhead are unknown. Fifteen GiB is about 3.5 times the raw-byte ceiling and may be tight if both extraction bundles and temporary render products coexist.",
+      "remediation": "Require the semantically verified capacity receipt immediately before any authorized access and stop before acquisition if storage cannot cover the raw ceiling plus isolated bundles and temporary outputs. Prefer at least 20 GiB free operationally even though the schema minimum remains 15 GiB. Add a focused capacity-receipt tamper test before execution."
+    },
+    {
+      "finding_id": "G2SP-O07",
+      "severity": "critical",
+      "claim": "The detached design manifest must be generated only after every panel report and design artifact is final; panel reports are inputs to that manifest and must not hash the manifest that will in turn hash them.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/design-receipt.json",
+          "sha256": "6a3f6179a0e06f8a51b0cf92304c804a9926f1ba2b70718dfeb04527f862307c"
+        },
+        {
+          "path": "config/contract_lock.json",
+          "sha256": "019cbe63b7e6033db256695d305833df09300ae8df1244d42c1c554689146929"
+        },
+        {
+          "path": "src/gfjd/tooling_cli.py",
+          "sha256": "a576541bab127f9c6ce133fec57664539623031698a5c49338d7ec6bdbd82740"
+        }
+      ],
+      "uncertainty": "This panel does not verify or bind the subsequently generated detached manifest; final manifest verification is a downstream assembly step.",
+      "remediation": "After all design and panel fixes are complete, regenerate the detached manifest from the exact declared artifact set, including config/contract_lock.json and src/gfjd/tooling_cli.py, rerun schema and evidence-input digest validation, reproduce the design artifacts, run the full test suite, create a signed freeze commit and verify the commit before presenting any owner decision."
+    },
+    {
+      "finding_id": "G2SP-O08",
+      "severity": "low",
+      "claim": "The comparator now derives its exact 24-source identity bindings from a schema-valid sealed selection and requires distinct primary and secondary run receipts that bind fresh sessions, extractor bundles, owner-authorized source digests, extraction contract, row schema, access receipt, output digest and source commit.",
+      "evidence_references": [
+        {
+          "path": "schemas/g2_sealed_selection.schema.json",
+          "sha256": "d9a0455363af78c72c047224071328486c496ed4cf37af0b14d5d3fc2a50d738"
+        },
+        {
+          "path": "schemas/g2_holdout_extraction_run_receipt.schema.json",
+          "sha256": "da879f0697893ce18e723bf0352ece31c4e8590a6399adf61c413c6221548054"
+        },
+        {
+          "path": "schemas/g2_extractor_bundle.schema.json",
+          "sha256": "d74613bc2ae9408d1a89df5a9bdb2715a228d2304269aa308efa1245479e5c92"
+        },
+        {
+          "path": "src/gfjd/g2_structural_preflight.py",
+          "sha256": "fee6f6447912cee9cea6ddb0a72d617050f4d45c67944c0e20ba694993a3b21f"
+        },
+        {
+          "path": "tests/test_g2_structural_preflight.py",
+          "sha256": "3a8093bf1c3ec063924cc20383f7819d99c1540006bb71fe10620cd17b03e9e8"
+        }
+      ],
+      "uncertainty": "These are repository authenticity and isolation controls, not cryptographic identity proof or independent assurance. Their execution evidence does not yet exist because source access and extraction remain unauthorized.",
+      "remediation": "At execution time, require the sealed selection, two distinct run receipts and two artifact-isolated extractor bundles to pass semantic verification before comparator output is accepted. Any mismatch is an experiment hard stop."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "A_TWO_DECISION_44_FRAME",
+      "description": "Recommended: preserve the 44-entry frame, first seek authority only for deterministic metadata HTML resolution of the 33 unresolved entries, remediate selector and receipt controls, then return the exact resolved acquisition manifest for a separate source-byte decision.",
+      "trade_offs": [
+        "Preserves the finite already archived frame and minimizes additional discovery.",
+        "Creates a clean authority boundary between metadata URL resolution and source-byte acquisition.",
+        "Retains a high, explicitly bounded frame-exhaustion risk because only 14 aggregate rejections are tolerable."
+      ],
+      "limitations": [
+        "No source-byte execution can begin from the current 11-entry acquisition manifest.",
+        "Resolution may leave fewer than 30 exact URLs or too little attrition capacity.",
+        "Selector and receipt-set remediation must be completed and rebound first."
+      ],
+      "contingency": "If URL resolution leaves fewer than 30 exact candidates, stop without source access. If 30 or more remain, report the exact count, rank failures and residual attrition to the owner; do not infer source-byte authority. If later structural inspection exhausts the frame or any hard-stop code occurs, terminate the lineage without replenishment or rerun."
+    },
+    {
+      "option_id": "B_METADATA_EXPANSION_BEFORE_ACCESS",
+      "description": "Prepare a new metadata-only expansion toward 96 candidates before any URL resolution or source acquisition, then freeze a successor frame and manifests under a new design binding.",
+      "trade_offs": [
+        "Provides substantially more capacity against structural and rights attrition.",
+        "Requires more public metadata discovery, exposure logging, schema work and another design freeze."
+      ],
+      "limitations": [
+        "The prior metadata intake showed that official metadata rarely establishes structure or exact URLs.",
+        "This changes the current exact frame and requires a new owner decision; it cannot be silently folded into this lineage."
+      ],
+      "contingency": "Cap the expansion prospectively and stop if the exact target frame cannot be assembled without source access. Preserve the 44-frame packet as superseded design evidence, not a failed extraction."
+    },
+    {
+      "option_id": "C_EXECUTE_11_EXACT_URLS",
+      "description": "Authorize acquisition only for the 11 currently exact PDF URLs.",
+      "trade_offs": [
+        "Smallest immediate acquisition burden.",
+        "Cannot produce the mandatory 30-edition scope and therefore guarantees a fail-closed stop."
+      ],
+      "limitations": [
+        "No possible deterministic assignment can contain 24 primaries and six reserves from 11 candidates.",
+        "Consumes unseen editions without producing the intended evidence."
+      ],
+      "contingency": "Do not choose this option unless the owner intentionally wants an acquisition-control rehearsal that is explicitly not the holdout execution."
+    },
+    {
+      "option_id": "D_DEFER",
+      "description": "Keep the packet as a no-access design and perform no URL resolution or acquisition.",
+      "trade_offs": [
+        "Avoids all new access, custody, security and resource exposure.",
+        "Leaves G2-C07 and G2 blocked."
+      ],
+      "limitations": [
+        "Produces no empirical reproducibility evidence."
+      ],
+      "contingency": "Resume only from a newly verified digest-bound packet and explicit owner authority."
+    }
+  ],
+  "recommendation": "Choose Option A after the exact execution roster is frozen and the detached packet manifest is regenerated. The next owner packet should authorize only the exact 33-entry metadata URL-resolution phase; it must continue to prohibit PDF requests and source-byte acquisition. After resolution, return the complete exact-URL manifest, failures, remaining frame capacity, new hashes and signed freeze commit for a separate source-byte decision.",
+  "rationale": "The remediated design now has a reproducible 44-entry frame, fixed 24 plus six quotas, complete-prefix eligibility receipts, a deterministic one-million-node search ceiling, semantic capacity and role-access verification, receipt-set checking, sealed selection and authenticated extraction-run bindings. It is not yet executable because 33 locators remain unresolved, the exact multi-session roster remains to be frozen, and the detached digest set must be regenerated after panel finalization. A two-decision sequence preserves the owner's no-source-access boundary and avoids spending unseen editions on a guaranteed 11-candidate failure while keeping the finite frame and all no-adaptation controls intact.",
+  "conflicts": [
+    "The plan describes a 44-candidate acquisition ceiling, but the current proposed acquisition manifest contains only 11 exact source URLs; 33 candidates are separately proposed for unauthorized metadata resolution.",
+    "The 44-frame acquisition ceiling still depends on a separately authorized 33-entry metadata URL-resolution stage before a complete exact source-byte manifest can exist."
+  ],
+  "abstentions": [
+    "The panel does not authorize metadata resolution, source acquisition, structural inspection, extraction, rights acceptance, publication, release or G2 passage.",
+    "The panel does not commit owner time, funding, custody or service resources."
+  ],
+  "dissent": [
+    "A larger 96- or 120-candidate frame remains operationally safer against scope exhaustion, but it would require additional metadata discovery and a new prospective freeze.",
+    "A strict exposure-minimizing position would defer the exercise rather than resolve the 33 landing pages, because every resolution request creates additional logged exposure even without requesting PDF bytes."
+  ],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_holdout_extraction_run_receipt.schema.json",
+  "title": "G2 sealed holdout extraction-run receipt",
+  "type": "object",
+  "required": ["schema_version", "receipt_id", "plan_id", "role", "session_id", "fresh_session_attested", "extractor_bundle", "sealed_selection", "extraction_contract", "row_schema", "output", "source_commit", "access_receipt", "generated_at", "violations"],
+  "properties": {
+    "schema_version": {"const": "1.0"}, "receipt_id": {"type": "string", "minLength": 8},
+    "plan_id": {"const": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01"},
+    "role": {"enum": ["primary_extractor", "secondary_extractor"]},
+    "session_id": {"type": "string", "minLength": 8}, "fresh_session_attested": {"const": true},
+    "extractor_bundle": {"$ref": "#/$defs/artifact"}, "sealed_selection": {"$ref": "#/$defs/artifact"},
+    "extraction_contract": {"$ref": "#/$defs/artifact"}, "row_schema": {"$ref": "#/$defs/artifact"},
+    "output": {"$ref": "#/$defs/artifact"}, "access_receipt": {"$ref": "#/$defs/artifact"},
+    "source_commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+    "generated_at": {"type": "string", "format": "date-time"}, "violations": {"type": "array", "maxItems": 0}
+  },
+  "$defs": {"artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

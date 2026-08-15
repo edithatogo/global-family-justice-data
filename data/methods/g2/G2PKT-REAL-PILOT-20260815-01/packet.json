@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-REAL-PILOT-20260815-01",
+  "created_at": "2026-08-14T18:20:27Z",
+  "source_commit": "2627ed68d3545a6f2d95dbc68a922e449ef71355",
+  "contract_version": "0.3",
+  "ontology_version": "0.3",
+  "cohort": ["AUS", "USA-MN", "BRA", "ZAF"],
+  "source_editions": [
+    {
+      "candidate_id": "AUS",
+      "source_id": "AUS-FCFCOA-AR",
+      "source_edition_id": "ED-AUS-FCFCOA-ANNUAL-2024-25",
+      "acquisition_manifest": {
+        "path": "data/raw/manifests/ACQ-AUS-FCFCOA-AR-20260801T051117Z-E251DA7A.json",
+        "sha256": "4df2b158bd6975f8222c943e7d186774a8b122a85983ae57bec516d2a2452fb6"
+      },
+      "content_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "storage_class": "local_private",
+      "rights_status": "unknown"
+    },
+    {
+      "candidate_id": "USA-MN",
+      "source_id": "USA-MN-MJB",
+      "source_edition_id": "ED-USA-MN-MJB-PERF-2024",
+      "acquisition_manifest": {
+        "path": "data/raw/manifests/ACQ-USA-MN-MJB-20260814T144054Z-32931494.json",
+        "sha256": "0a4e45a77393dc7f316a2242a0d5788c8a6c0a8c966c0395b64fff471808eb69"
+      },
+      "content_sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b",
+      "storage_class": "local_private",
+      "rights_status": "review_required"
+    },
+    {
+      "candidate_id": "BRA",
+      "source_id": "BRA-CNJ-DATAJUD",
+      "source_edition_id": "ED-BRA-CNJ-JUSTICA-2026",
+      "acquisition_manifest": {
+        "path": "data/raw/manifests/ACQ-BRA-CNJ-DATAJUD-20260801T052351Z-3415D516.json",
+        "sha256": "aaa22969f265f0a9021c8355d3f2357994753aeb6465c69d14a18e9bd9509a0c"
+      },
+      "content_sha256": "3415d516d756f48d7337e83e6faa8477644fe98b5cedb43cb04999f59fd5a71f",
+      "storage_class": "local_private",
+      "rights_status": "unknown"
+    },
+    {
+      "candidate_id": "ZAF",
+      "source_id": "ZAF-JUD-ANNUAL",
+      "source_edition_id": "ED-ZAF-JUDICIARY-ANNUAL-2024-25",
+      "acquisition_manifest": {
+        "path": "data/raw/manifests/ACQ-ZAF-JUD-ANNUAL-20260801T051403Z-24991662.json",
+        "sha256": "463fe5c79e03492d258dda47c4190af286ace08df31a8c2e15247dc3d567e8e8"
+      },
+      "content_sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce",
+      "storage_class": "local_private",
+      "rights_status": "unknown"
+    }
+  ],
+  "methods_contracts": [
+    {
+      "path": "docs/methods/v0.3-methods-contract-manifest.json",
+      "sha256": "69ee79e6404366379311517a78d30f563e799a199f158c55a3f46ce1d1530de5"
+    },
+    {
+      "path": "docs/methods/comparability-and-quality.md",
+      "sha256": "755e78a4863453e9c52c6ea459ec0490ebab6c7da6bba2451f324b6bc6e883be"
+    }
+  ],
+  "schema_bindings": [
+    {
+      "path": "schemas/g2_extraction_row.schema.json",
+      "sha256": "449ad0f72b41ef8bb4e2c55c7daedab94e6dd818951645b873b2360ea50588ba"
+    },
+    {
+      "path": "schemas/g2_extraction_run.schema.json",
+      "sha256": "c8e23b025e85b7eb69b9d6869fdfeebd49086cc7fdbfc8c21b0c15a537ee4947"
+    },
+    {
+      "path": "schemas/g2_concordance.schema.json",
+      "sha256": "af38202ec4983340532dd2a0ec90f6886c178ddd4a860f2a552848ff2757a92c"
+    }
+  ],
+  "extraction_instructions": {
+    "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-01/extraction-instructions.md",
+    "sha256": "10b2f1b747ce2e66268c8cc574e4f22213800c1f6f1a37cf9e09661db9cff633"
+  },
+  "concordance_policy": {
+    "path": "config/g2_concordance_policy.json",
+    "sha256": "94e58bb2df83ca87df33eff0b5ed836d3ae61b64d941c6de39d782ac3758c6bc"
+  },
+  "excluded_inputs": [
+    "all preflight extractor messages and exploratory row selections",
+    "docs/methods/g2-real-pilot-preflight-panel-2026-08-15.md except for frozen target identity",
+    "the other formal extractor output and receipt",
+    "all comparator differences and panel reports until both outputs are sealed"
+  ],
+  "packet_manifest": {
+    "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-01/input-manifest.sha256",
+    "sha256": "36095d0ac5f99e5c642feb50e9c6c8c68995cd8572c54760b3fe1841d384e0f0"
+  }
+}

@@ -23,10 +23,10 @@ The repository is an **alpha engineering, programme-control and autonomous-hando
 
 The repository remains deliberately fail-closed:
 
-- no stage gate has passed;
-- the declared active gate is **G1 — Foundation controls accepted**;
+- **G1 — Foundation controls accepted** has passed through the sole owner's
+  digest-bound decision; the active gate is **G2 — Reproducible pilot proven**;
 - the seed material is illustrative and the gold observation layer remains empty unless explicitly populated through reviewed workflows;
-- implemented code and generated documents are not accepted institutional or scientific evidence by themselves;
+- implemented code, generated documents and agent-panel advice are not real-source or operational evidence by themselves;
 - GitHub/Hugging Face creation and live settings verification occur only on the operator’s authenticated machine.
 
 ## Start here
@@ -114,7 +114,7 @@ python -m gfjd pipeline promote \
 python -m gfjd release build \
   --version 0.3.0 \
   --output dist \
-  --source-date-epoch 1785542400
+  --source-date-epoch 1786752000
 ```
 
 ## Repository principles

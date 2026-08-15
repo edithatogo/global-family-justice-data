@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_refreshed_pdf_locator_proposal.schema.json",
+  "title": "G2 refreshed PDF-locator metadata proposal",
+  "type": "object",
+  "required": ["schema_version", "proposal_id", "plan_id", "frame", "resolution_receipt", "status", "source_request_performed", "required_scope", "counts", "entries", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "proposal_id": {"const": "G2HOLDOUT-REFRESHED-PDF-LOCATOR-PROPOSAL-20260815-01"},
+    "plan_id": {"const": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01"},
+    "frame": {"$ref": "#/$defs/artifact"},
+    "resolution_receipt": {"$ref": "#/$defs/artifact"},
+    "status": {"const": "insufficient_scope_not_authorized"},
+    "source_request_performed": {"const": false},
+    "required_scope": {"const": 30},
+    "counts": {
+      "type": "object",
+      "required": ["candidates", "preexisting_direct_locators", "resolver_hypotheses", "locator_candidates", "unique_locator_urls", "unresolved_candidates"],
+      "properties": {
+        "candidates": {"const": 44},
+        "preexisting_direct_locators": {"const": 11},
+        "resolver_hypotheses": {"const": 15},
+        "locator_candidates": {"const": 26},
+        "unique_locator_urls": {"const": 26},
+        "unresolved_candidates": {"const": 18}
+      },
+      "additionalProperties": false
+    },
+    "entries": {
+      "type": "array", "minItems": 44, "maxItems": 44,
+      "items": {
+        "type": "object",
+        "required": ["frame_rank", "candidate_id", "edition_id", "jurisdiction_id", "source_series_id", "locator_status", "proposed_pdf_url", "source_request_authorized", "source_request_performed", "redistribution_boundary"],
+        "properties": {
+          "frame_rank": {"type": "integer", "minimum": 1, "maximum": 44},
+          "candidate_id": {"type": "string"},
+          "edition_id": {"type": "string"},
+          "jurisdiction_id": {"type": "string"},
+          "source_series_id": {"type": "string"},
+          "locator_status": {"enum": ["preexisting_direct_proposal", "strong_metadata_hypothesis", "unresolved"]},
+          "proposed_pdf_url": {"type": ["string", "null"], "format": "uri"},
+          "source_request_authorized": {"const": false},
+          "source_request_performed": {"const": false},
+          "redistribution_boundary": {"const": "metadata_and_citation_only"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  },
+  "$defs": {"artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

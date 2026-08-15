@@ -1,0 +1,272 @@
+{
+  "candidate_manifest": {
+    "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/selection/candidate-manifest.json",
+    "sha256": "ede06118d1c121b428ca5bb746ae0d70efdceb306455359fa0ae16bc9daee1a3"
+  },
+  "candidate_universe": {
+    "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/candidate-universe.json",
+    "sha256": "3b5642e3e24ca73bc174f86f61bfc2a83671970019873f841025f49c81b50529"
+  },
+  "design": {
+    "path": "config/g2_blind_holdout_plan.json",
+    "sha256": "ab78bb8a609cda84931b1a441c91205a10db28793e0f9f2aabf5371df412a83e"
+  },
+  "design_commit": "42b89486b7d71a60ed01eb7e7b1d862e6a736820",
+  "design_schema": {
+    "path": "schemas/g2_blind_holdout_plan.schema.json",
+    "sha256": "88d477d5231f00234c9b7fa41cb07e9f1d56626324010a73cc97c05edcfc63c2"
+  },
+  "eligible_candidate_count": 0,
+  "exposure_ledger": {
+    "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/exposure-ledger.json",
+    "sha256": "44cb2c2671000751daa340eceabac9ccfe452132a4c91e3e393e3740aaef0492"
+  },
+  "failure_reasons": [
+    "eligible metadata cannot satisfy the frozen 24+6 scope"
+  ],
+  "generated_at": "2026-08-15T04:35:00Z",
+  "metadata_only": true,
+  "owner_decision": {
+    "path": "docs/governance/g2-blind-holdout-design-owner-decision-2026-08-15.md",
+    "sha256": "f3b12478c7c17bfcbd9bc84f7bdb50b050ed522b65ae61679d04f586d06c3340"
+  },
+  "owner_decision_commit": "d9ee23769122d2f912b5d86b5c7cf8df1f9169e4",
+  "receipt_id": "G2HOLDOUT-SELECTION-PROSPECTIVE-20260815-01",
+  "rejected_candidates": [
+    {
+      "candidate_id": "G2CAND-ARG-CSJN-ANUARIO-2024",
+      "reason": "eligibility=ineligible; exact edition identity not established; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-NSW-LOCAL-AR-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-NSW-SUPREME-AR-2024",
+      "reason": "eligibility=uncertain; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-PC-ROGS-COURTS-2026",
+      "reason": "eligibility=uncertain; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-QLD-CHILDRENS-AR-2024-25",
+      "reason": "eligibility=uncertain; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-QLD-DISTRICT-AR-2024-25",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-TAS-MAG-AR-2024-25",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-AUS-VIC-MCV-AR-2024-25",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-BEL-CASSATION-AR-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-BEL-SPF-JUSTICE-AR-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-CAN-BC-PC-AR-2024-25",
+      "reason": "eligibility=uncertain; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-CAN-NS-COA-AR-2024",
+      "reason": "eligibility=uncertain; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-CAN-ON-OCJ-FAMSTATS-2025-26",
+      "reason": "eligibility=uncertain; exact edition identity not established; exact source URL is not established from public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-CAN-ON-SCJ-BIENNIAL-2024-25",
+      "reason": "eligibility=uncertain; exact edition identity not established; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-DNK-AARHUS-AR-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-DNK-COURTS-NATIONAL-AR-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-DNK-DOMSTOLSSTYRELSEN-AR-2024",
+      "reason": "eligibility=ineligible; exact edition identity not established; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-ESP-CGPJ-DATOSJUSTICIA-B118-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-ESP-CGPJ-KEYIND-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-ESP-CGPJ-VGD-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-FRA-MJ-LOPJ-REPORT-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-FRA-MJ-RSJ-2025-CH5",
+      "reason": "eligibility=ineligible; exact edition identity not established; stratum is not supported by public metadata; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-GBR-EAW-CAFCASS-ARA-2024-25",
+      "reason": "exact source URL is not established from public metadata"
+    },
+    {
+      "candidate_id": "G2CAND-GBR-EAW-MOJ-FCSQ-2025Q4",
+      "reason": "eligibility=ineligible; format is not PDF; exact source URL is not established from public metadata; stratum is not supported by public metadata; edition appears in exposure ledger; source series appears in exposure ledger; URL appears in exposure ledger"
+    },
+    {
+      "candidate_id": "G2CAND-GBR-NIR-NICTS-INFOGRAPHIC-2023",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-GBR-NIR-NICTS-JUDSTAT-2025",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-GBR-SCT-CIVJUST-2022-23",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; edition appears in exposure ledger; source series appears in exposure ledger; URL appears in exposure ledger"
+    },
+    {
+      "candidate_id": "G2CAND-IRL-COURTS-AR-2024",
+      "reason": "eligibility=uncertain; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-ITA-MG-ADMINJUSTICE-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-ITA-MG-CIVIL-MONITOR-Q4-2024",
+      "reason": "eligibility=uncertain; exact edition identity not established; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-JPN-COURTS-YEARBOOK-FAMILY-2024",
+      "reason": "eligibility=ineligible; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-JPN-COURTS-YEARBOOK-FAMILY-2025",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-KOR-SCOURT-JUDICIAL-YEARBOOK-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-MEX-INEGI-CNIJE-2024-CIVIL-FAMILY",
+      "reason": "eligibility=ineligible; exact edition identity not established; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-MEX-INEGI-CNIJE-2024-RESULTS",
+      "reason": "eligibility=ineligible; exact edition identity not established; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-NLD-RECHTSPRAAK-NATIONAL-AR-2024",
+      "reason": "eligibility=ineligible; stratum is not supported by public metadata; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-NLD-RECHTSPRAAK-OVERIJSSEL-AR-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-NLD-RECHTSPRAAK-ZWB-JAARBERICHT-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-NOR-DOMSTOL-AR-2025",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-NOR-DOMSTOL-LIVET-2025",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-NZL-DISTRICT-COURT-AR-2024",
+      "reason": "eligibility=uncertain; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-PER-PJ-LALIBERTAD-BULLETIN-01-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-PER-PJ-ONAJUP-BULLETIN-JJA-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-POL-WAW-DISTRICT-FAMILY-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-SGP-COURTS-AR-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-SVN-MJ-JUDICIAL-STATS-2024",
+      "reason": "eligibility=uncertain; stratum is not supported by public metadata"
+    },
+    {
+      "candidate_id": "G2CAND-SWE-DOMSTOL-AR-2024",
+      "reason": "eligibility=ineligible; stratum is not supported by public metadata; privacy_screen=uncertain; prohibited_data_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-SWE-DOMSTOL-OFFICIAL-STATS-2025",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; URL appears in exposure ledger"
+    },
+    {
+      "candidate_id": "G2CAND-USA-CA-CSR-2026",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain; URL appears in exposure ledger"
+    },
+    {
+      "candidate_id": "G2CAND-USA-CO-JUDSTAT-FY24",
+      "reason": "eligibility=uncertain; format is not PDF; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-USA-MA-COURTS-AR-FY24",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata"
+    },
+    {
+      "candidate_id": "G2CAND-USA-MA-PFC-FILINGS-FY24",
+      "reason": "eligibility=uncertain; format is not PDF; exact source URL is not established from public metadata; stratum is not supported by public metadata"
+    },
+    {
+      "candidate_id": "G2CAND-USA-MD-STAT-ABSTRACT-FY24",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-USA-NC-FAMILY-AR-2024",
+      "reason": "eligibility=uncertain; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-USA-NY-FCA-AR-2024",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-USA-TX-JUD-AR-FY24",
+      "reason": "eligibility=uncertain; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-USA-TX-STATEWIDE-FAMILY-FY24",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    },
+    {
+      "candidate_id": "G2CAND-USA-WA-SUPERIOR-CASELOAD-2025",
+      "reason": "eligibility=uncertain; exact source URL is not established from public metadata; stratum is not supported by public metadata; terms_screen=uncertain; rights_screen=uncertain"
+    }
+  ],
+  "schema_version": "1.0",
+  "scope_complete": false,
+  "source_content_accessed": false
+}

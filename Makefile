@@ -1,7 +1,7 @@
 .PHONY: help install validate validate-strict test unit property integration coverage compile format lint typecheck contracts policy security generated status graph release-rehearsal integration-rehearsals package-reproducibility release-reproducibility bootstrap-preflight bootstrap-plan autonomy-context autonomy-fast autonomy-full check clean
 
 PYTHON ?= python
-SOURCE_DATE_EPOCH ?= 1785542400
+SOURCE_DATE_EPOCH ?= 1786752000
 REHEARSAL_VERSION ?= 0.6.0-alpha.2-rehearsal
 
 help:

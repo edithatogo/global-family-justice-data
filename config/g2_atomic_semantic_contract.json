@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "G2ASC-REAL-PILOT-20260815-02",
+  "owner_decision": "docs/governance/g2-packet02-refreeze-owner-decision-2026-08-15.md",
+  "owner_decision_sha256": "ae9d948c9fe7cbe4960b318f62c79edfb93de42f407fbda62acdf88759bc4686",
+  "supersedes_packet_id": "G2PKT-REAL-PILOT-20260815-01",
+  "row_schema": "schemas/g2_atomic_extraction_row.schema.json",
+  "critical_fields": [
+    "sample_key",
+    "candidate_id",
+    "source_id",
+    "source_edition_id",
+    "locator_pdf_page",
+    "locator_printed_page",
+    "locator_section_source",
+    "locator_object_source",
+    "domain_label_source",
+    "domain_code",
+    "matter_label_source",
+    "matter_type_code",
+    "measure_label_source",
+    "indicator_code",
+    "series_label_source",
+    "series_code",
+    "statistic_type",
+    "unit_code",
+    "value",
+    "component_values",
+    "denominator_value",
+    "denominator_definition_quote",
+    "denominator_code",
+    "period_label_source",
+    "period_start",
+    "period_end",
+    "period_start_provenance",
+    "period_end_provenance",
+    "time_basis",
+    "clock_label_source",
+    "clock_code",
+    "cohort_definition_quote",
+    "cohort_code",
+    "counted_entity_code",
+    "population_scope_code",
+    "coverage_limitation_quote",
+    "ambiguity_codes",
+    "ambiguity_evidence_quote",
+    "quarantine_status",
+    "extraction_uncertainty"
+  ],
+  "ignored_fields": ["extracted_row_id", "source_record_key"],
+  "normalization": {
+    "unicode": "NFC",
+    "whitespace": "collapse_to_single_ascii_space_and_trim",
+    "case": "preserve_source",
+    "punctuation": "preserve_source",
+    "quotes": "exact_instruction_bounded_source_excerpt",
+    "numbers": "source_published_no_recalculation"
+  },
+  "date_rule": "explicit_exact_edition_only_otherwise_null",
+  "samples": [
+    {
+      "sample_key": "AUS-D1-CLEARANCE-2024-25",
+      "source_record_key": "fef623eab55f14f9bbd888287ddf37de464ed287d2af5ac8f0d02150e0bf1b80",
+      "required_component_keys": ["finalised_count", "pending_count", "transferred_count"],
+      "canonical_codes": {
+        "domain_code": "family_court_caseflow",
+        "matter_type_code": "final_order_application",
+        "indicator_code": "clearance_rate",
+        "series_code": "division_1_final_order_applications",
+        "statistic_type": "percentage",
+        "unit_code": "percent",
+        "denominator_code": "transferred_during_period",
+        "time_basis": "source_defined",
+        "clock_code": "financial_year",
+        "cohort_code": "transferred_and_finalised_during_period",
+        "counted_entity_code": "applications",
+        "population_scope_code": "division_1_transfers_from_division_2"
+      },
+      "required_ambiguity_codes": ["source_definition_conflict"],
+      "quarantine_status": "hard_quarantine",
+      "excerpt_boundaries": {
+        "locator_section_source": "exact heading beginning 3.3.2 and ending Applications for final orders",
+        "locator_object_source": "exact Figure 3.3.2(a) title",
+        "denominator_definition_quote": "complete sentence beginning As the Court receives matters transferred and ending during the financial year",
+        "cohort_definition_quote": "complete sentence beginning In 2024–25 and ending finalised 1,063 applications",
+        "ambiguity_evidence_quote": "clearance sentence followed by ratio sentence, joined with ASCII space",
+        "coverage_limitation_quote": null
+      }
+    },
+    {
+      "sample_key": "USA-MN-FAMILY-CLEARANCE-FY24",
+      "source_record_key": "c0f8ec4b54648507110f35d5d4307213104ed31c412faa9225a95bcb38e6f89d",
+      "required_component_keys": [],
+      "canonical_codes": {
+        "domain_code": "state_court_caseflow",
+        "matter_type_code": "family_case_group",
+        "indicator_code": "clearance_rate",
+        "series_code": "family",
+        "statistic_type": "percentage",
+        "unit_code": "percent",
+        "denominator_code": "filed_during_same_fiscal_year",
+        "time_basis": "source_defined",
+        "clock_code": "fiscal_year",
+        "cohort_code": "disposed_vs_filed_same_fiscal_year",
+        "counted_entity_code": "cases",
+        "population_scope_code": "statewide_family_case_group"
+      },
+      "required_ambiguity_codes": [],
+      "quarantine_status": "quarantine",
+      "excerpt_boundaries": {
+        "locator_section_source": "exact heading 3.2.2 Clearance Rates",
+        "locator_object_source": "exact Table 4 title",
+        "denominator_definition_quote": "two complete sentences beginning Clearance rates compare and ending exceed 100%",
+        "cohort_definition_quote": "first complete sentence of the denominator definition",
+        "ambiguity_evidence_quote": null,
+        "coverage_limitation_quote": null
+      }
+    },
+    {
+      "sample_key": "BRA-PROTECTIVE-MEASURES-2026-04-30",
+      "source_record_key": "164cfa1e58300975fbe0a49e0cd223079d57574e1b5961026d06d073a7baf38a",
+      "required_component_keys": [
+        "denied_count",
+        "extended_count",
+        "granted_count",
+        "police_authority_granted_count",
+        "police_authority_revoked_count",
+        "revoked_count"
+      ],
+      "canonical_codes": {
+        "domain_code": "violence_against_women",
+        "matter_type_code": "protective_measure",
+        "indicator_code": "protective_measures_total",
+        "series_code": "national_2026_snapshot",
+        "statistic_type": "count",
+        "unit_code": "count",
+        "denominator_code": "not_applicable",
+        "time_basis": "calendar",
+        "clock_code": "snapshot_through_date",
+        "cohort_code": "new_process_filter_2026_snapshot",
+        "counted_entity_code": "protective_measures",
+        "population_scope_code": "national_all_displayed_filters"
+      },
+      "required_ambiguity_codes": [],
+      "quarantine_status": "quarantine",
+      "excerpt_boundaries": {
+        "locator_section_source": "exact surrounding heading for domestic and family violence against women process data",
+        "locator_object_source": "exact Figure 528 label",
+        "denominator_definition_quote": null,
+        "cohort_definition_quote": "exact dashboard filter text identifying process new cases, 2026 and data through 30/04/2026",
+        "ambiguity_evidence_quote": null,
+        "coverage_limitation_quote": "exact displayed all-jurisdiction/filter coverage text"
+      }
+    },
+    {
+      "sample_key": "ZAF-MAINTENANCE-90D-2024-25",
+      "source_record_key": "bffeecd35b755dd473cb450f7c19a9c158e54e43aba88369686b4bb5f78e1243",
+      "required_component_keys": ["exceeding_clock_count", "reported_total_count", "within_clock_count"],
+      "canonical_codes": {
+        "domain_code": "district_court_caseflow",
+        "matter_type_code": "maintenance_matter",
+        "indicator_code": "maintenance_timeliness_rate",
+        "series_code": "reported_grand_total",
+        "statistic_type": "percentage",
+        "unit_code": "percent",
+        "denominator_code": "reported_finalised_maintenance_total",
+        "time_basis": "source_defined",
+        "clock_code": "conflicting_90_days_and_four_months",
+        "cohort_code": "proper_service_finalised_matters",
+        "counted_entity_code": "maintenance_matters",
+        "population_scope_code": "incomplete_icms_magistrate_court_coverage"
+      },
+      "required_ambiguity_codes": [
+        "clock_conflict",
+        "denominator_conflict",
+        "coverage_limitation"
+      ],
+      "quarantine_status": "hard_quarantine",
+      "excerpt_boundaries": {
+        "locator_section_source": "exact Table 20 title",
+        "locator_object_source": "Table 20 and Annexure C indicator 3",
+        "denominator_definition_quote": "complete sentence beginning The DoJ&CD Maintenance Statistics includes and ending both maintenance officials and Magistrates",
+        "cohort_definition_quote": "complete sentence beginning The indicator measures and ending tracing of the respondents",
+        "ambiguity_evidence_quote": "Annexure C Method of Calculation clock sentence and formula numerator sentence joined with ASCII space",
+        "coverage_limitation_quote": "complete disclaimer sentence beginning The DoJ&CD ICMS on Maintenance statistics and ending all Courts"
+      }
+    }
+  ],
+  "publication_authorized": false
+}

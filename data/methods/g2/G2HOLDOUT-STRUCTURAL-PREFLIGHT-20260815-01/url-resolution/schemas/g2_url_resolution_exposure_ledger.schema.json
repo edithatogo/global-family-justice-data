@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_url_resolution_exposure_ledger.schema.json",
+  "title": "G2 URL-resolution cumulative metadata exposure ledger",
+  "type": "object",
+  "required": ["schema_version", "ledger_id", "plan_id", "predecessor", "resolution_receipt", "metadata_only", "source_content_accessed", "resolver_role_contaminated_for_extraction", "entry_count", "entries", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "ledger_id": {"const": "G2URL-EXPOSURE-20260815-01"},
+    "plan_id": {"const": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01"},
+    "predecessor": {"$ref": "#/$defs/artifact"},
+    "resolution_receipt": {"$ref": "#/$defs/artifact"},
+    "metadata_only": {"const": true},
+    "source_content_accessed": {"const": false},
+    "resolver_role_contaminated_for_extraction": {"const": true},
+    "entry_count": {"const": 33},
+    "entries": {
+      "type": "array", "minItems": 33, "maxItems": 33,
+      "items": {
+        "type": "object",
+        "required": ["frame_rank", "candidate_id", "edition_id", "source_series_id", "landing_page_url", "exposure_class", "resolver_session_id", "source_content_accessed", "extractor_eligible_role", "evidence"],
+        "properties": {
+          "frame_rank": {"type": "integer", "minimum": 1, "maximum": 44},
+          "candidate_id": {"type": "string"},
+          "edition_id": {"type": "string"},
+          "source_series_id": {"type": "string"},
+          "landing_page_url": {"type": "string", "format": "uri"},
+          "exposure_class": {"enum": ["landing_page_metadata_seen", "landing_page_redirect_blocked", "landing_page_http_error", "landing_page_request_error"]},
+          "resolver_session_id": {"type": "string", "minLength": 8},
+          "source_content_accessed": {"const": false},
+          "extractor_eligible_role": {"const": false},
+          "evidence": {"$ref": "#/$defs/artifact"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  },
+  "$defs": {"artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

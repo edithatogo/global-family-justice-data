@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/g2_concordance.schema.json",
+  "title": "G2 blinded extraction concordance receipt",
+  "type": "object",
+  "required": [
+    "schema_version", "comparison_id", "packet_id", "packet_sha256",
+    "primary_receipt", "secondary_receipt", "primary_output", "secondary_output",
+    "comparator", "threshold_policy", "row_schema", "critical_fields", "critical_threshold",
+    "overall_threshold", "matched_rows", "primary_only_rows",
+    "secondary_only_rows", "critical_field_comparisons", "critical_field_matches",
+    "overall_field_comparisons", "overall_field_matches", "critical_concordance",
+    "overall_concordance", "field_metrics", "difference_artifact",
+    "threshold_passed", "status", "generated_at", "limitations"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "comparison_id": {"type": "string", "pattern": "^G2CMP-[A-Z0-9][A-Z0-9_-]{5,79}$"},
+    "packet_id": {"type": "string", "pattern": "^G2PKT-[A-Z0-9][A-Z0-9_-]{5,79}$"},
+    "packet_sha256": {"$ref": "#/$defs/sha256"},
+    "primary_receipt": {"$ref": "#/$defs/artifact"},
+    "secondary_receipt": {"$ref": "#/$defs/artifact"},
+    "primary_output": {"$ref": "#/$defs/artifact"},
+    "secondary_output": {"$ref": "#/$defs/artifact"},
+    "comparator": {
+      "type": "object",
+      "required": ["name", "version", "source_commit"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1},
+        "source_commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"}
+      },
+      "additionalProperties": false
+    },
+    "threshold_policy": {"$ref": "#/$defs/artifact"},
+    "row_schema": {"$ref": "#/$defs/artifact"},
+    "critical_fields": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "critical_threshold": {"const": 1.0},
+    "overall_threshold": {"type": "number", "minimum": 0.99, "maximum": 1},
+    "expected_source_keys": {
+      "type": "array", "uniqueItems": true,
+      "items": {"$ref": "#/$defs/source_record_key"}
+    },
+    "required_component_values": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[a-f0-9]{64}$"},
+      "additionalProperties": {
+        "type": "array", "uniqueItems": true,
+        "items": {"type": "string", "pattern": "^[a-z0-9_]+$"}
+      }
+    },
+    "required_field_values": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[a-f0-9]{64}$"},
+      "additionalProperties": {
+        "type": "object",
+        "minProperties": 1,
+        "propertyNames": {"pattern": "^[a-z0-9_]+$"}
+      }
+    },
+    "matched_rows": {"type": "integer", "minimum": 0},
+    "primary_only_rows": {"type": "integer", "minimum": 0},
+    "secondary_only_rows": {"type": "integer", "minimum": 0},
+    "critical_field_comparisons": {"type": "integer", "minimum": 0},
+    "critical_field_matches": {"type": "integer", "minimum": 0},
+    "overall_field_comparisons": {"type": "integer", "minimum": 0},
+    "overall_field_matches": {"type": "integer", "minimum": 0},
+    "critical_concordance": {"type": "number", "minimum": 0, "maximum": 1},
+    "overall_concordance": {"type": "number", "minimum": 0, "maximum": 1},
+    "field_metrics": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["comparisons", "matches", "concordance", "critical"],
+        "properties": {
+          "comparisons": {"type": "integer", "minimum": 0},
+          "matches": {"type": "integer", "minimum": 0},
+          "concordance": {"type": "number", "minimum": 0, "maximum": 1},
+          "critical": {"type": "boolean"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "difference_artifact": {"$ref": "#/$defs/artifact"},
+    "threshold_passed": {"type": "boolean"},
+    "status": {"enum": ["pass", "conditional", "fail"]},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "limitations": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source_record_key": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "artifact": {
+      "type": "object", "required": ["path", "sha256"],
+      "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/sha256"}},
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

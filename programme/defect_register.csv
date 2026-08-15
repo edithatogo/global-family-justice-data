@@ -1,1 +1,2 @@
 defect_id,severity,title,affected_release,owner_role,opened_on,target_resolution,status,public_note
+DEF-G2-001,P2,AUS archive inventory contained a malformed 65-character digest,0.6.0-alpha.2,acquisition lead,2026-08-15,2026-08-15,resolved,Corrected the inventory to the verified manifest and payload SHA-256 and added fail-closed cross-binding validation.

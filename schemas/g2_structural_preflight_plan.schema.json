@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_structural_preflight_plan.schema.json",
+  "title": "G2 structural-preflight successor plan",
+  "type": "object",
+  "required": ["schema_version", "plan_id", "status", "predecessor_design_id", "predecessor_stop_decision", "experiment_lineage", "scientific_claim", "contracts", "frame_policy", "stages", "strata", "eligibility_states", "candidate_rejection_codes", "experiment_stop_codes", "resource_budget", "authorization"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "plan_id": {"const": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01"},
+    "status": {"const": "prepared_source_access_not_authorized"},
+    "predecessor_design_id": {"const": "G2HOLDOUT-PROSPECTIVE-20260815-01"},
+    "predecessor_stop_decision": {"const": "docs/governance/g2-blind-holdout-intake-stop-owner-decision-2026-08-15.md"},
+    "experiment_lineage": {"const": "new_successor_lineage_not_packet06"},
+    "scientific_claim": {"const": "reproducibility_for_frozen_editions_unseen_by_both_extraction_paths"},
+    "contracts": {"const": {"structural_eligibility_policy": "config/g2_structural_eligibility_policy.json", "structural_preflight_record_schema": "schemas/g2_structural_preflight_record.schema.json", "generic_extraction_contract": "config/g2_holdout_generic_extraction_contract.json", "semantic_vocabulary": "config/g2_holdout_semantic_vocabulary.json", "generic_extraction_row_schema": "schemas/g2_holdout_extraction_row.schema.json", "comparator_implementation": "src/gfjd/g2_concordance.py", "role_bundle_contract": "config/g2_structural_role_bundles.json", "selection_policy": "config/g2_structural_selection_policy.json", "merged_eligibility_receipt_schema": "schemas/g2_merged_eligibility_receipt.schema.json", "extractor_bundle_schema": "schemas/g2_extractor_bundle.schema.json", "sealed_selection_schema": "schemas/g2_sealed_selection.schema.json", "extraction_run_receipt_schema": "schemas/g2_holdout_extraction_run_receipt.schema.json", "artifact_access_receipt_schema": "schemas/g2_artifact_access_receipt.schema.json", "capacity_receipt_schema": "schemas/g2_structural_capacity_receipt.schema.json"}},
+    "frame_policy": {
+      "type": "object",
+      "required": ["candidate_universe", "exposure_ledger", "expected_frame_count", "ordering_seed", "ordering_algorithm", "include_only_official_publishers", "include_only_pdf_metadata", "exclude_metadata_ineligible", "exclude_source_content_accessed", "exclude_cumulative_exposure_matches", "adaptive_replenishment_allowed"],
+      "properties": {
+        "candidate_universe": {"type": "string", "minLength": 1},
+        "exposure_ledger": {"type": "string", "minLength": 1},
+        "expected_frame_count": {"const": 44},
+        "ordering_seed": {"$ref": "#/$defs/sha256"},
+        "ordering_algorithm": {"const": "sha256_seed_nul_candidate_id_nul_edition_id_nul_series_id_ascending_v1"},
+        "include_only_official_publishers": {"const": true},
+        "include_only_pdf_metadata": {"const": true},
+        "exclude_metadata_ineligible": {"const": true},
+        "exclude_source_content_accessed": {"const": true},
+        "exclude_cumulative_exposure_matches": {"const": true},
+        "adaptive_replenishment_allowed": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "stages": {"const": {"structural_preflight": {"candidate_rejection_continues_in_frozen_order": true, "smallest_feasible_prefix_stops_inspection": true, "target_extraction_or_transcription_allowed": false, "persist_source_text_screenshots_ocr_or_target_locators": false, "structural_role_may_be_extractor_or_comparator": false}, "extraction": {"primary_count": 24, "reserve_count": 6, "primary_per_stratum": 6, "minimum_jurisdictions": 12, "maximum_selected_per_jurisdiction": 2, "maximum_selected_per_source_series": 1, "reserve_allocation": {"embedded_raster_or_dashboard_pdf": 2, "structurally_complex_mixed_layout_pdf": 2, "non_english_text_native": 1, "english_text_native": 1}, "assignment_algorithm": "smallest_prefix_then_slot_order_rank_ascending_backtracking_v1", "primary_and_secondary_fresh_sessions": true, "extractor_bundle_contains_primary_only": true, "extractors_may_read_preflight_outputs": false, "reserve_substitution_after_seal": false}}},
+    "strata": {"const": ["embedded_raster_or_dashboard_pdf", "structurally_complex_mixed_layout_pdf", "non_english_text_native", "english_text_native"]},
+    "eligibility_states": {"const": ["proposed_for_acquisition", "acquired_pending_scan", "structurally_eligible", "eligible_for_extraction", "candidate_rejected", "experiment_stopped"]},
+    "candidate_rejection_codes": {"const": ["unavailable_after_frozen_retries", "wrong_mime_or_pdf_magic", "edition_or_url_drift", "resource_limit_exceeded", "encrypted_or_malformed", "unsafe_active_or_embedded_content", "structural_class_indeterminate", "not_official_or_not_exact_edition", "not_aggregate_only", "personal_case_level_or_prohibited_data", "local_private_processing_not_approved", "prior_exposure_discovered"]},
+    "experiment_stop_codes": {"const": ["authorization_or_signed_binding_failure", "frame_order_manifest_or_schema_drift", "unauthorized_access_or_role_overlap", "target_content_recorded_during_preflight", "security_or_sandbox_failure", "resource_budget_exhausted", "out_of_order_or_out_of_frame_acquisition", "frame_exhausted_without_exact_scope"]},
+    "resource_budget": {"const": {"maximum_candidates": 44, "maximum_bytes_per_edition": 104857600, "maximum_total_source_bytes": 4613734400, "maximum_pages_per_edition": 2000, "maximum_total_pages": 44000, "minimum_free_working_storage_bytes": 16106127360, "maximum_redirects": 3, "maximum_retries_per_candidate": 2, "maximum_concurrency": 2, "estimated_agent_hours_low": 80, "estimated_agent_hours_high": 176, "owner_hours_low": 2, "owner_hours_high": 4}},
+    "authorization": {
+      "const": {"metadata_reuse": true, "source_acquisition": false, "source_opening_or_rendering": false, "structural_inspection": false, "target_extraction": false, "outbound_contact": false, "rights_acceptance": false, "publication": false, "release": false, "g2_passage": false}
+    }
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+  "additionalProperties": false
+}

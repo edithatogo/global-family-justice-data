@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_holdout_selection_receipt.schema.json",
+  "title": "G2 blind-holdout deterministic selection receipt",
+  "type": "object",
+  "required": ["schema_version", "receipt_id", "design", "design_schema", "owner_decision", "design_commit", "owner_decision_commit", "candidate_universe", "exposure_ledger", "candidate_manifest", "metadata_only", "source_content_accessed", "eligible_candidate_count", "rejected_candidates", "scope_complete", "failure_reasons", "generated_at"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "receipt_id": {"const": "G2HOLDOUT-SELECTION-PROSPECTIVE-20260815-01"},
+    "design": {"$ref": "#/$defs/artifact"},
+    "design_schema": {"$ref": "#/$defs/artifact"},
+    "owner_decision": {"$ref": "#/$defs/artifact"},
+    "design_commit": {"const": "42b89486b7d71a60ed01eb7e7b1d862e6a736820"},
+    "owner_decision_commit": {"const": "d9ee23769122d2f912b5d86b5c7cf8df1f9169e4"},
+    "candidate_universe": {"$ref": "#/$defs/artifact"},
+    "exposure_ledger": {"$ref": "#/$defs/artifact"},
+    "candidate_manifest": {"$ref": "#/$defs/artifact"},
+    "metadata_only": {"const": true},
+    "source_content_accessed": {"const": false},
+    "eligible_candidate_count": {"type": "integer", "minimum": 0},
+    "rejected_candidates": {"type": "array", "items": {"type": "object", "required": ["candidate_id", "reason"], "properties": {"candidate_id": {"type": "string"}, "reason": {"type": "string"}}, "additionalProperties": false}},
+    "scope_complete": {"type": "boolean"},
+    "failure_reasons": {"type": "array", "items": {"type": "string"}},
+    "generated_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {"artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

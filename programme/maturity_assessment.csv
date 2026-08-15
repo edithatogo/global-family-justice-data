@@ -1,11 +1,11 @@
 dimension_id,name,target_level,assessed_level,evidence_ids,assessor_role,assessed_on,status,notes
 M01,Governance and independence,5,1,E-GOV-CHARTER;E-RACI,programme executive,2026-07-19,self_assessed,Conceptual controls are documented but not formally constituted.
-M02,Methods and ontology,5,2,E-METHODS-SCOPE;E-INDICATOR-FRAMEWORK,methods lead,2026-07-19,self_assessed,Structured pilot methods exist; external review and freeze remain.
+M02,Methods and ontology,5,2,E-METHODS-SCOPE;E-INDICATOR-FRAMEWORK,methods lead,2026-07-19,self_assessed,Structured pilot methods exist; real-pilot methods adjudication and freeze remain.
 M03,Jurisdiction census,5,1,E-PILOT-UNIVERSE,global census lead,2026-07-19,self_assessed,Pilot universe is the L1 baseline; the reviewed census is required for a later maturity assessment.
 M04,Acquisition and preservation,5,1,E-ARCH-V1,acquisition lead,2026-07-19,self_assessed,Architecture is the L1 baseline; production connectors and preservation evidence remain.
-M05,Data engineering,5,2,E-CONDUCTOR-BASELINE;E-PILOT-PIPELINE;E-CLEAN-BUILD,technical lead,2026-07-19,self_assessed,Executable baseline exists; clean production builds and supported contracts remain.
-M06,Quality and assurance,5,1,E-INDICATOR-FRAMEWORK;E-CONDUCTOR-BASELINE,quality and assurance lead,2026-07-19,self_assessed,Rules and enforcement are the L1 baseline; dual review and independent audit evidence remain.
+M05,Data engineering,5,1,E-CONDUCTOR-BASELINE,technical lead,2026-08-15,self_assessed,The accepted executable Conductor establishes L1; deterministic real-pilot and clean-build evidence is required before reassessment above L1.
+M06,Quality and assurance,5,1,E-INDICATOR-FRAMEWORK;E-CONDUCTOR-BASELINE,quality and assurance lead,2026-07-19,self_assessed,Rules and enforcement are the L1 baseline; real-source dual review and blinded agent re-extraction evidence remain.
 M07,Product and accessibility,5,1,E-INDICATOR-FRAMEWORK,product and publication lead,2026-07-19,self_assessed,Product definitions are the L1 baseline; production beta and accessibility testing remain.
 M08,"Security, privacy and legal",5,1,E-THREAT-BASELINE;E-RIGHTS-BASELINE,security and data-governance owner,2026-07-19,self_assessed,Policies are drafted; formal assessments and operational controls remain.
 M09,Operations and reliability,5,1,E-ARCH-V1,service and release manager,2026-07-19,self_assessed,Operational architecture is the L1 baseline; rehearsals monitoring and restore evidence remain.
-M10,International sustainability,5,1,E-TRACK-CHARTERS,international partnerships lead,2026-07-19,self_assessed,Track accountability is the L1 baseline; correspondents and funding remain uncommitted.
+M10,International sustainability,5,1,E-TRACK-CHARTERS,international partnerships lead,2026-07-19,self_assessed,Track accountability is the L1 baseline; source-language review evidence and a dated owner pilot-resource commitment remain.

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/schemas/g2_holdout_extraction_row.schema.json",
+  "title": "Generic G2 unseen-edition holdout extraction row",
+  "description": "A fail-closed atomic extraction contract. Fields suffixed _source or _quote retain source-native text; controlled semantic facets are represented separately as codes.",
+  "type": "object",
+  "required": [
+    "schema_version", "extracted_row_id", "sample_key", "source_record_key",
+    "candidate_id", "source_id", "source_edition_id", "locator_pdf_page",
+    "locator_printed_page", "locator_section_source", "locator_object_source",
+    "domain_label_source", "domain_code", "matter_label_source", "matter_type_code",
+    "measure_label_source", "indicator_code", "series_label_source", "series_code",
+    "statistic_type", "unit_code", "value", "component_values",
+    "denominator_value", "denominator_definition_quote", "denominator_code",
+    "period_label_source", "period_start", "period_end",
+    "period_start_provenance", "period_end_provenance", "time_basis",
+    "clock_label_source", "clock_code", "cohort_definition_quote", "cohort_code",
+    "counted_entity_code", "population_scope_code", "coverage_limitation_quote",
+    "ambiguity_codes", "ambiguity_evidence_quote", "quarantine_status",
+    "suppression_or_disclosure_note", "extraction_uncertainty", "notes"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "extracted_row_id": {"type": "string", "pattern": "^G2ROW-[A-Z0-9][A-Z0-9_-]{5,95}$"},
+    "sample_key": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{5,119}$"},
+    "source_record_key": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "candidate_id": {"type": "string", "pattern": "^G2CAND-[A-Z0-9][A-Z0-9_-]{5,119}$"},
+    "source_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"},
+    "source_edition_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{1,79}$"},
+    "locator_pdf_page": {"type": "integer", "minimum": 1},
+    "locator_printed_page": {"type": ["integer", "null"], "minimum": 1},
+    "locator_section_source": {"$ref": "#/$defs/source_text"},
+    "locator_object_source": {"$ref": "#/$defs/source_text"},
+    "domain_label_source": {"$ref": "#/$defs/source_text"},
+    "domain_code": {"enum": ["domestic_family_violence", "family_justice"]},
+    "matter_label_source": {"$ref": "#/$defs/source_text"},
+    "matter_type_code": {"enum": ["domestic_family_violence_application", "protective_order", "family_case", "child_contact_or_custody", "divorce_or_dissolution", "other_family"]},
+    "measure_label_source": {"$ref": "#/$defs/source_text"},
+    "indicator_code": {"enum": ["domestic_or_family_violence_application_or_order_count", "family_case_filing_or_disposition_count", "family_case_clearance_or_timeliness_statistic", "family_case_pending_or_caseload_count"]},
+    "series_label_source": {"$ref": "#/$defs/nullable_source_text"},
+    "series_code": {"anyOf": [{"$ref": "#/$defs/code"}, {"type": "null"}]},
+    "statistic_type": {"enum": ["count", "percent", "rate", "median", "mean", "ratio"]},
+    "unit_code": {"enum": ["count", "percent"]},
+    "value": {"type": "number"},
+    "component_values": {
+      "type": "object",
+      "propertyNames": {"pattern": "^[a-z][a-z0-9_]*$"},
+      "additionalProperties": {"type": "number"}
+    },
+    "denominator_value": {"type": ["number", "null"]},
+    "denominator_definition_quote": {"$ref": "#/$defs/nullable_source_text"},
+    "denominator_code": {"enum": ["not_applicable", "source_defined", "case_filings", "case_dispositions", "population"]},
+    "period_label_source": {"$ref": "#/$defs/source_text"},
+    "period_start": {"type": ["string", "null"], "format": "date"},
+    "period_end": {"type": ["string", "null"], "format": "date"},
+    "period_start_provenance": {"$ref": "#/$defs/date_provenance"},
+    "period_end_provenance": {"$ref": "#/$defs/date_provenance"},
+    "time_basis": {"enum": ["calendar", "working", "source_defined", "not_applicable", "unknown"]},
+    "clock_label_source": {"$ref": "#/$defs/nullable_source_text"},
+    "clock_code": {"enum": ["not_applicable", "source_defined", "calendar_days", "working_days"]},
+    "cohort_definition_quote": {"$ref": "#/$defs/source_text"},
+    "cohort_code": {"enum": ["filed_in_period", "disposed_in_period", "pending_at_period_end", "source_defined"]},
+    "counted_entity_code": {"enum": ["applications", "orders", "cases", "persons", "families", "other"]},
+    "population_scope_code": {"enum": ["court", "statewide", "national", "regional", "source_defined"]},
+    "coverage_limitation_quote": {"$ref": "#/$defs/nullable_source_text"},
+    "ambiguity_codes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "source_value_conflict", "source_definition_conflict", "denominator_conflict",
+          "clock_conflict", "cohort_ambiguity", "counted_entity_ambiguity",
+          "population_scope_ambiguity", "coverage_limitation", "period_not_stated",
+          "date_not_stated", "suppression_or_disclosure_ambiguity",
+          "other_material_ambiguity"
+        ]
+      }
+    },
+    "ambiguity_evidence_quote": {"$ref": "#/$defs/nullable_normalized_source_text"},
+    "quarantine_status": {"enum": ["quarantine", "hard_quarantine"]},
+    "suppression_or_disclosure_note": {"type": ["string", "null"]},
+    "extraction_uncertainty": {"enum": ["none", "low", "material", "unresolved"]},
+    "notes": {"type": ["string", "null"]}
+  },
+  "$defs": {
+    "source_text": {"type": "string", "minLength": 1},
+    "nullable_source_text": {
+      "anyOf": [{"$ref": "#/$defs/source_text"}, {"type": "null"}]
+    },
+    "normalized_source_text": {
+      "type": "string", "minLength": 1, "maxLength": 2000,
+      "pattern": "^(?!\\s)(?!.*\\s$)(?!.*[\\r\\n\\t])(?!.* {2}).+$"
+    },
+    "nullable_normalized_source_text": {
+      "anyOf": [{"$ref": "#/$defs/normalized_source_text"}, {"type": "null"}]
+    },
+    "code": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "date_provenance": {
+      "enum": ["exact_edition", "packet_bound_calendar", "not_stated"]
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"period_start": {"type": "null"}}},
+      "then": {"properties": {"period_start_provenance": {"const": "not_stated"}}},
+      "else": {
+        "properties": {
+          "period_start_provenance": {"enum": ["exact_edition", "packet_bound_calendar"]}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"period_end": {"type": "null"}}},
+      "then": {"properties": {"period_end_provenance": {"const": "not_stated"}}},
+      "else": {
+        "properties": {
+          "period_end_provenance": {"enum": ["exact_edition", "packet_bound_calendar"]}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"ambiguity_codes": {"minItems": 1}}},
+      "then": {"properties": {"ambiguity_evidence_quote": {"$ref": "#/$defs/normalized_source_text"}}}
+    }
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_proposed_url_resolution_manifest.schema.json",
+  "title": "Proposed and unauthorized G2 metadata URL-resolution manifest",
+  "type": "object",
+  "required": ["schema_version", "manifest_id", "plan_id", "frame", "status", "metadata_request_performed", "entry_count", "entries"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "manifest_id": {"const": "G2HOLDOUT-PROPOSED-URL-RESOLUTION-20260815-01"},
+    "plan_id": {"const": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01"},
+    "frame": {"$ref": "#/$defs/artifact"},
+    "status": {"const": "proposed_not_authorized"},
+    "metadata_request_performed": {"const": false},
+    "entry_count": {"const": 33},
+    "entries": {
+      "type": "array", "minItems": 33, "maxItems": 33,
+      "items": {
+        "type": "object",
+        "required": ["frame_rank", "candidate_id", "edition_id", "landing_page_url", "method", "expected_media_type", "source_content_access_allowed", "status", "resolved_exact_pdf_url"],
+        "properties": {
+          "frame_rank": {"type": "integer", "minimum": 1, "maximum": 44},
+          "candidate_id": {"type": "string"}, "edition_id": {"type": "string"},
+          "landing_page_url": {"type": "string", "format": "uri"},
+          "method": {"const": "proposed_metadata_html_resolution"},
+          "expected_media_type": {"const": "text/html"},
+          "source_content_access_allowed": {"const": false},
+          "status": {"const": "proposed_not_authorized"},
+          "resolved_exact_pdf_url": {"type": "null"}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "$defs": {"artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

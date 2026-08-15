@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_extractor_bundle.schema.json",
+  "title": "G2 primary-only extractor bundle",
+  "type": "object",
+  "required": ["schema_version", "bundle_id", "plan_id", "owner_authorization", "extraction_contract", "row_schema", "primary_count", "primary_editions", "reserve_information_included", "rejected_candidate_information_included", "prior_experiment_information_included", "generated_at"],
+  "properties": {
+    "schema_version": {"const": "1.0"}, "bundle_id": {"type": "string", "minLength": 8},
+    "plan_id": {"const": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01"},
+    "owner_authorization": {"$ref": "#/$defs/artifact"}, "extraction_contract": {"$ref": "#/$defs/artifact"}, "row_schema": {"$ref": "#/$defs/artifact"},
+    "primary_count": {"const": 24},
+    "primary_editions": {"type": "array", "minItems": 24, "maxItems": 24, "uniqueItems": true, "items": {"type": "object", "required": ["candidate_id", "source_id", "source_edition_id", "source_sha256", "private_source_path"], "properties": {"candidate_id": {"type": "string"}, "source_id": {"type": "string"}, "source_edition_id": {"type": "string"}, "source_sha256": {"$ref": "#/$defs/sha256"}, "private_source_path": {"type": "string", "minLength": 1}}, "additionalProperties": false}},
+    "reserve_information_included": {"const": false}, "rejected_candidate_information_included": {"const": false}, "prior_experiment_information_included": {"const": false},
+    "generated_at": {"type": "string", "format": "date-time"}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/sha256"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

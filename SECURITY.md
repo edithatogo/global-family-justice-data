@@ -14,7 +14,7 @@ Person-level linkage research, if undertaken, belongs in a separately governed s
 
 ## Reporting a vulnerability or sensitive issue
 
-Until a dedicated private reporting channel is configured by the host, contact the project’s designated security/privacy owner through the host institution and mark the report confidential. Do not open a public issue when disclosure could create harm.
+The repository owner is the security/privacy contact. Until an owner-controlled private reporting channel is published and tested, do not place sensitive incident details in public issues, discussions, pull requests or commits. Record only non-sensitive workflow metadata and pause affected processing; the owner will designate a private route before any sensitive report is exchanged.
 
 A mature v1.0 must publish and test a private vulnerability/privacy reporting channel before release.
 

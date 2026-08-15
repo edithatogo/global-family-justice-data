@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "correction_id": "G2URL-CORRECTIONS-20260815-01",
+  "plan_id": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01",
+  "raw_resolution_sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b",
+  "identity_panel_sha256": "20898eda235d3cde9f5f5bc9cd33cb5af945c7376d2e126350f50bf26c514208",
+  "strong_hypotheses": {
+    "1": "https://www.domstol.no/contentassets/ec3597b125844ac4bfc66713d3c58895/da_arsrapport_2025.pdf",
+    "3": "https://assets.publishing.service.gov.uk/media/693acee5adb5707d9f33d608/Cafcass_Annual_Report_and_Accounts_2024-2025_-_DIGITAL.pdf",
+    "4": "https://www.mcv.vic.gov.au/sites/default/files/2025-11/MCV%20Annual%20Report%202024-2025.pdf",
+    "5": "https://www.justice-ni.gov.uk/sites/default/files/publications/justice/Judicial%20Statistics%202023%20%20infographic.pdf",
+    "8": "https://www.rechtspraak.nl/binaries/_rts_1768298105986/content/assets/rbove/jd/rbove-jd-jaarverslag-rechtbank-overijssel-2024.pdf",
+    "12": "https://www.justice-ni.gov.uk/sites/default/files/2026-06/judicial-statistics-2025.pdf",
+    "13": "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Indicadores%20Clave/Indicadores%20a%20Nivel%20Nacional%20-%20Anual%202024.pdf",
+    "16": "https://www.pj.gob.pe/wps/wcm/connect/d56ea100417d543eb33ebb1666a80600/BOLETIN+WEB-jja.pdf?MOD=AJPERES&CACHEID=d56ea100417d543eb33ebb1666a80600",
+    "18": "https://www.domstol.no/contentassets/ec3597b125844ac4bfc66713d3c58895/livet-i-domstolene-2025.pdf",
+    "19": "http://justice.belgium.be/sites/default/files/Rapport-annuel-2024-SPF-Justice_0.pdf",
+    "20": "https://www.judiciary.gov.sg/docs/default-source/publication-docs/sg_courts_annual_report_2024.pdf?sfvrsn=61059197_3",
+    "21": "https://www.justice.gouv.fr/sites/default/files/2026-06/rapport_annuel_2024_lopj.pdf",
+    "22": "https://www.poderjudicial.es/stfls/ESTADISTICA/FICHEROS/Datos%20de%20Justicia/N118%20Caracteristicas%20de%20los%20PJs%202024.pdf",
+    "24": "https://www.poderjudicial.es/stfls/CGPJ/OBSERVATORIO%20DE%20VIOLENCIA%20DOM%C3%89STICA/INFORMES/FICHERO/20251128%20Informe%20sobre%20v%C3%ADctimas%20mortales%20de%20la%20violencia%20de%20g%C3%A9nero%202024V2.pdf",
+    "25": "https://www.courts.wa.gov/caseload/content/archive/superior/Annual/2025.pdf"
+  },
+  "status": "advisory_metadata_hypotheses_only",
+  "source_request_authorized": false
+}

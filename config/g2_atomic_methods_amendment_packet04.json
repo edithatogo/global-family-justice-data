@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "amendment_id": "G2AMEND-PACKET04-20260815",
+  "owner_decision": "docs/governance/g2-packet04-methods-owner-decision-2026-08-15.md",
+  "owner_decision_sha256": "6cf8eb21f7de6da599c79e1bf6652b7f673689958708bd2f9231cdf10495b1e4",
+  "owner_decision_commit": "253934abed141944c464649ddbbb09e50bda8f2a",
+  "proposal_sha256": "a30f4cee9fab98f3a17ababe4d97bc66881783914b347150c4ad666ef36cdb30",
+  "prior_packet_id": "G2PKT-REAL-PILOT-20260815-03",
+  "prior_packet_sha256": "6e9e21f8ffeaeb217f93b0d279cd0bb21de2dbf23f0766604b3660ec1ade542d",
+  "prior_comparison_sha256": "9fb7fb1be5a8f330f4c721712565566ad08de8bb75ba477aae22b4d0187d1c2d",
+  "prior_differences_sha256": "f111fb2be081bc1681b91685fe449ecd0ee3a2a9971d3d1a5d72524661a327fd",
+  "advisory_reports": [
+    {
+      "path": "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-03/panels/methods-discrepancy-report.json",
+      "sha256": "1739823a2633428e1607fdc04d33adf550700a05c9f9ab64a00feed9bfe30465"
+    },
+    {
+      "path": "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-03/panels/rights-security-report.json",
+      "sha256": "f3676cdfbcefe3309986b2e195cea5041de64af2986828feefa2411a90975dd2"
+    },
+    {
+      "path": "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-03/panels/reconciliation-report.json",
+      "sha256": "7fe7a64de4611ad09ca360ccb6b3a94464a66b05b5bcffb8cfedfc6f5af60c12"
+    }
+  ],
+  "classification": "pre_extraction_hierarchy_and_uncertainty_methods_amendment",
+  "critical_threshold": 1.0,
+  "overall_threshold": 0.99,
+  "field_mappings": [
+    {
+      "sample_key": "BRA-PROTECTIVE-MEASURES-2026-04-30",
+      "source_record_key": "164cfa1e58300975fbe0a49e0cd223079d57574e1b5961026d06d073a7baf38a",
+      "field": "coverage_limitation_quote",
+      "required_value": "Tribunal Todos Grau Todos Órgão Julgador Todos Originário Todos Natureza Todos UF, Município Todos Formato Todos",
+      "mapping_kind": "exact_source_hierarchy"
+    },
+    {
+      "sample_key": "BRA-PROTECTIVE-MEASURES-2026-04-30",
+      "source_record_key": "164cfa1e58300975fbe0a49e0cd223079d57574e1b5961026d06d073a7baf38a",
+      "field": "locator_object_source",
+      "required_value": "Figura 528 - Dados de processos de violência doméstica e familiar contra a mulher",
+      "mapping_kind": "exact_source_hierarchy"
+    },
+    {
+      "sample_key": "BRA-PROTECTIVE-MEASURES-2026-04-30",
+      "source_record_key": "164cfa1e58300975fbe0a49e0cd223079d57574e1b5961026d06d073a7baf38a",
+      "field": "measure_label_source",
+      "required_value": "Medidas Protetivas em 2026",
+      "mapping_kind": "exact_source_hierarchy"
+    },
+    {
+      "sample_key": "BRA-PROTECTIVE-MEASURES-2026-04-30",
+      "source_record_key": "164cfa1e58300975fbe0a49e0cd223079d57574e1b5961026d06d073a7baf38a",
+      "field": "period_label_source",
+      "required_value": "2026",
+      "mapping_kind": "exact_source_hierarchy"
+    },
+    {
+      "sample_key": "BRA-PROTECTIVE-MEASURES-2026-04-30",
+      "source_record_key": "164cfa1e58300975fbe0a49e0cd223079d57574e1b5961026d06d073a7baf38a",
+      "field": "series_label_source",
+      "required_value": "Total",
+      "mapping_kind": "exact_source_hierarchy"
+    },
+    {
+      "sample_key": "BRA-PROTECTIVE-MEASURES-2026-04-30",
+      "source_record_key": "164cfa1e58300975fbe0a49e0cd223079d57574e1b5961026d06d073a7baf38a",
+      "field": "extraction_uncertainty",
+      "required_value": "none",
+      "mapping_kind": "deterministic_uncertainty"
+    },
+    {
+      "sample_key": "USA-MN-FAMILY-CLEARANCE-FY24",
+      "source_record_key": "c0f8ec4b54648507110f35d5d4307213104ed31c412faa9225a95bcb38e6f89d",
+      "field": "domain_label_source",
+      "required_value": "Timeliness",
+      "mapping_kind": "exact_source_hierarchy"
+    },
+    {
+      "sample_key": "AUS-D1-CLEARANCE-2024-25",
+      "source_record_key": "fef623eab55f14f9bbd888287ddf37de464ed287d2af5ac8f0d02150e0bf1b80",
+      "field": "extraction_uncertainty",
+      "required_value": "unresolved",
+      "mapping_kind": "deterministic_uncertainty"
+    }
+  ],
+  "uncertainty_rule": {
+    "allowed_values": ["none", "unresolved"],
+    "none_when": "all required source occurrences are legible and ambiguity_codes is empty",
+    "unresolved_when": "a required ambiguity code preserves a source conflict that the packet does not resolve",
+    "prohibited_values": ["low", "material"]
+  },
+  "required_uncertainty_by_sample": {
+    "AUS-D1-CLEARANCE-2024-25": "unresolved",
+    "USA-MN-FAMILY-CLEARANCE-FY24": "none",
+    "BRA-PROTECTIVE-MEASURES-2026-04-30": "none",
+    "ZAF-MAINTENANCE-90D-2024-25": "unresolved"
+  },
+  "unchanged_invariants": [
+    "same four exact source editions and content digests",
+    "same four sample and source-record keys",
+    "same headline and component numeric facts",
+    "same canonical semantic codes",
+    "explicit-only date rule",
+    "same denominator cohort population and ambiguity evidence",
+    "AUS and ZAF hard quarantine",
+    "BRA and USA-MN quarantine",
+    "100 percent critical and 99 percent overall thresholds",
+    "local-private evidence and metadata/citation-only public boundary"
+  ],
+  "requires_both_runs": true,
+  "publication_authorized": false
+}

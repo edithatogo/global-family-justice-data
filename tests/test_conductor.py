@@ -44,21 +44,19 @@ def test_conductor_reports_honest_current_state(project_root: Path) -> None:
     summary = conductor.summary()
     assert summary["current_release"] == "0.6.0-alpha.2"
     assert summary["target_release"] == "1.0.0"
-    assert summary["current_gate"] == "G1"
-    assert summary["programme_maturity"] == 0
+    assert summary["current_gate"] == "G2"
+    assert summary["programme_maturity"] == 1
     assert summary["self_assessed_maturity"] >= 1
     assert conductor.gate_result("G6").ready is False
-    assert conductor.gate_result("G1").passed is False
+    assert conductor.gate_result("G1").passed is True
 
 
 def test_g1_acceptance_requires_named_roles_and_digest_bound_packet(project_root: Path) -> None:
     """Owner approval cannot bypass role or packet-integrity controls."""
     conductor = Conductor.load(project_root)
     result = conductor.gate_result("G1")
-    assert result.passed is False
-    # Current G1 is conditional, but the result must still expose incomplete
-    # work/evidence rather than treating conversational approval as acceptance.
-    assert result.work_failures or result.risk_failures or not result.ready
+    assert result.passed is True
+    assert result.ready is True
 
     # A synthetic accepted decision with an invalid binding must remain blocked.
     decision = conductor.gate_decisions["G1"]
@@ -76,10 +74,9 @@ def test_tracks_cannot_be_archive_ready_while_external_gate_is_pending(
     """Track completion is distinct from archive/publication authority."""
     conductor = Conductor.load(project_root)
 
-    # The programme is deliberately still at G1 with external acceptance
-    # outstanding.  A track status may report implementation progress, but no
-    # track may be treated as archive eligible while the final release gate is
-    # not passed.
+    # The programme is deliberately still before final release. A track status
+    # may report implementation progress, but no track may be treated as
+    # archive eligible while the final release gate is not passed.
     assert conductor.gate_result("G6").passed is False
     statuses = [conductor.track_status(track_id) for track_id in conductor.tracks]
     assert statuses
@@ -208,6 +205,8 @@ def test_accountably_accepted_risk_no_longer_blocks_gate(
 ) -> None:
     root = _copy_project(project_root, tmp_path / "repo")
     conductor = Conductor.load(root)
+    object.__setattr__(conductor.risks["R02"], "status", "mitigating")
+    conductor._gate_cache.clear()
     assert "R02" in conductor.gate_result("G1").risk_failures
 
     conductor.update_risk(
@@ -230,35 +229,35 @@ def test_evidence_review_enforces_independence_and_unlocks_work_acceptance(
     conductor = Conductor.load(root)
     with pytest.raises(ValueError, match="independent"):
         conductor.review_evidence(
-            "E-CONDUCTOR-BASELINE",
+            "E-CLEAN-BUILD",
             "accepted",
             reviewer_role="technical lead",
         )
     accepted = conductor.review_evidence(
-        "E-CONDUCTOR-BASELINE",
+        "E-CLEAN-BUILD",
         "accepted",
-        reviewer_role="independent engineering reviewer",
+        reviewer_role="role-separated engineering reviewer",
     )
     assert accepted.status == "accepted"
     assert len(accepted.sha256) == 64
     conductor.set_work_status(
-        "WI-G1-07",
+        "WI-G2-03",
         "in_review",
         actor="technical lead",
         note="Submitted for acceptance",
     )
     item = conductor.set_work_status(
-        "WI-G1-07",
+        "WI-G2-03",
         "accepted",
-        actor="independent engineering reviewer",
+        actor="repository owner",
     )
     assert item.status == "accepted"
 
 
-def test_invalid_work_transition_is_rejected(project_root: Path, tmp_path: Path) -> None:
+def test_work_acceptance_requires_accepted_evidence(project_root: Path, tmp_path: Path) -> None:
     import pytest
 
     root = _copy_project(project_root, tmp_path / "repo")
     conductor = Conductor.load(root)
-    with pytest.raises(ValueError, match="Invalid work transition"):
+    with pytest.raises(ValueError, match="evidence not accepted"):
         conductor.set_work_status("WI-G2-02", "accepted", actor="reviewer")

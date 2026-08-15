@@ -10,7 +10,7 @@ on:
       source_date_epoch:
         description: Reproducible build epoch in Unix seconds
         required: true
-        default: '1785542400'
+        default: '1786752000'
         type: string
       confirmation:
         description: Type RELEASE CANDIDATE exactly

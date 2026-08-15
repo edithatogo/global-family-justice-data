@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "correction_id": "G2COR-PACKET03-20260815",
+  "basis_policy": "config/g2_concordance_policy.json",
+  "basis_policy_sha256": "94e58bb2df83ca87df33eff0b5ed836d3ae61b64d941c6de39d782ac3758c6bc",
+  "prior_packet_id": "G2PKT-REAL-PILOT-20260815-02",
+  "prior_packet_sha256": "1b090a4e9e8a856755870cf7ec779f91439e7c5460a86f230c4a5447e3129e29",
+  "prior_comparison_sha256": "28466192acfc9303e3a9ca2bab114bde1af6db64698f820011519c1789871294",
+  "prior_differences_sha256": "86eb2546f02038bfd6e1fe7dbf3ea53acef0bd78093d77f1fa843f444ed5bc04",
+  "advisory_report_sha256": "88ae6438ba5b5cb051a612786ca748064165841ecbc63dfe521cfcabb5d863d8",
+  "classification": "boundary_only_no_semantic_change",
+  "critical_threshold": 1.0,
+  "overall_threshold": 0.99,
+  "fields": [
+    {
+      "sample_key": "BRA-PROTECTIVE-MEASURES-2026-04-30",
+      "source_record_key": "164cfa1e58300975fbe0a49e0cd223079d57574e1b5961026d06d073a7baf38a",
+      "field": "locator_section_source",
+      "required_value": "Dados de processos de violência doméstica e familiar contra a mulher",
+      "basis": "exact_source_element"
+    },
+    {
+      "sample_key": "ZAF-MAINTENANCE-90D-2024-25",
+      "source_record_key": "bffeecd35b755dd473cb450f7c19a9c158e54e43aba88369686b4bb5f78e1243",
+      "field": "clock_label_source",
+      "required_value": "within 90 days from date of proper service of process",
+      "basis": "exact_source_substring"
+    },
+    {
+      "sample_key": "ZAF-MAINTENANCE-90D-2024-25",
+      "source_record_key": "bffeecd35b755dd473cb450f7c19a9c158e54e43aba88369686b4bb5f78e1243",
+      "field": "locator_object_source",
+      "required_value": "Table 20: Percentage Maintenance matters finalised within 90 days from date of proper service of process.",
+      "basis": "exact_source_element"
+    },
+    {
+      "sample_key": "ZAF-MAINTENANCE-90D-2024-25",
+      "source_record_key": "bffeecd35b755dd473cb450f7c19a9c158e54e43aba88369686b4bb5f78e1243",
+      "field": "measure_label_source",
+      "required_value": "% Finalised Within 90 Days",
+      "basis": "exact_source_element"
+    },
+    {
+      "sample_key": "USA-MN-FAMILY-CLEARANCE-FY24",
+      "source_record_key": "c0f8ec4b54648507110f35d5d4307213104ed31c412faa9225a95bcb38e6f89d",
+      "field": "clock_label_source",
+      "required_value": "Fiscal Year",
+      "basis": "exact_source_element"
+    },
+    {
+      "sample_key": "USA-MN-FAMILY-CLEARANCE-FY24",
+      "source_record_key": "c0f8ec4b54648507110f35d5d4307213104ed31c412faa9225a95bcb38e6f89d",
+      "field": "series_label_source",
+      "required_value": "Family",
+      "basis": "exact_source_element"
+    },
+    {
+      "sample_key": "AUS-D1-CLEARANCE-2024-25",
+      "source_record_key": "fef623eab55f14f9bbd888287ddf37de464ed287d2af5ac8f0d02150e0bf1b80",
+      "field": "matter_label_source",
+      "required_value": "Applications for final orders",
+      "basis": "exact_source_element"
+    },
+    {
+      "sample_key": "AUS-D1-CLEARANCE-2024-25",
+      "source_record_key": "fef623eab55f14f9bbd888287ddf37de464ed287d2af5ac8f0d02150e0bf1b80",
+      "field": "series_label_source",
+      "required_value": "applications for final orders filed, finalised and pending, 2022–23 to 2024–25",
+      "basis": "exact_source_element"
+    }
+  ],
+  "unchanged_invariants": [
+    "source editions and content digests",
+    "four sample and source-record keys",
+    "headline and component numeric facts",
+    "canonical semantic codes",
+    "explicit-only date rule",
+    "denominator cohort population and ambiguity evidence",
+    "AUS and ZAF hard quarantine",
+    "BRA and USA-MN quarantine",
+    "100 percent critical and 99 percent overall thresholds",
+    "local-private evidence and metadata/citation-only public boundary"
+  ],
+  "requires_both_runs": true,
+  "publication_authorized": false
+}

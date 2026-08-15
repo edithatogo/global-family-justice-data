@@ -25,7 +25,7 @@ def test_release_requires_explicit_version_override(project_root: Path, tmp_path
 
 def test_release_build_is_deterministic_and_verifiable(project_root: Path, tmp_path: Path) -> None:
     project = load_project(project_root)
-    epoch = 1785542400
+    epoch = 1786752000
     first = build_release(
         project,
         version="0.3.0-test",
@@ -64,7 +64,7 @@ def test_stable_release_is_blocked_until_g6_passes(project_root: Path, tmp_path:
             project,
             version="1.0.0",
             output_root=tmp_path,
-            source_date_epoch=1785542400,
+            source_date_epoch=1786752000,
             allow_version_override=True,
         )
 
@@ -75,7 +75,7 @@ def test_release_verifier_detects_tampering(project_root: Path, tmp_path: Path) 
         project,
         version="0.3.0-tamper-test",
         output_root=tmp_path,
-        source_date_epoch=1785542400,
+        source_date_epoch=1786752000,
         allow_version_override=True,
     )
     release_dir = Path(result["release_dir"])
@@ -89,7 +89,7 @@ def test_release_verifier_requires_structural_sbom(project_root: Path, tmp_path:
         project,
         version="0.3.0-sbom-test",
         output_root=tmp_path,
-        source_date_epoch=1785542400,
+        source_date_epoch=1786752000,
         allow_version_override=True,
     )
     release_dir = Path(result["release_dir"])
@@ -106,7 +106,7 @@ def test_release_verifier_requires_explicit_publication_boundary(
         project,
         version="0.3.0-publication-boundary",
         output_root=tmp_path,
-        source_date_epoch=1785542400,
+        source_date_epoch=1786752000,
         allow_version_override=True,
     )
     release_dir = Path(result["release_dir"])

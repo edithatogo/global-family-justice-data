@@ -10,7 +10,7 @@ The desired result is a repository that is easier to trust, operate, extend, aud
 
 These constraints are non-negotiable.
 
-1. **Do not claim that G1–G6 has passed.** A gate passes only through independently accepted evidence and an accountable gate decision bound to the exact conductor-state hash.
+1. **Do not claim that G1–G6 has passed without current evidence.** A gate passes only through evidence accepted under the current single-owner Conductor policy and a digest-bound accountable owner decision. Agent panels remain advisory and must not be labelled independent or specialist assurance.
 2. **Do not manufacture governance evidence.** Do not invent names, appointments, approvals, signatures, licence decisions, ethics approvals, source-rights determinations, lived-experience review, funding, or institutional authority.
 3. **Do not fabricate international research or empirical data.** Synthetic fixtures must remain unmistakably fictional. Do not convert illustrative seed sources into reviewed evidence or gold observations.
 4. **Do not weaken fail-closed controls to make checks pass.** Fix the underlying problem. Do not suppress validation, reduce security checks, lower coverage without a recorded rationale, mark evidence accepted, or bypass release gates.
@@ -232,14 +232,14 @@ Keep cloud-provider-specific adapters optional and isolate credentials from the 
 
 Codex may improve templates, import tooling, validation, and workflows for these items, but must not mark them complete without authentic inputs:
 
-- institutional host, accountable appointments, deputies, and release authority;
+- factual host/service/custody records not already established by the sole-owner model;
 - approved licence and publication identity;
 - real GitHub settings captured from the intended repository;
 - source-rights and redistribution determinations;
 - complete multilingual international searches and negative findings;
 - local legal/institutional verification;
 - reviewed source editions, extractions, observations, and outcome studies;
-- independent re-extraction, methods, security, accessibility, privacy, ethics, child-rights, lived-experience, and misuse review;
+- real re-extraction, methods, security, accessibility, privacy, ethics, child-rights and misuse evidence required by the amended gate contracts; agent panels must disclose that they are not independent specialists or lived-experience participants;
 - real production monitoring, incident, correction, restore, rollback, takedown, and soak evidence;
 - archival deposits and persistent identifiers;
 - funded 1.x maintenance, succession, and service commitments.

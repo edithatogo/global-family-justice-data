@@ -1,0 +1,131 @@
+{
+  "schema_version": "1.0",
+  "plan_id": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01",
+  "status": "prepared_source_access_not_authorized",
+  "predecessor_design_id": "G2HOLDOUT-PROSPECTIVE-20260815-01",
+  "predecessor_stop_decision": "docs/governance/g2-blind-holdout-intake-stop-owner-decision-2026-08-15.md",
+  "experiment_lineage": "new_successor_lineage_not_packet06",
+  "scientific_claim": "reproducibility_for_frozen_editions_unseen_by_both_extraction_paths",
+  "contracts": {
+    "structural_eligibility_policy": "config/g2_structural_eligibility_policy.json",
+    "structural_preflight_record_schema": "schemas/g2_structural_preflight_record.schema.json",
+    "generic_extraction_contract": "config/g2_holdout_generic_extraction_contract.json",
+    "semantic_vocabulary": "config/g2_holdout_semantic_vocabulary.json",
+    "generic_extraction_row_schema": "schemas/g2_holdout_extraction_row.schema.json",
+    "comparator_implementation": "src/gfjd/g2_concordance.py",
+    "role_bundle_contract": "config/g2_structural_role_bundles.json",
+    "selection_policy": "config/g2_structural_selection_policy.json",
+    "merged_eligibility_receipt_schema": "schemas/g2_merged_eligibility_receipt.schema.json",
+    "extractor_bundle_schema": "schemas/g2_extractor_bundle.schema.json",
+    "sealed_selection_schema": "schemas/g2_sealed_selection.schema.json",
+    "extraction_run_receipt_schema": "schemas/g2_holdout_extraction_run_receipt.schema.json",
+    "artifact_access_receipt_schema": "schemas/g2_artifact_access_receipt.schema.json",
+    "capacity_receipt_schema": "schemas/g2_structural_capacity_receipt.schema.json"
+  },
+  "frame_policy": {
+    "candidate_universe": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/candidate-universe.json",
+    "exposure_ledger": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/exposure-ledger.json",
+    "expected_frame_count": 44,
+    "ordering_seed": "46f1aa60959b2aa3543beeeef8aa001eac71ea3895dce62d115b0969fbcbb0bf",
+    "ordering_algorithm": "sha256_seed_nul_candidate_id_nul_edition_id_nul_series_id_ascending_v1",
+    "include_only_official_publishers": true,
+    "include_only_pdf_metadata": true,
+    "exclude_metadata_ineligible": true,
+    "exclude_source_content_accessed": true,
+    "exclude_cumulative_exposure_matches": true,
+    "adaptive_replenishment_allowed": false
+  },
+  "stages": {
+    "structural_preflight": {
+      "candidate_rejection_continues_in_frozen_order": true,
+      "smallest_feasible_prefix_stops_inspection": true,
+      "target_extraction_or_transcription_allowed": false,
+      "persist_source_text_screenshots_ocr_or_target_locators": false,
+      "structural_role_may_be_extractor_or_comparator": false
+    },
+    "extraction": {
+      "primary_count": 24,
+      "reserve_count": 6,
+      "primary_per_stratum": 6,
+      "minimum_jurisdictions": 12,
+      "maximum_selected_per_jurisdiction": 2,
+      "maximum_selected_per_source_series": 1,
+      "reserve_allocation": {
+        "embedded_raster_or_dashboard_pdf": 2,
+        "structurally_complex_mixed_layout_pdf": 2,
+        "non_english_text_native": 1,
+        "english_text_native": 1
+      },
+      "assignment_algorithm": "smallest_prefix_then_slot_order_rank_ascending_backtracking_v1",
+      "primary_and_secondary_fresh_sessions": true,
+      "extractor_bundle_contains_primary_only": true,
+      "extractors_may_read_preflight_outputs": false,
+      "reserve_substitution_after_seal": false
+    }
+  },
+  "strata": [
+    "embedded_raster_or_dashboard_pdf",
+    "structurally_complex_mixed_layout_pdf",
+    "non_english_text_native",
+    "english_text_native"
+  ],
+  "eligibility_states": [
+    "proposed_for_acquisition",
+    "acquired_pending_scan",
+    "structurally_eligible",
+    "eligible_for_extraction",
+    "candidate_rejected",
+    "experiment_stopped"
+  ],
+  "candidate_rejection_codes": [
+    "unavailable_after_frozen_retries",
+    "wrong_mime_or_pdf_magic",
+    "edition_or_url_drift",
+    "resource_limit_exceeded",
+    "encrypted_or_malformed",
+    "unsafe_active_or_embedded_content",
+    "structural_class_indeterminate",
+    "not_official_or_not_exact_edition",
+    "not_aggregate_only",
+    "personal_case_level_or_prohibited_data",
+    "local_private_processing_not_approved",
+    "prior_exposure_discovered"
+  ],
+  "experiment_stop_codes": [
+    "authorization_or_signed_binding_failure",
+    "frame_order_manifest_or_schema_drift",
+    "unauthorized_access_or_role_overlap",
+    "target_content_recorded_during_preflight",
+    "security_or_sandbox_failure",
+    "resource_budget_exhausted",
+    "out_of_order_or_out_of_frame_acquisition",
+    "frame_exhausted_without_exact_scope"
+  ],
+  "resource_budget": {
+    "maximum_candidates": 44,
+    "maximum_bytes_per_edition": 104857600,
+    "maximum_total_source_bytes": 4613734400,
+    "maximum_pages_per_edition": 2000,
+    "maximum_total_pages": 44000,
+    "minimum_free_working_storage_bytes": 16106127360,
+    "maximum_redirects": 3,
+    "maximum_retries_per_candidate": 2,
+    "maximum_concurrency": 2,
+    "estimated_agent_hours_low": 80,
+    "estimated_agent_hours_high": 176,
+    "owner_hours_low": 2,
+    "owner_hours_high": 4
+  },
+  "authorization": {
+    "metadata_reuse": true,
+    "source_acquisition": false,
+    "source_opening_or_rendering": false,
+    "structural_inspection": false,
+    "target_extraction": false,
+    "outbound_contact": false,
+    "rights_acceptance": false,
+    "publication": false,
+    "release": false,
+    "g2_passage": false
+  }
+}

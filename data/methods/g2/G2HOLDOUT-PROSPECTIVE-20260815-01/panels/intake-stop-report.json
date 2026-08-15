@@ -1,0 +1,232 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2_HOLDOUT_INTAKE_STOP_20260815",
+  "packet_id": "D-G2-BLIND-HOLDOUT-DESIGN-20260815",
+  "packet_sha256": "f3b12478c7c17bfcbd9bc84f7bdb50b050ed522b65ae61679d04f586d06c3340",
+  "role": "role-separated methods and governance adviser on the stopped metadata-only intake",
+  "agent_session_id": "/root/g2_holdout_stop_panel",
+  "tool_or_model": "OpenAI Codex",
+  "tool_or_model_version": "GPT-5",
+  "generated_at": "2026-08-15T04:32:21Z",
+  "evidence_inputs": [
+    {
+      "path": "docs/governance/g2-blind-holdout-design-owner-decision-2026-08-15.md",
+      "sha256": "f3b12478c7c17bfcbd9bc84f7bdb50b050ed522b65ae61679d04f586d06c3340"
+    },
+    {
+      "path": "docs/methods/g2-prospective-blind-holdout-plan-2026-08-15.md",
+      "sha256": "5a8bee0524970cc25831461be8c5bb9164ca328907c9090220d9c104d640d5ad"
+    },
+    {
+      "path": "config/g2_blind_holdout_plan.json",
+      "sha256": "ab78bb8a609cda84931b1a441c91205a10db28793e0f9f2aabf5371df412a83e"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/candidate-universe.json",
+      "sha256": "3b5642e3e24ca73bc174f86f61bfc2a83671970019873f841025f49c81b50529"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/exposure-ledger.json",
+      "sha256": "44cb2c2671000751daa340eceabac9ccfe452132a4c91e3e393e3740aaef0492"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/raw/candidates-global.json",
+      "sha256": "82e2d5d75927dc191beb3e88a137b33512f961efc8b73e84e8c5593754a5cac3"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/raw/candidates-west.json",
+      "sha256": "d1468a5a7b247d2b071a5195ef6e0353875636de37162cd2e516c605d5051f5a"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/selection/candidate-manifest.json",
+      "sha256": "ede06118d1c121b428ca5bb746ae0d70efdceb306455359fa0ae16bc9daee1a3"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/selection/selection-receipt.json",
+      "sha256": "2cff56251b1a7ac333b192e757ccdf4a65ee7d7af425bdf860ed0fe140cf4bf1"
+    },
+    {
+      "path": "schemas/g2_holdout_candidate_universe.schema.json",
+      "sha256": "3a20df72e8406116cda2285169cbdf70ccec78a5c5487216a0381a4e190cd1b0"
+    },
+    {
+      "path": "schemas/g2_holdout_candidate_manifest.schema.json",
+      "sha256": "d79d6369e3d082c069ddc280833955b4b81223246584f6a2a9d8a69ba79e3227"
+    },
+    {
+      "path": "schemas/g2_holdout_selection_receipt.schema.json",
+      "sha256": "7dce23e743a75ce86fbe09c7f2be4b4cd4aa5f5d1c6cff065af659e4e59bc058"
+    },
+    {
+      "path": "src/gfjd/g2_holdout.py",
+      "sha256": "1c7b0c1be37fdb596895601f913eac04729f02de8683f9a9701e2d5515b2b786"
+    },
+    {
+      "path": "tests/test_g2_holdout.py",
+      "sha256": "93c023064393a470d3903986cc31f366f16a45c422d5e2652e82fcdb9762df12"
+    }
+  ],
+  "verdict": "fail",
+  "findings": [
+    {
+      "finding_id": "G2_INTAKE_STOP_VALID",
+      "severity": "critical",
+      "claim": "The metadata intake cannot satisfy the frozen 24-primary plus 6-reserve scope and the fail-closed selector correctly returned an empty, incomplete manifest rather than silently shrinking the design.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/selection/candidate-manifest.json",
+          "sha256": "ede06118d1c121b428ca5bb746ae0d70efdceb306455359fa0ae16bc9daee1a3"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/selection/selection-receipt.json",
+          "sha256": "2cff56251b1a7ac333b192e757ccdf4a65ee7d7af425bdf860ed0fe140cf4bf1"
+        }
+      ],
+      "uncertainty": "The universe contains 58 candidates, but only one is labelled metadata-eligible and even that candidate lacks an exact source URL, leaving zero selector-eligible candidates. Further metadata search might find more candidates, but it cannot be assumed to resolve the structural circularity.",
+      "remediation": "Preserve the empty stopped manifest and its receipt as immutable failure evidence. Do not hand-edit eligibility, substitute uncertain candidates, reduce quotas, reuse denied editions or advance to acquisition without a new digest-bound owner decision."
+    },
+    {
+      "finding_id": "G2_METADATA_STRUCTURE_CIRCULARITY",
+      "severity": "critical",
+      "claim": "The frozen structural strata cannot usually be established from public landing-page metadata alone: text-native, raster or dashboard, and mixed-layout are properties of PDF content or rendering rather than reliable edition metadata.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/candidate-universe.json",
+          "sha256": "3b5642e3e24ca73bc174f86f61bfc2a83671970019873f841025f49c81b50529"
+        },
+        {
+          "path": "schemas/g2_holdout_candidate_universe.schema.json",
+          "sha256": "3a20df72e8406116cda2285169cbdf70ccec78a5c5487216a0381a4e190cd1b0"
+        }
+      ],
+      "uncertainty": "An official landing page may occasionally state that an edition is an infographic, dashboard export or complex report, but absence of such a statement does not establish the opposite structure and title-level labels may be inaccurate.",
+      "remediation": "Either authorize a prospectively frozen, role-isolated eligibility-inspection stage before final selection, or replace content-dependent strata with metadata-verifiable strata under a newly frozen design. Do not infer internal structure from generic annual-report language."
+    },
+    {
+      "finding_id": "G2_EXACT_EDITION_RIGHTS_CIRCULARITY",
+      "severity": "high",
+      "claim": "A public terms page can support a preliminary access or licence screen, but cannot by itself establish exact-edition third-party components, privacy content, prohibited data or redistribution conditions before the edition is inspected.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/candidate-universe.json",
+          "sha256": "3b5642e3e24ca73bc174f86f61bfc2a83671970019873f841025f49c81b50529"
+        },
+        {
+          "path": "src/gfjd/g2_holdout.py",
+          "sha256": "1c7b0c1be37fdb596895601f913eac04729f02de8683f9a9701e2d5515b2b786"
+        }
+      ],
+      "uncertainty": "Some publishers provide edition-specific licensing metadata, but this was not available consistently across the candidate frame. Metadata pre-screening remains useful but is not exact-edition rights acceptance.",
+      "remediation": "Keep public metadata screens explicitly preliminary. Under a two-stage design, have a role-isolated eligibility reviewer inspect only the acquired edition for objective format, aggregate-only, privacy, prohibited-data and third-party-component criteria; retain final rights acceptance and any redistribution decision for the sole owner."
+    },
+    {
+      "finding_id": "G2_SELECTOR_CONTROLS_PRESERVED",
+      "severity": "high",
+      "claim": "The selector and schemas preserve the frozen exact scope, deterministic ranking, one-series rule, jurisdiction cap, denylist checks, empty-on-failure behavior and no-content declarations; weakening these controls would invalidate the prospective design.",
+      "evidence_references": [
+        {
+          "path": "src/gfjd/g2_holdout.py",
+          "sha256": "1c7b0c1be37fdb596895601f913eac04729f02de8683f9a9701e2d5515b2b786"
+        },
+        {
+          "path": "tests/test_g2_holdout.py",
+          "sha256": "93c023064393a470d3903986cc31f366f16a45c422d5e2652e82fcdb9762df12"
+        }
+      ],
+      "uncertainty": "The current automated intake heuristics are conservative but cannot turn site-level terms, titles or format claims into factual exact-edition assurance.",
+      "remediation": "Retain every threshold, no-waiver rule, exposure exclusion, selector invariant and publication boundary. If Option B or C is approved, version the design, schemas and selector prospectively and add negative tests proving that inspection eligibility cannot depend on target values or extraction outcomes."
+    },
+    {
+      "finding_id": "G2_EXPOSURE_BOUNDARY",
+      "severity": "high",
+      "claim": "The exposure ledger conservatively excludes inspected, calibrated, prepared and uncertain prior series, editions and URLs; any future inspected-but-rejected holdout candidate must also become unavailable to later supposedly unseen studies unless a new protocol explicitly defines role-specific unseen status.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/exposure-ledger.json",
+          "sha256": "44cb2c2671000751daa340eceabac9ccfe452132a4c91e3e393e3740aaef0492"
+        },
+        {
+          "path": "config/g2_blind_holdout_plan.json",
+          "sha256": "ab78bb8a609cda84931b1a441c91205a10db28793e0f9f2aabf5371df412a83e"
+        }
+      ],
+      "uncertainty": "Agent-session isolation reduces but cannot prove absence of pretrained or retained model knowledge. Process receipts establish procedural separation, not independent assurance.",
+      "remediation": "For any two-stage inspection, freeze role-specific artifact allowlists, keep eligibility reviewers separate from extractors and comparator, log all inspected candidates, and add every inspected edition to the exposure ledger with its role and disposition."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "A_CAPPED_METADATA_ONLY_DISCOVERY",
+      "description": "Run one further bounded metadata-only discovery sweep over official catalogues and landing pages, then rerun the unchanged selector.",
+      "trade_offs": [
+        "Preserves the current authorization and strongest pre-content blinding.",
+        "May improve exact-edition URL and site-policy coverage at comparatively low governance cost."
+      ],
+      "limitations": [
+        "Cannot reliably prove internal PDF structure or edition-contained third-party, privacy and prohibited-data characteristics.",
+        "The present gap is zero selector-eligible candidates, so repeated open-ended searching risks delay and selective relabelling without solving the design contradiction."
+      ],
+      "contingency": "Cap the sweep prospectively by sources, time and queries. If the exact 24 plus 6 scope remains unavailable, stop again without changing labels or quotas and return to the owner."
+    },
+    {
+      "option_id": "B_TWO_STAGE_OVERSAMPLED_ELIGIBILITY_INSPECTION",
+      "description": "Recommended: prospectively amend the design to freeze an oversampled, deterministically ordered metadata frame first, then authorize a fresh role-isolated eligibility stage to acquire exact bytes and inspect only objective edition identity, binary integrity, structural stratum, aggregate-only scope, privacy, prohibited-data and third-party-component conditions before final deterministic 24 plus 6 selection.",
+      "trade_offs": [
+        "Directly resolves the structure and exact-edition screening circularity while preserving outcome-independent selection and fresh extractors.",
+        "Requires a new signed protocol amendment, additional acquisitions, larger custody burden and rigorous isolation because eligibility reviewers will see source content."
+      ],
+      "limitations": [
+        "Eligibility inspection may incidentally expose empirical values even when transcription and target extraction are forbidden; those reviewers therefore cannot serve as extractors or comparator.",
+        "The oversampled frame size, objective reason codes, allowed pages or inspection actions and deterministic exhaustion rule must be frozen before acquisition; no yield can be guaranteed.",
+        "Rights advice remains preliminary until the sole owner makes an exact-edition decision, and no public redistribution follows from local-private inspection."
+      ],
+      "contingency": "Freeze a finite oversampled frame and deterministic order with no outcome fields, no target locators and no adaptive replenishment. If objective inspection does not yield the exact frozen strata, jurisdiction and reserve scope, terminate that intake and return to the owner; do not shrink, reclassify to fit or inspect additional unranked editions."
+    },
+    {
+      "option_id": "C_REPLACE_METADATA_UNVERIFIABLE_STRATA",
+      "description": "Replace all content-dependent PDF-structure strata with prospectively defined metadata-verifiable strata such as language, jurisdiction region, publisher type and official publication genre, then freeze a new design and selector before further discovery.",
+      "trade_offs": [
+        "Retains fully metadata-only candidate selection and avoids eligibility-stage content exposure.",
+        "Changes the scientific question and reduces deliberate stress-testing of raster, text-native and mixed-layout extraction behavior."
+      ],
+      "limitations": [
+        "Cannot be represented as execution of the design frozen at commit 42b89486b7d71a60ed01eb7e7b1d862e6a736820.",
+        "Publication genre is an imperfect proxy for extraction difficulty and may produce a structurally unbalanced sample."
+      ],
+      "contingency": "Create a new design lineage, preserve this intake as stopped evidence, retain the same concordance, no-waiver, exposure and publication controls, and bound claims to the new metadata-defined frame."
+    },
+    {
+      "option_id": "D_DEFER_OR_TERMINATE",
+      "description": "End the blind-holdout intake without further discovery or source access and keep G2 blocked.",
+      "trade_offs": [
+        "Avoids additional rights, custody, exposure and operating burden.",
+        "Produces no new reproducibility evidence and leaves the failed four-row calibration as the latest empirical exercise."
+      ],
+      "limitations": [
+        "Does not advance any G2 criterion.",
+        "Future restart still requires a prospectively approved design and genuinely unseen editions."
+      ],
+      "contingency": "Archive the stopped intake, manifest, receipt and this panel report as non-passing evidence. Restart only under a new digest-bound owner decision."
+    }
+  ],
+  "recommendation": "Choose Option B. Preserve the current stopped intake unchanged, then prepare a new owner decision packet for a prospectively frozen two-stage protocol. Stage one must freeze an oversampled metadata-only frame and deterministic order. Stage two must use fresh artifact-isolated custody and eligibility roles, forbid target extraction and transcription, record objective reason codes and all incidental exposure, and deterministically select the first exact 24 primary plus 6 reserves satisfying the unchanged quotas. Return the amended protocol, frozen frame, role bundles, access controls, resource estimate and exact inspection authority to the sole owner before any source byte is acquired or opened.",
+  "rationale": "Option A cannot reliably establish the content-defined raster, text-native and mixed-layout strata or exact-edition embedded rights and privacy characteristics, regardless of search volume. Option C is coherent but abandons the approved structural stress test. Option D is safe but makes no progress. Option B resolves the circularity without outcome-conditioned selection: the candidate frame and order are frozen from metadata; a separate eligibility role may classify structure and safety without extracting target facts; fresh extractors remain blind to discovery, ranking and prior outputs. The 100 percent critical threshold, at least 99 percent overall threshold, no fuzzy matching, no critical waiver, complete exposure ledger, stop rules, quarantine and metadata/citation-only public boundary remain unchanged.",
+  "conflicts": [
+    "The approved design requires content-defined strata while the approved metadata phase forbids the inspection normally needed to establish those strata.",
+    "Exact-edition safety and third-party-component screening may require content inspection, but that inspection creates exposure and must be isolated from extraction roles.",
+    "A larger oversampled frame improves the chance of assembling 24 plus 6 but increases acquisition, rights-screening, custody and contamination costs.",
+    "Preserving a fully metadata-only design favors Option C, while preserving the originally intended structural stress test favors Option B."
+  ],
+  "abstentions": [
+    "No source PDF or source content was opened, downloaded, rendered or transcribed for this report.",
+    "No candidate was promoted, relabelled, selected or rights-cleared by this report.",
+    "No outbound contact, acquisition, extraction, publication, release or G2 passage was performed or authorized.",
+    "This report provides agent-panel advice only and is not independent, legal, rights, privacy, security or methods assurance."
+  ],
+  "dissent": [
+    "A strict blinding position prefers Option C because any pre-extraction content inspection creates an additional leakage surface, even with separate roles.",
+    "A resource-conservative position prefers one capped Option A sweep before amending the design, although the panel considers it unlikely to resolve the inherent circularity.",
+    "A risk-minimizing position prefers Option D until external exact-edition licensing metadata or a suitably described official candidate frame becomes available."
+  ],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

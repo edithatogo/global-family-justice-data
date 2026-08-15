@@ -19,10 +19,10 @@ The attestation subject is a SHA-256 digest over the sorted path-and-digest set 
 ## Verification
 
 ```bash
-SOURCE_DATE_EPOCH=1785542400 gfjd release build \
+SOURCE_DATE_EPOCH=1786752000 gfjd release build \
   --version 0.6.0-alpha.2-rehearsal \
   --output build/rehearsal \
-  --source-date-epoch 1785542400
+  --source-date-epoch 1786752000
 
 gfjd release verify \
   build/rehearsal/gfjd-0.6.0-alpha.2-rehearsal

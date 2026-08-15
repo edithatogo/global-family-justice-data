@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_url_resolution_receipt.schema.json",
+  "title": "G2 metadata-only URL-resolution correction receipt",
+  "type": "object",
+  "required": ["schema_version", "receipt_id", "plan_id", "status", "raw_resolution", "identity_review", "access_review", "owner_authorization", "manifest", "counts", "entries", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "receipt_id": {"const": "G2URL-CORRECTION-20260815-01"},
+    "plan_id": {"const": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01"},
+    "status": {"const": "failed_scope_corrected_metadata_only"},
+    "raw_resolution": {"$ref": "#/$defs/artifact"},
+    "identity_review": {"$ref": "#/$defs/artifact"},
+    "access_review": {"$ref": "#/$defs/artifact"},
+    "owner_authorization": {"$ref": "#/$defs/artifact"},
+    "manifest": {"$ref": "#/$defs/artifact"},
+    "counts": {
+      "type": "object",
+      "required": ["entries", "strong_hypotheses", "unresolved", "rejected_urls", "source_requests"],
+      "properties": {
+        "entries": {"const": 33},
+        "strong_hypotheses": {"const": 15},
+        "unresolved": {"const": 18},
+        "rejected_urls": {"const": 203},
+        "source_requests": {"const": 0}
+      },
+      "additionalProperties": false
+    },
+    "entries": {
+      "type": "array", "minItems": 33, "maxItems": 33,
+      "items": {
+        "type": "object",
+        "required": ["frame_rank", "candidate_id", "edition_id", "landing_page_url", "landing_status", "identity_disposition", "corrected_pdf_url", "rejected_pdf_urls", "rights_metadata_links", "privacy_metadata_links", "security_metadata_links", "terms_metadata_links", "source_file_requested", "limitations"],
+        "properties": {
+          "frame_rank": {"type": "integer", "minimum": 1, "maximum": 44},
+          "candidate_id": {"type": "string", "minLength": 1},
+          "edition_id": {"type": "string", "minLength": 1},
+          "landing_page_url": {"type": "string", "format": "uri"},
+          "landing_status": {"enum": ["html_metadata_resolved", "html_metadata_inspected_no_exact_candidate_pdf", "http_error", "redirect_blocked", "request_error"]},
+          "identity_disposition": {"enum": ["strong_metadata_hypothesis", "unresolved"]},
+          "corrected_pdf_url": {"type": ["string", "null"], "format": "uri"},
+          "rejected_pdf_urls": {"type": "array", "uniqueItems": true, "items": {"type": "string", "format": "uri"}},
+          "rights_metadata_links": {"$ref": "#/$defs/urls"},
+          "privacy_metadata_links": {"$ref": "#/$defs/urls"},
+          "security_metadata_links": {"$ref": "#/$defs/urls"},
+          "terms_metadata_links": {"$ref": "#/$defs/urls"},
+          "source_file_requested": {"const": false},
+          "limitations": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "limitations": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+  },
+  "$defs": {
+    "artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false},
+    "urls": {"type": "array", "uniqueItems": true, "items": {"type": "string", "format": "uri"}}
+  },
+  "additionalProperties": false
+}

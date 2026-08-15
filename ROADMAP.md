@@ -8,11 +8,11 @@ A v1.0 release must be:
 
 - methodologically defensible;
 - reproducible from preserved source evidence;
-- operationally maintainable by more than one person;
+- operationally maintainable under the documented sole-owner model, with reproducible agent-supported continuity and an unavailable-owner pause;
 - secure and privacy-preserving by design;
 - explicit about coverage, missingness and comparability;
 - backwards-compatible throughout the 1.x line;
-- independently assured before publication;
+- reviewed by role-separated analyst-agent panels and accepted by the sole accountable owner before publication;
 - accompanied by a funded maintenance and correction process.
 
 The authoritative v1.0 product is a set of immutable, versioned release artefacts. The website, dashboard and API are derived access channels rather than the sole copy of the data.
@@ -37,11 +37,11 @@ The source census is global. The comparative dataset is deliberately narrower: o
 | T2. Jurisdiction universe and source census | Search every in-scope system consistently | 100% of the approved universe has a reviewed coverage status, search log and institutional map |
 | T3. Acquisition, preservation and source monitoring | Obtain and preserve source evidence lawfully | Reproducible connectors or controlled extraction, checksums, archived evidence, licence records and drift monitoring |
 | T4. Data platform and engineering | Transform source-native material into release data | Tested bronze-to-silver-to-gold pipelines, stable IDs, schemas, deterministic builds and portable release formats |
-| T5. Harmonisation, quality and assurance | Control errors and prevent false comparison | Automated validation, dual review, audit sampling, quarantine rules, quality scores and external methods review |
+| T5. Harmonisation, quality and assurance | Control errors and prevent false comparison | Automated validation, role-separated agent review, audit sampling, quarantine rules, quality scores and owner-adjudicated methods review |
 | T6. Product, documentation and accessibility | Make the evidence usable without hiding uncertainty | Downloadable data, profiles, methods, data dictionary, dashboard/API, accessible documentation and clear limitations |
 | T7. Security, privacy, legal and supply-chain assurance | Protect people, credentials, sources and infrastructure | No personal case data in the public product, threat model, licence review, secret/dependency scanning, signed releases and incident process |
-| T8. Operations, reliability and release management | Make releases routine rather than heroic | Release calendar, runbooks, monitoring, backups, restore test, service objectives, support rota and patch process |
-| T9. International community, localisation and sustainability | Build durable jurisdiction knowledge and legitimacy | Regional correspondents, translation QA, contributor pathway, training, succession coverage and a resourced 1.x maintenance plan |
+| T8. Operations, reliability and release management | Make releases routine rather than heroic | Release calendar, runbooks, monitoring, backups, restore test, service objectives, owner response targets, unavailable-owner pause and patch process |
+| T9. International community, localisation and sustainability | Build durable jurisdiction knowledge and legitimacy | Source-language agent review, authoritative-reference triangulation, translation QA, contributor pathway, reproducible continuity and a resourced 1.x maintenance plan |
 
 Detailed track charters are in `docs/programme/track-charters.md`. Machine-readable definitions are authoritative in `config/tracks.toml`; delivery state is held in `programme/work_items.csv`.
 
@@ -53,11 +53,11 @@ The schedule is expressed from programme mobilisation. A well-resourced programm
 |---|---:|---|---|
 | **v0.1 — concept scaffold** | Existing baseline | Initial schemas, seed registers and methods concept | Repository can represent the proposed work |
 | **v0.3 — engineering/conductor baseline** | Current | Establish executable contracts, conductor, acquisition, promotion, validation and deterministic release tooling | Toolchain works and honestly reports missing assurance; no gate is implied to have passed |
-| **v0.4 — controlled foundation / G1** | Months 0–2 | Establish programme authority and accept foundation controls | Charter, ownership, jurisdiction-universe rule, v1 scope, risk register, architecture and release criteria are independently accepted |
-| **v0.5 — reproducible pilot alpha / G2** | Months 2–6 | Prove complete lineage in heterogeneous pilot systems | Twelve pilot profiles; at least four source-format paths; clean rebuild; independent re-extraction; no unresolved critical design defect |
+| **v0.4 — controlled foundation / G1** | Months 0–2 | Establish programme authority and accept foundation controls | Charter, ownership, jurisdiction-universe rule, v1 scope, risk register, architecture and release criteria are accepted by the sole accountable owner after role-separated agent-panel advice |
+| **v0.5 — reproducible pilot alpha / G2** | Months 2–6 | Prove complete lineage in heterogeneous pilot systems | Approved bounded pilot profiles; representative source-format paths; clean rebuild; blinded role-separated agent re-extraction; no unresolved critical design defect |
 | **v0.6 — global census beta / G3** | Months 5–12 | Complete the global discovery and coverage layer | Every in-scope jurisdiction has a reviewed status; negative findings are second-reviewed; source register and atlas are publishable |
 | **v0.7 — feature-complete public beta / G4** | Months 8–16 | Make the end-to-end product feature-complete | Core pipelines, outcomes catalogue, downloads, profiles and public beta access work in a production-like environment |
-| **v0.9 — release candidate / G5** | Months 15–21 | Freeze scope and harden quality, security and operations | Feature freeze; migration rehearsal; external assurance; restore test; no open P0/P1 defects; v1 evidence pack complete |
+| **v0.9 — release candidate / G5** | Months 15–21 | Freeze scope and harden quality, security and operations | Feature freeze; migration rehearsal; role-separated agent-panel assurance advice and owner adjudication; restore test; no open P0/P1 defects; v1 evidence pack complete |
 | **v1.0 — stable release / G6** | Months 21–24 | Publish and transition into routine service | Every mandatory criterion in `V1_0_RELEASE_CRITERIA.md` passes and release authority signs the go-live record |
 | **v1.1+ — supported maintenance** | After v1.0 | Scheduled updates and non-breaking improvements | Published release calendar, patch support and annual methods review operate to service objectives |
 
@@ -84,7 +84,7 @@ Required evidence:
 - approved jurisdiction-universe rule and subnational treatment;
 - architecture, security baseline, data-governance plan and risk register;
 - stable identifiers and draft v1 data contracts;
-- named owners and deputies for every critical track.
+- the sole accountable owner for every critical track, the explicit no-deputy exception and the unavailable-owner pause.
 
 ### G2 — reproducible pilot alpha
 
@@ -95,7 +95,7 @@ Required evidence:
 - API, spreadsheet/HTML and PDF/dashboard acquisition patterns tested;
 - bronze-to-gold lineage demonstrated for representative indicators;
 - dual review completed for all pilot gold series;
-- independent re-extraction sample meets the quality threshold;
+- blinded role-separated agent re-extraction sample meets the quality threshold and is owner-adjudicated;
 - design changes from the pilot are resolved or explicitly deferred.
 
 ### G3 — global census beta
@@ -128,7 +128,7 @@ Required evidence:
 - full licence, privacy and disclosure review;
 - threat model and dependency/supply-chain review updated;
 - backup restoration and continuity exercise completed;
-- external methodological review and response published;
+- role-separated agent-panel methodological review, owner adjudication and limitations response completed;
 - all P0 and P1 issues closed; P2 issues have accepted dispositions;
 - user documentation, limitations, citations and correction channels are complete.
 
@@ -138,8 +138,8 @@ Required evidence:
 
 - all mandatory v1 criteria pass;
 - release candidate has completed at least 30 calendar days of production-like stability soak with no P0/P1 regression or material data-contract/pipeline instability;
-- independent release assurance report recommends publication;
-- named data, methods, technical, security and executive owners sign the go-live record;
+- role-separated agent-panel release assurance advice is complete and the owner has adjudicated every finding;
+- the sole accountable owner signs the digest-bound go-live record;
 - 12-month operating plan, release calendar and maintenance funding are approved;
 - immutable artefacts, signatures, checksums and archival deposit are created.
 
@@ -154,7 +154,7 @@ The critical path is:
 5. production acquisition and provenance controls;
 6. harmonisation and gold promotion;
 7. public beta and comparative-cohort freeze;
-8. independent assurance, operational rehearsal and release candidate;
+8. role-separated agent-panel assurance advice, owner adjudication, operational rehearsal and release candidate;
 9. v1.0 publication and service handover.
 
 Dashboard polish, optional analytics and secondary indicator families must not displace this path.
@@ -185,7 +185,7 @@ Dashboard polish, optional analytics and secondary indicator families must not d
 
 - additional matter types and historical backfill;
 - richer demographic stratification after disclosure review;
-- automated translation assistance with human verification;
+- automated translation assistance with source-language agent review and authoritative-reference triangulation;
 - more advanced visual analytics;
 - selected linked-data study metadata.
 
@@ -208,7 +208,7 @@ After v1.0:
 - removals or semantic changes require deprecation and normally wait for v2.0;
 - release artefacts remain available permanently;
 - at least the current and immediately previous minor release receive correction support;
-- the methods group reviews ontologies annually and publishes every decision;
+- a role-separated methods-agent panel reviews ontologies annually and the owner records every decision;
 - the project issues at least two scheduled data releases per year, with urgent patch releases when material errors require them.
 
 ## 9. No-go conditions for v1.0
@@ -224,17 +224,17 @@ Release is blocked if any of the following remains true:
 - the comparative product presents incompatible clocks, denominators or matter types as equivalent;
 - there is no named operational owner or funded maintenance plan;
 - the backup/restore path has not been tested;
-- external assurance identifies a material issue that has neither been fixed nor transparently accepted by release authority.
+- agent-panel assurance advice identifies a material issue that has neither been fixed nor transparently adjudicated by the owner.
 
 ## 10. Programme health indicators
 
-The steering group should review a compact scorecard each month:
+The owner should review a compact scorecard each month, informed by role-separated agent-panel analysis:
 
 - jurisdiction coverage and second-review completion;
 - source acquisition and preservation success;
 - gold-series throughput and review backlog;
 - automated validation pass rate;
-- independent audit concordance;
+- role-separated blinded re-extraction concordance;
 - connector/source-drift incidents and time to resolution;
 - unresolved P0–P2 defects;
 - translation/local-review coverage;

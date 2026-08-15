@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0",
+  "plan_id": "G2HOLDOUT-METADATA-EXPANSION-20260815-01",
+  "status": "prepared_not_authorized",
+  "predecessor_plan_id": "G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01",
+  "baseline_frame": {
+    "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+    "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+  },
+  "url_resolution_manifest": {
+    "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/URL_RESOLUTION_MANIFEST.sha256",
+    "sha256": "3aefc7a6803c1bf547046ca4c0dae74307a7d21f974e385fee34193bb0df18f9"
+  },
+  "query_registry": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260815-01/design/jurisdiction-query-registry.json",
+    "sha256": "005123dcf521f2c12b7f87f2ad6c3b3792cc262579b9a51bd7b2b1d1b3e5cf8c"
+  },
+  "frame_contract": {
+    "baseline_records": 44,
+    "new_records": 52,
+    "final_records": 96,
+    "preserve_baseline_verbatim": true,
+    "silent_shrink": false,
+    "adaptive_replenishment": false,
+    "source_content_access": false
+  },
+  "roles": [
+    {
+      "role_id": "metadata_expansion_registrar",
+      "fresh_session_required": true,
+      "network_mode": "search_index_only",
+      "may_read_source_files": false,
+      "may_be_extractor_or_comparator": false,
+      "outputs": ["search_receipt", "candidate_hypothesis_universe", "search_access_receipt"]
+    },
+    {
+      "role_id": "metadata_expansion_exposure_auditor",
+      "fresh_session_required": true,
+      "network_mode": "disabled",
+      "may_read_source_files": false,
+      "may_be_extractor_or_comparator": false,
+      "outputs": ["cumulative_exposure_ledger", "non_overlap_receipt"]
+    },
+    {
+      "role_id": "metadata_expansion_selector",
+      "fresh_session_required": true,
+      "network_mode": "disabled",
+      "may_read_source_files": false,
+      "may_be_extractor_or_comparator": false,
+      "outputs": ["expanded_frame", "selection_receipt"]
+    }
+  ],
+  "search_streams": [
+    {
+      "stream_id": "english_text_native",
+      "required_new_records": 13,
+      "languages": ["en"],
+      "jurisdiction_order": ["AUS", "GBR-EAW", "NZL", "CAN-BC", "CAN-ON", "USA-CA", "USA-MN", "USA-WA", "USA-NY", "IRL", "SGP", "ZAF", "KEN"]
+    },
+    {
+      "stream_id": "non_english_text_native",
+      "required_new_records": 13,
+      "languages": ["fr", "es", "pt", "nl", "sv", "da", "no", "ja", "ko", "pl"],
+      "jurisdiction_order": ["FRA", "ESP", "BRA", "MEX", "CHL", "PER", "NLD", "SWE", "DNK", "NOR", "JPN", "KOR", "POL"]
+    },
+    {
+      "stream_id": "embedded_raster_or_dashboard_pdf",
+      "required_new_records": 13,
+      "languages": ["pt", "es", "fr", "nl", "sv", "en", "hi", "fil", "ja"],
+      "jurisdiction_order": ["BRA", "MEX", "CHL", "PER", "ESP", "FRA", "NLD", "SWE", "ZAF", "KEN", "IND", "PHL", "JPN"]
+    },
+    {
+      "stream_id": "structurally_complex_mixed_layout_pdf",
+      "required_new_records": 13,
+      "languages": ["en", "fr", "es", "pt", "it", "ja", "ko"],
+      "jurisdiction_order": ["CAN", "GBR", "USA", "AUS", "NZL", "FRA", "ESP", "BRA", "ITA", "JPN", "KOR", "IND", "SGP"]
+    }
+  ],
+  "query_templates": [
+    {
+      "query_id": "Q1",
+      "template": "{official_family_court_name} annual report statistics {year}",
+      "per_jurisdiction_limit": 1
+    },
+    {
+      "query_id": "Q2",
+      "template": "{local_family_terms} court statistics annual report {year}",
+      "per_jurisdiction_limit": 1
+    },
+    {
+      "query_id": "Q3",
+      "template": "site:{official_domain} family court statistics report {year}",
+      "per_jurisdiction_limit": 1
+    },
+    {
+      "query_id": "Q4",
+      "template": "site:{official_domain} family justice infographic dashboard report {year}",
+      "per_jurisdiction_limit": 1
+    }
+  ],
+  "year_order": [2025, 2024, 2023, 2022],
+  "query_materialization": {
+    "loop_order": ["search_streams", "jurisdiction_order", "query_templates"],
+    "year_formula": "year_order[(stream_index * 13 + jurisdiction_index) modulo 4]",
+    "variable_source": "query_registry.entries[jurisdiction_id]",
+    "whitespace_rule": "collapse Unicode whitespace and trim",
+    "expected_query_count": 208,
+    "runtime_placeholder_allowed": false
+  },
+  "search_index_stage": {
+    "authorized_tool_class": "public_search_index_query_only",
+    "direct_url_open_allowed": false,
+    "result_url_request_allowed": false,
+    "landing_page_request_allowed": false,
+    "file_request_allowed": false,
+    "head_request_allowed": false,
+    "redirect_following_allowed": false,
+    "persisted_result_fields": ["query_id", "query_text", "language", "searched_on", "result_rank", "result_title", "result_url", "result_domain", "access_issue"],
+    "persist_verbatim_snippet": false,
+    "receipt_requires_tool_name_and_version": true,
+    "receipt_requires_query_and_result_hashes": true,
+    "receipt_requires_violation_log": true,
+    "enforcement_claim": "procedural_agent_tool_boundary_not_os_proxy_attestation"
+  },
+  "official_host_policy": {
+    "public_https_only": true,
+    "accept_government_or_court_hosts_only": true,
+    "search_result_host_requires_official_html_confirmation": true,
+    "redirect_to_file_endpoint": "block",
+    "unknown_host": "reject"
+  },
+  "recording_policy": {
+    "record_query_language_date_result_url_title_access_status": true,
+    "persist_search_snippets": false,
+    "persist_source_excerpts": false,
+    "persist_target_facts": false,
+    "pdf_urls_are_unrequested_hypotheses": true,
+    "rights_privacy_security_are_preliminary": true
+  },
+  "eligibility_rules": {
+    "must_be_new_edition_id": true,
+    "must_be_new_source_series_id": true,
+    "must_not_overlap_cumulative_exposure_denylist": true,
+    "must_have_official_html_metadata": true,
+    "must_have_stable_title_and_period": true,
+    "metadata_plausibility_rule": "query_registry.metadata_plausibility.rule",
+    "must_have_pdf_locator_hypothesis": true,
+    "source_format_must_not_be_requested": true,
+    "uncertain_identity": "reject"
+  },
+  "selection_policy": {
+    "candidate_order": ["stream_order", "jurisdiction_order", "year_order", "query_order", "canonical_url"],
+    "select_first_eligible_per_stream": 13,
+    "cross_stream_duplicate_policy": "lowest_stream_order_wins",
+    "edition_and_series_uniqueness": true,
+    "exact_new_record_count": 52
+  },
+  "budgets": {
+    "maximum_search_queries": 208,
+    "maximum_official_html_gets": 0,
+    "maximum_total_gets": 208,
+    "maximum_redirects_followed": 0,
+    "maximum_response_bytes_per_html_page": 2097152,
+    "maximum_elapsed_minutes": 360,
+    "maximum_retries": 0
+  },
+  "stopping_rules": [
+    "any_pdf_or_file_request_attempted",
+    "any_head_request_attempted",
+    "any_source_content_opened_rendered_or_downloaded",
+    "any_unapproved_host_or_redirect_requested",
+    "any_budget_exceeded",
+    "any_role_or_access_receipt_violation",
+    "any_result_or_landing_url_requested",
+    "any baseline record changed",
+    "any duplicate edition_or_series_in_selected_additions"
+  ],
+  "next_owner_decision_requires": [
+    "search_index_receipt",
+    "candidate_hypothesis_universe",
+    "cumulative_exposure_ledger",
+    "non_overlap_receipt",
+    "proposed_official_html_allowlist",
+    "role_separated_agent_panel_reports",
+    "detached_manifest",
+    "signed_freeze_commit"
+  ],
+  "later_unauthorized_stages": {
+    "official_html_get_budget": 104,
+    "required_new_compliant_records": 52,
+    "expanded_frame_records": 96,
+    "requires_separate_owner_decision": true
+  },
+  "authorization_flags": {
+    "metadata_expansion_prepared": true,
+    "metadata_expansion_execution_authorized": false,
+    "source_file_request_authorized": false,
+    "structural_inspection_authorized": false,
+    "extraction_authorized": false,
+    "outbound_contact_authorized": false,
+    "publication_authorized": false,
+    "release_authorized": false,
+    "g2_passage_authorized": false
+  }
+}

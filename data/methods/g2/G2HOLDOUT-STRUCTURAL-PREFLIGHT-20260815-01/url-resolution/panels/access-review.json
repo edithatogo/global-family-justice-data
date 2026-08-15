@@ -1,0 +1,229 @@
+{
+  "abstentions": [
+    "This review made no network request and did not open, request, render, download, transcribe or inspect any landing page, redirect target, PDF, file endpoint or source content.",
+    "This review does not determine source rights, legal status, privacy, security, exact-edition identity, empirical validity or structural eligibility.",
+    "This review does not authorize further URL access, retries, file acquisition, inspection, extraction, contact, publication, release or G2 passage."
+  ],
+  "agent_session_id": "g2_url_resolution_access_panel",
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority",
+  "conflicts": [
+    "The drafts report 15 exact resolutions, but at least seven conflict with their frozen candidate identity and no selected-link label is preserved for independent verification.",
+    "The access draft binds the generic artifact-access schema while using a different HTTP-event model and is not schema-valid.",
+    "The count actual_get_requests is 33 although at least one InvalidURL failed before an HTTP request could be emitted.",
+    "The owner-authorized result requires a URL-resolution receipt, cumulative exposure ledger and refreshed exact-PDF proposal; only two local draft files are present."
+  ],
+  "dissent": [
+    "A tightly bounded retry could be argued to remain within the earlier landing-page authorization, but a fresh owner checkpoint is safer because the recorded attempt has already demonstrated scope insufficiency and the owner explicitly required a stop in that condition.",
+    "Some of the eight plausible mappings may in fact be exact, but the current persisted metadata is insufficient for this panel to certify them independently."
+  ],
+  "evidence_inputs": [
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+      "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+      "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+    },
+    {
+      "path": "docs/governance/g2-structural-preflight-url-resolution-owner-decision-2026-08-15.md",
+      "sha256": "7ce64586b7c38f0c9c40632ebf75b306732f864398ae1eaf424621adad820cd8"
+    },
+    {
+      "path": "config/g2_structural_role_bundles.json",
+      "sha256": "a22eac75f219410257a8e41a62e57558544b29202d52dcc4301566db1b15e2b3"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-url-resolution-manifest.json",
+      "sha256": "d8f703f725befafd33d116bba7809fcceac23f8a84c846f11277d3edadbdb2a9"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-acquisition-manifest.json",
+      "sha256": "09f5ca6edbbfec9604e79a1269da0a1604f94ea4349cb0e8d5afaf336e2eba05"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+      "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+    },
+    {
+      "path": "schemas/g2_artifact_access_receipt.schema.json",
+      "sha256": "3f9b0a555baf7647f0104a62286c6ec4b1de35c7b13d1e66aa1b56b553f860d0"
+    }
+  ],
+  "findings": [
+    {
+      "claim": "The drafts bind the exact owner decision, role bundle and frozen URL-resolution manifest by recomputed SHA-256; the recorded decision commit cf9bce52b855c5a06e623af689edd4f79c5edbe0 has a locally verified good signature. All 33 manifest identities and URLs occur once and in the same order in both drafts, while the network allowlist is exactly the manifest's 31 unique URLs.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+          "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+        },
+        {
+          "path": "docs/governance/g2-structural-preflight-url-resolution-owner-decision-2026-08-15.md",
+          "sha256": "7ce64586b7c38f0c9c40632ebf75b306732f864398ae1eaf424621adad820cd8"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-url-resolution-manifest.json",
+          "sha256": "d8f703f725befafd33d116bba7809fcceac23f8a84c846f11277d3edadbdb2a9"
+        }
+      ],
+      "finding_id": "G2URL-A01",
+      "remediation": "Preserve these exact bindings in the final receipt and retain the drafts as immutable local evidence of this attempt.",
+      "severity": "info",
+      "uncertainty": "The report can recompute persisted bindings and verify the Git signature locally, but cannot independently prove the resolver's network isolation or fresh-session attestation."
+    },
+    {
+      "claim": "The access-events draft is not valid under the bound g2_artifact_access_receipt schema: validation produces 136 errors, including schema_version 1.0-draft instead of 1.0, missing tool_bundle and outputs, an HTTP-event shape incompatible with the schema's artifact access-event definition, and additional undeclared fields. It therefore cannot be promoted as the required digest-bound access receipt.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+          "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+        },
+        {
+          "path": "schemas/g2_artifact_access_receipt.schema.json",
+          "sha256": "3f9b0a555baf7647f0104a62286c6ec4b1de35c7b13d1e66aa1b56b553f860d0"
+        }
+      ],
+      "finding_id": "G2URL-A02",
+      "remediation": "Create a schema-valid artifact access receipt that binds a separately schema-validated HTTP event log, resolution receipt, exposure ledger, resolver implementation or immutable tool bundle, authority and exact input manifest. Revalidate semantic bindings rather than changing the evidence to fit self-reported claims.",
+      "severity": "high",
+      "uncertainty": "The generic access-receipt schema models artifact accesses rather than detailed HTTP events; a separate schema-backed HTTP telemetry artifact may be needed as an output of a conforming access receipt."
+    },
+    {
+      "claim": "At least seven of the 15 values labelled resolved_exact_pdf_url visibly contradict the frozen candidate identity or edition metadata: Overijssel annual report maps to a complaints-handling report; NICTS 2025 maps to judicial-statistics-2024; the all-jurisdictions Spanish indicator maps to TSJ Andalucia; Livet i domstolane maps to the general annual report; Boletin 118 maps to Boletin 24; Washington Superior Courts maps to clj, courts of limited jurisdiction; and Queensland District Court 2024-2025 maps to an MHC 2023-2024 file. The remaining eight are plausible from their URLs but the draft preserves no selected-link label or other exact-match evidence sufficient for independent confirmation.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/oversampled-metadata-frame.json",
+          "sha256": "aa679cac7c4c5ae929aea549c6fc25d9985d7052cb5258583d68d69f5faca9e0"
+        }
+      ],
+      "finding_id": "G2URL-A03",
+      "remediation": "Downgrade every resolved URL to provisional metadata, reject the seven visibly contradictory assignments, and require deterministic edition-title and series matching with persisted link-label provenance before any URL is called exact. Do not request any linked file to resolve this defect.",
+      "severity": "high",
+      "uncertainty": "No source file or landing page was opened during this review. The contradiction assessment uses only persisted candidate titles, series identifiers and discovered link URLs, so it cannot establish the contents of any linked file."
+    },
+    {
+      "claim": "The frozen 44-edition frame is insufficient on the current persisted evidence. The draft contains 15 populated mappings but only 14 unique proposed PDF URLs; combined with the 11 pre-existing direct-PDF proposals, the maximum is 25 unique URLs before semantic rejection or structural attrition, below the frozen 24-primary plus six-reserve requirement of 30.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/design/proposed-acquisition-manifest.json",
+          "sha256": "09f5ca6edbbfec9604e79a1269da0a1604f94ea4349cb0e8d5afaf336e2eba05"
+        }
+      ],
+      "finding_id": "G2URL-A04",
+      "remediation": "Stop this access phase, bind the failed-scope evidence, and present the prospectively frozen 96-candidate metadata-only expansion for a separate owner decision.",
+      "severity": "high",
+      "uncertainty": "Additional bounded landing-page access might identify more correct URLs, but that is new access and the owner decision requires a stop and presentation of the 96-candidate contingency when the current frame remains insufficient."
+    },
+    {
+      "claim": "The event-level invariants are internally consistent except for the label actual_get_requests. There are 33 ordered GET-attempt records, all within the global interval; every event ends no earlier than it starts; the two one-millisecond inter-event gaps and one-millisecond final receipt gap are non-overlapping; all 22 inspected bodies report text/html; the maximum body is 1,256,507 bytes below the 2,097,152-byte limit; one 302 redirect was recorded with zero bytes and not followed; and six HTTP plus four request errors account for the reported ten errors. However, the Peru La Libertad InvalidURL failed before an HTTP request could be emitted, so 33 cannot truthfully mean 33 confirmed network GET requests.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+          "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+        }
+      ],
+      "finding_id": "G2URL-A05",
+      "remediation": "Rename the count to attempted_get_operations, report confirmed responses and pre-connect failures separately, preserve bounded request telemetry, and validate receipt start/end ordering semantically.",
+      "severity": "medium",
+      "uncertainty": "The draft does not preserve socket, DNS, TLS, request-header, response-header or connection telemetry, so it cannot distinguish all pre-connect from post-connect request errors or independently establish the number of requests emitted on the wire."
+    },
+    {
+      "claim": "No forbidden request, denied access attempt, persisted HTML excerpt, source byte, target-content extraction, contact or publication is recorded. Nevertheless these are role attestations rather than independently enforced evidence: the resolver implementation is not preserved as a path-plus-digest tool bundle, and the records lack DNS/IP/TLS and request-destination telemetry. One proposed Belgian PDF uses insecure HTTP and must remain unrequestable under the current boundary.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-access-events-draft.json",
+          "sha256": "7758dea7b3b58a03e4c3e3fb7f3b10ce9ba62a894144abb117c616e6a3124dae"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "config/g2_structural_role_bundles.json",
+          "sha256": "a22eac75f219410257a8e41a62e57558544b29202d52dcc4301566db1b15e2b3"
+        }
+      ],
+      "finding_id": "G2URL-A06",
+      "remediation": "Treat no-forbidden claims as provisional, preserve the exact resolver program or immutable tool bundle, emit independently verifiable enforcement telemetry, prohibit cleartext HTTP file acquisition, and retain a hard stop before every PDF or file endpoint.",
+      "severity": "medium",
+      "uncertainty": "This offline review cannot prove the absence of unrecorded network activity. A digest of a host Python executable and a configuration hash do not establish what code ran or that network controls were enforced."
+    },
+    {
+      "claim": "The drafts record only discovered metadata links, not terms or rights decisions. Terms links are present for 11 of 33 records, rights links for six, privacy links for 17 and security links for two; their contents were not accessed. No exact-edition reuse, redistribution, privacy, security or rights conclusion can be made from these locators.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/raw-resolution-draft.json",
+          "sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b"
+        },
+        {
+          "path": "docs/governance/g2-structural-preflight-url-resolution-owner-decision-2026-08-15.md",
+          "sha256": "7ce64586b7c38f0c9c40632ebf75b306732f864398ae1eaf424621adad820cd8"
+        }
+      ],
+      "finding_id": "G2URL-A07",
+      "remediation": "Carry every rights, privacy and security state forward as unknown or metadata-only. Any later terms-page access, exact-edition rights decision or file request requires its own bounded authority and receipt.",
+      "severity": "medium",
+      "uncertainty": "Link labels and destinations can be stale, generic or inapplicable to the exact edition, and this review provides no legal, privacy, rights or security assurance."
+    }
+  ],
+  "generated_at": "2026-08-15T07:01:53Z",
+  "options": [
+    {
+      "contingency": "If a schema-valid final receipt cannot be produced without rewriting historical facts, preserve both drafts unchanged, issue a separate correction receipt, and bind all three as failed-attempt evidence.",
+      "description": "Recommended: close this 44-edition URL-resolution attempt as a valid fail-closed, insufficient-scope result; normalize and bind the existing local evidence without further network access; then present the prospectively frozen 96-candidate metadata-only expansion for owner approval.",
+      "limitations": [
+        "Does not repair or promote any proposed PDF URL",
+        "Does not establish rights, structural eligibility, G2 passage, publication or release"
+      ],
+      "option_id": "A",
+      "trade_offs": [
+        "Obeys the owner's explicit insufficiency contingency and prevents source-file access",
+        "Requires another metadata design and decision cycle before progress"
+      ]
+    },
+    {
+      "contingency": "Use an exact per-URL retry budget, corrected URI canonicalization, no redirects and a hard stop; if fewer than 30 unique semantically matched proposals remain, proceed to Option A.",
+      "description": "Seek a new owner decision for narrowly bounded retries and metadata-only remapping of the ten failed requests and seven contradictory assignments before deciding whether to expand.",
+      "limitations": [
+        "The current drafts remain non-schema-valid and cannot support a retry by themselves",
+        "A retry cannot request any PDF or infer file contents"
+      ],
+      "option_id": "B",
+      "trade_offs": [
+        "May recover additional exact candidates from the 44-edition frame",
+        "Adds network exposure and still may not yield 30 valid unique editions"
+      ]
+    },
+    {
+      "contingency": "Resume only through a new prospectively frozen design and digest-bound owner authorization.",
+      "description": "Terminate blind-holdout preparation and retain the design and URL-resolution drafts solely as negative evidence.",
+      "limitations": [
+        "No successor evidence intake occurs"
+      ],
+      "option_id": "C",
+      "trade_offs": [
+        "Avoids all additional exposure and engineering work",
+        "Leaves the real-pilot requirement and G2 blocked indefinitely"
+      ]
+    }
+  ],
+  "packet_id": "G2HOLDOUT-URL-RESOLUTION-DRAFT-20260815-01",
+  "packet_sha256": "6af593834e955888ed23d30d3595b0db07eb5cd80901fd0afdef2c97c800de5b",
+  "rationale": "The authorized boundary appears to have been respected in the persisted trace, but the required evidentiary products are incomplete and the mapping is not reliable enough for promotion. More importantly, the current evidence cannot supply the frozen 30 unique editions even before predictable structural attrition. The owner's decision already supplies the correct fail-closed contingency: stop, preserve the attempt and expand prospectively rather than chasing a pass inside the exposed frame.",
+  "recommendation": "Choose Option A. Freeze the two drafts as an immutable failed-scope observation, issue a schema-valid correction/access receipt and cumulative exposure ledger that preserve rather than overwrite the original facts, label all discovered file URLs provisional, reject the seven visible mismatches, and do not perform any further network access. Then prepare the bounded 96-candidate metadata-only expansion and return it to the owner before any access.",
+  "report_id": "PANEL-G2-URL-ACCESS-REVIEW-20260815-01",
+  "role": "role-separated URL-resolution access, provenance, rights, privacy and security advisory agent",
+  "schema_version": "1.0",
+  "tool_or_model": "Codex analyst agent",
+  "tool_or_model_version": "GPT-5",
+  "verdict": "fail"
+}

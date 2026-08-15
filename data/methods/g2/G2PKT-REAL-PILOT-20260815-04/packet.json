@@ -1,0 +1,129 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-REAL-PILOT-20260815-04",
+  "created_at": "2026-08-15T01:49:29Z",
+  "source_commit": "2854712270f9522db4bc06628a92f0f74204d528",
+  "contract_version": "0.3",
+  "ontology_version": "0.3",
+  "cohort": ["AUS", "USA-MN", "BRA", "ZAF"],
+  "source_editions": [
+    {
+      "candidate_id": "AUS",
+      "source_id": "AUS-FCFCOA-AR",
+      "source_edition_id": "ED-AUS-FCFCOA-ANNUAL-2024-25",
+      "acquisition_manifest": {
+        "path": "data/raw/manifests/ACQ-AUS-FCFCOA-AR-20260801T051117Z-E251DA7A.json",
+        "sha256": "4df2b158bd6975f8222c943e7d186774a8b122a85983ae57bec516d2a2452fb6"
+      },
+      "content_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "storage_class": "local_private",
+      "rights_status": "unknown"
+    },
+    {
+      "candidate_id": "USA-MN",
+      "source_id": "USA-MN-MJB",
+      "source_edition_id": "ED-USA-MN-MJB-PERF-2024",
+      "acquisition_manifest": {
+        "path": "data/raw/manifests/ACQ-USA-MN-MJB-20260814T144054Z-32931494.json",
+        "sha256": "0a4e45a77393dc7f316a2242a0d5788c8a6c0a8c966c0395b64fff471808eb69"
+      },
+      "content_sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b",
+      "storage_class": "local_private",
+      "rights_status": "review_required"
+    },
+    {
+      "candidate_id": "BRA",
+      "source_id": "BRA-CNJ-DATAJUD",
+      "source_edition_id": "ED-BRA-CNJ-JUSTICA-2026",
+      "acquisition_manifest": {
+        "path": "data/raw/manifests/ACQ-BRA-CNJ-DATAJUD-20260801T052351Z-3415D516.json",
+        "sha256": "aaa22969f265f0a9021c8355d3f2357994753aeb6465c69d14a18e9bd9509a0c"
+      },
+      "content_sha256": "3415d516d756f48d7337e83e6faa8477644fe98b5cedb43cb04999f59fd5a71f",
+      "storage_class": "local_private",
+      "rights_status": "unknown"
+    },
+    {
+      "candidate_id": "ZAF",
+      "source_id": "ZAF-JUD-ANNUAL",
+      "source_edition_id": "ED-ZAF-JUDICIARY-ANNUAL-2024-25",
+      "acquisition_manifest": {
+        "path": "data/raw/manifests/ACQ-ZAF-JUD-ANNUAL-20260801T051403Z-24991662.json",
+        "sha256": "463fe5c79e03492d258dda47c4190af286ace08df31a8c2e15247dc3d567e8e8"
+      },
+      "content_sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce",
+      "storage_class": "local_private",
+      "rights_status": "unknown"
+    }
+  ],
+  "methods_contracts": [
+    {
+      "path": "config/g2_atomic_semantic_contract.json",
+      "sha256": "0d31cb445e51753086d8f5ccd931669ab8a69e84190093c0f83ae4ac85f16f5d"
+    },
+    {
+      "path": "config/g2_atomic_boundary_correction_packet03.json",
+      "sha256": "6c06a32177db29acdab5c8803c227e2e78b2caaadb23fe379730242c005bc0a6"
+    },
+    {
+      "path": "config/g2_atomic_methods_amendment_packet04.json",
+      "sha256": "5e1d61da223eab688458d6fd8c9f2f16bdb62fa83eaa4d5a6973b5579dd7d7f8"
+    },
+    {
+      "path": "docs/governance/g2-packet04-methods-owner-decision-2026-08-15.md",
+      "sha256": "6cf8eb21f7de6da599c79e1bf6652b7f673689958708bd2f9231cdf10495b1e4"
+    },
+    {
+      "path": "docs/methods/v0.3-methods-contract-manifest.json",
+      "sha256": "69ee79e6404366379311517a78d30f563e799a199f158c55a3f46ce1d1530de5"
+    },
+    {
+      "path": "docs/methods/comparability-and-quality.md",
+      "sha256": "755e78a4863453e9c52c6ea459ec0490ebab6c7da6bba2451f324b6bc6e883be"
+    }
+  ],
+  "schema_bindings": [
+    {
+      "path": "schemas/g2_atomic_extraction_row.schema.json",
+      "sha256": "48c30583b1af054d61ea06ea633e53ea1b9f40cd986af16b812bf58bcb21b31b"
+    },
+    {
+      "path": "schemas/g2_atomic_boundary_correction.schema.json",
+      "sha256": "18ae8a841abbdb546e6010b082ddc59421ce719489605ee6e3d668cda362461f"
+    },
+    {
+      "path": "schemas/g2_atomic_semantic_contract.schema.json",
+      "sha256": "76b8225bd63b1cd5335bfd8f7e34235ef4d1488ee7824e0fc3301031942d4ec9"
+    },
+    {
+      "path": "schemas/g2_atomic_methods_amendment.schema.json",
+      "sha256": "bda7799f3eeee08608e639892a53fa622410944549482ab650ad77cdcbe728a1"
+    },
+    {
+      "path": "schemas/g2_extraction_run.schema.json",
+      "sha256": "c8e23b025e85b7eb69b9d6869fdfeebd49086cc7fdbfc8c21b0c15a537ee4947"
+    },
+    {
+      "path": "schemas/g2_concordance.schema.json",
+      "sha256": "8443afe02f35fdf7d5e362a0d802f666b64c459b4f68d437e68b396dfff42029"
+    }
+  ],
+  "extraction_instructions": {
+    "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-04/extraction-instructions.md",
+    "sha256": "8e08d33ac0ea18088ffe4ce72cdbfcdc2166619dec2086246b32cc718eb0156e"
+  },
+  "concordance_policy": {
+    "path": "config/g2_concordance_policy.json",
+    "sha256": "94e58bb2df83ca87df33eff0b5ed836d3ae61b64d941c6de39d782ac3758c6bc"
+  },
+  "excluded_inputs": [
+    "all packet-01 packet-02 and packet-03 outputs receipts differences comparisons and advisory reports",
+    "the other G2PKT-REAL-PILOT-20260815-04 extractor output and receipt",
+    "all packet-04 comparator outputs and panel reports until both outputs are sealed",
+    "all unbound calendar inferences harmonised values and uncertainty judgments"
+  ],
+  "packet_manifest": {
+    "path": "data/methods/g2/G2PKT-REAL-PILOT-20260815-04/input-manifest.sha256",
+    "sha256": "d515988f1e3717b7e04eebf017e0644dc3362a8c573640a1abea75d9d08a4b51"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "registry_id": "G2HOLDOUT-METADATA-EXPANSION-QUERY-REGISTRY-20260815-01",
+  "entries": {
+    "AUS": {"official_family_court_name": "Federal Circuit and Family Court of Australia", "local_family_terms": "family law", "official_domain": "fcfcoa.gov.au"},
+    "BRA": {"official_family_court_name": "Conselho Nacional de Justiça", "local_family_terms": "justiça de família violência doméstica", "official_domain": "cnj.jus.br"},
+    "CAN": {"official_family_court_name": "Department of Justice Canada family justice", "local_family_terms": "family justice", "official_domain": "justice.gc.ca"},
+    "CAN-BC": {"official_family_court_name": "Provincial Court of British Columbia Family", "local_family_terms": "family court", "official_domain": "provincialcourt.bc.ca"},
+    "CAN-ON": {"official_family_court_name": "Ontario Court of Justice Family Court", "local_family_terms": "family court", "official_domain": "ontariocourts.ca"},
+    "CHL": {"official_family_court_name": "Poder Judicial de Chile tribunales de familia", "local_family_terms": "tribunales de familia", "official_domain": "pjud.cl"},
+    "DNK": {"official_family_court_name": "Danmarks Domstole Familieretten", "local_family_terms": "familieretten", "official_domain": "domstol.dk"},
+    "ESP": {"official_family_court_name": "Consejo General del Poder Judicial familia", "local_family_terms": "juzgados de familia violencia de género", "official_domain": "poderjudicial.es"},
+    "FRA": {"official_family_court_name": "Ministère de la Justice affaires familiales", "local_family_terms": "affaires familiales", "official_domain": "justice.gouv.fr"},
+    "GBR": {"official_family_court_name": "United Kingdom family court statistics", "local_family_terms": "family court", "official_domain": "gov.uk"},
+    "GBR-EAW": {"official_family_court_name": "Family Court of England and Wales", "local_family_terms": "family court", "official_domain": "gov.uk"},
+    "IND": {"official_family_court_name": "Department of Justice India family courts", "local_family_terms": "family courts", "official_domain": "doj.gov.in"},
+    "IRL": {"official_family_court_name": "Courts Service of Ireland family law", "local_family_terms": "family law", "official_domain": "courts.ie"},
+    "ITA": {"official_family_court_name": "Ministero della Giustizia famiglia", "local_family_terms": "famiglia tribunale", "official_domain": "giustizia.it"},
+    "JPN": {"official_family_court_name": "Supreme Court of Japan Family Courts", "local_family_terms": "家庭裁判所 家事事件", "official_domain": "courts.go.jp"},
+    "KEN": {"official_family_court_name": "Judiciary of Kenya family court", "local_family_terms": "family court", "official_domain": "judiciary.go.ke"},
+    "KOR": {"official_family_court_name": "Supreme Court of Korea family court", "local_family_terms": "가정법원 가사", "official_domain": "scourt.go.kr"},
+    "MEX": {"official_family_court_name": "Consejo de la Judicatura Federal materia familiar", "local_family_terms": "materia familiar juzgados familiares", "official_domain": "cjf.gob.mx"},
+    "NLD": {"official_family_court_name": "Rechtspraak familie", "local_family_terms": "familie jeugdrecht", "official_domain": "rechtspraak.nl"},
+    "NOR": {"official_family_court_name": "Domstolene familiesaker", "local_family_terms": "familiesaker foreldretvist", "official_domain": "domstol.no"},
+    "NZL": {"official_family_court_name": "Family Court of New Zealand", "local_family_terms": "family court", "official_domain": "justice.govt.nz"},
+    "PER": {"official_family_court_name": "Poder Judicial del Perú familia", "local_family_terms": "familia violencia familiar", "official_domain": "pj.gob.pe"},
+    "PHL": {"official_family_court_name": "Supreme Court of the Philippines Family Courts", "local_family_terms": "family courts", "official_domain": "judiciary.gov.ph"},
+    "POL": {"official_family_court_name": "Poland family courts", "local_family_terms": "sąd rodzinny sprawy rodzinne", "official_domain": "gov.pl"},
+    "SGP": {"official_family_court_name": "Family Justice Courts Singapore", "local_family_terms": "family justice courts", "official_domain": "judiciary.gov.sg"},
+    "SWE": {"official_family_court_name": "Sveriges Domstolar familjemål", "local_family_terms": "familjemål vårdnad", "official_domain": "domstol.se"},
+    "USA": {"official_family_court_name": "United States state family courts", "local_family_terms": "family court", "official_domain": "uscourts.gov"},
+    "USA-CA": {"official_family_court_name": "Judicial Council of California family law", "local_family_terms": "family law", "official_domain": "courts.ca.gov"},
+    "USA-MN": {"official_family_court_name": "Minnesota Judicial Branch Family", "local_family_terms": "family court", "official_domain": "mncourts.gov"},
+    "USA-NY": {"official_family_court_name": "New York State Family Court", "local_family_terms": "family court", "official_domain": "nycourts.gov"},
+    "USA-WA": {"official_family_court_name": "Washington Courts family law", "local_family_terms": "family law", "official_domain": "courts.wa.gov"},
+    "ZAF": {"official_family_court_name": "South African Judiciary family court", "local_family_terms": "family court domestic violence", "official_domain": "judiciary.org.za"}
+  },
+  "metadata_plausibility": {
+    "family_title_terms": ["family", "familia", "famille", "famiglia", "familie", "familj", "famili", "família", "rodzin", "家庭", "家事", "가정", "가사", "domestic violence", "violencia", "violência", "vårdnad", "foreldretvist"],
+    "report_title_terms": ["annual", "report", "statistics", "statistical", "yearbook", "rapport", "informe", "relatório", "statistik", "statistique", "statistica", "統計", "통계", "infographic", "dashboard"],
+    "rule": "normalized title must contain at least one family_title_term and at least one report_title_term"
+  }
+}

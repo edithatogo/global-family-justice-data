@@ -1,0 +1,224 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2-S3-EXPOSURE-CONTRACT-AUDIT-20260816",
+  "packet_id": "G2HOLDOUT-METADATA-EXPANSION-20260816-03-EXECUTION",
+  "packet_sha256": "0226bf316ae8f73d6cb82b20d27677837d83914e23968b8ca64b9d2ed404dad8",
+  "role": "network_disabled_exposure_and_execution_contract_adviser",
+  "agent_session_id": "/root/g2_s3_exposure_audit",
+  "tool_or_model": "OpenAI Codex",
+  "tool_or_model_version": "gpt-5",
+  "generated_at": "2026-08-16T23:17:06+10:00",
+  "evidence_inputs": [
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/authority/owner-decision.json",
+      "sha256": "5099380f7aeaf6cb485446df03a0b7bc3d5deeee106e92300904c85932e3ad0d"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/authority/authority-receipt.json",
+      "sha256": "37ca7f226b926ca2628baff6042d289dd99df96665cd74d7987647cf397c323e"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/SUCCESSOR_DESIGN_MANIFEST.sha256",
+      "sha256": "a02552d2794783a78d0d35a5e0f01ab8f6d6821cef9c8f6f140838fdcf63b3ee"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/query-manifest.json",
+      "sha256": "27df88d028e7b6f6d26b33e3374ad2d7a55f5a6a91d266641636d84bde18003e"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json",
+      "sha256": "e43628df4592ab3386ad811d0871532d2fe40e6af7f169455994447572b8242d"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/execution-bundle.json",
+      "sha256": "0226bf316ae8f73d6cb82b20d27677837d83914e23968b8ca64b9d2ed404dad8"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/registrar-event-log.json",
+      "sha256": "a7e568c79d647463a116c93a8d62514dedb580fa0b7837711d3ef54ff38ae037"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/registrar-boundary-receipt.json",
+      "sha256": "b6a00ff96b75e30eebfe04c7d53b3d18c6af07bcc5ef2d0cdc777235719e31e6"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/semantic-verification-stop-receipt.json",
+      "sha256": "78943c916cc7f8ba9b9a9fcfa1ca1b2836255b3ca4b7d1483a5469faa2788b07"
+    },
+    {
+      "path": "src/gfjd/g2_exposure_chain.py",
+      "sha256": "6238a7a0c12a0b5dbf8448094c46a05c06131ab1dbbf42e52af8fd202a79d13c"
+    }
+  ],
+  "verdict": "fail",
+  "findings": [
+    {
+      "finding_id": "G2S3_SIGNED_AUTHORITY_FREEZE_CHAIN",
+      "severity": "info",
+      "claim": "Local Git verification reports good ED25519 signatures for freeze commit 80e9ec2c7c3ae3877f69b227cbb0e048d2cb1ad8, owner-decision commit 9ba7413fddcc37d59330c6aa3fe8ff9b0896bc73 and authority-receipt commit c90ffe39a132b841c184be4addc23f4d02857b76. The freeze commit contains the design manifest whose SHA-256 is a02552d2794783a78d0d35a5e0f01ab8f6d6821cef9c8f6f140838fdcf63b3ee; the owner-decision commit contains the decision whose SHA-256 is 5099380f7aeaf6cb485446df03a0b7bc3d5deeee106e92300904c85932e3ad0d. The receipt binds those commits and the unchanged query manifest and cumulative ledger.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/authority/owner-decision.json",
+          "sha256": "5099380f7aeaf6cb485446df03a0b7bc3d5deeee106e92300904c85932e3ad0d"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/authority/authority-receipt.json",
+          "sha256": "37ca7f226b926ca2628baff6042d289dd99df96665cd74d7987647cf397c323e"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/SUCCESSOR_DESIGN_MANIFEST.sha256",
+          "sha256": "a02552d2794783a78d0d35a5e0f01ab8f6d6821cef9c8f6f140838fdcf63b3ee"
+        }
+      ],
+      "uncertainty": "A good local Git signature verifies the repository signature evidence, not a separately established human identity or external timestamp authority.",
+      "remediation": "Preserve the signed freeze and authority chain unchanged."
+    },
+    {
+      "finding_id": "G2S3_EXACT_EXECUTION_SCOPE_AND_TIMING",
+      "severity": "info",
+      "claim": "Independent local recomputation confirms exactly 208 query events in manifest order G2S3Q-001 through G2S3Q-208, exactly 208 isolated provider calls, one query per call, and zero retries. Query IDs, texts, orders and SHA-256 values match the frozen manifest; all 208 result digests recompute. Calls are non-overlapping and monotonic from 2026-08-16T13:00:30.657Z through 2026-08-16T13:09:14.787Z, which is 2026-08-16T23:00:30.657+10:00 through 2026-08-16T23:09:14.787+10:00 and therefore inside the prospectively authorized interval.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/query-manifest.json",
+          "sha256": "27df88d028e7b6f6d26b33e3374ad2d7a55f5a6a91d266641636d84bde18003e"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/execution-bundle.json",
+          "sha256": "0226bf316ae8f73d6cb82b20d27677837d83914e23968b8ca64b9d2ed404dad8"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/registrar-event-log.json",
+          "sha256": "a7e568c79d647463a116c93a8d62514dedb580fa0b7837711d3ef54ff38ae037"
+        }
+      ],
+      "uncertainty": "These are digest-bound registrar claims and local semantic recomputations, not an independent provider audit log or packet capture.",
+      "remediation": "Retain the exact bounded claim; do not generalize it beyond this registrar record."
+    },
+    {
+      "finding_id": "G2S3_RESULT_AND_EXPOSURE_PROJECTIONS",
+      "severity": "info",
+      "claim": "The 208 query events contain 1037 raw result records. Canonical URL recomputation produces exactly 615 unique URLs, matching both the 615 candidate hypotheses and 615 exposure events. Every one of the 615 URLs is exposed by metadata return and must remain exposed regardless of duplicate rank, apparent relevance, file type or later disposition.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/execution-bundle.json",
+          "sha256": "0226bf316ae8f73d6cb82b20d27677837d83914e23968b8ca64b9d2ed404dad8"
+        }
+      ],
+      "uncertainty": "No result relevance, exact-edition identity, source status or rights status was assessed.",
+      "remediation": "Carry all 615 canonical URLs forward as exposed; do not filter, repair, retry, select, promote or reopen this execution."
+    },
+    {
+      "finding_id": "G2S3_COMPLETE_CUMULATIVE_EXPOSURE_OVERLAP",
+      "severity": "critical",
+      "claim": "The two-entry predecessor chain reconstructs without cycle, digest, path or projection error and contributes 86 historical URLs. Unioning that chain with the successor ledger's 609 denied URLs yields the exact complete cumulative set of 672 URLs. Intersecting the 615 newly observed URLs with that complete 672-URL set yields exactly 533 overlaps; the canonical sorted-overlap digest is ce0a64df33524f9da408d9593262980d319ca46931780ae1754f45b71fc0ed00, matching the stop receipt. A predecessor-only calculation would incorrectly omit the ledger's own 609 denied URLs and is not the cumulative contract.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json",
+          "sha256": "e43628df4592ab3386ad811d0871532d2fe40e6af7f169455994447572b8242d"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/execution-bundle.json",
+          "sha256": "0226bf316ae8f73d6cb82b20d27677837d83914e23968b8ca64b9d2ed404dad8"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/semantic-verification-stop-receipt.json",
+          "sha256": "78943c916cc7f8ba9b9a9fcfa1ca1b2836255b3ca4b7d1483a5469faa2788b07"
+        },
+        {
+          "path": "src/gfjd/g2_exposure_chain.py",
+          "sha256": "6238a7a0c12a0b5dbf8448094c46a05c06131ab1dbbf42e52af8fd202a79d13c"
+        }
+      ],
+      "uncertainty": "Canonical URL equality establishes known exposure overlap, not document identity, relevance or rights.",
+      "remediation": "Preserve the terminal fail-closed stop. Treat all 615 current URLs as exposed, including the 82 not in the predecessor set."
+    },
+    {
+      "finding_id": "G2S3_ZERO_ACCESS_BOUNDARY",
+      "severity": "info",
+      "claim": "The bundle, 208-event registrar log, boundary receipt and terminal stop receipt consistently bind zero non-search network requests, result-URL requests, landing-page requests, source-file requests, HEAD requests, redirects, outbound contacts, persisted snippets, source excerpts and target facts; candidate_content_opened and source_content_opened are false. This advisory audit was also network-disabled and opened no result or source URL.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/registrar-event-log.json",
+          "sha256": "a7e568c79d647463a116c93a8d62514dedb580fa0b7837711d3ef54ff38ae037"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/registrar-boundary-receipt.json",
+          "sha256": "b6a00ff96b75e30eebfe04c7d53b3d18c6af07bcc5ef2d0cdc777235719e31e6"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/semantic-verification-stop-receipt.json",
+          "sha256": "78943c916cc7f8ba9b9a9fcfa1ca1b2836255b3ca4b7d1483a5469faa2788b07"
+        }
+      ],
+      "uncertainty": "The zero-access claim is internally consistent, digest-bound registrar evidence; it is not external network telemetry.",
+      "remediation": "Preserve the zero-access boundary and make no source-content claim."
+    },
+    {
+      "finding_id": "G2S3_TERMINAL_FAILURE_NO_PROMOTION",
+      "severity": "critical",
+      "claim": "The exact 533 cumulative overlaps trigger the frozen stop condition. The semantic receipt is terminal, stopped_fail_closed, panel_inputs_allowed false, filter_repair_subset_promotion_or_retry_authorized false and g2_passage false. No filtering, repair, subset selection, promotion, acquisition, extraction, rights acceptance, publication, release or G2 passage may be inferred or performed from this lineage.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/authority/owner-decision.json",
+          "sha256": "5099380f7aeaf6cb485446df03a0b7bc3d5deeee106e92300904c85932e3ad0d"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/semantic-verification-stop-receipt.json",
+          "sha256": "78943c916cc7f8ba9b9a9fcfa1ca1b2836255b3ca4b7d1483a5469faa2788b07"
+        }
+      ],
+      "uncertainty": "A later accountable decision may govern a separately frozen future design but cannot convert this stopped execution into passing evidence.",
+      "remediation": "Keep this execution immutable as terminal failed evidence and keep G2 fail-closed."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "A_PRESERVE_TERMINAL_FAILURE",
+      "description": "Accept the exact semantic stop, preserve all registrar artifacts as terminal failed evidence, and add all 615 observed URLs to any future cumulative exposure contract before separately redesigning the evidence route.",
+      "trade_offs": [
+        "Maximizes lineage integrity and preserves the prospective stop contract.",
+        "Does not advance G2 and may make an unseen successor route infeasible."
+      ],
+      "limitations": [
+        "No result was assessed for relevance, exact edition, rights or eligibility.",
+        "Registrar evidence is internally bound rather than independently provider-attested."
+      ],
+      "contingency": "If a separately frozen future frame cannot exclude the complete cumulative exposure set without adaptive discovery, terminate this holdout route and redesign the evidence question before any further network authority is sought."
+    },
+    {
+      "option_id": "B_EXPOSED_METADATA_ARCHIVE_ONLY",
+      "description": "Preserve the 615-URL set only as exposed metadata-discovery evidence under a future separately authorized contract, never as unseen holdout candidates.",
+      "trade_offs": [
+        "Retains bounded provenance value from the completed metadata search.",
+        "Adds separation and governance complexity while providing no blind-holdout or G2 passage evidence."
+      ],
+      "limitations": [
+        "No source access, relevance filtering, rights determination or promotion is authorized here.",
+        "The present terminal lineage cannot itself be repurposed."
+      ],
+      "contingency": "If mechanical separation from unseen evaluation cannot be assured, use Option A only."
+    },
+    {
+      "option_id": "C_HALT_ROUTE",
+      "description": "Preserve the stop and undertake no further G2 holdout-successor work.",
+      "trade_offs": [
+        "Eliminates additional exposure from this route.",
+        "Leaves G2 blocked and yields no replacement evidence path."
+      ],
+      "limitations": [
+        "Does not resolve the underlying feasibility of unseen evidence acquisition."
+      ],
+      "contingency": "Return to Option A's separate-redesign requirements before any future successor activity."
+    }
+  ],
+  "recommendation": "Choose Option A. Preserve G2HOLDOUT-METADATA-EXPANSION-20260816-03 as immutable terminal failed evidence; retain all 615 observed canonical URLs as exposed; prohibit filtering, repair, retries, subset promotion, source access and G2 passage; and require a separately frozen, cumulatively denied future design plus a new exact owner authorization before any further network activity.",
+  "rationale": "The authority and execution scope are internally consistent, but the frozen cumulative non-overlap condition fails decisively: 533 of 615 observed URLs overlap the complete 672-URL exposure set. The contract requires terminal failure regardless of apparent usefulness or the 82 newly observed URLs.",
+  "conflicts": [],
+  "abstentions": [
+    "No result or source URL was opened and no network call was made during this advisory audit.",
+    "No opinion is offered on result relevance, document identity, source eligibility, rights, privacy, legal status, extraction quality or publication fitness.",
+    "No gate, rights, legal, release or accountable owner authority is exercised."
+  ],
+  "dissent": [],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

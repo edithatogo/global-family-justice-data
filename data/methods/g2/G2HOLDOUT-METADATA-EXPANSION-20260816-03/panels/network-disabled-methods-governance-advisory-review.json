@@ -1,0 +1,201 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2S3-NETWORK-DISABLED-METHODS-GOVERNANCE-20260816",
+  "packet_id": "G2HOLDOUT-METADATA-EXPANSION-20260816-03-EXECUTION@c90ffe39a132b841c184be4addc23f4d02857b76",
+  "packet_sha256": "0226bf316ae8f73d6cb82b20d27677837d83914e23968b8ca64b9d2ed404dad8",
+  "role": "separate_network_disabled_methods_and_governance_advisory_reviewer",
+  "agent_session_id": "/root/g2_s3_methods_review",
+  "tool_or_model": "OpenAI Codex",
+  "tool_or_model_version": "gpt-5",
+  "generated_at": "2026-08-16T13:17:12Z",
+  "evidence_inputs": [
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/plan.json",
+      "sha256": "75ef953b5aa85619bc157d6b6fb477ac6d0cba2203d1fa1b8e3acf690d33fdcd"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json",
+      "sha256": "e43628df4592ab3386ad811d0871532d2fe40e6af7f169455994447572b8242d"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/query-manifest.json",
+      "sha256": "27df88d028e7b6f6d26b33e3374ad2d7a55f5a6a91d266641636d84bde18003e"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/SUCCESSOR_DESIGN_MANIFEST.sha256",
+      "sha256": "a02552d2794783a78d0d35a5e0f01ab8f6d6821cef9c8f6f140838fdcf63b3ee"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/authority/owner-decision.json",
+      "sha256": "5099380f7aeaf6cb485446df03a0b7bc3d5deeee106e92300904c85932e3ad0d"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/authority/authority-receipt.json",
+      "sha256": "37ca7f226b926ca2628baff6042d289dd99df96665cd74d7987647cf397c323e"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/execution-bundle.json",
+      "sha256": "0226bf316ae8f73d6cb82b20d27677837d83914e23968b8ca64b9d2ed404dad8"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/registrar-boundary-receipt.json",
+      "sha256": "b6a00ff96b75e30eebfe04c7d53b3d18c6af07bcc5ef2d0cdc777235719e31e6"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/registrar-event-log.json",
+      "sha256": "a7e568c79d647463a116c93a8d62514dedb580fa0b7837711d3ef54ff38ae037"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/semantic-verification-stop-receipt.json",
+      "sha256": "78943c916cc7f8ba9b9a9fcfa1ca1b2836255b3ca4b7d1483a5469faa2788b07"
+    },
+    {
+      "path": "src/gfjd/g2_exposure_chain.py",
+      "sha256": "6238a7a0c12a0b5dbf8448094c46a05c06131ab1dbbf42e52af8fd202a79d13c"
+    },
+    {
+      "path": "src/gfjd/g2_metadata_search_successor.py",
+      "sha256": "ecb6282955b55213a9168ea626d9c7e97e6b13e69302da0f4abb3615f7180b22"
+    }
+  ],
+  "verdict": "fail",
+  "findings": [
+    {
+      "finding_id": "G2S3_BINDINGS_AND_EXECUTION_RECORD_INTERNALLY_CONSISTENT",
+      "severity": "info",
+      "claim": "The locally reviewed design and authority artifacts remain digest-bound to signed commit c90ffe39a132b841c184be4addc23f4d02857b76, and the registrar receipt binds a 208-call, 208-query, zero-retry execution within the authorized interval. The event log contains 208 ordered completion events. Tracked counters record zero result, landing-page, file, HEAD, redirect or contact requests and zero persisted snippets, source excerpts or target facts.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/authority/authority-receipt.json",
+          "sha256": "37ca7f226b926ca2628baff6042d289dd99df96665cd74d7987647cf397c323e"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/registrar-boundary-receipt.json",
+          "sha256": "b6a00ff96b75e30eebfe04c7d53b3d18c6af07bcc5ef2d0cdc777235719e31e6"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/registrar-event-log.json",
+          "sha256": "a7e568c79d647463a116c93a8d62514dedb580fa0b7837711d3ef54ff38ae037"
+        }
+      ],
+      "uncertainty": "This review was strictly network-disabled and did not independently observe provider-side traffic. Signature validity establishes repository signature evidence, not an external identity assurance.",
+      "remediation": "Preserve the signed inputs, registrar artifacts and terminal stop receipt immutably as one failed lineage record."
+    },
+    {
+      "finding_id": "G2S3_533_OF_615_COMPLETE_CHAIN_OVERLAP_REPRODUCED",
+      "severity": "critical",
+      "claim": "Independent local set reconstruction reproduces 672 cumulative denied URLs, 615 unique observed URLs and exactly 533 overlaps. The canonical compact-JSON digest of the sorted overlap set is ce0a64df33524f9da408d9593262980d319ca46931780ae1754f45b71fc0ed00, matching the terminal receipt. This is an 86.7 percent observed-set overlap and violates the prospectively frozen cumulative-exposure invariant.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json",
+          "sha256": "e43628df4592ab3386ad811d0871532d2fe40e6af7f169455994447572b8242d"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/execution-bundle.json",
+          "sha256": "0226bf316ae8f73d6cb82b20d27677837d83914e23968b8ca64b9d2ed404dad8"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/semantic-verification-stop-receipt.json",
+          "sha256": "78943c916cc7f8ba9b9a9fcfa1ca1b2836255b3ca4b7d1483a5469faa2788b07"
+        }
+      ],
+      "uncertainty": "The percentage describes this frozen query design, provider execution and cumulative ledger only. It is not a population estimate of public-source duplication, search-engine recall, jurisdictional coverage, source relevance or factual redundancy.",
+      "remediation": "Keep the lineage terminal and fail-closed. Do not filter the 533 overlaps, promote a residual subset, waive the invariant, repair the observed bundle or retry this execution."
+    },
+    {
+      "finding_id": "G2S3_RESIDUAL_82_ARE_EXPOSURE_NOT_HOLDOUT_EVIDENCE",
+      "severity": "high",
+      "claim": "Set subtraction leaves 82 URLs not present in the reconstructed pre-execution cumulative denylist, but all 615 observed URLs became exposed through this failed execution. The 82-row residual is therefore a descriptive by-product only and cannot be treated as an unseen holdout subset, candidate frame, passing residue or evidence of novelty.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/plan.json",
+          "sha256": "75ef953b5aa85619bc157d6b6fb477ac6d0cba2203d1fa1b8e3acf690d33fdcd"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/execution-bundle.json",
+          "sha256": "0226bf316ae8f73d6cb82b20d27677837d83914e23968b8ca64b9d2ed404dad8"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/semantic-verification-stop-receipt.json",
+          "sha256": "78943c916cc7f8ba9b9a9fcfa1ca1b2836255b3ca4b7d1483a5469faa2788b07"
+        }
+      ],
+      "uncertainty": "No result URL or source content was opened, so no claim is made about relevance, edition, authority, eligibility, rights, privacy, security or extractability of any residual row.",
+      "remediation": "Treat all 615 observations as cumulative exposure and preserve the residual count only as methods-diagnostic information."
+    },
+    {
+      "finding_id": "G2S3_HIGH_REDISCOVERY_INDICATES_METHOD_SATURATION_NOT_GLOBAL_EXHAUSTION",
+      "severity": "high",
+      "claim": "The 533-overlap result is strong evidence that this frozen search formulation predominantly rediscovered already exposed locations. It supports terminating this lineage and avoiding another search retry with the same discovery logic. It does not establish that no eligible unseen sources exist or that the wider evidence domain is exhausted.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/query-manifest.json",
+          "sha256": "27df88d028e7b6f6d26b33e3374ad2d7a55f5a6a91d266641636d84bde18003e"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/semantic-verification-stop-receipt.json",
+          "sha256": "78943c916cc7f8ba9b9a9fcfa1ca1b2836255b3ca4b7d1483a5469faa2788b07"
+        }
+      ],
+      "uncertainty": "Only one prospectively frozen query set and one recorded provider execution were evaluated. Search-index ranking, temporal drift and unobserved sources remain outside the evidence.",
+      "remediation": "Require any future route to be a separately governed, materially distinct acquisition design with a new estimand and prospective owner decision; do not label it a retry or continuation of this lineage."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "A_TERMINATE_LINEAGE_AND_PAUSE_SEARCH_BASED_HOLDOUT_DISCOVERY",
+      "description": "Accept the terminal semantic stop, close this lineage as failed evidence, add all 615 observations to cumulative exposure, and pause further search-based blind-holdout discovery pending a materially distinct methods proposal.",
+      "trade_offs": [
+        "Best preserves the frozen non-overlap rule and avoids repeated exposure from a demonstrably rediscovery-heavy method.",
+        "Does not advance WI-G2-07 or G2 and may delay the evidence programme."
+      ],
+      "limitations": [
+        "Does not prove the wider source universe is exhausted.",
+        "Requires a new owner decision before any different acquisition method or source access."
+      ],
+      "contingency": "If a materially distinct route is later proposed, freeze its estimand, sampling frame, complete exposure-chain rule, budgets and stop conditions prospectively and subject it to fresh owner authorization; it must not reuse any of the 615 observations as unseen evidence."
+    },
+    {
+      "option_id": "B_TERMINATE_LINEAGE_AND_COMMISSION_A_DISTINCT_NON_SEARCH_DESIGN",
+      "description": "Close this lineage as failed and permit repository-only preparation of a separately identified, non-search acquisition design, without authorizing execution, source access or promotion.",
+      "trade_offs": [
+        "Retains a route forward while responding to the high rediscovery rate.",
+        "Design work may reveal that no defensible blind frame is available and still cannot authorize network activity."
+      ],
+      "limitations": [
+        "A different acquisition frame may change the estimand and comparability assumptions.",
+        "No current G2 gap closes until the new design is prospectively authorized, executed and independently accepted."
+      ],
+      "contingency": "If the new design cannot establish a defensible pre-exposure frame without adaptive rescue or retrospective filtering, terminate that proposal before execution and leave G2 blocked."
+    },
+    {
+      "option_id": "C_ACCEPT_ONLY_AS_TERMINAL_METHODS_DIAGNOSTIC",
+      "description": "Preserve this bundle solely as evidence that the frozen search design produced 533 cumulative overlaps among 615 observations, with no immediate successor-design work.",
+      "trade_offs": [
+        "Minimizes further exposure and repository effort.",
+        "Leaves the blind-holdout evidence gap unresolved indefinitely."
+      ],
+      "limitations": [
+        "The bundle remains failed and no residual subset may be promoted.",
+        "G2 remains blocked and no programme gate is advanced."
+      ],
+      "contingency": "Reopen methods design only through a new digest-bound owner decision; preserve this stop and all 615 exposures as immutable predecessor evidence."
+    }
+  ],
+  "recommendation": "Recommend Option A: accept the terminal fail-closed stop, close G2HOLDOUT-METADATA-EXPANSION-20260816-03 without waiver, filtering, subset promotion or retry, record all 615 observed URLs as cumulative exposure, and pause search-based blind-holdout discovery until the sole owner considers a materially distinct methods proposal. This recommendation does not authorize that proposal, network execution, source access, promotion or G2 passage.",
+  "rationale": "The exact 533-of-615 overlap is independently reproducible and shows that 86.7 percent of this execution's observed set was already denied before execution. The remaining 82 observations cannot be salvaged because the full bundle failed and they are now exposed. A same-method retry would add exposure without resolving the underlying rediscovery pattern. Terminal closure plus a possible future, separately governed method is the narrowest defensible route that preserves methodological integrity and owner authority.",
+  "conflicts": [
+    "The execution mechanically completed all 208 frozen calls with recorded zero-boundary counters, but successful mechanics cannot override the terminal cumulative-exposure eligibility failure.",
+    "The 82 pre-execution non-overlaps may appear salvageable descriptively, but the prospective contract prohibits retrospective filtering and the execution exposed them all."
+  ],
+  "abstentions": [
+    "No result URL, landing page, file or source content was requested or opened during this review.",
+    "No candidate relevance, exact-edition identity, source authority, rights, privacy, security, structural eligibility or extractability assessment was performed.",
+    "No claim is made that the 86.7 percent overlap generalizes beyond this frozen design and recorded provider execution.",
+    "This advisory review does not independently verify provider-side network behavior beyond digest-bound repository evidence."
+  ],
+  "dissent": [
+    "Option B is defensible if the owner prefers immediate repository-only exploration of a materially distinct non-search method, but it creates design effort before deciding whether the blind-holdout estimand remains attainable."
+  ],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

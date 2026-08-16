@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "boundary_receipt_id": "G2-METADATA-SEARCH-REGISTRAR-BOUNDARY",
+  "generated_at": "2026-08-16T00:18:09.918420Z",
+  "registrar_session_id": "codex-g2-successor-registrar-20260816",
+  "run_id": "G2HOLDOUT-METADATA-SEARCH-SUCCESSOR-EXECUTION-20260816-02",
+  "registrar_bundle": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/execution-bundle.json",
+    "sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954"
+  },
+  "registrar_event_log": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-event-log.json",
+    "sha256": "9a4a5c3ddac81620e65032091b6f8451ba10820e1a266c7e116f0209e5bb3c48"
+  },
+  "execution_identity": {
+    "bundle_id": "G2HOLDOUT-METADATA-SEARCH-SUCCESSOR-EXECUTION-20260816-02",
+    "execution_date": "2026-08-16",
+    "tool_name": "web__run.search_query",
+    "tool_version": "OpenAI Codex web__run 2026-08-16",
+    "query_manifest": {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/successor-query-manifest.json",
+      "sha256": "abfbed6ee1fe56f14163e3f69055a141e744ddc9e8240c6908323f8ff63bcb3b"
+    },
+    "design_manifest": {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/SUCCESSOR_DESIGN_MANIFEST.sha256",
+      "sha256": "716eb47a691a7d2f1826ba8c9154e4f2013dadcaa3c0dc7d7f1cbe00f1ce33db"
+    },
+    "authority_receipt": {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/authority/authority-receipt.json",
+      "sha256": "c82364f0ab749649b2a9e9aa24c2a6130bcef9a7ae7d318be63969c2f3f5df1b"
+    }
+  },
+  "execution_identity_sha256": "12ddb41583705f5f89d263cff316ba2292d9b179859cfd43f8194494b6f3c56b",
+  "provider_config_sha256": "682a60497fdad09240fddfc78a75ac6b0e0459f684b291dd83b73e9a726d554c",
+  "query_event_transcript_sha256": "ab4ca8c2b5dce59b54336221499c47ec6e7119d9aca533b8b04ba67fbbf92006",
+  "first_provider_call_started_at": "2026-08-16T00:04:59.870Z",
+  "last_provider_call_finished_at": "2026-08-16T00:13:46.163Z",
+  "search_provider_calls": 208,
+  "logical_queries_submitted": 208,
+  "successor_retries": 0,
+  "prior_lineage_submissions": 4,
+  "cumulative_lineage_submissions": 212,
+  "non_search_network_requests": 0,
+  "result_url_requests": 0,
+  "landing_page_requests": 0,
+  "source_file_requests": 0,
+  "head_requests": 0,
+  "redirects_followed": 0,
+  "persisted_snippets": 0,
+  "persisted_source_excerpts": 0,
+  "persisted_target_facts": 0,
+  "outbound_contacts": 0,
+  "candidate_content_opened": false,
+  "source_content_opened": false,
+  "violations": [],
+  "status": "captured_zero_boundary"
+}

@@ -8,7 +8,7 @@ from typing import Any
 from gfjd.g2_exposure_chain import collect_bound_exposure_chain
 
 
-def _write(root: Path, name: str, payload: dict[str, Any]) -> dict[str, str]:
+def _write(root: Path, name: str, payload: Any) -> dict[str, str]:
     path = root / name
     path.write_text(json.dumps(payload), encoding="utf-8")
     return {"path": name, "sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
@@ -63,3 +63,34 @@ def test_fails_closed_at_depth_limit(tmp_path: Path) -> None:
 
     assert ledgers == [current]
     assert errors == ["exposure predecessor chain exceeds maximum depth"]
+
+
+def test_fails_closed_on_malformed_ledger_content(tmp_path: Path) -> None:
+    invalid_json = tmp_path / "invalid.json"
+    invalid_json.write_text("{bad", encoding="utf-8")
+    descriptor = {
+        "path": invalid_json.name,
+        "sha256": hashlib.sha256(invalid_json.read_bytes()).hexdigest(),
+    }
+    _, _, errors = collect_bound_exposure_chain(tmp_path, descriptor)
+    assert errors == ["exposure predecessor ledger is invalid JSON"]
+
+    cases = [
+        ([], "exposure predecessor ledger must be an object"),
+        ({"denied_urls": [1]}, "exposure denied_urls must contain strings"),
+        ({"entries": ["bad"]}, "exposure entries must contain objects"),
+        ({"entries": [{"url": 1}]}, "exposure entry URL must be a string"),
+        ({"entries": [{"urls": [1]}]}, "exposure entry urls must contain strings"),
+    ]
+    for index, (payload, expected) in enumerate(cases):
+        current = _write(tmp_path, f"case-{index}.json", payload)
+        _, _, errors = collect_bound_exposure_chain(tmp_path, current)
+        assert errors == [expected]
+
+
+def test_rejects_nonpositive_depth(tmp_path: Path) -> None:
+    _, ledgers, errors = collect_bound_exposure_chain(
+        tmp_path, {"path": "unused.json", "sha256": "0" * 64}, max_depth=0
+    )
+    assert ledgers == []
+    assert errors == ["exposure predecessor max_depth must be positive"]

@@ -1,176 +1,118 @@
 {
   "schema_version": "1.0",
   "report_id": "PANEL-G2-SUCCESSOR-STOPPED-EXPOSURE-AUDIT-20260816",
-  "run_id": "G2HOLDOUT-METADATA-SEARCH-SUCCESSOR-EXECUTION-20260816-02",
+  "packet_id": "G2HOLDOUT-METADATA-SEARCH-SUCCESSOR-EXECUTION-20260816-02",
+  "packet_sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954",
   "role": "network_disabled_exposure_boundary_adviser",
   "agent_session_id": "/root/g2_stopped_exposure_audit",
   "tool_or_model": "OpenAI Codex",
-  "generated_at": "2026-08-16T10:21:50+10:00",
-  "reviewed_commit": "e02d7b0aa015cda7b1ae24e7eb45066fc3077811",
-  "reviewed_commit_signature": "verified_good_ed25519_signature",
+  "tool_or_model_version": "gpt-5",
+  "generated_at": "2026-08-16T10:31:35+10:00",
   "evidence_inputs": [
-    {
-      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/execution-bundle.json",
-      "sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954"
-    },
-    {
-      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-boundary-receipt.json",
-      "sha256": "9f63c586bc3ceb6d2a9d2cd16ba3db8763ffde4a4cc03124b3adbcef04c5af64"
-    },
-    {
-      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-event-log.json",
-      "sha256": "9a4a5c3ddac81620e65032091b6f8451ba10820e1a266c7e116f0209e5bb3c48"
-    },
-    {
-      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/semantic-verification-stop-receipt.json",
-      "sha256": "f298b7f0dae1c6cc9d83336054c3e83044b6155882f54c10630be06d622580ab"
-    },
-    {
-      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/successor-execution-bundle.schema.json",
-      "sha256": "d5cb9c91f3862eb5e3878105ad6c2d169d2c11e148e109e09a36c97c6eec0c25"
-    },
-    {
-      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/exposure-ledger.json",
-      "sha256": "1cd2ce0fc633b43e5ebf95635c5518e0dd974192378121d49b25d7d9bb29b9b3"
-    },
-    {
-      "path": "src/gfjd/g2_metadata_search_successor.py",
-      "sha256": "ecb6282955b55213a9168ea626d9c7e97e6b13e69302da0f4abb3615f7180b22"
-    }
+    {"path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/execution-bundle.json", "sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954"},
+    {"path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-boundary-receipt.json", "sha256": "9f63c586bc3ceb6d2a9d2cd16ba3db8763ffde4a4cc03124b3adbcef04c5af64"},
+    {"path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-event-log.json", "sha256": "9a4a5c3ddac81620e65032091b6f8451ba10820e1a266c7e116f0209e5bb3c48"},
+    {"path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/semantic-verification-stop-receipt.json", "sha256": "f298b7f0dae1c6cc9d83336054c3e83044b6155882f54c10630be06d622580ab"},
+    {"path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/successor-execution-bundle.schema.json", "sha256": "d5cb9c91f3862eb5e3878105ad6c2d169d2c11e148e109e09a36c97c6eec0c25"},
+    {"path": "data/methods/g2/G2HOLDOUT-METADATA-SEARCH-POSTRUN-20260816-01/schemas/g2_metadata_search_post_search_registrar_event_log.schema.json", "sha256": "ecb264ad3c5e1840692496f8dfdee4be65633ffe3cbeba7007904072383b5762"},
+    {"path": "data/methods/g2/G2HOLDOUT-METADATA-SEARCH-POSTRUN-20260816-01/schemas/g2_metadata_search_post_search_registrar_boundary.schema.json", "sha256": "fb0662b2a6b3a64e55346ad2f1b15d68ee251402648110aef64fce683f6ff0cb"},
+    {"path": "data/methods/g2/G2HOLDOUT-METADATA-SEARCH-POSTRUN-20260816-01/schemas/g2_metadata_search_post_search_stop.schema.json", "sha256": "e305949d72dfb2664ce0efa4e40e519e238a1842b67ac0f0b4bdad2316067fcd"},
+    {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/exposure-ledger.json", "sha256": "1cd2ce0fc633b43e5ebf95635c5518e0dd974192378121d49b25d7d9bb29b9b3"},
+    {"path": "src/gfjd/g2_metadata_search_successor.py", "sha256": "ecb6282955b55213a9168ea626d9c7e97e6b13e69302da0f4abb3615f7180b22"}
   ],
-  "review_controls": {
-    "network_access": false,
-    "result_urls_requested": 0,
-    "source_content_opened": false,
-    "registrar_artifacts_modified": false,
-    "advisory_only": true,
-    "independent_authority_claimed": false,
-    "owner_decision_required": true,
-    "g2_passage": false
-  },
-  "recomputed_summary": {
-    "query_events": 208,
-    "unique_query_ids": 208,
-    "unique_query_texts": 208,
-    "successor_provider_calls_recorded": 208,
-    "successor_retries_recorded": 0,
-    "raw_result_records": 1034,
-    "unique_canonical_result_urls": 609,
-    "candidate_hypotheses": 609,
-    "exposure_events": 609,
-    "url_kinds": {
-      "html": 329,
-      "file": 235,
-      "other": 45
-    },
-    "all_exposure_events_requested_false": true,
-    "official_html_allowlist_entries": 329,
-    "immediate_ledger_known_urls": 31,
-    "cumulative_predecessor_chain_known_urls": 86,
-    "immediate_ledger_overlaps": 10,
-    "cumulative_predecessor_chain_overlaps": 23,
-    "bundle_schema_errors": 0,
-    "projection_matches": true
-  },
-  "cumulative_predecessor_overlap_urls": [
-    "https://courts.ca.gov/news-reference/research-data/court-statistics",
-    "https://mncourts.gov/help-topics/court-statistics/publications-and-reports",
-    "https://provincialcourt.bc.ca/about-court/reports-and-court-data",
-    "https://www.cnj.jus.br/estatistica/",
-    "https://www.cnj.jus.br/paineis-cnj/",
-    "https://www.cnj.jus.br/pesquisas-judiciarias/justica-em-numeros/",
-    "https://www.courts.go.jp/toukei_siryou/shihotokei_nenpo/index.html",
-    "https://www.courts.wa.gov/caseload/?fa=caseload.showarchived",
-    "https://www.domstol.dk/aarhus/om-retten-i-aarhus/aarsberetning-og-noegletal/",
-    "https://www.domstol.no/no/domstoladministrasjonen/publikasjoner/arsmeldingar/",
-    "https://www.domstol.se/domstolsverket/om-sveriges-domstolar/statistik-styrning-och-utveckling/statistik/officiell-domstolsstatistik/",
-    "https://www.fcfcoa.gov.au/fcfcoa-annual-reports",
-    "https://www.fcfcoa.gov.au/fcfcoa-annual-reports/2024-25",
-    "https://www.gov.uk/government/publications/cafcass-annual-report-and-accounts-2024-to-2025",
-    "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-january-to-march-2026",
-    "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-october-to-december-2025",
-    "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-october-to-december-2025/family-court-statistics-quarterly-october-to-december-2025",
-    "https://www.judiciary.org.za/index.php/documents/judiciary-annual-reports",
-    "https://www.justice.gouv.fr/documentation/ressources/rapport-2024-loi-dorientation-programmation-du-ministere-justice-2023-2027",
-    "https://www.nycourts.gov/division-technology-court-research/family-court-act-fca-annual-report",
-    "https://www.ontariocourts.ca/ocj/statistics/",
-    "https://www.poderjudicial.es/cgpj/es/Temas/Estadistica-Judicial/Estudios-e-Informes/Indicadores-Clave/Indicadores-clave-del-conjunto-de-las-jurisdicciones----Anual-Trimestre-2024",
-    "https://www.poderjudicial.es/cgpj/es/Temas/Violencia-domestica-y-de-genero/Actividad-del-Observatorio/Informes-de-violencia-domestica-y-de-genero/Informe-sobre-victimas-mortales-de-la-violencia-de-genero-y-domestica-en-el-ambito-de-la-pareja-o-expareja-en-2024"
-  ],
+  "verdict": "fail",
   "findings": [
     {
       "finding_id": "G2S2_AUDIT_BINDINGS_AND_SCHEMA",
       "severity": "info",
-      "claim": "The signed reviewed commit contains the four registrar artifacts. Every artifact binding carried by the execution bundle resolves to the recorded SHA-256, and the execution bundle has zero errors against its frozen JSON Schema.",
-      "limitation": "No dedicated frozen schema was found for the event log, boundary receipt or semantic stop receipt; those artifacts were checked for binding and internal consistency, not schema conformance.",
-      "recommendation": "Preserve the registrar artifacts and signed commit unchanged."
+      "claim": "Signed commit e02d7b0aa015cda7b1ae24e7eb45066fc3077811 contains the four registrar artifacts and has a verified good ED25519 signature. Every execution-bundle binding resolves to its recorded SHA-256. The execution bundle, registrar event log, registrar boundary receipt and semantic verification stop receipt each produce zero validation errors against their frozen JSON Schemas.",
+      "evidence_references": [
+        {"path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/execution-bundle.json", "sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954"},
+        {"path": "data/methods/g2/G2HOLDOUT-METADATA-SEARCH-POSTRUN-20260816-01/schemas/g2_metadata_search_post_search_registrar_event_log.schema.json", "sha256": "ecb264ad3c5e1840692496f8dfdee4be65633ffe3cbeba7007904072383b5762"},
+        {"path": "data/methods/g2/G2HOLDOUT-METADATA-SEARCH-POSTRUN-20260816-01/schemas/g2_metadata_search_post_search_registrar_boundary.schema.json", "sha256": "fb0662b2a6b3a64e55346ad2f1b15d68ee251402648110aef64fce683f6ff0cb"},
+        {"path": "data/methods/g2/G2HOLDOUT-METADATA-SEARCH-POSTRUN-20260816-01/schemas/g2_metadata_search_post_search_stop.schema.json", "sha256": "e305949d72dfb2664ce0efa4e40e519e238a1842b67ac0f0b4bdad2316067fcd"}
+      ],
+      "uncertainty": "Schema validity establishes contract shape and constants; it does not independently attest to provider-side events outside the committed record.",
+      "remediation": "Preserve the signed registrar artifacts unchanged."
     },
     {
       "finding_id": "G2S2_AUDIT_COUNTS_AND_PROJECTIONS",
       "severity": "info",
-      "claim": "The artifacts contain 208 ordered unique query events, 1034 raw result records, 609 unique canonical URLs, and exactly matching 609-entry candidate and exposure projections. All exposure entries are requested false. The proposed allowlist contains 329 HTML entries.",
-      "limitation": "Counts and zero-boundary assertions are derivable only from committed artifacts and receipts; this offline adviser did not observe provider calls and cannot independently prove events outside the recorded transcript.",
-      "recommendation": "Treat these as artifact-backed execution claims, not external network attestation."
+      "claim": "Independent recomputation finds 208 ordered unique query IDs and texts, 1034 raw result records, 609 unique canonical URLs, exactly matching 609-entry candidate and exposure projections, 329 HTML, 235 file and 45 other exposures, and 329 official-HTML allowlist entries. Every exposure is requested false.",
+      "evidence_references": [{"path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/execution-bundle.json", "sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954"}],
+      "uncertainty": "These counts are derived from committed artifacts; the adviser did not observe provider calls.",
+      "remediation": "Treat them as artifact-backed execution claims, not external network attestation."
     },
     {
       "finding_id": "G2S2_AUDIT_CUMULATIVE_OVERLAP",
       "severity": "critical",
-      "claim": "The stopped bundle overlaps predecessor exposure. Independent canonical recomputation finds 10 overlaps in the immediate structural-preflight ledger and 23 overlaps across its complete bound predecessor chain. Every listed URL remains exposed and unavailable for unseen-edition evidence.",
-      "limitation": "The predecessor lineage itself states that earlier aggregate exposure reconstruction is incomplete, so 23 is a verified lower bound rather than proof of complete historical non-overlap.",
-      "recommendation": "Keep the execution terminal and failed. Carry all 609 successor exposures plus the complete cumulative predecessor lineage into any future denylist."
+      "claim": "The stopped bundle overlaps predecessor exposure. Canonical recomputation finds 10 overlaps in the immediate 31-URL structural-preflight ledger and 23 overlaps across its complete bound 86-URL predecessor chain. All 23 were enumerated in the first issue of this report and remain unavailable for unseen-edition evidence.",
+      "evidence_references": [
+        {"path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/execution-bundle.json", "sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954"},
+        {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/exposure-ledger.json", "sha256": "1cd2ce0fc633b43e5ebf95635c5518e0dd974192378121d49b25d7d9bb29b9b3"}
+      ],
+      "uncertainty": "Earlier aggregate exposure is incompletely reconstructable, so 23 is a verified lower bound, not complete historical non-overlap.",
+      "remediation": "Keep the execution terminal and failed; carry all 609 successor exposures and the complete predecessor lineage into any future denylist."
     },
     {
       "finding_id": "G2S2_AUDIT_VERIFIER_DEPTH_DEFECT",
       "severity": "high",
-      "claim": "The successor verifier's _known_denied_urls function reads only the immediate ledger and does not traverse its bound predecessor. Its generic stop is correct because the immediate set already overlaps, but it undercounts cumulative overlap and cannot establish full lineage non-overlap.",
-      "limitation": "This does not invalidate the fail-closed outcome; it makes the recorded reason less complete than the cumulative evidence.",
-      "recommendation": "Prospectively fix the verifier to traverse the complete digest-bound predecessor chain with cycle and depth controls, then add tests proving inherited overlaps stop execution. Do not rewrite this stopped bundle."
+      "claim": "The successor verifier reads only the immediate ledger and does not traverse its bound predecessor. The stop is correct because the immediate set overlaps, but cumulative overlap is undercounted.",
+      "evidence_references": [
+        {"path": "src/gfjd/g2_metadata_search_successor.py", "sha256": "ecb6282955b55213a9168ea626d9c7e97e6b13e69302da0f4abb3615f7180b22"},
+        {"path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/exposure-ledger.json", "sha256": "1cd2ce0fc633b43e5ebf95635c5518e0dd974192378121d49b25d7d9bb29b9b3"}
+      ],
+      "uncertainty": "The defect does not invalidate the fail-closed outcome; it makes its reason incomplete.",
+      "remediation": "Prospectively add digest-bound recursive traversal with cycle/depth controls and inherited-overlap tests; do not rewrite the stopped bundle."
     },
     {
-      "finding_id": "G2S2_AUDIT_ZERO_REQUEST_AND_NO_SNIPPET_BOUNDARY",
+      "finding_id": "G2S2_AUDIT_ZERO_REQUEST_BOUNDARY",
       "severity": "info",
-      "claim": "The bundle, boundary receipt and 209-event registrar log consistently record zero result, landing-page, source-file, HEAD and redirect requests, zero persisted snippets, excerpts and target facts, and no candidate or source-content opening. Result objects contain titles and URLs but no snippet field.",
-      "limitation": "This is consistent digest-bound self-reporting, not an independently captured packet trace or provider-side audit log.",
-      "recommendation": "Retain the zero-request/no-snippet claim with this limitation and make no broader claim about provider internals."
+      "claim": "The schema-valid bundle, boundary receipt and 209-event log consistently record zero result, landing-page, source-file, HEAD and redirect requests; zero persisted snippets, excerpts and target facts; and no candidate or source-content opening. Result objects contain titles and URLs but no snippet field.",
+      "evidence_references": [
+        {"path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-boundary-receipt.json", "sha256": "9f63c586bc3ceb6d2a9d2cd16ba3db8763ffde4a4cc03124b3adbcef04c5af64"},
+        {"path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-event-log.json", "sha256": "9a4a5c3ddac81620e65032091b6f8451ba10820e1a266c7e116f0209e5bb3c48"},
+        {"path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/semantic-verification-stop-receipt.json", "sha256": "f298b7f0dae1c6cc9d83336054c3e83044b6155882f54c10630be06d622580ab"}
+      ],
+      "uncertainty": "This is consistent digest-bound self-reporting, not an independently captured packet trace or provider audit log.",
+      "remediation": "Retain the bounded claim and make no broader assertion about provider internals."
     },
     {
       "finding_id": "G2S2_AUDIT_STOP_CORRECT",
       "severity": "info",
-      "claim": "Fail-closed stopping was required by the frozen non-overlap contract. The execution cannot proceed to selector or candidate acquisition and supplies no G2 passage evidence.",
-      "limitation": "A future owner decision may authorize a new prospectively frozen lineage, but cannot convert this failed execution into a pass.",
-      "recommendation": "Accept the stop as immutable failed evidence only."
+      "claim": "Fail-closed stopping was required by the frozen non-overlap contract. The execution cannot proceed to selection or acquisition and supplies no G2 passage evidence.",
+      "evidence_references": [{"path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/semantic-verification-stop-receipt.json", "sha256": "f298b7f0dae1c6cc9d83336054c3e83044b6155882f54c10630be06d622580ab"}],
+      "uncertainty": "A future owner decision may authorize a separately frozen lineage but cannot convert this execution into a pass.",
+      "remediation": "Accept the stop as immutable failed evidence only."
     }
   ],
   "options": [
     {
       "option_id": "A_TERMINATE_AND_FIX_PROSPECTIVELY",
-      "description": "Accept this execution as terminal failed evidence, fix cumulative-ledger traversal and tests, and prepare a separately identified candidate-frame redesign that excludes all known exposures before any new network activity.",
-      "trade_offs": "Strongest evidence integrity and simplest lineage; requires new design and owner authorization and does not advance G2 immediately.",
-      "contingency": "If a sufficiently large unexposed metadata frame cannot be frozen without adaptive searching, terminate the blind-holdout route and redesign the evidence question."
+      "description": "Accept this execution as terminal failed evidence, fix cumulative-ledger traversal and tests, and separately redesign the candidate frame before any new network activity.",
+      "trade_offs": ["Strongest evidence integrity and simplest lineage.", "Requires new owner authorization and does not advance G2 immediately."],
+      "limitations": ["Earlier aggregate exposure remains incomplete.", "A compliant unseen frame may be infeasible."],
+      "contingency": "If a sufficiently large unexposed frame cannot be frozen without adaptive searching, terminate this holdout route and redesign the evidence question."
     },
     {
-      "option_id": "B_OWNER_AUTHORIZED_EXPOSED_DISCOVERY_USE",
-      "description": "Retain the 609 records only as an exposed metadata discovery census, never as unseen holdout candidates, after prospectively fixing the verifier and creating a separate use contract.",
-      "trade_offs": "Preserves bounded discovery value but cannot support the approved blind-holdout claim and adds governance complexity.",
-      "contingency": "If separation between exposed discovery and unseen evaluation cannot be enforced mechanically, discard this option and use Option A."
+      "option_id": "B_EXPOSED_DISCOVERY_ONLY",
+      "description": "Retain the 609 records only as an exposed metadata census, never as unseen candidates, under a separate future use contract.",
+      "trade_offs": ["Preserves bounded discovery value.", "Cannot support the blind-holdout claim and adds governance complexity."],
+      "limitations": ["Artifacts are self-reported, not provider-attested.", "No result becomes rights-cleared or eligible."],
+      "contingency": "If exposed-discovery and unseen-evaluation separation cannot be mechanically enforced, use Option A."
     },
     {
       "option_id": "C_NO_FURTHER_ACTION",
-      "description": "Preserve the stop and take no additional repository action.",
-      "trade_offs": "No further exposure or implementation risk, but G2 remains blocked and the verifier-depth defect remains open.",
-      "contingency": "Return to Option A before any future successor design."
+      "description": "Preserve the stop and take no further repository action.",
+      "trade_offs": ["No further exposure risk.", "G2 remains blocked and the verifier defect remains open."],
+      "limitations": ["Does not improve the frame or verifier."],
+      "contingency": "Return to Option A before any successor design."
     }
   ],
-  "recommendation": "Choose Option A. Preserve the execution and its registrar artifacts unchanged as terminal failed evidence; prospectively correct cumulative exposure traversal and negative tests; construct any future frame only after removing every known exposed URL, edition and series; and return a new digest-bound design to the sole owner before any network or source access.",
-  "rationale": "The immediate-ledger overlap is sufficient to require the current stop, while the 23 cumulative overlaps and incompletely reconstructable earlier exposure make retrospective acceptance scientifically unsafe. A prospective correction preserves auditability without wasting the bounded search as lineage evidence.",
-  "conflicts": [
-    "The bundle's non-overlap receipt records no known overlaps, but independent recomputation finds 10 immediate and 23 cumulative overlaps.",
-    "The successor verifier checks only the immediate exposure ledger even though that ledger explicitly binds a predecessor chain."
-  ],
-  "abstentions": [
-    "No opinion is offered on the factual relevance, exact-edition identity, rights status or structural eligibility of any result.",
-    "No network call, result URL, landing page, file or source content was accessed during this review."
-  ],
+  "recommendation": "Choose Option A. Preserve the execution and registrar artifacts unchanged as terminal failed evidence; prospectively correct cumulative exposure traversal and negative tests; construct any future frame only after removing every known exposed URL, edition and series; and return a new digest-bound design to the sole owner before network or source access.",
+  "rationale": "Immediate-ledger overlap is sufficient to require the stop; 23 cumulative overlaps and incomplete earlier exposure make retrospective acceptance unsafe. Prospective correction preserves auditability.",
+  "conflicts": ["The bundle records no known overlaps, but recomputation finds 10 immediate and 23 cumulative overlaps.", "The verifier checks only the immediate ledger although it binds a predecessor chain."],
+  "abstentions": ["No opinion is offered on result relevance, exact-edition identity, rights or structural eligibility.", "No network call, result URL, landing page, file or source content was accessed."],
   "dissent": [],
-  "authority_boundary": "advisory_only_no_gate_rights_legal_release_or_g2_authority"
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
 }

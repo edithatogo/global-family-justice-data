@@ -34,7 +34,7 @@ results. The signed evidence commit is
 | `data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-event-log.json` | `9a4a5c3ddac81620e65032091b6f8451ba10820e1a266c7e116f0209e5bb3c48` |
 | `data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-boundary-receipt.json` | `9f63c586bc3ceb6d2a9d2cd16ba3db8763ffde4a4cc03124b3adbcef04c5af64` |
 | `data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/semantic-verification-stop-receipt.json` | `f298b7f0dae1c6cc9d83336054c3e83044b6155882f54c10630be06d622580ab` |
-| `data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/panels/network-disabled-exposure-audit.json` | `7f7185b2a308624b0728f1e42aadd3439b8d60062939c195bbec1f26295e2b91` |
+| `data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/panels/network-disabled-exposure-audit.json` | `24ca7cd2a8528db792db5583aab362c78d2822a799faf704ca0308a0947a2ce7` |
 | `data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/panels/stopped-execution-advisory-review.json` | `ac12623837e3c66241de4b2db824414e292dfb4239e195387d6016b6b9c89fba` |
 
 ## Network-disabled review

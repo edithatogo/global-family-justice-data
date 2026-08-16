@@ -94,3 +94,15 @@ def test_rejects_nonpositive_depth(tmp_path: Path) -> None:
     )
     assert ledgers == []
     assert errors == ["exposure predecessor max_depth must be positive"]
+
+
+def test_fails_closed_on_malformed_url_strings(tmp_path: Path) -> None:
+    cases = [
+        {"denied_urls": ["http://["]},
+        {"entries": [{"url": "http://["}]},
+        {"entries": [{"urls": ["http://["]}]},
+    ]
+    for index, payload in enumerate(cases):
+        current = _write(tmp_path, f"url-case-{index}.json", payload)
+        _, _, errors = collect_bound_exposure_chain(tmp_path, current)
+        assert errors == ["exposure URL is invalid"]

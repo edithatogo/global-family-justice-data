@@ -88,6 +88,9 @@ def collect_bound_exposure_chain(
             ):
                 return urls, ledgers, errors + ["exposure entry urls must contain strings"]
             values.update(entry_urls)
-        urls.update(canonical_url(value) for value in values)
+        try:
+            urls.update(canonical_url(value) for value in values)
+        except ValueError:
+            return urls, ledgers, errors + ["exposure URL is invalid"]
         current = payload.get("predecessor")
     return urls, ledgers, errors + ["exposure predecessor chain exceeds maximum depth"]

@@ -1,0 +1,204 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2-SUCCESSOR-STOPPED-EXECUTION-20260816",
+  "packet_id": "G2HOLDOUT-METADATA-SEARCH-SUCCESSOR-EXECUTION-20260816-02@e02d7b0aa015cda7b1ae24e7eb45066fc3077811",
+  "packet_sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954",
+  "role": "fresh_network_disabled_methods_and_governance_advisory_reviewer",
+  "agent_session_id": "/root/g2_stopped_advisory_review",
+  "tool_or_model": "OpenAI Codex",
+  "tool_or_model_version": "gpt-5",
+  "generated_at": "2026-08-16T00:20:28.721812Z",
+  "evidence_inputs": [
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/successor-plan.json",
+      "sha256": "fc6745a80192d0072f6278d42b27a878fd4715add42525759562086e05f578d0"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/successor-query-manifest.json",
+      "sha256": "abfbed6ee1fe56f14163e3f69055a141e744ddc9e8240c6908323f8ff63bcb3b"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/SUCCESSOR_DESIGN_MANIFEST.sha256",
+      "sha256": "716eb47a691a7d2f1826ba8c9154e4f2013dadcaa3c0dc7d7f1cbe00f1ce33db"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/authority/owner-decision.json",
+      "sha256": "ed3ac2f08c5e6c54e27351f536cbbee15d10dc45ad9d9ea0b45fd5189e5a74a3"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/authority/authority-receipt.json",
+      "sha256": "c82364f0ab749649b2a9e9aa24c2a6130bcef9a7ae7d318be63969c2f3f5df1b"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/execution-bundle.json",
+      "sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-boundary-receipt.json",
+      "sha256": "9f63c586bc3ceb6d2a9d2cd16ba3db8763ffde4a4cc03124b3adbcef04c5af64"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-event-log.json",
+      "sha256": "9a4a5c3ddac81620e65032091b6f8451ba10820e1a266c7e116f0209e5bb3c48"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/semantic-verification-stop-receipt.json",
+      "sha256": "f298b7f0dae1c6cc9d83336054c3e83044b6155882f54c10630be06d622580ab"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/exposure-ledger.json",
+      "sha256": "1cd2ce0fc633b43e5ebf95635c5518e0dd974192378121d49b25d7d9bb29b9b3"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/panels/stop-review.json",
+      "sha256": "6069cebff1df0a761ff7bf3005db56d202263084ed6cbad653e01f5e5b790ca0"
+    },
+    {
+      "path": "src/gfjd/g2_metadata_search_successor.py",
+      "sha256": "ecb6282955b55213a9168ea626d9c7e97e6b13e69302da0f4abb3615f7180b22"
+    }
+  ],
+  "verdict": "fail",
+  "findings": [
+    {
+      "finding_id": "G2S2_SIGNED_BINDINGS_VALID",
+      "severity": "info",
+      "claim": "Signed commit e02d7b0aa015cda7b1ae24e7eb45066fc3077811 binds the reviewed stopped-execution artifacts. The frozen design, signed owner authority and authority receipt remain digest-consistent with the execution bundle.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/SUCCESSOR_DESIGN_MANIFEST.sha256",
+          "sha256": "716eb47a691a7d2f1826ba8c9154e4f2013dadcaa3c0dc7d7f1cbe00f1ce33db"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/authority/authority-receipt.json",
+          "sha256": "c82364f0ab749649b2a9e9aa24c2a6130bcef9a7ae7d318be63969c2f3f5df1b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/execution-bundle.json",
+          "sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954"
+        }
+      ],
+      "uncertainty": "Git signature validity and commit containment were checked locally. This advisory report does not establish signer identity beyond the repository's configured signature evidence.",
+      "remediation": "Preserve the commit and all bound inputs immutably with the terminal lineage record."
+    },
+    {
+      "finding_id": "G2S2_EXECUTION_COMPLIANT_UNTIL_SEMANTIC_STOP",
+      "severity": "info",
+      "claim": "All 208 frozen G2S2Q queries have one attributable provider-call event in manifest order within the authorized interval, with 208 provider calls, zero retries and 212 cumulative lineage submissions. The tracked evidence records zero result, landing-page, file, HEAD, redirect or contact requests and zero persisted snippets, extracts or target facts. Independent local semantic verification reproduces no error other than predecessor-exposure overlap.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/successor-query-manifest.json",
+          "sha256": "abfbed6ee1fe56f14163e3f69055a141e744ddc9e8240c6908323f8ff63bcb3b"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-boundary-receipt.json",
+          "sha256": "9f63c586bc3ceb6d2a9d2cd16ba3db8763ffde4a4cc03124b3adbcef04c5af64"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-event-log.json",
+          "sha256": "9a4a5c3ddac81620e65032091b6f8451ba10820e1a266c7e116f0209e5bb3c48"
+        },
+        {
+          "path": "src/gfjd/g2_metadata_search_successor.py",
+          "sha256": "ecb6282955b55213a9168ea626d9c7e97e6b13e69302da0f4abb3615f7180b22"
+        }
+      ],
+      "uncertainty": "The review is strictly network-disabled. Zero-access conclusions are limited to internally consistent tracked receipts and bundle fields; the reviewer did not independently observe provider traffic.",
+      "remediation": "Accept only the bounded statement that execution was contract-compliant up to post-search semantic verification; do not promote the bundle or any hypothesis."
+    },
+    {
+      "finding_id": "G2S2_TEN_PREDECESSOR_OVERLAPS_TERMINATE_LINEAGE",
+      "severity": "critical",
+      "claim": "The 609 unique passive hypotheses contain exactly ten canonical URLs present in the 31-URL reconstructable predecessor denylist. This violates the frozen non-overlap invariant and requires terminal fail-closed treatment of this execution lineage.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/execution-bundle.json",
+          "sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/exposure-ledger.json",
+          "sha256": "1cd2ce0fc633b43e5ebf95635c5518e0dd974192378121d49b25d7d9bb29b9b3"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/semantic-verification-stop-receipt.json",
+          "sha256": "f298b7f0dae1c6cc9d83336054c3e83044b6155882f54c10630be06d622580ab"
+        }
+      ],
+      "uncertainty": "The count is exact only against the reconstructable predecessor ledger. The predecessor aggregate exposure remains incomplete, so additional unknown overlap cannot be ruled out.",
+      "remediation": "Terminate this execution lineage as failed evidence. Do not delete ten rows, retain the other 599 as holdout candidates, alter known_overlaps, repair the bundle, or waive the invariant retrospectively."
+    },
+    {
+      "finding_id": "G2S2_ALL_RESULTS_ARE_EXPOSURE_ONLY",
+      "severity": "high",
+      "claim": "Every one of the 609 unique passive-result URLs is now cumulative exposure. Neither the ten known overlaps nor the remaining 599 may be promoted from this failed lineage into unseen holdout evidence. The incomplete predecessor reconstruction also prevents a complete non-overlap claim.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/design/successor-plan.json",
+          "sha256": "fc6745a80192d0072f6278d42b27a878fd4715add42525759562086e05f578d0"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/execution-bundle.json",
+          "sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954"
+        }
+      ],
+      "uncertainty": "No source relevance, edition identity, rights status or structural eligibility was assessed, and no result or source URL was opened.",
+      "remediation": "Append all 609 canonical URLs to a future cumulative exposure denylist as requested false, preserving this bundle unchanged as their provenance."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "A_TERMINATE_AND_PREPARE_DISTINCT_PROSPECTIVE_SUCCESSOR",
+      "description": "Close this execution lineage as failed, record all 609 passive URLs as cumulative exposure, and prepare a separately identified successor with new prospectively frozen queries, contracts, stop rules and owner authorization.",
+      "trade_offs": [
+        "Preserves the frozen no-waiver method and the complete failed record.",
+        "Requires a new design and search budget and may encounter previously exposed URLs again."
+      ],
+      "limitations": [
+        "None of the 609 results can serve as unseen holdout evidence.",
+        "A new search can establish only bounded metadata discovery and cannot reconstruct unknown predecessor exposure."
+      ],
+      "contingency": "The successor must prospectively treat any known exposed URL as exposure-only and stop or follow a pre-frozen deterministic rejection rule; if an adequate unseen frame cannot be assembled without adaptive rescue, terminate the search approach."
+    },
+    {
+      "option_id": "B_ACCEPT_AS_TERMINAL_EXPOSURE_EVIDENCE_ONLY",
+      "description": "Accept the bundle solely as a complete 208-call execution and cumulative-exposure record, with no further metadata-search successor at present.",
+      "trade_offs": [
+        "Avoids further search exposure and design churn.",
+        "Does not advance the blind-holdout candidate frame or WI-G2-07."
+      ],
+      "limitations": [
+        "G2 remains blocked.",
+        "The bundle remains failed and cannot be filtered into a passing subset."
+      ],
+      "contingency": "Retain the evidence immutably while using a later, separately approved non-search acquisition design if one becomes available."
+    },
+    {
+      "option_id": "C_TERMINATE_BLIND_HOLDOUT_SEARCH_METHOD",
+      "description": "End this blind-holdout discovery approach and prospectively redesign the G2 evidence strategy without using these search results as candidate evidence.",
+      "trade_offs": [
+        "Avoids repeated contamination from public search-index rediscovery.",
+        "Requires a materially different evidence-acquisition method and a new owner decision."
+      ],
+      "limitations": [
+        "No current G2 evidence gap is closed.",
+        "The changed method cannot be presented as continuation or successful completion of this lineage."
+      ],
+      "contingency": "Preserve all current artifacts and exposure records and keep G2 fail-closed until a prospectively frozen alternative is approved and succeeds."
+    }
+  ],
+  "recommendation": "Recommend Option A: accept the semantic stop as correct, terminate this lineage without filtering, repair or waiver, preserve all artifacts, and prepare a separately identified prospective successor. Bind all 609 passive URLs into its cumulative exposure denylist before freezing it; do not use any result from this failed execution as unseen candidate evidence.",
+  "rationale": "The executed search mechanics complied with the authorization, but non-overlap is an eligibility invariant rather than a correctable output field. Removing ten overlaps after seeing the results would be retrospective filtering, while promoting the other 599 would ignore that the complete bundle failed and all results are now exposed. A distinct prospective successor preserves methodological integrity while retaining a bounded route forward.",
+  "conflicts": [
+    "The execution bundle self-reports known_overlaps as empty, but independent canonical intersection against the frozen predecessor ledger yields ten overlaps.",
+    "The bundle's incomplete-predecessor acknowledgement prevents any global claim of non-overlap even apart from the ten reconstructed overlaps."
+  ],
+  "abstentions": [
+    "No result URL, landing page, file or source content was requested or opened during this review.",
+    "No assessment is made of candidate relevance, exact-edition identity, source rights, privacy, security, methods suitability or structural eligibility.",
+    "This review does not independently verify provider-side network behavior beyond repository evidence."
+  ],
+  "dissent": [
+    "Option B is a defensible lower-exposure alternative if the owner prefers to stop metadata searching, but it cannot advance blind-holdout readiness."
+  ],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "stop_id": "G2S3-CUMULATIVE-EXPOSURE-STOP",
+  "generated_at": "2026-08-16T13:13:10.192128Z",
+  "registrar_bundle": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/execution-bundle.json",
+    "sha256": "0226bf316ae8f73d6cb82b20d27677837d83914e23968b8ca64b9d2ed404dad8"
+  },
+  "registrar_boundary_receipt": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/registrar-boundary-receipt.json",
+    "sha256": "b6a00ff96b75e30eebfe04c7d53b3d18c6af07bcc5ef2d0cdc777235719e31e6"
+  },
+  "semantic_verification": {
+    "complete_cumulative_chain_reconstructed": true,
+    "cumulative_denied_url_count": 672,
+    "observed_unique_url_count": 615,
+    "overlap_count": 533,
+    "overlap_urls_sha256": "ce0a64df33524f9da408d9593262980d319ca46931780ae1754f45b71fc0ed00"
+  },
+  "errors": [
+    "candidate overlaps complete cumulative predecessor exposure"
+  ],
+  "observed_boundary_counts": {
+    "result_url_requests": 0,
+    "landing_page_requests": 0,
+    "source_file_requests": 0,
+    "head_requests": 0,
+    "redirects_followed": 0,
+    "persisted_snippets": 0,
+    "persisted_source_excerpts": 0,
+    "persisted_target_facts": 0
+  },
+  "boundary_violation_or_unknown": false,
+  "harness_network_access": false,
+  "harness_outbound_contacts": 0,
+  "candidate_content_opened": false,
+  "source_content_opened": false,
+  "panel_inputs_allowed": false,
+  "terminal": true,
+  "filter_repair_subset_promotion_or_retry_authorized": false,
+  "status": "stopped_fail_closed",
+  "g2_passage": false
+}

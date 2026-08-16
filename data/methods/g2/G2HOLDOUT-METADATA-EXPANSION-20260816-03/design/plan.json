@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "plan_id": "G2HOLDOUT-METADATA-EXPANSION-20260816-03",
+  "status": "prepared_not_authorized",
+  "purpose": "Prospective metadata-only successor after cumulative exposure stop.",
+  "owner_decision": {
+    "path": "docs/governance/g2-successor-overlap-stop-owner-decision-2026-08-16.md",
+    "sha256": "e8facb10fe3bc151ecc7cc5842fac1063a39cd5c964bf2c55c559624c2aff8aa"
+  },
+  "failed_predecessor_execution": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/execution-bundle.json",
+    "sha256": "5cf8a003d863d4b4543db338e705bd111f37af97521643e32505a6b7ab0d4954"
+  },
+  "exact_scope": {
+    "logical_queries": 208,
+    "provider_calls": 208,
+    "queries_per_call": 1,
+    "retries": 0,
+    "result_records_maximum_per_query": 5
+  },
+  "exposure_contract": {
+    "all_609_current_urls_denied": true,
+    "complete_predecessor_chain_required": true,
+    "chain_maximum_depth": 32,
+    "malformed_or_unbound_ledger_stops": true,
+    "any_observed_overlap_stops": true,
+    "no_current_result_may_be_promoted": true
+  },
+  "access_boundary": {
+    "passive_search_metadata_only": true,
+    "persist_snippets": false,
+    "result_url_requests": 0,
+    "landing_page_requests": 0,
+    "source_file_requests": 0,
+    "head_requests": 0,
+    "outbound_contacts": 0
+  },
+  "roles": [
+    "fresh_metadata_registrar",
+    "network_disabled_exposure_auditor",
+    "network_disabled_advisory_panel"
+  ],
+  "stopping_rules": [
+    "any query scope order digest or authority mismatch",
+    "any retry or more than one query per provider call",
+    "any result URL landing page file HEAD redirect source or contact request",
+    "any persisted snippet source excerpt or target fact",
+    "any malformed unbound cyclic or incomplete exposure chain",
+    "any passive result overlapping the complete cumulative denylist"
+  ],
+  "resource_estimate": {
+    "maximum_provider_calls": 208,
+    "maximum_persisted_result_records": 1040,
+    "minimum_role_sessions": 3,
+    "expected_wall_clock_minutes": 90
+  },
+  "next_owner_checkpoint": {
+    "signed_freeze_commit_required": true,
+    "exact_design_manifest_required": true,
+    "separate_digest_bound_execution_decision_required": true
+  },
+  "authorization_flags": {
+    "design_preparation_authorized": true,
+    "network_access_authorized": false,
+    "source_access_authorized": false,
+    "extraction_authorized": false,
+    "contact_authorized": false,
+    "publication_authorized": false,
+    "release_authorized": false,
+    "g2_passage_authorized": false
+  }
+}

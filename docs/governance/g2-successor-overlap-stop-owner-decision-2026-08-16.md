@@ -1,8 +1,11 @@
 # G2 successor overlap-stop owner decision — 2026-08-16
 
-Decision ID: `D-G2-SUCCESSOR-OVERLAP-STOP-20260816-01`  
-Status: accepted  
-Decision-maker: repository owner, founder and sole accountable authority  
+Decision ID: `D-G2-SUCCESSOR-OVERLAP-STOP-20260816-01`
+
+Status: accepted
+
+Decision-maker: repository owner, founder and sole accountable authority
+
 Decision packet SHA-256: `7a96b2bf14efcb441be2db44e9fae429d09647081018ff3d53c474a005ebd213`
 
 I approve Option A in the G2 successor overlap-stop owner decision packet dated

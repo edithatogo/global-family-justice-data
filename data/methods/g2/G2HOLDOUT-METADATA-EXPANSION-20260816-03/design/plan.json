@@ -5,7 +5,7 @@
   "purpose": "Prospective metadata-only successor after cumulative exposure stop.",
   "owner_decision": {
     "path": "docs/governance/g2-successor-overlap-stop-owner-decision-2026-08-16.md",
-    "sha256": "e8facb10fe3bc151ecc7cc5842fac1063a39cd5c964bf2c55c559624c2aff8aa"
+    "sha256": "cc4464afb313029a96b182b7e442442b2543ee9e7791adcc3ee82a52134c21a7"
   },
   "failed_predecessor_execution": {
     "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/execution-bundle.json",

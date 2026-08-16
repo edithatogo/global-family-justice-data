@@ -1,7 +1,7 @@
-cbcbac97093be33b7b1874a694f11449a9b0d7deb0d7cbe8739855935298ba96  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/plan.json
+75ef953b5aa85619bc157d6b6fb477ac6d0cba2203d1fa1b8e3acf690d33fdcd  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/plan.json
 e43628df4592ab3386ad811d0871532d2fe40e6af7f169455994447572b8242d  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json
 27df88d028e7b6f6d26b33e3374ad2d7a55f5a6a91d266641636d84bde18003e  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/query-manifest.json
-e8facb10fe3bc151ecc7cc5842fac1063a39cd5c964bf2c55c559624c2aff8aa  docs/governance/g2-successor-overlap-stop-owner-decision-2026-08-16.md
+cc4464afb313029a96b182b7e442442b2543ee9e7791adcc3ee82a52134c21a7  docs/governance/g2-successor-overlap-stop-owner-decision-2026-08-16.md
 7a96b2bf14efcb441be2db44e9fae429d09647081018ff3d53c474a005ebd213  docs/governance/g2-successor-overlap-stop-owner-decision-packet-2026-08-16.md
 dc52ee07fa35a82efca6dac9af40b481234244212971560bc5a9042574a426f8  docs/methods/g2-metadata-search-successor-execution-stop-evidence-2026-08-16.md
 226b9958427eaff7e6a5fd381f834fd9d68a1f7fe2f37908b38884d6335659c4  scripts/build_g2_overlap_successor_design.py

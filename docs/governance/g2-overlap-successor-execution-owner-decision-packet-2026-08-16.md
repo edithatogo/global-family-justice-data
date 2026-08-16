@@ -7,9 +7,9 @@ Status: awaiting sole-owner decision. This packet authorizes nothing.
 - owner preparation decision commit:
   `1129d06c012624c3ff7d1ea1b92214dda1da87c2`;
 - signed successor freeze commit:
-  `7c74ad35b7ebed26c4b3716be3afca9b9bf4fae5`;
+  `80e9ec2c7c3ae3877f69b227cbb0e048d2cb1ad8`;
 - detached design-manifest SHA-256:
-  `5a9b809ce7bcc123f24602c9a95478c32908e8534884b3daa6e5105c77b691ca`;
+  `a02552d2794783a78d0d35a5e0f01ab8f6d6821cef9c8f6f140838fdcf63b3ee`;
 - exact query-manifest SHA-256:
   `27df88d028e7b6f6d26b33e3374ad2d7a55f5a6a91d266641636d84bde18003e`;
 - cumulative exposure-ledger SHA-256:
@@ -62,9 +62,9 @@ accepting:
 > I approve Option A in the G2 cumulative-exposure successor execution owner
 > decision packet dated 2026-08-16. I accept
 > G2HOLDOUT-METADATA-EXPANSION-20260816-03 as a separate preparation bound by
-> signed freeze commit 7c74ad35b7ebed26c4b3716be3afca9b9bf4fae5,
+> signed freeze commit 80e9ec2c7c3ae3877f69b227cbb0e048d2cb1ad8,
 > detached design-manifest SHA-256
-> 5a9b809ce7bcc123f24602c9a95478c32908e8534884b3daa6e5105c77b691ca,
+> a02552d2794783a78d0d35a5e0f01ab8f6d6821cef9c8f6f140838fdcf63b3ee,
 > query-manifest SHA-256
 > 27df88d028e7b6f6d26b33e3374ad2d7a55f5a6a91d266641636d84bde18003e,
 > and cumulative exposure-ledger SHA-256

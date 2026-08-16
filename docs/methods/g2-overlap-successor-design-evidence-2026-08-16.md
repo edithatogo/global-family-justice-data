@@ -1,7 +1,9 @@
 # G2 cumulative-exposure successor design evidence — 2026-08-16
 
-Evidence ID: `E-PILOT-METADATA-SEARCH-OVERLAP-SUCCESSOR-DESIGN-20260816`  
-Status: `in_review`  
+Evidence ID: `E-PILOT-METADATA-SEARCH-OVERLAP-SUCCESSOR-DESIGN-20260816`
+
+Status: `in_review`
+
 Lineage: `G2HOLDOUT-METADATA-EXPANSION-20260816-03`
 
 The sole owner accepted the preceding 208-query execution as immutable terminal
@@ -9,9 +11,9 @@ failed evidence and authorized repository-only preparation of a successor. The
 owner decision is preserved at signed commit
 `1129d06c012624c3ff7d1ea1b92214dda1da87c2`.
 
-The successor is frozen at signed commit
-`7c74ad35b7ebed26c4b3716be3afca9b9bf4fae5`. Its detached design manifest has
-SHA-256 `5a9b809ce7bcc123f24602c9a95478c32908e8534884b3daa6e5105c77b691ca`.
+The final successor is frozen at signed commit
+`80e9ec2c7c3ae3877f69b227cbb0e048d2cb1ad8`. Its detached design manifest has
+SHA-256 `a02552d2794783a78d0d35a5e0f01ab8f6d6821cef9c8f6f140838fdcf63b3ee`.
 
 ## Bound design
 

@@ -99,9 +99,9 @@ ac12623837e3c66241de4b2db824414e292dfb4239e195387d6016b6b9c89fba  data/methods/g
 9f63c586bc3ceb6d2a9d2cd16ba3db8763ffde4a4cc03124b3adbcef04c5af64  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-boundary-receipt.json
 9a4a5c3ddac81620e65032091b6f8451ba10820e1a266c7e116f0209e5bb3c48  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/registrar-event-log.json
 f298b7f0dae1c6cc9d83336054c3e83044b6155882f54c10630be06d622580ab  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-02/registrar/semantic-verification-stop-receipt.json
-5a9b809ce7bcc123f24602c9a95478c32908e8534884b3daa6e5105c77b691ca  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/SUCCESSOR_DESIGN_MANIFEST.sha256
+a02552d2794783a78d0d35a5e0f01ab8f6d6821cef9c8f6f140838fdcf63b3ee  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/SUCCESSOR_DESIGN_MANIFEST.sha256
 e43628df4592ab3386ad811d0871532d2fe40e6af7f169455994447572b8242d  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json
-cbcbac97093be33b7b1874a694f11449a9b0d7deb0d7cbe8739855935298ba96  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/plan.json
+75ef953b5aa85619bc157d6b6fb477ac6d0cba2203d1fa1b8e3acf690d33fdcd  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/plan.json
 27df88d028e7b6f6d26b33e3374ad2d7a55f5a6a91d266641636d84bde18003e  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/query-manifest.json
 6069cebff1df0a761ff7bf3005db56d202263084ed6cbad653e01f5e5b790ca0  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/panels/stop-review.json
 e0a62b4e3e2082caa753e9705c811c7416123ca2502b30e9c5a8e619c3689c24  data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-STOP-01/registrar/execution-stop.json
@@ -239,7 +239,7 @@ f3b12478c7c17bfcbd9bc84f7bdb50b050ed522b65ae61679d04f586d06c3340  docs/governanc
 f5c4159c87f3eb6ddc485c33eb1ab1a6b9884270bbc73e8aece26fcf8a7cfc27  docs/governance/g2-blocker-handoff-2026-08-03.md
 abb337a6cd50d37e7a7176dff895a8555d2441b120b8290e65441b376a7b30d2  docs/governance/g2-formal-rerun-owner-decision-packet-2026-08-15.md
 353819e97779b979da0aa1b370d68f09e3fd712eb6a1689bf4850e6959e5c601  docs/governance/g2-metadata-search-successor-owner-decision-packet-2026-08-16.md
-11719c08cdc2d0204cc187c46a5e74197ea429bfc2737fa3241add73490ff995  docs/governance/g2-overlap-successor-execution-owner-decision-packet-2026-08-16.md
+ab7a7ea0cd884b97c6494023a41883789391c488ee14d15f068b1d00b5e160a5  docs/governance/g2-overlap-successor-execution-owner-decision-packet-2026-08-16.md
 ae9d948c9fe7cbe4960b318f62c79edfb93de42f407fbda62acdf88759bc4686  docs/governance/g2-packet02-refreeze-owner-decision-2026-08-15.md
 6cf8eb21f7de6da599c79e1bf6652b7f673689958708bd2f9231cdf10495b1e4  docs/governance/g2-packet04-methods-owner-decision-2026-08-15.md
 a30f4cee9fab98f3a17ababe4d97bc66881783914b347150c4ad666ef36cdb30  docs/governance/g2-packet04-methods-owner-decision-packet-2026-08-15.md
@@ -250,7 +250,7 @@ b1593ef058d7697c7302430bd2bf9f99ccc33d4d8ca8db14c9e41f9e78214367  docs/governanc
 679623d6405d80998e8f841bb1c8ce2a7bc9110e43d761fa7fc66a02aefd4589  docs/governance/g2-real-pilot-execution-status-2026-08-03.md
 ba4cf34cfcee1d35b8f52fa597ad10e56009529a35d85a8315da2166548dec11  docs/governance/g2-structural-preflight-owner-decision-packet-2026-08-15.md
 7ce64586b7c38f0c9c40632ebf75b306732f864398ae1eaf424621adad820cd8  docs/governance/g2-structural-preflight-url-resolution-owner-decision-2026-08-15.md
-e8facb10fe3bc151ecc7cc5842fac1063a39cd5c964bf2c55c559624c2aff8aa  docs/governance/g2-successor-overlap-stop-owner-decision-2026-08-16.md
+cc4464afb313029a96b182b7e442442b2543ee9e7791adcc3ee82a52134c21a7  docs/governance/g2-successor-overlap-stop-owner-decision-2026-08-16.md
 7a96b2bf14efcb441be2db44e9fae429d09647081018ff3d53c474a005ebd213  docs/governance/g2-successor-overlap-stop-owner-decision-packet-2026-08-16.md
 e2844f07fc3477dd0640fc3b8d1efe08460f569c315df6ce1546428d565ea4a4  docs/governance/g2-work-acceptance-mapping-implementation-receipt-2026-08-16.md
 ff8c27dbc2bfc7ba08c018addc40cf26f9bb5dcb427531365f151283f396ad4a  docs/governance/g2-work-acceptance-mapping-owner-decision-2026-08-16.md
@@ -337,7 +337,7 @@ a214693c9ee9175f1fe07250fc835d621b73dbc4a1f8ce0ba2ba9329791748ed  docs/methods/g
 cb5c34191239eefe5304d755b3fb832ab3b003f7113971b1af5cddb87529353a  docs/methods/g2-metadata-search-post-search-harness-2026-08-16.md
 1c9b0d144b321f8351a72abc98b65c42d762718a17949e37dd579dcf8d535491  docs/methods/g2-metadata-search-successor-design-evidence-2026-08-16.md
 dc52ee07fa35a82efca6dac9af40b481234244212971560bc5a9042574a426f8  docs/methods/g2-metadata-search-successor-execution-stop-evidence-2026-08-16.md
-a45ed61f670309aed4ad7689e5c2ca7f20fc8b014b88c4fdf35421827de84586  docs/methods/g2-overlap-successor-design-evidence-2026-08-16.md
+5a4395cb6ad88a3c99eb7f3394ae982f37ad1a1e60d5e8de24b1229ec632cdd0  docs/methods/g2-overlap-successor-design-evidence-2026-08-16.md
 626c650b21a2e1694c0f838cca1a4cc099badc57609d580a81804d5a1c8ed021  docs/methods/g2-packet02-boundary-correction-record-2026-08-15.md
 5a8bee0524970cc25831461be8c5bb9164ca328907c9090220d9c104d640d5ad  docs/methods/g2-prospective-blind-holdout-plan-2026-08-15.md
 762e5ec67e03c6f9ee9d575db122b5418d85c3930ec45f3bf2614ea26e379826  docs/methods/g2-real-pilot-formal-run-evidence-index-2026-08-15.md
@@ -392,7 +392,7 @@ d9b4ec05ecb8792ef0532e5c72ffe1557fec6f6e1d53f8f38d9590a069cf0c99  docs/operation
 4e7f0947a8a3bc38b436d6b5683c62b6f0ecbb3dc262b2c212d2063eed5b1240  docs/programme/benefits-and-harms-evaluation.md
 b10515baf6f547477e43280229edc5432a0c93f1426fa52fbec5b4284727a75d  docs/programme/control-gap-dependency-audit-2026-08-16.md
 6bdd1bfd7f904ae06f5ddfe8248962a24dfc5a1426108ce2c0ddfa15aa3346db  docs/programme/generated/programme-graph.mmd
-bae79a63582f85b28297697464c89f6d21f809ded662407e244bfd32b7b7862c  docs/programme/generated/status.md
+d6f284a889971f0e3af13a8482ffc21f2daed71656a1d00684c19415a0bebcc3  docs/programme/generated/status.md
 0ad9141ba5324d51875c18319afa3a40b05e5e15bf8603d439f10f4bd45e7576  docs/programme/milestone-scorecard-template.md
 7621ecf6f91cfd2c12f14ee44289d9e8a9c26f1273061e9517c16c7a574afe8d  docs/programme/risk-register.md
 779fe49d38f95e752161b8593d3c95fcd7e14cb961ec848f55df3a13a3d372ce  docs/programme/track-charters.md
@@ -435,7 +435,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  programme/.git
 e5cb228ef36f45503f635f6e93d5ab2633d4a1a09a384a3b5ddae1aa04484a98  programme/audit-log.jsonl
 8b0da8ce7214fe68d56daa0485977bf63b18f465410841a4b17995519e72103b  programme/decision_log.csv
 68161d0a6d21c1d8cb13eb63c399420b40d212a6dfdd9f87bec46c0c19f23116  programme/defect_register.csv
-7fa8b3971a17c3e7d5eb1b7dc6c979652c9ddec6b4e879a5f059e1a62c0062af  programme/evidence_register.csv
+198b3ab489c06c696af7c958ffd81f0eb7b1bdd9a8c40748774a407bcf5cdeff  programme/evidence_register.csv
 6426d6e3777e32f2667d10c9a4b1b09d59b594582da25b84f93f1f01ddf20a89  programme/exception_register.csv
 478dd535cc84c6e92bdb830821a816ddcd175d306073f31f5e74bf4430e87c7a  programme/gate_decisions.csv
 f6c8047f7cb936f82f30fdff3644534c38c0c7c5d77fa89d9e2db0cfac4f69fb  programme/maturity_assessment.csv

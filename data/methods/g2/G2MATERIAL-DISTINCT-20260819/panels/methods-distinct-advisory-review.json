@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2MATERIAL-DISTINCT-METHODS-REVIEW-20260819",
+  "packet_id": "G2MATERIAL-DISTINCT-METHOD-PROPOSAL@d738fb3e145b95fb88dcbb6f01c86d6041a03045c7a243f3b321271626139d80",
+  "packet_sha256": "d738fb3e145b95fb88dcbb6f01c86d6041a03045c7a243f3b321271626139d80",
+  "role": "methods_panel_reviewer_for_materially_distinct_g2_method",
+  "agent_session_id": "/root/manual-compile",
+  "tool_or_model": "OpenAI Codex",
+  "tool_or_model_version": "gpt-5",
+  "generated_at": "2026-08-19T00:00:00Z",
+  "evidence_inputs": [
+    {
+      "path": "docs/methods/g2-material-distinct-method-proposal-2026-08-18.md",
+      "sha256": "d738fb3e145b95fb88dcbb6f01c86d6041a03045c7a243f3b321271626139d80"
+    },
+    {
+      "path": "docs/governance/g2-cumulative-exposure-stop-owner-decision-packet-2026-08-16.md",
+      "sha256": "c6c98e58b28001266693b76fed9b4fb42474209ed8714bf8b9d705f50679b641"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json",
+      "sha256": "e43628df4592ab3386ad811d0871532d2fe40e6af7f169455994447572b8242d"
+    }
+  ],
+  "verdict": "conditional",
+  "findings": [
+    {
+      "finding_id": "METHODS_DISTINCT_SCOPE_CLEAREST",
+      "severity": "info",
+      "claim": "The method proposal defines a non-search, publication-manifest-first route with deterministic planning constraints and explicitly prohibits network/source access during preparation.",
+      "evidence_references": [
+        {
+          "path": "docs/methods/g2-material-distinct-method-proposal-2026-08-18.md",
+          "sha256": "d738fb3e145b95fb88dcbb6f01c86d6041a03045c7a243f3b321271626139d80"
+        }
+      ],
+      "uncertainty": "No concrete manifest execution has been run yet, so reproducibility remains at the design stage only.",
+      "remediation": "Keep this phase repository-only and require a separate owner authorization packet before any network activity."
+    },
+    {
+      "finding_id": "METHODS_DISTINCT_EXPOSURE_GUARD",
+      "severity": "high",
+      "claim": "Stop history shows 672 cumulative denied URLs in the last predecessor lineage and documents a terminal overlap failure where 615 observed URLs are designated exposure; the proposal correctly treats reuse as forbidden.",
+      "evidence_references": [
+        {
+          "path": "docs/governance/g2-cumulative-exposure-stop-owner-decision-packet-2026-08-16.md",
+          "sha256": "c6c98e58b28001266693b76fed9b4fb42474209ed8714bf8b9d705f50679b641"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json",
+          "sha256": "e43628df4592ab3386ad811d0871532d2fe40e6af7f169455994447572b8242d"
+        }
+      ],
+      "uncertainty": "This finding is bounded by local cumulative lineage artifacts and does not estimate true global universe overlap.",
+      "remediation": "Do not construct proposal execution frames that draw from previously denied candidates; treat exposure ledger extension as append-only evidence."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "OPTION_A_OFFICIAL_PUBLICATION_MANIFEST_ROUTE",
+      "description": "Use official publication manifests or public indexes as the single upstream source for candidate acquisition planning.",
+      "trade_offs": [
+        "Lower semantic risk than broad crawling because only official disclosure surfaces are consumed.",
+        "Can be materially distinct from prior query-search rediscovery if manifest corpus is sufficiently authoritative and fixed."
+      ],
+      "limitations": [
+        "Depends on host/index completeness and stable section semantics.",
+        "Manifest quality can block progress without additional legal or source-specific work."
+      ],
+      "contingency": "Pause and return to this workstream with an expanded manifest governance plan if fixed manifests cannot be produced deterministically."
+    },
+    {
+      "option_id": "OPTION_B_OFFICIAL_DIRECTORY_ROUTING",
+      "description": "Use bounded directory traversals under fixed official host/domain trees as the second method.",
+      "trade_offs": [
+        "Can discover candidate pages absent from formal manifests.",
+        "Maintains a second distinct route that avoids web search index dependence."
+      ],
+      "limitations": [
+        "Higher parser/structure variance and higher parser-failure risk.",
+        "More robust domain/path allowlisting needed."
+      ],
+      "contingency": "Only execute after full manifest failure and with updated stop rules and parent owner authorization."
+    }
+  ],
+  "recommendation": "Proceed with Option A as the primary materially distinct route for design freeze, because it is the least rediscovery-prone and most directly aligned to non-search constraints. Build a fixed manifest universe in repository-only form first, then request a separate exact owner authorization before any execution.",
+  "rationale": "Option A preserves the terminal exposure controls, minimizes adaptive reuse risk, and cleanly separates preparation from execution while keeping all prior cumulative-deny evidence intact.",
+  "conflicts": [
+    "The proposal remains design-only and cannot reduce G2 blockers by itself without fresh owner authorization and execution lineage."
+  ],
+  "abstentions": [
+    "No rights/privacy/security specialist review is performed here.",
+    "No source bytes were requested, opened, or extracted."
+  ],
+  "dissent": [],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

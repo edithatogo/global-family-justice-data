@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2MATERIAL-DISTINCT-OPS-EXPOSURE-REVIEW-20260819",
+  "packet_id": "G2MATERIAL-DISTINCT-METHOD-PROPOSAL@d738fb3e145b95fb88dcbb6f01c86d6041a03045c7a243f3b321271626139d80",
+  "packet_sha256": "d738fb3e145b95fb88dcbb6f01c86d6041a03045c7a243f3b321271626139d80",
+  "role": "operations_exposure_advisory_reviewer_for_distinct_g2_method",
+  "agent_session_id": "/root/manual-compile",
+  "tool_or_model": "OpenAI Codex",
+  "tool_or_model_version": "gpt-5",
+  "generated_at": "2026-08-19T00:00:00Z",
+  "evidence_inputs": [
+    {
+      "path": "docs/methods/g2-material-distinct-method-proposal-2026-08-18.md",
+      "sha256": "d738fb3e145b95fb88dcbb6f01c86d6041a03045c7a243f3b321271626139d80"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json",
+      "sha256": "e43628df4592ab3386ad811d0871532d2fe40e6af7f169455994447572b8242d"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/registrar-boundary-receipt.json",
+      "sha256": "b6a00ff96b75e30eebfe04c7d53b3d18c6af07bcc5ef2d0cdc777235719e31e6"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/execution-bundle.json",
+      "sha256": "0226bf316ae8f73d6cb82b20d27677837d83914e23968b8ca64b9d2ed404dad8"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/registrar-event-log.json",
+      "sha256": "a7e568c79d647463a116c93a8d62514dedb580fa0b7837711d3ef54ff38ae037"
+    }
+  ],
+  "verdict": "conditional",
+  "findings": [
+    {
+      "finding_id": "EXPOSURE_LINEAGE_APPEND_ONLY",
+      "severity": "info",
+      "claim": "Prior cumulative deny artifacts remain append-only and indicate that 615 URLs were observed in terminal lineage and must remain exposure unless separately re-authorized under a distinct method with a new frozen exposure lineage rule.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/execution-bundle.json",
+          "sha256": "0226bf316ae8f73d6cb82b20d27677837d83914e23968b8ca64b9d2ed404dad8"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/semantic-verification-stop-receipt.json",
+          "sha256": "78943c916cc7f8ba9b9a9fcfa1ca1b2836255b3ca4b7d1483a5469faa2788b07"
+        }
+      ],
+      "uncertainty": "Predecessor provenance and exposure traversal are only as complete as the documented chain and may not represent external source ecosystems outside this repository scope.",
+      "remediation": "Require full exposure-chain traversal for any future distinct method before candidate approval."
+    },
+    {
+      "finding_id": "EXPOSURE_NON_REUSE_REQUIRED",
+      "severity": "medium",
+      "claim": "No method route option is acceptable while still allowing reuse of any of the deniable or observed URLs, including the 96-row planning set and residual 82 observations from terminal stop evidence.",
+      "evidence_references": [
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json",
+          "sha256": "e43628df4592ab3386ad811d0871532d2fe40e6af7f169455994447572b8242d"
+        },
+        {
+          "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/registrar/semantic-verification-stop-receipt.json",
+          "sha256": "78943c916cc7f8ba9b9a9fcfa1ca1b2836255b3ca4b7d1483a5469faa2788b07"
+        }
+      ],
+      "uncertainty": "Exposure list is a strict project-control artifact and does not imply legal rights resolution.",
+      "remediation": "Bind any future manifest row to a post-exposure cumulative-chain check and reject any reused URL deterministically."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "OPS_OPTION_A_PREPARE_ONLY",
+      "description": "Perform repository-only manifest drafting, frame governance, and exposure checks, then pause for owner authorization.",
+      "trade_offs": ["Maintains strict fail-closed control posture.", "Delays any execution evidence for another short cycle."],
+      "limitations": ["No freshness checks against runtime changes in external sources."],
+      "contingency": "If manifest or traversal cannot be made deterministic, keep work in repository-only design form and return for revised plan."
+    },
+    {
+      "option_id": "OPS_OPTION_B_FALLBACK_TO_MANIFEST_ONLY",
+      "description": "Adopt official-manifest-only extraction of candidate rows and defer directory traversal until manifest success criteria are proven.",
+      "trade_offs": ["Strong reduction in accidental rediscovery risk", "May significantly shrink candidate universe."],
+      "limitations": ["Could produce sparse frames for some jurisdictions."],
+      "contingency": "If sparsity blocks threshold, request a revised owner decision with expanded contingency handling before execution."
+    }
+  ],
+  "recommendation": "Recommend Option A (prepare-only with cumulative-exposure gates) and defer any manifest crawl or directory traversal until a separate exact owner authorization is issued.",
+  "rationale": "The terminal overlap failure indicates that execution risk is currently dominated by exposure-compliance risk, so repository-only preparation is the only posture consistent with no-further-overlap policy.",
+  "conflicts": [
+    "This review does not assert any legal, rights, privacy, or independent quality assurance for future candidates."
+  ],
+  "abstentions": [
+    "No candidate traversal was executed in this review.",
+    "No network source-content access was performed."
+  ],
+  "dissent": [],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

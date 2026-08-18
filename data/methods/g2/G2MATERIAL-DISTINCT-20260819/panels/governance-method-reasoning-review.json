@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "report_id": "PANEL-G2MATERIAL-DISTINCT-GOVERNANCE-REVIEW-20260819",
+  "packet_id": "G2MATERIAL-DISTINCT-METHOD-PROPOSAL@d738fb3e145b95fb88dcbb6f01c86d6041a03045c7a243f3b321271626139d80",
+  "packet_sha256": "d738fb3e145b95fb88dcbb6f01c86d6041a03045c7a243f3b321271626139d80",
+  "role": "governance_panel_reviewer_for_distinct_g2_method",
+  "agent_session_id": "/root/manual-compile",
+  "tool_or_model": "OpenAI Codex",
+  "tool_or_model_version": "gpt-5",
+  "generated_at": "2026-08-19T00:00:00Z",
+  "evidence_inputs": [
+    {
+      "path": "docs/methods/g2-material-distinct-method-proposal-2026-08-18.md",
+      "sha256": "d738fb3e145b95fb88dcbb6f01c86d6041a03045c7a243f3b321271626139d80"
+    },
+    {
+      "path": "docs/governance/g2-successor-overlap-stop-owner-decision-packet-2026-08-16.md",
+      "sha256": "7a96b2bf14efcb441be2db44e9fae429d09647081018ff3d53c474a005ebd213"
+    },
+    {
+      "path": "docs/governance/g2-overlap-successor-execution-owner-decision-packet-2026-08-16.md",
+      "sha256": "ab7a7ea0cd884b97c6494023a41883789391c488ee14d15f068b1d00b5e160a5"
+    }
+  ],
+  "verdict": "conditional",
+  "findings": [
+    {
+      "finding_id": "GOVERNANCE_STOP_CONDITION_ALREADY_AUTHORIZED",
+      "severity": "info",
+      "claim": "Repository owner decisions already authorized repository-only preparation and paused search-based blind-holdout discovery; no new authority was granted for networked execution in this phase.",
+      "evidence_references": [
+        {
+          "path": "docs/governance/g2-cumulative-exposure-stop-owner-decision-packet-2026-08-16.md",
+          "sha256": "c6c98e58b28001266693b76fed9b4fb42474209ed8714bf8b9d705f50679b641"
+        },
+        {
+          "path": "docs/governance/g2-successor-overlap-stop-owner-decision-packet-2026-08-16.md",
+          "sha256": "7a96b2bf14efcb441be2db44e9fae429d09647081018ff3d53c474a005ebd213"
+        }
+      ],
+      "uncertainty": "The approval scope is explicit but project policy documents may be superseded only by future owner decisions.",
+      "remediation": "Do not execute a distinct method without a new exact owner decision and authority receipt."
+    },
+    {
+      "finding_id": "GOVERNANCE_CONTROLS_DISTINCTION",
+      "severity": "high",
+      "claim": "The current proposal correctly keeps non-search evidence acquisition distinct and introduces role-separated panel requirements, but this remains preparatory and must not be reinterpreted as an independent rights/security/legal gate.",
+      "evidence_references": [
+        {
+          "path": "docs/methods/g2-material-distinct-method-proposal-2026-08-18.md",
+          "sha256": "d738fb3e145b95fb88dcbb6f01c86d6041a03045c7a243f3b321271626139d80"
+        },
+        {
+          "path": "docs/governance/g2-overlap-successor-execution-owner-decision-packet-2026-08-16.md",
+          "sha256": "ab7a7ea0cd884b97c6494023a41883789391c488ee14d15f068b1d00b5e160a5"
+        }
+      ],
+      "uncertainty": "No specialist assurance claims can be inferred from advisory-panel outputs.",
+      "remediation": "Retain explicit advisory-boundary language in downstream packets and avoid treating this as gate completion."
+    }
+  ],
+  "options": [
+    {
+      "option_id": "GOV_OPTION_A_RELATED_OWNER_DECISION",
+      "description": "Issue a narrow owner decision for the fixed proposal package, including exact method path, frame size, stop rules, and resources.",
+      "trade_offs": ["Advances the workstream cleanly", "Requires one bounded approval record"],
+      "limitations": ["No execution effect until separately authorized."],
+      "contingency": "If approval cadence changes or additional governance constraints appear, rescope and reauthorize without reusing observations."
+    },
+    {
+      "option_id": "GOV_OPTION_B_DEFER_EARLIER",
+      "description": "Defer all preparation pending additional gate clearance in tracks G1-G6.",
+      "trade_offs": ["No additional exposure risk", "Keeps method design clean"],
+      "limitations": ["Leaves G2 gap unresolved longer."],
+      "contingency": "Resume preparation when gate dependencies are materially reduced."
+    }
+  ],
+  "recommendation": "Recommend Option A: keep the work in repository-only preparation with role-separated advisory evidence; then publish exact owner authorization wording for the distinct method plan only after fixed dependencies and controls are finalized.",
+  "rationale": "Governance posture is already permissive only for preparation and explicit pause; moving to execution now would violate existing stop and authorization constraints.",
+  "conflicts": [
+    "No conflict resolution is performed here for rights/privacy/security or specialist assurance because this stage is pre-network design.",
+    "Owner authority and evidence chain remains required before any external action."
+  ],
+  "abstentions": [
+    "This advisory review does not validate legal rights or informed-consent implications.",
+    "No live candidate source contact is made in this stage."
+  ],
+  "dissent": [
+    "No dissent on the need to keep this phase advisory and paused."
+  ],
+  "authority_boundary": "advisory_only_no_gate_rights_legal_or_release_authority"
+}

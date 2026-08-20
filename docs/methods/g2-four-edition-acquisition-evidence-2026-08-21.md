@@ -17,7 +17,7 @@ documents the resulting local inputs without publishing source bytes.
 | --- | --- | --- | --- |
 | DataJud TJSP API | JSON, 884 bytes | `f475ae52b31f0e9a509de1be1d312bb946f4f57944717d0bda5d68d1f59df2fe` | `hits.hits` was empty; 20 `case_classes` aggregation buckets only. |
 | England and Wales Family Court tables | ODS, 990,297 bytes | `3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2` | Valid ODS container with five members. |
-| Family Court Public Law Visualisation Tool | HTML entry document, 32,569 bytes | `52d356701a10ac6519da61d82ecf3f0cb0e04921597f19a4df6fe721687ac63f` | Exact Power BI entry document captured; no rendered visual or value extraction claimed. |
+| Family Court Public Law Visualisation Tool | HTML entry document, 32,569 bytes | `52d356701a10ac6519da61d82ecf3f0cb0e04921597f19a4df6fe721687ac63f` | Exact Power BI entry document captured and rendered on 2026-08-21. The aggregate volumes view was available with annual/quarterly/monthly period control and a 2011–March 2026 visible range. |
 | FCFCOA annual report 2024–25 | PDF, 13,442,996 bytes | `e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9` | 340-page, unencrypted PDF. |
 
 The first DataJud key-discovery attempt is preserved as a local receipt; it
@@ -28,7 +28,9 @@ API response invariant rejects any non-empty hit list.
 ## Status
 
 This is factual, hash-bound acquisition evidence for a known-source pilot.
-It is not a rendered dashboard capture, extraction, re-extraction,
-methods adjudication, rights determination, publication, release, or G2
-passage. Source conditions remain recorded as information under the owner
-direction and do not stop this bounded work.
+It is not a formal extraction, re-extraction, methods adjudication, rights
+determination, publication, release, or G2 passage. The dashboard observation
+establishes that the exact app is renderable and aggregate-only at the visible
+view; it does not freeze a visual export or promote a selected value. Source
+conditions remain recorded as information under the owner direction and do not
+stop this bounded work.

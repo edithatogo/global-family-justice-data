@@ -35,7 +35,17 @@
       "content_type": "text/html; charset=utf-8",
       "processing": {
         "document_title": "Microsoft Power BI",
-        "rendered_dashboard_capture": false
+        "rendered_dashboard_capture": true,
+        "rendered_at": "2026-08-21",
+        "report_title": "Family Court Public Law (Children Act) Data Visualisation Tool",
+        "aggregate_view": "Public Law Volumes by region and designated family judge area in England and Wales - January 2011 to March 2026",
+        "visible_filters": {
+          "type": "Orders applied for",
+          "period": "Annually",
+          "start_date": "01/01/2011",
+          "end_date": "01/03/2026",
+          "region_dfj": "All"
+        }
       }
     },
     {

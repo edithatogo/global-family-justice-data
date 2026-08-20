@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_material_distinct_preparation_receipt.schema.json",
+  "title": "G2 materially distinct no-network preparation receipt",
+  "type": "object",
+  "required": ["schema_version", "receipt_id", "plan_sha256", "frame_sha256", "source_register", "exposure_ledger", "owner_decision", "candidate_count", "rejected_count", "scope_complete", "network_access_performed", "source_content_accessed", "external_contact_performed", "outcome"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "receipt_id": {"const": "G2MATERIAL-DISTINCT-20260820-01-PREPARATION-RECEIPT"},
+    "plan_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "frame_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source_register": {"$ref": "#/$defs/descriptor"}, "exposure_ledger": {"$ref": "#/$defs/descriptor"}, "owner_decision": {"$ref": "#/$defs/descriptor"},
+    "candidate_count": {"const": 0}, "rejected_count": {"const": 20}, "scope_complete": {"const": false},
+    "network_access_performed": {"const": false}, "source_content_accessed": {"const": false}, "external_contact_performed": {"const": false},
+    "outcome": {"const": "stopped_insufficient_repository_metadata"}
+  },
+  "$defs": {"descriptor": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "pattern": "^(?!/)(?!.*\\.\\.)[^\\x00]+$"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

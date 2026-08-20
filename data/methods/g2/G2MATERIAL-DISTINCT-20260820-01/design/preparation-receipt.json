@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "G2MATERIAL-DISTINCT-20260820-01-PREPARATION-RECEIPT",
+  "plan_sha256": "4eebad32ee8f6175a949fd5a2d27bfe29402cdc9c5879b676b02fd228d41d8fa",
+  "frame_sha256": "ef012e94dddfc37820b17301eaa423f4dc0dbd3a64c139e55cf902c6850178b3",
+  "source_register": {
+    "path": "data/seed/source_register.csv",
+    "sha256": "16023b6b560c141bb81be13b23f061481aa5b598ead7a24db4cff1f327c9fa4e"
+  },
+  "exposure_ledger": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json",
+    "sha256": "e43628df4592ab3386ad811d0871532d2fe40e6af7f169455994447572b8242d"
+  },
+  "owner_decision": {
+    "path": "docs/governance/g2-material-distinct-option-a-owner-decision-2026-08-20.md",
+    "sha256": "1be90c4b2e376e09c34b6ea08aceed47308ed6965b9303508d6b51415779fe00"
+  },
+  "candidate_count": 0,
+  "rejected_count": 20,
+  "scope_complete": false,
+  "network_access_performed": false,
+  "source_content_accessed": false,
+  "external_contact_performed": false,
+  "outcome": "stopped_insufficient_repository_metadata"
+}

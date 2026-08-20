@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_material_distinct_plan.schema.json",
+  "title": "G2 materially distinct no-network preparation plan",
+  "type": "object",
+  "required": ["schema_version", "plan_id", "status", "method", "target_candidate_count", "source_register", "exposure_ledger", "owner_decision", "complete_predecessor_chain", "controls", "stopping_rules", "resource_estimate"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "plan_id": {"const": "G2MATERIAL-DISTINCT-20260820-01"},
+    "status": {"const": "prepared_no_network"},
+    "method": {"const": "official_publication_manifest_route"},
+    "target_candidate_count": {"const": 96},
+    "source_register": {"$ref": "#/$defs/descriptor"},
+    "exposure_ledger": {"$ref": "#/$defs/descriptor"},
+    "owner_decision": {"$ref": "#/$defs/descriptor"},
+    "complete_predecessor_chain": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/descriptor"}},
+    "controls": {"type": "object", "required": ["complete_exposure_chain_required", "candidate_url_must_not_overlap", "network_access_authorized", "url_access_authorized", "source_content_accessed", "extraction_authorized", "rights_acceptance_authorized", "publication_authorized", "release_authorized", "g2_passage_authorized"], "properties": {"complete_exposure_chain_required": {"const": true}, "candidate_url_must_not_overlap": {"const": true}, "network_access_authorized": {"const": false}, "url_access_authorized": {"const": false}, "source_content_accessed": {"const": false}, "extraction_authorized": {"const": false}, "rights_acceptance_authorized": {"const": false}, "publication_authorized": {"const": false}, "release_authorized": {"const": false}, "g2_passage_authorized": {"const": false}}, "additionalProperties": false},
+    "stopping_rules": {"type": "array", "minItems": 4, "items": {"type": "string", "minLength": 1}},
+    "resource_estimate": {"type": "object", "required": ["repository_metadata_rows", "network_requests", "source_content_accesses", "external_contacts"], "properties": {"repository_metadata_rows": {"type": "integer", "minimum": 0}, "network_requests": {"const": 0}, "source_content_accesses": {"const": 0}, "external_contacts": {"const": 0}}, "additionalProperties": false}
+  },
+  "$defs": {"descriptor": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "pattern": "^(?!/)(?!.*\\.\\.)[^\\x00]+$"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

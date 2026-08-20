@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_material_distinct_candidate_frame.schema.json",
+  "title": "G2 materially distinct candidate-frame result",
+  "type": "object",
+  "required": ["schema_version", "frame_id", "plan_id", "status", "target_candidate_count", "candidate_count", "rejected_count", "scope_complete", "metadata_only", "source_content_accessed", "network_access_performed", "cumulative_exposure_url_count", "candidates", "rejections", "limitations", "next_owner_checkpoint"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "frame_id": {"const": "G2MATERIAL-DISTINCT-20260820-01-OFFICIAL-PUBLICATION-MANIFEST-FRAME"},
+    "plan_id": {"const": "G2MATERIAL-DISTINCT-20260820-01"},
+    "status": {"const": "stopped_insufficient_repository_metadata"},
+    "target_candidate_count": {"const": 96},
+    "candidate_count": {"const": 0},
+    "rejected_count": {"const": 20},
+    "scope_complete": {"const": false},
+    "metadata_only": {"const": true},
+    "source_content_accessed": {"const": false},
+    "network_access_performed": {"const": false},
+    "cumulative_exposure_url_count": {"const": 672},
+    "candidates": {"type": "array", "maxItems": 0},
+    "rejections": {"type": "array", "minItems": 20, "maxItems": 20, "items": {"type": "object", "required": ["source_id", "jurisdiction_id", "publisher", "source_url", "reason_code"], "properties": {"source_id": {"type": "string"}, "jurisdiction_id": {"type": "string"}, "publisher": {"type": "string"}, "source_url": {"type": "string", "pattern": "^https://"}, "reason_code": {"const": "CUMULATIVE_EXPOSURE_OVERLAP"}}, "additionalProperties": false}},
+    "limitations": {"type": "array", "minItems": 3, "items": {"type": "string", "minLength": 1}},
+    "next_owner_checkpoint": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

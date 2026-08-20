@@ -148,6 +148,21 @@
     },
     {
       "kind": "json_schema",
+      "path": "schemas/g2_material_distinct_candidate_frame.schema.json",
+      "sha256": "de50c1a382f05e69c05b07c4df2d28bcc8e5f87a611d0b565ec841b2fcc72490"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_material_distinct_plan.schema.json",
+      "sha256": "195197576353a94437a08c8cf6c0e0ca6406a9f83089854b30cce1f9f9be6362"
+    },
+    {
+      "kind": "json_schema",
+      "path": "schemas/g2_material_distinct_preparation_receipt.schema.json",
+      "sha256": "ed188b43685236abd3b79bc124484c26e524a92f1c5b2257bc18516336e5e53d"
+    },
+    {
+      "kind": "json_schema",
       "path": "schemas/g2_merged_eligibility_receipt.schema.json",
       "sha256": "36a4ec2f12bb245baccfc07d1ac61c954a40e694aa8c0d320e37b492a9dc0d19"
     },
@@ -452,8 +467,8 @@
       "sha256": "04703e491a1b7c5d18e35c2903dd773d17bf4d9a732abbdf02625f56d0f6ed97"
     }
   ],
-  "entry_count": 90,
-  "inventory_sha256": "8e1f491a24855eaa8c828f08ca2565b55fcf893f5c4e79bfbdbcd62b734108a3",
+  "entry_count": 93,
+  "inventory_sha256": "bb8eed47780b67026de9b42aebf4e72eeb65b55889c17820ff958e9834860138",
   "project_id": "GFJD",
   "schema_version": "1.0"
 }

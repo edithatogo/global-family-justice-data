@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/data/methods/g2/G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01/schemas/g2_evidence_campaign_preparation_receipt.schema.json",
+  "title": "G2 evidence campaign repository-only preparation receipt",
+  "type": "object",
+  "required": ["schema_version", "receipt_id", "protocol_sha256", "material_distinct_frame", "material_distinct_receipt", "candidate_manifest_available", "external_activity_authorized", "source_content_accessed", "outcome"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "receipt_id": {"const": "G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01-PREPARATION-RECEIPT"},
+    "protocol_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "material_distinct_frame": {"$ref": "#/$defs/descriptor"},
+    "material_distinct_receipt": {"$ref": "#/$defs/descriptor"},
+    "candidate_manifest_available": {"const": false},
+    "external_activity_authorized": {"const": false},
+    "source_content_accessed": {"const": false},
+    "outcome": {"const": "blocked_no_unexposed_candidate_manifest"}
+  },
+  "$defs": {"descriptor": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "pattern": "^(?!/)(?!.*\\.\\.)[^\\x00]+$"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

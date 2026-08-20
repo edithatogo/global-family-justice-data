@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "intake_id": "G2-CANDIDATE-INTAKE-REAL-PILOT-20260821-01",
+  "metadata_only": true,
+  "network_access_performed": false,
+  "source_content_accessed": false,
+  "candidates": [
+    {
+      "candidate_id": "G2-API-BRA-TJSP-2026",
+      "jurisdiction_id": "BRA-SP",
+      "publisher": "Conselho Nacional de Justiça",
+      "title": "DataJud Public API — Tribunal de Justiça de São Paulo endpoint",
+      "source_series_id": "BRA-CNJ-DATAJUD-API",
+      "edition_label": "prospective dated query snapshot",
+      "proposed_url": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsp/_search",
+      "official_status_claim": "official",
+      "source_format_claim": "other",
+      "language": "Portuguese"
+    },
+    {
+      "candidate_id": "G2-ODS-GBR-EAW-2026Q1",
+      "jurisdiction_id": "GBR-EAW",
+      "publisher": "Ministry of Justice",
+      "title": "Family Court Tables: January to March 2026",
+      "source_series_id": "GBR-EAW-MOJ-FAMILY-Q",
+      "edition_label": "2026 Q1 ODS tables",
+      "proposed_url": "https://assets.publishing.service.gov.uk/media/6a3b9c9230b491f55b3c482e/Family_Court_Tables__Jan-Mar_2026_.ods",
+      "official_status_claim": "official",
+      "source_format_claim": "other",
+      "language": "English"
+    },
+    {
+      "candidate_id": "G2-DASH-GBR-EAW-2026Q1",
+      "jurisdiction_id": "GBR-EAW",
+      "publisher": "Ministry of Justice",
+      "title": "Family Court Public Law Visualisation Tool",
+      "source_series_id": "GBR-EAW-MOJ-FAMILY-PUBLIC-LAW-DASHBOARD",
+      "edition_label": "2026 Q1 linked dashboard state",
+      "proposed_url": "https://app.powerbi.com/view?r=eyJrIjoiYzgwOWFjN2UtNjhjMC00MWFlLTg1NTItM2U0ODNkMGQyMGI4IiwidCI6ImM2ODc0NzI4LTcxZTYtNDFmZS1hOWUxLTJlOGMzNjc3NmFkOCIsImMiOjh9",
+      "official_status_claim": "official",
+      "source_format_claim": "dashboard",
+      "language": "English"
+    },
+    {
+      "candidate_id": "G2-PDF-AUS-FCFCOA-2024-25",
+      "jurisdiction_id": "AUS",
+      "publisher": "Federal Circuit and Family Court of Australia",
+      "title": "Federal Circuit and Family Court of Australia Annual Report 2024–25",
+      "source_series_id": "AUS-FCFCOA-AR",
+      "edition_label": "2024–25 PDF",
+      "proposed_url": "https://www.fcfcoa.gov.au/sites/default/files/2025-12/federal_circuit_and_family_court_of_australia_annual_reports_2024-25_v2_web.pdf",
+      "official_status_claim": "official",
+      "source_format_claim": "PDF",
+      "language": "English"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "plan_id": "G2-REAL-PILOT-ACQUISITION-20260821-01",
+  "candidate_intake": {
+    "path": "data/methods/g2/G2PROPOSED-REAL-PILOT-20260821-01/intake/candidate-intake.json",
+    "sha256": "d3ee890207b4a58d8b5808d43b78dbc0da47ea87eb46d5f0a304c26f96878ed5"
+  },
+  "owner_direction": {
+    "path": "docs/governance/g2-four-edition-acquisition-owner-direction-2026-08-21.md"
+  },
+  "public_output_boundary": "Source artefacts remain local acquisition inputs. This plan does not publish or redistribute them.",
+  "aggregate_only": true,
+  "acquisitions": [
+    {
+      "candidate_id": "G2-API-BRA-TJSP-2026",
+      "kind": "datajud_aggregate",
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsp/_search",
+      "method": "POST",
+      "content_type": "application/json",
+      "body": {
+        "size": 0,
+        "track_total_hits": false,
+        "query": {"match_all": {}},
+        "aggs": {
+          "case_classes": {
+            "terms": {"field": "classe.codigo", "size": 20}
+          }
+        }
+      },
+      "response_invariants": {
+        "hits_must_be_empty": true,
+        "aggregation_key": "case_classes"
+      }
+    },
+    {
+      "candidate_id": "G2-ODS-GBR-EAW-2026Q1",
+      "kind": "file",
+      "url": "https://assets.publishing.service.gov.uk/media/6a3b9c9230b491f55b3c482e/Family_Court_Tables__Jan-Mar_2026_.ods",
+      "expected_suffix": ".ods"
+    },
+    {
+      "candidate_id": "G2-DASH-GBR-EAW-2026Q1",
+      "kind": "dashboard_document",
+      "url": "https://app.powerbi.com/view?r=eyJrIjoiYzgwOWFjN2UtNjhjMC00MWFlLTg1NTItM2U0ODNkMGQyMGI4IiwidCI6ImM2ODc0NzI4LTcxZTYtNDFmZS1hOWUxLTJlOGMzNjc3NmFkOCIsImMiOjh9",
+      "expected_suffix": ".html",
+      "limitation": "This captures the exact dashboard entry document only; it does not claim a rendered visual, export, or extracted dashboard value."
+    },
+    {
+      "candidate_id": "G2-PDF-AUS-FCFCOA-2024-25",
+      "kind": "file",
+      "url": "https://www.fcfcoa.gov.au/sites/default/files/2025-12/federal_circuit_and_family_court_of_australia_annual_reports_2024-25_v2_web.pdf",
+      "expected_suffix": ".pdf"
+    }
+  ]
+}

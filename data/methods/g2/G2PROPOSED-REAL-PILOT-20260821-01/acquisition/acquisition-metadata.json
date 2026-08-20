@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "acquisition_id": "G2-REAL-PILOT-ACQUISITION-20260821-01",
+  "aggregate_only_verified": true,
+  "source_artefacts_published": false,
+  "records": [
+    {
+      "candidate_id": "G2-API-BRA-TJSP-2026",
+      "local_filename": "G2-API-BRA-TJSP-2026.json",
+      "sha256": "f475ae52b31f0e9a509de1be1d312bb946f4f57944717d0bda5d68d1f59df2fe",
+      "bytes": 884,
+      "http_status": 200,
+      "content_type": "application/json",
+      "processing": {
+        "hits_count": 0,
+        "aggregation_keys": ["case_classes"],
+        "aggregation_bucket_count": 20
+      }
+    },
+    {
+      "candidate_id": "G2-ODS-GBR-EAW-2026Q1",
+      "local_filename": "G2-ODS-GBR-EAW-2026Q1.ods",
+      "sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2",
+      "bytes": 990297,
+      "http_status": 200,
+      "content_type": "application/vnd.oasis.opendocument.spreadsheet",
+      "processing": {"container_members": 5}
+    },
+    {
+      "candidate_id": "G2-DASH-GBR-EAW-2026Q1",
+      "local_filename": "G2-DASH-GBR-EAW-2026Q1.html",
+      "sha256": "52d356701a10ac6519da61d82ecf3f0cb0e04921597f19a4df6fe721687ac63f",
+      "bytes": 32569,
+      "http_status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "processing": {
+        "document_title": "Microsoft Power BI",
+        "rendered_dashboard_capture": false
+      }
+    },
+    {
+      "candidate_id": "G2-PDF-AUS-FCFCOA-2024-25",
+      "local_filename": "G2-PDF-AUS-FCFCOA-2024-25.pdf",
+      "sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "bytes": 13442996,
+      "http_status": 200,
+      "content_type": "application/pdf",
+      "processing": {"pages": 340, "encrypted": false}
+    }
+  ]
+}

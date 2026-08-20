@@ -63,7 +63,7 @@
     },
     {
       "path": "config/contract_lock.json",
-      "sha256": "019cbe63b7e6033db256695d305833df09300ae8df1244d42c1c554689146929"
+      "sha256": "17cf3df1e0cb0af74e13e0a68ea12e06326e38dfaf5300f8524f1d2855628a26"
     },
     {
       "path": "schemas/g2_sealed_selection.schema.json",
@@ -213,7 +213,7 @@
         },
         {
           "path": "config/contract_lock.json",
-          "sha256": "019cbe63b7e6033db256695d305833df09300ae8df1244d42c1c554689146929"
+          "sha256": "17cf3df1e0cb0af74e13e0a68ea12e06326e38dfaf5300f8524f1d2855628a26"
         },
         {
           "path": "src/gfjd/tooling_cli.py",

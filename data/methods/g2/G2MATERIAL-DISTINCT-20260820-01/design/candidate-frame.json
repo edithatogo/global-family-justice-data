@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0",
+  "frame_id": "G2MATERIAL-DISTINCT-20260820-01-OFFICIAL-PUBLICATION-MANIFEST-FRAME",
+  "plan_id": "G2MATERIAL-DISTINCT-20260820-01",
+  "status": "stopped_insufficient_repository_metadata",
+  "target_candidate_count": 96,
+  "candidate_count": 0,
+  "rejected_count": 20,
+  "scope_complete": false,
+  "metadata_only": true,
+  "source_content_accessed": false,
+  "network_access_performed": false,
+  "cumulative_exposure_url_count": 672,
+  "candidates": [],
+  "rejections": [
+    {
+      "source_id": "AUS-FCFCOA-AR",
+      "jurisdiction_id": "AUS",
+      "publisher": "Federal Circuit and Family Court of Australia",
+      "source_url": "https://www.fcfcoa.gov.au/fcfcoa-annual-reports",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "BRA-CNJ-DATAJUD",
+      "jurisdiction_id": "BRA",
+      "publisher": "Conselho Nacional de Justiça",
+      "source_url": "https://datajud-wiki.cnj.jus.br/api-publica/",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "CAN-BC-PC-TTT",
+      "jurisdiction_id": "CAN-BC",
+      "publisher": "Provincial Court of British Columbia",
+      "source_url": "https://provincialcourt.bc.ca/about-court/reports-and-court-data",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "ESP-CGPJ-DURATION",
+      "jurisdiction_id": "ESP",
+      "publisher": "Consejo General del Poder Judicial",
+      "source_url": "https://www.poderjudicial.es/cgpj/es/Temas/Transparencia/Estimacion-de-los-tiempos-medios-de-duracion-de-los-procedimientos-judiciales/",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "GBR-EAW-MOJ-FAMILY-Q",
+      "jurisdiction_id": "GBR-EAW",
+      "publisher": "Ministry of Justice, England and Wales",
+      "source_url": "https://www.gov.uk/government/collections/family-court-statistics-quarterly",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "GBR-EAW-NUFFIELD-DT",
+      "jurisdiction_id": "GBR-EAW",
+      "publisher": "Nuffield Family Justice Observatory",
+      "source_url": "https://www.nuffieldfjo.org.uk/data-tracker",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "IND-NJDG",
+      "jurisdiction_id": "IND",
+      "publisher": "Department of Justice / eCourts, India",
+      "source_url": "https://njdg.ecourts.gov.in/",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "INT-CEPEJ-2024",
+      "jurisdiction_id": "INT",
+      "publisher": "Council of Europe CEPEJ",
+      "source_url": "https://www.coe.int/en/web/cepej/special-file",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "INT-CEPEJ-STAT",
+      "jurisdiction_id": "INT",
+      "publisher": "Council of Europe CEPEJ",
+      "source_url": "https://www.coe.int/en/web/cepej/cepej-stat",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "INT-HCCH-CA",
+      "jurisdiction_id": "INT",
+      "publisher": "Hague Conference on Private International Law",
+      "source_url": "https://www.hcch.net/en/instruments/conventions/specialised-sections/child-abduction",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "INT-NCSC-COURTOOLS",
+      "jurisdiction_id": "INT",
+      "publisher": "National Center for State Courts",
+      "source_url": "https://www.ncsc.org/our-centers-projects/courtools",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "INT-NCSC-FAMILY",
+      "jurisdiction_id": "INT",
+      "publisher": "National Center for State Courts",
+      "source_url": "https://www.ncsc.org/resources-courts/family-justice-performance-measures",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "INT-WJP-A2J",
+      "jurisdiction_id": "INT",
+      "publisher": "World Justice Project",
+      "source_url": "https://worldjusticeproject.org/access-to-justice-data/",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "MEX-INEGI-CNIJE",
+      "jurisdiction_id": "MEX",
+      "publisher": "INEGI",
+      "source_url": "https://www.inegi.org.mx/programas/cnije/2025/",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "NZL-MOJ-RESEARCH-DATA",
+      "jurisdiction_id": "NZL",
+      "publisher": "New Zealand Ministry of Justice",
+      "source_url": "https://www.justice.govt.nz/justice-sector-policy/research-data/",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "SGP-JUD-STATS",
+      "jurisdiction_id": "SGP",
+      "publisher": "Singapore Judiciary",
+      "source_url": "https://www.judiciary.gov.sg/who-we-are/statistics",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "SWE-DOMSTOLSVERKET",
+      "jurisdiction_id": "SWE",
+      "publisher": "Swedish National Courts Administration",
+      "source_url": "https://www.domstol.se/domstolsverket/om-sveriges-domstolar/statistik-styrning-och-utveckling/statistik/officiell-domstolsstatistik/",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "USA-CA-JCC-CSR",
+      "jurisdiction_id": "USA-CA",
+      "publisher": "Judicial Council of California",
+      "source_url": "https://courts.ca.gov/news-reference/research-data/court-statistics",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "USA-MN-MJB",
+      "jurisdiction_id": "USA-MN",
+      "publisher": "Minnesota Judicial Branch",
+      "source_url": "https://www.mncourts.gov/dashboards",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    },
+    {
+      "source_id": "ZAF-JUD-ANNUAL",
+      "jurisdiction_id": "ZAF",
+      "publisher": "South African Judiciary / Office of the Chief Justice",
+      "source_url": "https://www.judiciary.org.za/",
+      "reason_code": "CUMULATIVE_EXPOSURE_OVERLAP"
+    }
+  ],
+  "limitations": [
+    "All checked-in source-register URLs overlap the complete cumulative exposure chain.",
+    "The checked-in source register contains fewer rows than the fixed 96-candidate target.",
+    "No external publication-manifest enumeration was authorized or performed."
+  ],
+  "next_owner_checkpoint": "Authorize only after an exact new candidate manifest, controls, stopping rules, resource estimate, and execution packet are presented."
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "intake_id": "G2-CANDIDATE-INTAKE-REAL-PILOT-20260821-01",
+  "status": "prepared_metadata_only",
+  "intake": {
+    "path": "data/methods/g2/G2PROPOSED-REAL-PILOT-20260821-01/intake/candidate-intake.json",
+    "sha256": "d3ee890207b4a58d8b5808d43b78dbc0da47ea87eb46d5f0a304c26f96878ed5"
+  },
+  "exposure_ledger": {
+    "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json",
+    "sha256": "e43628df4592ab3386ad811d0871532d2fe40e6af7f169455994447572b8242d"
+  },
+  "complete_predecessor_chain": [
+    {
+      "path": "data/methods/g2/G2HOLDOUT-STRUCTURAL-PREFLIGHT-20260815-01/url-resolution/exposure-ledger.json",
+      "sha256": "1cd2ce0fc633b43e5ebf95635c5518e0dd974192378121d49b25d7d9bb29b9b3"
+    },
+    {
+      "path": "data/methods/g2/G2HOLDOUT-PROSPECTIVE-20260815-01/intake/exposure-ledger.json",
+      "sha256": "44cb2c2671000751daa340eceabac9ccfe452132a4c91e3e393e3740aaef0492"
+    }
+  ],
+  "candidate_count": 4,
+  "eligible_for_future_screen_count": 4,
+  "external_activity_authorized": false,
+  "source_content_accessed": false,
+  "rejections": [],
+  "limitations": [
+    "This is a metadata-only screening result and does not verify a publisher, edition, or URL.",
+    "The screening compares only with the predecessor exposure chain; it is not a project-unseen determination for locations observed while preparing this intake.",
+    "No source-specific rights, privacy, security, or disclosure assessment was performed.",
+    "External access still requires the single grouped campaign authorization."
+  ]
+}

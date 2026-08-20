@@ -1,5 +1,10 @@
 # Decision record
 
+Use this record only for a material owner choice or an action outside the
+standing owner direction. Routine repository implementation, tests, evidence
+indexing, advisory panels, fail-closed stops and validated pull-request merges
+belong in their normal evidence or implementation records instead.
+
 - Decision ID:
 - Title:
 - Status: proposed / accepted / superseded / rejected

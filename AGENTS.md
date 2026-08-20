@@ -13,3 +13,25 @@ Codex reads this file before doing any work in the repository.
 9. The programme conductor governs evidence and release authority; a passing technical workflow cannot certify a programme gate.
 10. Before ending a work session, rerun relevant checks, commit coherent completed work, and update `IMPLEMENTATION_STATUS.md` or a clearly identified continuation ledger.
 11. For single-maintainer autonomous work, build `build/autonomy/autonomy-context.md`, use `autonomy-fast` during iteration, and run `autonomy-full` at phase closeout. Treat its external-boundary list as fail-closed.
+
+## Standing owner direction and proportional decisions
+
+The repository owner is the sole accountable decision-maker. Their standing
+direction authorizes repository-owned implementation, tests, validation,
+documentation, evidence indexing, role-separated agent-panel advice, private
+fail-closed outcomes, Git commits, pull requests, merges and routine branch or
+worktree cleanup. Do not create or request a new owner-decision packet merely
+because a routine artifact digest, test result or advisory report changes.
+
+Ask for one concise, grouped owner decision only when the proposed action is
+outside that standing direction: an external request or contact not already
+authorized; source-content or file access not already authorized; acceptance of
+terms, expenditure or credentials; any public publication, deployment, signing
+or release; destructive data removal; a material scope or risk-policy change;
+or gate acceptance, waiver, rights clearance or residual-risk adjudication.
+
+For an already authorized bounded activity, continue until it completes or
+fails a declared stop rule. Record the resulting evidence and report the
+outcome; do not seek a fresh approval solely to retry routine repository work
+or to record a fail-closed stop. `docs/governance/standing-owner-direction-policy-2026-08-20.md`
+is the authoritative elaboration.

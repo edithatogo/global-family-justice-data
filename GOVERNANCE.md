@@ -32,6 +32,9 @@ Challenges the v1.0 evidence pack and provides a go/no-go recommendation. Assura
 
 ## 3. Decision rules
 
+- The sole-owner standing-direction policy governs routine repository work and
+  avoids per-artifact approval requests; see
+  `docs/governance/standing-owner-direction-policy-2026-08-20.md`.
 - Material method, architecture and scope changes require a versioned proposal, evidence, impact assessment and recorded decision.
 - Previously released values and artefacts are immutable; corrections create a new release and changelog record.
 - Funders and participating institutions may correct factual errors but do not control findings or conclusions.
@@ -79,16 +82,20 @@ Detailed roles and RACI are in `docs/governance/roles-and-raci.md`.
 ## 7. Single-maintainer operation
 
 A single repository maintainer may implement controls, assemble evidence, operate
-the harness and prepare decision records. That maintainer may not represent the
-same work as independently assured, appoint a deputy without that person's
-agreement, or sign both delivery and independent-assurance fields.
+the harness, prepare records and merge validated repository changes under the
+standing owner direction. That maintainer may not represent the same work as
+independently assured, appoint a deputy without that person's agreement, or
+sign both delivery and independent-assurance fields.
 
 Until governance bodies are constituted, repository work proceeds under a
 fail-closed interim model:
 
 - technical changes require tests, review tooling and checksum-bound evidence;
-- evidence prepared by the maintainer remains `in_review`;
-- approval fields remain blank until a genuine named reviewer acts;
+- evidence prepared by the maintainer remains `in_review` unless an existing
+  owner-decidable rule applies;
+- routine preparation, validation and fail-closed outcomes do not require a
+  new decision packet; the owner decides only the bounded exceptions in the
+  standing-direction policy;
 - publication and stable-release decisions remain blocked;
 - external review can be asynchronous and narrowly scoped to a fixed evidence
   digest, allowing one maintainer to continue unrelated repository work.

@@ -26,7 +26,7 @@
     },
     "required_before_external_activity": {
       "type": "array",
-      "const": ["digest_bound_non_exposed_candidate_manifest", "complete_cumulative_exposure_check", "bounded_resource_budget", "role_bound_access_controls", "source_specific_rights_privacy_security_screen", "single_grouped_owner_campaign_authorization"]
+      "const": ["digest_bound_non_exposed_candidate_manifest", "offline_candidate_intake_validation", "complete_cumulative_exposure_check", "bounded_resource_budget", "role_bound_access_controls", "source_specific_rights_privacy_security_screen", "single_grouped_owner_campaign_authorization"]
     },
     "future_authorization_model": {
       "type": "object",
@@ -34,7 +34,7 @@
       "properties": {
         "single_grouped_campaign_decision": {"const": true},
         "per_artifact_owner_decision_required": {"const": false},
-        "must_bind": {"type": "array", "const": ["candidate_manifest", "exposure_ledger", "access_controls", "resource_budget", "stopping_rules", "role_bundles"]}
+        "must_bind": {"type": "array", "const": ["candidate_manifest", "candidate_intake_screening", "exposure_ledger", "access_controls", "resource_budget", "stopping_rules", "role_bundles"]}
       },
       "additionalProperties": false
     },

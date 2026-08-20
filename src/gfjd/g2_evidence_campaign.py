@@ -25,6 +25,9 @@ STANDING_DIRECTION = Path("docs/governance/standing-owner-direction-policy-2026-
 MANIFEST = DESIGN / "EVIDENCE_CAMPAIGN_PROTOCOL_MANIFEST.sha256"
 PROTOCOL_SCHEMA = DESIGN.parent / "schemas/g2_evidence_campaign_protocol.schema.json"
 RECEIPT_SCHEMA = DESIGN.parent / "schemas/g2_evidence_campaign_preparation_receipt.schema.json"
+CANDIDATE_INTAKE_SCHEMA = (
+    DESIGN.parent / "schemas/g2_evidence_campaign_candidate_intake.schema.json"
+)
 
 
 def _sha(path: Path) -> str:
@@ -82,6 +85,7 @@ def build_evidence_campaign_protocol(root: Path) -> dict[str, dict[str, Any]]:
         },
         "required_before_external_activity": [
             "digest_bound_non_exposed_candidate_manifest",
+            "offline_candidate_intake_validation",
             "complete_cumulative_exposure_check",
             "bounded_resource_budget",
             "role_bound_access_controls",
@@ -93,6 +97,7 @@ def build_evidence_campaign_protocol(root: Path) -> dict[str, dict[str, Any]]:
             "per_artifact_owner_decision_required": False,
             "must_bind": [
                 "candidate_manifest",
+                "candidate_intake_screening",
                 "exposure_ledger",
                 "access_controls",
                 "resource_budget",
@@ -171,6 +176,7 @@ def write_evidence_campaign_protocol(root: Path) -> None:
         destination / "preparation-receipt.json",
         root / PROTOCOL_SCHEMA,
         root / RECEIPT_SCHEMA,
+        root / CANDIDATE_INTAKE_SCHEMA,
     ]
     (root / MANIFEST).write_text(
         "".join(f"{_sha(path)}  {path.relative_to(root).as_posix()}\n" for path in bound_paths),
@@ -215,6 +221,7 @@ def verify_evidence_campaign_protocol(root: Path) -> list[str]:
         (DESIGN / "preparation-receipt.json").as_posix(),
         PROTOCOL_SCHEMA.as_posix(),
         RECEIPT_SCHEMA.as_posix(),
+        CANDIDATE_INTAKE_SCHEMA.as_posix(),
     }
     try:
         entries = (root / MANIFEST).read_text(encoding="utf-8").splitlines()

@@ -24,6 +24,7 @@
   },
   "required_before_external_activity": [
     "digest_bound_non_exposed_candidate_manifest",
+    "offline_candidate_intake_validation",
     "complete_cumulative_exposure_check",
     "bounded_resource_budget",
     "role_bound_access_controls",
@@ -35,6 +36,7 @@
     "per_artifact_owner_decision_required": false,
     "must_bind": [
       "candidate_manifest",
+      "candidate_intake_screening",
       "exposure_ledger",
       "access_controls",
       "resource_budget",

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "receipt_id": "G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01-PREPARATION-RECEIPT",
-  "protocol_sha256": "981f59dfb1ccca3df7b277324698b3f6ff5aec62a49f8d372f90fdf220577123",
+  "protocol_sha256": "99b3cd1b0443a2e9cec1426b532a1dfe5c39a05ce9f723afcf8eb83a0ec94179",
   "material_distinct_frame": {
     "path": "data/methods/g2/G2MATERIAL-DISTINCT-20260820-01/design/candidate-frame.json",
     "sha256": "ef012e94dddfc37820b17301eaa423f4dc0dbd3a64c139e55cf902c6850178b3"

@@ -1,0 +1,318 @@
+{
+  "schema_version": "1.0",
+  "discovery_id": "G2OFFICIAL-MANIFEST-ROOT-DISCOVERY-20260821-01",
+  "executed_at": "2026-08-20T14:10:30.637717+00:00",
+  "source_register_sha256": "16023b6b560c141bb81be13b23f061481aa5b598ead7a24db4cff1f327c9fa4e",
+  "network_scope": {
+    "endpoint_count": 30,
+    "redirects_followed": false,
+    "registered_source_urls_requested": false,
+    "source_files_requested": false,
+    "source_content_persisted": false,
+    "outbound_contacts": false
+  },
+  "records": [
+    {
+      "host": "courts.ca.gov",
+      "endpoint": "https://courts.ca.gov/robots.txt",
+      "kind": "robots",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_read": 1918,
+      "response_sha256": "021172a754e1cccac56abb05ce901ba521e3e7d09e3a62063e69788830d4c2c2",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "courts.ca.gov",
+      "endpoint": "https://courts.ca.gov/sitemap.xml",
+      "kind": "sitemap",
+      "status": 200,
+      "content_type": "text/xml",
+      "bytes_read": 131073,
+      "response_sha256": "248d7a019d051594e21f68b49aac335742c2681cb59e6e2be3d6184c397e8508",
+      "oversize": true,
+      "redirected": false
+    },
+    {
+      "host": "datajud-wiki.cnj.jus.br",
+      "endpoint": "https://datajud-wiki.cnj.jus.br/robots.txt",
+      "kind": "robots",
+      "status": 404,
+      "error": "http_error",
+      "redirected": false
+    },
+    {
+      "host": "datajud-wiki.cnj.jus.br",
+      "endpoint": "https://datajud-wiki.cnj.jus.br/sitemap.xml",
+      "kind": "sitemap",
+      "status": 200,
+      "content_type": "text/xml",
+      "bytes_read": 6718,
+      "response_sha256": "c05c3cf3202d3d6df44e422cd412b6b420cf697181162fe5c3831e65ec559117",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "njdg.ecourts.gov.in",
+      "endpoint": "https://njdg.ecourts.gov.in/robots.txt",
+      "kind": "robots",
+      "status": 404,
+      "error": "http_error",
+      "redirected": false
+    },
+    {
+      "host": "njdg.ecourts.gov.in",
+      "endpoint": "https://njdg.ecourts.gov.in/sitemap.xml",
+      "kind": "sitemap",
+      "status": 404,
+      "error": "http_error",
+      "redirected": false
+    },
+    {
+      "host": "provincialcourt.bc.ca",
+      "endpoint": "https://provincialcourt.bc.ca/robots.txt",
+      "kind": "robots",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_read": 2100,
+      "response_sha256": "6df0fded4ce6c1a64394a719a11cf44c207b386159927b7c656ba3b66ea677b5",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "provincialcourt.bc.ca",
+      "endpoint": "https://provincialcourt.bc.ca/sitemap.xml",
+      "kind": "sitemap",
+      "status": 200,
+      "content_type": "application/xml",
+      "bytes_read": 93319,
+      "response_sha256": "820944f791d2b3cb382c80ef5b359a1436a511ecb3b0bebb5579f6bad8b0a796",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.coe.int",
+      "endpoint": "https://www.coe.int/robots.txt",
+      "kind": "robots",
+      "status": 403,
+      "error": "http_error",
+      "redirected": false
+    },
+    {
+      "host": "www.coe.int",
+      "endpoint": "https://www.coe.int/sitemap.xml",
+      "kind": "sitemap",
+      "status": 403,
+      "error": "http_error",
+      "redirected": false
+    },
+    {
+      "host": "www.domstol.se",
+      "endpoint": "https://www.domstol.se/robots.txt",
+      "kind": "robots",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_read": 67,
+      "response_sha256": "5e5bc71a8379fddfd084671833390cf108bc37a6ff42c4ce2bbcec1d2e68f57a",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.domstol.se",
+      "endpoint": "https://www.domstol.se/sitemap.xml",
+      "kind": "sitemap",
+      "status": 200,
+      "content_type": "text/xml",
+      "bytes_read": 131073,
+      "response_sha256": "89e96440442930d337856fe62fde6c7bd959a9a18a7289e746b46c61afc6962c",
+      "oversize": true,
+      "redirected": false
+    },
+    {
+      "host": "www.fcfcoa.gov.au",
+      "endpoint": "https://www.fcfcoa.gov.au/robots.txt",
+      "kind": "robots",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_read": 1783,
+      "response_sha256": "cf3566dca4d49630b647fe4a4902d6a4b30561ef3de8471e3b90b76c020255e9",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.fcfcoa.gov.au",
+      "endpoint": "https://www.fcfcoa.gov.au/sitemap.xml",
+      "kind": "sitemap",
+      "status": 200,
+      "content_type": "application/xml",
+      "bytes_read": 639,
+      "response_sha256": "f4ab8e8e091c231c7552b0d2b83bf9b1775a89e10a48cafbf764be3945eee38b",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.gov.uk",
+      "endpoint": "https://www.gov.uk/robots.txt",
+      "kind": "robots",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_read": 1097,
+      "response_sha256": "459835d29527b9c00f00f6af00f45c73a909af1944e81fefa153f585e1857305",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.gov.uk",
+      "endpoint": "https://www.gov.uk/sitemap.xml",
+      "kind": "sitemap",
+      "status": 200,
+      "content_type": "application/xml",
+      "bytes_read": 4733,
+      "response_sha256": "216b018911caa6894944a76403767da9371f9d22172a2668dd5a7215a1549297",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.hcch.net",
+      "endpoint": "https://www.hcch.net/robots.txt",
+      "kind": "robots",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_read": 322,
+      "response_sha256": "bfed1b4507bbaa3dd15def4439a27207f24e90f90ba09f94308dda90a50977e8",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.hcch.net",
+      "endpoint": "https://www.hcch.net/sitemap.xml",
+      "kind": "sitemap",
+      "status": 200,
+      "content_type": "text/xml",
+      "bytes_read": 742,
+      "response_sha256": "9e6fc21e281896ae9fec3b60c861997bb1417da64ec0b902012a734326cf7242",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.inegi.org.mx",
+      "endpoint": "https://www.inegi.org.mx/robots.txt",
+      "kind": "robots",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_read": 2657,
+      "response_sha256": "e1f9f6c0c34a838a1c7e881d693ba673fd4501b90fbd7a307b08a827c001a595",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.inegi.org.mx",
+      "endpoint": "https://www.inegi.org.mx/sitemap.xml",
+      "kind": "sitemap",
+      "status": 200,
+      "content_type": "text/xml",
+      "bytes_read": 242,
+      "response_sha256": "24297caf18335196aebb92502ce31e646912527b34344c6fc263cdd74a205843",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.judiciary.gov.sg",
+      "endpoint": "https://www.judiciary.gov.sg/robots.txt",
+      "kind": "robots",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_read": 76,
+      "response_sha256": "b14c75db7bc141323ac150307a3d35e514e37b0799cc21afb66c9e15601e472e",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.judiciary.gov.sg",
+      "endpoint": "https://www.judiciary.gov.sg/sitemap.xml",
+      "kind": "sitemap",
+      "status": 302,
+      "error": "http_error",
+      "redirected": true
+    },
+    {
+      "host": "www.judiciary.org.za",
+      "endpoint": "https://www.judiciary.org.za/robots.txt",
+      "kind": "robots",
+      "status": 404,
+      "error": "http_error",
+      "redirected": false
+    },
+    {
+      "host": "www.judiciary.org.za",
+      "endpoint": "https://www.judiciary.org.za/sitemap.xml",
+      "kind": "sitemap",
+      "status": 404,
+      "error": "http_error",
+      "redirected": false
+    },
+    {
+      "host": "www.justice.govt.nz",
+      "endpoint": "https://www.justice.govt.nz/robots.txt",
+      "kind": "robots",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_read": 121,
+      "response_sha256": "3babafa472dda6a11e25e91d0dac0148b0cc66e91dcf7498757d124898639685",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.justice.govt.nz",
+      "endpoint": "https://www.justice.govt.nz/sitemap.xml",
+      "kind": "sitemap",
+      "status": 200,
+      "content_type": "application/xml",
+      "bytes_read": 724,
+      "response_sha256": "b827ccc95be32faa9a16144231ec985edc4ac8e4ff8cded8531fa67afb9a26ea",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.mncourts.gov",
+      "endpoint": "https://www.mncourts.gov/robots.txt",
+      "kind": "robots",
+      "status": 301,
+      "error": "http_error",
+      "redirected": true
+    },
+    {
+      "host": "www.mncourts.gov",
+      "endpoint": "https://www.mncourts.gov/sitemap.xml",
+      "kind": "sitemap",
+      "status": 403,
+      "error": "http_error",
+      "redirected": false
+    },
+    {
+      "host": "www.poderjudicial.es",
+      "endpoint": "https://www.poderjudicial.es/robots.txt",
+      "kind": "robots",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_read": 2145,
+      "response_sha256": "df08f42045ecf03ea8836a702bac9e6126c91597dcdb2ae1360d09265b098a4a",
+      "oversize": false,
+      "redirected": false
+    },
+    {
+      "host": "www.poderjudicial.es",
+      "endpoint": "https://www.poderjudicial.es/sitemap.xml",
+      "kind": "sitemap",
+      "status": 404,
+      "error": "http_error",
+      "redirected": false
+    }
+  ],
+  "limitations": [
+    "Only standard host metadata endpoints were requested.",
+    "Response bodies were not persisted or interpreted as source evidence.",
+    "A successful endpoint is a locator hypothesis, not a source-rights or G2 finding."
+  ]
+}

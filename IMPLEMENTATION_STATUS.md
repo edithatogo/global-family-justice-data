@@ -38,7 +38,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | Sole-owner gate policy | The 2026-08-15 digest-bound decision supersedes multi-person assurance requirements: role-separated agents advise and verify, the sole owner decides, factual evidence remains mandatory, R20 remains a release hard no-go, and outbound contact/publication still requires separate authorization |
 | External authority-gate plan | Authority types, digest-bound evidence packets and permitted status transitions are defined for governance, methods, coverage/rights, product, security/legal, operations, participation and sustainability gates |
 | Programme gate resolution plan | G1–G6 are mapped to remaining evidence, recommended routes, contingencies, tracks and fail-closed promotion rules |
-| G2 evidence-campaign protocol | A deterministic, digest-bound campaign envelope is prepared from the exhausted material-distinct frame. It permits no external action, avoids per-artifact approval churn, and requires one future grouped authorization only after a genuinely non-exposed candidate manifest exists. |
+| G2 evidence-campaign protocol | A deterministic, digest-bound campaign envelope is prepared from the exhausted material-distinct frame. It permits no external action, avoids per-artifact approval churn, and requires one future grouped authorization only after a genuinely non-exposed candidate manifest exists. A no-network intake guard now rejects duplicated or already exposed proposed URLs before a campaign packet can be assembled. |
 
 ## Current programme state
 

@@ -55,6 +55,7 @@ def test_campaign_protocol_verifier_rejects_authorization_tampering(tmp_path: Pa
         "data/methods/g2/G2MATERIAL-DISTINCT-20260820-01/design/MATERIAL_DISTINCT_FRAME_MANIFEST.sha256",
         "data/methods/g2/G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01/schemas/g2_evidence_campaign_protocol.schema.json",
         "data/methods/g2/G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01/schemas/g2_evidence_campaign_preparation_receipt.schema.json",
+        "data/methods/g2/G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01/schemas/g2_evidence_campaign_candidate_intake.schema.json",
         "docs/governance/g2-material-distinct-option-a-owner-decision-2026-08-20.md",
         "docs/governance/standing-owner-direction-policy-2026-08-20.md",
     ):
@@ -99,6 +100,7 @@ def test_campaign_protocol_verifier_rejects_manifest_extra_artifact(tmp_path: Pa
         "data/methods/g2/G2MATERIAL-DISTINCT-20260820-01/design/MATERIAL_DISTINCT_FRAME_MANIFEST.sha256",
         "data/methods/g2/G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01/schemas/g2_evidence_campaign_protocol.schema.json",
         "data/methods/g2/G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01/schemas/g2_evidence_campaign_preparation_receipt.schema.json",
+        "data/methods/g2/G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01/schemas/g2_evidence_campaign_candidate_intake.schema.json",
         "docs/governance/g2-material-distinct-option-a-owner-decision-2026-08-20.md",
         "docs/governance/standing-owner-direction-policy-2026-08-20.md",
     ):

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/data/methods/g2/G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01/schemas/g2_evidence_campaign_candidate_intake.schema.json",
+  "title": "G2 offline candidate metadata intake",
+  "type": "object",
+  "required": ["schema_version", "intake_id", "metadata_only", "network_access_performed", "source_content_accessed", "candidates"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "intake_id": {"type": "string", "pattern": "^G2-CANDIDATE-INTAKE-[A-Z0-9-]+$"},
+    "metadata_only": {"const": true},
+    "network_access_performed": {"const": false},
+    "source_content_accessed": {"const": false},
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/candidate"}
+    }
+  },
+  "$defs": {
+    "candidate": {
+      "type": "object",
+      "required": ["candidate_id", "jurisdiction_id", "publisher", "title", "source_series_id", "edition_label", "proposed_url", "official_status_claim", "source_format_claim", "language"],
+      "properties": {
+        "candidate_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9-]{2,63}$"},
+        "jurisdiction_id": {"type": "string", "pattern": "^[A-Z0-9-]{2,32}$"},
+        "publisher": {"type": "string", "minLength": 1, "maxLength": 200},
+        "title": {"type": "string", "minLength": 1, "maxLength": 300},
+        "source_series_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9-]{2,127}$"},
+        "edition_label": {"type": "string", "minLength": 1, "maxLength": 100},
+        "proposed_url": {"type": "string", "pattern": "^https://", "format": "uri", "maxLength": 2048},
+        "official_status_claim": {"const": "official"},
+        "source_format_claim": {"enum": ["PDF", "HTML", "CSV", "XLSX", "dashboard", "database", "other"]},
+        "language": {"type": "string", "minLength": 1, "maxLength": 100}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "receipt_id": "G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01-PREPARATION-RECEIPT",
+  "protocol_sha256": "981f59dfb1ccca3df7b277324698b3f6ff5aec62a49f8d372f90fdf220577123",
+  "material_distinct_frame": {
+    "path": "data/methods/g2/G2MATERIAL-DISTINCT-20260820-01/design/candidate-frame.json",
+    "sha256": "ef012e94dddfc37820b17301eaa423f4dc0dbd3a64c139e55cf902c6850178b3"
+  },
+  "material_distinct_receipt": {
+    "path": "data/methods/g2/G2MATERIAL-DISTINCT-20260820-01/design/preparation-receipt.json",
+    "sha256": "8daf00ebd2c7b4d547703a41f8e0c4d355cff48476506e9e3bd537336584e18a"
+  },
+  "candidate_manifest_available": false,
+  "external_activity_authorized": false,
+  "source_content_accessed": false,
+  "outcome": "blocked_no_unexposed_candidate_manifest"
+}

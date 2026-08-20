@@ -1,7 +1,7 @@
 # Implementation status
 
 **Baseline:** `0.6.0-alpha.2`
-**Status date:** 2026-08-15
+**Status date:** 2026-08-20
 **Purpose:** distinguish executable engineering controls from international research and institutional evidence that remain to be completed.
 
 This repository is a bootstrap-ready engineering and programme-control baseline. It is not a completed international family-justice dataset and is not the stable v1.0 service.
@@ -38,6 +38,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | Sole-owner gate policy | The 2026-08-15 digest-bound decision supersedes multi-person assurance requirements: role-separated agents advise and verify, the sole owner decides, factual evidence remains mandatory, R20 remains a release hard no-go, and outbound contact/publication still requires separate authorization |
 | External authority-gate plan | Authority types, digest-bound evidence packets and permitted status transitions are defined for governance, methods, coverage/rights, product, security/legal, operations, participation and sustainability gates |
 | Programme gate resolution plan | G1–G6 are mapped to remaining evidence, recommended routes, contingencies, tracks and fail-closed promotion rules |
+| G2 evidence-campaign protocol | A deterministic, digest-bound campaign envelope is prepared from the exhausted material-distinct frame. It permits no external action, avoids per-artifact approval churn, and requires one future grouped authorization only after a genuinely non-exposed candidate manifest exists. |
 
 ## Current programme state
 
@@ -48,6 +49,10 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
   facts remain mandatory where the current gate contracts require them.
 - Passed gates: **G1** through the digest-bound sole-owner decision dated
   2026-08-15. G2–G6 have not passed.
+- G2 factual-evidence route: **blocked before external activity**. The current
+  repository-only material-distinct frame has zero unexposed candidates; the
+  evidence-campaign protocol records the resulting stop and does not advance
+  G2.
 - Gold empirical observations: **none**.
 - Synthetic fixtures: explicitly fictional and excluded from empirical release claims.
 - Canonical GitHub owner: **`edithatogo`**, verified from authenticated GitHub state.

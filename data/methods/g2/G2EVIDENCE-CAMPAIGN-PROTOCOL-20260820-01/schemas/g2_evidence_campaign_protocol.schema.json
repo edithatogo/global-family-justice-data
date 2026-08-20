@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/data/methods/g2/G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01/schemas/g2_evidence_campaign_protocol.schema.json",
+  "title": "G2 repository-only evidence campaign protocol",
+  "type": "object",
+  "required": ["schema_version", "campaign_id", "status", "purpose", "material_distinct_frame", "material_distinct_receipt", "standing_direction", "current_state", "required_before_external_activity", "future_authorization_model", "prohibited_until_authorized", "stopping_rules", "g2_criterion_dependencies", "limitations"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "campaign_id": {"const": "G2EVIDENCE-CAMPAIGN-PROTOCOL-20260820-01"},
+    "status": {"const": "repository_ready_external_input_required"},
+    "purpose": {"const": "prospective_g2_factual_evidence_campaign"},
+    "material_distinct_frame": {"$ref": "#/$defs/descriptor"},
+    "material_distinct_receipt": {"$ref": "#/$defs/descriptor"},
+    "standing_direction": {"$ref": "#/$defs/descriptor"},
+    "current_state": {
+      "type": "object",
+      "required": ["candidate_manifest_available", "candidate_count", "external_activity_authorized", "source_content_accessed", "g2_passage_authorized"],
+      "properties": {
+        "candidate_manifest_available": {"const": false},
+        "candidate_count": {"const": 0},
+        "external_activity_authorized": {"const": false},
+        "source_content_accessed": {"const": false},
+        "g2_passage_authorized": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "required_before_external_activity": {
+      "type": "array",
+      "const": ["digest_bound_non_exposed_candidate_manifest", "complete_cumulative_exposure_check", "bounded_resource_budget", "role_bound_access_controls", "source_specific_rights_privacy_security_screen", "single_grouped_owner_campaign_authorization"]
+    },
+    "future_authorization_model": {
+      "type": "object",
+      "required": ["single_grouped_campaign_decision", "per_artifact_owner_decision_required", "must_bind"],
+      "properties": {
+        "single_grouped_campaign_decision": {"const": true},
+        "per_artifact_owner_decision_required": {"const": false},
+        "must_bind": {"type": "array", "const": ["candidate_manifest", "exposure_ledger", "access_controls", "resource_budget", "stopping_rules", "role_bundles"]}
+      },
+      "additionalProperties": false
+    },
+    "prohibited_until_authorized": {
+      "type": "object",
+      "required": ["network_requests", "url_requests", "source_file_access", "source_content_inspection", "outbound_contact", "rights_acceptance", "publication", "release", "g2_passage"],
+      "properties": {
+        "network_requests": {"const": false}, "url_requests": {"const": false}, "source_file_access": {"const": false}, "source_content_inspection": {"const": false}, "outbound_contact": {"const": false}, "rights_acceptance": {"const": false}, "publication": {"const": false}, "release": {"const": false}, "g2_passage": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "stopping_rules": {"type": "array", "minItems": 4, "items": {"type": "string", "minLength": 1}},
+    "g2_criterion_dependencies": {"type": "array", "const": ["G2-C01", "G2-C02", "G2-C03", "G2-C04", "G2-C05", "G2-C06", "G2-C07"]},
+    "limitations": {"type": "array", "minItems": 3, "items": {"type": "string", "minLength": 1}}
+  },
+  "$defs": {"descriptor": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "pattern": "^(?!/)(?!.*\\.\\.)[^\\x00]+$"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/data/methods/g2/G2REAL-PILOT-20260821-01/multiformat_extraction_row.schema.json",
+  "title": "G2 known-source multi-format extraction row",
+  "type": "object",
+  "required": ["schema_version", "extracted_row_id", "sample_key", "source_record_key", "candidate_id", "source_id", "source_edition_id", "source_sha256", "source_format", "source_locator", "domain_code", "matter_type_code", "indicator_code", "statistic_type", "unit_code", "value", "period_label_source", "period_start", "period_end", "time_basis", "counted_entity_code", "population_scope_code", "ambiguity_codes", "quarantine_status", "extraction_uncertainty", "notes"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "extracted_row_id": {"type": "string", "pattern": "^G2ROW-[A-Z0-9][A-Z0-9_-]{5,95}$"},
+    "sample_key": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9_-]{5,119}$"},
+    "source_record_key": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "candidate_id": {"type": "string", "minLength": 1},
+    "source_id": {"type": "string", "minLength": 1},
+    "source_edition_id": {"type": "string", "minLength": 1},
+    "source_sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "source_format": {"enum": ["spreadsheet", "dashboard", "pdf"]},
+    "source_locator": {
+      "oneOf": [
+        {"type": "object", "required": ["kind", "sheet", "row", "column", "header"], "properties": {"kind": {"const": "spreadsheet_cell"}, "sheet": {"type": "string", "minLength": 1}, "row": {"type": "integer", "minimum": 1}, "column": {"type": "string", "pattern": "^[A-Z]{1,3}$"}, "header": {"type": "string", "minLength": 1}}, "additionalProperties": false},
+        {"type": "object", "required": ["kind", "page", "visual_title", "filters", "row_label", "column_label"], "properties": {"kind": {"const": "dashboard_visible_table"}, "page": {"type": "string", "minLength": 1}, "visual_title": {"type": "string", "minLength": 1}, "filters": {"type": "object", "minProperties": 1, "additionalProperties": {"type": ["string", "number", "boolean"]}}, "row_label": {"type": "string", "minLength": 1}, "column_label": {"type": "string", "minLength": 1}}, "additionalProperties": false},
+        {"type": "object", "required": ["kind", "pdf_page", "printed_page", "table_label"], "properties": {"kind": {"const": "pdf_table"}, "pdf_page": {"type": "integer", "minimum": 1}, "printed_page": {"type": "integer", "minimum": 1}, "table_label": {"type": "string", "minLength": 1}}, "additionalProperties": false}
+      ]
+    },
+    "domain_code": {"const": "family_justice"},
+    "matter_type_code": {"enum": ["family_case", "child_contact_or_custody", "other_family"]},
+    "indicator_code": {"enum": ["family_case_filing_or_disposition_count", "family_case_pending_or_caseload_count"]},
+    "statistic_type": {"const": "count"},
+    "unit_code": {"const": "count"},
+    "value": {"type": "number", "minimum": 0},
+    "period_label_source": {"type": "string", "minLength": 1},
+    "period_start": {"type": ["string", "null"], "format": "date"},
+    "period_end": {"type": ["string", "null"], "format": "date"},
+    "time_basis": {"enum": ["calendar", "source_defined"]},
+    "counted_entity_code": {"enum": ["applications", "orders", "cases"]},
+    "population_scope_code": {"enum": ["court", "national"]},
+    "ambiguity_codes": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "quarantine_status": {"const": "quarantine"},
+    "extraction_uncertainty": {"enum": ["none", "low", "material", "unresolved"]},
+    "notes": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

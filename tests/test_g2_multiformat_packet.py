@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PACKET_DIR = ROOT / "data/methods/g2/G2REAL-PILOT-20260821-01"
 SCHEMA_PATH = PACKET_DIR / "multiformat_extraction_row.schema.json"
 PACKET_PATH = ROOT / "data/methods/g2/G2REAL-PILOT-20260821-01/packet.json"
+BUNDLE_PATH = PACKET_DIR / "secondary_access_bundle.json"
 
 
 def test_g2_multiformat_packet_binds_current_row_schema() -> None:
@@ -93,3 +94,16 @@ def test_g2_multiformat_row_locators_are_format_specific() -> None:
     for source_format, source_locator in locators.items():
         row = base | {"source_format": source_format, "source_locator": source_locator}
         assert not list(validator.iter_errors(row))
+
+
+def test_g2_secondary_bundle_is_packet_bound_and_excludes_primary_output() -> None:
+    packet = json.loads(PACKET_PATH.read_text())
+    bundle = json.loads(BUNDLE_PATH.read_text())
+
+    assert bundle["assignment"] == "secondary"
+    assert bundle["packet"]["sha256"] == hashlib.sha256(PACKET_PATH.read_bytes()).hexdigest()
+    assert bundle["row_schema"]["sha256"] == hashlib.sha256(SCHEMA_PATH.read_bytes()).hexdigest()
+    assert {item["sample_key"] for item in bundle["permitted_source_editions"]} == {
+        source["sample_key"] for source in packet["sources"]
+    }
+    assert any("/primary/" in path for path in bundle["prohibited_artifact_paths"])

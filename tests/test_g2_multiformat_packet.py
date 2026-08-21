@@ -16,6 +16,9 @@ BUNDLE_PATH = PACKET_DIR / "secondary_access_bundle.json"
 RECALIBRATION_DIR = ROOT / "data/methods/g2/G2REAL-PILOT-20260821-02"
 RECALIBRATION_PACKET_PATH = RECALIBRATION_DIR / "packet.json"
 RECALIBRATION_BUNDLE_PATH = RECALIBRATION_DIR / "secondary_access_bundle.json"
+FINAL_RECALIBRATION_DIR = ROOT / "data/methods/g2/G2REAL-PILOT-20260821-03"
+FINAL_RECALIBRATION_PACKET_PATH = FINAL_RECALIBRATION_DIR / "packet.json"
+FINAL_RECALIBRATION_BUNDLE_PATH = FINAL_RECALIBRATION_DIR / "secondary_access_bundle.json"
 
 
 def test_g2_multiformat_packet_binds_current_row_schema() -> None:
@@ -129,3 +132,25 @@ def test_g2_two_row_recalibration_is_predecessor_bound_and_dashboard_free() -> N
         source["sample_key"] for source in packet["sources"]
     }
     assert any("/primary" in path for path in bundle["prohibited_artifact_paths"])
+
+
+def test_g2_final_two_row_recalibration_freezes_source_faithful_locator() -> None:
+    packet = json.loads(FINAL_RECALIBRATION_PACKET_PATH.read_text())
+    bundle = json.loads(FINAL_RECALIBRATION_BUNDLE_PATH.read_text())
+
+    assert packet["predecessor_packet"] == "G2PKT-REAL-PILOT-20260821-02"
+    assert packet["run_protocol"]["stopping_rule"].endswith(
+        "no further recalibration packet may be created"
+    )
+    pdf = next(source for source in packet["sources"] if source["source_format"] == "pdf")
+    assert pdf["source_locator"]["table_label"] == (
+        "Table 3.3.1(a): Total filings by application type"
+    )
+    assert (
+        packet["required_field_values"][pdf["source_record_key"]]["source_locator"]
+        == (pdf["source_locator"])
+    )
+    assert (
+        bundle["packet"]["sha256"]
+        == hashlib.sha256(FINAL_RECALIBRATION_PACKET_PATH.read_bytes()).hexdigest()
+    )

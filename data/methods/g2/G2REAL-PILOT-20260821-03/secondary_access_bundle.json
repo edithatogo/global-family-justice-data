@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "G2BUNDLE-REAL-PILOT-20260821-03-SECONDARY",
+  "assignment": "secondary",
+  "packet": {"path": "data/methods/g2/G2REAL-PILOT-20260821-03/packet.json", "sha256": "95e5690f960e1c216e753045b0e1f02d4e5fc334ddf3a9e365ff4781595a56d4"},
+  "row_schema": {"path": "data/methods/g2/G2REAL-PILOT-20260821-01/multiformat_extraction_row.schema.json", "sha256": "78f8554d8e7cd05d56958eff69bc6188902a1b280670aeab900666c6ce31abde"},
+  "permitted_source_editions": [
+    {"sample_key": "GBR_EAW_ODS_2026Q1", "path": "build/g2-real-pilot-20260821-01/sources/G2-ODS-GBR-EAW-2026Q1.ods", "sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2"},
+    {"sample_key": "AUS_FCFCOA_2024_25", "path": "build/g2-real-pilot-20260821-01/sources/G2-PDF-AUS-FCFCOA-2024-25.pdf", "sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9"}
+  ],
+  "prohibited_artifact_paths": [
+    "build/g2-real-pilot-20260821-01/G2PKT-REAL-PILOT-20260821-01",
+    "build/g2-real-pilot-20260821-01/G2PKT-REAL-PILOT-20260821-02",
+    "build/g2-real-pilot-20260821-01/G2PKT-REAL-PILOT-20260821-03/primary",
+    "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-01",
+    "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-02",
+    "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-03",
+    "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-04",
+    "build/g2-real-pilot/G2PKT-REAL-PILOT-20260815-05"
+  ],
+  "requirements": [
+    "Use a fresh session that has not read a primary or prior-secondary output, comparator result, or difference file.",
+    "Validate both supplied source hashes before inspection; a mismatch stops the run.",
+    "Produce exactly one quarantined row per packet sample key, using the bound row schema and exact packet source locators.",
+    "Populate ISO dates only when the exact edition establishes them; otherwise retain the source label and null dates.",
+    "Do not compare against another output or promote, publish, or release any row."
+  ],
+  "boundary": "This is a final preparation bundle only. It neither supplies independent assurance nor accepts the G2 criterion."
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2API-BRA-TJSP-20260822-01",
+  "scope": "one bounded aggregate-only DataJud request for the official CNJ TPU Ação de Alimentos class",
+  "source": {
+    "candidate_id": "G2-API-BRA-TJSP-2026",
+    "endpoint": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsp/_search",
+    "method": "POST",
+    "source_definition_url": "https://www.cnj.jus.br/sgt/consulta_publica_classes.php",
+    "source_definition_pdf": "https://www.cnj.jus.br/wp-content/uploads/2011/02/tabela-de-classes-justia-estadual.pdf",
+    "class_code": 1389,
+    "class_name": "Ação de Alimentos"
+  },
+  "request": {
+    "size": 0,
+    "track_total_hits": false,
+    "query": {"bool": {"must": [{"match": {"classe.codigo": 1389}}]}},
+    "aggs": {"case_classes": {"terms": {"field": "classe.codigo", "size": 20}}}
+  },
+  "request_sha256": "77c4f319cce37387236a7c19f9a1827ec78d070a4aba7255ce475bd0695e7979",
+  "response": {
+    "path": "build/g2-real-pilot-20260822-01/G2-API-BRA-TJSP-2026-class-1389.json",
+    "sha256": "626d18292c23ffe5e369b3c82c5477f9265686dca86f195021bc8f100c903da3",
+    "bytes": 258,
+    "http_status": 200,
+    "content_type": "application/json",
+    "hits_count": 0,
+    "aggregation_key": "case_classes",
+    "matching_class_bucket_count": 2
+  },
+  "controls": {
+    "aggregate_only": true,
+    "no_case_level_records_retained": true,
+    "no_publication_or_release": true,
+    "source_rights_accepted": false,
+    "g2_passage": false,
+    "disposition": "quarantined_supporting_evidence"
+  }
+}

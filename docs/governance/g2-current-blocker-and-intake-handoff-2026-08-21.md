@@ -3,7 +3,10 @@
 ## Current state
 
 G2 is **blocked by maturity** at four of thirteen controls. G1 has passed, but
-G2 has no gate decision. The current fail-closed source-discovery lineages,
+G2 has no gate decision. This handoff is supplemented by the later
+[`G2 blocker-resolution plan`](./g2-blocker-resolution-plan-2026-08-21.md),
+which records the two-row recalibration and quarantine-only clean build. The
+current fail-closed source-discovery lineages,
 including the official-manifest-root attempt, are immutable negative evidence;
 they do not yield a promotable candidate or support a retry.
 

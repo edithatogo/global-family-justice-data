@@ -1,6 +1,6 @@
 # Generated programme status
 
-Generated: `2026-08-21T19:59:30+00:00`
+Generated: `2026-08-21T20:16:31+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G2**
@@ -23,7 +23,7 @@ Conductor validation: **PASS** (0 errors, 0 warnings)
 |---|---:|---:|---:|---:|
 | T0 — Governance, ethics and independence | 11/11 (100.0%) | 3/11 (27.3%) | 0 | 4/20 |
 | T1 — Scope, ontology and methods | 3/3 (100.0%) | 1/3 (33.3%) | 0 | 2/4 |
-| T2 — Jurisdiction universe and source census | 8/8 (100.0%) | 4/8 (50.0%) | 0 | 7/15 |
+| T2 — Jurisdiction universe and source census | 8/8 (100.0%) | 4/8 (50.0%) | 0 | 7/16 |
 | T3 — Acquisition, preservation and source monitoring | 3/3 (100.0%) | 0/3 (0.0%) | 0 | 0/3 |
 | T4 — Data platform and engineering | 6/6 (100.0%) | 2/6 (33.3%) | 0 | 3/7 |
 | T5 — Harmonisation, quality and assurance | 7/7 (100.0%) | 0/7 (0.0%) | 0 | 1/20 |

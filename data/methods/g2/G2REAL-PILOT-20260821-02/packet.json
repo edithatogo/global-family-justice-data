@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-REAL-PILOT-20260821-02",
+  "predecessor_packet": "G2PKT-REAL-PILOT-20260821-01",
+  "scope": "two-row known-source recalibration: ODS and PDF only; all rows remain quarantined",
+  "row_schema": "data/methods/g2/G2REAL-PILOT-20260821-01/multiformat_extraction_row.schema.json",
+  "row_schema_sha256": "78f8554d8e7cd05d56958eff69bc6188902a1b280670aeab900666c6ce31abde",
+  "change_rationale": "The predecessor secondary run stopped because the permitted dashboard embed shell could not establish its required numeric value. The dashboard route remains acquisition/rendering evidence only and is excluded from this calibration packet.",
+  "run_protocol": {
+    "primary_and_secondary_runs": "separately produced, digest-bound outputs are required before concordance",
+    "comparison": "exact critical-field comparison only; no fuzzy match or critical waiver",
+    "dates": "populate an ISO date only where the exact edition establishes it; otherwise preserve the source period label and use null",
+    "stopping_rule": "any source, scope, contract, or critical discrepancy leaves every row quarantined and stops promotion"
+  },
+  "sources": [
+    {"sample_key": "GBR_EAW_ODS_2026Q1", "candidate_id": "G2-ODS-GBR-EAW-2026Q1", "source_id": "GBR_EAW_MOJ_FAMILY_Q", "source_edition_id": "GBR_EAW_MOJ_FAMILY_Q_2026Q1", "source_format": "spreadsheet", "source_sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2", "source_record_key": "6de208782443b00bdcac1797d94454e919c0f2294c988b5bd25f4510cb96c59d", "target_locator": {"kind": "spreadsheet_cell", "sheet": "Table_2", "row": 86, "column": "D", "header": "Public law - Total orders applied for"}, "target": "Table_2 public-law total orders applied, 2026 Q1"},
+    {"sample_key": "AUS_FCFCOA_2024_25", "candidate_id": "G2-PDF-AUS-FCFCOA-2024-25", "source_id": "AUS_FCFCOA_AR", "source_edition_id": "AUS_FCFCOA_AR_2024_25", "source_format": "pdf", "source_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9", "source_record_key": "c8c7ba87f41fb4b2e1ce18f6034f2a0e4b14e18239d0982629598c516d2223c7", "target_locator": {"kind": "pdf_table", "pdf_page": 102, "printed_page": 83, "table_label": "Table 3.3.1(a): Total filings by application type"}, "target": "Table 3.3.1(a) total filings, 2024–25"}
+  ],
+  "critical_fields": ["candidate_id", "source_id", "source_edition_id", "source_sha256", "source_format", "source_locator", "domain_code", "matter_type_code", "indicator_code", "statistic_type", "unit_code", "value", "period_label_source", "period_start", "period_end", "time_basis", "counted_entity_code", "population_scope_code"],
+  "critical_concordance_required": 1.0,
+  "overall_populated_field_concordance_required": 0.99,
+  "authority_boundary": "No row is accepted, published, or promoted. This recalibration does not waive the failed dashboard route or alter downstream G2 evidence requirements."
+}

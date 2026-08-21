@@ -13,6 +13,9 @@ PACKET_DIR = ROOT / "data/methods/g2/G2REAL-PILOT-20260821-01"
 SCHEMA_PATH = PACKET_DIR / "multiformat_extraction_row.schema.json"
 PACKET_PATH = ROOT / "data/methods/g2/G2REAL-PILOT-20260821-01/packet.json"
 BUNDLE_PATH = PACKET_DIR / "secondary_access_bundle.json"
+RECALIBRATION_DIR = ROOT / "data/methods/g2/G2REAL-PILOT-20260821-02"
+RECALIBRATION_PACKET_PATH = RECALIBRATION_DIR / "packet.json"
+RECALIBRATION_BUNDLE_PATH = RECALIBRATION_DIR / "secondary_access_bundle.json"
 
 
 def test_g2_multiformat_packet_binds_current_row_schema() -> None:
@@ -107,3 +110,22 @@ def test_g2_secondary_bundle_is_packet_bound_and_excludes_primary_output() -> No
         source["sample_key"] for source in packet["sources"]
     }
     assert any("/primary/" in path for path in bundle["prohibited_artifact_paths"])
+
+
+def test_g2_two_row_recalibration_is_predecessor_bound_and_dashboard_free() -> None:
+    packet = json.loads(RECALIBRATION_PACKET_PATH.read_text())
+    bundle = json.loads(RECALIBRATION_BUNDLE_PATH.read_text())
+
+    assert packet["predecessor_packet"] == "G2PKT-REAL-PILOT-20260821-01"
+    assert packet["row_schema_sha256"] == hashlib.sha256(SCHEMA_PATH.read_bytes()).hexdigest()
+    assert packet["critical_concordance_required"] == 1.0
+    assert packet["overall_populated_field_concordance_required"] == 0.99
+    assert {source["source_format"] for source in packet["sources"]} == {"spreadsheet", "pdf"}
+    assert (
+        bundle["packet"]["sha256"]
+        == hashlib.sha256(RECALIBRATION_PACKET_PATH.read_bytes()).hexdigest()
+    )
+    assert {item["sample_key"] for item in bundle["permitted_source_editions"]} == {
+        source["sample_key"] for source in packet["sources"]
+    }
+    assert any("/primary" in path for path in bundle["prohibited_artifact_paths"])

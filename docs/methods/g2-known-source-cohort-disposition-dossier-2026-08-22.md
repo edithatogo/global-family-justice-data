@@ -26,7 +26,7 @@ holdout.
 | England and Wales ODS | `4,917` public-law **orders applied for**; national scope; source period `2026 Q1`; ISO dates remain null under the explicit-only rule. | Counts orders, not applications; period endpoints are not explicitly established in the bound row. | Retain as quarantined descriptive evidence. Do not pool, rank or compare with the PDF. |
 | Australia PDF | `2,555` **applications/filings** in Table 3.3.1(a); court scope; source period `2024–25`; ISO dates remain null. | Counts applications/filings, not orders; court rather than national scope; a different source-defined period. | Retain as quarantined descriptive evidence. Do not pool, rank or compare with the ODS. |
 | DataJud API | No substantive measure selected. | Missing family-justice filter, denominator and target definition. | Keep acquisition-only; a fresh scoped request definition is required before any extraction. |
-| England and Wales dashboard | Required value is not established from the bound entry shell. | Missing source-faithful value and frozen visual/export locator. | Keep acquisition-only; do not infer the ODS value into the dashboard route. |
+| England and Wales dashboard | `4,917` `Orders applied for`; the same visual now returns an explicit `2026-Q1` row under `Period = Quarterly`. | Reporting universe/denominator semantics and rights/security remain unadjudicated. | Same-series cross-format reconciliation evidence only; retain quarantine and do not treat as independent corroboration. |
 
 This matrix is the prepared input for G2-C05. It does not adjudicate methods:
 the sole owner must decide whether these quarantine-only dispositions are
@@ -39,7 +39,7 @@ excluded by a separate scope decision.
 | --- | --- | --- | --- |
 | DataJud API response | Aggregate-only response, locally hash-bound; no hit records acquired. | Rights/privacy/security/disclosure assessment incomplete. | Scoped query definition; endpoint/response review; rights and disclosure finding. |
 | England and Wales ODS | Locally hash-bound and used only for quarantined extraction. | Rights/privacy/security/disclosure assessment incomplete. | Edition-specific conditions, aggregate/prohibited-data check, local handling and disclosure finding. |
-| England and Wales dashboard entry | Locally hash-bound HTML shell; no value extracted. | Rights/privacy/security/disclosure assessment incomplete. | Source-faithful value/export evidence, edition/visual conditions, aggregate/disclosure finding. |
+| England and Wales dashboard entry | Locally hash-bound HTML shell plus digest-bound semantic query and explicit quarterly confirmation. | Rights/privacy/security/disclosure assessment incomplete. | Edition/visual conditions, aggregate/disclosure finding and owner methods disposition. |
 | Australia PDF | Locally hash-bound and used only for quarantined extraction. | Rights/privacy/security/disclosure assessment incomplete. | Edition-specific conditions, aggregate/prohibited-data check, local handling and disclosure finding. |
 
 The owner has authorised local acquisition and processing of this bounded
@@ -70,4 +70,3 @@ If either API or dashboard route cannot yield those facts, stop and return a
 single scope decision: retain the route as acquisition-only or amend the pilot
 criterion. Do not silently substitute the ODS value, re-run a terminated
 lineage, or promote the two-row result.
-

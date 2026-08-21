@@ -17,7 +17,7 @@ acceptance.
 | C02 acquisition | In review | Preserve the four acquired route manifests and source hashes; add the bounded DataJud class-1389 aggregate evidence and source-semantic dashboard query result. | A reviewed, reproducible acquisition record for every route in the accepted cohort; route-specific rights/security assessment and grouped owner disposition remain pending. |
 | C03 pipeline | In review | Add and run the deterministic quarantine-only bronze/silver/quarantine build from the final two-row output. | A digest-bound clean-build receipt on the frozen real-pilot inputs, then owner acceptance of that factual build evidence. |
 | C04 review | In review | Bind the final two-role two-row concordance result as current supporting evidence. | A documented scoped disposition and owner acceptance that the selected cohort's review outcome is adequate for C04; it cannot silently stand in for excluded routes. |
-| C05 methods | Draft | Prepare a focused methods disposition matrix from the two rows and their explicit-only dates/quarantine constraints. | Sole-owner adjudication of ontology, counted entity, time basis, denominator/population scope and comparability consequence. |
+| C05 methods | Draft | Prepare a focused methods disposition matrix and bind explicit dashboard `2026-Q1` confirmation against the ODS. | Sole-owner adjudication of ontology, counted entity, time basis, denominator/population scope and comparability consequence. |
 | C06 rights/security | In review | Prepare an edition-level factual assessment envelope and retain local processing boundaries. | Verified edition-specific rights, privacy, security and disclosure facts with no unresolved critical finding, plus owner adjudication. Public availability and prior local-processing permission are not substitutes. |
 | C07 re-extraction | In review | Preserve the exact 36/36 critical and 40/40 overall result as supporting lineage. | An owner adjudication of the exact result against the criterion and any required broader cohort; failed packets remain immutable and no subset is retrospectively promoted. |
 | C08 operations | Accepted | No new work. | The acceptance remains limited to the private synthetic rehearsal. |
@@ -47,7 +47,9 @@ acceptance.
    `G2API-BRA-TJSP-20260822-01`; the dashboard now has a
    source-semantic aggregate query result under
    `G2DASH-GBR-EAW-20260822-01`. Route-specific methods, rights/security and
-   owner disposition remain pending; alternatively explicitly constrain the intended
+   owner disposition remain pending; the dashboard period confirmation is
+   explicit `2026-Q1` and may support same-series reconciliation only;
+   alternatively explicitly constrain the intended
    G2 pilot cohort. No route is silently substituted and no known-source
    calibration is called a blind holdout.
 6. **Single grouped owner checkpoint.** Once items 1–5 are evidence-backed,

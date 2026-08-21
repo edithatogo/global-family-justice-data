@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2DASH-GBR-EAW-20260822-02",
+  "predecessor_packet": "G2DASH-GBR-EAW-20260822-01",
+  "scope": "one bounded quarterly confirmation query using the same exact dashboard visual and source edition",
+  "source": {
+    "candidate_id": "G2-DASH-GBR-EAW-2026Q1",
+    "section": "Volumes",
+    "visual_id": "7945851748",
+    "visual_title": "Regional/DFJ Volumes",
+    "model_id": 3141088,
+    "entry_html_sha256": "52d356701a10ac6519da61d82ecf3f0cb0e04921597f19a4df6fe721687ac63f"
+  },
+  "change": "The Period filter changed from Annually to Quarterly; all other visual query scope and date bounds are unchanged.",
+  "filters": {
+    "period": "Quarterly",
+    "type": "Orders applied for",
+    "date_start": "2011-01-01",
+    "date_end": "2026-03-02",
+    "region_dfj": "All"
+  },
+  "bound_artifacts": {
+    "models_sha256": "668b951bbba9853609ea08bacb1da514111b75183be3c819a44c2c5d3c52f648",
+    "conceptual_schema_sha256": "f999b4daa44a40be1b52c1204b015d4f24153d5b6c4a2c797f38e7e329acbcf6",
+    "quarterly_visual_query_sha256": "3711a83674db5839ad536f3e38e7a3b1523dbfee2deb97580a8604db1d3b9eb3",
+    "query_response_path": "build/g2-real-pilot-20260822-01/G2-DASH-GBR-EAW-2026Q1-quarterly-confirmation.json",
+    "query_response_sha256": "4009c22c5e0bf115205d8488838b8c9b0f224ec627a6f9bc2f2e7be02b36fae1",
+    "query_response_bytes": 4560
+  },
+  "result": {
+    "explicit_period_label": "2026-Q1",
+    "value": 4917,
+    "unit": "count",
+    "count_type": "Orders applied for",
+    "aggregate_only": true,
+    "case_level_records_retained": false
+  },
+  "disposition": {
+    "period_confirmation": "explicit_q1_supported",
+    "cross_format_use": "same_series_reconciliation_only",
+    "quarantine": true,
+    "rights_accepted": false,
+    "g2_passage": false,
+    "publication_or_release": false
+  }
+}

@@ -30,6 +30,11 @@ def test_g2_multiformat_packet_binds_current_row_schema() -> None:
         "dashboard",
         "pdf",
     }
+    for source in packet["sources"]:
+        assert len(source["source_sha256"]) == 64
+        assert int(source["source_sha256"], 16) >= 0
+        assert len(source["source_record_key"]) == 64
+        assert int(source["source_record_key"], 16) >= 0
 
 
 def test_g2_multiformat_row_locators_are_format_specific() -> None:

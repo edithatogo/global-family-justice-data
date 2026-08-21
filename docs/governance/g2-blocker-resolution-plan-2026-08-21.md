@@ -14,7 +14,7 @@ acceptance.
 | Criterion | Current position | Implemented repository-owned action | Still required before acceptance |
 | --- | --- | --- | --- |
 | C01 census | Draft | Maintain an edition-level cohort and coverage matrix. | A bounded cohort with an institutional map, provenance and reviewed coverage state for every chosen edition. |
-| C02 acquisition | In review | Preserve the four acquired route manifests and source hashes. | A reviewed, reproducible acquisition record for every route in the accepted cohort; the API needs a substantive family-justice target and the dashboard needs a source-faithful visible/exported value. |
+| C02 acquisition | In review | Preserve the four acquired route manifests and source hashes; add the bounded DataJud class-1389 aggregate evidence. | A reviewed, reproducible acquisition record for every route in the accepted cohort; the dashboard still needs a source-faithful visible/exported value and all routes need the grouped owner disposition. |
 | C03 pipeline | In review | Add and run the deterministic quarantine-only bronze/silver/quarantine build from the final two-row output. | A digest-bound clean-build receipt on the frozen real-pilot inputs, then owner acceptance of that factual build evidence. |
 | C04 review | In review | Bind the final two-role two-row concordance result as current supporting evidence. | A documented scoped disposition and owner acceptance that the selected cohort's review outcome is adequate for C04; it cannot silently stand in for excluded routes. |
 | C05 methods | Draft | Prepare a focused methods disposition matrix from the two rows and their explicit-only dates/quarantine constraints. | Sole-owner adjudication of ontology, counted entity, time basis, denominator/population scope and comparability consequence. |
@@ -42,8 +42,11 @@ acceptance.
    conditions and security scan/handling evidence. Unknown remains unknown;
    no condition is inferred from discoverability or owner local-processing
    permission.
-5. **Cohort completion.** Either assemble the API and dashboard factual
-   records under a fresh bounded packet or explicitly constrain the intended
+5. **Cohort completion.** The API route now has a source-defined aggregate
+   target and a digest-bound response under
+   `G2API-BRA-TJSP-20260822-01`; the dashboard still requires a
+   source-faithful visible/exported value. Either complete that dashboard
+   record under a fresh bounded packet or explicitly constrain the intended
    G2 pilot cohort. No route is silently substituted and no known-source
    calibration is called a blind holdout.
 6. **Single grouped owner checkpoint.** Once items 1–5 are evidence-backed,
@@ -70,4 +73,3 @@ No immediate decision is needed for the repository-owned work above. When the
 factual records are assembled, the concise decision should state whether the
 bounded cohort is accepted for C04/C05/C06/C07, enumerate any retained
 quarantines, and confirm that no G2 passage, publication or release follows.
-

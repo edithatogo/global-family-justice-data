@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2DASH-GBR-EAW-20260822-01",
+  "scope": "one source-faithful Power BI semantic query for the approved England and Wales public-law volumes visual",
+  "source": {
+    "candidate_id": "G2-DASH-GBR-EAW-2026Q1",
+    "entry_html_sha256": "52d356701a10ac6519da61d82ecf3f0cb0e04921597f19a4df6fe721687ac63f",
+    "models_endpoint": "https://wabi-north-europe-e-primary-api.analysis.windows.net/public/reports/c809ac7e-68c0-41ae-8552-3e483d0d20b8/modelsAndExploration?preferReadOnlySession=true",
+    "query_endpoint": "https://wabi-north-europe-e-primary-api.analysis.windows.net/public/reports/querydata?synchronous=true",
+    "section": "Volumes",
+    "visual_id": "7945851748",
+    "visual_title": "Regional/DFJ Volumes",
+    "model_id": 3141088
+  },
+  "bound_artifacts": {
+    "models_sha256": "668b951bbba9853609ea08bacb1da514111b75183be3c819a44c2c5d3c52f648",
+    "conceptual_schema_sha256": "f999b4daa44a40be1b52c1204b015d4f24153d5b6c4a2c797f38e7e329acbcf6",
+    "visual_query_sha256": "d03410feb453a3f1783ca9e836bb3db74b85ed497d45e4669955f3784cc5d98b",
+    "query_response_path": "build/g2-real-pilot-20260822-01/G2-DASH-GBR-EAW-2026Q1-querydata.json",
+    "query_response_sha256": "e2fe74e71b4bee327e8e3044a1066f87a3af37761bf955ba8a70618980488e23",
+    "query_response_bytes": 2543
+  },
+  "filters": {
+    "period": "Annually",
+    "type": "Orders applied for",
+    "date_start": "2011-01-01",
+    "date_end": "2026-03-02",
+    "region_dfj": "All"
+  },
+  "result": {
+    "row_label": "2026",
+    "value": 4917,
+    "unit": "count",
+    "time_basis": "annual dashboard series; source query upper bound 2026-03-02",
+    "count_type": "Orders applied for",
+    "aggregate_only": true,
+    "case_level_records_retained": false
+  },
+  "controls": {
+    "source_rights_accepted": false,
+    "public_boundary": "metadata_and_citation_only",
+    "disposition": "quarantined_supporting_evidence",
+    "g2_passage": false,
+    "publication_or_release": false
+  }
+}

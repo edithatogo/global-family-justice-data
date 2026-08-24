@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2NEXT-UNBLOCK-20260824-01",
+  "prepared_on": "2026-08-24",
+  "purpose": "consolidated bounded-cohort and four-route acquisition evidence for G2-C01 and G2-C02",
+  "scope": {
+    "jurisdictions": ["AUS", "BRA", "GBR-EAW"],
+    "route_count": 4,
+    "route_types": ["api", "spreadsheet", "html_dashboard", "pdf_manual"],
+    "representativeness": "acquisition-route diversity only",
+    "global_representativeness": false,
+    "coverage_state": "reviewed_partial"
+  },
+  "input_bindings": [
+    {"path": "data/census/institution_map.csv", "sha256": "213a3dc17c354a45658b9ccd80da2b16eb7c496732345ef9517323fd7d598250"},
+    {"path": "data/census/search_log.csv", "sha256": "06370c4b17f019e72b27d93ac97ebd0b731d6283ee6753e9d2a864a4ac373af6"},
+    {"path": "data/census/coverage_assessment.csv", "sha256": "48edec124e45d5a2c3b4aa617f8196bf2683a5d7526c357cffb482f15926d555"},
+    {"path": "data/census/review_ledger.csv", "sha256": "7b50fed72a44f905f86f691700c30f52df4855de77bbf89996a4e753e493febf"},
+    {"path": "docs/methods/g2-known-source-cohort-disposition-dossier-2026-08-22.md", "sha256": "6ebadd31069df1df9a35d1119dab22d998c93148bed87715e95689a9b95f09a3"},
+    {"path": "docs/methods/g2-four-edition-acquisition-evidence-2026-08-21.md", "sha256": "d14dccdccaf601684209b103b238a44a86a7fa6df6a7a93a5014e31c500c8eeb"},
+    {"path": "data/methods/g2/G2PROPOSED-REAL-PILOT-20260821-01/acquisition/acquisition-plan.json", "sha256": "09af170d3e92b6c4e4fdb6583355c36db8e2c82f5bf3fa96953a67eb55458a15"},
+    {"path": "data/methods/g2/G2PROPOSED-REAL-PILOT-20260821-01/acquisition/acquisition-metadata.json", "sha256": "a272bcaaa9cc0d605d103c67769fddc22aba2f0362f72f1b146db1d74d1f5375"},
+    {"path": "docs/governance/g2-next-unblock-agent-panel-2026-08-24.md", "sha256": "e5f14699db54bebe92f75a45ea9d1071456812d9c8576bf26a28303b67ce9480"}
+  ],
+  "routes": [
+    {
+      "candidate_id": "G2-API-BRA-TJSP-2026",
+      "jurisdiction_id": "BRA",
+      "route_type": "api",
+      "institution_id": "INST-CNJ",
+      "institution_scope": "CNJ-operated public DataJud endpoint for the TJSP index; no inference of national family-case completeness",
+      "search_log_ids": ["PUBSEARCH-0238", "WEB-PILOT-228", "WEB-PILOT-235"],
+      "coverage_assessment_id": "COV-013",
+      "coverage_state": "partial",
+      "source_sha256": "f475ae52b31f0e9a509de1be1d312bb946f4f57944717d0bda5d68d1f59df2fe",
+      "successor_response_sha256": "626d18292c23ffe5e369b3c82c5477f9265686dca86f195021bc8f100c903da3",
+      "successor_packet": {"path": "data/methods/g2/G2API-BRA-TJSP-20260822-01/packet.json", "sha256": "02b975257f3254b8152cf801694df5b2e11656ba5f3cf04927dfdfccbe629948"},
+      "g2_use": "acquisition_only"
+    },
+    {
+      "candidate_id": "G2-ODS-GBR-EAW-2026Q1",
+      "jurisdiction_id": "GBR-EAW",
+      "route_type": "spreadsheet",
+      "institution_id": "INST-GBR-EAW-OFFICIAL",
+      "institution_scope": "Ministry of Justice England and Wales official family-court statistics collection",
+      "search_log_ids": ["WEB-EXT-176", "WEB-EXT-203", "WEB-EXT-223"],
+      "coverage_assessment_id": "COV-006",
+      "coverage_state": "partial",
+      "source_sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2",
+      "g2_use": "quarantined_extraction"
+    },
+    {
+      "candidate_id": "G2-DASH-GBR-EAW-2026Q1",
+      "jurisdiction_id": "GBR-EAW",
+      "route_type": "html_dashboard",
+      "institution_id": "INST-GBR-EAW-OFFICIAL",
+      "institution_scope": "Ministry of Justice England and Wales public visualisation of the same official series",
+      "search_log_ids": ["WEB-EXT-176", "WEB-EXT-203"],
+      "coverage_assessment_id": "COV-006",
+      "coverage_state": "partial",
+      "source_sha256": "52d356701a10ac6519da61d82ecf3f0cb0e04921597f19a4df6fe721687ac63f",
+      "successor_response_sha256": "4009c22c5e0bf115205d8488838b8c9b0f224ec627a6f9bc2f2e7be02b36fae1",
+      "successor_packet": {"path": "data/methods/g2/G2DASH-GBR-EAW-20260822-02/packet.json", "sha256": "6ebad8e4b8f3070ff5353b0131be13c5a1c65f4a5f0f532e21c021893e34858c"},
+      "g2_use": "acquisition_only_same_series_reconciliation"
+    },
+    {
+      "candidate_id": "G2-PDF-AUS-FCFCOA-2024-25",
+      "jurisdiction_id": "AUS",
+      "route_type": "pdf_manual",
+      "institution_id": "INST-FCFCOA",
+      "institution_scope": "Federal Circuit and Family Court of Australia annual-report publisher and court administration",
+      "search_log_ids": ["PUBSEARCH-0235", "WEB-EXT-198", "WEB-PILOT-226", "WEB-PILOT-230"],
+      "coverage_assessment_id": "COV-002",
+      "coverage_state": "partial",
+      "source_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "g2_use": "quarantined_extraction"
+    }
+  ],
+  "acquisition_receipt": {
+    "all_four_route_metadata_records_present": true,
+    "all_four_source_hashes_bound": true,
+    "api_successor_packet_bound": true,
+    "dashboard_successor_packet_bound": true,
+    "source_bytes_published": false,
+    "future_network_replay_guaranteed": false
+  },
+  "criterion_readiness": {
+    "G2-C01": "prepared_for_bounded_owner_acceptance",
+    "G2-C02": "prepared_for_bounded_owner_acceptance"
+  },
+  "limits": [
+    "not a global coverage claim",
+    "not substantive extraction for API or dashboard",
+    "not methods comparability",
+    "not rights clearance",
+    "not C04 or C07 evidence",
+    "not G2 passage"
+  ]
+}

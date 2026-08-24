@@ -44,6 +44,10 @@ def test_repository_manifest_excludes_controlled_raw_evidence() -> None:
     assert all(relative.parts[:3] != ("data", "raw", "files") for relative in iter_manifest_files())
 
 
+def test_repository_manifest_excludes_transient_conductor_lock() -> None:
+    assert Path("programme/.conductor.lock") not in iter_manifest_files()
+
+
 def test_manifest_ignores_editable_install_metadata(tmp_path: Path, monkeypatch: object) -> None:
     source = tmp_path / "src" / "gfjd"
     source.mkdir(parents=True)

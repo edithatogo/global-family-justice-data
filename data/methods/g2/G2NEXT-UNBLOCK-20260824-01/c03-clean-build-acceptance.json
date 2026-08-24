@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "decision_id": "G2-C03-CLEAN-BUILD-ACCEPTANCE-20260824-01",
+  "decided_on": "2026-08-24",
+  "decision_maker": "repository owner and sole accountable decision-maker",
+  "authorization_basis": "owner instruction to proceed with the recommended immediate C03 acceptance",
+  "scope": "G2-C03 deterministic pipeline criterion over the frozen two-row real-input quarantine build",
+  "bindings": [
+    {"path": "docs/engineering/g2-known-source-quarantine-clean-build-2026-08-21.md", "sha256": "eaccd2ab071f1c9ee22689a04538d7b84d28567a87b690c425329faa7d252866"},
+    {"path": "data/methods/g2/G2REAL-PILOT-20260821-03/packet.json", "sha256": "95e5690f960e1c216e753045b0e1f02d4e5fc334ddf3a9e365ff4781595a56d4"},
+    {"path": "docs/governance/g2-next-unblock-agent-panel-2026-08-24.md", "sha256": "e5f14699db54bebe92f75a45ea9d1071456812d9c8576bf26a28303b67ce9480"}
+  ],
+  "controlled_receipt": {
+    "path": "build/g2-real-pilot-20260821-01/G2PKT-REAL-PILOT-20260821-03/quarantine-pipeline/receipt.json",
+    "sha256": "b317a4f5fa79e317af9843470bf1d91f4cf5d1b9d4bbec33a4f58cf258a6a4ba",
+    "verification_errors": 0
+  },
+  "result": {"bronze_rows": 2, "silver_rows": 2, "quarantine_rows": 2, "gold_rows": 0},
+  "decision": "accept_E-CLEAN-BUILD_WI-G2-03_and_G2-C03",
+  "limits": [
+    "zero gold is the required fail-closed result",
+    "no broader route or generalisation claim",
+    "no methods or rights acceptance",
+    "no publication, release or G2 passage"
+  ],
+  "reopen_triggers": ["changed packet or input digest", "receipt verification failure", "attempted gold promotion"]
+}

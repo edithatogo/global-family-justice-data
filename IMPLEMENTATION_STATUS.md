@@ -41,6 +41,8 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | G2 evidence-campaign protocol | A deterministic, digest-bound campaign envelope is prepared from the exhausted material-distinct frame. It permits no external action, avoids per-artifact approval churn, and requires one future grouped authorization only after a genuinely non-exposed candidate manifest exists. A no-network intake guard now rejects duplicated or already exposed proposed URLs before a campaign packet can be assembled. |
 | G2 known-source handling | Four exact known-source routes have a bound owner handling disposition: controlled private quarantine, metadata-only public/Git records, route-specific restrictions and a 2027-08-24 retention review. G2-C06 remains in review because this is not rights clearance or legal/privacy/security assurance. |
 | G2 bounded concordance disposition | The owner accepted the exact two-row known-source result and conservative methods consequences as supporting evidence only. The decision records 36/36 populated critical and 40/40 configured populated matches, null-date and unscored-field limitations, no pooling/ranking, and no criterion transition or G2 passage. |
+| G2 C03 clean-build acceptance | The owner accepted the verified frozen two-row real-input quarantine build for C03: two bronze, two silver, two quarantine and zero gold rows. This closes only the deterministic-pipeline criterion. |
+| G2 next-unblock packet | Consolidated C01/C02 cohort and acquisition bindings, a conservative C05 adjudication, an edition-specific C06 private-processing assessment and a prospective C04/C07 agent-blinded execution proposal are ready for one grouped owner decision. |
 
 ## Current programme state
 

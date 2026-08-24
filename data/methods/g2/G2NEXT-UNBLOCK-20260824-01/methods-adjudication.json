@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "adjudication_id": "G2METHODS-ADJUDICATION-20260824-01",
+  "prepared_on": "2026-08-24",
+  "scope": "bounded four-route known-source cohort",
+  "status": "prepared_for_owner_decision",
+  "authority_model": "role-separated analyst-agent advice with repository owner as sole accountable methods authority",
+  "input_bindings": [
+    {"path": "docs/methods/g2-known-source-cohort-disposition-dossier-2026-08-22.md", "sha256": "6ebadd31069df1df9a35d1119dab22d998c93148bed87715e95689a9b95f09a3"},
+    {"path": "docs/governance/g2-dual-review-concordance-owner-decision-2026-08-24.md", "sha256": "9389b1d0a39da0384d1f736bfe976873f161fdad86948c9f2ad45d5631e6c174"},
+    {"path": "docs/governance/g2-next-unblock-agent-panel-2026-08-24.md", "sha256": "e5f14699db54bebe92f75a45ea9d1071456812d9c8576bf26a28303b67ce9480"}
+  ],
+  "records": [
+    {
+      "candidate_id": "G2-ODS-GBR-EAW-2026Q1",
+      "ontology": "public-law orders applied for",
+      "clock": "2026 Q1 source label; ISO endpoints not established",
+      "denominator": "not applicable to source count; reporting-universe equivalence not established",
+      "counted_entity": "orders",
+      "population_scope": "national source-defined England and Wales scope",
+      "missingness": "not established beyond the selected source row",
+      "equivalence": "not_established",
+      "comparison_eligible": false,
+      "disposition": "quarantined_descriptive_only"
+    },
+    {
+      "candidate_id": "G2-PDF-AUS-FCFCOA-2024-25",
+      "ontology": "applications or filings in Table 3.3.1(a)",
+      "clock": "2024-25 source label; ISO endpoints not established",
+      "denominator": "not applicable to source count; reporting-universe equivalence not established",
+      "counted_entity": "applications_or_filings",
+      "population_scope": "FCFCOA court scope",
+      "missingness": "not established beyond the selected source table",
+      "equivalence": "not_established",
+      "comparison_eligible": false,
+      "disposition": "quarantined_descriptive_only"
+    },
+    {
+      "candidate_id": "G2-DASH-GBR-EAW-2026Q1",
+      "ontology": "orders applied for",
+      "clock": "explicit 2026-Q1 dashboard row",
+      "denominator": "reporting-universe equivalence with the ODS not established",
+      "counted_entity": "orders",
+      "population_scope": "dashboard source-defined all-region view",
+      "missingness": "not established",
+      "equivalence": "same_series_value_reconciliation_only",
+      "comparison_eligible": false,
+      "disposition": "private_acquisition_support"
+    },
+    {
+      "candidate_id": "G2-API-BRA-TJSP-2026",
+      "ontology": "DataJud TPU class 1389 aggregate bucket",
+      "clock": "not established",
+      "denominator": "not established",
+      "counted_entity": "aggregate class bucket count",
+      "population_scope": "TJSP endpoint query scope; broader completeness not established",
+      "missingness": "zero retained hit records; source completeness not established",
+      "equivalence": "not_established",
+      "comparison_eligible": false,
+      "disposition": "private_acquisition_support"
+    }
+  ],
+  "decision_rule": "unknown semantics are resolved as not established and prohibited from comparison; they are never inferred as equivalent",
+  "reopen_triggers": [
+    "new source edition",
+    "new source definition or denominator",
+    "new period or reporting-universe evidence",
+    "proposed pooling, ranking, trend or cross-jurisdiction comparison"
+  ],
+  "criterion_readiness": {"G2-C05": "prepared_for_bounded_owner_acceptance"},
+  "authority_boundary": "panel advice is not independent or specialist assurance and cannot accept C05"
+}

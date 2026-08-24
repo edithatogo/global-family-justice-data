@@ -21,7 +21,13 @@ EXCLUDED_PARTS = {
     "dist",
     "build",
 }
-EXCLUDED_FILES = {"MANIFEST.sha256", ".DS_Store", ".coverage", "coverage.xml"}
+EXCLUDED_FILES = {
+    "MANIFEST.sha256",
+    ".DS_Store",
+    ".conductor.lock",
+    ".coverage",
+    "coverage.xml",
+}
 EXCLUDED_PREFIXES = {("data", "raw", "files")}
 
 

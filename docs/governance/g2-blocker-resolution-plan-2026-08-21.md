@@ -13,13 +13,13 @@ acceptance.
 
 | Criterion | Current position | Implemented repository-owned action | Still required before acceptance |
 | --- | --- | --- | --- |
-| C01 census | Draft | Maintain an edition-level cohort and coverage matrix. | A bounded cohort with an institutional map, provenance and reviewed coverage state for every chosen edition. |
-| C02 acquisition | In review | Preserve the four acquired route manifests and source hashes; add the bounded DataJud class-1389 aggregate evidence and source-semantic dashboard query result. | A reviewed, reproducible acquisition record for every route in the accepted cohort; the grouped private-quarantine disposition is now recorded but does not itself accept C02. |
-| C03 pipeline | In review | Add and run the deterministic quarantine-only bronze/silver/quarantine build from the final two-row output. | A digest-bound clean-build receipt on the frozen real-pilot inputs, then owner acceptance of that factual build evidence. |
+| C01 census | Draft | A consolidated three-jurisdiction/four-route cohort record now binds institutions, searches, reviewed partial coverage, provenance and explicit acquisition-only limitations. | Bounded owner acceptance; no global-representativeness claim. |
+| C02 acquisition | In review | One consolidated record now binds all four route hashes, the original acquisition metadata and the successor API/dashboard packets. | Bounded owner acceptance as acquisition-route diversity, not substantive extraction. |
+| C03 pipeline | Accepted | The owner accepted the verified deterministic two-row quarantine build; zero gold is the correct fail-closed result. | No further C03 action unless a reopen trigger occurs. |
 | C04 review | In review | The owner accepted the final two-role two-row concordance result as bounded supporting evidence only under `G2CONCORDANCE-DISPOSITION-20260824-01`. | Review evidence adequate for the full chosen cohort; the calibrated two-row result cannot silently stand in for excluded routes or blind assurance. |
-| C05 methods | Draft | The owner accepted the no-pooling/no-ranking disposition, dashboard same-series-only use and DataJud acquisition-support-only use. | Resolve the remaining reporting-universe, denominator, counted-entity and population-scope semantics across the intended cohort. |
-| C06 rights/security | In review | The owner has adopted controlled private quarantine, a metadata-only public/Git boundary, route-specific dispositions, a 41-file controlled inventory covering the pilot and live acquisition copies, and a `2027-08-24` retention review. | Complete edition-specific rights, privacy, security and disclosure assessments with no unresolved critical finding. The handling decision is not rights clearance or legal/privacy/security assurance. |
-| C07 re-extraction | In review | Preserve the exact 36/36 populated critical and 40/40 configured populated result as owner-adjudicated supporting lineage. | Successful acceptance-bearing blind or otherwise criterion-compliant evidence for the required cohort; failed packets remain immutable and no subset is retrospectively promoted. |
+| C05 methods | Draft | A four-route adjudication record now resolves unknown equivalence as `not_established` and comparison-ineligible. | Bounded owner acceptance; new semantic evidence reopens the affected disposition. |
+| C06 rights/security | In review | An edition-specific assessment now records zero unresolved critical private-processing findings, one mitigated high small-cell finding, controlled quarantine and a metadata-only boundary. | Bounded owner acceptance for private pilot only; reuse/publication rights and specialist claims remain excluded. |
+| C07 re-extraction | In review | Preserve all failed/supporting lineages and prepare a fresh four-route artifact-isolated agent-blinded execution packet. | Owner evidence-policy decision, then a passing fresh run and separate owner adjudication. |
 | C08 operations | Accepted | No new work. | The acceptance remains limited to the private synthetic rehearsal. |
 
 ## Ordered implementation
@@ -57,12 +57,11 @@ acceptance.
    alternatively explicitly constrain the intended
    G2 pilot cohort. No route is silently substituted and no known-source
    calibration is called a blind holdout.
-6. **Future gate checkpoint.** The bounded concordance and handling
-   dispositions are now owner-adjudicated without criterion transitions. Once
-   the remaining cohort-wide facts are evidence-backed, present one grouped
-   decision covering any proposed C04/C05/C06/C07 transitions. A negative or
-   incomplete finding retains quarantine and blocks the relevant criterion
-   without invalidating the underlying immutable evidence.
+6. **Grouped decision checkpoint.** C03 is accepted. The consolidated factual
+   records are ready for one grouped owner decision on C01/C02/C05/C06 and the
+   prospective evidence policy for C04/C07. A negative or incomplete finding
+   retains quarantine and blocks the relevant criterion without invalidating
+   the underlying immutable evidence.
 
 ## Options and recommendation
 
@@ -78,8 +77,6 @@ lineage or a retrospective gate claim.
 
 ## Next owner decision needed only at the gate checkpoint
 
-The owner has accepted the bounded supporting result and conservative methods
-dispositions. No further decision is needed for repository-owned preparation.
-When the remaining factual records are assembled, the next concise decision
-should state whether the full intended cohort is accepted for C04/C05/C06/C07,
-enumerate retained quarantines, and confirm whether G2 remains blocked.
+Repository-owned preparation is complete for the next checkpoint. The grouped
+decision is in
+`docs/governance/g2-next-unblock-owner-decision-packet-2026-08-24.md`.

@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "proposal_id": "G2BLIND-KNOWN-EDITION-PROPOSAL-20260824-01",
+  "prepared_on": "2026-08-24",
+  "status": "pending_owner_policy_decision",
+  "purpose": "fresh acceptance-bearing four-route agent-blinded extraction for G2-C04 and G2-C07",
+  "lineage": "new prospective lineage; not packet 06 and not a repair, continuation or promotion of any prior packet",
+  "source_scope": [
+    {"candidate_id": "G2-API-BRA-TJSP-2026", "content_sha256": "626d18292c23ffe5e369b3c82c5477f9265686dca86f195021bc8f100c903da3"},
+    {"candidate_id": "G2-ODS-GBR-EAW-2026Q1", "content_sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2"},
+    {"candidate_id": "G2-DASH-GBR-EAW-2026Q1", "content_sha256": "4009c22c5e0bf115205d8488838b8c9b0f224ec627a6f9bc2f2e7be02b36fae1"},
+    {"candidate_id": "G2-PDF-AUS-FCFCOA-2024-25", "content_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9"}
+  ],
+  "design": {
+    "project_unseen": false,
+    "agent_blinded": true,
+    "role_separation": "two fresh extraction agents with no access to each other, prior outputs, expected values or answer-bearing locators",
+    "artifact_isolation": "separate source-only bundles and write-only output directories; comparison begins only after both outputs are sealed",
+    "contract": "prospectively frozen neutral semantic contract with no expected values or locator text",
+    "quarantine": "all rows remain quarantined regardless of concordance",
+    "claim_limit": "bounded reproducibility only; no unseen-edition or generalisation claim"
+  },
+  "thresholds": {
+    "critical_fields": "100_percent_exact",
+    "overall_populated_fields": "at_least_99_percent_exact",
+    "fuzzy_matching": false,
+    "critical_waiver": false
+  },
+  "stopping_rules": [
+    "any critical discrepancy terminates the lineage",
+    "any role-isolation or artifact-binding failure terminates the lineage",
+    "no sealed-output repair, reuse or calibration rerun",
+    "no retrospective promotion of packet 05 or the two-row known-source result"
+  ],
+  "resource_estimate": {
+    "fresh_extraction_agents": 2,
+    "comparison_agent": 1,
+    "advisory_review_roles": 2,
+    "owner_decisions": 2,
+    "network_or_new_source_access": false
+  },
+  "required_owner_decision": "clarify that agent-blinded known-edition evidence may satisfy C04/C07 for bounded reproducibility and supersede only the earlier project-unseen acceptance condition",
+  "prohibitions": [
+    "publication or release",
+    "rights clearance",
+    "gold promotion",
+    "G2 passage before all criteria and separate gate acceptance"
+  ]
+}

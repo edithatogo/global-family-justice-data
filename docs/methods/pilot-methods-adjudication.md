@@ -35,19 +35,23 @@ confidential source material in public repository history. Record:
 - the decision: retain, transform, split, downgrade to descriptive-only,
   quarantine, or exclude;
 - the impact on comparability tier, release eligibility and any series break;
-- the accountable methods reviewer and an independent reviewer; and
+- the owner as accountable methods authority and a role-separated
+  analyst-agent panel providing advisory review; and
 - the immutable evidence reference and exact audit input/output hashes.
 
-No automated command can create an adjudication, accept an evidence record or
-advance G2. A real methods lead and independent reviewer must make those
-decisions against the preserved pilot material.
+No automated command or analyst-agent panel can accept an evidence record or
+advance G2. Role-separated analyst agents provide options, recommendation,
+rationale, contingencies, evidence references and dissent; the repository
+owner remains the sole accountable methods authority and decision-maker.
 
 ## Completion boundary
 
 `WI-G2-05` may move from repository implementation to accepted only when a
-genuine, checksum-bound pilot adjudication set has been independently reviewed
-and the applicable gate controls are satisfied. Templates, synthetic fixtures,
-and a green comparability audit remain implementation support only.
+genuine, checksum-bound pilot adjudication set has received role-separated
+agent-panel advice, the owner has recorded the accountable decision and the
+applicable gate controls are satisfied. Templates, synthetic fixtures and a
+green comparability audit remain implementation support only. Panel advice is
+not independent or specialist assurance.
 
 The current owner decision queue is recorded in
 `data/methods/pilot_adjudication_register.csv`, with the corresponding packet

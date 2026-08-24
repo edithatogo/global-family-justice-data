@@ -229,25 +229,19 @@ def test_evidence_review_enforces_independence_and_unlocks_work_acceptance(
     conductor = Conductor.load(root)
     with pytest.raises(ValueError, match="independent"):
         conductor.review_evidence(
-            "E-CLEAN-BUILD",
+            "E-PILOT-ACQUISITION",
             "accepted",
-            reviewer_role="technical lead",
+            reviewer_role="acquisition lead",
         )
     accepted = conductor.review_evidence(
-        "E-CLEAN-BUILD",
+        "E-PILOT-ACQUISITION",
         "accepted",
-        reviewer_role="role-separated engineering reviewer",
+        reviewer_role="role-separated acquisition reviewer",
     )
     assert accepted.status == "accepted"
     assert len(accepted.sha256) == 64
-    conductor.set_work_status(
-        "WI-G2-03",
-        "in_review",
-        actor="technical lead",
-        note="Submitted for acceptance",
-    )
     item = conductor.set_work_status(
-        "WI-G2-03",
+        "WI-G2-02",
         "accepted",
         actor="repository owner",
     )

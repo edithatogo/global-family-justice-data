@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2CONCORDANCE-DISPOSITION-20260824-01",
+  "decided_on": "2026-08-24",
+  "decision_maker": "repository owner and sole accountable decision-maker",
+  "predecision_source_commit": "8f910b21686a487235732579358efd86068ce266",
+  "scope": "bounded owner disposition of the final two-row known-source concordance result and related conservative methods consequences",
+  "input_bindings": [
+    {
+      "path": "docs/governance/g2-dual-review-concordance-agent-panel-2026-08-24.md",
+      "sha256": "536b5cf0c05689996ad7dc61e223305f374ebacf2eb9e57f9017ce9f294ede0d"
+    },
+    {
+      "path": "docs/methods/g2-final-two-row-concordance-evidence-2026-08-21.md",
+      "sha256": "10477e0ec5b403d792ca9d9113ab4a856012d303ddc54fe4f35ea6c8b012199e"
+    },
+    {
+      "path": "data/methods/g2/G2REAL-PILOT-20260821-03/packet.json",
+      "sha256": "95e5690f960e1c216e753045b0e1f02d4e5fc334ddf3a9e365ff4781595a56d4"
+    },
+    {
+      "path": "docs/methods/g2-dashboard-period-confirmation-evidence-2026-08-22.md",
+      "sha256": "eab623881270f35d0a71ace2b59030a701d6478ed7eb89e3e39b55bb7cd793ac"
+    },
+    {
+      "path": "docs/methods/g2-datajud-family-class-evidence-2026-08-22.md",
+      "sha256": "e6deb350baa2a38a05d4749453a69ea1eb553f07d15ad11bfd7fb71f7607a6db"
+    },
+    {
+      "path": "docs/methods/g2-known-source-cohort-disposition-dossier-2026-08-22.md",
+      "sha256": "6ebadd31069df1df9a35d1119dab22d998c93148bed87715e95689a9b95f09a3"
+    },
+    {
+      "path": "docs/governance/g2-rights-privacy-security-disclosure-owner-decision-2026-08-24.md",
+      "sha256": "ea9fd1cfd11548af1ee6b2acd950ef7da5f0408fa48f89587c28c5a6fbee05f3"
+    }
+  ],
+  "sealed_artifact_bindings": {
+    "comparison_config_sha256": "29259a2d9b696afef074216f944ab406f3227606dbf6f9d13c17d437b6122f51",
+    "primary_output_sha256": "4ded9ce67629b3c5ca8b3111e23fd49854b19a13b4a259a2f9a657850b384967",
+    "secondary_output_sha256": "815d2e6ebc20c85cd943802a407d39f42126cb768737e01716bdb23e7645cbe3",
+    "concordance_receipt_sha256": "ea9b531a82255283dba3ca02437fbcfefc475c6354c1db6e727065783b818e92",
+    "differences_sha256": "f8f0530cf4f25f78c9428e4a2abb0f07f8740808199cb7639ce9c1c47037130d"
+  },
+  "accepted_bounded_facts": {
+    "rows": 2,
+    "critical_populated_matches": 36,
+    "critical_populated_comparisons": 36,
+    "configured_populated_matches": 40,
+    "configured_populated_comparisons": 40,
+    "differences": 0,
+    "quarantine_status": "all_rows_quarantined"
+  },
+  "metric_limitations": {
+    "zero_comparison_fields": [
+      "period_start",
+      "period_end"
+    ],
+    "unscored_fields": [
+      "extracted_row_id",
+      "source_record_key",
+      "notes"
+    ],
+    "design": "calibrated two-row known-source exercise, not a blind holdout",
+    "generalisation": "not established"
+  },
+  "methods_disposition": {
+    "ods_and_pdf": "source-defined, descriptive and quarantined; no pooling, ranking or cross-jurisdiction comparison",
+    "dashboard": "same-series cross-format reconciliation support only; not independent corroboration or formal concordance",
+    "datajud": "private aggregate acquisition support only; not part of formal concordance"
+  },
+  "status_effect": {
+    "G2-C04": "unchanged_in_review",
+    "G2-C05": "unchanged_draft",
+    "G2-C06": "unchanged_in_review",
+    "G2-C07": "unchanged_in_review",
+    "WI-G2-04": "unchanged_in_review",
+    "WI-G2-05": "unchanged_in_review",
+    "WI-G2-06": "unchanged_in_review",
+    "WI-G2-07": "unchanged_in_review",
+    "G2": "not_passed"
+  },
+  "reopen_triggers": [
+    "a new discrepancy",
+    "a different source edition",
+    "a changed field or comparison contract",
+    "a new semantic conflict affecting period, denominator, reporting universe, counted entity or population scope"
+  ],
+  "prohibitions": [
+    "retrospective repair or promotion of failed packets",
+    "pooling or ranking the two observations",
+    "treating dashboard equality as independent corroboration",
+    "source-rights acceptance",
+    "publication or release",
+    "G2 passage"
+  ]
+}

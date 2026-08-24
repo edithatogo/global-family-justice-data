@@ -11,6 +11,7 @@ from jsonschema import Draft202012Validator
 from gfjd.g2_holdout import (
     G2HoldoutError,
     _canonical_public_url,
+    _matches_current_or_frozen_design_blob,
     select_g2_holdout,
     verify_g2_holdout_selection,
 )
@@ -124,6 +125,28 @@ def _write_inputs(root: Path, candidates: list[dict[str, object]]) -> tuple[Path
     universe_path.write_text(json.dumps(universe))
     ledger_path.write_text(json.dumps(ledger))
     return universe_path, ledger_path
+
+
+def test_changed_evidence_can_verify_against_the_signed_design_commit(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root = tmp_path / "repo"
+    root.mkdir()
+    evidence = root / "mutable.csv"
+    evidence.write_bytes(b"current bytes\n")
+    frozen = b"frozen design bytes\n"
+
+    def fake_run(arguments: list[str], **_: object) -> object:
+        stdout = frozen if arguments[1] == "show" else b""
+        return type("Completed", (), {"stdout": stdout})()
+
+    monkeypatch.setattr("gfjd.g2_holdout.subprocess.run", fake_run)
+    assert _matches_current_or_frozen_design_blob(
+        root, evidence, hashlib.sha256(frozen).hexdigest()
+    )
+    assert not _matches_current_or_frozen_design_blob(
+        root, evidence, hashlib.sha256(b"different frozen bytes\n").hexdigest()
+    )
 
 
 def test_selects_exact_frozen_scope_deterministically(project_root: Path, tmp_path: Path) -> None:

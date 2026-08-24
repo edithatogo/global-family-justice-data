@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
   "receipt_id": "G2MATERIAL-DISTINCT-20260820-01-PREPARATION-RECEIPT",
-  "plan_sha256": "59b0a275fa56f09ae91eebdb18e527f3336c31f49b1bc8eddb324e412c9484b7",
+  "plan_sha256": "4eebad32ee8f6175a949fd5a2d27bfe29402cdc9c5879b676b02fd228d41d8fa",
   "frame_sha256": "ef012e94dddfc37820b17301eaa423f4dc0dbd3a64c139e55cf902c6850178b3",
   "source_register": {
     "path": "data/seed/source_register.csv",
-    "sha256": "e4fa0a02a7718ee0532b65a996bc287a4c8aa24afeff010943969e23eeef4e06"
+    "sha256": "16023b6b560c141bb81be13b23f061481aa5b598ead7a24db4cff1f327c9fa4e"
   },
   "exposure_ledger": {
     "path": "data/methods/g2/G2HOLDOUT-METADATA-EXPANSION-20260816-03/design/ledger.json",

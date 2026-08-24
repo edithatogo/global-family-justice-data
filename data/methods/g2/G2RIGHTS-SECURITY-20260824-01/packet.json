@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2RIGHTS-SECURITY-20260824-01",
+  "decided_on": "2026-08-24",
+  "decision_maker": "repository owner and sole accountable decision-maker",
+  "scope": "controlled handling and public-boundary disposition for the four exact known-source G2 artifacts",
+  "predecision_source_commit": "6c320e203ac83826af6f7a7a48b5819ad4f4aa02",
+  "input_bindings": [
+    {
+      "path": "docs/methods/g2-four-edition-acquisition-evidence-2026-08-21.md",
+      "sha256": "d14dccdccaf601684209b103b238a44a86a7fa6df6a7a93a5014e31c500c8eeb"
+    },
+    {
+      "path": "docs/methods/g2-known-source-cohort-disposition-dossier-2026-08-22.md",
+      "sha256": "9ed2952c3d2448b91ccc004965c5c1837777093277b95e7d4424985304639ffc",
+      "binding": "blob at predecision_source_commit"
+    },
+    {
+      "path": "docs/methods/exact-edition-rights-screening-2026-08-03.md",
+      "sha256": "3f1011855467ec386c7b6e1c64935668d12038e0332f89ef731f9fffc3101e1b"
+    },
+    {
+      "path": "docs/methods/public-rights-terms-recheck-2026-08-03.md",
+      "sha256": "7653bc3ab87a5521daa423075c67f2f610789b04a1c6cb3e76c5c59e0652c8be"
+    },
+    {
+      "path": "docs/methods/pilot-rights-security-assessment-2026-08-03.md",
+      "sha256": "76c38ae8585f6fed64ab6b1ecaadae2825163e4534ccc42d61fb9723d406d380"
+    },
+    {
+      "path": "docs/governance/g2-rights-privacy-security-disclosure-agent-panel-2026-08-24.md",
+      "sha256": "43f534617b8149df1f7ef85e4db27644ab7274fb49fb6c0cb2d8f35bb2128109"
+    }
+  ],
+  "public_repository_boundary": {
+    "allowed": [
+      "content hashes",
+      "source locators",
+      "aggregate target values",
+      "query and request digests",
+      "citations",
+      "disposition records"
+    ],
+    "prohibited": [
+      "source bytes",
+      "raw API responses",
+      "raw model or query responses",
+      "workbook contents",
+      "dashboard responses",
+      "PDF text or excerpts",
+      "screenshots or rendered captures",
+      "derived workbooks",
+      "content-bearing caches, temporary files, prompts or logs",
+      "content-bearing extraction intermediates"
+    ],
+    "repository_disposition": "metadata_only"
+  },
+  "controlled_storage": {
+    "access": "restricted_local",
+    "custodian": "repository owner and sole accountable decision-maker",
+    "permitted_accessors": "repository owner and task-scoped agents operating under the aggregate-only boundary",
+    "storage_locations": [
+      "ignored build paths",
+      "controlled local acquisition storage outside Git"
+    ],
+    "inventory": {
+      "path": "data/methods/g2/G2RIGHTS-SECURITY-20260824-01/controlled-artifact-inventory.csv",
+      "sha256": "62b138273e15cefa937012cf8e02088f027a7ddc53b646ca9b72efec00c8cacb",
+      "artifact_count": 41,
+      "verified_on": "2026-08-24"
+    },
+    "git_tracking": false,
+    "retention_review_on": "2027-08-24",
+    "delete_or_reauthorize_by": "2027-08-24",
+    "hold_conditions": [
+      "active G2 evidence review",
+      "unresolved incident, correction or provenance investigation"
+    ],
+    "deletion_verification": "inventory exact governed hashes before deletion, remove only the approved controlled copies, verify absence, and record a deletion receipt",
+    "automatic_deletion_authorized": false
+  },
+  "routes": [
+    {
+      "route": "DataJud TJSP API",
+      "source_artifact_sha256": "f475ae52b31f0e9a509de1be1d312bb946f4f57944717d0bda5d68d1f59df2fe",
+      "filtered_aggregate_packet_sha256": "02b975257f3254b8152cf801694df5b2e11656ba5f3cf04927dfdfccbe629948",
+      "filtered_response_sha256": "626d18292c23ffe5e369b3c82c5477f9265686dca86f195021bc8f100c903da3",
+      "disposition": "private_aggregate_only",
+      "redistribution": "not_authorized"
+    },
+    {
+      "route": "England and Wales ODS",
+      "source_artifact_sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2",
+      "acquisition_manifest_sha256": "eecddb07e787c703113bcc7363b68cc91f1c0890ed1e3757b8abed5b832f8c31",
+      "disposition": "private_quarantine_conditional_reuse_candidate",
+      "reuse_condition": "exact-edition OGL notice and third-party exclusions must be rechecked at the point of reuse",
+      "redistribution": "not_authorized_by_this_decision"
+    },
+    {
+      "route": "England and Wales dashboard",
+      "source_artifact_sha256": "52d356701a10ac6519da61d82ecf3f0cb0e04921597f19a4df6fe721687ac63f",
+      "quarterly_confirmation_packet_sha256": "6ebad8e4b8f3070ff5353b0131be13c5a1c65f4a5f0f532e21c021893e34858c",
+      "quarterly_response_sha256": "4009c22c5e0bf115205d8488838b8c9b0f224ec627a6f9bc2f2e7be02b36fae1",
+      "disposition": "metadata_citation_and_private_response",
+      "redistribution": "not_authorized"
+    },
+    {
+      "route": "FCFCOA annual report 2024-25",
+      "source_artifact_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "acquisition_manifest_sha256": "4df2b158bd6975f8222c943e7d186774a8b122a85983ae57bec516d2a2452fb6",
+      "disposition": "private_quarantine",
+      "processing_limit": "do not extract or redistribute unrelated pages",
+      "redistribution": "not_authorized"
+    }
+  ],
+  "incident_rule": {
+    "trigger": "personal, sensitive, identifying, contact, narrative or small-cell material is discovered",
+    "action": "immediate_quarantine_and_metadata_only_handling"
+  },
+  "authority_limits": {
+    "legal_assurance": false,
+    "privacy_assurance": false,
+    "security_assurance": false,
+    "independent_assurance": false,
+    "rights_clearance": false,
+    "publication_authorized": false,
+    "release_authorized": false,
+    "g2_passed": false,
+    "g2_c06_status": "in_review",
+    "g2_c06_remaining_condition": "edition-specific rights privacy security and disclosure assessment with no unresolved critical finding"
+  }
+}

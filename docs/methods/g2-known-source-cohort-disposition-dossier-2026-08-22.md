@@ -9,9 +9,9 @@ G2 passage.
 
 | Route | Exact edition / artifact | Institutional provenance | Coverage state | G2 use now |
 | --- | --- | --- | --- | --- |
-| API | `G2-API-BRA-TJSP-2026`, aggregate API response SHA-256 `f475ae52b31f0e9a509de1be1d312bb946f4f57944717d0bda5d68d1f59df2fe` | DataJud public TJSP endpoint | Acquisition-only: zero document hits and 20 unfiltered class buckets; no family-justice measure is bound. | Cannot enter extraction or methods adjudication. |
+| API | `G2-API-BRA-TJSP-2026`, original aggregate response SHA-256 `f475ae52b31f0e9a509de1be1d312bb946f4f57944717d0bda5d68d1f59df2fe`; later class-1389 aggregate response SHA-256 `626d18292c23ffe5e369b3c82c5477f9265686dca86f195021bc8f100c903da3` | DataJud public TJSP endpoint | The later bounded request selects official CNJ TPU class `1389` (`Ação de Alimentos`), retains zero hits and returns an aggregate bucket count of `2`; no time basis or denominator is bound. | Private aggregate-only supporting evidence; not part of formal concordance. |
 | Spreadsheet | `GBR_EAW_MOJ_FAMILY_Q_2026Q1`, ODS SHA-256 `3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2` | England and Wales Ministry of Justice family-court tables | Extracted and role-separated re-extracted in final two-row known-source recalibration. | Quarantine-only, descriptive source record. |
-| Dashboard | `GBR_EAW_MOJ_FAMILY_DASH_2026Q1`, Power BI entry HTML SHA-256 `52d356701a10ac6519da61d82ecf3f0cb0e04921597f19a4df6fe721687ac63f` | England and Wales Ministry of Justice visualisation tool | Aggregate visible view is evidenced, but the bound HTML shell does not establish the required numeric value or a frozen export. | Acquisition-only until a source-faithful visible/exported value is bound. |
+| Dashboard | `GBR_EAW_MOJ_FAMILY_DASH_2026Q1`, Power BI entry HTML SHA-256 `52d356701a10ac6519da61d82ecf3f0cb0e04921597f19a4df6fe721687ac63f`; quarterly response SHA-256 `4009c22c5e0bf115205d8488838b8c9b0f224ec627a6f9bc2f2e7be02b36fae1` | England and Wales Ministry of Justice visualisation tool | Digest-bound semantic query evidence explicitly returns `2026-Q1`, `Orders applied for`, value `4,917`; denominator and reporting-universe equivalence remain unresolved. | Same-series cross-format reconciliation evidence only; not independent corroboration or formal concordance. |
 | PDF/manual | `AUS_FCFCOA_AR_2024_25`, PDF SHA-256 `e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9` | Federal Circuit and Family Court of Australia annual report | Extracted and role-separated re-extracted in final two-row known-source recalibration. | Quarantine-only, descriptive source record. |
 
 The four-route acquisition record is
@@ -37,15 +37,17 @@ excluded by a separate scope decision.
 
 | Edition | Current factual handling | Assessment state | Required completion evidence |
 | --- | --- | --- | --- |
-| DataJud API response | Aggregate-only response, locally hash-bound; no hit records acquired. | Rights/privacy/security/disclosure assessment incomplete. | Scoped query definition; endpoint/response review; rights and disclosure finding. |
-| England and Wales ODS | Locally hash-bound and used only for quarantined extraction. | Rights/privacy/security/disclosure assessment incomplete. | Edition-specific conditions, aggregate/prohibited-data check, local handling and disclosure finding. |
-| England and Wales dashboard entry | Locally hash-bound HTML shell plus digest-bound semantic query and explicit quarterly confirmation. | Rights/privacy/security/disclosure assessment incomplete. | Edition/visual conditions, aggregate/disclosure finding and owner methods disposition. |
-| Australia PDF | Locally hash-bound and used only for quarantined extraction. | Rights/privacy/security/disclosure assessment incomplete. | Edition-specific conditions, aggregate/prohibited-data check, local handling and disclosure finding. |
+| DataJud API responses | Aggregate-only and locally hash-bound; no hit records acquired. | Handling decided: private aggregate-only; edition-specific assessment remains incomplete. | Complete rights/privacy/security/disclosure finding; retain private and require a separate decision before reuse. |
+| England and Wales ODS | Locally hash-bound and used only for quarantined extraction. | Handling decided: private quarantine and conditional bounded-reuse candidate; assessment remains incomplete. | Complete edition-specific assessment and recheck OGL applicability, attribution, exclusions, third-party content and prohibited material at the point of reuse. |
+| England and Wales dashboard entry and responses | Locally hash-bound HTML shell plus digest-bound semantic queries and explicit quarterly confirmation. | Handling decided: metadata/citation and private-response evidence; assessment remains incomplete. | Complete edition/visual assessment; keep raw model/query responses outside Git and public publication; no redistribution. |
+| Australia PDF | Locally hash-bound and used only for quarantined extraction. | Handling decided: private quarantine; edition-specific assessment remains incomplete. | Complete rights/privacy/security/disclosure finding; do not extract or redistribute unrelated pages. |
 
-The owner has authorised local acquisition and processing of this bounded
-cohort. That authorisation is recorded operationally; it is not a factual
-finding about the editions and does not close G2-C06. Unknown conditions remain
-quarantined or metadata-only.
+The owner handling decision is recorded in
+[`g2-rights-privacy-security-disclosure-owner-decision-2026-08-24.md`](../governance/g2-rights-privacy-security-disclosure-owner-decision-2026-08-24.md).
+It establishes controlled private quarantine and a metadata-only public/Git
+boundary, with retention review by `2027-08-24`. It is not rights clearance or
+specialist assurance and does not close `G2-C06`; the criterion remains
+`in_review`.
 
 ## Evidence already produced
 

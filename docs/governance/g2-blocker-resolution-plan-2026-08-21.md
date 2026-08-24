@@ -14,11 +14,11 @@ acceptance.
 | Criterion | Current position | Implemented repository-owned action | Still required before acceptance |
 | --- | --- | --- | --- |
 | C01 census | Draft | Maintain an edition-level cohort and coverage matrix. | A bounded cohort with an institutional map, provenance and reviewed coverage state for every chosen edition. |
-| C02 acquisition | In review | Preserve the four acquired route manifests and source hashes; add the bounded DataJud class-1389 aggregate evidence and source-semantic dashboard query result. | A reviewed, reproducible acquisition record for every route in the accepted cohort; route-specific rights/security assessment and grouped owner disposition remain pending. |
+| C02 acquisition | In review | Preserve the four acquired route manifests and source hashes; add the bounded DataJud class-1389 aggregate evidence and source-semantic dashboard query result. | A reviewed, reproducible acquisition record for every route in the accepted cohort; the grouped private-quarantine disposition is now recorded but does not itself accept C02. |
 | C03 pipeline | In review | Add and run the deterministic quarantine-only bronze/silver/quarantine build from the final two-row output. | A digest-bound clean-build receipt on the frozen real-pilot inputs, then owner acceptance of that factual build evidence. |
 | C04 review | In review | Bind the final two-role two-row concordance result as current supporting evidence. | A documented scoped disposition and owner acceptance that the selected cohort's review outcome is adequate for C04; it cannot silently stand in for excluded routes. |
 | C05 methods | Draft | Prepare a focused methods disposition matrix and bind explicit dashboard `2026-Q1` confirmation against the ODS. | Sole-owner adjudication of ontology, counted entity, time basis, denominator/population scope and comparability consequence. |
-| C06 rights/security | In review | Prepare an edition-level factual assessment envelope and retain local processing boundaries. | Verified edition-specific rights, privacy, security and disclosure facts with no unresolved critical finding, plus owner adjudication. Public availability and prior local-processing permission are not substitutes. |
+| C06 rights/security | In review | The owner has adopted controlled private quarantine, a metadata-only public/Git boundary, route-specific dispositions, a 41-file controlled inventory covering the pilot and live acquisition copies, and a `2027-08-24` retention review. | Complete edition-specific rights, privacy, security and disclosure assessments with no unresolved critical finding. The handling decision is not rights clearance or legal/privacy/security assurance. |
 | C07 re-extraction | In review | Preserve the exact 36/36 critical and 40/40 overall result as supporting lineage. | An owner adjudication of the exact result against the criterion and any required broader cohort; failed packets remain immutable and no subset is retrospectively promoted. |
 | C08 operations | Accepted | No new work. | The acceptance remains limited to the private synthetic rehearsal. |
 
@@ -37,18 +37,23 @@ acceptance.
    ODS orders versus PDF applications, source-defined dates, national versus
    court scope, and the resulting prohibition on pooling or comparison. The
    default disposition is quarantine/descriptive-only.
-4. **Edition assessment preparation.** Record exact editions, processing
-   boundary, source hash, disclosed terms/rights facts, privacy/disclosure
-   conditions and security scan/handling evidence. Unknown remains unknown;
-   no condition is inferred from discoverability or owner local-processing
-   permission.
+4. **Maintain source-specific rights/security controls.** Bind the owner
+   decision in `G2RIGHTS-SECURITY-20260824-01`; keep source bytes and every
+   content-bearing derivative outside Git under restricted local access;
+   retain only metadata, hashes, aggregate target values and dispositions in
+   the repository. Maintain and reverify the exact controlled-artifact
+   inventory; complete edition-specific rights, privacy, security and
+   disclosure findings; and recheck exact-edition terms when bounded reuse is
+   proposed. Review retention by `2027-08-24`; do not treat this handling
+   decision as rights clearance or specialist assurance.
 5. **Cohort completion.** The API route now has a source-defined aggregate
    target and a digest-bound response under
    `G2API-BRA-TJSP-20260822-01`; the dashboard now has a
    source-semantic aggregate query result under
-   `G2DASH-GBR-EAW-20260822-01`. Route-specific methods, rights/security and
-   owner disposition remain pending; the dashboard period confirmation is
-   explicit `2026-Q1` and may support same-series reconciliation only;
+   `G2DASH-GBR-EAW-20260822-01`. The owner handling disposition is now bound;
+   route-specific methods and any future reuse clearance remain pending. The
+   dashboard period confirmation is explicit `2026-Q1` and may support
+   same-series reconciliation only;
    alternatively explicitly constrain the intended
    G2 pilot cohort. No route is silently substituted and no known-source
    calibration is called a blind holdout.

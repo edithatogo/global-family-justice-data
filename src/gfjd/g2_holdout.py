@@ -419,7 +419,7 @@ def _verified_denylists(
         raise G2HoldoutError("denied URL summary does not match exposure entries")
     for artifact in ledger["evidence_artifacts"]:
         path = _confined(root, Path(artifact["path"]))
-        if sha256_file(path) != artifact["sha256"]:
+        if not _matches_current_or_frozen_design_blob(root, path, str(artifact["sha256"])):
             raise G2HoldoutError(f"exposure evidence digest mismatch: {artifact['path']}")
     referenced_paths = {
         str(path) for entry in ledger["entries"] for path in entry["evidence_paths"]
@@ -429,6 +429,30 @@ def _verified_denylists(
         missing = ", ".join(sorted(referenced_paths - artifact_paths))
         raise G2HoldoutError(f"exposure entry lacks verified evidence artifact: {missing}")
     return editions, series, urls
+
+
+def _matches_current_or_frozen_design_blob(root: Path, path: Path, expected_sha256: str) -> bool:
+    """Verify mutable evidence against current bytes or its frozen design blob."""
+
+    if sha256_file(path) == expected_sha256:
+        return True
+    repository_path = path.relative_to(root).as_posix()
+    try:
+        subprocess.run(
+            ["git", "verify-commit", DESIGN_COMMIT],
+            cwd=root,
+            check=True,
+            capture_output=True,
+        )
+        committed = subprocess.run(
+            ["git", "show", f"{DESIGN_COMMIT}:{repository_path}"],
+            cwd=root,
+            check=True,
+            capture_output=True,
+        ).stdout
+    except (OSError, subprocess.CalledProcessError):
+        return False
+    return hashlib.sha256(committed).hexdigest() == expected_sha256
 
 
 def _verify_candidate_universe(candidates: Sequence[Mapping[str, Any]]) -> None:

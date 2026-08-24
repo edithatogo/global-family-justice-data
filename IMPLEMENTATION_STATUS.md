@@ -1,7 +1,7 @@
 # Implementation status
 
 **Baseline:** `0.6.0-alpha.2`
-**Status date:** 2026-08-20
+**Status date:** 2026-08-24
 **Purpose:** distinguish executable engineering controls from international research and institutional evidence that remain to be completed.
 
 This repository is a bootstrap-ready engineering and programme-control baseline. It is not a completed international family-justice dataset and is not the stable v1.0 service.
@@ -39,6 +39,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | External authority-gate plan | Authority types, digest-bound evidence packets and permitted status transitions are defined for governance, methods, coverage/rights, product, security/legal, operations, participation and sustainability gates |
 | Programme gate resolution plan | G1–G6 are mapped to remaining evidence, recommended routes, contingencies, tracks and fail-closed promotion rules |
 | G2 evidence-campaign protocol | A deterministic, digest-bound campaign envelope is prepared from the exhausted material-distinct frame. It permits no external action, avoids per-artifact approval churn, and requires one future grouped authorization only after a genuinely non-exposed candidate manifest exists. A no-network intake guard now rejects duplicated or already exposed proposed URLs before a campaign packet can be assembled. |
+| G2 known-source handling | Four exact known-source routes have a bound owner handling disposition: controlled private quarantine, metadata-only public/Git records, route-specific restrictions and a 2027-08-24 retention review. G2-C06 remains in review because this is not rights clearance or legal/privacy/security assurance. |
 
 ## Current programme state
 
@@ -49,10 +50,10 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
   facts remain mandatory where the current gate contracts require them.
 - Passed gates: **G1** through the digest-bound sole-owner decision dated
   2026-08-15. G2–G6 have not passed.
-- G2 factual-evidence route: **blocked before external activity**. The current
-  repository-only material-distinct frame has zero unexposed candidates; the
-  evidence-campaign protocol records the resulting stop and does not advance
-  G2.
+- G2 factual-evidence route: **bounded known-source evidence is in review**.
+  The ODS/PDF two-row rerun is exactly concordant but quarantined; DataJud and
+  dashboard source-semantic evidence is supporting only; the controlled
+  private handling decision does not pass G2-C06 or G2.
 - Gold empirical observations: **none**.
 - Synthetic fixtures: explicitly fictional and excluded from empirical release claims.
 - Canonical GitHub owner: **`edithatogo`**, verified from authenticated GitHub state.

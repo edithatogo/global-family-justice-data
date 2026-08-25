@@ -83,3 +83,12 @@ of thirteen mandatory control/work requirements complete. Its remaining
 criterion blockers are C04 and C07 plus the L2 evidence-maturity floor. The
 authorized lineage is terminal failed evidence, so any successor would require
 a materially new owner decision rather than a retry.
+
+The repository-owned successor preparation is now recorded in
+`data/methods/g2/G2MATERIAL-DISTINCT-20260826-01/preparation.json`, and the
+single grouped campaign and L2 decision is presented in
+`docs/governance/g2-remaining-blockers-decision-packet-2026-08-26.md`. The
+run preflight now rejects schema-invalid identifiers before any comparison may
+read or write run outputs. External discovery, new exact-edition access,
+execution, maturity promotion and gate acceptance remain fail-closed until the
+named decision and subsequent factual evidence exist.

@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2MATERIAL-DISTINCT-20260826-01",
+  "status": "prepared_awaiting_grouped_owner_authorization",
+  "purpose": "close G2-C04 and G2-C07 with one materially distinct four-edition agent-blinded reproducibility run",
+  "proposed_packet_id": "G2PKT-MATERIAL-DISTINCT-20260826-01",
+  "predecessor_disposition": {
+    "packet_id": "G2BLIND-KNOWN-EDITION-20260825-01",
+    "status": "immutable_terminal_failed_evidence",
+    "reuse_prohibited": true,
+    "repair_prohibited": true
+  },
+  "scope": {
+    "edition_count": 4,
+    "source_routes": ["api_or_json", "spreadsheet", "html_or_dashboard", "pdf"],
+    "official_aggregate_sources_only": true,
+    "new_exact_editions_required": true,
+    "cumulative_exposure_non_overlap_required": true,
+    "personal_or_case_level_data_prohibited": true
+  },
+  "stages": [
+    "official-publication metadata enumeration",
+    "deterministic eligibility and complete exposure-chain screening",
+    "exact-edition acquisition and digest binding",
+    "two fresh artifact-isolated extractions",
+    "single network-disabled exact comparison",
+    "advisory consistency and maturity review",
+    "owner adjudication only after a passing result"
+  ],
+  "thresholds": {
+    "critical_concordance": 1.0,
+    "overall_populated_field_concordance": 0.99,
+    "exact_comparison": true,
+    "fuzzy_matching": false,
+    "critical_waiver": false
+  },
+  "preflight_controls": {
+    "identifier_preflight_implementation": "gfjd.g2_run_preflight.validate_g2_run_identifiers",
+    "packet_id_must_validate_before_source_outputs_are_read": true,
+    "proposed_packet_id_matches_concordance_schema": true,
+    "source_and_scope_digests_must_validate_before_extraction": true,
+    "sealed_outputs_must_validate_before_comparison": true
+  },
+  "stopping_rules": [
+    "stop before source acquisition if four eligible route-distinct editions cannot be established",
+    "stop on any cumulative exposure overlap, source digest mismatch or prohibited-data indication",
+    "stop on any artifact-isolation, seal or binding failure",
+    "stop terminally on any critical discrepancy or comparator contract failure",
+    "never repair or reuse a sealed output"
+  ],
+  "resource_estimate": {
+    "maximum_official_metadata_pages": 40,
+    "maximum_exact_source_artifacts": 8,
+    "primary_editions": 4,
+    "route_matched_reserves": 4,
+    "extractor_roles": 2,
+    "comparator_roles": 1,
+    "advisory_review_roles": 1
+  },
+  "authority_boundary": {
+    "currently_authorized": [
+      "repository-owned preparation",
+      "contract validation",
+      "documentation",
+      "offline exposure screening"
+    ],
+    "requires_grouped_owner_authorization": [
+      "network and official metadata-page access",
+      "new exact-edition acquisition and source-content processing",
+      "execution of the blinded run"
+    ],
+    "not_requested": [
+      "rights clearance",
+      "gold promotion",
+      "publication",
+      "release",
+      "G2 passage"
+    ]
+  }
+}

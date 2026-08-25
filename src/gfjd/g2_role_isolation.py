@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import argparse
+import json
 import os
 import shutil
 import tempfile
@@ -85,13 +87,18 @@ def build_role_workspace(
     return resolved_destination / "isolation-receipt.json"
 
 
-def verify_role_workspace(root: Path, workspace: Path) -> list[str]:
+def verify_role_workspace(root: Path, workspace: Path | None = None) -> list[str]:
     """Recompute a role workspace's allowlist, types, sizes and digests."""
 
     from .io import read_json
 
-    resolved_root = root.expanduser().resolve()
-    resolved_workspace = _confined(resolved_root, workspace)
+    if workspace is None:
+        workspace = root
+        resolved_workspace = workspace.expanduser().resolve()
+        resolved_root = _discover_project_root(resolved_workspace)
+    else:
+        resolved_root = root.expanduser().resolve()
+        resolved_workspace = _confined(resolved_root, workspace)
     errors: list[str] = []
     if resolved_workspace.is_symlink() or not resolved_workspace.is_dir():
         return ["role workspace must be a real directory"]
@@ -188,3 +195,27 @@ def _confined(root: Path, path: Path, *, require_exists: bool = True) -> Path:
     except ValueError as exc:
         raise G2RoleIsolationError(f"path escapes repository root: {path}") from exc
     return resolved
+
+
+def _discover_project_root(path: Path) -> Path:
+    for parent in (path, *path.parents):
+        if (parent / "pyproject.toml").is_file() and (parent / "schemas").is_dir():
+            return parent.resolve()
+    raise G2RoleIsolationError(f"could not discover project root from workspace: {path}")
+
+
+def main(argv: Sequence[str] | None = None) -> int:
+    """Provide an unambiguous one-path verifier for isolated execution roles."""
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    subparsers = parser.add_subparsers(dest="command", required=True)
+    verify = subparsers.add_parser("verify", help="verify one isolated role workspace")
+    verify.add_argument("workspace", type=Path)
+    args = parser.parse_args(argv)
+    errors = verify_role_workspace(args.workspace)
+    print(json.dumps({"workspace": str(args.workspace), "errors": errors}, sort_keys=True))
+    return 1 if errors else 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

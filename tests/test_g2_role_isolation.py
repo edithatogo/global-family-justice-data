@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -49,9 +51,20 @@ def test_builds_minimal_digest_bound_workspace(project_root: Path, tmp_path: Pat
     ]
     assert (destination / "inputs" / "source-01.bin").read_bytes() == b"aggregate evidence"
     assert verify_role_workspace(project_root, destination) == []
+    assert verify_role_workspace(destination) == []
     receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
     assert receipt["workspace_policy"] == "explicit_allowlist_only"
     assert receipt["source_contents_embedded_in_receipt"] is False
+
+    completed = subprocess.run(
+        [sys.executable, "-m", "gfjd.g2_role_isolation", "verify", str(destination)],
+        cwd=project_root,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert completed.returncode == 0
+    assert json.loads(completed.stdout)["errors"] == []
 
 
 def test_rejects_existing_workspace(project_root: Path, tmp_path: Path) -> None:

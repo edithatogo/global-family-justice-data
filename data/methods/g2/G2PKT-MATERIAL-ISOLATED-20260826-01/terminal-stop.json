@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-MATERIAL-ISOLATED-20260826-01",
+  "source_commit": "de12f61a9a7b67d64ed7cd9d5deb17087ba6f4c8",
+  "bindings": {
+    "extractor_a_bundle": {
+      "path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-01/extractor-a-bundle.json",
+      "sha256": "7c25aca4f57ce7e39ff6707902087a0dd21922773267f18daf0d1b618b3e14fe"
+    },
+    "contract": {
+      "path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-01/contract.json",
+      "sha256": "544a23dae08ae1058b7639829984b83d303da4e252a2db6da6e2d29daf8fa8ad"
+    },
+    "isolation_plan": {
+      "path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-01/isolation-plan.json",
+      "sha256": "400b8284646f74831849b2fdc75569becc433ea31daf2d09cf6121e827e53e39"
+    }
+  },
+  "status": "terminal_failed_preflight",
+  "failure_category": "verifier_invocation_contract_error",
+  "failure": {
+    "type": "TypeError",
+    "message": "verify_role_workspace() missing 1 required positional argument: 'workspace'"
+  },
+  "isolation_verification_completed": false,
+  "source_inputs_read": false,
+  "extractor_b_interrupted": true,
+  "artifacts": {
+    "extractor_outputs_created": false,
+    "extractor_receipts_created": false,
+    "extractor_seals_created": false,
+    "comparison_created": false
+  },
+  "network_access": false,
+  "repair_attempted": false,
+  "retry_attempted": false,
+  "claim_limits": [
+    "This record establishes only that the packet terminated during preflight with the recorded verifier invocation contract error.",
+    "It does not establish role-workspace isolation, successful extraction, schema validity, row accuracy, agreement, comparison, scientific validity, release readiness, or completion."
+  ],
+  "authority_limits": [
+    "This record grants no authority to repair, retry, resume, compare, publish, release, merge, or represent the packet as complete.",
+    "Any subsequent action requires separate accountable authorization under the governing packet controls."
+  ]
+}

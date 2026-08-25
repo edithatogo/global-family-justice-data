@@ -13,13 +13,13 @@ acceptance.
 
 | Criterion | Current position | Implemented repository-owned action | Still required before acceptance |
 | --- | --- | --- | --- |
-| C01 census | Draft | A consolidated three-jurisdiction/four-route cohort record now binds institutions, searches, reviewed partial coverage, provenance and explicit acquisition-only limitations. | Bounded owner acceptance; no global-representativeness claim. |
-| C02 acquisition | In review | One consolidated record now binds all four route hashes, the original acquisition metadata and the successor API/dashboard packets. | Bounded owner acceptance as acquisition-route diversity, not substantive extraction. |
+| C01 census | Accepted | The owner accepted the consolidated three-jurisdiction/four-route cohort with reviewed partial coverage and no global-representativeness claim. | Reopen only if scope, institutions, coverage or bindings change. |
+| C02 acquisition | Accepted | The owner accepted the four hash-bound API, spreadsheet, dashboard and PDF/manual routes as acquisition-route diversity only. | Reopen on source or manifest drift; no substantive extraction or comparability claim. |
 | C03 pipeline | Accepted | The owner accepted the verified deterministic two-row quarantine build; zero gold is the correct fail-closed result. | No further C03 action unless a reopen trigger occurs. |
-| C04 review | In review | The owner accepted the final two-role two-row concordance result as bounded supporting evidence only under `G2CONCORDANCE-DISPOSITION-20260824-01`. | Review evidence adequate for the full chosen cohort; the calibrated two-row result cannot silently stand in for excluded routes or blind assurance. |
-| C05 methods | Draft | A four-route adjudication record now resolves unknown equivalence as `not_established` and comparison-ineligible. | Bounded owner acceptance; new semantic evidence reopens the affected disposition. |
-| C06 rights/security | In review | An edition-specific assessment now records zero unresolved critical private-processing findings, one mitigated high small-cell finding, controlled quarantine and a metadata-only boundary. | Bounded owner acceptance for private pilot only; reuse/publication rights and specialist claims remain excluded. |
-| C07 re-extraction | In review | Preserve all failed/supporting lineages and prepare a fresh four-route artifact-isolated agent-blinded execution packet. | Owner evidence-policy decision, then a passing fresh run and separate owner adjudication. |
+| C04 review | In review | Two fresh isolated four-row outputs were sealed and compared, but the new lineage stopped terminally with five critical differences and no valid concordance receipt. | A materially new owner-authorized evidence lineage; the failed run cannot be repaired or rerun. |
+| C05 methods | Accepted | The owner accepted `not_established` and comparison-ineligible as the conservative resolution for unresolved semantics. | New semantic evidence reopens the affected disposition; pooling and ranking remain prohibited. |
+| C06 rights/security | Accepted | The owner accepted zero unresolved critical findings only for private aggregate processing; one mitigated high small-cell finding and uncertain reuse rights remain quarantined. | Reopen for changed content/terms or any reuse, publication or release proposal. |
+| C07 re-extraction | In review | The authorized four-route agent-blinded known-edition run is preserved as terminal failed evidence under `G2BLIND-KNOWN-EDITION-20260825-01`. | A materially new owner-authorized evidence lineage; no repair, normalization, waiver or retrospective promotion. |
 | C08 operations | Accepted | No new work. | The acceptance remains limited to the private synthetic rehearsal. |
 
 ## Ordered implementation
@@ -57,11 +57,11 @@ acceptance.
    alternatively explicitly constrain the intended
    G2 pilot cohort. No route is silently substituted and no known-source
    calibration is called a blind holdout.
-6. **Grouped decision checkpoint.** C03 is accepted. The consolidated factual
-   records are ready for one grouped owner decision on C01/C02/C05/C06 and the
-   prospective evidence policy for C04/C07. A negative or incomplete finding
-   retains quarantine and blocks the relevant criterion without invalidating
-   the underlying immutable evidence.
+6. **Grouped decision and execution checkpoint.** The owner accepted
+   C01/C02/C05/C06 and authorized one fresh C04/C07 known-edition run. That run
+   stopped terminally with five critical differences; comparator receipt
+   validation also rejected the frozen packet-ID pattern. C04/C07 remain in
+   review and the sealed failed evidence cannot be repaired or rerun.
 
 ## Options and recommendation
 
@@ -75,8 +75,11 @@ acceptance.
 recalibration while preserving its narrow scope, and avoids another search
 lineage or a retrospective gate claim.
 
-## Next owner decision needed only at the gate checkpoint
+## Current checkpoint
 
-Repository-owned preparation is complete for the next checkpoint. The grouped
-decision is in
-`docs/governance/g2-next-unblock-owner-decision-packet-2026-08-24.md`.
+The grouped decision is recorded in
+`docs/governance/g2-next-unblock-owner-decision-2026-08-25.md`. G2 now has nine
+of thirteen mandatory control/work requirements complete. Its remaining
+criterion blockers are C04 and C07 plus the L2 evidence-maturity floor. The
+authorized lineage is terminal failed evidence, so any successor would require
+a materially new owner decision rather than a retry.

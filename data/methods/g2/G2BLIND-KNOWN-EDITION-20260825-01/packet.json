@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2BLIND-KNOWN-EDITION-20260825-01",
+  "created_on": "2026-08-25",
+  "status": "frozen_authorized_ready_for_extraction",
+  "preparation_commit": "7f31b11b185c266e946e32dae3165c7ca212ae07",
+  "owner_decision": {
+    "path": "docs/governance/g2-next-unblock-owner-decision-2026-08-25.md",
+    "sha256": "1d17f6fa8023b4cbaba88445a9d025529872844348b6245727cd9d51ac0ebc1f"
+  },
+  "proposal": {
+    "path": "data/methods/g2/G2NEXT-UNBLOCK-20260824-01/blind-execution-proposal.json",
+    "sha256": "fb5fac93068a59f0f1d66825336922c84a8bf46c8834d76a97a23adadffc5b3b"
+  },
+  "contract": {
+    "path": "data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/contract.json",
+    "sha256": "cf3f827717b7bf00d1f0ede7c3928f0b3449726aac1a651444fd5a6e6b660a30"
+  },
+  "row_schema": {
+    "path": "data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/row.schema.json",
+    "sha256": "767cf7586073448f5678df269d84622d97d4367ce1c38da2aa6d70214413415f"
+  },
+  "role_bundles": [
+    {
+      "role": "extractor_a",
+      "path": "data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/extractor-a-bundle.json",
+      "sha256": "88843d81b502ff89768379f0dc2ec5b911fbe052aafe25b70b5d6f62bf017236"
+    },
+    {
+      "role": "extractor_b",
+      "path": "data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/extractor-b-bundle.json",
+      "sha256": "d573932f1b0fe5acfe81242f35e38bfc43f73d4971ca5d358712d1c01bc9667c"
+    }
+  ],
+  "source_count": 4,
+  "source_hashes_verified_before_freeze": true,
+  "comparison": {
+    "implementation": "gfjd.g2_concordance.compare_g2_extractions",
+    "critical_threshold": 1.0,
+    "overall_populated_threshold": 0.99,
+    "exact_only": true,
+    "seal_before_compare": true
+  },
+  "stopping_rule": "Any critical, scope, source-digest, role-isolation or binding discrepancy terminates this lineage without repair or rerun.",
+  "authority_limits": {
+    "network_access": false,
+    "new_source_acquisition": false,
+    "publication": false,
+    "release": false,
+    "gold_promotion": false,
+    "rights_clearance": false,
+    "g2_passage": false,
+    "passing_run_requires_owner_adjudication": true
+  }
+}

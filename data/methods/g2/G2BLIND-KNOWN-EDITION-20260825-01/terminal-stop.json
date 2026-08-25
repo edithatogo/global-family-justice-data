@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2BLIND-KNOWN-EDITION-20260825-01",
+  "comparison_id": "G2CMP-BLIND-KNOWN-EDITION-20260825-01",
+  "stopped_on": "2026-08-25",
+  "status": "terminal_failed",
+  "reason": "Five critical exact-comparison differences were recorded and the comparator could not issue a schema-valid concordance receipt because the frozen packet identifier does not match the receipt schema's required G2PKT prefix.",
+  "frozen_design": {
+    "manifest_path": "data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/DESIGN_MANIFEST.sha256",
+    "manifest_sha256": "7bdf23ff7c1d20e62750715ad165ec0399f68c491e939ffec6500cb458898ef8",
+    "execution_authority_path": "data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/execution-authority.json",
+    "execution_authority_sha256": "d23d76c1922aac5d5ca3ce67ce95e5d3e74565c3d2feb309ac44a7a3719c11cb"
+  },
+  "sealed_private_artifacts": [
+    {
+      "role": "extractor_a_output",
+      "path": "build/g2-blind-known-edition-20260825-01/extractor-a/output.json",
+      "sha256": "99a1ae42427e6013238a473febd2140de37e42df6d54992dc704381a5f460982"
+    },
+    {
+      "role": "extractor_a_receipt",
+      "path": "build/g2-blind-known-edition-20260825-01/extractor-a/receipt.json",
+      "sha256": "6b3f53a9ca5366290e610a8badd3857b3b238a2fd11d8977f47c59ba5b0b8081"
+    },
+    {
+      "role": "extractor_b_output",
+      "path": "build/g2-blind-known-edition-20260825-01/extractor-b/output.json",
+      "sha256": "e2bbe0845060202c77e73254657e29cbb05c21c7e6431b992cee83cad87f2480"
+    },
+    {
+      "role": "extractor_b_receipt",
+      "path": "build/g2-blind-known-edition-20260825-01/extractor-b/receipt.json",
+      "sha256": "e7b75154931a69665c40bb69c4b80386d13e10b7939baa4c3100807d18706cdf"
+    },
+    {
+      "role": "redacted_comparison_differences",
+      "path": "build/g2-blind-known-edition-20260825-01/comparison/differences.json",
+      "sha256": "dd75d6fc0210790bfb6ceb65b350c4fbe651a975c0c161711d0370d5e7725a14"
+    }
+  ],
+  "comparison_disposition": {
+    "difference_count": 5,
+    "critical_difference_count": 5,
+    "affected_routes": [
+      "G2-API-BRA-TJSP-2026",
+      "G2-DASH-GBR-EAW-2026Q1"
+    ],
+    "critical_fields": [
+      "ambiguity_codes",
+      "extraction_uncertainty",
+      "source_locator",
+      "indicator_code"
+    ],
+    "threshold_passed": null,
+    "critical_concordance": null,
+    "overall_populated_field_concordance": null,
+    "metrics_not_issued_reason": "concordance receipt schema validation failed after differences were written"
+  },
+  "role_isolation": {
+    "extractor_bindings_and_seals_verified": true,
+    "comparator_source_access": false,
+    "network_access": false,
+    "cross_agent_access": false,
+    "sealed_output_mutation": false
+  },
+  "terminal_controls": {
+    "rerun_authorized": false,
+    "repair_authorized": false,
+    "normalization_authorized": false,
+    "waiver_authorized": false,
+    "fuzzy_matching_authorized": false,
+    "retrospective_promotion_authorized": false
+  },
+  "conductor_effect": {
+    "g2_c04": "in_review",
+    "g2_c07": "in_review",
+    "wi_g2_04": "in_review",
+    "wi_g2_07": "in_review",
+    "g2_passed": false
+  },
+  "authority_limits": {
+    "publication": false,
+    "release": false,
+    "gold_promotion": false,
+    "rights_clearance": false,
+    "g2_passage": false
+  }
+}

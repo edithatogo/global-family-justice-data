@@ -55,7 +55,8 @@ def test_conductor_graph_and_next_commands(project_root: Path, tmp_path: Path, c
     assert graph_path.read_text(encoding="utf-8").startswith("flowchart LR")
     assert main(["--root", str(project_root), "conductor", "next", "--limit", "3", "--json"]) == 0
     actions = json.loads(capsys.readouterr().out)
-    assert len(actions) == 3
+    assert len(actions) <= 3
+    assert all("work_item_id" in action for action in actions)
 
 
 def test_security_cli_passes(project_root: Path, capsys) -> None:

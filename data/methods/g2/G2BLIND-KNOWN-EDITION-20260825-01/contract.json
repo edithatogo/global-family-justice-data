@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2BLIND-KNOWN-EDITION-20260825-01",
+  "status": "prospectively_frozen_before_extraction",
+  "purpose": "bounded four-route agent-blinded known-edition reproducibility evidence",
+  "claim_limit": "bounded reproducibility only; no unseen-edition performance or generalisation claim",
+  "row_schema": "data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/row.schema.json",
+  "scope": [
+    {
+      "sample_key": "BRA_TJSP_API_2026",
+      "source_record_key": "e120e42d7bfed53ce0aebc0750ae70cab1acb4b33953c93ef58b6cf2ef77745c",
+      "candidate_id": "G2-API-BRA-TJSP-2026",
+      "source_id": "BRA_CNJ_DATAJUD_TJSP",
+      "source_edition_id": "BRA_CNJ_DATAJUD_TJSP_2026_CLASS_1389",
+      "source_format": "api",
+      "source_path": "build/g2-real-pilot-20260822-01/G2-API-BRA-TJSP-2026-class-1389.json",
+      "source_sha256": "626d18292c23ffe5e369b3c82c5477f9265686dca86f195021bc8f100c903da3",
+      "semantic_task": "Extract the response-defined aggregate count for the official Ação de Alimentos class; preserve the source's period semantics without inference."
+    },
+    {
+      "sample_key": "GBR_EAW_ODS_2026Q1",
+      "source_record_key": "6de208782443b00bdcac1797d94454e919c0f2294c988b5bd25f4510cb96c59d",
+      "candidate_id": "G2-ODS-GBR-EAW-2026Q1",
+      "source_id": "GBR_EAW_MOJ_FAMILY_Q",
+      "source_edition_id": "GBR_EAW_MOJ_FAMILY_Q_2026Q1",
+      "source_format": "spreadsheet",
+      "source_path": "build/g2-real-pilot-20260821-01/sources/G2-ODS-GBR-EAW-2026Q1.ods",
+      "source_sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2",
+      "semantic_task": "Extract the national total public-law orders applied for in the source's 2026 Q1 period."
+    },
+    {
+      "sample_key": "GBR_EAW_DASH_2026Q1",
+      "source_record_key": "7a33d4c3a41a3daa4e62b8aa695616c2959c59497b6732eeb4ad65f490996110",
+      "candidate_id": "G2-DASH-GBR-EAW-2026Q1",
+      "source_id": "GBR_EAW_MOJ_FAMILY_DASH",
+      "source_edition_id": "GBR_EAW_MOJ_FAMILY_DASH_2026Q1",
+      "source_format": "dashboard",
+      "source_path": "build/g2-real-pilot-20260822-01/G2-DASH-GBR-EAW-2026Q1-quarterly-confirmation.json",
+      "source_sha256": "4009c22c5e0bf115205d8488838b8c9b0f224ec627a6f9bc2f2e7be02b36fae1",
+      "semantic_task": "Extract the all-region quarterly Orders applied for count for the source-defined 2026 Q1 row."
+    },
+    {
+      "sample_key": "AUS_FCFCOA_2024_25",
+      "source_record_key": "c8c7ba87f41fb4b2e1ce18f6034f2a0e4b14e18239d0982629598c516d2223c7",
+      "candidate_id": "G2-PDF-AUS-FCFCOA-2024-25",
+      "source_id": "AUS_FCFCOA_AR",
+      "source_edition_id": "AUS_FCFCOA_AR_2024_25",
+      "source_format": "pdf",
+      "source_path": "build/g2-real-pilot-20260821-01/sources/G2-PDF-AUS-FCFCOA-2024-25.pdf",
+      "source_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "semantic_task": "Extract the original-jurisdiction total filings across application types for the source-defined 2024–25 period."
+    }
+  ],
+  "canonical_rules": {
+    "dates": "Populate an ISO date only when explicitly printed for the statistic; otherwise retain the source period label and use null dates.",
+    "unknown_semantics": "Use an ambiguity code and unresolved uncertainty; never infer missing period, population or counted-entity semantics.",
+    "notes": null,
+    "quarantine_status": "quarantine"
+  },
+  "critical_fields": [
+    "sample_key", "candidate_id", "source_id", "source_edition_id",
+    "source_sha256", "source_format", "source_locator", "domain_code",
+    "matter_type_code", "indicator_code", "statistic_type", "unit_code",
+    "value", "period_label_source", "period_start", "period_end",
+    "time_basis", "counted_entity_code", "population_scope_code",
+    "ambiguity_codes", "quarantine_status", "extraction_uncertainty"
+  ],
+  "ignored_fields": ["extracted_row_id", "source_record_key", "notes"],
+  "thresholds": {
+    "critical_concordance": 1.0,
+    "overall_populated_field_concordance": 0.99,
+    "exact_comparison": true,
+    "fuzzy_matching": false,
+    "critical_waiver": false
+  },
+  "role_isolation": {
+    "extractors": 2,
+    "fresh_context": true,
+    "source_only": true,
+    "prior_outputs_prohibited": true,
+    "expected_values_prohibited": true,
+    "answer_bearing_locators_prohibited": true,
+    "cross_agent_communication_prohibited": true,
+    "seal_before_compare": true
+  },
+  "stopping_rules": [
+    "any source digest or scope mismatch terminates the lineage",
+    "any role-isolation or artifact-binding failure terminates the lineage",
+    "any critical discrepancy terminates the lineage",
+    "no sealed-output repair, reuse, waiver, fuzzy match or calibration rerun"
+  ],
+  "authority_limits": {
+    "network_access": false,
+    "new_source_acquisition": false,
+    "publication": false,
+    "release": false,
+    "gold_promotion": false,
+    "rights_clearance": false,
+    "g2_passage": false,
+    "passing_run_requires_owner_adjudication": true
+  }
+}

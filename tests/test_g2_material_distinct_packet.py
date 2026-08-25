@@ -44,12 +44,3 @@ def test_material_distinct_contract_is_exact_and_fail_closed(project_root: Path)
     assert contract["role_isolation"]["answer_bearing_locators_prohibited"] is True
     assert contract["authority_limits"]["g2_passage"] is False
 
-
-def test_private_only_acquisition_is_not_redistribution_permission(project_root: Path) -> None:
-    schema = json.loads(
-        (project_root / "schemas/acquisition_manifest.schema.json").read_text(encoding="utf-8")
-    )
-    statuses = schema["properties"]["redistribution_status"]["enum"]
-    assert "private_only" in statuses
-    assert "allowed" in statuses
-    assert statuses.index("private_only") != statuses.index("allowed")

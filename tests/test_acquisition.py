@@ -67,30 +67,6 @@ def test_restricted_source_is_manifest_only(project_root: Path, tmp_path: Path) 
     assert not (destination / "files").exists()
 
 
-def test_private_only_source_is_retained_without_redistribution_clearance(
-    project_root: Path, tmp_path: Path
-) -> None:
-    project = load_project(project_root)
-    destination = tmp_path / "private-raw"
-    source = tmp_path / "controlled.pdf"
-    source.write_bytes(b"controlled aggregate evidence")
-
-    manifest, manifest_path = acquire_local_file(
-        project,
-        source_id="TEST-PRIVATE",
-        input_path=source,
-        destination_root=destination,
-        rights_status="review_required",
-        redistribution_status="private_only",
-    )
-
-    assert manifest["status"] == "success"
-    assert manifest["redistribution_status"] == "private_only"
-    assert manifest["stored_path"]
-    assert (destination / manifest["stored_path"]).read_bytes() == source.read_bytes()
-    assert verify_acquisition_manifest(project, manifest_path) == []
-
-
 def test_public_url_guard_rejects_private_address() -> None:
     with pytest.raises(AcquisitionError, match="non-public address"):
         validate_public_url("https://127.0.0.1/private")

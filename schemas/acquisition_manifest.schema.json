@@ -104,7 +104,6 @@
     "redistribution_status": {
       "enum": [
         "allowed",
-        "private_only",
         "metadata_only",
         "prohibited",
         "unknown"

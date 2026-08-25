@@ -44,6 +44,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | G2 C03 clean-build acceptance | The owner accepted the verified frozen two-row real-input quarantine build for C03: two bronze, two silver, two quarantine and zero gold rows. This closes only the deterministic-pipeline criterion. |
 | G2 next-unblock packet | The owner accepted the bounded C01/C02 cohort/acquisition evidence, conservative C05 non-equivalence disposition and private-processing C06 assessment. The authorized C04/C07 run subsequently stopped terminally. |
 | G2 grouped acceptance and terminal blind run | The owner accepted bounded C01/C02/C05/C06, advancing G2 to 9/13. The authorized four-route agent-blinded known-edition run produced five critical differences and then failed concordance-receipt validation on its frozen packet ID; it is immutable terminal failed evidence and C04/C07 remain in review. |
+| G2 successor blocker preparation | A mandatory run preflight now validates identifiers before comparison can consume extraction outputs, and one materially distinct four-route campaign plus evidence-specific L2 reassessment is prepared behind a single grouped owner decision. No external access, new acquisition, extraction, maturity promotion or gate passage has occurred. |
 
 ## Current programme state
 

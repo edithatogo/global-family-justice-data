@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-MATERIAL-ISOLATED-20260826-01",
+  "comparison_id": "G2CMP-MATERIAL-ISOLATED-20260826-01",
+  "created_on": "2026-08-26",
+  "status": "frozen_authorized_ready_for_workspace_build",
+  "implementation_commit": "5b7686546fe4094de66e38d491a125e9266af8b8",
+  "owner_direction": {"path": "docs/governance/g2-physical-isolation-owner-direction-2026-08-26.md", "sha256": "f4ff4661b1e3d95e14d4d1ebb556b00fa372ca2497cb77dce600537eb88056d0"},
+  "predecessor_terminal": {"path": "data/methods/g2/G2PKT-MATERIAL-DISTINCT-20260826-01/terminal-stop.json", "sha256": "cb403a429945a03198516356b7c0784ef05b800be1e2346caeb6e9986d9ae7e2"},
+  "contract": {"path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-01/contract.json", "sha256": "544a23dae08ae1058b7639829984b83d303da4e252a2db6da6e2d29daf8fa8ad"},
+  "isolation_plan": {"path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-01/isolation-plan.json", "sha256": "400b8284646f74831849b2fdc75569becc433ea31daf2d09cf6121e827e53e39"},
+  "row_schema": {"path": "schemas/g2_extraction_row.schema.json", "sha256": "449ad0f72b41ef8bb4e2c55c7daedab94e6dd818951645b873b2360ea50588ba"},
+  "role_bundles": [
+    {"role": "extractor_a", "path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-01/extractor-a-bundle.json", "sha256": "7c25aca4f57ce7e39ff6707902087a0dd21922773267f18daf0d1b618b3e14fe"},
+    {"role": "extractor_b", "path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-01/extractor-b-bundle.json", "sha256": "dd0334e91d3cd1bc265a218ea004b02437a0f50870d24bccff09bcb4d3be709f"}
+  ],
+  "source_count": 4,
+  "source_artifact_count_per_role": 5,
+  "identifier_preflight_passed": true,
+  "comparison": {"implementation": "gfjd.g2_concordance.compare_g2_extractions", "critical_threshold": 1.0, "overall_populated_threshold": 0.99, "exact_only": true, "seal_before_compare": true, "network_disabled": true},
+  "stopping_rule": "Any critical, scope, prohibited-data, source-digest, physical-isolation, seal or comparator-contract discrepancy terminates this lineage without repair or automatic rerun.",
+  "authority_limits": {"network_access": false, "new_source_acquisition": false, "contact": false, "rights_clearance": false, "publication": false, "release": false, "gold_promotion": false, "maturity_promotion": false, "g2_passage": false, "passing_run_requires_owner_adjudication": true}
+}

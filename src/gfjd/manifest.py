@@ -45,7 +45,11 @@ def iter_manifest_files() -> list[Path]:
             continue
         if any(relative.parts[: len(prefix)] == prefix for prefix in EXCLUDED_PREFIXES):
             continue
-        if relative.name in EXCLUDED_FILES or relative.suffix == ".zip":
+        if (
+            relative.name in EXCLUDED_FILES
+            or relative.name.startswith(".coverage.")
+            or relative.suffix == ".zip"
+        ):
             continue
         files.append(relative)
     return sorted(files, key=lambda item: item.as_posix())

@@ -40,6 +40,15 @@ def test_repository_manifest() -> None:
     assert verify_manifest() == []
 
 
+def test_manifest_ignores_parallel_coverage_files() -> None:
+    coverage_file = manifest.ROOT / ".coverage.worker.pid1.random"
+    coverage_file.touch()
+    try:
+        assert coverage_file.relative_to(manifest.ROOT) not in manifest.iter_manifest_files()
+    finally:
+        coverage_file.unlink()
+
+
 def test_repository_manifest_excludes_controlled_raw_evidence() -> None:
     assert all(relative.parts[:3] != ("data", "raw", "files") for relative in iter_manifest_files())
 

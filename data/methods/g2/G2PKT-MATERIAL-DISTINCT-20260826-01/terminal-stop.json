@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "event_type": "terminal_stop",
+  "generated_at": "2026-08-25T15:06:35Z",
+  "campaign_status": "terminal_failed_scope_isolation",
+  "packet_id": "G2PKT-MATERIAL-DISTINCT-20260826-01",
+  "role": "extractor_b",
+  "source_commit": "9633347cc81bab6d46fd3e098e92541922beb4cf",
+  "bindings": {
+    "bundle": {
+      "path": "data/methods/g2/G2PKT-MATERIAL-DISTINCT-20260826-01/extractor-b-bundle.json",
+      "sha256": "5a87748fe32bf2682e323bf132f9081e13ed7107623cb9d8bc4a69d51a152b98"
+    },
+    "contract": {
+      "path": "data/methods/g2/G2PKT-MATERIAL-DISTINCT-20260826-01/contract.json",
+      "sha256": "968c71bc5a2081bbb03a5d5bbe8d136334e7265c8d72d1bff9412f0a530b36c9"
+    },
+    "row_schema": {
+      "path": "schemas/g2_extraction_row.schema.json",
+      "sha256": "449ad0f72b41ef8bb4e2c55c7daedab94e6dd818951645b873b2360ea50588ba"
+    },
+    "permitted_sources": [
+      {
+        "path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/finland-api-metadata.bin",
+        "sha256": "20621bfd4d339e4f1d724b3e2016da845303938367c92cc1fac5c07e9a74575a"
+      },
+      {
+        "path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/finland-family-law-total-2013.bin",
+        "sha256": "59348fe0b98c016881de8761953983fe402490a6de19094e0acf8fcab3f362f0"
+      },
+      {
+        "path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/estonia-xlsx.bin",
+        "sha256": "81e350d37f6d402f2570f1a0b71cfe1d3ccf2c9578ed023b8b1f1a49fa02d0ab"
+      },
+      {
+        "path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/estonia-reserve-csv.bin",
+        "sha256": "f0024a590b3423c8b533f95ed597e6fa6f8672b9bee1450403f09296b7fe45b9"
+      },
+      {
+        "path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/south-africa-pdf.bin",
+        "sha256": "41aee1f16221da483677619fc314060a318a5b2a6d7c4ff615a3af5f6952acee"
+      }
+    ]
+  },
+  "failure": {
+    "category": "metadata-only byte-count wildcard",
+    "unscoped_path_accessed": "build/g2-material-distinct-20260826-01/acquisition/private/sources/portugal-dashboard.bin",
+    "source_contents_recorded": false,
+    "scope_isolation_failed": true
+  },
+  "lineage_state": {
+    "extraction_begun": false,
+    "extraction_output_written": false,
+    "extraction_receipt_written": false,
+    "extraction_seal_written": false,
+    "comparison_prohibited": true,
+    "comparison_run": false,
+    "repair_attempted": false,
+    "retry_attempted": false
+  },
+  "network_access": false,
+  "claim_limit": "bounded reproducibility only; no rights clearance, gold promotion, publication, release or G2 passage",
+  "authority_limits": {
+    "new_network_access": false,
+    "new_source_acquisition": false,
+    "contact": false,
+    "rights_clearance": false,
+    "publication": false,
+    "release": false,
+    "gold_promotion": false,
+    "g2_passage": false,
+    "passing_run_requires_owner_adjudication": true
+  },
+  "terminal": true
+}

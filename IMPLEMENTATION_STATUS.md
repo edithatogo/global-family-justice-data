@@ -44,7 +44,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | G2 C03 clean-build acceptance | The owner accepted the verified frozen two-row real-input quarantine build for C03: two bronze, two silver, two quarantine and zero gold rows. This closes only the deterministic-pipeline criterion. |
 | G2 next-unblock packet | The owner accepted the bounded C01/C02 cohort/acquisition evidence, conservative C05 non-equivalence disposition and private-processing C06 assessment. The authorized C04/C07 run subsequently stopped terminally. |
 | G2 grouped acceptance and terminal blind run | The owner accepted bounded C01/C02/C05/C06, advancing G2 to 9/13. The authorized four-route agent-blinded known-edition run produced five critical differences and then failed concordance-receipt validation on its frozen packet ID; it is immutable terminal failed evidence and C04/C07 remain in review. |
-| G2 successor blocker preparation | A mandatory run preflight now validates identifiers before comparison can consume extraction outputs, and one materially distinct four-route campaign plus evidence-specific L2 reassessment is prepared behind a single grouped owner decision. No external access, new acquisition, extraction, maturity promotion or gate passage has occurred. |
+| G2 materially distinct successor | The bounded campaign acquired and structurally screened four new route-distinct official aggregate editions, then stopped before extraction when a role wildcard touched rejected artifact metadata outside the frozen scope. No comparator ran. M07 and M10 factual components are prepared for review; M06, C04, C07 and G2 remain blocked. |
 
 ## Current programme state
 
@@ -57,8 +57,9 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
   2026-08-15. G2–G6 have not passed.
 - G2 factual-evidence route: **nine of thirteen requirements complete**.
   C01/C02/C05/C06 are accepted only within their bounded scopes. The latest
-  four-route agent-blinded lineage is terminal failed evidence with five
-  critical differences; C04/C07 and the L2 maturity floor still block G2.
+  materially distinct successor is also terminal failed evidence after a
+  pre-extraction scope/isolation stop; C04/C07 and M06 of the L2 floor still
+  block G2. M07 and M10 factual components await accountable review.
 - Gold empirical observations: **none**.
 - Synthetic fixtures: explicitly fictional and excluded from empirical release claims.
 - Canonical GitHub owner: **`edithatogo`**, verified from authenticated GitHub state.

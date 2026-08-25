@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-MATERIAL-DISTINCT-20260826-01",
+  "comparison_id": "G2CMP-MATERIAL-DISTINCT-20260826-01",
+  "created_on": "2026-08-26",
+  "status": "frozen_authorized_ready_for_extraction",
+  "preparation_commit": "3382d954b2e85c8852202878fd88687f97828f31",
+  "owner_decision": {
+    "path": "docs/governance/g2-remaining-blockers-owner-decision-2026-08-26.md",
+    "sha256": "76de3ff47777e419874c5092e349c89bf9dd72a04ef3129e8e0ea2f39ce7c865"
+  },
+  "preparation": {
+    "path": "data/methods/g2/G2MATERIAL-DISTINCT-20260826-01/preparation.json",
+    "sha256": "0482074df94afb41bee41cc21c3e7847240bf1cb6ff6cdf21715821f4c13b4e5"
+  },
+  "private_acquisition_bindings": {
+    "candidate_manifest_sha256": "c2622d88d2128e620f7a5f94b26a911100447a3a2948387edf5f55f45101c64a",
+    "metadata_exposure_receipt_sha256": "8ba7d146104d1d1b69e891beb916f18d619704c4e7d229db5e71d6778272be47",
+    "acquisition_manifest_sha256": "da03e2ece1a7120da47b821e770500d29132ceb85951a5d4291e358696e05ca1",
+    "acquisition_exposure_receipt_sha256": "decb570261bbdc0edfa17282f256414e7457bfc5380bbe0f72e90cd24ba15d03",
+    "acquisition_bindings_sha256": "1cc0f6eea3101ab46be0d367cad0ad9ccaabadcd3e58ca0e2e4caccab86b5dd4",
+    "finland_query_preflight_sha256": "23c0deb503e4a6131cea7fc5dfe203cbcb076742b77fd95b9dc5dc1a02c488f1"
+  },
+  "contract": {
+    "path": "data/methods/g2/G2PKT-MATERIAL-DISTINCT-20260826-01/contract.json",
+    "sha256": "968c71bc5a2081bbb03a5d5bbe8d136334e7265c8d72d1bff9412f0a530b36c9"
+  },
+  "row_schema": {
+    "path": "schemas/g2_extraction_row.schema.json",
+    "sha256": "449ad0f72b41ef8bb4e2c55c7daedab94e6dd818951645b873b2360ea50588ba"
+  },
+  "role_bundles": [
+    {
+      "role": "extractor_a",
+      "path": "data/methods/g2/G2PKT-MATERIAL-DISTINCT-20260826-01/extractor-a-bundle.json",
+      "sha256": "e3a5e608ab0c60ee464927ba0dffa6c4291fc0c0984cc1e3e0fcc133f97939e9"
+    },
+    {
+      "role": "extractor_b",
+      "path": "data/methods/g2/G2PKT-MATERIAL-DISTINCT-20260826-01/extractor-b-bundle.json",
+      "sha256": "5a87748fe32bf2682e323bf132f9081e13ed7107623cb9d8bc4a69d51a152b98"
+    }
+  ],
+  "source_count": 4,
+  "source_hashes_verified_before_freeze": true,
+  "identifier_preflight_passed": true,
+  "comparison": {
+    "implementation": "gfjd.g2_concordance.compare_g2_extractions",
+    "critical_threshold": 1.0,
+    "overall_populated_threshold": 0.99,
+    "exact_only": true,
+    "seal_before_compare": true,
+    "network_disabled": true
+  },
+  "stopping_rule": "Any critical, scope, exposure, prohibited-data, source-digest, role-isolation, seal or comparator-contract discrepancy terminates this lineage without repair or automatic rerun.",
+  "authority_limits": {
+    "network_access_during_extraction": false,
+    "new_source_acquisition": false,
+    "contact": false,
+    "publication": false,
+    "release": false,
+    "gold_promotion": false,
+    "rights_clearance": false,
+    "g2_passage": false,
+    "passing_run_requires_owner_adjudication": true
+  }
+}

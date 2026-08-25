@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-MATERIAL-DISTINCT-20260826-01",
+  "role": "extractor_b",
+  "contract": {
+    "path": "data/methods/g2/G2PKT-MATERIAL-DISTINCT-20260826-01/contract.json",
+    "sha256": "968c71bc5a2081bbb03a5d5bbe8d136334e7265c8d72d1bff9412f0a530b36c9"
+  },
+  "row_schema": {
+    "path": "schemas/g2_extraction_row.schema.json",
+    "sha256": "449ad0f72b41ef8bb4e2c55c7daedab94e6dd818951645b873b2360ea50588ba"
+  },
+  "source_scope": "contract.scope",
+  "output_path": "build/g2-material-distinct-20260826-01/extraction/b/output.json",
+  "receipt_path": "build/g2-material-distinct-20260826-01/extraction/b/receipt.json",
+  "network_access": false,
+  "prohibited_inputs": [
+    "prior extraction outputs",
+    "expected values",
+    "answer-bearing locators",
+    "other extractor artifacts",
+    "comparison artifacts"
+  ]
+}

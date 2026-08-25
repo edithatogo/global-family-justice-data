@@ -1,6 +1,6 @@
 # Generated programme status
 
-Generated: `2026-08-25T14:24:42+00:00`
+Generated: `2026-08-25T14:34:08+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G2**
@@ -21,7 +21,7 @@ Conductor validation: **PASS** (0 errors, 0 warnings)
 
 | Track | Implemented work | Accepted work | Blocked | Accepted evidence |
 |---|---:|---:|---:|---:|
-| T0 — Governance, ethics and independence | 11/11 (100.0%) | 3/11 (27.3%) | 0 | 4/20 |
+| T0 — Governance, ethics and independence | 11/11 (100.0%) | 3/11 (27.3%) | 0 | 5/21 |
 | T1 — Scope, ontology and methods | 3/3 (100.0%) | 2/3 (66.7%) | 0 | 3/5 |
 | T2 — Jurisdiction universe and source census | 8/8 (100.0%) | 5/8 (62.5%) | 0 | 8/18 |
 | T3 — Acquisition, preservation and source monitoring | 3/3 (100.0%) | 1/3 (33.3%) | 0 | 1/3 |

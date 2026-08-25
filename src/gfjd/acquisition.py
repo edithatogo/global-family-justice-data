@@ -261,7 +261,11 @@ def _store_if_allowed(
     acquisition_id: str,
     redistribution_status: str,
 ) -> str:
-    if redistribution_status != "allowed":
+    # ``private_only`` preserves controlled evidence bytes for local processing
+    # without implying that redistribution has been cleared.  Both retained
+    # states use the same atomic storage path; downstream preservation and
+    # release checks continue to require ``allowed`` explicitly.
+    if redistribution_status not in {"allowed", "private_only"}:
         return ""
     relative = Path("files") / source_id / acquisition_id / input_path.name
     destination = destination_root / relative

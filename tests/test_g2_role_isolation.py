@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -21,11 +22,16 @@ def _input(path: Path, root: Path, target_name: str) -> dict[str, str]:
     }
 
 
+def _tag(tmp_path: Path) -> str:
+    return hashlib.sha256(str(tmp_path).encode()).hexdigest()[:12]
+
+
 def test_builds_minimal_digest_bound_workspace(project_root: Path, tmp_path: Path) -> None:
-    source = project_root / "build" / f"{tmp_path.name}-isolation-source.bin"
+    tag = _tag(tmp_path)
+    source = project_root / "build" / f"{tag}-isolation-source.bin"
     source.parent.mkdir(exist_ok=True)
     source.write_bytes(b"aggregate evidence")
-    destination = project_root / "build" / f"{tmp_path.name}-isolated-role"
+    destination = project_root / "build" / f"{tag}-isolated-role"
 
     receipt_path = build_role_workspace(
         project_root,
@@ -49,7 +55,7 @@ def test_builds_minimal_digest_bound_workspace(project_root: Path, tmp_path: Pat
 
 
 def test_rejects_existing_workspace(project_root: Path, tmp_path: Path) -> None:
-    destination = project_root / "build" / f"{tmp_path.name}-existing-role"
+    destination = project_root / "build" / f"{_tag(tmp_path)}-existing-role"
     destination.mkdir(parents=True, exist_ok=True)
     with pytest.raises(G2RoleIsolationError, match="already exists"):
         build_role_workspace(
@@ -64,12 +70,13 @@ def test_rejects_existing_workspace(project_root: Path, tmp_path: Path) -> None:
 
 
 def test_rejects_digest_mismatch_and_target_traversal(project_root: Path, tmp_path: Path) -> None:
-    source = project_root / "build" / f"{tmp_path.name}-isolation-mismatch.bin"
+    tag = _tag(tmp_path)
+    source = project_root / "build" / f"{tag}-isolation-mismatch.bin"
     source.parent.mkdir(exist_ok=True)
     source.write_bytes(b"evidence")
     common = {
         "root": project_root,
-        "destination": project_root / "build" / f"{tmp_path.name}-mismatch-role",
+        "destination": project_root / "build" / f"{tag}-mismatch-role",
         "packet_id": "G2PKT-TEST-ISOLATION",
         "role": "extractor_a",
         "source_commit": "a" * 40,
@@ -94,10 +101,11 @@ def test_rejects_digest_mismatch_and_target_traversal(project_root: Path, tmp_pa
 
 
 def test_verifier_detects_extra_file_and_tampering(project_root: Path, tmp_path: Path) -> None:
-    source = project_root / "build" / f"{tmp_path.name}-isolation-tamper.bin"
+    tag = _tag(tmp_path)
+    source = project_root / "build" / f"{tag}-isolation-tamper.bin"
     source.parent.mkdir(exist_ok=True)
     source.write_bytes(b"original")
-    destination = project_root / "build" / f"{tmp_path.name}-tamper-role"
+    destination = project_root / "build" / f"{tag}-tamper-role"
     build_role_workspace(
         project_root,
         destination=destination,

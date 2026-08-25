@@ -43,4 +43,3 @@ def test_material_distinct_contract_is_exact_and_fail_closed(project_root: Path)
     assert contract["thresholds"]["critical_waiver"] is False
     assert contract["role_isolation"]["answer_bearing_locators_prohibited"] is True
     assert contract["authority_limits"]["g2_passage"] is False
-

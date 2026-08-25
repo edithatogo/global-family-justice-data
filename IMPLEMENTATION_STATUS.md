@@ -39,10 +39,11 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | External authority-gate plan | Authority types, digest-bound evidence packets and permitted status transitions are defined for governance, methods, coverage/rights, product, security/legal, operations, participation and sustainability gates |
 | Programme gate resolution plan | G1–G6 are mapped to remaining evidence, recommended routes, contingencies, tracks and fail-closed promotion rules |
 | G2 evidence-campaign protocol | A deterministic, digest-bound campaign envelope is prepared from the exhausted material-distinct frame. It permits no external action, avoids per-artifact approval churn, and requires one future grouped authorization only after a genuinely non-exposed candidate manifest exists. A no-network intake guard now rejects duplicated or already exposed proposed URLs before a campaign packet can be assembled. |
-| G2 known-source handling | Four exact known-source routes have a bound owner handling disposition: controlled private quarantine, metadata-only public/Git records, route-specific restrictions and a 2027-08-24 retention review. G2-C06 remains in review because this is not rights clearance or legal/privacy/security assurance. |
+| G2 known-source handling | Four exact known-source routes have a bound owner handling disposition: controlled private quarantine, metadata-only public/Git records, route-specific restrictions and a 2027-08-24 retention review. The owner accepted C06 only for this private aggregate-processing scope; it is not rights clearance or legal/privacy/security assurance. |
 | G2 bounded concordance disposition | The owner accepted the exact two-row known-source result and conservative methods consequences as supporting evidence only. The decision records 36/36 populated critical and 40/40 configured populated matches, null-date and unscored-field limitations, no pooling/ranking, and no criterion transition or G2 passage. |
 | G2 C03 clean-build acceptance | The owner accepted the verified frozen two-row real-input quarantine build for C03: two bronze, two silver, two quarantine and zero gold rows. This closes only the deterministic-pipeline criterion. |
-| G2 next-unblock packet | Consolidated C01/C02 cohort and acquisition bindings, a conservative C05 adjudication, an edition-specific C06 private-processing assessment and a prospective C04/C07 agent-blinded execution proposal are ready for one grouped owner decision. |
+| G2 next-unblock packet | The owner accepted the bounded C01/C02 cohort/acquisition evidence, conservative C05 non-equivalence disposition and private-processing C06 assessment. The authorized C04/C07 run subsequently stopped terminally. |
+| G2 grouped acceptance and terminal blind run | The owner accepted bounded C01/C02/C05/C06, advancing G2 to 9/13. The authorized four-route agent-blinded known-edition run produced five critical differences and then failed concordance-receipt validation on its frozen packet ID; it is immutable terminal failed evidence and C04/C07 remain in review. |
 
 ## Current programme state
 
@@ -53,10 +54,10 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
   facts remain mandatory where the current gate contracts require them.
 - Passed gates: **G1** through the digest-bound sole-owner decision dated
   2026-08-15. G2–G6 have not passed.
-- G2 factual-evidence route: **bounded known-source evidence is in review**.
-  The ODS/PDF two-row rerun is exactly concordant but quarantined; DataJud and
-  dashboard source-semantic evidence is supporting only; the controlled
-  private handling decision does not pass G2-C06 or G2.
+- G2 factual-evidence route: **nine of thirteen requirements complete**.
+  C01/C02/C05/C06 are accepted only within their bounded scopes. The latest
+  four-route agent-blinded lineage is terminal failed evidence with five
+  critical differences; C04/C07 and the L2 maturity floor still block G2.
 - Gold empirical observations: **none**.
 - Synthetic fixtures: explicitly fictional and excluded from empirical release claims.
 - Canonical GitHub owner: **`edithatogo`**, verified from authenticated GitHub state.

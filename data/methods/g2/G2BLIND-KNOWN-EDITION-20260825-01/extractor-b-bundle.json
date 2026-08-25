@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2BLIND-KNOWN-EDITION-20260825-01",
+  "role_id": "extractor_b",
+  "contract_path": "data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/contract.json",
+  "contract_sha256": "cf3f827717b7bf00d1f0ede7c3928f0b3449726aac1a651444fd5a6e6b660a30",
+  "row_schema_path": "data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/row.schema.json",
+  "row_schema_sha256": "767cf7586073448f5678df269d84622d97d4367ce1c38da2aa6d70214413415f",
+  "output_path": "build/g2-blind-known-edition-20260825-01/extractor-b/output.json",
+  "receipt_path": "build/g2-blind-known-edition-20260825-01/extractor-b/receipt.json",
+  "allowed_reads": [
+    "data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/contract.json",
+    "data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/row.schema.json",
+    "build/g2-real-pilot-20260822-01/G2-API-BRA-TJSP-2026-class-1389.json",
+    "build/g2-real-pilot-20260821-01/sources/G2-ODS-GBR-EAW-2026Q1.ods",
+    "build/g2-real-pilot-20260822-01/G2-DASH-GBR-EAW-2026Q1-quarterly-confirmation.json",
+    "build/g2-real-pilot-20260821-01/sources/G2-PDF-AUS-FCFCOA-2024-25.pdf"
+  ],
+  "prohibited": [
+    "network access",
+    "prior extraction outputs or evidence narratives",
+    "the other extractor's bundle, output, receipt or messages",
+    "expected values or answer-bearing locators",
+    "repository search outside allowed_reads",
+    "output repair after sealing"
+  ]
+}

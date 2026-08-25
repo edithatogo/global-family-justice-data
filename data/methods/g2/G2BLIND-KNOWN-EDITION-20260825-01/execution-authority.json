@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2BLIND-KNOWN-EDITION-20260825-01",
+  "purpose": "supplemental runtime binding for extractor receipts; no contract, scope, source, value or locator change",
+  "design_manifest": {
+    "path": "data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/DESIGN_MANIFEST.sha256",
+    "sha256": "7bdf23ff7c1d20e62750715ad165ec0399f68c491e939ffec6500cb458898ef8"
+  },
+  "role_bundles": {
+    "extractor_a": "88843d81b502ff89768379f0dc2ec5b911fbe052aafe25b70b5d6f62bf017236",
+    "extractor_b": "d573932f1b0fe5acfe81242f35e38bfc43f73d4971ca5d358712d1c01bc9667c"
+  },
+  "owner_decision": {
+    "path": "docs/governance/g2-next-unblock-owner-decision-2026-08-25.md",
+    "sha256": "1d17f6fa8023b4cbaba88445a9d025529872844348b6245727cd9d51ac0ebc1f"
+  },
+  "authorization": "resume each unchanged fresh extractor role after its pre-source fail-closed binding stop",
+  "attestation": {
+    "prior_output_created": false,
+    "source_inspection_before_stop": false,
+    "expected_values_added": false,
+    "answer_bearing_locators_added": false,
+    "network_access": false
+  }
+}

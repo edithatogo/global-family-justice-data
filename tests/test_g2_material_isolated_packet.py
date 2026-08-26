@@ -4,9 +4,14 @@ import hashlib
 import json
 from pathlib import Path
 
+import pytest
+
 from gfjd.g2_run_preflight import validate_g2_run_identifiers
 
-RUN = Path("data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-01")
+RUNS = (
+    Path("data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-01"),
+    Path("data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-02"),
+)
 
 
 def _read(path: Path) -> dict[str, object]:
@@ -17,20 +22,16 @@ def _sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def test_isolated_packet_identifiers_and_bindings(project_root: Path) -> None:
-    packet = _read(project_root / RUN / "packet.json")
+@pytest.mark.parametrize("run", RUNS)
+def test_isolated_packet_identifiers_and_bindings(project_root: Path, run: Path) -> None:
+    packet = _read(project_root / run / "packet.json")
     validate_g2_run_identifiers(
         project_root,
         packet_id=str(packet["packet_id"]),
         comparison_id=str(packet["comparison_id"]),
     )
-    for key in (
-        "owner_direction",
-        "predecessor_terminal",
-        "contract",
-        "isolation_plan",
-        "row_schema",
-    ):
+    authority_key = "owner_direction" if "owner_direction" in packet else "owner_authorization"
+    for key in (authority_key, "predecessor_terminal", "contract", "isolation_plan", "row_schema"):
         binding = packet[key]
         assert isinstance(binding, dict)
         assert _sha256(project_root / str(binding["path"])) == binding["sha256"]
@@ -40,8 +41,9 @@ def test_isolated_packet_identifiers_and_bindings(project_root: Path) -> None:
         assert _sha256(project_root / str(binding["path"])) == binding["sha256"]
 
 
-def test_isolation_plan_contains_only_explicit_role_inputs(project_root: Path) -> None:
-    plan = _read(project_root / RUN / "isolation-plan.json")
+@pytest.mark.parametrize("run", RUNS)
+def test_isolation_plan_contains_only_explicit_role_inputs(project_root: Path, run: Path) -> None:
+    plan = _read(project_root / run / "isolation-plan.json")
     roles = plan["roles"]
     assert isinstance(roles, list)
     assert [role["role"] for role in roles] == ["extractor_a", "extractor_b"]
@@ -54,8 +56,9 @@ def test_isolation_plan_contains_only_explicit_role_inputs(project_root: Path) -
         assert all(item["source_path"].startswith("build/") for item in role["inputs"])
 
 
-def test_contract_retains_thresholds_and_owner_checkpoint(project_root: Path) -> None:
-    contract = _read(project_root / RUN / "contract.json")
+@pytest.mark.parametrize("run", RUNS)
+def test_contract_retains_thresholds_and_owner_checkpoint(project_root: Path, run: Path) -> None:
+    contract = _read(project_root / run / "contract.json")
     assert contract["thresholds"] == {
         "critical_concordance": 1.0,
         "overall_populated_field_concordance": 0.99,

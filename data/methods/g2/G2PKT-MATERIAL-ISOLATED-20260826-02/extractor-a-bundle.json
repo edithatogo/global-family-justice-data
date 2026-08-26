@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-MATERIAL-ISOLATED-20260826-02",
+  "role": "extractor_a",
+  "contract": {"path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-02/contract.json", "sha256": "a0db8482463619c8b793b27d46ed6ae74e2edee2c2360ab210ef0e246abc2806"},
+  "isolation_plan": {"path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-02/isolation-plan.json", "sha256": "5e1c7ff15af92df23413f116d1dc353325685ee70255af380dc6ee2da6852a30"},
+  "row_schema": {"path": "schemas/g2_extraction_row.schema.json", "sha256": "449ad0f72b41ef8bb4e2c55c7daedab94e6dd818951645b873b2360ea50588ba"},
+  "isolated_workspace": "build/g2-material-isolated-20260826-02/roles/a",
+  "workspace_verifier_command": [".venv/bin/python", "-m", "gfjd.g2_role_isolation", "verify", "build/g2-material-isolated-20260826-02/roles/a"],
+  "output_path": "build/g2-material-isolated-20260826-02/extraction/a/output.json",
+  "receipt_path": "build/g2-material-isolated-20260826-02/extraction/a/receipt.json",
+  "network_access": false,
+  "prohibited_inputs": ["shared acquisition source directory", "predecessor outputs", "expected values", "answer-bearing locators", "other extractor workspace or artifacts", "comparison artifacts"]
+}

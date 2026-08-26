@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-MATERIAL-ISOLATED-20260826-02",
+  "comparison_id": "G2CMP-MATERIAL-ISOLATED-20260826-02",
+  "status": "terminal_failed_preflight",
+  "recorded_at": "2026-08-26T08:43:37Z",
+  "frozen_bindings": {
+    "authorization_commit": "14f7cc46c0169d884f1fb0efdb5df4d7559a0835",
+    "freeze_commit": "a8aa91c28ce5b6006671fd0ab672f2773a1f5d84",
+    "packet_sha256": "de73f90402400c1a87ceeb4fbc93f5f64e3c891655dac0778b07bd25ed1977cc",
+    "contract_sha256": "a0db8482463619c8b793b27d46ed6ae74e2edee2c2360ab210ef0e246abc2806",
+    "isolation_plan_sha256": "5e1c7ff15af92df23413f116d1dc353325685ee70255af380dc6ee2da6852a30",
+    "extractor_a_bundle_sha256": "75f6a6bfc1406501b7e3aa38f8637e5f668f050c69fa2385b44573e2ae278f48",
+    "extractor_b_bundle_sha256": "5b15168c299db52c7faf45b690cb82655b3982c6361d583ff12e588d6e501b36",
+    "extractor_a_workspace_receipt_sha256": "f663530c5d1794671027a5cf39fa33dd0faeaa0a9fe3ae14d769a8e9a90d847a",
+    "extractor_b_workspace_receipt_sha256": "82a054a9004b9641aff6de41981311b89db48da105a715577a6e95b22984ec50"
+  },
+  "terminal_trigger": {
+    "category": "extractor_instruction_invocation_error",
+    "role": "extractor_a",
+    "frozen_command": [".venv/bin/python", "-m", "gfjd.g2_role_isolation", "verify", "build/g2-material-isolated-20260826-02/roles/a"],
+    "executed_command": [".venv/bin/python", "-m", "gfjd.g2_role_isolation", "verify", "build/g2-material-isolated-20260826-02/roles/a", "."],
+    "exit_code": 2,
+    "error": "python -m gfjd.g2_role_isolation: error: unrecognized arguments: .",
+    "cause": "The orchestration instruction separated sentence punctuation into an additional positional argument; the CLI correctly rejected the non-frozen invocation.",
+    "stop_rule": "Any isolation or preflight contract failure terminates the lineage without repair or automatic rerun."
+  },
+  "observed_execution_state": {
+    "extractor_a_source_inputs_opened": false,
+    "extractor_a_output_created": false,
+    "extractor_a_receipt_created": false,
+    "extractor_b_interrupted_immediately_after_a_stop": true,
+    "extractor_b_output_created": false,
+    "extractor_b_receipt_created": false,
+    "extractor_b_source_access_attestation_available": false,
+    "comparison_started": false,
+    "advisory_review_started_before_stop": false,
+    "network_access_observed": false,
+    "sealed_output_repair": false,
+    "automatic_rerun": false
+  },
+  "disposition": {
+    "lineage_terminal": true,
+    "outputs_usable": false,
+    "concordance_issued": false,
+    "critical_threshold_assessed": false,
+    "overall_threshold_assessed": false,
+    "g2_c04_status": "in_review",
+    "g2_c07_status": "in_review",
+    "m06_level": "L1",
+    "g2_accepted_criteria": 9,
+    "g2_total_criteria": 13,
+    "owner_adjudication_of_pass_required": false,
+    "further_lineage_requires_new_owner_authorization": true
+  },
+  "claim_limits": [
+    "This record is terminal failed evidence, not reproducibility evidence.",
+    "No source right, gold promotion, maturity promotion, G2 passage, publication or release is established.",
+    "The failed invocation and both role workspaces must not be resumed or reused for another extraction."
+  ]
+}

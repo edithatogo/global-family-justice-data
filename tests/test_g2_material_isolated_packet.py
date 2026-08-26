@@ -69,3 +69,20 @@ def test_contract_retains_thresholds_and_owner_checkpoint(project_root: Path, ru
     assert contract["role_isolation"]["physical_allowlist_workspace"] is True
     assert contract["authority_limits"]["passing_run_requires_owner_adjudication"] is True
     assert contract["authority_limits"]["g2_passage"] is False
+
+
+def test_cli_isolated_terminal_stop_is_fail_closed(project_root: Path) -> None:
+    run = RUNS[1]
+    packet = _read(project_root / run / "packet.json")
+    terminal = _read(project_root / run / "terminal-stop.json")
+    assert terminal["status"] == "terminal_failed_preflight"
+    assert terminal["frozen_bindings"]["packet_sha256"] == _sha256(
+        project_root / run / "packet.json"
+    )
+    assert terminal["terminal_trigger"]["frozen_command"] != terminal["terminal_trigger"][
+        "executed_command"
+    ]
+    assert terminal["observed_execution_state"]["comparison_started"] is False
+    assert terminal["disposition"]["lineage_terminal"] is True
+    assert terminal["disposition"]["g2_accepted_criteria"] == 9
+    assert packet["authority_limits"]["g2_passage"] is False

@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-MATERIAL-ISOLATED-20260826-02",
+  "comparison_id": "G2CMP-MATERIAL-ISOLATED-20260826-02",
+  "status": "prospectively_frozen_before_workspace_build_and_extraction",
+  "purpose": "bounded four-route reproducibility evidence using physically isolated role workspaces and the frozen one-path verifier CLI",
+  "claim_limit": "bounded reproducibility only; no rights clearance, gold promotion, publication, release, maturity promotion or G2 passage",
+  "row_schema": "schemas/g2_extraction_row.schema.json",
+  "scope": [
+    {
+      "source_record_key": "751e85bf60ca9f0bba36edc99e39daee3533154b0c531db7801f02d96f64d23a",
+      "candidate_id": "FIN-API",
+      "source_id": "FIN_STATFIN_KOIKRS",
+      "source_edition_id": "FIN_STATFIN_KOIKRS_2004_2013_QUERY_2013",
+      "source_format": "api_or_json",
+      "isolated_input_names": ["finland-metadata.json", "finland-observation.json"],
+      "source_sha256": ["20621bfd4d339e4f1d724b3e2016da845303938367c92cc1fac5c07e9a74575a", "59348fe0b98c016881de8761953983fe402490a6de19094e0acf8fcab3f362f0"],
+      "semantic_task": "Extract the sole observation in the prospectively bound response and preserve the exact publisher labels for total district, Family law, total conclusion stage, 2013 and Concluded cases, total."
+    },
+    {
+      "source_record_key": "ee9444102f3da1a0a85ffd58cec43c27840b2f45009fbbbf96e5ce434cfc3028",
+      "candidate_id": "EST-XLSX",
+      "source_id": "EST_JUSTDIGI_CRIME_2025",
+      "source_edition_id": "EST_JUSTDIGI_REGISTERED_OFFENCES_2003_2025",
+      "source_format": "spreadsheet",
+      "isolated_input_names": ["estonia-offences.xlsx"],
+      "source_sha256": ["81e350d37f6d402f2570f1a0b71cfe1d3ccf2c9578ed023b8b1f1a49fa02d0ab"],
+      "semantic_task": "Extract the 2025 registered-offence count for the complete source row labelled 11. ptk. Süüteod perekonna ja alaealiste vastu."
+    },
+    {
+      "source_record_key": "579d24d37b839775825a7cf8c6f35255cd9adb01f23a0fab294cb5c0e00d81bc",
+      "candidate_id": "EST-DASH",
+      "source_id": "EST_JUSTDIGI_DOMESTIC_VIOLENCE",
+      "source_edition_id": "EST_JUSTDIGI_DV_SNAPSHOT_20260525",
+      "source_format": "html_or_dashboard",
+      "isolated_input_names": ["estonia-domestic-violence.csv"],
+      "source_sha256": ["f0024a590b3423c8b533f95ed597e6fa6f8672b9bee1450403f09296b7fe45b9"],
+      "semantic_task": "Extract the 2025 value for the source-defined Domestic violence row from the dashboard snapshot."
+    },
+    {
+      "source_record_key": "4922ef6dc1646c7a24dc658f8734794e9ab403e84f59698b9aa11df9ad63e461",
+      "candidate_id": "ZAF-PDF",
+      "source_id": "ZAF_DOJCD_ANNUAL_REPORT",
+      "source_edition_id": "ZAF_DOJCD_ANNUAL_REPORT_2024_2025",
+      "source_format": "pdf",
+      "isolated_input_names": ["south-africa-report.pdf"],
+      "source_sha256": ["41aee1f16221da483677619fc314060a318a5b2a6d7c4ff615a3af5f6952acee"],
+      "semantic_task": "Extract the 2024/2025 actual-achievement percentage for maintenance matters finalised within 90 days from the date of proper service of process."
+    }
+  ],
+  "canonical_rules": {
+    "locator": "Use source-defined labels, not inferred coordinates: JSON dimensions joined in source order; spreadsheet sheet, complete row label and column label; CSV complete row label and year; PDF printed page, complete measure label and actual-achievement column.",
+    "dates": "Populate dates only when the source explicitly prints an ISO-equivalent start or end date for the observation; a year or financial-year label alone does not authorize inferred dates.",
+    "unknown_semantics": "Use source-defined or unknown semantics and unresolved uncertainty; never infer a denominator, cohort, population or time basis.",
+    "component_values": "Use an empty object unless the target itself explicitly requires multiple numeric components.",
+    "notes": null
+  },
+  "critical_fields": ["candidate_id", "source_id", "source_edition_id", "provenance_locator", "measure_original", "matter_type_original", "statistic_type", "unit", "value", "component_values", "denominator_value", "denominator_definition", "period_start", "period_end", "time_basis", "cohort_basis", "population_scope", "suppression_or_disclosure_note", "extraction_uncertainty"],
+  "ignored_fields": ["extracted_row_id", "source_record_key", "notes"],
+  "thresholds": {"critical_concordance": 1.0, "overall_populated_field_concordance": 0.99, "exact_comparison": true, "fuzzy_matching": false, "critical_waiver": false},
+  "role_isolation": {"extractors": 2, "fresh_context": true, "physical_allowlist_workspace": true, "shared_source_directory_access_prohibited": true, "prior_outputs_prohibited": true, "expected_values_prohibited": true, "answer_bearing_locators_prohibited": true, "cross_agent_communication_prohibited": true, "seal_before_compare": true},
+  "workspace_preflight": {"command_template": ["python", "-m", "gfjd.g2_role_isolation", "verify", "<workspace>"], "arguments_after_verify": 1, "must_exit_zero_before_source_access": true, "no_library_api_substitution": true},
+  "stopping_rules": ["any source digest or scope mismatch terminates the lineage", "any prohibited personal or case-level data terminates the lineage", "any role-isolation or artifact-binding failure terminates the lineage", "any schema or seal failure terminates the lineage", "any critical discrepancy terminates the lineage", "no sealed-output repair, reuse, waiver, fuzzy match or automatic rerun"],
+  "authority_limits": {"network_access": false, "new_source_acquisition": false, "contact": false, "rights_clearance": false, "publication": false, "release": false, "gold_promotion": false, "maturity_promotion": false, "g2_passage": false, "passing_run_requires_owner_adjudication": true}
+}

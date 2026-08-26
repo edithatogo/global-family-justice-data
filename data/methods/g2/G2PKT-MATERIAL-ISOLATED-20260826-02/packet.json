@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-MATERIAL-ISOLATED-20260826-02",
+  "comparison_id": "G2CMP-MATERIAL-ISOLATED-20260826-02",
+  "created_on": "2026-08-26",
+  "status": "frozen_authorized_ready_for_workspace_build",
+  "authorization_commit": "14f7cc46c0169d884f1fb0efdb5df4d7559a0835",
+  "owner_authorization": {"path": "docs/governance/g2-cli-isolated-lineage-owner-authorization-2026-08-26.md", "sha256": "f2a051a0395a848858c0bf390c486b73bae6994df68459de50dc5c8451c16474"},
+  "predecessor_terminal": {"path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-01/terminal-stop.json", "sha256": "d24b32ac97029fca9d7c7f5e5833493b434e2e4dd7c21b4f7bc63153cfcad982"},
+  "contract": {"path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-02/contract.json", "sha256": "a0db8482463619c8b793b27d46ed6ae74e2edee2c2360ab210ef0e246abc2806"},
+  "isolation_plan": {"path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-02/isolation-plan.json", "sha256": "5e1c7ff15af92df23413f116d1dc353325685ee70255af380dc6ee2da6852a30"},
+  "row_schema": {"path": "schemas/g2_extraction_row.schema.json", "sha256": "449ad0f72b41ef8bb4e2c55c7daedab94e6dd818951645b873b2360ea50588ba"},
+  "role_bundles": [
+    {"role": "extractor_a", "path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-02/extractor-a-bundle.json", "sha256": "75f6a6bfc1406501b7e3aa38f8637e5f668f050c69fa2385b44573e2ae278f48"},
+    {"role": "extractor_b", "path": "data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-02/extractor-b-bundle.json", "sha256": "5b15168c299db52c7faf45b690cb82655b3982c6361d583ff12e588d6e501b36"}
+  ],
+  "source_count": 4,
+  "source_artifact_count_per_role": 5,
+  "workspace_preflight": {"cli_only": true, "arguments_after_verify": 1, "must_exit_zero_before_source_access": true},
+  "comparison": {"implementation": "gfjd.g2_concordance.compare_g2_extractions", "critical_threshold": 1.0, "overall_populated_threshold": 0.99, "exact_only": true, "seal_before_compare": true, "network_disabled": true},
+  "stopping_rule": "Any critical, scope, prohibited-data, source-digest, physical-isolation, schema, seal or comparator-contract discrepancy terminates this lineage without repair or automatic rerun.",
+  "authority_limits": {"network_access": false, "new_source_acquisition": false, "contact": false, "rights_clearance": false, "publication": false, "release": false, "gold_promotion": false, "maturity_promotion": false, "g2_passage": false, "passing_run_requires_owner_adjudication": true}
+}

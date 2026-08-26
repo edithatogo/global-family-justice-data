@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 from pathlib import Path
 
 from gfjd.cli import main
@@ -64,3 +65,45 @@ def test_security_cli_passes(project_root: Path, capsys) -> None:
     payload = json.loads(capsys.readouterr().out)
     assert result == 0
     assert payload["counts"]["errors"] == 0
+
+
+def test_public_archive_cli_scan_and_verify(project_root: Path, tmp_path: Path, capsys) -> None:
+    root = tmp_path / "repo"
+    (root / "config").mkdir(parents=True)
+    shutil.copyfile(project_root / "config/project.toml", root / "config/project.toml")
+    inventory = root / "inventory.csv"
+    inventory.write_text(
+        "inventory_id,payload_path,sha256\nARC-1,missing.pdf," + "0" * 64 + "\n",
+        encoding="utf-8",
+    )
+    receipt = root / "missing-local-receipt.json"
+    result = main(
+        [
+            "--root",
+            str(root),
+            "archive",
+            "scan",
+            "--inventory",
+            "inventory.csv",
+            "--output",
+            str(receipt),
+        ]
+    )
+    assert result == 1
+    assert json.loads(capsys.readouterr().out)["status"] == "fail"
+    assert main(["--root", str(root), "archive", "verify", str(receipt)]) == 0
+    assert "verified" in capsys.readouterr().out
+
+
+def test_public_archive_cli_verifies_custody(project_root: Path, capsys) -> None:
+    result = main(
+        [
+            "--root",
+            str(project_root),
+            "archive",
+            "verify-custody",
+            "data/preservation/public_b0_custody_20260827.json",
+        ]
+    )
+    assert result == 0
+    assert "verified" in capsys.readouterr().out

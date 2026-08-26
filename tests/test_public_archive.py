@@ -110,3 +110,56 @@ def test_repository_public_custody_receipt_is_bound() -> None:
         root, root / "data/preservation/public_b0_custody_20260827.json"
     )
     assert errors == []
+
+
+def test_custody_receipt_tampering_fails_closed(tmp_path: Path) -> None:
+    root = Path(__file__).resolve().parents[1]
+    safety = json.loads(
+        (root / "data/preservation/public_b0_safety_20260827.json").read_text(encoding="utf-8")
+    )
+    custody = json.loads(
+        (root / "data/preservation/public_b0_custody_20260827.json").read_text(encoding="utf-8")
+    )
+    safety_path = tmp_path / "data/preservation/public_b0_safety_20260827.json"
+    safety_path.parent.mkdir(parents=True)
+    safety_path.write_text(json.dumps(safety) + "\n", encoding="utf-8")
+    custody["safety_receipt_sha256"] = hashlib.sha256(safety_path.read_bytes()).hexdigest()
+    custody_path = tmp_path / "custody.json"
+
+    cases = []
+    changed = json.loads(json.dumps(custody))
+    changed["contract_version"] = "wrong"
+    cases.append((changed, "unsupported custody"))
+    changed = json.loads(json.dumps(custody))
+    changed["safety_receipt_sha256"] = "0" * 64
+    cases.append((changed, "safety receipt digest"))
+    changed = json.loads(json.dumps(custody))
+    changed["objects"][0]["sha256"] = "0" * 64
+    cases.append((changed, "custody sha256 differs"))
+    changed = json.loads(json.dumps(custody))
+    changed["objects"][0]["replicas"] = changed["objects"][0]["replicas"][:1]
+    cases.append((changed, "two provider-separated"))
+    changed = json.loads(json.dumps(custody))
+    changed["objects"][0]["replicas"][0]["url"] = "https://example.invalid/source"
+    cases.append((changed, "invalid 'huggingface' public locator"))
+    changed = json.loads(json.dumps(custody))
+    changed["objects"][0]["replicas"][0]["anonymous_get_verified"] = False
+    cases.append((changed, "anonymous retrieval"))
+    changed = json.loads(json.dumps(custody))
+    changed["objects"][0]["replicas"][0]["retrieved_blake3"] = "0" * 64
+    cases.append((changed, "retrieved BLAKE3"))
+
+    for payload, expected in cases:
+        custody_path.write_text(json.dumps(payload), encoding="utf-8")
+        assert any(expected in error for error in verify_custody_receipt(tmp_path, custody_path))
+
+
+def test_missing_and_unsupported_payloads_fail_closed(tmp_path: Path) -> None:
+    missing = tmp_path / "missing.pdf"
+    receipt = scan_inventory(tmp_path, _inventory(tmp_path, missing, digest="0" * 64))
+    assert receipt["objects"][0]["disposition"] == "missing"
+
+    payload = tmp_path / "source.bin"
+    payload.write_bytes(b"public aggregate data")
+    receipt = scan_inventory(tmp_path, _inventory(tmp_path, payload))
+    assert receipt["objects"][0]["findings"][0]["code"] == "UNSUPPORTED_MEDIA_TYPE"

@@ -48,6 +48,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | G2 physical role isolation | Explicit-allowlist role workspaces and a one-path verifier CLI are implemented and tested. The first isolated replacement lineage stopped before source access because the extractor used the former two-argument API incorrectly; its terminal receipt is immutable and a final CLI-bound option is awaiting one grouped owner decision. |
 | G2 CLI-isolated successor | The owner authorized and the repository froze a second isolated lineage. It stopped terminally during extractor A preflight because prose punctuation became an extra CLI argument; A opened no source, B was interrupted without a direct source-access attestation, no outputs exist and no comparator ran. C04/C07 and M06 remain blocked. |
 | G2 orchestrator-bound successor | Orchestrator preflight, two fresh sealed four-row extractions, scope/schema/seal verification and exact comparison completed. The lineage failed terminally at 58/76 critical and 42/60 populated matches. No repair or rerun occurred; C04/C07 remain in review and M06 remains L1. |
+| G2 atomic field remediation | The terminal differences are converted into generic executable rules over the existing atomic row schema: separate locator facets, source-text preservation, controlled semantic codes, explicit-only clocks and null-date provenance. Fictional adversarial tests avoid calibrating to failed outputs; no new cohort or run is authorized. |
 
 ## Current programme state
 

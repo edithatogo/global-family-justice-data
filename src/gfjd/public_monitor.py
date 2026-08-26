@@ -22,6 +22,7 @@ SUPERSESSION_CONTRACT_VERSION = "gfjd-public-b0-supersession-v1"
 ALLOWED_FINAL_HOST_SUFFIXES = (
     "github.com",
     "githubusercontent.com",
+    "cdn.hf.co",
     "huggingface.co",
     "xethub.hf.co",
 )

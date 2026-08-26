@@ -6,7 +6,16 @@ from pathlib import Path
 
 from blake3 import blake3
 
-from gfjd.public_monitor import monitor_custody, verify_monitor_receipt, verify_supersession
+from gfjd.public_monitor import (
+    _allowed_final_host,
+    monitor_custody,
+    verify_monitor_receipt,
+    verify_supersession,
+)
+
+
+def test_hugging_face_public_cdn_is_approved() -> None:
+    assert _allowed_final_host("us.aws.cdn.hf.co")
 
 
 def test_monitor_recomputes_replica_state(project_root: Path, tmp_path: Path) -> None:

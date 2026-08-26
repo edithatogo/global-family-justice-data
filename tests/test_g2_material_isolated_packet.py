@@ -100,3 +100,17 @@ def test_orchestrated_packet_prohibits_agent_preflight_commands(project_root: Pa
     assert contract["role_isolation"]["agent_preflight_command_prohibited"] is True
     for name in ("extractor-a-bundle.json", "extractor-b-bundle.json"):
         assert _read(project_root / run / name)["agent_preflight_command"] is None
+
+
+def test_orchestrated_terminal_result_preserves_failed_thresholds(project_root: Path) -> None:
+    terminal = _read(project_root / RUNS[2] / "terminal-result.json")
+    assert terminal["status"] == "terminal_failure_critical_discrepancy"
+    assert terminal["metrics"]["critical_matches"] == 58
+    assert terminal["metrics"]["critical_comparisons"] == 76
+    assert terminal["metrics"]["critical_concordance"] < terminal["metrics"]["critical_threshold"]
+    assert (
+        terminal["metrics"]["overall_populated_concordance"]
+        < terminal["metrics"]["overall_threshold"]
+    )
+    assert terminal["disposition"]["rerun_allowed"] is False
+    assert terminal["disposition"]["g2_passed"] is False

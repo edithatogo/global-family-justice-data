@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-MATERIAL-ORCHESTRATED-20260826-01",
+  "comparison_id": "G2CMP-MATERIAL-ORCHESTRATED-20260826-01",
+  "status": "terminal_failure_critical_discrepancy",
+  "authorization_commit": "94026b56726fe05232dcc0343b2471f759a9bfdb",
+  "freeze_commit": "9e5d234105525120d447adc73abd36ba4ad62c61",
+  "bindings": {
+    "packet_sha256": "1dcfe445a2179670fa4cc759e7e98774974a6b7c62639734e1d31d27e92b6b7b",
+    "extractor_a_output_sha256": "5150e1ed1e661bcf9617afd70ce21b1e71f90664fb6ec0efe222ddb1280825e0",
+    "extractor_a_receipt_sha256": "c734c59ea1e6310b9a255150ffbb76da888b346563b9d737c072dd069bafb116",
+    "extractor_b_output_sha256": "4cb0051a28a16a8b97cb4e5ba5ea73da371ec121cbeb72870872690e7f7e275a",
+    "extractor_b_receipt_sha256": "b93a658889c4f1190c79d42f296b4906d157384c5c637a571e1f9829f1cde2d0",
+    "concordance_sha256": "37513c8eb138897bdfb5a260442a2b1fd025e7b5050d80413d613372028485fa",
+    "differences_sha256": "e84bb41f60ccb95d080fef6111ec0f9887c13135b30f3cd17fa24998e8436d0a",
+    "comparison_receipt_sha256": "3bac48196fba64e54c2f1c24958ad0b19cdb441555f98a4f7a91494818d7a5d5",
+    "advisory_report_sha256": "57b7603a79ea0aff0d9094774bb533df30db26c83120b282aa311bc3ebc74ed3"
+  },
+  "validation": {"orchestrator_preflight_passed": true, "scope_passed": true, "schemas_passed": true, "seals_passed": true, "distinct_roles_passed": true},
+  "metrics": {"critical_matches": 58, "critical_comparisons": 76, "critical_concordance": 0.7631578947368421, "critical_threshold": 1.0, "critical_differences": 18, "overall_populated_matches": 42, "overall_populated_comparisons": 60, "overall_populated_concordance": 0.7, "overall_threshold": 0.99},
+  "difference_categories": {"lexical_or_delimiter": 6, "locator_completeness": 2, "source_label_or_unit_fidelity": 2, "time_basis_inference": 3, "cohort_or_population_semantics": 5},
+  "disposition": {"lineage_terminal": true, "repair_allowed": false, "rerun_allowed": false, "outputs_promotable": false, "g2_c04": "in_review", "g2_c07": "in_review", "m06": "L1", "g2_accepted_criteria": 9, "g2_total_criteria": 13, "g2_passed": false},
+  "claim_limits": ["bounded failed reproducibility evidence only", "no rights clearance", "no gold or maturity promotion", "no publication or release", "no G2 passage"]
+}

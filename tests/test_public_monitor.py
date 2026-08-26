@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from urllib.parse import urlparse
 
 from blake3 import blake3
 
@@ -69,7 +70,7 @@ def test_monitor_detects_drift_and_unavailability(project_root: Path, tmp_path: 
     custody_path = project_root / "data/preservation/public_b0_custody_20260827.json"
 
     def fetch(url: str, expected: int) -> tuple[bytes, int, str]:
-        if "github.com" in url:
+        if urlparse(url).hostname == "github.com":
             return b"drift", 200, url
         raise OSError("offline")
 

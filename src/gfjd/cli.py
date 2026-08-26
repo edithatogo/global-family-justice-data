@@ -20,6 +20,13 @@ from .acquisition import (
 from .conductor import Conductor, work_item_to_dict
 from .pipeline import PipelineError, map_structured_csv, promote_observations
 from .project import Project, ProjectError, load_project
+from .public_archive import (
+    PublicArchiveError,
+    scan_inventory,
+    verify_custody_receipt,
+    verify_receipt,
+    write_receipt,
+)
 from .release import ReleaseError, build_release, diff_releases, verify_release
 from .security import scan_repository
 from .tooling_cli import register_tooling_commands, run_tooling_command
@@ -164,6 +171,17 @@ def build_parser() -> argparse.ArgumentParser:
 
     security = commands.add_parser("security", help="Run secret and public-data safety scans")
     security.add_argument("--json", action="store_true", dest="json_output")
+    archive = commands.add_parser("archive", help="Scan and verify public source archives")
+    archive_sub = archive.add_subparsers(dest="archive_command", required=True)
+    archive_scan = archive_sub.add_parser("scan", help="Scan an inventory before publication")
+    archive_scan.add_argument("--inventory", type=Path, required=True)
+    archive_scan.add_argument("--output", type=Path, required=True)
+    archive_verify = archive_sub.add_parser("verify", help="Recompute a safety receipt")
+    archive_verify.add_argument("receipt", type=Path)
+    custody_verify = archive_sub.add_parser(
+        "verify-custody", help="Verify provider-separated public custody evidence"
+    )
+    custody_verify.add_argument("receipt", type=Path)
     register_tooling_commands(commands)
     return parser
 
@@ -210,11 +228,28 @@ def main(argv: Sequence[str] | None = None) -> int:
                 json.dumps(report.to_dict(), indent=2) if args.json_output else report.render_text()
             )
             return 0 if report.error_count == 0 else 1
+        if args.command == "archive":
+            if args.archive_command == "scan":
+                receipt = scan_inventory(project.root, _project_path(project, args.inventory))
+                write_receipt(receipt, _project_path(project, args.output))
+                print(json.dumps(receipt, indent=2, ensure_ascii=False))
+                return 0 if receipt["status"] == "pass" else 1
+            errors = (
+                verify_receipt(project.root, _project_path(project, args.receipt))
+                if args.archive_command == "verify"
+                else verify_custody_receipt(project.root, _project_path(project, args.receipt))
+            )
+            if errors:
+                print("\n".join(f"- {error}" for error in errors))
+                return 1
+            print("Public archive receipt verified.")
+            return 0
     except (
         ProjectError,
         PipelineError,
         AcquisitionError,
         ReleaseError,
+        PublicArchiveError,
         KeyError,
         ValueError,
     ) as exc:

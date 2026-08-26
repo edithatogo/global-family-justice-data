@@ -112,7 +112,7 @@ def test_archive_inventory_rejects_malformed_sha256(project_root: Path, tmp_path
     assert any(issue.code == "ARCHIVE_INVENTORY_SHA256_INVALID" for issue in report.errors)
 
 
-def test_archive_inventory_allows_payloads_to_remain_local(
+def test_archive_inventory_accepts_verified_public_remote_custody(
     project_root: Path, tmp_path: Path
 ) -> None:
     root = _copy_project(project_root, tmp_path / "repo")
@@ -121,4 +121,4 @@ def test_archive_inventory_allows_payloads_to_remain_local(
     report = validate_repository(root, today=date(2026, 8, 15))
 
     assert report.errors == []
-    assert any(issue.code == "ARCHIVE_INVENTORY_PAYLOAD_LOCAL_ONLY" for issue in report.infos)
+    assert any(issue.code == "ARCHIVE_INVENTORY_PAYLOAD_PUBLIC_REMOTE" for issue in report.infos)

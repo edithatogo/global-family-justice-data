@@ -22,8 +22,8 @@ def test_autonomy_context_is_bounded_and_fail_closed(tmp_path: Path) -> None:
     assert payload["external_boundaries"]
     assert all(item["kind"] == "governance_decision" for item in payload["external_boundaries"])
     assert {item["work_item_id"] for item in payload["autonomous_queue"]} == {
-        "WI-G3-MED-01",
-        "WI-G3-MED-03",
+        "WI-G3-MED-02",
+        "WI-G4-MED-01",
     }
     assert all(item["status"] == "planned" for item in payload["autonomous_queue"])
     assert payload["external_actions"]

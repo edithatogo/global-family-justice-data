@@ -13,6 +13,7 @@ from urllib.parse import urlparse
 from .conductor import Conductor
 from .io import sha256_file
 from .project import Project, load_project
+from .public_archive import verify_custody_receipt
 from .reporting import Report, Severity
 from .schema_validation import ValidatedTable, tables_by_contract, validate_contracts
 from .security import scan_repository
@@ -72,6 +73,18 @@ def _validate_archive_inventory(project: Project, report: Report) -> None:
         )
         return
 
+    custody_relative = "data/preservation/public_b0_custody_20260827.json"
+    custody_errors: list[str] = []
+    custody_present = (project.root / custody_relative).is_file()
+    if custody_present:
+        custody_errors = verify_custody_receipt(project.root, project.root / custody_relative)
+        for error in custody_errors:
+            report.error(
+                "ARCHIVE_PUBLIC_CUSTODY_INVALID",
+                error,
+                path=custody_relative,
+            )
+
     for index, row in enumerate(rows, start=2):
         expected = row.get("sha256", "")
         if len(expected) != 64 or any(char not in "0123456789abcdef" for char in expected):
@@ -96,12 +109,20 @@ def _validate_archive_inventory(project: Project, report: Report) -> None:
             )
             continue
         if not payload_path.is_file():
-            report.info(
-                "ARCHIVE_INVENTORY_PAYLOAD_LOCAL_ONLY",
-                f"Archive payload is not present in this checkout: {payload_relative}",
-                path=relative,
-                row=index,
-            )
+            if custody_present and not custody_errors:
+                report.info(
+                    "ARCHIVE_INVENTORY_PAYLOAD_PUBLIC_REMOTE",
+                    f"Payload has verified provider-separated public custody: {payload_relative}",
+                    path=relative,
+                    row=index,
+                )
+            else:
+                report.info(
+                    "ARCHIVE_INVENTORY_PAYLOAD_LOCAL_ONLY",
+                    f"Archive payload is not present in this checkout: {payload_relative}",
+                    path=relative,
+                    row=index,
+                )
             continue
 
         try:

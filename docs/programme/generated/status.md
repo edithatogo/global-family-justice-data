@@ -1,6 +1,6 @@
 # Generated programme status
 
-Generated: `2026-08-26T21:16:13+00:00`
+Generated: `2026-08-26T21:38:29+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G2**
@@ -61,6 +61,6 @@ Evidence-assured maturity floor: **L1**
 - **P0 WI-G4-MED-01** (T4/G4): Implement executable B0, B1 Bronze, Silver, Gold, Platinum and orthogonal quarantine contracts. — _planned_
 - **P1 WI-G2-04** (T5/G2): Pilot extractions and mappings have documented dual review, adjudication and quarantine outcomes. — _in_review_
 - **P1 WI-G2-07** (T5/G2): Blinded role-separated agent re-extraction of the pilot sample passes the approved concordance threshold and is owner-adjudicated. — _in_review_
-- **P1 WI-G3-MED-02** (T3/G3): Operate append-only public source monitoring, replay and supersession. — _planned_
+- **P1 WI-G3-MED-02** (T3/G3): Operate append-only public source monitoring, replay and supersession. — _in_progress_
 
 > A gate is ready only after evidence, work, maturity, risk, defect and dependency controls pass. It passes only after a recorded governance decision. Document presence and self-assessment do not constitute acceptance.

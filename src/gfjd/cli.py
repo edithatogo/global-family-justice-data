@@ -27,6 +27,13 @@ from .public_archive import (
     verify_receipt,
     write_receipt,
 )
+from .public_monitor import (
+    PublicMonitorError,
+    monitor_custody,
+    verify_monitor_receipt,
+    verify_supersession,
+    write_monitor_receipt,
+)
 from .release import ReleaseError, build_release, diff_releases, verify_release
 from .security import scan_repository
 from .tooling_cli import register_tooling_commands, run_tooling_command
@@ -182,6 +189,20 @@ def build_parser() -> argparse.ArgumentParser:
         "verify-custody", help="Verify provider-separated public custody evidence"
     )
     custody_verify.add_argument("receipt", type=Path)
+    archive_monitor = archive_sub.add_parser("monitor", help="Retrieve and verify public replicas")
+    archive_monitor.add_argument("--custody", type=Path, required=True)
+    archive_monitor.add_argument("--output", type=Path, required=True)
+    archive_monitor.add_argument("--checked-at", required=True)
+    archive_monitor.add_argument("--source-commit", required=True)
+    archive_monitor.add_argument("--run-id", required=True)
+    supersession_verify = archive_sub.add_parser(
+        "verify-supersession", help="Verify acyclic public snapshot history"
+    )
+    supersession_verify.add_argument("record", type=Path)
+    monitor_verify = archive_sub.add_parser(
+        "verify-monitor", help="Recompute a public monitoring receipt outcome"
+    )
+    monitor_verify.add_argument("receipt", type=Path)
     register_tooling_commands(commands)
     return parser
 
@@ -234,6 +255,34 @@ def main(argv: Sequence[str] | None = None) -> int:
                 write_receipt(receipt, _project_path(project, args.output))
                 print(json.dumps(receipt, indent=2, ensure_ascii=False))
                 return 0 if receipt["status"] == "pass" else 1
+            if args.archive_command == "monitor":
+                receipt = monitor_custody(
+                    project.root,
+                    _project_path(project, args.custody),
+                    checked_at=args.checked_at,
+                    source_commit=args.source_commit,
+                    run_id=args.run_id,
+                )
+                write_monitor_receipt(receipt, _project_path(project, args.output))
+                print(json.dumps(receipt, indent=2, ensure_ascii=False))
+                return 0
+            if args.archive_command == "verify-monitor":
+                receipt = json.loads(
+                    _project_path(project, args.receipt).read_text(encoding="utf-8")
+                )
+                errors = verify_monitor_receipt(receipt)
+                if errors:
+                    print("\n".join(f"- {error}" for error in errors))
+                    return 1
+                print("Public archive monitor receipt verified.")
+                return 0
+            if args.archive_command == "verify-supersession":
+                errors, order = verify_supersession(_project_path(project, args.record))
+                if errors:
+                    print("\n".join(f"- {error}" for error in errors))
+                    return 1
+                print(json.dumps({"replay_order": order}, indent=2))
+                return 0
             errors = (
                 verify_receipt(project.root, _project_path(project, args.receipt))
                 if args.archive_command == "verify"
@@ -250,6 +299,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         AcquisitionError,
         ReleaseError,
         PublicArchiveError,
+        PublicMonitorError,
         KeyError,
         ValueError,
     ) as exc:

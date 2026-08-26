@@ -25,7 +25,7 @@ At the time this strategy was established, the complete 37-test suite achieved *
 | G3 / v0.6 | 78% | Connector contract tests and historical source-edition regression fixtures |
 | G4 / v0.7 | 80% | At least 90% for critical control modules; schema compatibility and migration fixtures |
 | G5 / v0.9 | 85% | Mutation testing of gate, evidence, gold-promotion, manifest and release-interlock logic; no surviving high-risk mutation |
-| G6 / v1.0 | No regression from G5 | Independent review confirms tests cover the v1 threat, failure and misuse scenarios; release rehearsal passes in two clean environments |
+| G6 / v1.0 | No regression from G5 | Role-separated agent-panel review advises the sole owner on v1 threat, failure and misuse coverage; release rehearsal passes in two clean environments |
 
 A gate cannot be passed by lowering its threshold. Any temporary exception must use the programme exception process, be time-limited, name an owner and remediation date, and be accepted by the relevant gate authority.
 
@@ -38,7 +38,33 @@ A gate cannot be passed by lowering its threshold. Any temporary exception must 
 5. **Pipeline tests** cover mapping, transformation, lineage, deterministic IDs, promotion and reason-coded quarantine.
 6. **Release tests** cover clean assembly, deterministic bytes, manifests, SBOM, verification, release diff and the G6 stable-release interlock.
 7. **Operational rehearsals** cover correction, rollback, republish, backup, restore, source drift and dependency failure.
-8. **Independent assurance** re-extracts a sample, reviews methods and security, and challenges whether the test inventory reflects real failure modes.
+8. **Role-separated agent-panel review** re-extracts a sample, reviews methods and security, and advises the sole accountable owner whether the test inventory reflects real failure modes. It is advisory and is not independent or specialist assurance.
+
+## Local iteration workflow
+
+Use the smallest relevant deterministic tier while changing code, then run the
+complete gate once at phase closeout:
+
+```bash
+make test-focused FOCUSED_TESTS=tests/test_module.py
+make autonomy-fast
+make test-timed
+make check
+```
+
+`test-focused` accepts one or more test paths or node IDs, including the exact
+node IDs printed by a failed run. `test` and its `test-timed` alias write
+`build/test-timings-local.json` so slow tests can be identified from evidence
+rather than impression. All targets accept additional pytest options through
+`PYTEST_ARGS`. Do not use pytest's cache-dependent `--last-failed` as an
+acceptance check: stale or missing node IDs can unexpectedly expand it to the
+complete suite.
+
+`unit-parallel` uses two workers with file-level scheduling. It is an optional
+local iteration accelerator, not an acceptance receipt and not a replacement
+for the serial `unit`, `test`, `autonomy-fast` or `check` targets. Do not run
+parallel repository gates concurrently in multiple worktrees: validation,
+coverage and release targets intentionally share local build paths.
 
 ## Required additions before G2
 
@@ -55,8 +81,8 @@ A gate cannot be passed by lowering its threshold. Any temporary exception must 
 - Backward-compatibility tests against every supported 1.x schema and release fixture.
 - Load and resource tests for the release query layer.
 - Security and privacy abuse cases derived from the approved threat model.
-- Restore and incident exercises conducted by a deputy rather than the primary implementer.
+- Restore and incident exercises conducted through fresh, role-separated agent workspaces, with the sole owner retaining accountable acceptance.
 
 ## Reporting
 
-Every release candidate publishes the test command, environment, coverage summary, excluded code, failed or quarantined tests, known limitations and links to independent assurance. Coverage exclusions require code-level justification and methods/technical review.
+Every release candidate records the test command, environment, coverage summary, excluded code, failed or quarantined tests, known limitations and links to role-separated agent-panel advice. Coverage exclusions require code-level justification, panel advice and sole-owner adjudication. Public release remains separately gated.

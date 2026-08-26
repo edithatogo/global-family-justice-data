@@ -1,0 +1,12 @@
+{
+  "contract_version": "gfjd-public-b0-supersession-v1",
+  "nodes": [
+    {"snapshot_id": "ARC-AUS-FCFCOA-202425", "source_id": "AUS-FCFCOA-AR", "edition": "2024-25"},
+    {"snapshot_id": "ARC-BRA-CNJ-2026", "source_id": "BRA-CNJ-DATAJUD", "edition": "2026"},
+    {"snapshot_id": "ARC-GBR-EAW-2026Q1", "source_id": "GBR-EAW-MOJ-FAMILY-Q", "edition": "2026-Q1"},
+    {"snapshot_id": "ARC-SWE-DOMSTOLSVERKET-2026", "source_id": "SWE-DOMSTOLSVERKET", "edition": "2026"},
+    {"snapshot_id": "ARC-USA-MN-MJB-PERF-2024", "source_id": "USA-MN-MJB", "edition": "2024"},
+    {"snapshot_id": "ARC-ZAF-JUD-202425", "source_id": "ZAF-JUD-ANNUAL", "edition": "2024-25"}
+  ],
+  "edges": []
+}

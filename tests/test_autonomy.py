@@ -25,7 +25,10 @@ def test_autonomy_context_is_bounded_and_fail_closed(tmp_path: Path) -> None:
         "WI-G3-MED-02",
         "WI-G4-MED-01",
     }
-    assert all(item["status"] == "planned" for item in payload["autonomous_queue"])
+    assert {item["work_item_id"]: item["status"] for item in payload["autonomous_queue"]} == {
+        "WI-G3-MED-02": "in_progress",
+        "WI-G4-MED-01": "planned",
+    }
     assert payload["external_actions"]
     assert len(payload["blocker_matrix"]) == 6
     assert payload["blocker_matrix"][0]["gate_id"] == "G1"

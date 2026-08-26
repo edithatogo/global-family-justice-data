@@ -35,3 +35,64 @@ jobs:
         with:
           name: source-register-health
           path: build/source-monitor/
+          retention-days: 30
+
+  public-custody-health:
+    name: Public B0 custody and replay
+    if: ${{ github.ref == 'refs/heads/main' && github.event_name != 'pull_request' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment: release-candidate
+    permissions:
+      contents: write
+    steps:
+      - name: Check out immutable revision
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Provision Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.13'
+      - name: Provision reviewed uv toolchain
+        uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
+        with:
+          version: '0.10.0'
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+          download-from-astral-mirror: false
+      - name: Synchronize locked runtime
+        run: uv sync --frozen
+      - name: Verify custody and acyclic replay contract
+        run: |
+          uv run gfjd archive verify-custody data/preservation/public_b0_custody_20260827.json
+          uv run gfjd archive verify-supersession data/preservation/public_b0_supersession.json
+      - name: Monitor all anonymous public replicas
+        run: |
+          uv run gfjd archive monitor \
+            --custody data/preservation/public_b0_custody_20260827.json \
+            --output build/public-b0-monitor/receipt.json \
+            --checked-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --source-commit "$GITHUB_SHA" \
+            --run-id "$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+      - name: Upload checksum-bound monitoring receipt
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: public-b0-monitor-${{ github.run_id }}-${{ github.run_attempt }}
+          path: build/public-b0-monitor/receipt.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Publish append-only public monitoring receipt
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="b0-monitor-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          gh release create "$tag" build/public-b0-monitor/receipt.json \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "$GITHUB_SHA" \
+            --prerelease \
+            --title "Public B0 monitor ${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" \
+            --notes "Append-only anonymous custody and replay receipt. This is monitoring evidence, not a product release or gate passage."
+      - name: Preserve fail-closed monitor outcome
+        run: uv run gfjd archive verify-monitor build/public-b0-monitor/receipt.json

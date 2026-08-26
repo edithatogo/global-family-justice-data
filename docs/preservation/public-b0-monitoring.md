@@ -9,6 +9,13 @@ the custody and supersession contracts, checks all replicas, uploads a temporary
 and creates an append-only public prerelease tagged `b0-monitor-<run-id>-<attempt>`. These tags are
 monitoring evidence, not product releases or programme-gate decisions.
 
+The first operated hosted receipt is published as
+[`b0-monitor-33017522264-1`](https://github.com/edithatogo/global-family-justice-data/releases/tag/b0-monitor-33017522264-1).
+Its anonymously retrieved `receipt.json` has SHA-256
+`f64d2b269afff5c4179c6b7e06a4f2cc6ec24d9cc2a5fa6f6d55383c713ad9d9` and records 12 of 12
+provider replicas as available and content-exact at merged commit
+`246434068e22de99831b8e359a894146f494b134`.
+
 The monitor fails closed after publishing its receipt when any replica is unavailable, redirects to
 an unapproved host, exceeds its expected size, or differs by either digest. An outage does not
 authorize replacement, deletion, overwriting, or promotion. Repair adds a new public replica and a

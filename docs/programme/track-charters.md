@@ -82,11 +82,13 @@ Each track has a single accountable lead, a named deputy, defined interfaces and
 - retrieval manifests, query/filter records, checksums and source versions;
 - rights/redistribution flags and storage routing;
 - immutable source snapshots where lawful;
+- public content-addressed B0 custody with native payloads or WARC/WACZ and
+  two provider-separated retrieval receipts;
 - source-drift, stale-source and broken-link monitoring;
 - retry, rate-limit and failure-handling standards;
 - acquisition runbooks and connector ownership.
 
-**v1.0 definition of done:** every released source has sufficient evidence to reproduce or verify extraction; high-priority machine-accessible sources are monitored; restricted files are isolated; connector failures are observable and owned.
+**v1.0 definition of done:** every released source has sufficient evidence to reproduce or verify extraction; every public-safe exact edition is restorable from two public providers without a local cache; high-priority machine-accessible sources are monitored; prohibited material is rejected rather than retained in a hidden local archive; connector failures are observable and owned.
 
 **Leading indicators:** acquisition success, unpreserved sources, stale high-priority sources, connector incident age, manual extraction share.
 
@@ -101,15 +103,18 @@ Each track has a single accountable lead, a named deputy, defined interfaces and
 **Core deliverables:**
 
 - stable identifiers and data contracts;
-- raw/bronze/silver/gold storage model;
+- B0 preservation, B1 Bronze, Silver, Gold and Platinum storage model with
+  quarantine as an orthogonal state;
 - transformation pipelines and metadata lineage;
 - validation, compatibility and migration tests;
 - development/test/release environments;
 - release builder, checksums, signatures and software bill of materials;
 - portable CSV/Parquet/DuckDB/metadata outputs;
 - generation of website/API/dashboard from release artefacts.
+- DCAT-AP, Croissant, RO-Crate, PROV-O and OpenLineage-compatible federation
+  outputs with content-addressed zero-copy Parquet references.
 
-**v1.0 definition of done:** clean-room build succeeds; core contracts are frozen; tests protect critical logic; derived services regenerate from immutable release files; current and prior minor releases remain reproducible.
+**v1.0 definition of done:** a clean-room build succeeds from public archives alone; every medallion layer is independently qualified; core contracts are frozen; tests protect critical logic; derived services regenerate from immutable release files; current and prior minor releases remain reproducible.
 
 **Leading indicators:** build success, flaky tests, undocumented manual steps, contract changes, pipeline runtime/failure, technical debt affecting gates.
 
@@ -129,6 +134,8 @@ Each track has a single accountable lead, a named deputy, defined interfaces and
 - dual-review ledger and adjudication process;
 - risk-based independent re-extraction sample;
 - quality scorecard, release diff and anomaly review;
+- independent layer-maturity qualification that cannot use later-layer or
+  publication success as evidence for an earlier layer;
 - external methodological assurance and response.
 
 **v1.0 definition of done:** all gold series pass dual review; audit thresholds pass; no P0/P1 data defect is open; comparability controls are enforced in files and interfaces; quality evidence is public.
@@ -153,6 +160,8 @@ Each track has a single accountable lead, a named deputy, defined interfaces and
 - accessibility and usability testing;
 - citation, limitations and responsible-use guidance;
 - downloadable machine-readable and human-readable outputs.
+- public Hugging Face source-archive, catalogue, medallion, evidence and
+  Gold/Platinum product roles registered in the dataset estate registry.
 
 **v1.0 definition of done:** all four products are complete; every visual/table exposes source and definition; core interfaces pass adopted accessibility assessment; users can obtain data without proprietary tools; public beta feedback is dispositioned.
 
@@ -171,6 +180,8 @@ Each track has a single accountable lead, a named deputy, defined interfaces and
 - aggregate/public-data boundary and prohibited-data rules;
 - threat model and privacy/disclosure impact assessment;
 - licence/rights register and takedown process;
+- pre-publication prohibited-data, secret, small-cell and identifying-content
+  scans for every source and derived object;
 - secret, dependency, artefact and supply-chain scanning;
 - access-control and credential-management standards;
 - small-cell, dominance and contextual-harm review;
@@ -195,6 +206,9 @@ Each track has a single accountable lead, a named deputy, defined interfaces and
 - correction, incident, source-drift and publication ticket flows;
 - monitoring, alert ownership and operational dashboards;
 - backups, archival deposits and restore testing;
+- provider-separated public custody and anonymous restore testing with no
+  durable local-only source of truth;
+- append-only correction, withdrawal, tombstone and supersession operations;
 - rollback/republish and business-continuity procedures;
 - support rota, runbooks and service objectives;
 - post-release review and problem management.
@@ -221,6 +235,8 @@ Each track has a single accountable lead, a named deputy, defined interfaces and
 - host/funding/partnership strategy and maintenance budget;
 - impact, misuse and benefits evaluation plan;
 - succession and regional-capacity plan.
+- cross-repository federation registry, interoperability contracts and
+  canonical ownership boundaries.
 
 **v1.0 definition of done:** launch languages and key translations are reviewed; regional representation is documented; correspondent and contributor processes function; critical knowledge is not concentrated in one institution; 12-month maintenance resources are committed.
 

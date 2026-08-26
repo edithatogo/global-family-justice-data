@@ -8,8 +8,8 @@ The safest route is:
 2. Give the agent the text in `BOOTSTRAP_AND_HANDOFF_PROMPT.md` (a standalone copy is shipped beside the ZIP).
 3. The agent verifies and safely extracts the archive, then runs a non-mutating discovery plan.
 4. Review only genuinely ambiguous account or namespace choices.
-5. The agent initialises Git, creates a **private** GitHub repository by default, adds `origin`, pushes `main` without force, verifies the remote commit, and records a receipt.
-6. Hugging Face repositories remain private and opt-in until namespace, rights and publication roles are resolved.
+5. The agent initialises Git, creates the owner-directed **public** GitHub repository, adds `origin`, pushes `main` without force, verifies the remote commit, and records a receipt.
+6. Hugging Face repositories use the configured public role-separated medallion topology; unsafe or prohibited content must not be uploaded or retained as a hidden local substitute.
 
 From an already extracted tree, generate the discovery plan with:
 
@@ -23,19 +23,19 @@ Apply after inspecting `build/bootstrap/bootstrap-plan.md`:
 python scripts/bootstrap_workspace.py apply \
   --github-owner YOUR_GITHUB_LOGIN_OR_ORG \
   --github-repository global-family-justice-data \
-  --github-visibility private \
+  --github-visibility public \
   --author-name "YOUR NAME" \
   --author-email "YOUR VERIFIED OR NOREPLY EMAIL" \
   --yes
 ```
 
-Create the configured private Hugging Face dataset/Space repositories only after confirming the intended namespace:
+Create the configured public Hugging Face dataset/Space repositories only after confirming the intended namespace:
 
 ```bash
 python scripts/bootstrap_workspace.py apply \
   --github-owner YOUR_GITHUB_LOGIN_OR_ORG \
   --github-repository global-family-justice-data \
-  --github-visibility private \
+  --github-visibility public \
   --huggingface-namespace YOUR_HF_NAMESPACE \
   --create-huggingface \
   --yes

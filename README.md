@@ -12,10 +12,10 @@ From a cloned checkout, the supported plan-first bootstrap is:
 python scripts/bootstrap_workspace.py preflight
 python scripts/bootstrap_workspace.py plan --scan-root .. --output build/bootstrap
 # Apply only after reviewing the plan and authenticating `gh`:
-python scripts/bootstrap_workspace.py apply --yes --github-visibility private
+python scripts/bootstrap_workspace.py apply --yes --github-visibility public
 ```
 
-The bootstrap never force-pushes, refuses a mismatched `origin`, creates GitHub repositories as private by default, inventories bounded nearby clones without modifying them, and records checksum-bound receipts. `HISTORY_PROVENANCE.md` explains how the checkpoint history was reconstructed.
+The bootstrap never force-pushes, refuses a mismatched `origin`, creates the owner-directed GFJD estate as public, inventories bounded nearby clones without modifying them, and records checksum-bound receipts. Public upload remains fail-closed for credentials and prohibited personal or identifying data. `HISTORY_PROVENANCE.md` explains how the checkpoint history was reconstructed.
 
 ## Current status
 

@@ -4,7 +4,7 @@ Codex normally reads this after the outer handoff package has cloned `global-fam
 
 ---
 
-You are the implementation and repository-bootstrap agent for the **Global Family Justice Data Project (GFJD)**. Preserve the existing Git history. Verify the checkout, discover relevant local clones, initialise or verify Git configuration, create and wire the intended private GitHub remote, and continue the engineering work. Do the work rather than merely describing it.
+You are the implementation and repository-bootstrap agent for the **Global Family Justice Data Project (GFJD)**. Preserve the existing Git history. Verify the checkout, discover relevant local clones, initialise or verify Git configuration, create and wire the intended public GitHub remote, and continue the engineering work. Do the work rather than merely describing it.
 
 ## Operating principles
 
@@ -167,7 +167,7 @@ Query existing remote repositories with `gh repo list` and `hf repos ls` so you 
 
 ## Phase 5 — initialise Git and create/wire GitHub
 
-Use `config/bootstrap.toml` as the default target. The expected repository name is `global-family-justice-data`, the default branch is `main`, and default visibility is private.
+Use `config/bootstrap.toml` as the default target. The expected repository name is `global-family-justice-data`, the default branch is `main`, and owner-directed visibility is public.
 
 Before apply:
 
@@ -183,7 +183,7 @@ Apply with explicit confirmation:
 python scripts/bootstrap_workspace.py apply \
   --github-owner OWNER \
   --github-repository global-family-justice-data \
-  --visibility private \
+  --visibility public \
   --author-name "NAME" \
   --author-email "EMAIL" \
   --yes
@@ -221,7 +221,7 @@ Apply basic repository settings only after remote creation and permission verifi
 python scripts/bootstrap_workspace.py apply \
   --github-owner OWNER \
   --github-repository global-family-justice-data \
-  --visibility private \
+  --visibility public \
   --apply-github-controls \
   --yes
 ```
@@ -244,13 +244,13 @@ Some controls depend on GitHub plan, repository visibility, organisation policy 
 
 ## Phase 7 — Hugging Face topology and OIDC
 
-If a Hugging Face namespace is authenticated and unambiguous, create the configured repositories **private** and empty:
+If a Hugging Face namespace is authenticated and unambiguous, create the configured repositories **public** and empty:
 
 ```bash
 python scripts/bootstrap_workspace.py apply \
   --github-owner OWNER \
   --github-repository global-family-justice-data \
-  --visibility private \
+  --visibility public \
   --huggingface-namespace HF_NAMESPACE \
   --create-huggingface \
   --yes
@@ -258,6 +258,7 @@ python scripts/bootstrap_workspace.py apply \
 
 Expected repositories:
 
+- dataset `gfjd-source-archive`;
 - dataset `gfjd-source-catalogue`;
 - dataset `gfjd-observations`;
 - dataset `gfjd-outcomes-evidence`;

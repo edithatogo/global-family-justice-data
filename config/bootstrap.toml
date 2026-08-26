@@ -3,7 +3,7 @@ schema_version = "1.0"
 repository_name = "global-family-justice-data"
 description = "International family-justice data source census, harmonisation platform and evidence-governed release system"
 default_branch = "main"
-default_visibility = "private"
+default_visibility = "public"
 remote_name = "origin"
 initial_commit_message = "chore: initialise Global Family Justice Data platform"
 receipt_directory = "build/bootstrap"
@@ -20,7 +20,7 @@ commit_gpgsign = false
 host = "github.com"
 owner = ""
 repository = "global-family-justice-data"
-visibility = "private"
+visibility = "public"
 homepage = ""
 enable_issues = true
 enable_projects = true
@@ -59,43 +59,50 @@ required_checks = [
 [huggingface]
 enabled = true
 namespace = ""
-private_by_default = true
+private_by_default = false
 create_missing_by_default = false
+
+[[huggingface.repositories]]
+id = "source-archive"
+name = "gfjd-source-archive"
+repo_type = "dataset"
+visibility = "public"
+publication_mode = "public_source_archive"
 
 [[huggingface.repositories]]
 id = "source-catalogue"
 name = "gfjd-source-catalogue"
 repo_type = "dataset"
-visibility = "private"
-publication_mode = "generated_only"
+visibility = "public"
+publication_mode = "public_catalogue"
 
 [[huggingface.repositories]]
 id = "observations"
 name = "gfjd-observations"
 repo_type = "dataset"
-visibility = "private"
-publication_mode = "generated_only"
+visibility = "public"
+publication_mode = "public_medallion"
 
 [[huggingface.repositories]]
 id = "outcomes-evidence"
 name = "gfjd-outcomes-evidence"
 repo_type = "dataset"
-visibility = "private"
-publication_mode = "generated_only"
+visibility = "public"
+publication_mode = "public_evidence"
 
 [[huggingface.repositories]]
 id = "extraction-benchmark"
 name = "gfjd-extraction-benchmark"
 repo_type = "dataset"
-visibility = "private"
-publication_mode = "generated_only"
+visibility = "public"
+publication_mode = "public_benchmark"
 
 [[huggingface.repositories]]
 id = "explorer"
 name = "gfjd-explorer"
 repo_type = "space"
-visibility = "private"
-publication_mode = "generated_only"
+visibility = "public"
+publication_mode = "public_gold_platinum_only"
 sdk = "static"
 
 [discovery]

@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-MATERIAL-ORCHESTRATED-20260826-01",
+  "workspace_builder": "gfjd.g2_role_isolation.build_role_workspace",
+  "workspace_verifier": "gfjd.g2_role_isolation.verify_role_workspace",
+  "workspace_verifier_implementation": {"path": "src/gfjd/g2_role_isolation.py", "sha256": "164df393f8df0fbd170342a5ff28dcaa861aceeb22f14a7b331707b593164243"},
+  "policy": "explicit_allowlist_only",
+  "authorization_commit": "94026b56726fe05232dcc0343b2471f759a9bfdb",
+  "delegation_policy": "orchestrator builds, verifies and binds workspaces before agents are spawned; agents receive no preflight command",
+  "roles": [
+    {"role": "extractor_a", "destination": "build/g2-material-orchestrated-20260826-01/roles/a", "inputs": [
+      {"target_name": "finland-metadata.json", "source_path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/finland-api-metadata.bin", "sha256": "20621bfd4d339e4f1d724b3e2016da845303938367c92cc1fac5c07e9a74575a"},
+      {"target_name": "finland-observation.json", "source_path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/finland-family-law-total-2013.bin", "sha256": "59348fe0b98c016881de8761953983fe402490a6de19094e0acf8fcab3f362f0"},
+      {"target_name": "estonia-offences.xlsx", "source_path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/estonia-xlsx.bin", "sha256": "81e350d37f6d402f2570f1a0b71cfe1d3ccf2c9578ed023b8b1f1a49fa02d0ab"},
+      {"target_name": "estonia-domestic-violence.csv", "source_path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/estonia-reserve-csv.bin", "sha256": "f0024a590b3423c8b533f95ed597e6fa6f8672b9bee1450403f09296b7fe45b9"},
+      {"target_name": "south-africa-report.pdf", "source_path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/south-africa-pdf.bin", "sha256": "41aee1f16221da483677619fc314060a318a5b2a6d7c4ff615a3af5f6952acee"}]},
+    {"role": "extractor_b", "destination": "build/g2-material-orchestrated-20260826-01/roles/b", "inputs": [
+      {"target_name": "finland-metadata.json", "source_path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/finland-api-metadata.bin", "sha256": "20621bfd4d339e4f1d724b3e2016da845303938367c92cc1fac5c07e9a74575a"},
+      {"target_name": "finland-observation.json", "source_path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/finland-family-law-total-2013.bin", "sha256": "59348fe0b98c016881de8761953983fe402490a6de19094e0acf8fcab3f362f0"},
+      {"target_name": "estonia-offences.xlsx", "source_path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/estonia-xlsx.bin", "sha256": "81e350d37f6d402f2570f1a0b71cfe1d3ccf2c9578ed023b8b1f1a49fa02d0ab"},
+      {"target_name": "estonia-domestic-violence.csv", "source_path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/estonia-reserve-csv.bin", "sha256": "f0024a590b3423c8b533f95ed597e6fa6f8672b9bee1450403f09296b7fe45b9"},
+      {"target_name": "south-africa-report.pdf", "source_path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/south-africa-pdf.bin", "sha256": "41aee1f16221da483677619fc314060a318a5b2a6d7c4ff615a3af5f6952acee"}]}
+  ],
+  "workspace_entry_allowlist": ["inputs", "isolation-receipt.json"],
+  "network_access": false,
+  "shared_source_directory_access_by_extractors": false,
+  "predecessor_outputs_reused": false,
+  "stop_on_any_verification_error": true
+}

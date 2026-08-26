@@ -11,6 +11,7 @@ from gfjd.g2_run_preflight import validate_g2_run_identifiers
 RUNS = (
     Path("data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-01"),
     Path("data/methods/g2/G2PKT-MATERIAL-ISOLATED-20260826-02"),
+    Path("data/methods/g2/G2PKT-MATERIAL-ORCHESTRATED-20260826-01"),
 )
 
 
@@ -87,3 +88,29 @@ def test_cli_isolated_terminal_stop_is_fail_closed(project_root: Path) -> None:
     assert terminal["disposition"]["lineage_terminal"] is True
     assert terminal["disposition"]["g2_accepted_criteria"] == 9
     assert packet["authority_limits"]["g2_passage"] is False
+
+
+def test_orchestrated_packet_prohibits_agent_preflight_commands(project_root: Path) -> None:
+    run = RUNS[2]
+    packet = _read(project_root / run / "packet.json")
+    contract = _read(project_root / run / "contract.json")
+    assert packet["workspace_preflight"]["orchestrator_only"] is True
+    assert packet["workspace_preflight"]["agent_command_prohibited"] is True
+    assert contract["role_isolation"]["orchestrator_verifies_before_delegation"] is True
+    assert contract["role_isolation"]["agent_preflight_command_prohibited"] is True
+    for name in ("extractor-a-bundle.json", "extractor-b-bundle.json"):
+        assert _read(project_root / run / name)["agent_preflight_command"] is None
+
+
+def test_orchestrated_terminal_result_preserves_failed_thresholds(project_root: Path) -> None:
+    terminal = _read(project_root / RUNS[2] / "terminal-result.json")
+    assert terminal["status"] == "terminal_failure_critical_discrepancy"
+    assert terminal["metrics"]["critical_matches"] == 58
+    assert terminal["metrics"]["critical_comparisons"] == 76
+    assert terminal["metrics"]["critical_concordance"] < terminal["metrics"]["critical_threshold"]
+    assert (
+        terminal["metrics"]["overall_populated_concordance"]
+        < terminal["metrics"]["overall_threshold"]
+    )
+    assert terminal["disposition"]["rerun_allowed"] is False
+    assert terminal["disposition"]["g2_passed"] is False

@@ -1,7 +1,7 @@
 # Implementation status
 
 **Baseline:** `0.6.0-alpha.2`
-**Status date:** 2026-08-24
+**Status date:** 2026-08-26
 **Purpose:** distinguish executable engineering controls from international research and institutional evidence that remain to be completed.
 
 This repository is a bootstrap-ready engineering and programme-control baseline. It is not a completed international family-justice dataset and is not the stable v1.0 service.
@@ -12,6 +12,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 |---|---|
 | Repository handoff | Multi-commit Git history with checkpoint tags, Git-bundle packaging, source manifest, `AGENTS.md`, internal Codex briefs and a plan-first bootstrap path |
 | Programme conductor | T0–T9 tracks, G1–G6 evidence gates, work/evidence/risk/defect/exception registers, dependency evaluation, generated status and programme graph |
+| Public medallion/federation programme | The owner-approved maximal plan adds twelve acceptance-bearing work items across T3–T9 for public-only B0 custody, B1 Bronze, Silver, Gold, Platinum, orthogonal quarantine, field lineage, replay, Hugging Face roles, federation registration, dual-provider restore and immutable stable snapshots |
 | Governance assurance | Deterministic six-gate assurance pack, criterion matrix, fail-closed defect/exception disposition, unsigned release-decision template and tamper-evident manifest; all T0 repository work is implemented and awaiting genuine review |
 | T0/T1/T2 decision handoff | Checksum-bound governance/methods/census controls are implemented; the pending decision and evidence packet is documented in `docs/governance/t012-decision-handoff.md` |
 | Autonomous solo operation | Checksum-bound resume context, explicit repository/external boundary routing, fail-closed blocker matrix, track dependency sequence, fast iteration gate and maximal checkpoint harness let one maintainer delegate implementation without relying on chat memory or self-approving governance |
@@ -26,8 +27,8 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | Resilience | Deterministic critical-state backup, hostile-archive checks, clean restore rehearsal and receipt verification |
 | CI/CD policy | SHA-pinned Actions policy, merge-queue-aware required checks, desired repository controls, lock/contract audits and private-by-default release/bootstrap policy |
 | Distribution assurance | Adversarial wheel and sdist checks plus deterministic wheel, normalised sdist and release double builds |
-| Local/remote bootstrap | Bounded local clone discovery, portfolio reconciliation, Git identity and remote checks, private GitHub creation/attachment, non-force push verification, and opt-in private Hugging Face creation |
-| Canonical platform topology | Intentionally public `edithatogo/global-family-justice-data` GitHub authority plus five private, generated-only Hugging Face repositories are attached; empirical-data publication remains evidence-gated |
+| Local/remote bootstrap | Bounded local clone discovery, portfolio reconciliation, Git identity and remote checks, public GitHub creation/attachment, non-force push verification, and public Hugging Face estate creation |
+| Canonical platform topology | Public `edithatogo/global-family-justice-data` GitHub control plane plus a planned public Hugging Face source archive, source catalogue, medallion observations, outcomes evidence, extraction benchmark and Gold/Platinum explorer; operated public custody and empirical promotion remain evidence-gated |
 | High-priority source rights routing | Official Council of Europe, NCSC and HCCH terms are recorded for five international sources with metadata/citation routes separated from permission-dependent or unclear redistribution; no source was promoted to open-licence status |
 | T6 product controls | Deterministic candidate product bundle, catalogue, portable warehouse, accessible HTML landing page, checksum manifest and fail-closed publication flag are implemented; publication and assurance gates remain external |
 | T7 assurance controls | Security/public-data scanning, rights-aware acquisition, contract/lock audits, release blockers, backup/recovery and fail-closed publication controls are implemented; role-separated agent panels advise and the sole owner adjudicates findings without claiming legal or specialist assurance |
@@ -71,7 +72,9 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 - Canonical GitHub repository visibility: **public by owner decision**; the
   aggregate-only boundary and fail-closed empirical publication controls remain
   in force.
-- Canonical Hugging Face namespace: **`edithatogo`**; private generated-only repositories exist and contain no empirical uploads.
+- Canonical Hugging Face namespace: **`edithatogo`**; the public-only target
+  topology is configured, while populated B0/medallion custody and remote
+  verification remain planned evidence rather than a completion claim.
 - Publication identity, final licence, real CODEOWNERS, protected-environment reviewers and complete live repository-control conformance remain pending genuine decisions and evidence.
 
 ## Not supplied by code

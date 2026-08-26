@@ -128,7 +128,7 @@ def test_huggingface_space_uses_current_sdk_option(
             command=tuple(command),
             cwd=str(project.root),
             returncode=0,
-            stdout=json.dumps({"id": repo_id, "private": True, "sha": None}),
+            stdout=json.dumps({"id": repo_id, "private": False, "sha": None}),
             stderr="",
             started_at="2026-07-27T00:00:00Z",
             finished_at="2026-07-27T00:00:00Z",
@@ -144,3 +144,21 @@ def test_huggingface_space_uses_current_sdk_option(
     )
     assert "--space-sdk" in space_create
     assert "--sdk" not in space_create
+
+
+def test_gfjd_remote_estate_is_public_and_includes_source_archive(tmp_path: Path) -> None:
+    project = load_project(Path(__file__).resolve().parents[1])
+    context = bootstrap.create_context(project, tmp_path / "receipts")
+
+    assert context.config["bootstrap"]["default_visibility"] == "public"
+    assert context.config["github"]["visibility"] == "public"
+    huggingface = context.config["huggingface"]
+    assert huggingface["private_by_default"] is False
+    repositories = huggingface["repositories"]
+    assert all(entry["visibility"] == "public" for entry in repositories)
+    assert any(
+        entry["id"] == "source-archive"
+        and entry["name"] == "gfjd-source-archive"
+        and entry["publication_mode"] == "public_source_archive"
+        for entry in repositories
+    )

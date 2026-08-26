@@ -34,58 +34,58 @@ purpose = "Acquire source evidence lawfully, preserve it where permitted and det
 accountable_role = "acquisition lead"
 dependency_ids = ["T1", "T2", "T7"]
 mandatory = true
-v1_outcome = "Reproducible or controlled acquisition with rights, checksum, query and monitoring records."
+v1_outcome = "Every public-safe exact edition is content-addressed, replicated to two provider-separated public archives, anonymously restorable and monitored without a durable local-only dependency."
 
 [[tracks]]
 id = "T4"
 name = "Data platform and engineering"
-purpose = "Provide stable contracts, reproducible pipelines, deterministic releases and portable outputs."
+purpose = "Provide stable contracts, a complete B0-Bronze-Silver-Gold-Platinum medallion pipeline, reproducible releases and portable federated outputs."
 accountable_role = "technical lead"
 dependency_ids = ["T1", "T3", "T5", "T7"]
 mandatory = true
-v1_outcome = "Clean-room build, tested bronze-silver-gold flow and supported 1.x contracts."
+v1_outcome = "Public-source clean-room build, independently qualified medallion layers, field-level lineage, immutable replay and supported federated 1.x contracts."
 
 [[tracks]]
 id = "T5"
 name = "Harmonisation, quality and assurance"
-purpose = "Prevent extraction error, semantic drift and false comparison."
+purpose = "Prevent extraction error, semantic drift and false comparison through layer-specific qualification, promotion and orthogonal quarantine."
 accountable_role = "quality and assurance lead"
 dependency_ids = ["T1", "T2", "T3"]
 mandatory = true
-v1_outcome = "Dual review, automated controls, audit sampling, quarantine and external methodological assurance."
+v1_outcome = "Role-separated review, automated controls, audit sampling and owner-adjudicated Gold promotion with public quality and quarantine evidence."
 
 [[tracks]]
 id = "T6"
 name = "Product, documentation and accessibility"
-purpose = "Publish useful products that retain definitions, uncertainty, provenance and accessibility."
+purpose = "Publish federated Gold and Platinum products that retain definitions, uncertainty, provenance and accessibility."
 accountable_role = "product and publication lead"
 dependency_ids = ["T1", "T4", "T5", "T9"]
 mandatory = true
-v1_outcome = "Four complete products, accessible interfaces, open downloads and responsible-use documentation."
+v1_outcome = "Four complete products, public medallion datasets, accessible interfaces, open downloads and machine-readable federation metadata."
 
 [[tracks]]
 id = "T7"
 name = "Security, privacy, legal and supply-chain assurance"
-purpose = "Protect children and families, source rights, credentials, systems and release integrity."
+purpose = "Protect children and families, credentials, public archive boundaries, systems and release integrity while making safe source evidence maximally transparent."
 accountable_role = "security and data-governance owner"
 dependency_ids = ["T0"]
 mandatory = true
-v1_outcome = "Threat, privacy, rights, disclosure and supply-chain controls with no unresolved critical finding."
+v1_outcome = "Every public artefact passes prohibited-data, secret, disclosure and supply-chain controls with no unresolved critical finding and a public disposition record."
 
 [[tracks]]
 id = "T8"
 name = "Operations, reliability and release management"
-purpose = "Make publication, correction, incident response, recovery and maintenance repeatable."
+purpose = "Make public archival custody, publication, correction, incident response, recovery and maintenance repeatable without local-only dependence."
 accountable_role = "service and release manager"
 dependency_ids = ["T0", "T3", "T4", "T7", "T9"]
 mandatory = true
-v1_outcome = "Rehearsed release, restore and correction service with deputies, calendar and budget."
+v1_outcome = "Rehearsed provider-separated public release, anonymous restore, correction and supersession service with an unavailable-owner pause, calendar and budget."
 
 [[tracks]]
 id = "T9"
 name = "International community, localisation and sustainability"
-purpose = "Build local verification, multilingual capability, legitimacy, continuity and long-term resourcing."
+purpose = "Build multilingual capability, legitimacy, continuity, federation alignment and long-term resourcing."
 accountable_role = "international partnerships lead"
 dependency_ids = []
 mandatory = true
-v1_outcome = "Representative correspondent network, reviewed launch languages and funded 12-month 1.x model."
+v1_outcome = "Reviewed launch languages, a registered cross-repository data estate, interoperable federation contracts and a funded 12-month 1.x model."

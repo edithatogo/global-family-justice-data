@@ -1,13 +1,19 @@
-.PHONY: help install validate validate-strict test unit property integration coverage compile format lint typecheck contracts policy security generated status graph release-rehearsal integration-rehearsals package-reproducibility release-reproducibility bootstrap-preflight bootstrap-plan autonomy-context autonomy-fast autonomy-full check clean
+.PHONY: help install validate validate-strict test test-focused test-timed unit unit-parallel property integration coverage compile format lint typecheck contracts policy security generated status graph release-rehearsal integration-rehearsals package-reproducibility release-reproducibility bootstrap-preflight bootstrap-plan autonomy-context autonomy-fast autonomy-full check clean
 
 PYTHON ?= python
 SOURCE_DATE_EPOCH ?= 1786752000
 REHEARSAL_VERSION ?= 0.6.0-alpha.2-rehearsal
+PYTEST_ARGS ?=
+FOCUSED_TESTS ?=
+LOCAL_TEST_TIMINGS ?= build/test-timings-local.json
 
 help:
 	@echo "install                  Install locked development environment"
 	@echo "validate                 Validate schemas, data, programme and evidence"
 	@echo "test                     Run complete deterministic suite"
+	@echo "test-focused             Run FOCUSED_TESTS during iteration"
+	@echo "test-timed               Run the complete suite and retain timings"
+	@echo "unit-parallel            Run the fast unit tier with two file-grouped workers"
 	@echo "coverage                 Run branch coverage and enforce budgets"
 	@echo "contracts                Verify public-contract lock"
 	@echo "policy                   Audit workflow and repository-control policy"
@@ -41,16 +47,26 @@ typecheck:
 	$(PYTHON) -m mypy src
 
 test:
-	PYTHONPATH=src $(PYTHON) -m pytest -q
+	mkdir -p $(dir $(LOCAL_TEST_TIMINGS))
+	GFJD_TEST_TIMINGS=$(LOCAL_TEST_TIMINGS) PYTHONPATH=src $(PYTHON) -m pytest -q $(PYTEST_ARGS)
+
+test-focused:
+	@test -n "$(strip $(FOCUSED_TESTS))" || { echo "Set FOCUSED_TESTS to one or more test paths or node IDs" >&2; exit 2; }
+	PYTHONPATH=src $(PYTHON) -m pytest -q $(FOCUSED_TESTS) $(PYTEST_ARGS)
+
+test-timed: test
 
 unit:
-	PYTHONPATH=src $(PYTHON) -m pytest -q -m "unit and not slow"
+	PYTHONPATH=src $(PYTHON) -m pytest -q -m "unit and not slow" $(PYTEST_ARGS)
+
+unit-parallel:
+	PYTHONPATH=src $(PYTHON) -m pytest -q -n 2 --dist loadfile -m "unit and not slow" $(PYTEST_ARGS)
 
 property:
-	PYTHONPATH=src $(PYTHON) -m pytest -q -m "property and not slow"
+	PYTHONPATH=src $(PYTHON) -m pytest -q -m "property and not slow" $(PYTEST_ARGS)
 
 integration:
-	PYTHONPATH=src $(PYTHON) -m pytest -q -m "integration and not slow"
+	PYTHONPATH=src $(PYTHON) -m pytest -q -m "integration and not slow" $(PYTEST_ARGS)
 
 coverage:
 	rm -f .coverage build/coverage.json

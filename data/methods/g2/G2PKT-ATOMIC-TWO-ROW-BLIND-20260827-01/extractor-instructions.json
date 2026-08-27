@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-01",
+  "assignment": "Produce exactly two independent atomic extraction rows from the isolated sources, one per task, and write only output.json and receipt.json outside the verified input workspace.",
+  "tasks": [
+    {"sample_key": "GBR_EAW_ODS_2026Q1", "candidate_id": "GBR-EAW", "source_id": "GBR_EAW_MOJ_FAMILY_Q", "source_edition_id": "GBR_EAW_MOJ_FAMILY_Q_2026Q1", "source_file": "source.ods", "semantic_task": "Extract the source observation for total public-law orders applied for in the Q1 2026 table."},
+    {"sample_key": "AUS_FCFCOA_2024_25", "candidate_id": "AUS", "source_id": "AUS_FCFCOA_AR", "source_edition_id": "AUS_FCFCOA_AR_2024_25", "source_file": "source.pdf", "semantic_task": "Extract the source observation for total filings by application type for 2024-25."}
+  ],
+  "rules": [
+    "Read only files within the assigned inputs directory; do not use network access or search elsewhere.",
+    "Do not read prior extraction outputs, answers, comparator results, difference files or source locators.",
+    "Follow the atomic contract and row schema exactly; preserve source-native lexical text after NFC and whitespace collapse only.",
+    "Do not infer dates, clocks, denominators, cohorts or population semantics not explicit in the source.",
+    "Keep both observations in quarantine and record unresolved ambiguity rather than resolving it by inference.",
+    "The output is a JSON array of exactly two rows, ordered as the tasks above."
+  ],
+  "authority_boundary": "Private bounded evidence only; no publication, release, promotion, rights decision or G2 passage."
+}

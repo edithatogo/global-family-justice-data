@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-02",
+  "binding_method": "gfjd.g2_role_isolation.bind_role_inputs",
+  "inputs": [
+    {"source_path": "build/g2-real-pilot-20260821-01/sources/G2-ODS-GBR-EAW-2026Q1.ods", "target_name": "source.ods", "sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2"},
+    {"source_path": "build/g2-real-pilot-20260821-01/sources/G2-PDF-AUS-FCFCOA-2024-25.pdf", "target_name": "source.pdf", "sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9"},
+    {"source_path": "data/methods/g2/G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-02/contract.json", "target_name": "lineage-contract.json", "sha256": "d199b2a731e3fb1166b1b76d8e083565ad6b9bca38746d7ff35c3007924d8d0a"},
+    {"source_path": "data/methods/g2/G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-02/extractor-instructions.json", "target_name": "instructions.json", "sha256": "19de9471be5eba5a35767d5ea8456426455ed62c2f5e2051ea01e87da22319bf"},
+    {"source_path": "data/methods/g2/G2ATOMIC-FIELD-CONTRACT-20260826-01/contract.json", "target_name": "atomic-contract.json", "sha256": "d50f18a2420977ceb9886ac1342c4225a910e946f2657df0c40da3851d325fd3"},
+    {"source_path": "schemas/g2_atomic_extraction_row.schema.json", "target_name": "row-schema.json", "sha256": "48c30583b1af054d61ea06ea633e53ea1b9f40cd986af16b812bf58bcb21b31b"}
+  ],
+  "claim_limit": "prospective role inputs only; no execution result or G2 acceptance"
+}

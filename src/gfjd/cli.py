@@ -18,6 +18,7 @@ from .acquisition import (
     verify_acquisition_manifest,
 )
 from .conductor import Conductor, work_item_to_dict
+from .medallion import load_layer_contract, verify_layer_record, verify_promotion
 from .pipeline import PipelineError, map_structured_csv, promote_observations
 from .project import Project, ProjectError, load_project
 from .public_archive import (
@@ -142,6 +143,12 @@ def build_parser() -> argparse.ArgumentParser:
     promote.add_argument("--gold", type=Path, required=True)
     promote.add_argument("--quarantine", type=Path, required=True)
     promote.add_argument("--report", type=Path, required=True)
+    verify_layer = pipeline_sub.add_parser(
+        "verify-layer", help="Verify a medallion record and optional promotion predecessor"
+    )
+    verify_layer.add_argument("--record", type=Path, required=True)
+    verify_layer.add_argument("--contract", type=Path, default=Path("config/medallion_layers.json"))
+    verify_layer.add_argument("--previous", type=Path)
 
     acquire = commands.add_parser(
         "acquire", help="Create checksum and rights-aware source manifests"
@@ -461,7 +468,7 @@ def _run_pipeline(project: Project, args: argparse.Namespace) -> int:
             _project_path(project, args.input),
             _project_path(project, args.output),
         )
-    else:
+    elif args.pipeline_command == "promote":
         result = promote_observations(
             project,
             _project_path(project, args.input),
@@ -469,6 +476,17 @@ def _run_pipeline(project: Project, args: argparse.Namespace) -> int:
             _project_path(project, args.quarantine),
             _project_path(project, args.report),
         )
+    else:
+        contract = load_layer_contract(_project_path(project, args.contract))
+        record = json.loads(_project_path(project, args.record).read_text(encoding="utf-8"))
+        errors = verify_layer_record(record, contract)
+        if args.previous:
+            previous = json.loads(_project_path(project, args.previous).read_text(encoding="utf-8"))
+            errors.extend(verify_promotion(previous, record, contract))
+        if errors:
+            print("\n".join(f"- {error}" for error in sorted(set(errors))))
+            return 1
+        result = {"status": "pass", "layer": record["layer"], "object_id": record["object_id"]}
     print(json.dumps(result, indent=2, ensure_ascii=False))
     return 0
 

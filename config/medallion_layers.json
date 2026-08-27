@@ -1,0 +1,70 @@
+{
+  "contract_version": "gfjd-medallion-layers-v1",
+  "layers": [
+    {
+      "id": "b0",
+      "ordinal": 0,
+      "required_evidence": [
+        "source_edition_id",
+        "content_sha256",
+        "content_blake3",
+        "size_bytes",
+        "media_type",
+        "capture_receipt_sha256",
+        "safety_receipt_sha256",
+        "custody_receipt_sha256"
+      ]
+    },
+    {
+      "id": "b1",
+      "ordinal": 1,
+      "required_evidence": [
+        "predecessor_receipt_sha256",
+        "extraction_contract_sha256",
+        "transformation_receipt_sha256",
+        "source_labels_preserved"
+      ]
+    },
+    {
+      "id": "silver",
+      "ordinal": 2,
+      "required_evidence": [
+        "predecessor_receipt_sha256",
+        "mapping_contract_sha256",
+        "field_lineage_sha256",
+        "semantic_review_reference",
+        "valid_from",
+        "recorded_at"
+      ]
+    },
+    {
+      "id": "gold",
+      "ordinal": 3,
+      "required_evidence": [
+        "predecessor_receipt_sha256",
+        "quality_report_sha256",
+        "comparability_disposition",
+        "disclosure_assessment_sha256",
+        "owner_decision_reference"
+      ]
+    },
+    {
+      "id": "platinum",
+      "ordinal": 4,
+      "required_evidence": [
+        "predecessor_receipt_sha256",
+        "release_manifest_sha256",
+        "release_gate_reference",
+        "federation_manifest_sha256",
+        "public_snapshot_reference"
+      ]
+    }
+  ],
+  "lifecycle_states": ["active", "quarantined", "withdrawn", "tombstoned"],
+  "quarantine": {
+    "orthogonal": true,
+    "visible_in_coverage": true,
+    "promotion_prohibited": true,
+    "required_fields": ["reason_codes", "disposition_reference"]
+  }
+}

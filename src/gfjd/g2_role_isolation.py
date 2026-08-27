@@ -18,9 +18,7 @@ class G2RoleIsolationError(ValueError):
     """Raised when a role workspace cannot be built or verified safely."""
 
 
-def bind_role_inputs(
-    root: Path, specifications: Sequence[dict[str, str]]
-) -> list[dict[str, str]]:
+def bind_role_inputs(root: Path, specifications: Sequence[dict[str, str]]) -> list[dict[str, str]]:
     """Resolve an allowlist and compute its digests without copying any input.
 
     The returned records are suitable for prospective review and for passing

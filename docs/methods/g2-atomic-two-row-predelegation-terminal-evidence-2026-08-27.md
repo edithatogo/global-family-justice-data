@@ -20,3 +20,10 @@ The bounded next option is a genuinely fresh lineage whose manifest is
 generated and independently recomputed from the committed files before its
 signed freeze. Reusing this packet ID or silently correcting this failed
 lineage is prohibited.
+
+Repository-owned remediation is implemented in
+`gfjd.g2_role_isolation.bind_role_inputs`: it derives the allowlist digests
+from the exact files, while the workspace builder still recomputes them as a
+separate check. A negative test proves that a post-binding change is rejected.
+This prevents the same transcription error but does not authorize or execute a
+successor lineage.

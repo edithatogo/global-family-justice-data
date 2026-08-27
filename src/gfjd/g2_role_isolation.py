@@ -18,6 +18,45 @@ class G2RoleIsolationError(ValueError):
     """Raised when a role workspace cannot be built or verified safely."""
 
 
+def bind_role_inputs(
+    root: Path, specifications: Sequence[dict[str, str]]
+) -> list[dict[str, str]]:
+    """Resolve an allowlist and compute its digests without copying any input.
+
+    The returned records are suitable for prospective review and for passing
+    unchanged to :func:`build_role_workspace`.  Computing the digest here
+    avoids manually transcribed hashes while retaining the builder's separate
+    fail-closed recomputation.
+    """
+
+    resolved_root = root.expanduser().resolve()
+    bound: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for item in specifications:
+        target_name = str(item.get("target_name") or "")
+        if not target_name or Path(target_name).name != target_name or target_name in {".", ".."}:
+            raise G2RoleIsolationError(f"invalid target_name: {target_name!r}")
+        if target_name in seen:
+            raise G2RoleIsolationError(f"duplicate target_name: {target_name}")
+        seen.add(target_name)
+        source_relative = str(item.get("source_path") or "")
+        source_path = _confined(resolved_root, Path(source_relative))
+        if source_path.is_symlink() or not source_path.is_file():
+            raise G2RoleIsolationError(
+                f"source is missing or not a regular file: {source_relative}"
+            )
+        bound.append(
+            {
+                "source_path": source_path.relative_to(resolved_root).as_posix(),
+                "target_name": target_name,
+                "sha256": sha256_file(source_path),
+            }
+        )
+    if not bound:
+        raise G2RoleIsolationError("at least one role input is required")
+    return bound
+
+
 def build_role_workspace(
     root: Path,
     *,

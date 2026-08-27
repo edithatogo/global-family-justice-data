@@ -10,6 +10,7 @@ import pytest
 
 from gfjd.g2_role_isolation import (
     G2RoleIsolationError,
+    bind_role_inputs,
     build_role_workspace,
     verify_role_workspace,
 )
@@ -79,6 +80,36 @@ def test_rejects_existing_workspace(project_root: Path, tmp_path: Path) -> None:
             source_commit="a" * 40,
             generated_at="2026-08-26T00:00:00Z",
             inputs=[{"source_path": "missing", "target_name": "x", "sha256": "0" * 64}],
+        )
+
+
+def test_binds_current_digest_then_builder_recomputes_it(
+    project_root: Path, tmp_path: Path
+) -> None:
+    tag = _tag(tmp_path)
+    source = project_root / "build" / f"{tag}-manifest-source.json"
+    source.parent.mkdir(exist_ok=True)
+    source.write_text('{"instruction":"bounded"}\n', encoding="utf-8")
+    specifications = [
+        {
+            "source_path": source.relative_to(project_root).as_posix(),
+            "target_name": "instructions.json",
+        }
+    ]
+
+    bound = bind_role_inputs(project_root, specifications)
+    assert bound == [_input(source, project_root, "instructions.json")]
+
+    source.write_text('{"instruction":"changed"}\n', encoding="utf-8")
+    with pytest.raises(G2RoleIsolationError, match="digest differs"):
+        build_role_workspace(
+            project_root,
+            destination=project_root / "build" / f"{tag}-manifest-role",
+            packet_id="G2PKT-TEST-MANIFEST",
+            role="extractor_a",
+            source_commit="a" * 40,
+            generated_at="2026-08-27T00:00:00Z",
+            inputs=bound,
         )
 
 

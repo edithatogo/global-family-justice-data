@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-01",
+  "status": "terminal_failed_before_delegation",
+  "stopped_at": "2026-08-27T18:42:00+10:00",
+  "stage": "orchestrator_workspace_construction",
+  "failure_class": "frozen_input_digest_mismatch",
+  "expected_sha256": "b5eb660d0d17f6bf2d2f7b3da0aa5f6ffaf843c218f7e9d7724716ed0789c7c6",
+  "actual_sha256": "024bfcb96ed80ed44ae957157002a77c542e7feed446e1586e9b22bf047e1398",
+  "affected_input": "data/methods/g2/G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-01/extractor-instructions.json",
+  "source_digests_verified": {"ods": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2", "pdf": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9"},
+  "source_content_inspected_by_extraction_agent": false,
+  "extraction_agents_delegated": 0,
+  "outputs_created": 0,
+  "comparison_created": false,
+  "automatic_rerun_performed": false,
+  "disposition": "immutable terminal failed preparation evidence; no G2 criterion or maturity change",
+  "claim_limit": "not reproducibility evidence, acceptance, rights clearance, publication, release or G2 passage"
+}

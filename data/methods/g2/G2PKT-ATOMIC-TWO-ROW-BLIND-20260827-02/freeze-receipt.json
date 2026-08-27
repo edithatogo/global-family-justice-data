@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-02",
+  "status": "frozen_before_workspace_build_and_delegation",
+  "frozen_at": "2026-08-27T08:59:37Z",
+  "signed_freeze_commit": "942e3503caea8fd31e5411aa67782ce107ef5113",
+  "contract_sha256": "d199b2a731e3fb1166b1b76d8e083565ad6b9bca38746d7ff35c3007924d8d0a",
+  "role_input_manifest_sha256": "0e4ce88d0de18f5eac1e47f5b50c064037c080cf68353f8c7349253222e95177",
+  "source_access_by_extraction_agents_before_freeze": false,
+  "delegation_before_freeze": false,
+  "claim_limit": "freeze receipt only; not extraction evidence, acceptance, publication, release or G2 passage"
+}

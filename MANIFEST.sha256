@@ -192,6 +192,11 @@ cb45997381c02f80d3feb7064f6404d0be9013bfe955764d8128c83d9f23da54  data/methods/g
 024bfcb96ed80ed44ae957157002a77c542e7feed446e1586e9b22bf047e1398  data/methods/g2/G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-01/extractor-instructions.json
 2462a01eb9ddb61f4f55e230cd71e2e4f6595a06ca480e16d65d86d136f1ed77  data/methods/g2/G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-01/freeze-receipt.json
 8fecde18159e4aca2f263eaa49ebcde741621be35c8d3209c8997e0b8024bbc9  data/methods/g2/G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-01/terminal-stop.json
+d199b2a731e3fb1166b1b76d8e083565ad6b9bca38746d7ff35c3007924d8d0a  data/methods/g2/G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-02/contract.json
+19de9471be5eba5a35767d5ea8456426455ed62c2f5e2051ea01e87da22319bf  data/methods/g2/G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-02/extractor-instructions.json
+37c1c234241ebbe87143753c376b978bba76805f689073ac016a318ff82f9aa3  data/methods/g2/G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-02/freeze-receipt.json
+0e4ce88d0de18f5eac1e47f5b50c064037c080cf68353f8c7349253222e95177  data/methods/g2/G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-02/role-input-manifest.json
+ac92067fd2b41db199333d63d6c32efb4532cad0f5aff989858a7a677919b898  data/methods/g2/G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-02/terminal-result.json
 968c71bc5a2081bbb03a5d5bbe8d136334e7265c8d72d1bff9412f0a530b36c9  data/methods/g2/G2PKT-MATERIAL-DISTINCT-20260826-01/contract.json
 e3a5e608ab0c60ee464927ba0dffa6c4291fc0c0984cc1e3e0fcc133f97939e9  data/methods/g2/G2PKT-MATERIAL-DISTINCT-20260826-01/extractor-a-bundle.json
 5a87748fe32bf2682e323bf132f9081e13ed7107623cb9d8bc4a69d51a152b98  data/methods/g2/G2PKT-MATERIAL-DISTINCT-20260826-01/extractor-b-bundle.json
@@ -322,6 +327,7 @@ d579b735fb57c74b383ef295106eaaaa5f5521932ac85ccbf0d01205b3c1d20c  docs/governanc
 e7e1fd87c60a326bbd62a7684c368a6a3f532128cc039642b0e789ab4779115f  docs/governance/g2-96-candidate-metadata-expansion-owner-decision-2026-08-16.md
 abe350bf0df8d7cda1270679d6ee14541b5f530a86d3120f404e666455a69067  docs/governance/g2-96-candidate-metadata-expansion-owner-decision-packet-2026-08-15.md
 fc85e8c5f6846ba69eea3cd0bcfccdb3372bb29c3df4642eef8a431ee189e512  docs/governance/g2-atomic-two-row-blind-owner-authority-2026-08-27.md
+aac95b8e01a63e4314bd49664ff415ccfcac0b8287de484e41c9fc9120897296  docs/governance/g2-atomic-two-row-successor-owner-authority-2026-08-27.md
 f3b12478c7c17bfcbd9bc84f7bdb50b050ed522b65ae61679d04f586d06c3340  docs/governance/g2-blind-holdout-design-owner-decision-2026-08-15.md
 6f32d78ecdbd17991194585e0a46c9239811587fa4a37aa469a7ee8c87afb50d  docs/governance/g2-blind-holdout-design-owner-decision-packet-2026-08-15.md
 7b6c604ba283dec020b2f65f3ecebf5b80b1d13a460224b7a37f7da4d2dcfe4c  docs/governance/g2-blind-holdout-intake-stop-owner-decision-2026-08-15.md
@@ -445,6 +451,7 @@ ed231dbef8081e8b343b3613d22daf4a0148ce450fb450e3ac91efb1201884e0  docs/methods/d
 5fa3fef05cc816cb6378811b1b524bec9c82ab4f006bc1581ddc8b471aae34c1  docs/methods/g2-agent-panel-reextraction-control-2026-08-03.md
 531ca660c5461b0f4e14f3be845fd8aa9ffe7058cbda7321e3b5caa8fa1675d0  docs/methods/g2-atomic-field-contract-plan-2026-08-26.md
 c43887e8bf63fb43924d8ce95921a6254b4bc6c9b5a1a307487c38fc4953ddf8  docs/methods/g2-atomic-two-row-predelegation-terminal-evidence-2026-08-27.md
+ca8c0c43730a3901f269012b115b1d13ad2c34b22e3aa85fd45cad4a856ffe26  docs/methods/g2-atomic-two-row-successor-terminal-evidence-2026-08-27.md
 10f003c6e6892a414f3fccf30da1bd0933dafe91838eb9a08894d8a1f2d48b43  docs/methods/g2-blind-holdout-metadata-intake-evidence-2026-08-15.md
 fa433851c455e0896a4f046a8a074ca4327d1945cfc90925f282faa7ba103215  docs/methods/g2-cli-isolated-lineage-terminal-evidence-2026-08-26.md
 9034c8e9cfaddc9d721a52a6ea57c327e1d764a7a11f28ac0f943da0f4bf45a2  docs/methods/g2-concordance-policy-owner-decision-2026-08-15.md
@@ -531,7 +538,7 @@ bde4486924cc085d6d6479352f30aeb90da5abf588c14d9d28473d6efcb107f4  docs/preservat
 4e7f0947a8a3bc38b436d6b5683c62b6f0ecbb3dc262b2c212d2063eed5b1240  docs/programme/benefits-and-harms-evaluation.md
 b10515baf6f547477e43280229edc5432a0c93f1426fa52fbec5b4284727a75d  docs/programme/control-gap-dependency-audit-2026-08-16.md
 6bdd1bfd7f904ae06f5ddfe8248962a24dfc5a1426108ce2c0ddfa15aa3346db  docs/programme/generated/programme-graph.mmd
-dd17c7b181a6c9bce5d4ca8d3494322364ae169ec0f0b8ae39cd2b0770b3fe28  docs/programme/generated/status.md
+25fb6db5275a7053d6265b6c32488d4f9a423cc49a060660544dc898f12c1662  docs/programme/generated/status.md
 5f44f2a64e49c3ac616f5dd456061d9c00bdbdfc09e218bab6fab36852109465  docs/programme/maximal-public-medallion-federation-plan-2026-08-26.md
 0ad9141ba5324d51875c18319afa3a40b05e5e15bf8603d439f10f4bd45e7576  docs/programme/milestone-scorecard-template.md
 7621ecf6f91cfd2c12f14ee44289d9e8a9c26f1273061e9517c16c7a574afe8d  docs/programme/risk-register.md
@@ -575,7 +582,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  programme/.git
 5a0919810d383723e71ff4a13d209317e31d16e19d323fa9946d7f27df194ab8  programme/audit-log.jsonl
 36a96cb078c2f48f628e662bcfa8be325f40eadf61f2611b5c2c14e91d475d24  programme/decision_log.csv
 68161d0a6d21c1d8cb13eb63c399420b40d212a6dfdd9f87bec46c0c19f23116  programme/defect_register.csv
-01eae9b770a8c197ba9c3e33c53efa04f7faa076346a79691678841e7c4c0da8  programme/evidence_register.csv
+9b70cf407b9eb6901f53eb53106145dcf26a0ba7302556ec6d25639a1ebba64f  programme/evidence_register.csv
 6426d6e3777e32f2667d10c9a4b1b09d59b594582da25b84f93f1f01ddf20a89  programme/exception_register.csv
 478dd535cc84c6e92bdb830821a816ddcd175d306073f31f5e74bf4430e87c7a  programme/gate_decisions.csv
 36cd8ff95715bd4e9373080aa8a7cf2ae06d0ac85ed21943a6d3e367c7bb500a  programme/maturity_assessment.csv

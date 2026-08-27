@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-02",
+  "predecessor": "G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-01",
+  "predecessor_disposition": "immutable_terminal_failed_not_reused",
+  "status": "prospectively_frozen_by_signed_commit_before_delegation",
+  "purpose": "bounded two-row artifact-isolated and agent-blinded reproducibility evidence",
+  "claim_limit": "two exact known official editions only; no generalisation, G2 acceptance, publication or release",
+  "scope": [
+    {
+      "sample_key": "GBR_EAW_ODS_2026Q1",
+      "source_record_key": "6de208782443b00bdcac1797d94454e919c0f2294c988b5bd25f4510cb96c59d",
+      "candidate_id": "GBR-EAW",
+      "source_id": "GBR_EAW_MOJ_FAMILY_Q",
+      "source_edition_id": "GBR_EAW_MOJ_FAMILY_Q_2026Q1",
+      "source_format": "spreadsheet",
+      "isolated_input_name": "source.ods",
+      "source_sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2",
+      "semantic_task": "Extract the observation for total public-law orders applied for in the Q1 2026 table."
+    },
+    {
+      "sample_key": "AUS_FCFCOA_2024_25",
+      "source_record_key": "c8c7ba87f41fb4b2e1ce18f6034f2a0e4b14e18239d0982629598c516d2223c7",
+      "candidate_id": "AUS",
+      "source_id": "AUS_FCFCOA_AR",
+      "source_edition_id": "AUS_FCFCOA_AR_2024_25",
+      "source_format": "pdf",
+      "isolated_input_name": "source.pdf",
+      "source_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "semantic_task": "Extract the observation for total filings by application type for 2024-25."
+    }
+  ],
+  "critical_fields": ["candidate_id", "source_id", "source_edition_id", "locator_pdf_page", "locator_printed_page", "locator_section_source", "locator_object_source", "domain_label_source", "domain_code", "matter_label_source", "matter_type_code", "measure_label_source", "indicator_code", "series_label_source", "series_code", "statistic_type", "unit_code", "value", "component_values", "denominator_value", "denominator_definition_quote", "denominator_code", "period_label_source", "period_start", "period_end", "period_start_provenance", "period_end_provenance", "time_basis", "clock_label_source", "clock_code", "cohort_definition_quote", "cohort_code", "counted_entity_code", "population_scope_code", "coverage_limitation_quote", "ambiguity_codes", "ambiguity_evidence_quote", "quarantine_status", "suppression_or_disclosure_note", "extraction_uncertainty"],
+  "ignored_fields": ["schema_version", "extracted_row_id", "source_record_key", "notes"],
+  "thresholds": {"critical_concordance": 1.0, "overall_populated_field_concordance": 0.99, "exact_comparison": true, "fuzzy_matching": false, "critical_waiver": false},
+  "role_isolation": {"extractors": 2, "fresh_context": true, "explicit_allowlist_workspace": true, "orchestrator_verifies_before_delegation": true, "programmatically_derived_input_bindings": true, "independent_builder_recomputation": true, "prior_outputs_answers_differences_and_expected_locators_prohibited": true, "cross_agent_communication_prohibited": true, "network_access": false, "seal_before_compare": true},
+  "stopping_rules": ["any source digest or scope mismatch terminates the lineage", "any prohibited personal or case-level data terminates the lineage", "any workspace or artifact-binding failure terminates the lineage", "any schema or seal failure terminates the lineage", "any critical discrepancy terminates the lineage", "no repair reuse waiver fuzzy match substitution or automatic rerun"],
+  "authority_limits": {"network_access": false, "new_source_acquisition": false, "contact": false, "rights_clearance": false, "publication": false, "release": false, "gold_promotion": false, "maturity_promotion": false, "g2_passage": false, "passing_run_requires_owner_adjudication": true}
+}

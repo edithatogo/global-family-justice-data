@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-ATOMIC-TWO-ROW-BLIND-20260827-02",
+  "assignment": "Independently produce exactly two atomic extraction rows from the isolated sources and write output.json plus receipt.json only to the separately assigned output directory.",
+  "tasks": [
+    {"sample_key": "GBR_EAW_ODS_2026Q1", "source_record_key": "6de208782443b00bdcac1797d94454e919c0f2294c988b5bd25f4510cb96c59d", "candidate_id": "GBR-EAW", "source_id": "GBR_EAW_MOJ_FAMILY_Q", "source_edition_id": "GBR_EAW_MOJ_FAMILY_Q_2026Q1", "source_file": "source.ods", "semantic_task": "Extract the observation for total public-law orders applied for in the Q1 2026 table."},
+    {"sample_key": "AUS_FCFCOA_2024_25", "source_record_key": "c8c7ba87f41fb4b2e1ce18f6034f2a0e4b14e18239d0982629598c516d2223c7", "candidate_id": "AUS", "source_id": "AUS_FCFCOA_AR", "source_edition_id": "AUS_FCFCOA_AR_2024_25", "source_file": "source.pdf", "semantic_task": "Extract the observation for total filings by application type for 2024-25."}
+  ],
+  "rules": [
+    "Read only files inside the assigned inputs directory and use no network access.",
+    "Do not read repository files, prior outputs, answers, comparator results, difference files or expected locators.",
+    "Follow atomic-contract.json and row-schema.json exactly; preserve source-native lexical text using only NFC and whitespace collapse.",
+    "Do not infer dates, clocks, denominators, cohorts or population semantics that the exact edition does not state.",
+    "Keep both observations quarantined and preserve unresolved ambiguity rather than resolving it by inference.",
+    "Output a JSON array of exactly two rows in task order. Receipt must bind the packet ID, role, input receipt SHA-256, output SHA-256 and network-disabled declaration."
+  ],
+  "authority_boundary": "Private bounded evidence only; no publication, release, promotion, rights decision or G2 passage."
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "G2-PROSPECTIVE-SEMANTIC-CONTRACT-20260827-01",
+  "panel_roles": ["methods_and_ontology_advisor", "governance_and_assurance_advisor", "adversarial_leakage_and_determinism_reviewer"],
+  "evidence_boundary": ["existing_source_independent_atomic_contract", "atomic_row_schema", "terminal_metrics_and_categories", "prospective_contract_bundle"],
+  "excluded": ["source_editions", "extractor_outputs", "sample_answers", "network_access"],
+  "options": [
+    {"id": "A", "title": "minimal_source_defined_or_unknown_contract", "recommendation": "preferred", "trade_off": "highest determinism and lowest leakage risk but deliberately low analytical granularity", "contingency": "use different materials and keep all calibration rows hard-quarantined"},
+    {"id": "B", "title": "rich_hierarchical_ontology", "recommendation": "defer", "trade_off": "greater analytical utility but higher ambiguity owner burden and overfitting risk", "contingency": "develop only after a separate source-independent ontology exercise establishes mappings"},
+    {"id": "C", "title": "source_native_only_without_controlled_semantics", "recommendation": "fallback", "trade_off": "strongest fidelity but insufficient interoperability for substantive semantic concordance", "contingency": "treat as ontology discovery rather than G2 evidence"},
+    {"id": "D", "title": "relax_thresholds_or_adjudicate_after_extraction", "recommendation": "reject", "trade_off": "could create superficial agreement by weakening the claim", "contingency": "none; retain terminal failure instead"}
+  ],
+  "grouped_recommendation": ["approve the minimal source_defined or unknown ontology", "approve deterministic evidence and conflict precedence", "approve truthful nullable locator and cohort fields in a future row-schema version", "require empty component objects until per-component provenance is representable", "hard-quarantine every calibration row", "require different materials selected only after a future signed freeze", "retain exact thresholds and terminal controls"],
+  "resolved_review_findings": ["policy objects are schema-const and reject mutation", "sample-shaped and compound ontology classes were removed", "ordered minimal decision tables were added", "non-execution and same-cohort no-reuse boundaries are explicit", "schema plus invariant validation is the canonical entry point"],
+  "remaining_blockers": ["owner adjudication", "truthful row-schema version", "future digest-bound execution bundle", "semantic leakage remains inconclusive and non-independent", "future post-freeze selection of different materials", "fresh role isolation and access controls"],
+  "dissent": ["no advisor supports threshold relaxation, fuzzy equivalence, failed-output repair or same-cohort reuse"],
+  "abstentions": ["which prior extractor interpretation was correct", "whether actual semantic leakage occurred", "whether any future lineage should pass G2"],
+  "conflicts": ["all panel members are repository-context agents and are not independent assurance providers"],
+  "authority_boundary": "advisory preparation only; not independent assurance, owner adjudication, execution authority, source access, G2 acceptance, publication or release"
+}

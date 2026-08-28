@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import re
 import unicodedata
 from collections.abc import Iterable, Mapping
 from typing import Any
@@ -37,7 +36,9 @@ def validate_prospective_semantic_bundle(
             key=lambda item: list(item.path),
         )
     ]
-    return [*schema_errors, *validate_prospective_semantic_contract(contract)]
+    if schema_errors:
+        return schema_errors
+    return validate_prospective_semantic_contract(contract)
 
 
 def validate_prospective_semantic_contract(contract: Mapping[str, Any]) -> list[str]:
@@ -51,7 +52,12 @@ def validate_prospective_semantic_contract(contract: Mapping[str, Any]) -> list[
     if names != REQUIRED_CODEBOOKS:
         errors.append("codebooks must exactly match the required semantic fields")
     for name, raw_values in codebooks.items():
-        values = list(raw_values) if isinstance(raw_values, list) else []
+        if not isinstance(raw_values, list) or not all(
+            isinstance(value, str) for value in raw_values
+        ):
+            errors.append(f"codebook must be an array of strings: {name}")
+            continue
+        values = raw_values
         if values != sorted(values):
             errors.append(f"codebook must use deterministic lexical order: {name}")
         if len(values) != len(set(values)):
@@ -118,4 +124,4 @@ def find_prohibited_semantic_leakage(text: str, prohibited_terms: Iterable[str])
 
 def _semantic_fold(value: str) -> str:
     normalized = unicodedata.normalize("NFKC", value).casefold()
-    return re.sub(r"[^a-z0-9]+", "", normalized)
+    return "".join(character for character in normalized if character.isalnum())

@@ -50,6 +50,15 @@ def test_contract_rejects_open_codes_weakened_thresholds_and_authority(
         assert validate_prospective_semantic_contract(case)
 
 
+def test_bundle_returns_errors_for_structurally_invalid_codebooks(project_root: Path) -> None:
+    contract = _contract(project_root)
+    contract["codebooks"]["domain_code"] = ["unknown", {"invalid": True}]  # type: ignore[index]
+    schema = json.loads((project_root / SCHEMA_PATH).read_text(encoding="utf-8"))
+    errors = validate_prospective_semantic_bundle(contract, schema)
+    assert errors
+    assert any("domain_code" in error for error in errors)
+
+
 def test_schema_rejects_every_policy_object_mutation(project_root: Path) -> None:
     contract = _contract(project_root)
     schema = json.loads((project_root / SCHEMA_PATH).read_text(encoding="utf-8"))
@@ -81,3 +90,11 @@ def test_leakage_scan_is_case_punctuation_and_whitespace_insensitive() -> None:
     assert find_prohibited_semantic_leakage(
         text, ["sample alpha", "value-12345", "absent phrase"]
     ) == ["sample alpha", "value-12345"]
+
+
+def test_leakage_scan_preserves_international_letters_and_numbers() -> None:
+    text = "СЕМЕЙНЫЙ—СУД; محكمة الأسرة; 家庭 裁判所 ２０２６"
+    assert find_prohibited_semantic_leakage(
+        text,
+        ["семейный суд", "محكمة-الأسرة", "家庭裁判所2026", "absent"],
+    ) == ["семейный суд", "محكمة-الأسرة", "家庭裁判所2026"]

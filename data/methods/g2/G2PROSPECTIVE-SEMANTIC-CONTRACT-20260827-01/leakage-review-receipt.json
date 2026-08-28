@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "G2-PROSPECTIVE-SEMANTIC-CONTRACT-20260827-01",
+  "reviewed_at": "2026-08-27T09:29:32Z",
+  "contract_sha256": "b62cec6a9b87eb579736a68b5f5880d01520736e04d98c7cc2f2340673f74e4f",
+  "schema_sha256": "9f9120b7799f076f5a3548cb70a9bd2de702e560ceec16d17c37a2ff0e29f5f5",
+  "validator_sha256": "c413c0969bc73cd2b3ee2b80d1ce4d9889791a5d0f8183cb7b2b9f7024a7c5c9",
+  "test_sha256": "158f8db699915b05347fd00d3c9f7c94c7f14d5f4096aec2c1eb8ee47ebb4c91",
+  "lexical_review": {"method": "case_punctuation_and_whitespace_insensitive_scan", "prior_identifier_and_label_count": 18, "match_count": 0, "status": "pass_bounded_not_semantic_assurance"},
+  "semantic_review": {"reviewer": "role_separated_adversarial_agent", "status": "inconclusive_non_independent", "actual_sample_leakage_alleged": false, "actual_sample_leakage_excluded": false},
+  "chronology": {"draft_informed_by_prior_difference_categories": true, "same_failed_cohort_reuse_allowed": false, "different_materials_required_for_any_future_calibration": true, "candidate_selection_must_follow_future_signed_freeze": true},
+  "claim_limit": "bounded preparation review only; not independent assurance, leakage exclusion, execution authority, G2 acceptance, publication or release"
+}

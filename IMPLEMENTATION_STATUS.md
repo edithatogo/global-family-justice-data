@@ -61,6 +61,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | G2 streaming manifest execution | The first timestamp-uncertain New Zealand child returned a prohibited 301 trailing-slash redirect and terminated the lineage. Two later requests are quarantined execution-order defects; no redirect was followed or body parsed. |
 | G2 canonical sitemap successor | A distinct prospective lineage freezes the three observed canonical trailing-slash New Zealand child endpoints. Requests are strictly sequential, zero-retry and fail-closed; only endpoint 1 is initially eligible and no candidate-document access is permitted. |
 | G2 canonical sitemap execution | All three canonical child manifests passed sequential request and streaming-parse controls, exposing 2,302 observations. None had a timestamp after the frozen cutoff, so the lineage stopped terminally with zero eligible editions and no candidate-document access. |
+| G2 prospective official-manifest monitoring | A daily, zero-retry monitor now enumerates only the three exact canonical sitemap endpoints, persists every observation as exposure and stops before returned-locator access. No-candidate observations create receipts without approval churn; two or more post-cutoff hypotheses trigger preparation of one grouped source-access decision. |
 
 ## Current programme state
 

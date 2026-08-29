@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-EDITION-MONITOR-20260829-01",
+  "status": "frozen_for_prospective_monitoring",
+  "exposure_cutoff": "2026-08-29T05:17:40Z",
+  "allowed_locator_host": "www.justice.govt.nz",
+  "cumulative_exposure_ledgers": [
+    "data/methods/g2/G2FUTURE-EDITION-CANONICAL-20260829-01/execution/exposure-ledger.jsonl"
+  ],
+  "ordered_endpoints": [
+    "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/1/",
+    "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/2/",
+    "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/3/"
+  ],
+  "execution_rules": {
+    "request_in_order": true,
+    "zero_retries": true,
+    "follow_redirects": false,
+    "maximum_total_uncompressed_bytes": 268435456,
+    "maximum_locator_count": 1000000,
+    "minimum_post_cutoff_candidates": 2
+  },
+  "authority_boundary": {
+    "returned_locator_access": false,
+    "candidate_document_access": false,
+    "extraction": false,
+    "g2_acceptance": false,
+    "publication": false,
+    "release": false
+  }
+}

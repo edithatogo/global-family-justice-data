@@ -47,6 +47,7 @@ def build(root: Path, output_dir: Path) -> dict[str, Any]:
     output_dir = (root / output_dir).resolve()
     output_dir.relative_to(root)
     output_dir.mkdir(parents=True, exist_ok=True)
+    _reject_coarse_exposure_quarantine(root, output_dir)
     query_manifest = _query_manifest()
     exposure = _exposure_snapshot(root, output_dir)
     roles = _role_bundles()
@@ -70,6 +71,25 @@ def build(root: Path, output_dir: Path) -> dict[str, Any]:
     packet_path = output_dir / "preparation-packet.json"
     packet_path.write_bytes(canonical_json_bytes(packet) + b"\n")
     return packet
+
+
+def _reject_coarse_exposure_quarantine(root: Path, output_dir: Path) -> None:
+    """Block a new search lineage when prior results cannot be enumerated."""
+
+    base = root / "data/methods/g2"
+    for path in sorted(base.rglob("*.json")):
+        if output_dir in path.parents or path.name.endswith(".schema.json"):
+            continue
+        value = _load(path)
+        quarantine = value.get("coarse_exposure_quarantine")
+        if (
+            isinstance(quarantine, dict)
+            and quarantine.get("blocks_future_search_based_unseen_claims") is True
+        ):
+            raise SuccessorBundleError(
+                "coarse unenumerated exposure quarantine blocks a new "
+                f"search-based unseen claim: {path.relative_to(root)}"
+            )
 
 
 def _transport_contract(root: Path) -> dict[str, Any]:

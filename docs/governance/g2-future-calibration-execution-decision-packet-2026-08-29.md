@@ -69,7 +69,7 @@ evidence without weakening thresholds or reusing failed work.
 > its detached preparation-manifest SHA-256
 > `b6c652ea86fefefdce62fb23198abc24539684a173ace2108f6b7f65f7aa2d92`,
 > and signed design-freeze commit
-> `[INSERT REVIEWED FREEZE COMMIT]`.
+> `1750a936c656abf6045d12212d84eb608211b7b2`.
 >
 > I authorize one staged four-row calibration campaign using four different
 > post-freeze-selected exact editions: one API or JSON, one HTML or dashboard,

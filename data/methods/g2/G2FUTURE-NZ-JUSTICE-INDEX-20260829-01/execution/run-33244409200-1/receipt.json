@@ -1,0 +1,22 @@
+{
+  "boundary": {"extraction": false, "g2_acceptance": false, "publication": false, "release": false, "returned_locator_access": false, "rights_clearance": false, "source_file_access": false},
+  "campaign_id": "G2FUTURE-NZ-JUSTICE-INDEX-20260829-01",
+  "checked_at": "2026-08-29T08:59:32Z",
+  "observation": {
+    "datetime_attribute": "2026-45-17",
+    "datetime_attribute_accepted": false,
+    "locators": [
+      "/assets/Documents/Publications/13C1xA1_Family-Court-applications_dec2025_v1.0.xlsx",
+      "/assets/Documents/Publications/1Ya3qz_Family-violence-programmes_dec2025_v1.0.xlsx",
+      "/assets/Documents/Publications/1y07pZ_Protection-order-applications_dec2025_v1.0.xlsx",
+      "/assets/Documents/Publications/7lk3t6_Children-adopted_dec2025_v1.0.xlsx"
+    ],
+    "page_date_text": "17th March 2026"
+  },
+  "request": {"method": "GET", "response_bytes": 75940, "response_sha256": "02d715b04a7534af718828eb0501a164d3dee8b702265e8377bfbf02cea3692b", "url": "https://www.justice.govt.nz/justice-sector-policy/research-data/justice-statistics/data-tables/"},
+  "run_id": "33244409200-1",
+  "schema_version": "1.0",
+  "source_commit": "2606e5086d9e4edc366411998903fbfea1c309c1",
+  "status": "complete",
+  "summary": {"candidate_eligibility": false, "outcome": "baseline_unchanged"}
+}

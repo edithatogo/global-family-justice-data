@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2PROSPECTIVE-SUCCESSOR-20260829-02",
+  "status": "repository_design_complete_external_execution_not_authorized",
+  "predecessor": {
+    "campaign_id": "G2PROSPECTIVE-CALIBRATION-20260829-01",
+    "terminal_receipt_path": "data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/execution/terminal-stop.json",
+    "terminal_receipt_sha256": "43a047d47a754bb1436cdec91b904173f46573ba751dfedfdc83ec25ddbdc446",
+    "reuse_permitted": false
+  },
+  "controls": {
+    "provider_result_handling": {
+      "requested_maximum": 10,
+      "absolute_safety_cap": 50,
+      "over_return_policy": "record_every_observed_result_as_exposure_and_limit_registration_to_requested_prefix",
+      "truncation_permitted": false,
+      "automatic_retry_permitted": false
+    },
+    "authorization_anchor": {
+      "trust_anchor": "execution_contract.owner_authorization",
+      "interlock_must_match_exact_descriptor": true,
+      "self_declared_interlock_authorization_permitted": false
+    },
+    "exposure": {
+      "digest_fields": [
+        "content_sha256",
+        "source_sha256"
+      ],
+      "explicit_locator_fields": [
+        "canonical_url",
+        "landing_page_url",
+        "models_endpoint",
+        "query_endpoint",
+        "request_url",
+        "result_url",
+        "source_definition_pdf",
+        "source_url",
+        "url"
+      ],
+      "plural_locator_fields": [
+        "denied_urls",
+        "observed_urls",
+        "urls"
+      ],
+      "generic_url_suffixes": true,
+      "rebuild_before_candidate_registration": true
+    },
+    "role_isolation": {
+      "exact_per_role_input_and_prohibited_classes": true,
+      "distinct_nonoverlapping_output_prefixes": true,
+      "extractors_artifact_isolated": true,
+      "comparator_network_disabled": true,
+      "advisory_review_non_independent": true
+    },
+    "network": {
+      "https_only": true,
+      "exact_url_allowlist": true,
+      "validated_public_dns_required": true,
+      "connected_peer_must_match_validated_address": true,
+      "hostname_tls_verification_required": true,
+      "peer_mismatch_action": "terminal_stop_before_body_read"
+    }
+  },
+  "bindings": [
+    {
+      "path": "src/gfjd/g2_successor_controls.py",
+      "sha256": "2efdd324c37867486f15d6d3c192e36096501327e10986bad4e8f80e02bdd269"
+    },
+    {
+      "path": "tests/test_g2_successor_controls.py",
+      "sha256": "af1a38e612de2bc94bdb6e285f858075994da7b7afd8735153027f4ea23b15c4"
+    }
+  ],
+  "execution_flags": {
+    "metadata_queries": false,
+    "result_url_access": false,
+    "source_access": false,
+    "source_acquisition": false,
+    "extraction": false,
+    "comparison": false,
+    "publication": false,
+    "release": false,
+    "g2_passage": false
+  },
+  "next_external_boundary": "one_digest_bound_execution_authorization_after_query_manifest_exposure_snapshot_role_bundles_and_transport_adapter_are_frozen"
+}

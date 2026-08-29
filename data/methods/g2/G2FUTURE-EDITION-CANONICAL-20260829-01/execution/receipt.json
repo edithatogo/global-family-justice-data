@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-EDITION-CANONICAL-20260829-01",
+  "result": "terminal_failed",
+  "stop_reason": "fewer_than_two_eligible_editions",
+  "requests": [
+    {
+      "ordinal": 1,
+      "url": "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/1/",
+      "http_status": 200,
+      "response_bytes": 323359,
+      "response_sha256": "103ec89cff9334923c6d8125845934f26a7f193de48fd87bf524231aed0740aa",
+      "locator_count": 998,
+      "completed_at": "2026-08-29T06:41:30Z"
+    },
+    {
+      "ordinal": 2,
+      "url": "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/2/",
+      "http_status": 200,
+      "response_bytes": 367233,
+      "response_sha256": "5eb1cffa8c88e54fe10f4ed4ec3b206db8b43e272a27d82ee4a1f2bacdebf90d",
+      "locator_count": 994,
+      "completed_at": "2026-08-29T06:42:11Z"
+    },
+    {
+      "ordinal": 3,
+      "url": "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/3/",
+      "http_status": 200,
+      "response_bytes": 107114,
+      "response_sha256": "0ea1068060f6d803b904b96eb2452633137f8136a51eadbbf037902e3864fb7f",
+      "locator_count": 310,
+      "completed_at": "2026-08-29T06:42:41Z"
+    }
+  ],
+  "summary": {
+    "request_count": 3,
+    "retry_count": 0,
+    "redirect_count": 0,
+    "total_response_bytes": 797706,
+    "observed_locator_count": 2302,
+    "unique_locator_count": 2289,
+    "duplicate_locator_count": 13,
+    "uncertain_lastmod_count": 0,
+    "post_cutoff_lastmod_count": 0,
+    "eligible_edition_count": 0,
+    "exposure_ledger_sha256": "e939b55e474816c8ac2dd6608f336e0dd22cfa66661ab0298fbde5ebb1bd60ad"
+  },
+  "authority_boundary": {
+    "candidate_document_access_occurred": false,
+    "extraction_occurred": false,
+    "g2_accepted": false,
+    "publication_authorized": false,
+    "release_authorized": false
+  }
+}

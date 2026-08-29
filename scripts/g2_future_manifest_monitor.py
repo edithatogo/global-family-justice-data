@@ -91,6 +91,12 @@ def main() -> int:
     cutoff = datetime.fromisoformat(contract["exposure_cutoff"].replace("Z", "+00:00"))
     rules = contract["execution_rules"]
     endpoints = contract["ordered_endpoints"]
+    allowed_hosts = set(
+        contract.get("allowed_locator_hosts", [contract.get("allowed_locator_host")])
+    )
+    allowed_hosts.discard(None)
+    if not allowed_hosts:
+        raise ValueError("at least one allowed locator host is required")
     known_exposures = _known_exposures(contract["cumulative_exposure_ledgers"])
     opener = urllib.request.build_opener(_NoRedirect)
     total_limit = int(rules["maximum_total_uncompressed_bytes"])
@@ -104,7 +110,7 @@ def main() -> int:
             endpoint_parts = urlparse(endpoint)
             if (
                 endpoint_parts.scheme != "https"
-                or endpoint_parts.hostname != contract["allowed_locator_host"]
+                or endpoint_parts.hostname not in allowed_hosts
                 or endpoint_parts.username is not None
                 or endpoint_parts.password is not None
             ):
@@ -143,7 +149,7 @@ def main() -> int:
             observations, summary = evaluate_entries(
                 parsed,
                 cutoff=cutoff,
-                allowed_host=contract["allowed_locator_host"],
+                allowed_hosts=allowed_hosts,
                 maximum_locator_count=int(rules["maximum_locator_count"]),
             )
             _write_receipt(

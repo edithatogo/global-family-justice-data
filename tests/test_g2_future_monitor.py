@@ -20,7 +20,7 @@ def test_evaluates_complete_monitor_observations(tmp_path: Path) -> None:
             )
         ],
         cutoff=cutoff,
-        allowed_host="example.test",
+        allowed_hosts={"example.test"},
         maximum_locator_count=10,
     )
     assert summary["outcome"] == "candidate_threshold_met"
@@ -35,7 +35,7 @@ def test_rejects_cross_host_locator() -> None:
         evaluate_entries(
             [("https://example.test/sitemap/", [SitemapEntry("https://other.test/a", None)])],
             cutoff=datetime(2026, 8, 29, tzinfo=UTC),
-            allowed_host="example.test",
+            allowed_hosts={"example.test"},
             maximum_locator_count=10,
         )
 
@@ -50,6 +50,6 @@ def test_stops_on_locator_budget() -> None:
                 )
             ],
             cutoff=datetime(2026, 8, 29, tzinfo=UTC),
-            allowed_host="example.test",
+            allowed_hosts={"example.test"},
             maximum_locator_count=0,
         )

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "observation_id": "G2PROSPECTIVE-PRELIMINARY-REGISTRAR-20260829-01",
+  "observed_at": "2026-08-29T10:29:00+10:00",
+  "role": "fresh_metadata_candidate_registrar_agent",
+  "network_boundary": "search_result_metadata_only",
+  "result_urls_opened": 0,
+  "source_files_requested": 0,
+  "status": "exposure_only_not_selectable",
+  "reason": "The registrar ran before a lineage-specific query order and provider-response receipt were frozen. Every observed identity is preserved as exposure and excluded from candidate selection.",
+  "observations": [
+    {
+      "stratum": "api_or_json",
+      "jurisdiction_id": "CAN",
+      "source_series_id": "CAN-STATCAN-TABLE-35-10-0113-01",
+      "edition_alias": "Statistics Canada table 35-10-0113-01 modified 2025-03-26",
+      "url": "https://www150.statcan.gc.ca/t1/wds/rest/getFullTableDownloadCSV/35100113/en",
+      "locator_status": "convention_derived_hypothesis"
+    },
+    {
+      "stratum": "html_or_dashboard",
+      "jurisdiction_id": "IRL",
+      "source_series_id": "IRL-COURTS-DATA-DISTRICT-FAMILY",
+      "edition_alias": "District Court Family 2025 dashboard",
+      "url": "https://data.courts.ie/en/apps/courts-data/reports?area_of_law=family&jurisdiction=districtcourt&year=2025",
+      "locator_status": "search_metadata_exact_hypothesis"
+    },
+    {
+      "stratum": "spreadsheet",
+      "jurisdiction_id": "NZL",
+      "source_series_id": "NZL-MOJ-FAMILY-COURT-DATA-TABLES",
+      "edition_alias": "Family Court applications calendar year ending December 2025",
+      "url": "https://www.justice.govt.nz/justice-sector-policy/research-data/justice-statistics/data-tables/",
+      "locator_status": "landing_page_only_exact_payload_unknown"
+    },
+    {
+      "stratum": "pdf",
+      "jurisdiction_id": "NZL",
+      "source_series_id": "NZL-MOJ-LTIB-COURT-TRENDS",
+      "edition_alias": "Medium-to-long-term court system trends by jurisdiction 2025",
+      "url": "https://consultations.justice.govt.nz/ltib/long-term-insights-briefing-2025/user_uploads/medium-to-long-term-court-system-trends-by-jurisdiction.pdf",
+      "locator_status": "search_metadata_exact_hypothesis"
+    }
+  ],
+  "limitations": [
+    "Search query strings and provider response identifiers were not captured in a prospectively frozen manifest.",
+    "No observation may be selected, acquired or promoted in this lineage.",
+    "The observations must be included in the cumulative exposure snapshot."
+  ]
+}

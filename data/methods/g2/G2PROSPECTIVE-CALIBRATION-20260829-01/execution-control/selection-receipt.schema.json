@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_future_campaign_selection_receipt.schema.json",
+  "title": "G2 prospective calibration deterministic selection receipt",
+  "type": "object",
+  "required": ["schema_version", "campaign_id", "selection_id", "query_manifest", "candidate_registry", "exposure_input_manifest", "exposure_snapshot", "algorithm", "status", "eligible_candidate_count", "selected", "generated_at", "authority_boundary"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "campaign_id": {"const": "G2PROSPECTIVE-CALIBRATION-20260829-01"},
+    "selection_id": {"type": "string", "pattern": "^G2FC-SELECTION-[A-Z0-9_-]{8,80}$"},
+    "query_manifest": {"$ref": "#/$defs/artifact"},
+    "candidate_registry": {"$ref": "#/$defs/artifact"},
+    "exposure_input_manifest": {"$ref": "#/$defs/artifact"},
+    "exposure_snapshot": {"$ref": "#/$defs/artifact"},
+    "algorithm": {"const": "sha256_query_manifest_nul_candidate_identity_ascending_backtracking_v1"},
+    "status": {"enum": ["selected_pre_source_access", "terminal_stop_insufficient_scope"]},
+    "eligible_candidate_count": {"type": "integer", "minimum": 0},
+    "selected": {"type": "array", "maxItems": 4, "items": {"$ref": "#/$defs/selected"}},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "authority_boundary": {"const": {"selection_completed": true, "source_access": false, "extraction": false, "rights_clearance": false, "publication": false, "release": false, "g2_passage": false}}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/sha256"}}, "additionalProperties": false},
+    "selected": {
+      "type": "object",
+      "required": ["selection_rank", "selection_score", "candidate_id", "edition_id", "source_series_id", "jurisdiction_id", "route_stratum", "canonical_url", "request_identity", "source_sha256"],
+      "properties": {
+        "selection_rank": {"type": "integer", "minimum": 1, "maximum": 4},
+        "selection_score": {"$ref": "#/$defs/sha256"},
+        "candidate_id": {"type": "string"}, "edition_id": {"type": "string"}, "source_series_id": {"type": "string"}, "jurisdiction_id": {"type": "string"},
+        "route_stratum": {"enum": ["api_or_json", "html_or_dashboard", "spreadsheet", "pdf"]},
+        "canonical_url": {"type": "string", "format": "uri"}
+        ,"request_identity": {"type": "string", "minLength": 8}
+        ,"source_sha256": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]}
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"status": {"const": "selected_pre_source_access"}}}, "then": {"properties": {"selected": {"minItems": 4, "maxItems": 4}}}},
+    {"if": {"properties": {"status": {"const": "terminal_stop_insufficient_scope"}}}, "then": {"properties": {"selected": {"maxItems": 0}}}}
+  ],
+  "additionalProperties": false
+}

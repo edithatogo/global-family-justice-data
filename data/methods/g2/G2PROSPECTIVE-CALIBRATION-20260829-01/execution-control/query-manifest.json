@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2PROSPECTIVE-CALIBRATION-20260829-01",
+  "manifest_id": "G2FC-QUERY-OFFICIAL_PUBLICATIONS_20260829_01",
+  "status": "frozen_before_candidate_registration",
+  "ordering": "ascending_query_ordinal_zero_retries",
+  "call_policy": {
+    "one_query_per_call": true,
+    "zero_retries": true,
+    "maximum_calls": 16,
+    "maximum_results_per_query": 10
+  },
+  "queries": [
+    {"ordinal":1,"query_id":"G2FCQ-API_NY_2025","route_stratum":"api_or_json","query_text":"site:data.ny.gov family court API JSON annual filings 2025"},
+    {"ordinal":2,"query_id":"G2FCQ-API_US_OPEN_2025","route_stratum":"api_or_json","query_text":"site:opendata.gov family court cases API JSON 2025"},
+    {"ordinal":3,"query_id":"G2FCQ-API_GBR_2025","route_stratum":"api_or_json","query_text":"site:gov.uk family court statistics API JSON 2025"},
+    {"ordinal":4,"query_id":"G2FCQ-API_CA_2025","route_stratum":"api_or_json","query_text":"site:courts.ca.gov family court data API JSON 2025"},
+    {"ordinal":5,"query_id":"G2FCQ-HTML_SGP_2025","route_stratum":"html_or_dashboard","query_text":"site:courts.gov.sg family justice statistics dashboard 2025"},
+    {"ordinal":6,"query_id":"G2FCQ-HTML_SCT_2025","route_stratum":"html_or_dashboard","query_text":"site:scotcourts.gov.uk family court statistics dashboard 2025"},
+    {"ordinal":7,"query_id":"G2FCQ-HTML_NZL_2025","route_stratum":"html_or_dashboard","query_text":"site:justice.govt.nz family court statistics dashboard 2025"},
+    {"ordinal":8,"query_id":"G2FCQ-HTML_US_STATE_2025","route_stratum":"html_or_dashboard","query_text":"official state courts family court statistics dashboard 2025"},
+    {"ordinal":9,"query_id":"G2FCQ-SHEET_GBR_2025","route_stratum":"spreadsheet","query_text":"site:gov.uk family court statistics 2025 filetype:xlsx"},
+    {"ordinal":10,"query_id":"G2FCQ-SHEET_CA_2025","route_stratum":"spreadsheet","query_text":"site:courts.ca.gov family court 2025 filetype:xlsx"},
+    {"ordinal":11,"query_id":"G2FCQ-SHEET_JUDICIARY_GBR_2025","route_stratum":"spreadsheet","query_text":"site:judiciary.uk family court statistics 2025 filetype:ods"},
+    {"ordinal":12,"query_id":"G2FCQ-SHEET_NZL_2025","route_stratum":"spreadsheet","query_text":"site:courtsofnz.govt.nz family court 2025 filetype:xlsx"},
+    {"ordinal":13,"query_id":"G2FCQ-PDF_SGP_2025","route_stratum":"pdf","query_text":"site:courts.gov.sg family justice statistics 2025 filetype:pdf"},
+    {"ordinal":14,"query_id":"G2FCQ-PDF_SCT_2025","route_stratum":"pdf","query_text":"site:scotcourts.gov.uk family court statistics 2025 filetype:pdf"},
+    {"ordinal":15,"query_id":"G2FCQ-PDF_ZAF_2025","route_stratum":"pdf","query_text":"site:justice.gov.za family court annual report 2025 filetype:pdf"},
+    {"ordinal":16,"query_id":"G2FCQ-PDF_CA_2025","route_stratum":"pdf","query_text":"site:courts.ca.gov family court annual report 2025 filetype:pdf"}
+  ],
+  "authority_boundary": {
+    "candidate_registration": true,
+    "result_url_opening_during_registration": false,
+    "source_access_before_interlock": false,
+    "rights_clearance": false,
+    "publication": false,
+    "release": false,
+    "g2_passage": false
+  }
+}

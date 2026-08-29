@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_future_campaign_candidate_registry.schema.json",
+  "title": "G2 prospective calibration candidate registry",
+  "type": "object",
+  "required": ["schema_version", "campaign_id", "registry_id", "query_manifest", "exposure_input_manifest", "exposure_snapshot", "execution", "events", "authority_boundary"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "campaign_id": {"const": "G2PROSPECTIVE-CALIBRATION-20260829-01"},
+    "registry_id": {"type": "string", "pattern": "^G2FC-REGISTRY-[A-Z0-9_-]{8,80}$"},
+    "query_manifest": {"$ref": "#/$defs/artifact"},
+    "exposure_input_manifest": {"$ref": "#/$defs/artifact"},
+    "exposure_snapshot": {"$ref": "#/$defs/artifact"},
+    "execution": {
+      "type": "object",
+      "required": ["calls_attempted", "retries", "query_order_preserved", "all_observed_results_recorded", "result_urls_requested"],
+      "properties": {
+        "calls_attempted": {"type": "integer", "minimum": 0, "maximum": 64},
+        "retries": {"const": 0},
+        "query_order_preserved": {"const": true},
+        "all_observed_results_recorded": {"const": true},
+        "result_urls_requested": {"const": false}
+      },
+      "additionalProperties": false
+    },
+    "events": {
+      "type": "array", "minItems": 4, "maxItems": 64,
+      "items": {
+        "type": "object",
+        "required": ["ordinal", "query_id", "route_stratum", "status", "provider_call_id", "observed_results"],
+        "properties": {
+          "ordinal": {"type": "integer", "minimum": 1, "maximum": 64},
+          "query_id": {"type": "string"},
+          "route_stratum": {"enum": ["api_or_json", "html_or_dashboard", "spreadsheet", "pdf"]},
+          "status": {"enum": ["completed", "failed"]},
+          "provider_call_id": {"type": "string", "minLength": 1},
+          "observed_results": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/candidate"}}
+        },
+        "additionalProperties": false
+      }
+    },
+    "authority_boundary": {"const": {"source_access": false, "extraction": false, "rights_clearance": false, "publication": false, "release": false, "g2_passage": false}}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/sha256"}}, "additionalProperties": false},
+    "candidate": {
+      "type": "object",
+      "required": ["result_rank", "candidate_id", "edition_id", "edition_aliases", "source_series_id", "jurisdiction_id", "route_stratum", "canonical_url", "request_method", "request_body_sha256", "request_identity", "source_sha256", "official_publisher", "exact_edition_identity", "source_content_accessed", "prior_exposure_overlap", "eligible_for_selection", "rejection_reasons"],
+      "properties": {
+        "result_rank": {"type": "integer", "minimum": 1, "maximum": 20},
+        "candidate_id": {"type": "string", "pattern": "^G2CAND-[A-Z0-9_-]{4,80}$"},
+        "edition_id": {"type": "string", "minLength": 2, "maxLength": 200},
+        "edition_aliases": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 200}},
+        "source_series_id": {"type": "string", "minLength": 2, "maxLength": 200},
+        "jurisdiction_id": {"type": "string", "minLength": 2, "maxLength": 80},
+        "route_stratum": {"enum": ["api_or_json", "html_or_dashboard", "spreadsheet", "pdf"]},
+        "canonical_url": {"type": "string", "format": "uri"},
+        "request_method": {"enum": ["GET", "POST"]},
+        "request_body_sha256": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+        "request_identity": {"type": "string", "minLength": 8},
+        "source_sha256": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/sha256"}]},
+        "official_publisher": {"type": "boolean"},
+        "exact_edition_identity": {"type": "boolean"},
+        "source_content_accessed": {"const": false},
+        "prior_exposure_overlap": {"type": "boolean"},
+        "eligible_for_selection": {"type": "boolean"},
+        "rejection_reasons": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 2}}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

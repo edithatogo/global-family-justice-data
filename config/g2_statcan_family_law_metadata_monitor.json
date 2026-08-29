@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-STATCAN-METADATA-20260829-01",
+  "status": "frozen_for_prospective_monitoring",
+  "route_type": "official_publisher_exact_product_metadata",
+  "exposure_cutoff": "2026-08-29T05:17:40Z",
+  "endpoint": "https://www150.statcan.gc.ca/t1/wds/rest/getCubeMetadata",
+  "allowed_endpoint_host": "www150.statcan.gc.ca",
+  "allowed_endpoint_path": "/t1/wds/rest/getCubeMetadata",
+  "product_ids": [35100222, 35100223, 35100224, 35100225],
+  "expected_titles": {
+    "35100222": "Family law cases, by type of case",
+    "35100223": "Number of events in active family law cases, by type of event",
+    "35100224": "Family law cases, by elapsed time and median days from case initiation to first disposition",
+    "35100225": "Active and inactive family law cases, by number of fiscal years since case initiation"
+  },
+  "request_timeout_seconds": 120,
+  "maximum_response_bytes": 1048576,
+  "execution_rules": {
+    "one_exact_metadata_endpoint": true,
+    "one_batched_request": true,
+    "zero_retries": true,
+    "follow_redirects": false,
+    "no_table_data_access": true,
+    "strictly_after_cutoff": true
+  },
+  "authority_boundary": {
+    "table_data_access": false,
+    "candidate_document_access": false,
+    "extraction": false,
+    "rights_clearance": false,
+    "g2_acceptance": false,
+    "publication": false,
+    "release": false
+  }
+}

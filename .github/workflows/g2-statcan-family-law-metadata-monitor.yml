@@ -1,0 +1,52 @@
+name: G2 StatCan family-law metadata monitor
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "45 13 * * 1-5"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: g2-statcan-family-law-metadata-monitor
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: "3.13"
+      - uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
+        with:
+          version: "0.10.0"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+          download-from-astral-mirror: false
+      - run: uv sync --frozen
+      - name: Observe exact official metadata
+        env:
+          OUTPUT: artifacts/g2-statcan-metadata/${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          uv run python scripts/g2_statcan_family_law_metadata_monitor.py \
+            --contract config/g2_statcan_family_law_metadata_monitor.json \
+            --output "$OUTPUT" \
+            --checked-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --source-commit "${{ github.sha }}" \
+            --run-id "${{ github.run_id }}-${{ github.run_attempt }}"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: always()
+        with:
+          name: g2-statcan-family-law-metadata-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/g2-statcan-metadata/
+          if-no-files-found: error
+          retention-days: 90

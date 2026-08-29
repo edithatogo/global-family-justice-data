@@ -28,11 +28,21 @@
       ],
       "explicit_locator_fields": [
         "canonical_url",
+        "direct_pdf_url",
+        "download_url",
+        "endpoint",
+        "final_url",
         "landing_page_url",
         "models_endpoint",
+        "proposed_pdf_url",
+        "proposed_url",
         "query_endpoint",
+        "redirect_location",
         "request_url",
+        "requested_entrypoint",
+        "requested_url",
         "result_url",
+        "retrieval_entrypoint",
         "source_definition_pdf",
         "source_url",
         "url"
@@ -64,7 +74,7 @@
   "bindings": [
     {
       "path": "src/gfjd/g2_successor_controls.py",
-      "sha256": "2efdd324c37867486f15d6d3c192e36096501327e10986bad4e8f80e02bdd269"
+      "sha256": "529e67f339b649d8804140a948f24b54a1cbd97a065adbdca9557f58f8b0d9fd"
     },
     {
       "path": "tests/test_g2_successor_controls.py",

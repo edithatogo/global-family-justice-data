@@ -8,6 +8,7 @@
   "maximum_response_bytes": 524288,
   "request_timeout_seconds": 120,
   "expected_page_date_text": "17th March 2026",
+  "expected_datetime_attribute": "2026-45-17",
   "expected_locators": [
     "/assets/Documents/Publications/13C1xA1_Family-Court-applications_dec2025_v1.0.xlsx",
     "/assets/Documents/Publications/1y07pZ_Protection-order-applications_dec2025_v1.0.xlsx",

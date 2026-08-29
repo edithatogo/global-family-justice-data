@@ -7,6 +7,7 @@ CONTRACT = {
         "/assets/Documents/Publications/b_Children-adopted_dec2025.xlsx",
     ],
     "expected_page_date_text": "17th March 2026",
+    "expected_datetime_attribute": "2026-45-17",
 }
 
 
@@ -27,6 +28,13 @@ def test_frozen_baseline_is_unchanged_and_datetime_is_rejected() -> None:
 def test_visible_date_change_requires_review() -> None:
     _, outcome = evaluate_index(_html("1st September 2026"), CONTRACT)
     assert outcome == "review_required"
+
+
+def test_machine_date_correction_requires_review_but_is_not_accepted() -> None:
+    html = _html().replace('datetime="2026-45-17"', 'datetime="2026-03-17"')
+    observation, outcome = evaluate_index(html, CONTRACT)
+    assert outcome == "review_required"
+    assert observation["datetime_attribute_accepted"] is False
 
 
 def test_missing_locator_fails_closed() -> None:

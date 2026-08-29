@@ -62,7 +62,9 @@ def evaluate_index(html: str, contract: dict[str, object]) -> tuple[dict[str, ob
         "datetime_attribute_accepted": False,
         "locators": sorted(parser.locators),
     }
-    changed = parser.page_date_text != contract["expected_page_date_text"] or sorted(
-        parser.locators
-    ) != sorted(expected)
+    changed = (
+        parser.page_date_text != contract["expected_page_date_text"]
+        or parser.datetime_attribute != contract["expected_datetime_attribute"]
+        or sorted(parser.locators) != sorted(expected)
+    )
     return observation, "review_required" if changed else "baseline_unchanged"

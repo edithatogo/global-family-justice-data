@@ -1,7 +1,7 @@
 # Implementation status
 
 **Baseline:** `0.6.0-alpha.2`
-**Status date:** 2026-08-26
+**Status date:** 2026-08-29
 **Purpose:** distinguish executable engineering controls from international research and institutional evidence that remain to be completed.
 
 This repository is a bootstrap-ready engineering and programme-control baseline. It is not a completed international family-justice dataset and is not the stable v1.0 service.
@@ -51,6 +51,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | G2 CLI-isolated successor | The owner authorized and the repository froze a second isolated lineage. It stopped terminally during extractor A preflight because prose punctuation became an extra CLI argument; A opened no source, B was interrupted without a direct source-access attestation, no outputs exist and no comparator ran. C04/C07 and M06 remain blocked. |
 | G2 orchestrator-bound successor | Orchestrator preflight, two fresh sealed four-row extractions, scope/schema/seal verification and exact comparison completed. The lineage failed terminally at 58/76 critical and 42/60 populated matches. No repair or rerun occurred; C04/C07 remain in review and M06 remains L1. |
 | G2 atomic field remediation | The terminal differences are converted into generic executable rules over the existing atomic row schema: separate locator facets, source-text preservation, controlled semantic codes, explicit-only clocks and null-date provenance. Fictional adversarial tests avoid calibrating to failed outputs; no new cohort or run is authorized. |
+| G2 prospective successor hardening | A separate repository-only successor design fixes the terminal campaign's result-overflow policy and all five automated-review findings: contract-anchored authorization, complete digest/locator exposure aliases, exact role isolation, connected-peer validation and locator-only complete provider-result recording. The predecessor remains immutable; no successor query or source access has been authorized or executed. |
 
 ## Current programme state
 
@@ -63,9 +64,10 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
   2026-08-15. G2–G6 have not passed.
 - G2 factual-evidence route: **nine of thirteen requirements complete**.
   C01/C02/C05/C06 are accepted only within their bounded scopes. The latest
-  materially distinct successor is also terminal failed evidence after a
-  pre-extraction scope/isolation stop; C04/C07 and M06 of the L2 floor still
-  block G2. M07 and M10 factual components await accountable review.
+  executed calibration lineage is terminal failed evidence after its first
+  metadata query exceeded the frozen result cap. A hardened successor is
+  prepared but has performed no external access; C04/C07 and M06 of the L2
+  floor still block G2. M07 and M10 factual components await accountable review.
 - Gold empirical observations: **none**.
 - Synthetic fixtures: explicitly fictional and excluded from empirical release claims.
 - Canonical GitHub owner: **`edithatogo`**, verified from authenticated GitHub state.

@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-EDITION-STREAMING-20260829-01",
+  "status": "terminal_stopped_redirect",
+  "stop_stage": "official_manifest_registration",
+  "stop_rule": "redirect",
+  "requests": [
+    {"ordinal": 1, "url": "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/1", "status": 301, "location": "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/1/", "body_bytes": 0}
+  ],
+  "quarantined_out_of_lineage_observations": [
+    {"url": "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/2", "status": 301},
+    {"url": "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/3", "status": 301}
+  ],
+  "facts": {"search_provider_calls": 0, "redirects_followed": 0, "locator_bodies_parsed": 0, "candidate_documents_requested": 0},
+  "disposition": {"selection": false, "source_access": false, "extraction": false, "g2_acceptance": false, "publication": false, "release": false}
+}

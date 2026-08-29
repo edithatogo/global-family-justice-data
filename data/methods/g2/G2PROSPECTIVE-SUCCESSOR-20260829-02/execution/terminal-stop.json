@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2PROSPECTIVE-SUCCESSOR-20260829-02",
+  "status": "terminal_failed_immutable",
+  "stopped_at": "2026-08-29T15:17:40+10:00",
+  "stop_stage": "metadata_registration",
+  "stop_rule": "exposure_overlap_or_incomplete_exposure_accounting",
+  "reason": "The provider returned 280 results across the 16 authorized calls, but the registrar retained only call counts and provider-reference ranges rather than the complete canonical URL, title, reference and rank register. Exact complete exposure accounting cannot be reproduced.",
+  "facts": {
+    "calls_attempted": 16,
+    "calls_succeeded": 16,
+    "retries": 0,
+    "observed_results": 280,
+    "complete_locator_records": 0,
+    "result_urls_opened": 0,
+    "source_requests": 0,
+    "source_bytes_acquired": 0
+  },
+  "disposition": {
+    "all_280_observations_treated_as_exposed": true,
+    "observations_reusable_as_unseen": false,
+    "manual_reconstruction": false,
+    "retry_or_replay": false,
+    "candidate_selection": false,
+    "source_access": false,
+    "extraction": false,
+    "comparison": false,
+    "g2_passage": false,
+    "publication": false,
+    "release": false
+  },
+  "coarse_exposure_quarantine": {
+    "blocks_future_search_based_unseen_claims": true,
+    "provider": "openai_web_search_query",
+    "query_manifest_sha256": "ba2d716199c0de7634df509f7131f485e57051879ec59c85e3106187a98cb8ae",
+    "scope": "all provider results returned for the exact 16-query manifest",
+    "release_condition": "complete canonical locator enumeration is unavailable; no release within this lineage"
+  },
+  "receipt": {
+    "path": "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/execution/metadata-registration-receipt.json",
+    "sha256": "c1a4d1830c7a3ca77f2acd94312c4a5e52391cc59cd1794f6103a610150b4eff"
+  }
+}

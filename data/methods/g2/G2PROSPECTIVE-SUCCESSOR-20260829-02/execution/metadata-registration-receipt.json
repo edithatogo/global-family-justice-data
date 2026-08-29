@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2PROSPECTIVE-SUCCESSOR-20260829-02",
+  "registrar_role": "fresh_metadata_registrar",
+  "authority_commit": "231c7e8ddc2ac0ab3d7ce246a14fca066a4545e8",
+  "query_manifest_sha256": "ba2d716199c0de7634df509f7131f485e57051879ec59c85e3106187a98cb8ae",
+  "status": "calls_complete_locator_registration_incomplete",
+  "execution": {
+    "calls_attempted": 16,
+    "calls_succeeded": 16,
+    "calls_failed": 0,
+    "retries": 0,
+    "result_urls_opened": 0,
+    "landing_pages_opened": 0,
+    "files_requested": 0,
+    "snippets_persisted": false,
+    "source_content_persisted": false,
+    "authoritative_call_timestamps_available": false,
+    "provider_result_counts_by_ordinal": [18, 16, 19, 18, 18, 18, 17, 15, 16, 18, 17, 17, 18, 19, 19, 17],
+    "total_observed_results": 280
+  },
+  "exposure_accounting": {
+    "all_observations_are_exposure": true,
+    "complete_locator_register_available": false,
+    "registered_locator_count": 0,
+    "unregistered_exposed_observation_count": 280,
+    "manual_reconstruction_permitted": false,
+    "retry_permitted": false
+  },
+  "later_stages": {
+    "candidate_selection_performed": false,
+    "pre_source_interlock_performed": false,
+    "source_access_performed": false,
+    "extraction_performed": false,
+    "comparison_performed": false,
+    "advisory_review_performed": false
+  }
+}

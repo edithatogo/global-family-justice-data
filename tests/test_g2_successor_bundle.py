@@ -105,6 +105,28 @@ def test_verify_rejects_packet_binding_tampering(tmp_path: Path, project_root: P
     assert verify(root, output) == ["preparation packet differs"]
 
 
+def test_build_rejects_prior_unenumerated_search_exposure(
+    tmp_path: Path, project_root: Path
+) -> None:
+    root = _root(tmp_path, project_root)
+    stop = root / "data/methods/g2/prior/execution/terminal-stop.json"
+    stop.parent.mkdir(parents=True)
+    stop.write_text(
+        json.dumps(
+            {
+                "coarse_exposure_quarantine": {
+                    "blocks_future_search_based_unseen_claims": True,
+                    "provider": "openai_web_search_query",
+                }
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    with pytest.raises(ValueError, match="coarse unenumerated exposure quarantine"):
+        build(root, Path("data/methods/g2/new/execution-control"))
+
+
 def test_json_loader_rejects_duplicate_keys(tmp_path: Path) -> None:
     path = tmp_path / "ambiguous.json"
     path.write_text('{"query_calls":999,"query_calls":16}', encoding="utf-8")

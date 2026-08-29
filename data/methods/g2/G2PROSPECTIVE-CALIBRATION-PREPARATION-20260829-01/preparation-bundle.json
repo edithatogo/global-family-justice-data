@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01",
+  "status": "prepared_not_frozen_not_authorized",
+  "bindings": [
+    {"path": "config/g2_prospective_semantic_contract.json", "sha256": "b62cec6a9b87eb579736a68b5f5880d01520736e04d98c7cc2f2340673f74e4f"},
+    {"path": "data/methods/g2/G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01/preparation-bundle.schema.json", "sha256": "227fbd241b250c7b53bb23e950b1eb486d46d31834f8d7c5bd4560b2db30bc46"},
+    {"path": "data/methods/g2/G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01/row.schema.json", "sha256": "75fcafd77359d7aac980c58fbb45afeed51a87ccb135dbdb49c53e7ff41a30cb"},
+    {"path": "data/methods/g2/G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01/comparator-contract.json", "sha256": "75d60576eeaf34befa8a07c1ec781b0e3c081cfa5ea97dbbdfc26810a1189952"},
+    {"path": "docs/governance/g2-prospective-semantic-contract-owner-decision-2026-08-29.md", "sha256": "55d45d19590c54c257ad00dc6ff5a54fd0eb854687975b23dcea2327ec96a010"},
+    {"path": "src/gfjd/g2_future_calibration.py", "sha256": "229a9c67f549fea94b2e48750c3df2441879ac0fa0b1294d2ef41e14f340401f"},
+    {"path": "src/gfjd/g2_concordance.py", "sha256": "b9a7e70516b556dcf0aad6d0bbef321ca27cf890d4f1df8aa2cea0fbca3eb6e2"},
+    {"path": "schemas/g2_concordance.schema.json", "sha256": "8443afe02f35fdf7d5e362a0d802f666b64c459b4f68d437e68b396dfff42029"}
+  ],
+  "candidate_state": {"manifest_status": "not_created", "candidate_count": 0, "candidate_identity_known": false, "selection_after_signed_freeze": true},
+  "materials_policy": {"same_failed_cohort_reuse": false, "prior_exposure_overlap_allowed": false, "different_materials_required": true, "exact_editions_selected_after_signed_freeze": true, "selection_receipt_verified_before_source_access": true, "row_count": 4, "route_strata": ["api_or_json", "html_or_dashboard", "spreadsheet", "pdf"], "minimum_jurisdictions": 3, "maximum_editions_per_jurisdiction": 2, "maximum_editions_per_source_series": 1, "eligibility_from_metadata_only": true},
+  "comparison_policy": {"critical_concordance": 1.0, "overall_populated_concordance": 0.99, "exact": true, "fuzzy_matching": false, "critical_waiver": false, "repair_or_reuse": false, "automatic_rerun": false},
+  "role_policy": {"roles": ["orchestrator", "candidate_registrar", "extractor_a", "extractor_b", "network_disabled_comparator", "advisory_reviewer"], "fresh_sessions": true, "artifact_isolation": true, "explicit_allowlists": true, "extractors_cannot_select_candidates": true, "comparator_cannot_access_sources": true, "agents_are_non_independent": true},
+  "stopping_rules": [
+    "candidate_identity_known_before_signed_freeze",
+    "candidate_or_edition_overlaps_any_prior_exposure_or_failed_cohort",
+    "candidate_frame_cannot_satisfy_every_frozen_stratum_and_cap",
+    "artifact_digest_or_manifest_mismatch",
+    "row_schema_semantic_contract_or_comparator_change_after_freeze",
+    "role_allowlist_workspace_or_session_isolation_failure",
+    "source_access_before_separate_execution_authority",
+    "source_identity_rights_privacy_security_or_disclosure_uncertainty",
+    "schema_or seal_failure",
+    "any_critical_difference",
+    "overall_populated_concordance_below_0_99",
+    "attempted_repair_reuse_waiver_fuzzy_match_or_automatic_rerun"
+  ],
+  "resource_estimate": {"rows": 4, "extractor_paths": 2, "comparator_runs": 1, "automatic_reruns": 0, "owner_decisions_after_preparation": 1},
+  "limitations": [
+    "no_candidate_or_exact_edition_has_been_selected",
+    "no_source_or_network_access_has_occurred",
+    "schema_validation_cannot_prove_semantic_equivalence",
+    "agent_roles_are_advisory_and_not_independent_assurance",
+    "four_rows_can_establish_only_bounded_reproducibility",
+    "rights_and_release_dispositions_remain_separate",
+    "a_passing_run_would_still_require_owner_adjudication"
+  ],
+  "authorization": {"candidate_selection": false, "network_access": false, "source_access": false, "extraction": false, "comparison": false, "rights_clearance": false, "publication": false, "release": false, "g2_passage": false, "separate_execution_decision_required": true}
+}

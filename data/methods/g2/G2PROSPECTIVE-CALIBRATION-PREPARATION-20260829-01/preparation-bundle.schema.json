@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/g2/prospective-calibration-preparation.schema.json",
+  "type": "object",
+  "required": ["schema_version", "bundle_id", "status", "bindings", "candidate_state", "materials_policy", "comparison_policy", "role_policy", "stopping_rules", "resource_estimate", "limitations", "authorization"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "bundle_id": {"const": "G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01"},
+    "status": {"const": "prepared_not_frozen_not_authorized"},
+    "bindings": {"type": "array", "minItems": 4, "uniqueItems": true, "items": {"$ref": "#/$defs/artifact"}},
+    "candidate_state": {"const": {"manifest_status": "not_created", "candidate_count": 0, "candidate_identity_known": false, "selection_after_signed_freeze": true}},
+    "materials_policy": {"const": {"same_failed_cohort_reuse": false, "prior_exposure_overlap_allowed": false, "different_materials_required": true, "exact_editions_selected_after_signed_freeze": true, "selection_receipt_verified_before_source_access": true, "row_count": 4, "route_strata": ["api_or_json", "html_or_dashboard", "spreadsheet", "pdf"], "minimum_jurisdictions": 3, "maximum_editions_per_jurisdiction": 2, "maximum_editions_per_source_series": 1, "eligibility_from_metadata_only": true}},
+    "comparison_policy": {"const": {"critical_concordance": 1.0, "overall_populated_concordance": 0.99, "exact": true, "fuzzy_matching": false, "critical_waiver": false, "repair_or_reuse": false, "automatic_rerun": false}},
+    "role_policy": {"const": {"roles": ["orchestrator", "candidate_registrar", "extractor_a", "extractor_b", "network_disabled_comparator", "advisory_reviewer"], "fresh_sessions": true, "artifact_isolation": true, "explicit_allowlists": true, "extractors_cannot_select_candidates": true, "comparator_cannot_access_sources": true, "agents_are_non_independent": true}},
+    "stopping_rules": {"type": "array", "minItems": 10, "uniqueItems": true, "items": {"type": "string", "minLength": 3}},
+    "resource_estimate": {"type": "object", "required": ["rows", "extractor_paths", "comparator_runs", "automatic_reruns", "owner_decisions_after_preparation"], "properties": {"rows": {"type": "integer", "minimum": 2, "maximum": 24}, "extractor_paths": {"const": 2}, "comparator_runs": {"const": 1}, "automatic_reruns": {"const": 0}, "owner_decisions_after_preparation": {"const": 1}}, "additionalProperties": false},
+    "limitations": {"type": "array", "minItems": 5, "uniqueItems": true, "items": {"type": "string", "minLength": 3}},
+    "authorization": {"const": {"candidate_selection": false, "network_access": false, "source_access": false, "extraction": false, "comparison": false, "rights_clearance": false, "publication": false, "release": false, "g2_passage": false, "separate_execution_decision_required": true}}
+  },
+  "$defs": {"artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_./-]+$"}, "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

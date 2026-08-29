@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-EDITION-STREAMING-20260829-01",
+  "status": "repository_implementation_ready_for_frozen_execution",
+  "predecessor": "G2FUTURE-EDITION-20260829-01",
+  "method": "streaming_official_sitemap_successor",
+  "exposure_cutoff": "2026-08-29T05:17:40Z",
+  "rules": {
+    "search_provider_calls": 0,
+    "persist_every_returned_locator_as_exposure": true,
+    "request_child_when_parent_lastmod_is_after_cutoff_or_uncertain": true,
+    "skip_child_only_when_parent_has_precise_timestamp_at_or_before_cutoff": true,
+    "date_only_timestamp_is_uncertain": true,
+    "streaming_parser": "gfjd.g2_sitemap_stream.iter_sitemap_entries",
+    "maximum_total_uncompressed_bytes": 268435456,
+    "maximum_locator_count": 1000000
+  },
+  "terminal_stops": [
+    "binding_or_host_failure",
+    "redirect",
+    "malformed_xml",
+    "total_byte_budget_exceeded",
+    "locator_budget_exceeded",
+    "incomplete_child_enumeration",
+    "fewer_than_two_eligible_editions"
+  ],
+  "authority_boundary": {
+    "source_document_access": false,
+    "extraction": false,
+    "g2_acceptance": false,
+    "publication": false,
+    "release": false
+  }
+}

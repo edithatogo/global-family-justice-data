@@ -57,6 +57,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | G2 prospective successor terminal stop | All 16 frozen metadata calls completed in order with zero retries and no result or source access, yielding 280 observations. The registrar failed to retain their complete locator tuples, so cumulative exposure cannot reproduce; the lineage stopped terminally before selection and all 280 observations are exposed but unenumerated. A machine-enforced coarse quarantine blocks later search-based unseen claims. |
 | G2 prospective future-edition route | The owner has authorized one non-search campaign over six frozen official publication roots. Eligibility requires official first-publication evidence strictly after `2026-08-29T05:17:40Z`; manifest registration is the next active stage and all later stages remain interlock-bound. |
 | G2 future-edition manifest registration | Six exact official roots returned 1,251 registered locators with zero search or candidate-document access. Two roots were sitemap indexes; the first permitted GOV.UK child exceeded the frozen per-response limit, so complete enumeration stopped terminally before eligibility or selection. |
+| G2 streaming manifest successor | A bounded-memory sitemap parser and fail-closed child-request policy remove the predecessor per-response-size defect. Precise unchanged child manifests may be skipped; missing, date-only or post-cutoff timestamps require streaming enumeration. |
 
 ## Current programme state
 

@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2PROSPECTIVE-SUCCESSOR-20260829-02",
+  "status": "metadata_registration_authorized_source_access_interlock_pending",
+  "owner_authorization": {
+    "path": "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/authority/owner-decision.json",
+    "sha256": "90ffbcc40d579e8983587cb380e23a857a13461a58fdcd7e55c26867af26bd98"
+  },
+  "preparation_bundle": {
+    "path": "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/execution-control/preparation-packet.json",
+    "sha256": "16e49b0044e33c686f359dd308aee13442d99f5f6887012a86677ac601fe4157"
+  },
+  "bindings": [
+    {
+      "path": "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/execution-control/query-manifest.json",
+      "sha256": "ba2d716199c0de7634df509f7131f485e57051879ec59c85e3106187a98cb8ae"
+    },
+    {
+      "path": "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/execution-control/exposure-snapshot.json",
+      "sha256": "25d68cc0cb02e30227f0943f3443a2f25098f706c55425e8452c62133026aaeb"
+    },
+    {
+      "path": "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/execution-control/role-bundles.json",
+      "sha256": "b711e3ce4c731327e8bbe2207c563f6e29479fc52fcb3a1101c4a2cdac07e07d"
+    },
+    {
+      "path": "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/execution-control/transport-contract.json",
+      "sha256": "e2f788c2f7b7ee65139cdb76c09a41a13388343baee461d7f2a1dc09f2e1f436"
+    },
+    {
+      "path": "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/execution-control/resource-and-stop-contract.json",
+      "sha256": "5c7cc721bb2410cd244485bedd776a137cf17233effe1aae325ae40da52bec55"
+    }
+  ],
+  "metadata_registration": {
+    "authorized": true,
+    "ordered_calls": 16,
+    "queries_per_call": 1,
+    "retries": 0,
+    "result_url_access": false,
+    "landing_page_or_source_access": false,
+    "persist_snippets": false
+  },
+  "later_stages": {
+    "source_access": "conditional_on_exact_pre_source_interlock",
+    "extraction": "conditional_on_acquisition_receipts",
+    "comparison": "conditional_on_two_sealed_outputs",
+    "advisory_review": "conditional_on_verified_comparison"
+  },
+  "non_authorizations": {
+    "rights_clearance": false,
+    "g2_acceptance": false,
+    "maturity_or_gold_promotion": false,
+    "publication": false,
+    "release": false
+  }
+}

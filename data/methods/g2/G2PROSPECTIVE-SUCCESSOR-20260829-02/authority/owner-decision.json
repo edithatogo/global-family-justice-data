@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "decision_id": "D-G2-PROSPECTIVE-SUCCESSOR-EXECUTION-20260829-01",
+  "decision": "authorize_option_a_staged_successor_execution",
+  "owner_identity": "repository_owner_and_founder",
+  "owner_role": "sole_repository_owner_and_accountable_authority",
+  "decided_at": "2026-08-29T15:04:07+10:00",
+  "freeze_commit": "79a5e060b8565f7ad6e8a66f3ae1a8aace72afe9",
+  "decision_packet": {
+    "path": "docs/governance/g2-successor-execution-owner-decision-packet-2026-08-29.md",
+    "sha256": "767af1eaad7a2f085dc73b2a8a4f3771be49aedbc9392c3768c59a898ee3f5b7"
+  },
+  "owner_authorization_record": {
+    "path": "docs/governance/g2-successor-execution-owner-authorization-2026-08-29.md",
+    "sha256": "9ccb15c532dbd628a84203058505e17af7153293caa9232f32b5e8eda66b71de"
+  },
+  "preparation_packet": {
+    "path": "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/execution-control/preparation-packet.json",
+    "sha256": "16e49b0044e33c686f359dd308aee13442d99f5f6887012a86677ac601fe4157"
+  },
+  "query_manifest": {
+    "path": "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/execution-control/query-manifest.json",
+    "sha256": "ba2d716199c0de7634df509f7131f485e57051879ec59c85e3106187a98cb8ae"
+  },
+  "exposure_snapshot": {
+    "path": "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/execution-control/exposure-snapshot.json",
+    "sha256": "25d68cc0cb02e30227f0943f3443a2f25098f706c55425e8452c62133026aaeb"
+  },
+  "authorization": {
+    "metadata_queries": 16,
+    "one_query_per_call": true,
+    "zero_retries": true,
+    "result_url_access_during_registration": false,
+    "conditional_exact_source_access": true,
+    "fresh_artifact_isolated_extractors": 2,
+    "network_disabled_exact_comparator": 1,
+    "role_separated_advisory_review": 1
+  },
+  "non_authorizations": {
+    "rights_clearance": false,
+    "g2_acceptance": false,
+    "maturity_or_gold_promotion": false,
+    "publication": false,
+    "release": false
+  }
+}

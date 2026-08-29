@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-NZ-JUSTICE-INDEX-20260829-01",
+  "status": "frozen_for_prospective_monitoring",
+  "endpoint": "https://www.justice.govt.nz/justice-sector-policy/research-data/justice-statistics/data-tables/",
+  "allowed_host": "www.justice.govt.nz",
+  "allowed_path": "/justice-sector-policy/research-data/justice-statistics/data-tables/",
+  "maximum_response_bytes": 524288,
+  "request_timeout_seconds": 120,
+  "expected_page_date_text": "17th March 2026",
+  "expected_locators": [
+    "/assets/Documents/Publications/13C1xA1_Family-Court-applications_dec2025_v1.0.xlsx",
+    "/assets/Documents/Publications/1y07pZ_Protection-order-applications_dec2025_v1.0.xlsx",
+    "/assets/Documents/Publications/7lk3t6_Children-adopted_dec2025_v1.0.xlsx",
+    "/assets/Documents/Publications/1Ya3qz_Family-violence-programmes_dec2025_v1.0.xlsx"
+  ],
+  "locator_tokens": [
+    "Family-Court-applications_",
+    "Protection-order-applications_",
+    "Children-adopted_",
+    "Family-violence-programmes_"
+  ],
+  "execution_rules": {
+    "one_exact_index_page": true,
+    "zero_retries": true,
+    "follow_redirects": false,
+    "open_returned_locators": false,
+    "visible_date_text_is_baseline_only": true,
+    "malformed_datetime_is_not_publication_evidence": true
+  },
+  "authority_boundary": {
+    "returned_locator_access": false,
+    "source_file_access": false,
+    "extraction": false,
+    "rights_clearance": false,
+    "g2_acceptance": false,
+    "publication": false,
+    "release": false
+  }
+}

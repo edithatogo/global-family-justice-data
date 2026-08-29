@@ -18,13 +18,17 @@ repairing, retrying or promoting that failed evidence.
    authorization cannot pass.
 3. Exposure collection includes both `content_sha256` and `source_sha256`, the
    repository's established endpoint/definition fields, and generic `*_url`
-   locators.
+   locators. Plural `observed_urls`, `denied_urls` and `urls` fields are also
+   collected.
 4. Role isolation is an exact matrix. Inputs, prohibited classes, network mode,
-   URL allowlists and distinct output prefixes are recomputed for the registrar,
-   orchestrator, both extractors, comparator and advisory reviewer.
+   HTTPS-only URL allowlists and distinct, non-overlapping output prefixes are
+   recomputed for the registrar, orchestrator, both extractors, comparator and
+   advisory reviewer.
 5. A connected peer must be public and a member of the address set validated
    for the requested hostname. Any DNS rebinding or peer mismatch stops before
    a response body is read; hostname-based TLS verification remains mandatory.
+   The design verifier also recomputes the exact semantic control set, campaign
+   identity, external boundary and required binding paths.
 
 ## Options and trade-offs
 

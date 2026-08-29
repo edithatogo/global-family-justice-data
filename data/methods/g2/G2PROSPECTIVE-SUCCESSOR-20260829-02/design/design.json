@@ -37,12 +37,17 @@
         "source_url",
         "url"
       ],
+      "plural_locator_fields": [
+        "denied_urls",
+        "observed_urls",
+        "urls"
+      ],
       "generic_url_suffixes": true,
       "rebuild_before_candidate_registration": true
     },
     "role_isolation": {
       "exact_per_role_input_and_prohibited_classes": true,
-      "distinct_output_prefixes": true,
+      "distinct_nonoverlapping_output_prefixes": true,
       "extractors_artifact_isolated": true,
       "comparator_network_disabled": true,
       "advisory_review_non_independent": true
@@ -59,11 +64,11 @@
   "bindings": [
     {
       "path": "src/gfjd/g2_successor_controls.py",
-      "sha256": "26b164bdb26ded7a9ac6c35554500e7b19249c62901788d3fef430a8c842a495"
+      "sha256": "2efdd324c37867486f15d6d3c192e36096501327e10986bad4e8f80e02bdd269"
     },
     {
       "path": "tests/test_g2_successor_controls.py",
-      "sha256": "d2a2bbbe92e7f755deec50dd183676f81d4c6eac70a6953716d97f6dafe053b5"
+      "sha256": "af1a38e612de2bc94bdb6e285f858075994da7b7afd8735153027f4ea23b15c4"
     }
   ],
   "execution_flags": {

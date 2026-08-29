@@ -13,6 +13,7 @@ import json
 from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 from .g2_future_exposure import canonical_url
 from .io import canonical_json_bytes, sha256_file
@@ -24,6 +25,7 @@ class G2SuccessorControlError(ValueError):
 
 CONTENT_DIGEST_FIELDS = frozenset({"content_sha256", "source_sha256"})
 PROVIDER_RESULT_FIELDS = frozenset({"provider_result_id", "canonical_url", "display_title"})
+URL_LIST_FIELDS = frozenset({"denied_urls", "observed_urls", "urls"})
 EXPLICIT_URL_FIELDS = frozenset(
     {
         "canonical_url",
@@ -71,6 +73,51 @@ ROLE_POLICY: dict[str, dict[str, object]] = {
     },
 }
 
+SUCCESSOR_CAMPAIGN_ID = "G2PROSPECTIVE-SUCCESSOR-20260829-02"
+SUCCESSOR_STATUS = "repository_design_complete_external_execution_not_authorized"
+SUCCESSOR_EXTERNAL_BOUNDARY = (
+    "one_digest_bound_execution_authorization_after_query_manifest_exposure_snapshot_"
+    "role_bundles_and_transport_adapter_are_frozen"
+)
+SUCCESSOR_CONTROLS: dict[str, object] = {
+    "provider_result_handling": {
+        "requested_maximum": 10,
+        "absolute_safety_cap": 50,
+        "over_return_policy": (
+            "record_every_observed_result_as_exposure_and_limit_registration_to_requested_prefix"
+        ),
+        "truncation_permitted": False,
+        "automatic_retry_permitted": False,
+    },
+    "authorization_anchor": {
+        "trust_anchor": "execution_contract.owner_authorization",
+        "interlock_must_match_exact_descriptor": True,
+        "self_declared_interlock_authorization_permitted": False,
+    },
+    "exposure": {
+        "digest_fields": ["content_sha256", "source_sha256"],
+        "explicit_locator_fields": sorted(EXPLICIT_URL_FIELDS),
+        "plural_locator_fields": sorted(URL_LIST_FIELDS),
+        "generic_url_suffixes": True,
+        "rebuild_before_candidate_registration": True,
+    },
+    "role_isolation": {
+        "exact_per_role_input_and_prohibited_classes": True,
+        "distinct_nonoverlapping_output_prefixes": True,
+        "extractors_artifact_isolated": True,
+        "comparator_network_disabled": True,
+        "advisory_review_non_independent": True,
+    },
+    "network": {
+        "https_only": True,
+        "exact_url_allowlist": True,
+        "validated_public_dns_required": True,
+        "connected_peer_must_match_validated_address": True,
+        "hostname_tls_verification_required": True,
+        "peer_mismatch_action": "terminal_stop_before_body_read",
+    },
+}
+
 
 def record_complete_provider_results(
     results: Sequence[Mapping[str, Any]],
@@ -99,7 +146,7 @@ def record_complete_provider_results(
         if "canonical_url" not in result:
             raise G2SuccessorControlError("provider result lacks canonical_url")
         normalised = canonical_url(str(result["canonical_url"]))
-        if normalised != result["canonical_url"]:
+        if urlsplit(normalised).scheme != "https" or normalised != result["canonical_url"]:
             raise G2SuccessorControlError("provider result URL is not canonical")
         observed.append(
             {
@@ -132,6 +179,13 @@ def collect_exposure_identities(value: Any) -> dict[str, list[str]]:
                     if not isinstance(child, str):
                         raise G2SuccessorControlError(f"{key} must be a URL string")
                     collected["urls"].add(canonical_url(child))
+                elif key in URL_LIST_FIELDS:
+                    if not isinstance(child, list) or not all(
+                        isinstance(item, str) for item in child
+                    ):
+                        raise G2SuccessorControlError(f"{key} must be a URL string list")
+                    for item in child:
+                        collected["urls"].add(canonical_url(item))
                 elif key in CONTENT_DIGEST_FIELDS:
                     values = [child] if isinstance(child, str) else child
                     if not isinstance(values, list):
@@ -190,8 +244,10 @@ def verify_role_isolation(
         by_role = {str(bundle.get("role")): bundle for bundle in bundles}
         if set(by_role) != set(ROLE_POLICY) or len(bundles) != len(ROLE_POLICY):
             raise G2SuccessorControlError("role bundle set differs from frozen policy")
-        prefixes: set[str] = set()
+        prefixes: list[Path] = []
         canonical_selected = sorted(canonical_url(url) for url in selected_urls)
+        if any(urlsplit(url).scheme != "https" for url in canonical_selected):
+            raise G2SuccessorControlError("selected URL is not HTTPS")
         for role, expected in ROLE_POLICY.items():
             bundle = by_role[role]
             if bundle.get("network_mode") != expected["network_mode"]:
@@ -206,11 +262,11 @@ def verify_role_isolation(
                 raise G2SuccessorControlError(f"{role} prohibited classes differ")
             prefix = str(bundle.get("output_prefix", ""))
             path = Path(prefix)
-            if not prefix or path.is_absolute() or ".." in path.parts:
+            if not prefix or path == Path(".") or path.is_absolute() or ".." in path.parts:
                 raise G2SuccessorControlError(f"{role} output prefix is unsafe")
-            if prefix in prefixes:
-                raise G2SuccessorControlError("role output prefixes are not distinct")
-            prefixes.add(prefix)
+            if any(_paths_overlap(path, existing) for existing in prefixes):
+                raise G2SuccessorControlError("role output prefixes are not distinct and disjoint")
+            prefixes.append(path)
     except (G2SuccessorControlError, ValueError) as exc:
         return [str(exc)]
     return []
@@ -252,8 +308,17 @@ def verify_successor_design(root: Path, path: Path) -> list[str]:
     try:
         root = root.expanduser().resolve()
         value = _json_object(_confined(root, path))
-        if value.get("status") != "repository_design_complete_external_execution_not_authorized":
+        if (
+            value.get("schema_version") != "1.0"
+            or value.get("campaign_id") != SUCCESSOR_CAMPAIGN_ID
+        ):
+            raise G2SuccessorControlError("successor design identity differs")
+        if value.get("status") != SUCCESSOR_STATUS:
             raise G2SuccessorControlError("successor design status differs")
+        if value.get("controls") != SUCCESSOR_CONTROLS:
+            raise G2SuccessorControlError("successor semantic controls differ")
+        if value.get("next_external_boundary") != SUCCESSOR_EXTERNAL_BOUNDARY:
+            raise G2SuccessorControlError("successor external boundary differs")
         predecessor = value.get("predecessor")
         if not isinstance(predecessor, Mapping) or predecessor.get("reuse_permitted") is not False:
             raise G2SuccessorControlError("predecessor reuse boundary differs")
@@ -266,10 +331,18 @@ def verify_successor_design(root: Path, path: Path) -> list[str]:
         bindings = value.get("bindings")
         if not isinstance(bindings, list) or not bindings:
             raise G2SuccessorControlError("successor design lacks control bindings")
+        required_paths = {
+            "src/gfjd/g2_successor_controls.py",
+            "tests/test_g2_successor_controls.py",
+        }
+        observed_paths: set[str] = set()
         for descriptor in bindings:
             if not isinstance(descriptor, Mapping):
                 raise G2SuccessorControlError("successor control descriptor is malformed")
             _verify_descriptor(root, descriptor, "successor control")
+            observed_paths.add(str(descriptor["path"]))
+        if observed_paths != required_paths:
+            raise G2SuccessorControlError("successor control binding paths differ")
     except (G2SuccessorControlError, KeyError, OSError, json.JSONDecodeError) as exc:
         return [str(exc)]
     return []
@@ -306,3 +379,7 @@ def _json_object(path: Path) -> dict[str, Any]:
 
 def _is_sha256(value: str) -> bool:
     return len(value) == 64 and all(character in "0123456789abcdef" for character in value)
+
+
+def _paths_overlap(left: Path, right: Path) -> bool:
+    return left == right or left in right.parents or right in left.parents

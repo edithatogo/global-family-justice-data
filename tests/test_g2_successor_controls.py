@@ -64,6 +64,7 @@ def test_provider_result_rejects_snippets_and_arbitrary_metadata() -> None:
         ([{}], 1, 5, "non-locator"),
         ([{"display_title": "missing URL"}], 1, 5, "lacks canonical_url"),
         ([{"canonical_url": "https://EXAMPLE.test/result"}], 1, 5, "not canonical"),
+        ([{"canonical_url": "file:///tmp/result"}], 1, 5, "not canonical"),
     ],
 )
 def test_provider_result_contract_rejects_malformed_inputs(
@@ -111,6 +112,26 @@ def test_exposure_walks_lists_and_ignores_nulls() -> None:
         [{"source_url": None}, {"nested": {"landing_page_url": "https://example.test/a"}}]
     )
     assert result["urls"] == ["https://example.test/a"]
+
+
+def test_exposure_collects_plural_url_aliases() -> None:
+    result = collect_exposure_identities(
+        {
+            "observed_urls": ["https://example.test/observed"],
+            "denied_urls": ["https://example.test/denied"],
+            "urls": ["https://example.test/url"],
+        }
+    )
+    assert result["urls"] == [
+        "https://example.test/denied",
+        "https://example.test/observed",
+        "https://example.test/url",
+    ]
+
+
+def test_exposure_rejects_malformed_plural_url_alias() -> None:
+    with pytest.raises(G2SuccessorControlError, match="URL string list"):
+        collect_exposure_identities({"observed_urls": "https://example.test/not-a-list"})
 
 
 def _write_json(path: Path, value: object) -> dict[str, str]:
@@ -229,9 +250,10 @@ def test_role_isolation_requires_exact_matrix_and_distinct_outputs() -> None:
 
     duplicate = copy.deepcopy(bundles)
     duplicate[2]["output_prefix"] = duplicate[1]["output_prefix"]
-    assert verify_role_isolation(duplicate, selected_urls=["https://example.test/source"]) == [
-        "role output prefixes are not distinct"
-    ]
+    assert (
+        "not distinct and disjoint"
+        in verify_role_isolation(duplicate, selected_urls=["https://example.test/source"])[0]
+    )
 
 
 @pytest.mark.parametrize(
@@ -256,6 +278,18 @@ def test_role_isolation_rejects_incomplete_role_set() -> None:
     assert verify_role_isolation(
         _role_bundles()[:-1], selected_urls=["https://example.test/source"]
     ) == ["role bundle set differs from frozen policy"]
+
+
+def test_role_isolation_rejects_nested_prefix_and_non_https_selection() -> None:
+    nested = _role_bundles()
+    nested[2]["output_prefix"] = f"{nested[1]['output_prefix']}/nested"
+    assert (
+        "not distinct and disjoint"
+        in verify_role_isolation(nested, selected_urls=["https://example.test/source"])[0]
+    )
+    assert verify_role_isolation(_role_bundles(), selected_urls=["file:///tmp/source"]) == [
+        "selected URL is not HTTPS"
+    ]
 
 
 def test_connected_peer_must_equal_validated_public_dns_result() -> None:

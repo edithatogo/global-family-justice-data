@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-UK-FAMILY-CALENDAR-20260829-01",
+  "endpoint": "https://data.justice.gov.uk/info/publications",
+  "allowed_host": "data.justice.gov.uk",
+  "allowed_path": "/info/publications",
+  "section_id": "publication-courts-family",
+  "expected_title": "Family court statistics quarterly",
+  "expected_source_url": "https://www.gov.uk/government/collections/family-court-statistics-quarterly",
+  "expected_schedule_text": "Published: 25 June 2026. Next publication: 24 September 2026 9:30am.",
+  "maximum_response_bytes": 1048576,
+  "request_timeout_seconds": 120,
+  "authority_boundary": {"source_url_access": false, "release_access": false, "extraction": false, "g2_acceptance": false, "publication": false, "release": false}
+}

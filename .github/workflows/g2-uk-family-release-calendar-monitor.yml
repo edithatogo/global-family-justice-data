@@ -1,0 +1,35 @@
+name: G2 UK family release calendar monitor
+
+on:
+  schedule:
+    - cron: "23 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: g2-uk-family-release-calendar-monitor
+  cancel-in-progress: true
+
+jobs:
+  monitor:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with: {persist-credentials: false, fetch-depth: 1}
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with: {python-version: "3.13"}
+      - uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
+        with: {version: "0.10.0", enable-cache: true, cache-dependency-glob: uv.lock, download-from-astral-mirror: false}
+      - run: uv sync --frozen
+      - name: Observe exact official family-court calendar only
+        run: |
+          mkdir -p build/g2-uk-family-calendar
+          uv run python scripts/g2_uk_family_release_calendar_monitor.py --contract config/g2_uk_family_release_calendar_monitor.json --output build/g2-uk-family-calendar --checked-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" --source-commit "$GITHUB_SHA" --run-id "$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: ${{ always() }}
+        with: {name: "g2-uk-family-calendar-${{ github.run_id }}-${{ github.run_attempt }}", path: build/g2-uk-family-calendar/, if-no-files-found: error, retention-days: 90}

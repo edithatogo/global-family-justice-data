@@ -9,7 +9,7 @@ import socket
 import tempfile
 from collections.abc import Callable, Iterable, Mapping
 from pathlib import Path
-from typing import BinaryIO, Protocol
+from typing import Protocol
 from urllib.parse import urljoin, urlsplit, urlunsplit
 
 from .io import canonical_json_bytes, write_json
@@ -234,7 +234,7 @@ def _resolve_public_addresses(host: str, port: int) -> Iterable[str]:
         answers = socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)
     except socket.gaierror as exc:
         raise G2FutureAcquisitionError(f"could not resolve hostname {host}: {exc}") from exc
-    return (answer[4][0] for answer in answers)
+    return (str(answer[4][0]) for answer in answers)
 
 
 def _confined_child(root: Path, name: str) -> Path:
@@ -246,7 +246,7 @@ def _confined_child(root: Path, name: str) -> Path:
     return candidate
 
 
-def _stream_bounded(response: BinaryIO, path: Path, max_bytes: int) -> tuple[str, int]:
+def _stream_bounded(response: Response, path: Path, max_bytes: int) -> tuple[str, int]:
     digest = hashlib.sha256()
     total = 0
     with path.open("wb") as handle:

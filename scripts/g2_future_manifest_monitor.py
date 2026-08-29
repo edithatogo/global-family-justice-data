@@ -43,6 +43,8 @@ def _write_receipt(
     *,
     contract: dict,
     checked_at: datetime,
+    source_commit: str,
+    run_id: str,
     requests: list[dict[str, object]],
     summary: dict[str, object],
     ledger_digest: str,
@@ -54,6 +56,8 @@ def _write_receipt(
         "campaign_id": contract["campaign_id"],
         "status": status,
         "checked_at": checked_at.astimezone(UTC).isoformat().replace("+00:00", "Z"),
+        "source_commit": source_commit,
+        "run_id": run_id,
         "cutoff": contract["exposure_cutoff"],
         "requests": requests,
         "summary": summary,
@@ -77,6 +81,8 @@ def main() -> int:
     parser.add_argument("--contract", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--checked-at", required=True)
+    parser.add_argument("--source-commit", required=True)
+    parser.add_argument("--run-id", required=True)
     args = parser.parse_args()
     contract = json.loads(args.contract.read_text(encoding="utf-8"))
     checked_at = datetime.fromisoformat(args.checked_at.replace("Z", "+00:00"))
@@ -144,6 +150,8 @@ def main() -> int:
                 args.output,
                 contract=contract,
                 checked_at=checked_at,
+                source_commit=args.source_commit,
+                run_id=args.run_id,
                 requests=requests,
                 summary={**summary, "total_response_bytes": total_bytes},
                 ledger_digest=ledger_digest,
@@ -155,6 +163,8 @@ def main() -> int:
                 args.output,
                 contract=contract,
                 checked_at=checked_at,
+                source_commit=args.source_commit,
+                run_id=args.run_id,
                 requests=requests,
                 summary={
                     "outcome": "terminal_failure",
@@ -186,6 +196,8 @@ def main() -> int:
         args.output,
         contract=contract,
         checked_at=checked_at,
+        source_commit=args.source_commit,
+        run_id=args.run_id,
         requests=requests,
         summary=final_summary,
         ledger_digest=ledger_digest,

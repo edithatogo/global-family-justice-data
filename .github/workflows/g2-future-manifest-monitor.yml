@@ -40,6 +40,8 @@ jobs:
             --contract config/g2_future_manifest_monitor.json \
             --output build/g2-future-monitor \
             --checked-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --source-commit "$GITHUB_SHA" \
+            --run-id "$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" \
             > build/g2-future-monitor/execution.log 2>&1
       - name: Upload complete exposure and receipt
         if: ${{ always() }}

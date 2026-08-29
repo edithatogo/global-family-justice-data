@@ -6,7 +6,8 @@ official sitemap endpoints, strictly in order, with zero retries and no redirect
 following. It never requests a returned locator.
 
 Each endpoint completion rewrites a complete partial JSONL exposure ledger and
-digest-bound receipt before the next request. The frozen contract also binds
+digest-bound receipt before the next request. Every receipt binds its exact
+source commit and hosted run ID. The frozen contract also binds
 the immutable repository exposure ledgers. Any previously unrecorded
 `(locator, lastmod)` observation is emitted separately and makes the run
 action-required until that ledger is reviewed and merged into the cumulative

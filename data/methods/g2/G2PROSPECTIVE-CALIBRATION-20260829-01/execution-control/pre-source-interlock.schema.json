@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_future_campaign_pre_source_interlock.schema.json",
+  "title": "G2 prospective calibration pre-source-access interlock receipt",
+  "type": "object",
+  "required": ["schema_version", "campaign_id", "receipt_id", "owner_authorization", "preparation_bundle", "query_manifest", "candidate_registry", "exposure_input_manifest", "exposure_snapshot", "selection_receipt", "role_allowlists", "checks", "status", "generated_at", "authority_boundary"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "campaign_id": {"const": "G2PROSPECTIVE-CALIBRATION-20260829-01"},
+    "receipt_id": {"type": "string", "pattern": "^G2FC-INTERLOCK-[A-Z0-9_-]{8,80}$"},
+    "owner_authorization": {"$ref": "#/$defs/artifact"}, "preparation_bundle": {"$ref": "#/$defs/artifact"}, "query_manifest": {"$ref": "#/$defs/artifact"}, "candidate_registry": {"$ref": "#/$defs/artifact"}, "exposure_input_manifest": {"$ref": "#/$defs/artifact"}, "exposure_snapshot": {"$ref": "#/$defs/artifact"}, "selection_receipt": {"$ref": "#/$defs/artifact"},
+    "role_allowlists": {"type": "array", "minItems": 6, "maxItems": 6, "items": {"type": "object", "required": ["role", "artifact"], "properties": {"role": {"enum": ["orchestrator", "candidate_registrar", "extractor_a", "extractor_b", "network_disabled_comparator", "advisory_reviewer"]}, "artifact": {"$ref": "#/$defs/artifact"}}, "additionalProperties": false}},
+    "checks": {"const": {"bindings_verified": true, "query_contract_verified": true, "all_results_recorded": true, "prior_exposure_zero": true, "selection_reproduced": true, "strata_and_caps_verified": true, "role_allowlists_verified": true, "artifact_digests_verified": true}},
+    "status": {"const": "pass_pre_source_access"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "authority_boundary": {"const": {"bounded_source_access": true, "aggregate_only_processing": true, "rights_clearance": false, "gold_promotion": false, "g2_c04_acceptance": false, "g2_c07_acceptance": false, "m06_promotion": false, "g2_passage": false, "publication": false, "release": false}}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}, "artifact": {"type": "object", "required": ["path", "sha256"], "properties": {"path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/sha256"}}, "additionalProperties": false}},
+  "additionalProperties": false
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2PROSPECTIVE-CALIBRATION-20260829-01",
+  "status": "prospectively_frozen_before_formal_candidate_registration",
+  "owner_authorization": {"path":"data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/authority/owner-decision.json","sha256":"7962fa225a903d2f127e3713e156d8c9f2c43e1ed9b7b3bee91236cfddec2395"},
+  "bindings": [
+    {"path":"data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/execution-control/query-manifest.json","sha256":"956a04cf8db1d960be3bd7cd8bead3b8f5f6da62bc0115825bc43efc84cf1e57"},
+    {"path":"data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/execution-control/query-manifest.schema.json","sha256":"d234281349e48cf67fa8c8460d3370056daf3c9be584d548e035098ce249ec4e"},
+    {"path":"data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/execution-control/candidate-registry.schema.json","sha256":"70708621751ac339dec220538ca4e745de0b5933b802efe32f5e50a448371b9f"},
+    {"path":"data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/execution-control/selection-receipt.schema.json","sha256":"c8086677b1cd7bd8fa6b8336eb8d69816b332b49c4e80572dbab51f3a36893a6"},
+    {"path":"data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/execution-control/pre-source-interlock.schema.json","sha256":"f94b0f2428927243fa296386dbfaf07eb581d637e985247f64fd54d6d6c4af98"},
+    {"path":"data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/execution-control/exposure-input-manifest.json","sha256":"74329a30dbbd9bd27993216955721a33e7954e2318bbb4fcfbeda25296aa8bd1"},
+    {"path":"data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/execution-control/exposure-snapshot.json","sha256":"e3b9ebd5d833a95d113946fe3223fd4e911b59c769cc994cb0aa2f35fb5c3721"},
+    {"path":"data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/execution-control/preliminary-registrar-observations.json","sha256":"64a052e160be3ae7f388496ea38fd36ee06cf46013688ab236fe63e3559639da"},
+    {"path":"src/gfjd/g2_future_campaign.py","sha256":"e4261dd902a9cb741bf76cd437b550d12fb60c4f1182c2a169c8279eca4d2a2b"},
+    {"path":"src/gfjd/g2_future_exposure.py","sha256":"e6ff39d0089a6ef929bd0559092038fa1632b68ffd593f56650c94690ff25162"},
+    {"path":"src/gfjd/g2_future_acquisition.py","sha256":"5dc61b87baf32b6236344d6dcff096e4d6e8a382398337632d5eb363a0ccda30"},
+    {"path":"tests/test_g2_future_campaign.py","sha256":"37d4f311c05038cf4ce37f2c74161cd66da22a1411ac1fc5e77971bb65294538"},
+    {"path":"tests/test_g2_future_exposure.py","sha256":"351fe91b3835658848ac69dfb22186b9ee13445cc74c8b9c893f0a7cfc8a41f0"},
+    {"path":"tests/test_g2_future_acquisition.py","sha256":"7a92176ca632e8b28c8fe8844712df81987397ca6e0368295bfb6591b83304aa"}
+  ],
+  "selection": {
+    "algorithm": "sha256_query_manifest_nul_candidate_identity_ascending_backtracking_v1",
+    "row_count": 4,
+    "route_strata": ["api_or_json","html_or_dashboard","spreadsheet","pdf"],
+    "minimum_jurisdictions": 3,
+    "maximum_editions_per_jurisdiction": 2,
+    "maximum_editions_per_source_series": 1,
+    "prior_source_series_alone_is_not_overlap": true,
+    "exact_prior_url_request_edition_alias_or_content_digest_is_overlap": true
+  },
+  "registrar": {
+    "query_count": 16,
+    "one_query_per_provider_call": true,
+    "zero_retries": true,
+    "maximum_results_per_query": 10,
+    "result_urls_opened": false,
+    "all_observed_results_recorded": true
+  },
+  "interlocks": [
+    "formal_candidate_registry_complete_and_verified",
+    "selection_receipt_reproduces",
+    "recorded_exposure_overlap_is_zero",
+    "strata_jurisdiction_and_series_caps_pass",
+    "six_exact_role_allowlists_verify",
+    "all_artifact_digests_verify"
+  ],
+  "post_acquisition_stops": [
+    "redirect_or_request_identity_differs",
+    "source_content_digest_overlaps_prior_exposure",
+    "content_type_size_or_public_network_control_fails",
+    "personal_identifying_sensitive_or_case_level_material_detected",
+    "source_identity_or_edition_identity_differs"
+  ],
+  "authority_boundary": {
+    "candidate_registration": true,
+    "source_access_only_after_passing_interlock": true,
+    "aggregate_only_processing": true,
+    "rights_clearance": false,
+    "gold_promotion": false,
+    "g2_acceptance": false,
+    "publication": false,
+    "release": false
+  }
+}

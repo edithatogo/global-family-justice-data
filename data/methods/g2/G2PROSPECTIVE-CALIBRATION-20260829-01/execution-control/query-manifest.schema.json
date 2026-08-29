@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.org/schemas/g2_future_campaign_query_manifest.schema.json",
+  "title": "G2 prospective calibration frozen query manifest",
+  "type": "object",
+  "required": ["schema_version", "campaign_id", "manifest_id", "status", "ordering", "call_policy", "queries", "authority_boundary"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "campaign_id": {"const": "G2PROSPECTIVE-CALIBRATION-20260829-01"},
+    "manifest_id": {"type": "string", "pattern": "^G2FC-QUERY-[A-Z0-9_-]{8,80}$"},
+    "status": {"const": "frozen_before_candidate_registration"},
+    "ordering": {"const": "ascending_query_ordinal_zero_retries"},
+    "call_policy": {
+      "type": "object",
+      "required": ["one_query_per_call", "zero_retries", "maximum_calls", "maximum_results_per_query"],
+      "properties": {
+        "one_query_per_call": {"const": true},
+        "zero_retries": {"const": true},
+        "maximum_calls": {"type": "integer", "minimum": 4, "maximum": 64},
+        "maximum_results_per_query": {"type": "integer", "minimum": 1, "maximum": 20}
+      },
+      "additionalProperties": false
+    },
+    "queries": {
+      "type": "array", "minItems": 4, "maxItems": 64,
+      "items": {
+        "type": "object",
+        "required": ["ordinal", "query_id", "route_stratum", "query_text"],
+        "properties": {
+          "ordinal": {"type": "integer", "minimum": 1, "maximum": 64},
+          "query_id": {"type": "string", "pattern": "^G2FCQ-[A-Z0-9_-]{4,64}$"},
+          "route_stratum": {"enum": ["api_or_json", "html_or_dashboard", "spreadsheet", "pdf"]},
+          "query_text": {"type": "string", "minLength": 3, "maxLength": 500}
+        },
+        "additionalProperties": false
+      }
+    },
+    "authority_boundary": {
+      "const": {
+        "candidate_registration": true,
+        "result_url_opening_during_registration": false,
+        "source_access_before_interlock": false,
+        "rights_clearance": false,
+        "publication": false,
+        "release": false,
+        "g2_passage": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

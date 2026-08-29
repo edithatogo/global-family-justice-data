@@ -59,6 +59,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | G2 future-edition manifest registration | Six exact official roots returned 1,251 registered locators with zero search or candidate-document access. Two roots were sitemap indexes; the first permitted GOV.UK child exceeded the frozen per-response limit, so complete enumeration stopped terminally before eligibility or selection. |
 | G2 streaming manifest successor | A bounded-memory sitemap parser and fail-closed child-request policy remove the predecessor per-response-size defect. Precise unchanged child manifests may be skipped; missing, date-only or post-cutoff timestamps require streaming enumeration. |
 | G2 streaming manifest execution | The first timestamp-uncertain New Zealand child returned a prohibited 301 trailing-slash redirect and terminated the lineage. Two later requests are quarantined execution-order defects; no redirect was followed or body parsed. |
+| G2 canonical sitemap successor | A distinct prospective lineage freezes the three observed canonical trailing-slash New Zealand child endpoints. Requests are strictly sequential, zero-retry and fail-closed; only endpoint 1 is initially eligible and no candidate-document access is permitted. |
 
 ## Current programme state
 

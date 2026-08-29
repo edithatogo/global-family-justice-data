@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-from collections.abc import Iterable
+from collections.abc import Collection, Iterable
 from dataclasses import asdict, dataclass
 from datetime import datetime
 from pathlib import Path
@@ -26,7 +26,7 @@ def evaluate_entries(
     endpoint_entries: Iterable[tuple[str, Iterable[SitemapEntry]]],
     *,
     cutoff: datetime,
-    allowed_host: str,
+    allowed_hosts: Collection[str],
     maximum_locator_count: int,
 ) -> tuple[list[ObservedLocator], dict[str, int | str]]:
     """Validate and classify a complete ordered sitemap observation set."""
@@ -38,7 +38,7 @@ def evaluate_entries(
     for endpoint_ordinal, (endpoint, entries) in enumerate(endpoint_entries, 1):
         for ordinal, entry in enumerate(entries, 1):
             parsed = urlparse(entry.url)
-            if parsed.scheme != "https" or parsed.hostname != allowed_host:
+            if parsed.scheme != "https" or parsed.hostname not in allowed_hosts:
                 raise ValueError(f"prohibited locator at {endpoint_ordinal}:{ordinal}")
             observations.append(
                 ObservedLocator(endpoint_ordinal, endpoint, ordinal, entry.url, entry.lastmod)

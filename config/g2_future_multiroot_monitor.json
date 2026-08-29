@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-EDITION-MULTIROOT-20260829-01",
+  "status": "frozen_for_prospective_monitoring",
+  "exposure_cutoff": "2026-08-29T05:17:40Z",
+  "allowed_locator_hosts": [
+    "courts.ca.gov",
+    "datajud-wiki.cnj.jus.br",
+    "provincialcourt.bc.ca",
+    "www.fcfcoa.gov.au"
+  ],
+  "cumulative_exposure_ledgers": [
+    "data/methods/g2/G2FUTURE-EDITION-MULTIROOT-20260829-01/execution-control/baseline-exposure-ledger.jsonl"
+  ],
+  "ordered_endpoints": [
+    "https://courts.ca.gov/sitemap.xml",
+    "https://datajud-wiki.cnj.jus.br/sitemap.xml",
+    "https://provincialcourt.bc.ca/sitemap.xml",
+    "https://www.fcfcoa.gov.au/sitemap.xml"
+  ],
+  "execution_rules": {
+    "request_in_order": true,
+    "zero_retries": true,
+    "follow_redirects": false,
+    "maximum_total_uncompressed_bytes": 33554432,
+    "maximum_locator_count": 100000,
+    "minimum_post_cutoff_candidates": 2
+  },
+  "authority_boundary": {
+    "returned_locator_access": false,
+    "candidate_document_access": false,
+    "extraction": false,
+    "g2_acceptance": false,
+    "publication": false,
+    "release": false
+  }
+}

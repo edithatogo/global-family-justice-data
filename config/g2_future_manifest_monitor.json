@@ -4,6 +4,7 @@
   "status": "frozen_for_prospective_monitoring",
   "exposure_cutoff": "2026-08-29T05:17:40Z",
   "allowed_locator_host": "www.justice.govt.nz",
+  "allowed_locator_hosts": ["www.justice.govt.nz"],
   "cumulative_exposure_ledgers": [
     "data/methods/g2/G2FUTURE-EDITION-CANONICAL-20260829-01/execution/exposure-ledger.jsonl"
   ],

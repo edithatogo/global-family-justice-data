@@ -1,4 +1,8 @@
+import json
+import subprocess
+import sys
 from datetime import UTC, datetime
+from pathlib import Path
 
 import pytest
 
@@ -50,3 +54,38 @@ def test_title_drift_fails_closed() -> None:
             expected_titles={"35100222": "Wrong"},
             cutoff=datetime(2026, 8, 29, 5, 17, 40, tzinfo=UTC),
         )
+
+
+def test_monitor_preserves_terminal_failure_receipt(tmp_path: Path) -> None:
+    contract = {
+        "campaign_id": "test",
+        "endpoint": "https://prohibited.example/metadata",
+        "allowed_endpoint_host": "www150.statcan.gc.ca",
+        "allowed_endpoint_path": "/t1/wds/rest/getCubeMetadata",
+        "product_ids": [35100222],
+        "authority_boundary": {"table_data_access": False},
+    }
+    contract_path = tmp_path / "contract.json"
+    output = tmp_path / "output"
+    contract_path.write_text(json.dumps(contract), encoding="utf-8")
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/g2_statcan_family_law_metadata_monitor.py",
+            "--contract",
+            str(contract_path),
+            "--output",
+            str(output),
+            "--checked-at",
+            "2026-08-29T00:00:00Z",
+            "--source-commit",
+            "test",
+            "--run-id",
+            "test",
+        ],
+        check=False,
+    )
+    assert result.returncode == 2
+    receipt = json.loads((output / "receipt.json").read_text(encoding="utf-8"))
+    assert receipt["status"] == "terminal_failure"
+    assert receipt["summary"]["eligibility_established"] is False

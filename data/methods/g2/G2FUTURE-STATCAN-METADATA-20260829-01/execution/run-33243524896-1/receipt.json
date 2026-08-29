@@ -1,0 +1,30 @@
+{
+  "boundary": {
+    "candidate_document_access": false,
+    "extraction": false,
+    "g2_acceptance": false,
+    "publication": false,
+    "release": false,
+    "rights_clearance": false,
+    "table_data_access": false
+  },
+  "campaign_id": "G2FUTURE-STATCAN-METADATA-20260829-01",
+  "checked_at": "2026-08-29T08:35:52Z",
+  "request": {
+    "body_sha256": "911402d8d5e4c9aa6485f7455d085bd9669964fb507b28afaeebabb8983ff4d3",
+    "method": "POST",
+    "response_bytes": 410419,
+    "response_sha256": "04aad39e47f0cd45b8944b92008aa55930664a8716f6b78b821e36b43f3f5274",
+    "url": "https://www150.statcan.gc.ca/t1/wds/rest/getCubeMetadata"
+  },
+  "run_id": "33243524896-1",
+  "schema_version": "1.0",
+  "source_commit": "424ae3ded6096550e3565bbe8394c8af44927696",
+  "status": "complete",
+  "summary": {
+    "eligibility_established": false,
+    "observed_product_count": 4,
+    "outcome": "monitor_no_update",
+    "post_cutoff_update_count": 0
+  }
+}

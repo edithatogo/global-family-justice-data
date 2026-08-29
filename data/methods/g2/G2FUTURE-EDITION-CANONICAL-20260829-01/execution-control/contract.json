@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-EDITION-CANONICAL-20260829-01",
+  "status": "frozen_awaiting_execution",
+  "predecessor": "G2FUTURE-EDITION-STREAMING-20260829-01",
+  "method": "canonical_trailing_slash_streaming_sitemap_successor",
+  "exposure_cutoff": "2026-08-29T05:17:40Z",
+  "ordered_endpoints": [
+    "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/1/",
+    "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/2/",
+    "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/3/"
+  ],
+  "execution_rules": {
+    "request_in_order": true,
+    "request_next_only_after_predecessor_passes": true,
+    "zero_retries": true,
+    "follow_redirects": false,
+    "persist_every_returned_locator_as_exposure": true,
+    "streaming_parser": "gfjd.g2_sitemap_stream.iter_sitemap_entries",
+    "maximum_total_uncompressed_bytes": 268435456,
+    "maximum_locator_count": 1000000
+  },
+  "terminal_stops": [
+    "binding_or_host_failure",
+    "redirect",
+    "non_success_http_status",
+    "malformed_xml",
+    "total_byte_budget_exceeded",
+    "locator_budget_exceeded",
+    "incomplete_child_enumeration",
+    "fewer_than_two_eligible_editions"
+  ],
+  "authority_boundary": {
+    "candidate_document_access": false,
+    "extraction": false,
+    "g2_acceptance": false,
+    "publication": false,
+    "release": false
+  }
+}

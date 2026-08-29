@@ -33,10 +33,15 @@ This has no external risk but leaves G2-C04 and G2-C07 blocked.
 - requested result prefix 10 and absolute safety cap 50 per query;
 - all observed locator-only results recorded as exposure, up to 800 total;
 - cumulative exposure rebuilt from 142 repository JSON evidence artifacts,
-  yielding 839 URL aliases and 14 content-digest aliases;
+  yielding 870 URL aliases and 14 content-digest aliases;
+- exact metadata provider, operation, no-pagination policy, result ordering and
+  indexing-time basis;
 - exact six-role policy, initially inactive with empty network allowlists;
-- peer address checked against prospectively validated public DNS before any
-  response body is read, with TLS verification for the original hostname;
+- a concrete peer-bound HTTPS adapter that connects only to a prospectively
+  validated public address, checks the socket peer before TLS, retains TLS
+  verification for the original hostname and checks the TLS peer again;
+- exact digest bindings for the prospective semantic, row, extraction-run and
+  comparator contracts before candidate registration;
 - at most four exact sources, 25 MiB each and 100 MiB total;
 - 100% critical and at least 99% overall populated-field concordance;
 - no fuzzy matching, waiver, repair, failed-output reuse, automatic rerun,

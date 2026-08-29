@@ -51,7 +51,7 @@ def build(root: Path, output_dir: Path) -> dict[str, Any]:
     exposure = _exposure_snapshot(root, output_dir)
     roles = _role_bundles()
     transport = _transport_contract(root)
-    resources = _resource_contract()
+    resources = _resource_contract(root)
     artifacts = {
         "query-manifest.json": query_manifest,
         "exposure-snapshot.json": exposure,
@@ -85,12 +85,16 @@ def _transport_contract(root: Path) -> dict[str, Any]:
             "verify_peer_before_headers_or_body_are_persisted": True,
             "peer_mismatch_is_terminal": True,
         },
-        "implementation_binding": _descriptor(root, Path("src/gfjd/g2_successor_controls.py")),
+        "implementation_bindings": [
+            _descriptor(root, Path("src/gfjd/g2_successor_controls.py")),
+            _descriptor(root, Path("src/gfjd/g2_successor_transport.py")),
+            _descriptor(root, Path("tests/test_g2_successor_transport.py")),
+        ],
         "execution_enabled": False,
     }
 
 
-def _resource_contract() -> dict[str, Any]:
+def _resource_contract(root: Path) -> dict[str, Any]:
     return {
         "schema_version": "1.0",
         "campaign_id": SUCCESSOR_CAMPAIGN_ID,
@@ -102,6 +106,16 @@ def _resource_contract() -> dict[str, Any]:
         "maximum_selected_sources": 4,
         "maximum_source_bytes_each": 26214400,
         "maximum_source_bytes_total": 104857600,
+        "prospective_extraction_contracts": [
+            _descriptor(root, Path(path))
+            for path in (
+                "data/methods/g2/G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01/row.schema.json",
+                "data/methods/g2/G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01/comparator-contract.json",
+                "data/methods/g2/G2PROSPECTIVE-SEMANTIC-CONTRACT-20260827-01/semantic-contract.schema.json",
+                "config/g2_holdout_generic_extraction_contract.json",
+                "schemas/g2_extraction_run.schema.json",
+            )
+        ],
         "terminal_stops": [
             "binding_or_schema_mismatch",
             "provider_returns_more_than_absolute_cap",
@@ -156,7 +170,7 @@ def verify(root: Path, output_dir: Path) -> list[str]:
             return ["role bundles differ"]
         if _load(output_dir / "transport-contract.json") != _transport_contract(root):
             return ["transport contract differs"]
-        if _load(output_dir / "resource-and-stop-contract.json") != _resource_contract():
+        if _load(output_dir / "resource-and-stop-contract.json") != _resource_contract(root):
             return ["resource and stop contract differs"]
         packet = _load(output_dir / "preparation-packet.json")
         for descriptor in packet.get("bindings", []):
@@ -181,6 +195,17 @@ def _query_manifest() -> dict[str, Any]:
         "status": "frozen_not_executed",
         "ordering": "ascending_ordinal_one_call_each_zero_retries",
         "provider_result_policy": {"requested_maximum": 10, "absolute_safety_cap": 50},
+        "provider_config": {
+            "provider": "openai_web_search_query",
+            "operation": "search_query",
+            "one_query_object_per_call": True,
+            "pagination": "none",
+            "recency_filter": "none",
+            "domain_filter": "none",
+            "response_length": "short",
+            "ranking": "provider_defined_unmodified",
+            "execution_time_basis": "provider_index_at_call_time",
+        },
         "queries": [
             {
                 "ordinal": index,
@@ -252,7 +277,17 @@ def _descriptor(root: Path, path: Path) -> dict[str, str]:
 
 
 def _load(path: Path) -> dict[str, Any]:
-    value = json.loads(path.read_text(encoding="utf-8"))
+    def object_without_duplicates(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
+        value: dict[str, Any] = {}
+        for key, item in pairs:
+            if key in value:
+                raise SuccessorBundleError(f"duplicate JSON key: {key}")
+            value[key] = item
+        return value
+
+    value = json.loads(
+        path.read_text(encoding="utf-8"), object_pairs_hook=object_without_duplicates
+    )
     if not isinstance(value, dict):
         raise SuccessorBundleError(f"JSON object required: {path}")
     return value

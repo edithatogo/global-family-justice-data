@@ -240,6 +240,7 @@ a272bcaaa9cc0d605d103c67769fddc22aba2f0362f72f1b146db1d74d1f5375  data/methods/g
 09af170d3e92b6c4e4fdb6583355c36db8e2c82f5bf3fa96953a67eb55458a15  data/methods/g2/G2PROPOSED-REAL-PILOT-20260821-01/acquisition/acquisition-plan.json
 d3ee890207b4a58d8b5808d43b78dbc0da47ea87eb46d5f0a304c26f96878ed5  data/methods/g2/G2PROPOSED-REAL-PILOT-20260821-01/intake/candidate-intake.json
 c8b2116db7f99129e0722c304257811d8180f74a60acb3ca62e74921e785e25f  data/methods/g2/G2PROPOSED-REAL-PILOT-20260821-01/intake/preparation-receipt.json
+7962fa225a903d2f127e3713e156d8c9f2c43e1ed9b7b3bee91236cfddec2395  data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/authority/owner-decision.json
 b6c652ea86fefefdce62fb23198abc24539684a173ace2108f6b7f65f7aa2d92  data/methods/g2/G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01/PREPARATION_MANIFEST.sha256
 75d60576eeaf34befa8a07c1ec781b0e3c081cfa5ea97dbbdfc26810a1189952  data/methods/g2/G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01/comparator-contract.json
 e057f50476f315d9ebf232dffcbbf428a3623fa391c7ef057de5c1f09068f296  data/methods/g2/G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01/preparation-bundle.json
@@ -352,6 +353,7 @@ ec47cfb71b34db9fc1a0c9f7b7a17b39c687c2c48108abe4757cd35584ce8fe7  docs/governanc
 abb337a6cd50d37e7a7176dff895a8555d2441b120b8290e65441b376a7b30d2  docs/governance/g2-formal-rerun-owner-decision-packet-2026-08-15.md
 f0d052790af315f177a6322e13862c5b6592813bdb4b69fac93cf1f02c58dd0b  docs/governance/g2-four-edition-acquisition-owner-direction-2026-08-21.md
 862ab587f3736529fe249f5dfa644b4fb783114c7e14ef9be02058efb4ec2510  docs/governance/g2-future-calibration-execution-decision-packet-2026-08-29.md
+f66cf11811773ca1c66fea918c28524118d46432227c94d0143420c8136f2ca5  docs/governance/g2-future-calibration-owner-authorization-2026-08-29.md
 a9d9dbc65d7116ae016297dbb93650e6d4a09508fe6aa69a60078b98fa13d707  docs/governance/g2-l2-reassessment-2026-08-26.md
 1be90c4b2e376e09c34b6ea08aceed47308ed6965b9303508d6b51415779fe00  docs/governance/g2-material-distinct-option-a-owner-decision-2026-08-20.md
 353819e97779b979da0aa1b370d68f09e3fd712eb6a1689bf4850e6959e5c601  docs/governance/g2-metadata-search-successor-owner-decision-packet-2026-08-16.md

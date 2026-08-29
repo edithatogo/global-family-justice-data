@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "decision_id": "D-G2-PROSPECTIVE-CALIBRATION-20260829-01",
+  "decision": "authorize_option_a_staged_future_calibration_campaign",
+  "owner_identity": "repository_owner_and_founder",
+  "owner_role": "sole_repository_owner_and_accountable_authority",
+  "owner_words": "Proceed with option A.",
+  "decided_at": "2026-08-29T10:26:11+10:00",
+  "decision_packet": {
+    "path": "docs/governance/g2-future-calibration-execution-decision-packet-2026-08-29.md",
+    "sha256": "862ab587f3736529fe249f5dfa644b4fb783114c7e14ef9be02058efb4ec2510"
+  },
+  "owner_authorization_record": {
+    "path": "docs/governance/g2-future-calibration-owner-authorization-2026-08-29.md",
+    "sha256": "f66cf11811773ca1c66fea918c28524118d46432227c94d0143420c8136f2ca5"
+  },
+  "preparation_bundle": {
+    "path": "data/methods/g2/G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01/preparation-bundle.json",
+    "sha256": "e057f50476f315d9ebf232dffcbbf428a3623fa391c7ef057de5c1f09068f296"
+  },
+  "preparation_manifest": {
+    "path": "data/methods/g2/G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01/PREPARATION_MANIFEST.sha256",
+    "sha256": "b6c652ea86fefefdce62fb23198abc24539684a173ace2108f6b7f65f7aa2d92"
+  },
+  "signed_reviewed_freeze_commit": "1750a936c656abf6045d12212d84eb608211b7b2",
+  "authorization": {
+    "candidate_registration_and_selection": true,
+    "bounded_network_and_source_access": true,
+    "controlled_aggregate_only_processing": true,
+    "fresh_artifact_isolated_extractors": 2,
+    "network_disabled_exact_comparator": 1,
+    "role_separated_non_independent_advisory_review": 1
+  },
+  "pre_source_access_interlock": {
+    "required": true,
+    "satisfied_at_decision_time": false,
+    "requirements": [
+      "selection_receipt_verified_and_bound",
+      "complete_exposure_nonoverlap_verified",
+      "all_strata_and_caps_verified",
+      "role_allowlists_verified",
+      "all_artifact_digests_verified"
+    ]
+  },
+  "non_authorizations": {
+    "rights_clearance": false,
+    "gold_promotion": false,
+    "g2_c04_acceptance": false,
+    "g2_c07_acceptance": false,
+    "m06_promotion": false,
+    "g2_passage": false,
+    "publication": false,
+    "release": false
+  }
+}

@@ -9,9 +9,7 @@ from typing import Any
 def _parse_release(value: object) -> datetime:
     if not isinstance(value, str):
         raise ValueError("releaseTime must be a string")
-    parsed = datetime.strptime(value, "%Y-%m-%dT%H:%M").replace(
-        tzinfo=UTC
-    )
+    parsed = datetime.strptime(value, "%Y-%m-%dT%H:%M").replace(tzinfo=UTC)
     return parsed
 
 

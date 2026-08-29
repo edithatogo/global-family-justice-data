@@ -38,13 +38,15 @@ class PeerBoundHTTPSConnection(http.client.HTTPSConnection):
     ) -> None:
         if not validated_addresses:
             raise ValueError("validated address set is empty")
+        tls_context = context or ssl.create_default_context()
         super().__init__(
             hostname,
             port=port,
             timeout=timeout,
-            context=context or ssl.create_default_context(),
+            context=tls_context,
         )
         self._validated_addresses = tuple(validated_addresses)
+        self._gfjd_context = tls_context
 
     def connect(self) -> None:
         """Pin the socket, verify its peer, then perform hostname-bound TLS."""
@@ -52,14 +54,13 @@ class PeerBoundHTTPSConnection(http.client.HTTPSConnection):
         raw = socket.create_connection(
             (self._validated_addresses[0], self.port),
             self.timeout,
-            self.source_address,
         )
         try:
             verify_connected_peer(
                 validated_addresses=self._validated_addresses,
                 connected_peer_address=str(raw.getpeername()[0]),
             )
-            self.sock = self._context.wrap_socket(raw, server_hostname=self.host)
+            self.sock = self._gfjd_context.wrap_socket(raw, server_hostname=self.host)
             verify_connected_peer(
                 validated_addresses=self._validated_addresses,
                 connected_peer_address=str(self.sock.getpeername()[0]),

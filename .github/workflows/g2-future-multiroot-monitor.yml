@@ -37,7 +37,7 @@ jobs:
         run: |
           mkdir -p build/g2-future-multiroot-monitor
           uv run python scripts/g2_future_manifest_monitor.py \
-            --contract config/g2_future_multiroot_monitor.json \
+            --contract config/g2_future_three_root_monitor.json \
             --output build/g2-future-multiroot-monitor \
             --checked-at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             --source-commit "$GITHUB_SHA" \

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-EDITION-20260829-01",
+  "status": "frozen_before_campaign_network_access",
+  "roots": [
+    {"ordinal": 1, "jurisdiction": "USA-CA", "url": "https://courts.ca.gov/sitemap.xml"},
+    {"ordinal": 2, "jurisdiction": "BRA", "url": "https://datajud-wiki.cnj.jus.br/sitemap.xml"},
+    {"ordinal": 3, "jurisdiction": "CAN-BC", "url": "https://provincialcourt.bc.ca/sitemap.xml"},
+    {"ordinal": 4, "jurisdiction": "AUS", "url": "https://www.fcfcoa.gov.au/sitemap.xml"},
+    {"ordinal": 5, "jurisdiction": "GBR-EAW", "url": "https://www.gov.uk/sitemap.xml"},
+    {"ordinal": 6, "jurisdiction": "NZL", "url": "https://www.justice.govt.nz/sitemap.xml"}
+  ],
+  "selection_basis": "official roots already evidenced as directly accessible without search in G2OFFICIAL-MANIFEST-ROOT-DISCOVERY-20260821-01",
+  "redirects": "prohibited",
+  "same_origin_child_manifests": "permitted_only_when_explicitly_listed_by_a_frozen_root",
+  "maximum_roots": 6,
+  "maximum_response_bytes_each": 5242880,
+  "maximum_total_response_bytes": 31457280
+}

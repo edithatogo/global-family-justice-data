@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-EDITION-20260829-01",
+  "status": "frozen_authorized_awaiting_official_manifest_registration",
+  "bindings": [
+    {"path": "docs/governance/g2-future-edition-route-owner-authorization-2026-08-29.md", "sha256": "85e4a3710b26452bce25e7c75a58003b09b55c2790e8066e330dddd239ddfd01"},
+    {"path": "data/methods/g2/G2FUTURE-EDITION-20260829-01/authority/owner-decision.json", "sha256": "5d7c866e19c86f7dfdc260cd12df6b07f17ef33e53ce733bed712a67249fa228"},
+    {"path": "data/methods/g2/G2FUTURE-EDITION-20260829-01/execution-control/official-root-manifest.json", "sha256": "a5f21028842a2c778dd5d57255965bc53a2f4ea22603c4cd50ff455514dbe996"},
+    {"path": "data/methods/g2/G2FUTURE-EDITION-20260829-01/execution-control/execution-contract.json", "sha256": "43460fe15d86eb0b55d0333922ab6a38e6f5d2404997801e8a8a856100405a11"},
+    {"path": "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/execution/terminal-stop.json", "sha256": "2ba1111c22fa970a99251b0836fe4c39d2235e153196528bb0a57e010b3138e5"},
+    {"path": "data/methods/g2/G2OFFICIAL-MANIFEST-ROOT-DISCOVERY-20260821-01/discovery-receipt.json", "sha256": "9f583a5888b1af7739a7c8e871efbc81582d596a9b849633e8687120f7de033a"},
+    {"path": "config/g2_prospective_semantic_contract.json", "sha256": "b62cec6a9b87eb579736a68b5f5880d01520736e04d98c7cc2f2340673f74e4f"}
+  ],
+  "next_stage": "official_manifest_registration",
+  "network_allowlist_is_exact": true,
+  "search_provider_calls": 0
+}

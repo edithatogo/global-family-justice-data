@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2PROSPECTIVE-CALIBRATION-20260829-01",
+  "terminal_id": "G2FC-TERMINAL-QUERY_RESULT_LIMIT_20260829_01",
+  "status": "terminal_failed_query_contract",
+  "generated_at": "2026-08-29T10:52:31+10:00",
+  "owner_authorization": {"path":"data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/authority/owner-decision.json","sha256":"7962fa225a903d2f127e3713e156d8c9f2c43e1ed9b7b3bee91236cfddec2395"},
+  "execution_contract": {"path":"data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/execution-control/execution-contract.json","sha256":"e23747e97b871fdd6171138aa748ceb0aee7102b1bde0ca8303329164f23f81a"},
+  "query_manifest": {"path":"data/methods/g2/G2PROSPECTIVE-CALIBRATION-20260829-01/execution-control/query-manifest.json","sha256":"956a04cf8db1d960be3bd7cd8bead3b8f5f6da62bc0115825bc43efc84cf1e57"},
+  "formal_execution": {
+    "queries_submitted": 1,
+    "provider_calls": 1,
+    "retries": 0,
+    "first_query_ordinal": 1,
+    "first_query_id": "G2FCQ-API_NY_2025",
+    "provider_call_id": "turn542search",
+    "observed_result_count": 16,
+    "frozen_maximum_results_per_query": 10,
+    "remaining_query_ordinals_not_submitted": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+  },
+  "stop_reason": "The provider returned 16 observable results for query 1. Complete recording would exceed the frozen maximum of 10; truncation would violate the frozen all-results-recorded rule. The lineage therefore stopped before query 2.",
+  "observed_urls": [
+    "https://data.ny.gov/es/es/Transparency/Client-Semi-Annual-Report-2025/eqwh-gze7",
+    "https://data.ny.gov/it/it/Transparency/Client-Semi-Annual-Report-2025/eqwh-gze7",
+    "https://data.ny.gov/es/es/Transparency/Client-Semi-Annual-Report-Beginning-2019/qym9-xzj6",
+    "https://data.ny.gov/zh/zh/Transparency/Client-Semi-Annual-Report-2025/eqwh-gze7",
+    "https://data.ny.gov/ru/Transparency/Client-Semi-Annual-Report-Beginning-2019/qym9-xzj6/about_data",
+    "https://data.ny.gov/api/views/dydr-n6gq/rows.pdf?accessType=DOWNLOAD",
+    "https://data.ny.gov/ru/Transparency/Claire-Durst/nw9k-ge6p",
+    "https://data.ny.gov/api/views/s96z-69hv/files/77nYnLykpcWUxE--eg1Obc6OHnFe3gAczf0GLu7Klj0?download=true&filename=DOS_DOCBusinessFilings_DataDictionary.pdf",
+    "https://data.ny.gov/Transparency/Lobbying-Clients-Disclosures-Four-Biannual-Period-/8bmh-tuz3",
+    "https://data.ny.gov/fr/fr/Transparency/Client-Semi-Annual-Report-2019/drdp-avk8",
+    "https://data.ny.gov/it/it/Transparency/NEW-YORK-NY-ascending-ZiP/ppzn-h9zv",
+    "https://data.ny.gov/es/es/Transparency/NYS-status/gwfs-qsbk",
+    "https://data.ny.gov/zh/zh/Transparency/AT2018/dccf-nvik",
+    "https://data.ny.gov/ru/Government-Finance/Health-Club-Filings/vgfa-ui3c/data_preview",
+    "https://data.ny.gov/api/views/xjya-f8ng/rows.pdf?accessType=DOWNLOAD",
+    "https://data.ny.gov/api/views/3m2s-wina/rows.pdf"
+  ],
+  "exact_observed_url_sha256": [
+    "ffd1905f40f1ded88e6eab7a9e4277a18ef4ddfc700dda72f49bda47bb318217",
+    "b5587a2b0bc6e3ce387c077cfb842dba465cd591aab422c3215a275dcb7d6fe6",
+    "9e59f370bbd57f2693fe26b7043aa1654633838f409cd271530e9ff259b7e82f",
+    "3319125646def3ee40a4be4823b3d7d923600c2b208421d59b78a4cd4f7bb9e5",
+    "16a5a5ba23d5d294f70acf7607a20a7ddc15859660803c216199fb5565f1859d",
+    "7dd42df13f9b25dc15907571dcd92dcbeea1850ad94fd896ffd8c6b8087a64ad",
+    "11a6d7d7adbc045bd33da6bd0f295d8bc38f1d4340549834bb9df65b03267afb",
+    "5f8166ad4bdc213a3711b194bd2145fe9547149da58fe3a1ebd4f2ef69507cca",
+    "0e073bdadd7ee8811a70943c24a754036c2e50950a293ed924d4353edd2ffd41",
+    "1c635df626df6f5489cdb4fe12deb17e8d7877ed0d7ced0d73fbea0380f6b867",
+    "122769303769c7f7765e79228accc886490c0c3320a89bb49d749050605208c9",
+    "a3d76cf82fd7f0888b260ffb4c693ec3c20694c8d2db611617d9c22e68941807",
+    "0e8d1e2ccec71f6e86f582bd90b853a56b8eea7ad40bfe247c20db43b56f6adf",
+    "1ea2dd2caabe9719c17fa47a769d089d2ad5973b9a5fb411fee6fa28bb0611ef",
+    "b20196c73325aa1bfdf3f063c954521b3391d2ae887a8052004a66182912e91d",
+    "f65d4a33542416f7daaf59e9420e21f09f7577bf5a837d5323a2099126665e5b"
+  ],
+  "sensitive_query_handling": {
+    "result_16_query_redacted": true,
+    "redacted_reason": "The observed query parameter resembled an application token and is represented only by the exact full-URL SHA-256 plus its token-free dataset path.",
+    "credentials_persisted": false
+  },
+  "effects": {
+    "candidate_registry_created": false,
+    "selection_receipt_created": false,
+    "pre_source_interlock_passed": false,
+    "source_access": false,
+    "source_bytes_acquired": false,
+    "extraction": false,
+    "comparison": false,
+    "publication": false,
+    "release": false,
+    "g2_passage": false,
+    "automatic_retry_or_rerun": false
+  },
+  "limitations": [
+    "Search-result metadata are exposure, not source evidence.",
+    "No candidate was selected and no result URL was requested.",
+    "The stopped lineage cannot be repaired, truncated, retried or promoted."
+  ]
+}

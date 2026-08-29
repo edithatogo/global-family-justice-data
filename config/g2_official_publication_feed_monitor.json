@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-OFFICIAL-FEED-20260829-01",
+  "status": "frozen_for_prospective_monitoring",
+  "route_type": "official_publisher_structured_index_no_free_text_query",
+  "predecessor": "G2FUTURE-EDITION-THREE-ROOT-20260829-01",
+  "exposure_cutoff": "2026-08-29T05:17:40Z",
+  "endpoint": "https://www.gov.uk/api/search.json?count=100&fields=format&fields=link&fields=public_timestamp&fields=title&filter_format=national_statistics&filter_format=official_statistics&filter_part_of_taxonomy_tree=fae66b20-eacd-4a41-a417-81cae5fa4b8c&filter_public_timestamp=from%3A2026-08-29%2005%3A17%3A40&order=public_timestamp&start=0",
+  "allowed_endpoint_host": "www.gov.uk",
+  "allowed_endpoint_path": "/api/search.json",
+  "endpoint_count": 100,
+  "request_timeout_seconds": 120,
+  "maximum_response_bytes": 2097152,
+  "allowed_locator_hosts": ["www.gov.uk"],
+  "allowed_link_prefixes": ["/government/statistics/"],
+  "eligible_formats": ["national_statistics", "official_statistics"],
+  "minimum_candidate_count": 2,
+  "cumulative_exposure_sources": [
+    "data/methods/g2/G2PROSPECTIVE-SUCCESSOR-20260829-02/execution-control/exposure-snapshot.json",
+    "data/methods/g2/G2FUTURE-EDITION-CANONICAL-20260829-01/execution/exposure-ledger.jsonl",
+    "data/methods/g2/G2FUTURE-EDITION-MULTIROOT-20260829-01/execution-control/baseline-exposure-ledger.jsonl",
+    "data/methods/g2/G2FUTURE-EDITION-MULTIROOT-20260829-01/execution/run-33240864641-1/exposure-ledger.jsonl"
+  ],
+  "execution_rules": {
+    "one_exact_endpoint": true,
+    "zero_retries": true,
+    "follow_redirects": false,
+    "complete_single_page_required": true,
+    "open_returned_locators": false,
+    "strictly_after_cutoff": true
+  },
+  "authority_boundary": {
+    "result_url_access": false,
+    "candidate_document_access": false,
+    "extraction": false,
+    "rights_clearance": false,
+    "g2_acceptance": false,
+    "publication": false,
+    "release": false
+  }
+}

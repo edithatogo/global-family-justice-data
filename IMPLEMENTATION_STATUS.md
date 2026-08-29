@@ -64,6 +64,7 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 | G2 prospective official-manifest monitoring | A daily, zero-retry monitor now enumerates only the three exact canonical sitemap endpoints, persists every observation as exposure and stops before returned-locator access. No-candidate observations create receipts without approval churn; two or more post-cutoff hypotheses trigger preparation of one grouped source-access decision. |
 | G2 prospective multi-jurisdiction monitoring | Four additional previously frozen direct official URL sets now share the fail-closed monitor contract. Their 1,213 prior observations form an immutable exposure baseline; novel or post-cutoff hypotheses become action-required without opening returned locators. |
 | G2 three-root monitor successor | The first four-root hosted run sealed 1,212 exposures then stopped on an FCFCOA timeout. A distinct successor retains California, CNJ and British Columbia, removes the one-homepage low-yield endpoint, and binds the failed partial ledger into cumulative exposure. |
+| G2 official publication-index monitor | A publisher-controlled GOV.UK family-justice research/statistics index is frozen as a metadata-only route with explicit publication timestamps, complete single-page enumeration, cumulative-exposure checking and no returned-locator access. Hosted execution remains pending and cannot itself accept C04/C07, promote M06 or pass G2. |
 
 ## Current programme state
 

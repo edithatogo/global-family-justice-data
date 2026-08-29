@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2FUTURE-EDITION-20260829-01",
+  "status": "prospectively_frozen",
+  "exposure_cutoff": "2026-08-29T05:17:40Z",
+  "stages": ["official_manifest_registration", "deterministic_selection", "pre_source_interlock", "bounded_acquisition", "dual_extraction", "exact_comparison", "advisory_review", "owner_adjudication"],
+  "eligibility": {
+    "official_first_publication_timestamp_strictly_after_cutoff": true,
+    "https_only": true,
+    "official_publisher_only": true,
+    "aggregate_family_justice_statistics": true,
+    "uncertain_timestamp_is_ineligible": true,
+    "identity_overlap_is_ineligible": true,
+    "minimum_selected_editions": 2,
+    "maximum_selected_editions": 4
+  },
+  "comparison": {
+    "critical_concordance": 1.0,
+    "overall_populated_field_concordance_minimum": 0.99,
+    "fuzzy_matching": false,
+    "waiver": false,
+    "repair": false,
+    "retry": false,
+    "failed_output_reuse": false
+  },
+  "terminal_stops": [
+    "binding_or_schema_failure",
+    "redirect_or_host_drift",
+    "manifest_enumeration_or_pagination_ambiguity",
+    "response_budget_exceeded",
+    "missing_or_uncertain_official_publication_timestamp",
+    "fewer_than_two_eligible_editions",
+    "exposure_or_identity_overlap",
+    "pre_source_interlock_failure",
+    "source_identity_content_type_or_size_failure",
+    "personal_identifying_sensitive_or_case_level_material",
+    "role_isolation_failure",
+    "critical_concordance_below_100_percent",
+    "overall_populated_concordance_below_99_percent"
+  ],
+  "authority_boundary": {
+    "publication": false,
+    "release": false,
+    "rights_clearance": false,
+    "g2_acceptance": false,
+    "gold_promotion": false
+  }
+}

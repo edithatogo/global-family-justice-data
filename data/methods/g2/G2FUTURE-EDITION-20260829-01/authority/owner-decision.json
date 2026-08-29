@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "decision_id": "D-G2-FUTURE-EDITION-ROUTE-20260829",
+  "campaign_id": "G2FUTURE-EDITION-20260829-01",
+  "decided_on": "2026-08-29",
+  "authority": "repository owner and sole accountable decision-maker",
+  "option": "A",
+  "status": "authorized_staged_execution",
+  "exposure_cutoff": "2026-08-29T05:17:40Z",
+  "maximum_selected_editions": 4,
+  "minimum_selected_editions": 2,
+  "boundaries": {
+    "search_provider_calls": false,
+    "publication": false,
+    "release": false,
+    "rights_clearance": false,
+    "g2_acceptance": false,
+    "gold_promotion": false
+  }
+}

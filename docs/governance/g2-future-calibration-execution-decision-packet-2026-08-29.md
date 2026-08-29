@@ -4,14 +4,16 @@
 
 The accepted prospective semantic policy now has a truthful row-schema revision,
 a schema-bound preparation bundle, executable digest verification, fictional
-negative tests, exact stopping rules and a one-decision staged execution model.
+negative tests, a schema-compatible exact comparator contract, explicit source
+evidence for resolved clock classifications, exact stopping rules and a
+one-decision staged execution model.
 No candidate or exact edition has been selected or inspected.
 
 The prepared bundle is
 `G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01`, SHA-256
-`13618323bd1dc9c29995a982609968884b4a35a27b68927cf99128bdd7cfdb50`.
+`e057f50476f315d9ebf232dffcbbf428a3623fa391c7ef057de5c1f09068f296`.
 Its detached preparation manifest has SHA-256
-`cddc92d13190ed3809465803e3c73ad168770ec53ec7b3385262127ae25b0c21`.
+`b6c652ea86fefefdce62fb23198abc24539684a173ace2108f6b7f65f7aa2d92`.
 
 The delivery commit that contains this packet and bundle must be verified and
 cited as the signed freeze commit before any authorized staged activity begins.
@@ -63,11 +65,11 @@ evidence without weakening thresholds or reusing failed work.
 > I approve Option A in the G2 future-calibration grouped execution decision
 > packet dated 2026-08-29. I accept the prospectively frozen preparation bundle
 > `G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01`, SHA-256
-> `13618323bd1dc9c29995a982609968884b4a35a27b68927cf99128bdd7cfdb50`,
+> `e057f50476f315d9ebf232dffcbbf428a3623fa391c7ef057de5c1f09068f296`,
 > its detached preparation-manifest SHA-256
-> `cddc92d13190ed3809465803e3c73ad168770ec53ec7b3385262127ae25b0c21`,
+> `b6c652ea86fefefdce62fb23198abc24539684a173ace2108f6b7f65f7aa2d92`,
 > and signed design-freeze commit
-> `630e6c1ef1f464ef57decc70c3190b09e7246611`.
+> `[INSERT REVIEWED FREEZE COMMIT]`.
 >
 > I authorize one staged four-row calibration campaign using four different
 > post-freeze-selected exact editions: one API or JSON, one HTML or dashboard,

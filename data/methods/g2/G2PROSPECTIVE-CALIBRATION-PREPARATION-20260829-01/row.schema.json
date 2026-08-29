@@ -100,6 +100,7 @@
     {"if": {"properties": {"unit_code": {"const": "source_defined"}}}, "then": {"properties": {"unit_label_source": {"$ref": "#/$defs/source_text"}}}},
     {"if": {"properties": {"denominator_code": {"const": "source_defined"}}}, "then": {"properties": {"denominator_definition_quote": {"$ref": "#/$defs/source_text"}}}},
     {"if": {"properties": {"denominator_code": {"const": "not_applicable"}}}, "then": {"properties": {"denominator_value": {"type": "null"}, "denominator_definition_quote": {"type": "null"}}}},
+    {"if": {"properties": {"clock_code": {"enum": ["calendar_days", "not_applicable", "source_defined", "working_days"]}}}, "then": {"properties": {"clock_label_source": {"$ref": "#/$defs/source_text"}}}},
     {"if": {"properties": {"cohort_code": {"const": "source_defined"}}}, "then": {"properties": {"cohort_definition_quote": {"$ref": "#/$defs/source_text"}}}},
     {"if": {"properties": {"counted_entity_code": {"const": "source_defined"}}}, "then": {"properties": {"counted_entity_label_source": {"$ref": "#/$defs/source_text"}}}},
     {"if": {"properties": {"population_scope_code": {"const": "source_defined"}}}, "then": {"properties": {"population_scope_label_source": {"$ref": "#/$defs/source_text"}}}}

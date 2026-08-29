@@ -5,7 +5,9 @@ import hashlib
 import json
 from pathlib import Path
 
+from gfjd.g2_concordance import compare_g2_extractions
 from gfjd.g2_future_calibration import validate_preparation_bundle, validate_row
+from gfjd.io import write_json
 
 ROOT = Path("data/methods/g2/G2PROSPECTIVE-CALIBRATION-PREPARATION-20260829-01")
 
@@ -107,6 +109,43 @@ def test_preparation_bundle_rejects_digest_drift_and_repository_escape(
     )
 
 
+def test_bound_comparator_contract_matches_row_schema_and_executes(
+    project_root: Path, tmp_path: Path
+) -> None:
+    contract = _json(project_root, ROOT / "comparator-contract.json")
+    row = _fictional_row()
+    write_json(tmp_path / "schemas/g2-row.json", _json(project_root, ROOT / "row.schema.json"))
+    write_json(
+        tmp_path / "schemas/g2_concordance.schema.json",
+        _json(project_root, Path("schemas/g2_concordance.schema.json")),
+    )
+    primary = Path("primary.json")
+    secondary = Path("secondary.json")
+    write_json(tmp_path / primary, [row])
+    write_json(tmp_path / secondary, [row])
+    result = compare_g2_extractions(
+        tmp_path,
+        primary_path=primary,
+        secondary_path=secondary,
+        output_dir=tmp_path / "comparison",
+        comparison_id="G2CMP-FICTIONAL-COMPATIBILITY",
+        packet_id="G2PKT-FICTIONAL_01",
+        packet_sha256="a" * 64,
+        primary_receipt={"path": "fictional/primary.json", "sha256": "b" * 64},
+        secondary_receipt={"path": "fictional/secondary.json", "sha256": "c" * 64},
+        threshold_policy={"path": "fictional/policy.json", "sha256": "e" * 64},
+        source_commit="d" * 40,
+        generated_at="2026-08-29T00:00:00Z",
+        row_schema_path=Path("schemas/g2-row.json"),
+        critical_fields=contract["critical_fields"],
+        ignored_fields=contract["ignored_fields"],
+        overall_threshold=contract["overall_populated_threshold"],
+        expected_source_keys=[str(row["source_record_key"])],
+        limitations=["fictional compatibility test only"],
+    )
+    assert result.threshold_passed is True
+
+
 def test_detached_preparation_manifest_verifies_exact_artifact_set(
     project_root: Path,
 ) -> None:
@@ -118,10 +157,13 @@ def test_detached_preparation_manifest_verifies_exact_artifact_set(
         entries.add(relative)
         assert hashlib.sha256((project_root / relative).read_bytes()).hexdigest() == digest
     assert entries == {
+        (ROOT / "comparator-contract.json").as_posix(),
         (ROOT / "preparation-bundle.json").as_posix(),
         (ROOT / "preparation-bundle.schema.json").as_posix(),
         (ROOT / "row.schema.json").as_posix(),
+        "src/gfjd/g2_concordance.py",
         "src/gfjd/g2_future_calibration.py",
+        "schemas/g2_concordance.schema.json",
         "tests/test_g2_future_calibration.py",
     }
 
@@ -148,6 +190,16 @@ def test_row_requires_source_text_for_source_defined_codes(project_root: Path) -
     row = _fictional_row()
     row["matter_label_source"] = None
     assert validate_row(row, schema)
+
+
+def test_row_requires_source_text_for_resolved_clock_codes(project_root: Path) -> None:
+    schema = _json(project_root, ROOT / "row.schema.json")
+    for clock_code in ("calendar_days", "not_applicable", "source_defined", "working_days"):
+        row = _fictional_row()
+        row["clock_code"] = clock_code
+        assert validate_row(row, schema)
+        row["clock_label_source"] = "Explicit fictional clock wording"
+        assert validate_row(row, schema) == []
 
 
 def test_unknown_with_source_text_requires_conflict_evidence(project_root: Path) -> None:

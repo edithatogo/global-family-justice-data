@@ -28,6 +28,16 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 
 ## Implemented and exercised
 
+### Continuation — 2026-08-30 bounded historical reproducibility
+
+The owner-approved prospective claim is recorded at `59016ff`. Signed commit
+`50af672` prepares a separate digest-bound metadata-only successor and 28 focused
+tests. The [advisory report](docs/methods/g2-historical-repro-advisory-2026-08-30.md)
+records corrected failure-recording findings and one concise next access decision.
+Unknown historical exposure remains disclosed, not cleared. No publisher request,
+source access, extraction or G2/maturity promotion occurred. WI-G2-04/07 remain
+in review; exact source-stage preparation depends on metadata-stage evidence.
+
 ### Continuation — 2026-08-30 medallion validator prerequisite
 
 The [validator hardening report](docs/engineering/medallion-validator-hardening-2026-08-30.md)

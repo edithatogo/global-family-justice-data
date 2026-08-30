@@ -2,13 +2,13 @@
 
 Status: in progress; repository-owned work supporting WI-G2-04/07.
 
-- [~] Record the owner's approval of the prospective bounded-reproducibility
+- [x] Record the owner's approval (`59016ff`) of the prospective bounded-reproducibility
   claim without project-unseen/generalisation claims. Preserve old records.
-- [ ] Prepare a separately identified metadata-only successor, exact request,
+- [x] Prepare a separately identified metadata-only successor (`50af672`), exact request,
   exposure limitations, role and byte/count/time limits; no source-stage authority.
-- [ ] Implement and test its recorder/evaluator and digest/authorization guards
+- [x] Implement and test its recorder/evaluator and digest/authorization guards (`50af672`)
   with synthetic inputs only. Preserve the historical-unseen evaluator.
-- [ ] Bind the metadata-stage bundle, review it, validate and deliver signed
+- [~] Bind the metadata-stage bundle, review it, validate and deliver signed
   commits through a checked PR. Present one concise exact-bound access decision.
 
 The source-resolution and two-extractor stages cannot be frozen until exact

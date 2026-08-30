@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "purpose": "official_technical_interface_qualification_only",
+  "publisher_repository": "https://github.com/alphagov/search-api",
+  "publisher_commit": "a6b92bc1dc36b1081835f44a10eaecf18f651a32",
+  "reviewed_on": "2026-08-31",
+  "review_timezone": "Australia/Brisbane",
+  "sources": [
+    {"path": "docs/using-the-search-api.md", "sha256": "d03c1f2058f9f8c7a89a64c58d678c3cf211823755b503dfa16b72b7483acff7"},
+    {"path": "lib/parameter_parser/search_parameter_parser.rb", "sha256": "f2c75f5595439842c688e480ef5680c95acf20d7f7fc1b99aef2a6d4526cd9fc"},
+    {"path": "lib/search/presenters/result_presenter.rb", "sha256": "2b10238904c7ccbe7de90a8e5fe4c2929e73b6ec5dbb240561225e5a156584be"},
+    {"path": "lib/search/presenters/result_set_presenter.rb", "sha256": "9fba2a4cc6bd88b7bc9f375022ec8e73f053f07145f1a0492b652ddbdcf10dde"},
+    {"path": "config/schema/field_definitions.json", "sha256": "dee4061b079a8c7df520be1e60794d703b2ab45ebfde8501d8bb256c384a9679"}
+  ],
+  "hash_basis": "Decoded GitHub contents API bytes at publisher_commit; upstream files not copied into this repository",
+  "advisory_role": "api_contract_advice",
+  "advisory_basis": "Local controls and orchestrator-supplied primary-source facts; network-disabled",
+  "repeated_fields_parameters_documented": true,
+  "requested_fields_are_exclusive": false,
+  "public_timestamp_semantics": "last_update_not_first_publication",
+  "first_published_at_semantics": "first_publication_not_exact_edition_identity_proof",
+  "deployed_version_verified": false,
+  "historical_raw_response_available": false,
+  "historical_failure_reinterpreted": false,
+  "court_metadata_requests_this_slice": 0,
+  "candidate_or_source_access_this_slice": false,
+  "execution_authorized": false,
+  "g2_accepted": false,
+  "rights_cleared": false,
+  "publication_or_release_authorized": false
+}

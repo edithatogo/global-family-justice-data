@@ -6,6 +6,18 @@
 
 This repository is a bootstrap-ready engineering and programme-control baseline. It is not a completed international family-justice dataset and is not the stable v1.0 service.
 
+## Continuation ledger — 2026-08-31 API qualification
+
+Official technical documentation/code is now pinned and indexed in
+`docs/methods/g2-api-interface-qualification-2026-08-31.md`. Repeated query
+parameters are supported; documented presenter extras contradict the old
+exact-key contract. This is not proof of the unretained failed response's keys.
+`public_timestamp` is last update, not first publication: monitor observations
+cannot establish future-edition eligibility from that field alone. No frozen
+campaign, runtime or receipt was changed and no court metadata/source request
+was made. Next: a distinct synthetic-tested successor contract and complete
+request packet; external execution remains separately gated. G2 is unchanged.
+
 ## Continuation ledger — 2026-08-30 monitor preservation
 
 - Commit `c7438c7` preserves exact receipts for five additional completed metadata

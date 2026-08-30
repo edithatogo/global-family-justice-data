@@ -4,7 +4,7 @@ Status: in progress; bounded repository-owned first slice.
 
 ## Plan
 
-- [~] Implement and test an offline exact-string JSON projection API, with source
+- [x] Implement and test an offline exact-string JSON projection API, with source
   and transformation-code hashes, per-field source locators, explicit clock
   fields, deterministic snapshot identity and a recomputing verifier.
 - [ ] Integrate independently verified public B0 custody and safety evidence;
@@ -55,3 +55,12 @@ to metadata-only/quarantine handling upstream. Preserve historical outputs;
 changed inputs or contracts yield a new snapshot identity. Implementation
 changes invalidate current-code replay of old receipts; retain the original
 implementation for historical verification rather than rewriting old evidence.
+
+## Implementation evidence
+
+Implementation commit: `08fe50a` (module and 30 synthetic regression cases).
+The focused suite passes. Tests cover exact strings and row order, pointer
+escaping, explicit clocks, malformed contracts and sources, duplicate keys,
+byte/row/field/cell budgets and receipt tampering, including false-versus-zero.
+This is supporting implementation evidence only. WI-G4-MED-02 remains in
+progress; its acceptance-bearing lineage/replay evidence remains incomplete.

@@ -26,7 +26,7 @@ def test_autonomy_context_is_bounded_and_fail_closed(tmp_path: Path) -> None:
         "WI-G4-MED-04",
     }
     assert {item["work_item_id"]: item["status"] for item in payload["autonomous_queue"]} == {
-        "WI-G4-MED-02": "planned",
+        "WI-G4-MED-02": "in_progress",
         "WI-G4-MED-04": "planned",
     }
     assert payload["external_actions"]

@@ -97,6 +97,17 @@ planned, and no G2/G4 criterion or maturity state is promoted.
 
 ## Current programme state
 
+### Bounded medallion replay continuation — 2026-08-30
+
+WI-G4-MED-02 now has an offline exact-string JSON projection API, per-field
+JSON-pointer lineage, explicit nullable source-valid time, recorded time and
+digest-bound deterministic replay verification. Thirty synthetic tests exercise
+the kernel. See `docs/engineering/medallion-projection-replay-plan-2026-08-30.md`.
+This is an unpromoted candidate mechanism, not a completed medallion layer:
+public B0 custody integration, real partition replay, correction/supersession
+history and complete bitemporal intervals remain open. No G2 criterion, maturity
+rating, source right or publication permission changes.
+
 - Active gate: **G2 — Reproducible pilot proven**.
 - Track disposition: **T0–T9 implementation slices complete; later acceptance
   remains evidence-gated**. Role-separated agents advise and verify; the sole

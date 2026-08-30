@@ -1,0 +1,56 @@
+{
+  "boundary": {
+    "candidate_document_access": false,
+    "extraction": false,
+    "g2_acceptance": false,
+    "returned_locator_access": false
+  },
+  "campaign_id": "G2FUTURE-EDITION-THREE-ROOT-20260830-02",
+  "checked_at": "2026-08-30T02:52:07Z",
+  "cutoff": "2026-08-29T05:17:40Z",
+  "exposure_ledger_sha256": "d485519d8332a5e640f08f95b72cd9997d0464eb395c96fe1e5c4b882e556125",
+  "requests": [
+    {
+      "content_type": "text/xml",
+      "http_status": 200,
+      "locator_count": 711,
+      "ordinal": 1,
+      "response_bytes": 137058,
+      "response_sha256": "accd6bbcf0fbb1fb91b7176cb481130d1e1887e78966000285488b674c7bf5b6",
+      "url": "https://courts.ca.gov/sitemap.xml"
+    },
+    {
+      "content_type": "text/xml",
+      "http_status": 200,
+      "locator_count": 45,
+      "ordinal": 2,
+      "response_bytes": 6718,
+      "response_sha256": "c05c3cf3202d3d6df44e422cd412b6b420cf697181162fe5c3831e65ec559117",
+      "url": "https://datajud-wiki.cnj.jus.br/sitemap.xml"
+    },
+    {
+      "content_type": "application/xml",
+      "http_status": 200,
+      "locator_count": 456,
+      "ordinal": 3,
+      "response_bytes": 93741,
+      "response_sha256": "b40cabe1ed38de21836c9ac8a5ba196c6282a0303fd9b5c610947a07ca8fbc81",
+      "url": "https://provincialcourt.bc.ca/sitemap.xml"
+    }
+  ],
+  "run_id": "33288962808-1",
+  "schema_version": "1.0",
+  "source_commit": "98a3b2dff7c8b7169068ffed305ea81c6ec0c7d6",
+  "status": "complete",
+  "summary": {
+    "duplicate_locator_count": 0,
+    "novel_exposure_count": 0,
+    "novel_exposure_ledger_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_locator_count": 1212,
+    "outcome": "monitor_no_candidates",
+    "post_cutoff_lastmod_count": 1,
+    "total_response_bytes": 237517,
+    "uncertain_lastmod_count": 46,
+    "unique_locator_count": 1212
+  }
+}

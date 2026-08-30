@@ -8,4 +8,6 @@ The complete hosted exposure ledger remains preserved in the immutable GitHub Ac
 
 `G2FUTURE-EDITION-THREE-ROOT-20260830-02` is a distinct successor, not a repair or retry. It adds the changed `(URL, lastmod)` tuple to cumulative exposure and otherwise preserves the exact endpoints, cutoff, zero-retry rule, limits, stopping rules and no-returned-locator-access boundary.
 
-This disposition does not establish candidate eligibility, reproducibility, maturity, rights clearance, G2 acceptance, publication or release. A hosted exact-head successor run is required before monitor operation can be accepted.
+Hosted exact-head successor run `33288962808-1`, from merged signed commit `98a3b2dff7c8b7169068ffed305ea81c6ec0c7d6`, completed with the same 1,212-observation ledger SHA-256 and zero novel exposure. Its outcome is `monitor_no_candidates`; all returned locators remained unopened.
+
+This disposition accepts operation of the successor monitor only. It does not establish candidate eligibility, reproducibility, maturity, rights clearance, G2 acceptance, publication or release.

@@ -28,6 +28,17 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 
 ## Implemented and exercised
 
+### Continuation — 2026-08-31 offline schema redesign
+
+Signed implementation `dc96b49` adds pure, byte-bounded structural diagnostics
+and 39 fictional-input tests. There is no transport, file-access or candidate
+evaluation interface. Unknown field names are fingerprinted; scalar contents
+are omitted. The [design](docs/methods/g2-schema-diagnostics-design-2026-08-31.md)
+records advisory review, resource limits and the still-missing authoritative
+interface evidence. Prior failed runtime/bundle/audit/receipt and existing
+monitor behavior are unchanged. No live response was read or replayed and no
+new external request, source access or G2 promotion occurred.
+
 ### Continuation — 2026-08-31 authorized metadata terminal stop
 
 Owner authorization `080db21` enabled exactly one frozen metadata GET.

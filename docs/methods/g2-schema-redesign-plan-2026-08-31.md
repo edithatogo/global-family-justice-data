@@ -5,10 +5,11 @@ No new request, response replay, source access, candidate selection or G2 promot
 
 - [x] Verify clean manifest and full baseline `make check` on `9fb0a79`.
 - [x] Obtain separate network-prohibited design advice (`metadata_schema_design_advice`).
-- [~] Implement a separate pure structural diagnostic with fictional inputs,
+- [x] Implement a separate pure structural diagnostic (`dc96b49`) with fictional inputs,
   strict JSON/resource checks and no values, transport or candidate evaluation.
-- [ ] Test disclosure boundaries and malformed inputs; obtain separate code review.
-- [ ] Bind the prospective design, index it in Conductor, run full validation
+- [x] Test disclosure boundaries and malformed inputs (39 tests); separate
+  advisory code review completed with the parser-budget distinction clarified.
+- [~] Bind the prospective design, index it in Conductor, run full validation
   and deliver signed commits via checked PR.
 
 ## Options and recommendation

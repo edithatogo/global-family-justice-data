@@ -9,8 +9,15 @@ No new request, response replay, source access, candidate selection or G2 promot
   strict JSON/resource checks and no values, transport or candidate evaluation.
 - [x] Test disclosure boundaries and malformed inputs (39 tests); separate
   advisory code review completed with the parser-budget distinction clarified.
-- [~] Bind the prospective design, index it in Conductor, run full validation
-  and deliver signed commits via checked PR.
+- [x] Bind the prospective design, index it (`0f24c6c`), run full local validation
+  and submit signed commits in PR #133. Final-head CI and merge are verified
+  separately in GitHub, not inferred from these local results.
+
+Local closeout on `0f24c6c`: `autonomy-full` exited 0; 597 tests passed in both
+coverage and plain runs, with 78.78% branch-aware coverage. Integration, restore,
+deterministic package/rehearsal-release and autonomy verification passed.
+This completes the offline preparation only; external schema qualification
+and execution remain unapproved. No external source request was performed.
 
 ## Options and recommendation
 

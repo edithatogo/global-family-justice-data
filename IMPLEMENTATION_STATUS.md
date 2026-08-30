@@ -38,6 +38,9 @@ records advisory review, resource limits and the still-missing authoritative
 interface evidence. Prior failed runtime/bundle/audit/receipt and existing
 monitor behavior are unchanged. No live response was read or replayed and no
 new external request, source access or G2 promotion occurred.
+Full local `autonomy-full` passed on `0f24c6c`: 597 tests in each run, 78.78%
+branch-aware coverage, integration/restore and deterministic package/release
+rehearsals. PR #133 carries the signed design and Conductor evidence.
 
 ### Continuation — 2026-08-31 authorized metadata terminal stop
 

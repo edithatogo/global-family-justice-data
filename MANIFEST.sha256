@@ -426,6 +426,7 @@ f0d052790af315f177a6322e13862c5b6592813bdb4b69fac93cf1f02c58dd0b  docs/governanc
 862ab587f3736529fe249f5dfa644b4fb783114c7e14ef9be02058efb4ec2510  docs/governance/g2-future-calibration-execution-decision-packet-2026-08-29.md
 f66cf11811773ca1c66fea918c28524118d46432227c94d0143420c8136f2ca5  docs/governance/g2-future-calibration-owner-authorization-2026-08-29.md
 85e4a3710b26452bce25e7c75a58003b09b55c2790e8066e330dddd239ddfd01  docs/governance/g2-future-edition-route-owner-authorization-2026-08-29.md
+9c66b7db2196839066969e85bd9de6877dbd229fe2bd667c0a6fd664a6dc1e18  docs/governance/g2-historical-repro-policy-owner-decision-2026-08-30.md
 72de63a0c37677bbd60ebb57d2a7c6cafba70cea5ace512b126a2f2f7ee62573  docs/governance/g2-historical-route-options-2026-08-30.md
 a9d9dbc65d7116ae016297dbb93650e6d4a09508fe6aa69a60078b98fa13d707  docs/governance/g2-l2-reassessment-2026-08-26.md
 1be90c4b2e376e09c34b6ea08aceed47308ed6965b9303508d6b51415779fe00  docs/governance/g2-material-distinct-option-a-owner-decision-2026-08-20.md
@@ -556,6 +557,7 @@ d14dccdccaf601684209b103b238a44a86a7fa6df6a7a93a5014e31c500c8eeb  docs/methods/g
 20c9a76bfdefb21902bdf20b2f491645e5233c474888e31dd2582e80da3c44b7  docs/methods/g2-four-edition-pre-extraction-assessment-2026-08-21.md
 47144211d887f0a06970c14b419f36dc75ede869fcf9e7de8aefd0d073eb11aa  docs/methods/g2-future-edition-manifest-registration-stop-2026-08-29.md
 0e70bc5b1f07f53d8ce28e0de61887c3c450730e4f761a0f72801eb0d74a9059  docs/methods/g2-historical-controls-evidence-2026-08-30.md
+85a9efcf613739f41a7b42a9edb8ca3ea4adb0f94829a5148aec5f3840fc639a  docs/methods/g2-historical-repro-preparation-plan-2026-08-30.md
 a4e4d529543bc0c034310451358d52926cdaeaac838b338127d6daa7af5e957b  docs/methods/g2-historical-route-panel-2026-08-30.md
 36f3deb34cca52cb2bfc52c0f5c8815fa6fbc3a671f929862ea273f72f3c0260  docs/methods/g2-historical-route-plan-2026-08-30.md
 6ebadd31069df1df9a35d1119dab22d998c93148bed87715e95689a9b95f09a3  docs/methods/g2-known-source-cohort-disposition-dossier-2026-08-22.md

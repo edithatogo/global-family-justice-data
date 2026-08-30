@@ -103,7 +103,7 @@ The role-separated panel recommends preparing a separately frozen historical
 official-index route, with future-edition monitoring retained as redundancy.
 The exact inactive metadata request, fixed window, limits, unchanged concordance
 rules, advisory dissent and execution prerequisites are bound in
-`data/methods/g2/G2HISTORICAL-PROPOSAL-20260830-01/design/MANIFEST.sha256`.
+`data/methods/g2/G2HISTORICAL-PROPOSAL-20260830-01/design/reference-manifest.sha256`.
 See `docs/methods/g2-historical-route-plan-2026-08-30.md` and
 `docs/governance/g2-historical-route-options-2026-08-30.md`.
 No candidate or complete current exposure freeze is established. JSON/JSONL

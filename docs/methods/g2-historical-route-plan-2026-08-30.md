@@ -24,7 +24,7 @@ the owner to approve a placeholder execution packet.
 
 ## Bound deliverable and next repository-owned work
 
-`data/methods/g2/G2HISTORICAL-PROPOSAL-20260830-01/design/MANIFEST.sha256`
+`data/methods/g2/G2HISTORICAL-PROPOSAL-20260830-01/design/reference-manifest.sha256`
 binds the proposal, panel advice, options and eleven reference artifacts in total.
 It is a reference inventory, **not** the complete current exposure inventory or
 an execution freeze. The exact request is inactive and the proposal declares

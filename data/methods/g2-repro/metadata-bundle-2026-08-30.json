@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2HISTORICAL-REPRO-METADATA-20260830-01",
+  "claim": "bounded_reproducibility_exposure_uncertain_not_project_unseen",
+  "network_authorized": false,
+  "stage": "metadata_only",
+  "policy_record_commit": "59016ff64736f3034d73ff4c33361c452e00dbce",
+  "endpoint": "https://www.gov.uk/api/search.json?count=100&fields=format&fields=link&fields=public_timestamp&fields=title&filter_format=national_statistics&filter_format=official_statistics&filter_part_of_taxonomy_tree=fae66b20-eacd-4a41-a417-81cae5fa4b8c&filter_public_timestamp=from%3A2024-01-01%2000%3A00%3A00&order=public_timestamp&start=0",
+  "audit_path": "data/methods/g2-audits/historical-persisted-exposure-2026-08-30.json",
+  "limits": {
+    "requests": 1,
+    "retries": 0,
+    "redirects": 0,
+    "pagination": false,
+    "response_bytes": 2097152,
+    "results": 100,
+    "timeout_seconds": 120
+  },
+  "bindings": [
+    {
+      "path": "data/methods/g2-audits/historical-persisted-exposure-2026-08-30.json",
+      "sha256": "ae6700dea7436688486d2389ec79c45a6886ba9bba29397dce2b6990fb493b18"
+    },
+    {
+      "path": "data/methods/g2/G2HISTORICAL-PROPOSAL-20260830-01/design/proposal.json",
+      "sha256": "442dc676a307ee8a3c37456865f2a5f22c722aea9de16e2aab65a65522dcd71f"
+    },
+    {
+      "path": "docs/governance/g2-historical-repro-policy-owner-decision-2026-08-30.md",
+      "sha256": "9c66b7db2196839066969e85bd9de6877dbd229fe2bd667c0a6fd664a6dc1e18"
+    },
+    {
+      "path": "src/gfjd/g2_historical_repro.py",
+      "sha256": "6754fa594790b55e891012cd8a1925640380e9fd96d1328be82c5f71ddbdb69b"
+    },
+    {
+      "path": "src/gfjd/g2_historical_controls.py",
+      "sha256": "a94d020ea0ad7991da2e3a43e25c511f9aeac8a5ad77f66347f53d195d1bd420"
+    },
+    {
+      "path": "src/gfjd/g2_future_exposure.py",
+      "sha256": "e6ff39d0089a6ef929bd0559092038fa1632b68ffd593f56650c94690ff25162"
+    },
+    {
+      "path": "src/gfjd/g2_successor_transport.py",
+      "sha256": "790ce5b339b3b4503dfb327f7b2e9590bc52df809b42c0fd7c06e132c2ec1a4d"
+    },
+    {
+      "path": "src/gfjd/g2_successor_controls.py",
+      "sha256": "529e67f339b649d8804140a948f24b54a1cbd97a065adbdca9557f58f8b0d9fd"
+    },
+    {
+      "path": "tests/test_g2_historical_repro.py",
+      "sha256": "44241d6fa5cba51c7048e2ffcd0675cbd1f6e058ea6e228287d2b61f87ec4940"
+    },
+    {
+      "path": "docs/methods/g2-historical-repro-metadata-contract-2026-08-30.md",
+      "sha256": "8360e36a3be836c3f83ded96fac55ff69fd4ce96dc4e2f2dd78c43e4d4b6bc0d"
+    }
+  ]
+}

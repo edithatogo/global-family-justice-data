@@ -1,6 +1,6 @@
 # Generated programme status
 
-Generated: `2026-08-30T05:46:40+00:00`
+Generated: `2026-08-30T06:09:22+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G2**
@@ -58,7 +58,7 @@ Evidence-assured maturity floor: **L1**
 
 ## Next dependency-ready actions
 
-- **P0 WI-G4-MED-02** (T4/G4): Implement public field lineage, bitemporal snapshot identity and deterministic partition replay. — _planned_
+- **P0 WI-G4-MED-02** (T4/G4): Implement public field lineage, bitemporal snapshot identity and deterministic partition replay. — _in_progress_
 - **P1 WI-G2-04** (T5/G2): Pilot extractions and mappings have documented dual review, adjudication and quarantine outcomes. — _in_review_
 - **P1 WI-G2-07** (T5/G2): Blinded role-separated agent re-extraction of the pilot sample passes the approved concordance threshold and is owner-adjudicated. — _in_review_
 - **P1 WI-G4-MED-04** (T6/G4): Publish and verify the role-separated GFJD Hugging Face medallion estate. — _planned_

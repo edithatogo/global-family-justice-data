@@ -22,6 +22,12 @@ def test_autonomy_context_is_bounded_and_fail_closed(tmp_path: Path) -> None:
     assert verify_autonomy_context(tmp_path) == []
     payload = read_json(tmp_path / "autonomy-context.json")
     assert payload["operating_mode"] == "single_maintainer_autonomous"
+    assert payload["authority_order"][:4] == [
+        "AGENTS.md",
+        "START_HERE.md",
+        "BOOTSTRAP_AND_HANDOFF_PROMPT.md",
+        "CODEX_IMPLEMENTATION_PROMPT.md",
+    ]
     assert payload["external_boundaries"]
     assert all(item["kind"] == "governance_decision" for item in payload["external_boundaries"])
     assert {item["work_item_id"] for item in payload["autonomous_queue"]} == {

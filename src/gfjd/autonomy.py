@@ -15,11 +15,12 @@ from .project import Project
 
 CONTEXT_FILES = (
     "AGENTS.md",
+    "START_HERE.md",
+    "BOOTSTRAP_AND_HANDOFF_PROMPT.md",
+    "CODEX_IMPLEMENTATION_PROMPT.md",
     "docs/governance/standing-owner-direction-policy-2026-08-20.md",
     "AUTONOMOUS_IMPLEMENTATION.md",
     "docs/engineering/medallion-autonomous-continuation-2026-08-30.md",
-    "START_HERE.md",
-    "CODEX_IMPLEMENTATION_PROMPT.md",
     "IMPLEMENTATION_STATUS.md",
     "PROJECT_PLAN.md",
     "docs/governance/t0-acceptance-runbook.md",

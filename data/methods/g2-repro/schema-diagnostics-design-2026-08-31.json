@@ -1,0 +1,35 @@
+{
+  "schema_version": "1.0",
+  "design_id": "G2-OFFLINE-SCHEMA-DIAGNOSTICS-20260831",
+  "status": "synthetic_only_preparation",
+  "network_authorized": false,
+  "source_access_authorized": false,
+  "publisher_schema_verified": false,
+  "production_integration": false,
+  "g2_acceptance": false,
+  "limits": {
+    "preparse_bytes": 2097152,
+    "postparse_depth": 16,
+    "postparse_nodes": 10000,
+    "postparse_object_members": 128,
+    "postparse_array_members": 1000
+  },
+  "bindings": [
+    {
+      "path": "src/gfjd/metadata_shape.py",
+      "sha256": "358c68dcd4bf5b1cdbf4cc9e4362765f403cabba690b4adc59eb9f25d5e719c3"
+    },
+    {
+      "path": "tests/test_metadata_shape.py",
+      "sha256": "4d3159fe667804702fbe775c590c6ec79b7a857aedf6def600da69cdb7aaf6c9"
+    },
+    {
+      "path": "docs/methods/g2-schema-diagnostics-design-2026-08-31.md",
+      "sha256": "38fc0b6ed50c2e5ae3870fc0b61311ee2ab1abaccab31d1e2371ecd2da232546"
+    }
+  ],
+  "terminal_predecessor_receipt_sha256": "8f6ae331e1debc79825f3ec48a1e1e297c6daaff78fc850cb14b42f63b84ea42",
+  "postrequest_exposure_sha256": "238327f54b70caf893941a23bbc29c85408f9c4c1cd17996e3575a6a761d477b",
+  "predecessor_replayed": false,
+  "remaining_boundary": "authoritative interface evidence and a separately authorized exact external packet"
+}

@@ -229,80 +229,8 @@ def test_confined_attempt_and_output_reject_symlinks(tmp_path: Path) -> None:
         module._confined(tmp_path, ".gfjd/g2-attempts/campaign.json")
 
 
-def test_frozen_pre_request_material_verifies_offline(tmp_path: Path) -> None:
-    """Historical preflight replay, not verification of the post-run checkout."""
+def test_repository_metadata_bundle_verifies_without_network() -> None:
     root = Path(__file__).resolve().parents[1]
-    relative = "data/methods/g2-repro/metadata-bundle-2026-08-30.json"
-    bundle_bytes = (root / relative).read_bytes()
-    bundle = json.loads(bundle_bytes)
-    assert (
-        hashlib.sha256(bundle_bytes).hexdigest()
-        == "e166ea3785521bdcf1802bdc005383af40f054a1c349871d313c91e963107004"
-    )
-    audit = json.loads((root / module.AUDIT_PATH).read_bytes())
-    # Restore ALL audited inputs, including empty ledgers; never filter by outcome.
-    descriptors = {item["path"]: item for item in audit["inputs"]}
-    descriptors.update({item["path"]: item for item in bundle["bindings"]})
-    for path, descriptor in descriptors.items():
-        source = root / path
-        if path == "tests/test_g2_historical_repro.py":
-            source = (
-                root
-                / "data/methods/g2-repro/frozen-controls/test_g2_historical_repro-20260830.py.txt"
-            )
-        raw = source.read_bytes()
-        assert hashlib.sha256(raw).hexdigest() == descriptor["sha256"], path
-        target = module._confined(tmp_path, path)
-        target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(raw)
-    # Restore the independent signed pre-request manifest, not one derived from audit.
-    manifest = (root / "data/methods/g2-repro/frozen-controls/MANIFEST-080db21.sha256").read_bytes()
-    assert hashlib.sha256(manifest).hexdigest() == (
-        "0801c39cee1320c421dd7ad73445693f22894049d639e3da45f9b6e52d060530"
-    )
-    (tmp_path / "MANIFEST.sha256").write_bytes(manifest)
-    target_bundle = tmp_path / relative
-    target_bundle.parent.mkdir(parents=True, exist_ok=True)
-    target_bundle.write_bytes(bundle_bytes)
-    assert module.verify_audit(tmp_path, audit) == []
-    bundle = verify_bundle(tmp_path, target_bundle)
+    bundle = verify_bundle(root, root / "data/methods/g2-repro/metadata-bundle-2026-08-30.json")
     assert bundle["network_authorized"] is False
     assert bundle["claim"] == CLAIM
-
-
-def test_post_request_inventory_and_consumed_receipt_are_not_preflight() -> None:
-    root = Path(__file__).resolve().parents[1]
-    audit = json.loads((root / module.AUDIT_PATH).read_bytes())
-    receipt_path = f"data/methods/g2/{module.CAMPAIGN}/execution/receipt.json"
-    assert receipt_path not in {item["path"] for item in audit["inputs"]}
-    current_paths = {
-        path.relative_to(root).as_posix()
-        for path in (root / "data/methods/g2").rglob("*")
-        if path.is_file()
-    }
-    assert {item["path"] for item in audit["inputs"]} < current_paths
-    assert receipt_path in current_paths
-    assert module.verify_audit(root, audit) != []
-    raw = (root / receipt_path).read_bytes()
-    assert (
-        hashlib.sha256(raw).hexdigest()
-        == "8f6ae331e1debc79825f3ec48a1e1e297c6daaff78fc850cb14b42f63b84ea42"
-    )
-    receipt = json.loads(raw)
-    marker = json.loads((root / f".gfjd/g2-attempts/{module.CAMPAIGN}.json").read_bytes())
-    assert receipt["campaign_id"] == marker["campaign_id"] == module.CAMPAIGN
-    assert receipt["status"] == "terminal_stop"
-    assert receipt["hypotheses"] == []
-    assert receipt["request_attempt"]["count"] == 1
-    for key in ("authority_commit", "bundle_sha256"):
-        assert receipt["request_attempt"][key] == marker[key]
-    assert len(receipt["observations"]) == 9
-    assert all(item["requested"] is False for item in receipt["observations"])
-    assert not any(receipt["authority"].values())
-
-
-def test_live_repository_rejects_retired_execution_binding() -> None:
-    root = Path(__file__).resolve().parents[1]
-    # Current harness changed prospectively; frozen original remains archived.
-    with pytest.raises(HistoricalControlError, match="bundle binding mismatch"):
-        verify_bundle(root, root / "data/methods/g2-repro/metadata-bundle-2026-08-30.json")

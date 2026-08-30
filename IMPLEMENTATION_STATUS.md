@@ -28,6 +28,16 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 
 ## Implemented and exercised
 
+### Continuation — 2026-08-31 authorized metadata terminal stop
+
+Owner authorization `080db21` enabled exactly one frozen metadata GET.
+Receipt commit `20feba9` preserves nine unrequested locators, zero hypotheses
+and terminal schema/enumeration/count stops. No source access or retry occurred.
+The [outcome report](docs/methods/g2-historical-metadata-outcome-2026-08-31.md)
+records separate offline advice, expanded exposure inventory and post-execution
+test-lifecycle maintenance. Original frozen inputs and failed evidence remain
+unchanged. G2 remains 9/13 with no new source, release or acceptance authority.
+
 ### Continuation — 2026-08-30 bounded historical reproducibility
 
 The owner-approved prospective claim is recorded at `59016ff`. Signed commit

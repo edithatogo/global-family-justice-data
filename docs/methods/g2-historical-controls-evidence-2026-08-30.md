@@ -40,6 +40,11 @@ python -m gfjd.g2_historical_controls --output build/historical-controls/audit.j
 The audit must be rebuilt at a later freeze: repository additions, edits or
 omissions make verification fail. This output is deliberately outside the
 input subtree to avoid self-referential hashing. No network runner is added.
+The `a26ae08` hosted-review fix also requires inventory membership and every
+input digest to match the authoritative `MANIFEST.sha256` subset before an
+audit can be built. It never repairs that manifest. Missing files in a partial
+checkout cannot disappear into a new apparently valid audit. The existing
+audit bytes are unchanged; 32 focused tests cover the strengthened control.
 
 ## Why historical unseen-selection is still blocked
 

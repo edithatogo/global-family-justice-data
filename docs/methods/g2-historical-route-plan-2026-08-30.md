@@ -63,7 +63,7 @@ an unsupported unseen claim. Baseline `make check` passed before implementation.
 
 The implementation and grouped policy options are in
 `docs/methods/g2-historical-controls-evidence-2026-08-30.md`.
-Twenty-nine focused tests pass, including real-repository gap detection without
+Thirty-two focused tests pass, including real-repository gap detection without
 source content inspection. Full phase validation and exact-head hosted checks
 are required before merge. The policy recommendation does not authorize its
 own execution and does not close C04/C07 or promote M06.
@@ -87,3 +87,6 @@ the same test set and thresholds are retained for final phase validation.
 - [x] `7d70b7d`: reject directory symlinks and detect mixed-case URL schemes;
   verify audit inputs again before evaluating response hypotheses. Bind
   auxiliary reference files rather than incorrectly reporting them as missing.
+- [x] `a26ae08`: bind inventory membership and digests to the authoritative
+  source-manifest subset. Partial checkouts, undeclared files and drift now
+  fail even when attempting to rebuild the audit. Three regression tests added.

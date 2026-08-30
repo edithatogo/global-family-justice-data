@@ -100,8 +100,9 @@ planned, and no G2/G4 criterion or maturity state is promoted.
 ### G2 historical-edition alternative proposal — 2026-08-30
 
 Continuation `7d70b7d` implements a versioned offline persisted-exposure audit
-and historical metadata evaluator with 29 focused tests. It binds 234 files,
-checks 194 references and normalizes 4,622 locator identities. Three unresolved
+and historical metadata evaluator. The `a26ae08` review fix anchors membership
+to the source manifest and brings focused coverage to 32 tests. The audit binds
+234 files, checks 194 references and normalizes 4,622 locator identities. Three unresolved
 exposure gaps remain explicit; the official-index mechanism cannot establish
 that historical material is disjoint from 280 unenumerated prior observations.
 See `docs/methods/g2-historical-controls-evidence-2026-08-30.md` for the evidence,

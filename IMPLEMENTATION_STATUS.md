@@ -37,6 +37,9 @@ records corrected failure-recording findings and one concise next access decisio
 Unknown historical exposure remains disclosed, not cleared. No publisher request,
 source access, extraction or G2/maturity promotion occurred. WI-G2-04/07 remain
 in review; exact source-stage preparation depends on metadata-stage evidence.
+Full local `autonomy-full` passed on `afc43a7`: 556 tests in both runs, 78.56%
+branch-aware coverage, integration/restore and deterministic package/release
+rehearsals. PR #131 carries the signed preparation and Conductor records.
 
 ### Continuation — 2026-08-30 medallion validator prerequisite
 

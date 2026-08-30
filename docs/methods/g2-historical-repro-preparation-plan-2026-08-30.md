@@ -1,6 +1,6 @@
 # Historical reproducibility successor preparation
 
-Status: in progress; repository-owned work supporting WI-G2-04/07.
+Status: repository preparation complete; exact external request awaits owner decision.
 
 - [x] Record the owner's approval (`59016ff`) of the prospective bounded-reproducibility
   claim without project-unseen/generalisation claims. Preserve old records.
@@ -8,8 +8,15 @@ Status: in progress; repository-owned work supporting WI-G2-04/07.
   exposure limitations, role and byte/count/time limits; no source-stage authority.
 - [x] Implement and test its recorder/evaluator and digest/authorization guards (`50af672`)
   with synthetic inputs only. Preserve the historical-unseen evaluator.
-- [~] Bind the metadata-stage bundle, review it, validate and deliver signed
-  commits through a checked PR. Present one concise exact-bound access decision.
+- [x] Bind the metadata-stage bundle (`50af672`), review it (`afc43a7`) and
+  validate through the full local harness. PR #131 delivers signed provenance;
+  final-head hosted checks and merge are verified in GitHub, not inferred here.
+- [ ] Execute the exact metadata request only after separate owner authorization.
+
+Phase validation on `afc43a7`: 556 tests passed both with coverage and without;
+78.56% branch-aware coverage; integration, restore, deterministic package/release
+rehearsals and autonomy context verification passed. Hosted CI on that head had
+17 successful checks. Documentation closeout does not change the bound bundle.
 
 The source-resolution and two-extractor stages cannot be frozen until exact
 edition locations exist. UK landing-page hypotheses are not an extraction

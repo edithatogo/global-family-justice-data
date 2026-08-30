@@ -97,6 +97,17 @@ planned, and no G2/G4 criterion or maturity state is promoted.
 
 ## Current programme state
 
+### Autonomous continuation guard — 2026-08-30
+
+The resume queue now requires an explicit repository-only execution scope;
+planned publication work is no longer classified as safe merely from status.
+Unknown work and acceptance states fail closed. The standing-owner policy and
+ordered continuation plan are bound into resume packets. See
+`docs/engineering/medallion-autonomous-continuation-2026-08-30.md`.
+Twenty-three focused autonomy tests cover the guard. This does not create a
+background implementation schedule or alter monitor, source-access, publication,
+rights or gate authority. Correction history remains the next engineering slice.
+
 ### Bounded medallion replay continuation — 2026-08-30
 
 WI-G4-MED-02 now has an offline exact-string JSON projection API, per-field

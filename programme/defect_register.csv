@@ -1,2 +1,3 @@
 defect_id,severity,title,affected_release,owner_role,opened_on,target_resolution,status,public_note
+DEF-AUTONOMY-001,P1,Status-only resume classification treated planned publication as repository-owned execution,0.6.0-alpha.2,technical lead,2026-08-30,2026-08-30,resolved,Explicit repository-only scopes now gate execution; unknown work and acceptance states fail closed. Twenty-three autonomy regressions pass. No unauthorised publication was observed.
 DEF-G2-001,P2,AUS archive inventory contained a malformed 65-character digest,0.6.0-alpha.2,acquisition lead,2026-08-15,2026-08-15,resolved,Corrected the inventory to the verified manifest and payload SHA-256 and added fail-closed cross-binding validation.

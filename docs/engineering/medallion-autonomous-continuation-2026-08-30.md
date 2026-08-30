@@ -4,10 +4,10 @@ Status: in progress; repository-owned execution preparation, not gate acceptance
 
 ## Immediate prerequisite
 
-- [~] Replace status-only autonomous execution classification with explicit
+- [x] Replace status-only autonomous execution classification with explicit
   repository-only work scopes; unclassified and acceptance-bearing work must
   remain outside the executable queue.
-- [ ] Bind this continuation plan and the standing-owner policy into resume
+- [x] Bind this continuation plan and the standing-owner policy into resume
   packets; align the operator guidance with sole-owner decision rights.
 - [ ] Validate, review, commit, check hosted CI, merge and clean the local branch.
 
@@ -64,3 +64,12 @@ claim that such an implementation schedule is active.
 The explicit execution-scope registry is a conservative routing control, not
 new authority. Adding an entry requires review against the work item and current
 owner policy. Status and a title containing reassuring words are insufficient.
+
+## Implementation evidence
+
+Signed implementation commit `8fdb351` adds the explicit execution-scope guard,
+resume inputs and aligned sole-owner guidance. All 23 focused autonomy tests
+pass, including unknown and malformed identities/statuses, acceptance states,
+publication exclusion and non-mutating classification. Formatting, lint and
+typing pass. This is repository-owned safety remediation only; the correction
+history and all factual medallion acceptance criteria remain open.

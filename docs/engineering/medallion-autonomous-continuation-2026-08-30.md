@@ -73,3 +73,15 @@ pass, including unknown and malformed identities/statuses, acceptance states,
 publication exclusion and non-mutating classification. Formatting, lint and
 typing pass. This is repository-owned safety remediation only; the correction
 history and all factual medallion acceptance criteria remain open.
+
+## Review fixes
+
+- [x] `c8de5d2`: preserve the mandated AGENTS, START_HERE, bootstrap prompt and
+  implementation prompt order, with an exact-order regression assertion.
+- Implementation SHA `8fdb351131bb6832d9b06fa40630fd40f5517bc6` is a verified
+  signed ancestor of this branch. Integration preserves that ancestry by
+  fast-forward; no squash or rebase is permitted. Deleting a merged local branch
+  does not delete commits reachable from main.
+
+The scope guard routes resume advice; it is neither a network sandbox nor an
+executor. Existing command and source-access controls remain mandatory.

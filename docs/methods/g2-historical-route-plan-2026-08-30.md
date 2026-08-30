@@ -32,10 +32,14 @@ an execution freeze. The exact request is inactive and the proposal declares
 
 - [~] Reconcile and normalize the complete current JSON/JSONL exposure chain,
   including failed partial runs and all monitor observations, with negative tests.
-- [ ] Implement the separate historical-window metadata evaluator and immutable
-  complete-enumeration/exposure receipt contract using synthetic responses.
-- [ ] Bind prospective source-resolution, role, schema and sampling-scope
-  interlocks, or state precisely why a metadata-only first stage is required.
+  Persisted-file audit implemented in `7d70b7d`; complete lifetime exposure remains
+  blocked by three recorded gaps. This task is not falsely marked complete.
+- [x] `7d70b7d`: implement the separate offline historical-window metadata
+  evaluator and write-once receipt function using synthetic responses. A live
+  runner remains absent and no execution authority is granted.
+- [x] `7d70b7d`: state why source-resolution/role/scope bindings cannot be
+  presented as ready: unknown historical exposure and landing-page-only
+  hypotheses require a methods decision before any later source stage.
 - [ ] Present one exact-bound execution decision when those prerequisites pass.
 
 No new permission is needed for the first three repository-owned preparation
@@ -57,6 +61,13 @@ Changing to an official index does not prove temporal or identity disjointness.
 Prepare a concise decision boundary rather than an executable campaign with
 an unsupported unseen claim. Baseline `make check` passed before implementation.
 
+The implementation and grouped policy options are in
+`docs/methods/g2-historical-controls-evidence-2026-08-30.md`.
+Twenty-nine focused tests pass, including real-repository gap detection without
+source content inspection. Full phase validation and exact-head hosted checks
+are required before merge. The policy recommendation does not authorize its
+own execution and does not close C04/C07 or promote M06.
+
 ## Validation and advisory result
 
 All eleven reference hashes verify. Offline JSON checks confirm that the exact
@@ -73,3 +84,6 @@ the same test set and thresholds are retained for final phase validation.
   root source inventory includes it. The root inventory excludes files named
   `MANIFEST.sha256`; avoiding that reserved name preserves packaging coverage.
   The reference contents and digest are unchanged.
+- [x] `7d70b7d`: reject directory symlinks and detect mixed-case URL schemes;
+  verify audit inputs again before evaluating response hypotheses. Bind
+  auxiliary reference files rather than incorrectly reporting them as missing.

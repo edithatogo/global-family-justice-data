@@ -99,6 +99,16 @@ planned, and no G2/G4 criterion or maturity state is promoted.
 
 ### G2 historical-edition alternative proposal — 2026-08-30
 
+Continuation `7d70b7d` implements a versioned offline persisted-exposure audit
+and historical metadata evaluator with 29 focused tests. It binds 234 files,
+checks 194 references and normalizes 4,622 locator identities. Three unresolved
+exposure gaps remain explicit; the official-index mechanism cannot establish
+that historical material is disjoint from 280 unenumerated prior observations.
+See `docs/methods/g2-historical-controls-evidence-2026-08-30.md` for the evidence,
+limitations and concise methods decision. No live runner, source/extraction
+authority or G2 promotion is created. Complete historical exposure remains
+blocked even though the persisted-file audit is reproducible.
+
 The role-separated panel recommends preparing a separately frozen historical
 official-index route, with future-edition monitoring retained as redundancy.
 The exact inactive metadata request, fixed window, limits, unchanged concordance
@@ -106,9 +116,9 @@ rules, advisory dissent and execution prerequisites are bound in
 `data/methods/g2/G2HISTORICAL-PROPOSAL-20260830-01/design/reference-manifest.sha256`.
 See `docs/methods/g2-historical-route-plan-2026-08-30.md` and
 `docs/governance/g2-historical-route-options-2026-08-30.md`.
-No candidate or complete current exposure freeze is established. JSON/JSONL
-exposure normalization and historical evaluator/source-role interlocks remain
-repository-owned preparation work. No execution approval is requested against
+No candidate or complete current exposure freeze is established. Persisted
+JSON/JSONL normalization and the offline evaluator are implemented; complete
+exposure and source-role interlocks remain unresolved. No execution approval is requested against
 missing bindings; no publisher request, extraction, rights clearance or G2
 promotion occurred. Existing failed lineages and monitor contracts are unchanged.
 

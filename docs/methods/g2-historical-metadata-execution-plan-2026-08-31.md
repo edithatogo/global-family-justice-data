@@ -10,8 +10,13 @@ Supports WI-G2-04/07; no gate or maturity acceptance.
   the unmodified receipt and attempt marker. No result URLs or sources opened.
 - [x] Separate network-prohibited advisory review of the receipt, scope,
   exposure and next options; no failed evidence repair or retry.
-- [~] Index the outcome in Conductor, validate, commit and deliver via checked
-  PR with signed history; leave G2 and source-stage authority unchanged.
+- [x] Index the outcome and lifecycle checks (`c0179d3`), complete `autonomy-full`
+  and deliver through PR #132 with signed history. Merge/check status is
+  verified in GitHub; G2 and source-stage authority remain unchanged.
+
+Closeout: 558 tests passed both with coverage and without; 78.58% branch-aware
+coverage. Integration, restore, deterministic package/rehearsal-release and
+autonomy verification passed. All 17 hosted checks passed on `c0179d3`.
 
 Any contract or transport failure terminates this lineage. A successful result
 is metadata hypotheses only. No automatic successor or external request is

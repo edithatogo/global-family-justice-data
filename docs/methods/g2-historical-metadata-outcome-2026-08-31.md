@@ -92,6 +92,12 @@ that correction and is not claimed as a completed check.
 
 ## Next step
 
+Validation on `c0179d3`: full `autonomy-full` exited 0; 558 tests passed in both
+coverage and plain runs, 78.58% branch-aware coverage, integration/restore,
+deterministic package and rehearsal-release checks, and autonomy verification.
+All 17 hosted checks passed on that head. PR #132 preserves the signed history.
+The final documentation-only closeout retains all frozen and outcome digests.
+
 Repository-only schema-contract preparation is possible; any external schema
 discovery or successor request needs separate authorization. G2 remains 9/13,
 C04/C07 and WI-G2-04/07 remain in review, and M06 remains below L2.

@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "preserved_on": "2026-08-30",
+  "scope": "Five completed metadata monitor observations; not source response preservation or candidate acceptance.",
+  "provenance": "Downloaded hosted artifacts matched prior downloads byte-for-byte. Archive hashes are provider-reported; this index binds extracted files at preservation time. Historical receipts remain unchanged.",
+  "runs": [
+    {
+      "run_id": "33288135681-1",
+      "outcome": "monitor_no_candidates",
+      "artifact_id": 9725100973,
+      "artifact_name": "g2-future-manifest-monitor-33288135681-1",
+      "provider_reported_archive_sha256": "1b11581777166047af4fb8101e0d887f437df111d5998e23dcdf0a2eaf568235",
+      "files": {
+        "receipt.json": {
+          "path": "data/methods/g2/G2FUTURE-EDITION-MONITOR-20260829-01/execution/run-33288135681-1/receipt.json",
+          "bytes": 2004,
+          "sha256": "d1156e603ddac6351fc9d741b94d1912297500ed5336a810657e4c6c0f9d4800"
+        },
+        "exposure-ledger.jsonl": {
+          "path": "data/methods/g2/G2FUTURE-EDITION-CANONICAL-20260829-01/execution/exposure-ledger.jsonl",
+          "bytes": 666996,
+          "sha256": "e939b55e474816c8ac2dd6608f336e0dd22cfa66661ab0298fbde5ebb1bd60ad"
+        },
+        "novel-exposure-ledger.jsonl": {
+          "path": "data/methods/g2/monitor-preservation/empty-exposure-ledger.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "run_id": "33288139446-1",
+      "outcome": "monitor_no_candidates",
+      "artifact_id": 9725087753,
+      "artifact_name": "g2-official-publication-feed-monitor-33288139446-1",
+      "provider_reported_archive_sha256": "b5260de144cd67ca9597df793c73313e96e972c0ea8422128aa549e5c7ea5ec5",
+      "files": {
+        "receipt.json": {
+          "path": "data/methods/g2/G2FUTURE-OFFICIAL-FEED-20260829-01/execution/run-33288139446-1/receipt.json",
+          "bytes": 1406,
+          "sha256": "19257437e317377de83c1eabeb27a0e88f661138c13a88dfd27498e4658e3fcd"
+        },
+        "exposure-ledger.jsonl": {
+          "path": "data/methods/g2/monitor-preservation/empty-exposure-ledger.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "novel-exposure-ledger.jsonl": {
+          "path": "data/methods/g2/monitor-preservation/empty-exposure-ledger.jsonl",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    {
+      "run_id": "33288140850-1",
+      "outcome": "monitor_no_update",
+      "artifact_id": 9725088935,
+      "artifact_name": "g2-statcan-family-law-metadata-33288140850-1",
+      "provider_reported_archive_sha256": "3b7ea3a9e92833fb72e399d22e4733269287f51c4c9fcfb77e6e95adce27049d",
+      "files": {
+        "receipt.json": {
+          "path": "data/methods/g2/G2FUTURE-STATCAN-METADATA-20260829-01/execution/run-33288140850-1/receipt.json",
+          "bytes": 949,
+          "sha256": "110b0d44c57772dc495cd97a922ea86ea729b19ad6e50400cc3305f74e0e7c17"
+        },
+        "observations.json": {
+          "path": "data/methods/g2/G2FUTURE-STATCAN-METADATA-20260829-01/execution/run-33288140850-1/observations.json",
+          "bytes": 1053,
+          "sha256": "03907633a06fa45e800298e04c11fb1c8cf854014057607f3bb646148c4597af"
+        }
+      },
+      "original_receipt_binds_observations_digest": false
+    },
+    {
+      "run_id": "33288142864-1",
+      "outcome": "baseline_unchanged",
+      "artifact_id": 9725089205,
+      "artifact_name": "g2-nz-justice-index-33288142864-1",
+      "provider_reported_archive_sha256": "b0e8130c37a3495a5e4e5b919809ea777db960e987452ac76e3ac0187bbabca9",
+      "files": {
+        "receipt.json": {
+          "path": "data/methods/g2/G2FUTURE-NZ-JUSTICE-INDEX-20260829-01/execution/run-33288142864-1/receipt.json",
+          "bytes": 1360,
+          "sha256": "b7016dd8ba3265a3cee745630f82ace1406ec7f127bd38f1d767bf84b3762108"
+        }
+      }
+    },
+    {
+      "run_id": "33288144647-1",
+      "outcome": "baseline_unchanged",
+      "artifact_id": 9725089503,
+      "artifact_name": "g2-uk-family-calendar-33288144647-1",
+      "provider_reported_archive_sha256": "624686ff17cb890c241e0bcd5b0518bea245783d449bae6287284b648d0e7ecb",
+      "files": {
+        "receipt.json": {
+          "path": "data/methods/g2/G2FUTURE-UK-FAMILY-CALENDAR-20260829-01/execution/run-33288144647-1/receipt.json",
+          "bytes": 1004,
+          "sha256": "e38b413e4f0b20bb4bd735b498c619ad91c94ee2f09a712ba5102626b6c1f556"
+        }
+      }
+    }
+  ]
+}

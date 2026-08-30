@@ -54,3 +54,47 @@ def test_preserved_novelty_matches_original_receipt(project_root: Path) -> None:
     successor = json.loads((root / SUCCESSOR / "receipt.json").read_text(encoding="utf-8"))
     assert successor["status"] == "complete"
     assert successor["summary"]["novel_exposure_count"] == 0
+
+
+@pytest.mark.parametrize(
+    "run_id", ["33288135681-1", "33288139446-1", "33288140850-1", "33288142864-1", "33288144647-1"]
+)
+def test_additional_monitor_evidence_is_durably_bound(project_root: Path, run_id: str) -> None:
+    index = json.loads(
+        (project_root / "data/methods/g2/monitor-preservation-2026-08-30.json").read_text()
+    )
+    assert index["schema_version"] == "1.0"
+    assert len(index["runs"]) == 5
+    entry = next(row for row in index["runs"] if row["run_id"] == run_id)
+    files = {}
+    for name, binding in entry["files"].items():
+        path = project_root / binding["path"]
+        assert path.resolve().is_relative_to(project_root.resolve())
+        payload = path.read_bytes()
+        assert len(payload) == binding["bytes"]
+        assert hashlib.sha256(payload).hexdigest() == binding["sha256"]
+        files[name] = payload
+    receipt = json.loads(files["receipt.json"])
+    assert receipt["run_id"] == run_id
+    assert receipt["source_commit"] == "faf520e75c059490690e7b3368b0a2e9f69dc9f2"
+    assert receipt["status"] == "complete"
+    assert all(value is False for value in receipt["boundary"].values())
+    assert receipt["summary"]["outcome"] == entry["outcome"]
+    if "exposure-ledger.jsonl" in files:
+        ledger = files["exposure-ledger.jsonl"]
+        novel = files["novel-exposure-ledger.jsonl"]
+        assert hashlib.sha256(ledger).hexdigest() == receipt["exposure_ledger_sha256"]
+        assert len(ledger.splitlines()) == receipt["summary"]["observed_locator_count"]
+        assert novel == b""
+        assert (
+            hashlib.sha256(novel).hexdigest() == receipt["summary"]["novel_exposure_ledger_sha256"]
+        )
+        assert receipt["summary"]["novel_exposure_count"] == 0
+    if "observations.json" in files:
+        observations = json.loads(files["observations.json"])
+        assert len(observations) == receipt["summary"]["observed_product_count"] == 4
+        assert all(row["post_cutoff_update"] is False for row in observations)
+        assert receipt["summary"]["eligibility_established"] is False
+        assert entry["original_receipt_binds_observations_digest"] is False
+    if "observation" in receipt:
+        assert receipt["summary"]["candidate_eligibility"] is False

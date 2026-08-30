@@ -8,8 +8,9 @@ it is not a renewed metadata-request or source-access authorization.
 - [x] Run plan-first bootstrap discovery without applying remote changes.
 - [x] Read official API documentation, parameter parser, presenters and field
   definitions at pinned upstream commit `a6b92bc1dc36b1081835f44a10eaecf18f651a32`.
-- [ ] Record precise claims, limitations and digest references; obtain separate
-  network-disabled advisory review.
+- [x] Record precise claims, limitations and digest references (`3b00b82`);
+  separate network-disabled advisory review found no blocking issue. Clarify
+  statistical-source versus technical-source access and index coverage limits.
 - [ ] Index the qualification in Conductor; validate, commit and submit a PR.
 
 No example query in the documentation is to be executed. No returned source

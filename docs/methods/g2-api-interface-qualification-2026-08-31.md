@@ -6,7 +6,8 @@ commit `a6b92bc1dc36b1081835f44a10eaecf18f651a32`, read on 2026-08-31 Brisbane t
 Exact document fingerprints are recorded in
 `data/methods/g2-repro/api-interface-evidence-2026-08-31.json`.
 Only technical documentation/code was read; documentation example queries were
-not executed. No court metadata query, candidate page or source file was opened.
+not executed. No court metadata query, candidate page or statistical source file
+was opened.
 
 ## Established interface facts
 
@@ -35,7 +36,8 @@ not executed. No court metadata query, candidate page or source file was opened.
    zero-based offset. The presenter obtains `total` from search hit counts.
    Therefore a single page is not complete just because it respects `count`:
    retain `start=0`, exact total/row-count equality, duplicate checks and the
-   separately frozen cap. Do not increase the project's 100-row cap merely
+   separately frozen cap. These checks concern the API result set, not proof
+   that all court publications exist in its index. Do not increase the project's 100-row cap merely
    because the API allows more. Date filtering is inclusive and assumes UTC
    without a timezone; freeze explicit boundaries rather than infer them.
    [Parameter parser](https://github.com/alphagov/search-api/blob/a6b92bc1dc36b1081835f44a10eaecf18f651a32/lib/parameter_parser/search_parameter_parser.rb)

@@ -15,6 +15,9 @@ from .project import Project
 
 CONTEXT_FILES = (
     "AGENTS.md",
+    "docs/governance/standing-owner-direction-policy-2026-08-20.md",
+    "AUTONOMOUS_IMPLEMENTATION.md",
+    "docs/engineering/medallion-autonomous-continuation-2026-08-30.md",
     "START_HERE.md",
     "CODEX_IMPLEMENTATION_PROMPT.md",
     "IMPLEMENTATION_STATUS.md",
@@ -31,6 +34,15 @@ CONTEXT_FILES = (
 )
 CONTEXT_ARTIFACTS = ("autonomy-context.json", "autonomy-context.md")
 MAX_CONTEXT_BYTES = 512_000
+
+# Reviewed routing scopes, not authority grants. Unknown work fails closed;
+# lifecycle status alone never authorizes external execution or publication.
+REPOSITORY_IMPLEMENTATION_SCOPES = {
+    "WI-G4-MED-02": (
+        "Repository-only lineage, correction and replay implementation with synthetic tests. "
+        "No source access, acquisition, publication, rights clearance or gate acceptance."
+    ),
+}
 
 
 @dataclass(frozen=True)
@@ -206,10 +218,13 @@ def _classify_actions(
     repository_owned = []
     external = []
     for item in actions:
-        if item["status"] in {"in_review", "review", "done"}:
-            external.append(item)
+        work_id = item.get("work_item_id")
+        status = item.get("status")
+        scope = REPOSITORY_IMPLEMENTATION_SCOPES.get(work_id) if isinstance(work_id, str) else None
+        if scope and isinstance(status, str) and status in {"planned", "in_progress"}:
+            repository_owned.append({**item, "execution_scope": scope})
         else:
-            repository_owned.append(item)
+            external.append(item)
     return repository_owned, external
 
 
@@ -268,12 +283,13 @@ def _render_markdown(payload: dict[str, Any]) -> str:
     actions = payload["autonomous_queue"]
     if actions:
         lines.extend(
-            f"- `{item['work_item_id']}` [{item['track_id']}/{item['gate_id']}]: {item['title']}"
+            f"- `{item['work_item_id']}` [{item['track_id']}/{item['gate_id']}]: {item['title']}\n"
+            f"  Execution scope: {item['execution_scope']}"
             for item in actions
         )
     else:
         lines.append("- No safe repository-owned action is currently selected.")
-    lines.extend(["", "## Actions awaiting review or acceptance", ""])
+    lines.extend(["", "## Actions awaiting scope review, external authority or acceptance", ""])
     external_actions = payload["external_actions"]
     lines.extend(
         f"- `{item['work_item_id']}` [{item['track_id']}/{item['gate_id']}]: {item['title']}"

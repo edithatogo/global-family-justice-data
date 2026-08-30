@@ -27,8 +27,33 @@ contracts, strict repository validation, tests, generated-state drift, workflow 
 repository policy, lock audit, governance and data integration rehearsals,
 distribution inspection, and package/release reproducibility.
 
-Solo operation does not erase separation-of-duty requirements. The maintainer may
-prepare evidence and decision packets, but independent review, institutional
-appointments, source-rights decisions, publication, signing and governance
-acceptance remain explicit external gates. When an independent person is genuinely
-required, the autonomous loop stops with the exact artifact and decision needed.
+The repository owner is the sole accountable decision-maker. Role-separated
+agent panels provide advice, not an additional human approval gate or independent
+assurance. Follow the standing-owner direction in
+`docs/governance/standing-owner-direction-policy-2026-08-20.md`: routine planning,
+implementation, validation, signed repository commits, PRs, passing merges and
+routine branch cleanup do not require repeated approval. Actual source facts,
+rights clearance, publication and programme acceptance remain separate.
+
+## Continue without a prompt per slice
+
+Use `docs/engineering/medallion-autonomous-continuation-2026-08-30.md` as the
+ordered remaining plan. During an active run, continue after each coherent
+implementation and merge checkpoint to the next eligible repository-owned task.
+If one item needs evidence or authority, preserve its blocked state and continue
+another eligible item without relaxing dependencies. Group genuine owner
+decisions and include a recommendation and contingency.
+
+The resume packet carries an explicit `execution_scope` for every executable
+queue item. The reviewed registry in `gfjd.autonomy` defaults unknown work to
+scope review. A planned status or reassuring task title is not authorization;
+in particular, WI-G4-MED-04 publication is not automatically executable.
+New repository-only scopes can be added through normal tested review under the
+standing policy, not by treating this registry as a new grant of authority.
+
+The context builder is not a background agent or scheduler. It cannot continue
+after a session ends without a supported continuation mechanism. An explicitly
+requested thread heartbeat can resume this queue later, must avoid concurrent
+writers, and must preserve all scope and stop rules. Existing monitor-evidence
+preservation automation is separate and does not authorise implementation or
+source access beyond its own recorded remit.

@@ -149,12 +149,18 @@ def test_capture_is_one_shot_with_fake_transport(
         },
     )
     calls = []
+    git_calls = []
+
+    def fake_git(args, **kwargs):
+        git_calls.append(args)
+        return SimpleNamespace(
+            stdout=authority_path.read_bytes() if args[1] == "show" else b"", returncode=0
+        )
+
     monkeypatch.setattr(
         module.subprocess,
         "run",
-        lambda args, **kwargs: SimpleNamespace(
-            stdout=authority_path.read_bytes() if args[1] == "show" else b"", returncode=0
-        ),
+        fake_git,
     )
     monkeypatch.setattr(module, "resolve_public_addresses", lambda host: ("93.184.216.34",))
 
@@ -194,6 +200,9 @@ def test_capture_is_one_shot_with_fake_transport(
     monkeypatch.setattr(module, "PeerBoundHTTPSConnection", Connection)
     result = module.capture(tmp_path, bundle_path, "authority.json", "a" * 40)
     assert len(calls) == 1
+    assert "gpg.format=ssh" in git_calls[0]
+    assert "gpg.ssh.program=ssh-keygen" in git_calls[0]
+    assert "gpg.ssh.allowedSignersFile=" + str(tmp_path / module.SIGNERS_PATH) in git_calls[0]
     assert result["status"] == ("terminal_stop" if failure else "metadata_hypotheses_only")
     if failure in {"list", "object", "null", "surrogate", "timestamp_overflow"}:
         assert len(result["observations"]) == 2

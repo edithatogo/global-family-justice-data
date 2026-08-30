@@ -41,7 +41,13 @@ source-rights clearance, execution authorization or G2 acceptance.
 ## Exact next decision
 
 Bundle: `data/methods/g2-repro/metadata-bundle-2026-08-30.json`.
-SHA-256: `9e735b2448922d036d5f203497ba022e4bf61cd766308fcc8870e075134ce5ff`.
+SHA-256: `e166ea3785521bdcf1802bdc005383af40f054a1c349871d313c91e963107004`.
+
+PR #131 automated review additionally required deterministic owner-signer trust.
+The existing repository SSH allowed-signers policy is now digest-bound and
+explicitly selected by the verifier, overriding ambient Git signer settings.
+Fake-transport tests assert the exact configuration. This prospective bundle
+revision precedes any execution; it does not repair an attempted lineage.
 
 > I authorize the one exact metadata request in this bound bundle. No retries,
 > returned-URL access, source access, extraction, publication, release or G2

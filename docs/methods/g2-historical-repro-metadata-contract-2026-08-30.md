@@ -60,6 +60,9 @@ Execution adds `--authority-path` and `--authority-commit` only after the owner
 approves this exact bundle. The authority file must be byte-identical to the
 file in that verified signed commit and contain `metadata_request_authorized:
 true` plus the exact `bundle_sha256`. Preparation cannot supply this authority.
+Verification explicitly selects SSH, `ssh-keygen` and the absolute repository
+`config/ssh_allowed_signers` path. That existing owner-signer policy is bound in
+the bundle; ambient Git signer settings cannot expand its trusted signer set.
 An exclusive attempt marker and execution directory prevent a second attempt;
 transport pins a validated public address and verifies the peer before TLS/body
 processing. Redirects and non-JSON/non-200 responses stop.

@@ -34,11 +34,13 @@ CLAIM = "bounded_reproducibility_exposure_uncertain_not_project_unseen"
 AUDIT_PATH = "data/methods/g2-audits/historical-persisted-exposure-2026-08-30.json"
 PROPOSAL_PATH = "data/methods/g2/G2HISTORICAL-PROPOSAL-20260830-01/design/proposal.json"
 POLICY_PATH = "docs/governance/g2-historical-repro-policy-owner-decision-2026-08-30.md"
+SIGNERS_PATH = "config/ssh_allowed_signers"
 REQUIRED_BINDINGS = frozenset(
     {
         AUDIT_PATH,
         PROPOSAL_PATH,
         POLICY_PATH,
+        SIGNERS_PATH,
         "src/gfjd/g2_historical_repro.py",
         "src/gfjd/g2_historical_controls.py",
         "src/gfjd/g2_future_exposure.py",
@@ -202,7 +204,20 @@ def capture(
         raise HistoricalControlError("immutable authority commit required")
     authority_bytes = _confined(root, authority_path).read_bytes()
     subprocess.run(
-        ["git", "verify-commit", authority_commit], cwd=root, check=True, capture_output=True
+        [
+            "git",
+            "-c",
+            "gpg.format=ssh",
+            "-c",
+            "gpg.ssh.program=ssh-keygen",
+            "-c",
+            "gpg.ssh.allowedSignersFile=" + str(_confined(root, SIGNERS_PATH).resolve()),
+            "verify-commit",
+            authority_commit,
+        ],
+        cwd=root,
+        check=True,
+        capture_output=True,
     )
     committed = subprocess.run(
         ["git", "show", f"{authority_commit}:{authority_path}"],

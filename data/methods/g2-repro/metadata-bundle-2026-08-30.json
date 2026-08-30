@@ -18,6 +18,10 @@
   },
   "bindings": [
     {
+      "path": "config/ssh_allowed_signers",
+      "sha256": "83792585627a995eb16dcef065a99887f9e5fc2a00e682044b7082ab839db3da"
+    },
+    {
       "path": "data/methods/g2-audits/historical-persisted-exposure-2026-08-30.json",
       "sha256": "ae6700dea7436688486d2389ec79c45a6886ba9bba29397dce2b6990fb493b18"
     },
@@ -31,7 +35,7 @@
     },
     {
       "path": "src/gfjd/g2_historical_repro.py",
-      "sha256": "6754fa594790b55e891012cd8a1925640380e9fd96d1328be82c5f71ddbdb69b"
+      "sha256": "22515f465f47a6d83bb55895bafc6c03d845a78f21cb2023eb248223b2c55790"
     },
     {
       "path": "src/gfjd/g2_historical_controls.py",
@@ -51,11 +55,11 @@
     },
     {
       "path": "tests/test_g2_historical_repro.py",
-      "sha256": "44241d6fa5cba51c7048e2ffcd0675cbd1f6e058ea6e228287d2b61f87ec4940"
+      "sha256": "44a8aa64589af2363894a5ee22aa4e8d1998d21210ada9e86400a8c7b00ca1a7"
     },
     {
       "path": "docs/methods/g2-historical-repro-metadata-contract-2026-08-30.md",
-      "sha256": "8360e36a3be836c3f83ded96fac55ff69fd4ce96dc4e2f2dd78c43e4d4b6bc0d"
+      "sha256": "049c18bb1eccfa9aab5c236aeb2d3c1eb5adea36233d7773f612cda3a827c071"
     }
   ]
 }

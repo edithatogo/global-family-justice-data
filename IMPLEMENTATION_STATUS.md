@@ -40,6 +40,8 @@ in review; exact source-stage preparation depends on metadata-stage evidence.
 Full local `autonomy-full` passed on `afc43a7`: 556 tests in both runs, 78.56%
 branch-aware coverage, integration/restore and deterministic package/release
 rehearsals. PR #131 carries the signed preparation and Conductor records.
+PR review subsequently pinned the existing owner SSH signer policy in the
+bundle and verifier; 28 focused regression tests pass after that correction.
 
 ### Continuation — 2026-08-30 medallion validator prerequisite
 

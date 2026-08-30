@@ -1,0 +1,66 @@
+# Medallion autonomous continuation
+
+Status: in progress; repository-owned execution preparation, not gate acceptance.
+
+## Immediate prerequisite
+
+- [~] Replace status-only autonomous execution classification with explicit
+  repository-only work scopes; unclassified and acceptance-bearing work must
+  remain outside the executable queue.
+- [ ] Bind this continuation plan and the standing-owner policy into resume
+  packets; align the operator guidance with sole-owner decision rights.
+- [ ] Validate, review, commit, check hosted CI, merge and clean the local branch.
+
+The inspected resume packet incorrectly put WI-G4-MED-04 (public Hugging Face
+publication) into the repository-owned queue because it was planned. This is
+a preparation-control defect, not evidence of an unauthorised publication.
+
+## Ordered remaining queue
+
+1. WI-G4-MED-02: implement and test append-only correction history, explicit
+   valid/recorded intervals, acyclic supersession and deterministic partition
+   replay. Begin with conspicuously synthetic fixtures, never failed G2 outputs.
+2. WI-G4-MED-02: integrate verified B0 custody/safety bindings with source-faithful
+   B1 and reviewed Silver rebuilds. Implement local contracts and fixtures first;
+   actual source access must match an existing bounded authorisation or wait.
+3. WI-G4-MED-03: prepare independent per-layer qualification and quarantine
+   checks. Respect Conductor dependencies; preparation is not acceptance.
+4. WI-G4-MED-04/05: prepare estate manifests, federation metadata and dry-run
+   verification. Public writes and cross-repository changes require their exact
+   applicable authority and cannot be inferred from a planned work item.
+5. WI-G5-MED-01/02/03: prepare restore, lifecycle and safety rehearsals as their
+   dependencies allow. Actual remote execution and factual completion remain
+   separately evidenced. G6 publication remains gated.
+
+## Execution recommendation and alternatives
+
+Recommended: continue through safe repository-owned slices during an active
+run, with focused tests while iterating and full validation at coherent phase
+boundaries. Complete the signed-commit, PR, exact-head CI, review and merge
+cycle under standing direction. Refresh the resume packet and select the next
+eligible action; a merge is not itself a reason to ask for another prompt.
+
+One-PR-per-prompt operation is simple but adds owner overhead. Unrestricted
+autonomous publication would reduce pauses but exceeds the existing authority
+and is not an option this plan enables. Scheduled continuation could resume the
+same bounded queue between sessions; this plan is not a scheduler and does not
+claim that such an implementation schedule is active.
+
+## Contingencies and stop rules
+
+- Preserve unrelated work; do not run competing writers in the same checkout.
+- If an item needs external facts or authority, record the precise missing
+  input and continue any other eligible repository-owned item without relaxing
+  dependencies or reclassifying the blocked item as complete.
+- Group genuine owner decisions, with recommendation, trade-offs and fallback.
+  Do not request approval for routine artifact hashes, tests or advisory input.
+- Agent panels advise; the owner alone accepts governance decisions. No agent
+  output creates source facts, rights clearance or independent assurance.
+- Failed bounded G2 lineages remain terminal; never restart them as ordinary
+  engineering retries. Existing monitor authorisations remain unchanged.
+- Pause when no authorised work remains, validation cannot be repaired within
+  the workflow limits, or a material authority/scope boundary is reached.
+
+The explicit execution-scope registry is a conservative routing control, not
+new authority. Adding an entry requires review against the work item and current
+owner policy. Status and a title containing reassuring words are insufficient.

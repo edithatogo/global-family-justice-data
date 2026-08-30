@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "proposal_id": "G2HISTORICAL-PROPOSAL-20260830-01",
+  "status": "repository_only_design_not_execution_packet",
+  "execution_ready": false,
+  "metadata_request_proposal": {
+    "method": "GET",
+    "endpoint": "https://www.gov.uk/api/search.json?count=100&fields=format&fields=link&fields=public_timestamp&fields=title&filter_format=national_statistics&filter_format=official_statistics&filter_part_of_taxonomy_tree=fae66b20-eacd-4a41-a417-81cae5fa4b8c&filter_public_timestamp=from%3A2024-01-01%2000%3A00%3A00&order=public_timestamp&start=0",
+    "derived_from": "config/g2_official_publication_feed_monitor.json",
+    "derivation": "Replace only the from timestamp with 2024-01-01 00:00:00; retain the exact official host/path, taxonomy, formats, count, fields and ordering. This URL has not been requested.",
+    "request_count": 1,
+    "retries": 0,
+    "redirects": false,
+    "pagination": false,
+    "maximum_response_bytes": 2097152,
+    "maximum_results": 100,
+    "timeout_seconds": 120,
+    "complete_enumeration_required": true,
+    "free_text_search": false
+  },
+  "local_metadata_window": {
+    "timestamp_field": "public_timestamp",
+    "from_inclusive": "2024-01-01T00:00:00Z",
+    "to_exclusive": "2026-08-29T05:17:40Z",
+    "meaning": "Publisher index timestamp only, not proof of first edition publication. Out-of-window results remain exposure; the response is never truncated to force eligibility."
+  },
+  "prospective_eligibility": {
+    "minimum_hypotheses": 2,
+    "maximum_selected_editions": 4,
+    "order": ["public_timestamp ascending", "canonical locator ascending"],
+    "pre_freeze_exposure_overlap_permitted": false,
+    "failed_cohort_or_output_reuse": false,
+    "current_lineage_registrar_observations": "Eligible for evaluation within this lineage only if absent from the complete pre-freeze exposure set; permanent exposure in every later lineage.",
+    "title_or_snippet_persistence": false,
+    "source_content_selection": false,
+    "claim": "Metadata hypotheses only. Exact edition identity, pilot-scope alignment and source-stage authority must be established before extraction."
+  },
+  "future_execution_invariants": {
+    "critical_concordance_percent": 100,
+    "populated_concordance_percent_minimum": 99,
+    "fresh_artifact_isolated_extractors": 2,
+    "network_disabled_exact_comparator": true,
+    "role_separated_advisory_review": true,
+    "hard_quarantine": true,
+    "fuzzy_matching": false,
+    "critical_waiver": false,
+    "repair_or_automatic_rerun": false,
+    "result_driven_substitution": false,
+    "owner_adjudication_after_pass": true
+  },
+  "execution_prerequisites_not_yet_satisfied": [
+    "Digest-bound complete current exposure inventory and JSON/JSONL normalization including monitor and failed partial evidence",
+    "Historical-window evaluator and complete-enumeration negative tests; existing future-only monitor must not be repurposed",
+    "Exact schemas, source-resolution/acquisition interlocks, fresh role bundles and pilot-scope alignment",
+    "Signed execution freeze and grouped exact-bound owner authorization"
+  ],
+  "stop_conditions": [
+    "Incomplete exposure coverage or any binding/canonicalization failure",
+    "Request, host, schema, response-size, count or complete-enumeration failure",
+    "Fewer than two non-overlapping metadata hypotheses",
+    "Ambiguous edition identity or unresolved compatibility with approved pilot scope",
+    "Source-access, prohibited-data, role-isolation, seal, comparator or critical-discrepancy failure"
+  ],
+  "authority": {
+    "network_access": false,
+    "source_access": false,
+    "extraction": false,
+    "rights_clearance": false,
+    "maturity_promotion": false,
+    "publication": false,
+    "release": false,
+    "g2_acceptance": false
+  }
+}

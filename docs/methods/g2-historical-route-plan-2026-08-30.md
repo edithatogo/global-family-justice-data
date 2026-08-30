@@ -30,7 +30,7 @@ It is a reference inventory, **not** the complete current exposure inventory or
 an execution freeze. The exact request is inactive and the proposal declares
 `execution_ready=false` and all external authority fields false.
 
-- [ ] Reconcile and normalize the complete current JSON/JSONL exposure chain,
+- [~] Reconcile and normalize the complete current JSON/JSONL exposure chain,
   including failed partial runs and all monitor observations, with negative tests.
 - [ ] Implement the separate historical-window metadata evaluator and immutable
   complete-enumeration/exposure receipt contract using synthetic responses.
@@ -40,6 +40,22 @@ an execution freeze. The exact request is inactive and the proposal declares
 
 No new permission is needed for the first three repository-owned preparation
 steps. External execution, source access and G2 adjudication remain gated.
+
+## Offline implementation phase — 2026-08-30
+
+Implement a separate versioned persisted-metadata inventory and historical
+response evaluator; preserve frozen snapshots and monitor contracts. Add
+negative tests for malformed JSON/JSONL, omitted/changed inputs, unsafe paths,
+incomplete enumeration, aliases, out-of-window observations and opaque exposure.
+Use synthetic response bytes only. Record repository coverage separately from
+complete historical exposure, and make all source/extraction authority false.
+
+The prior successor observed 280 results without retaining their locators.
+Normalizing persisted files cannot reconstruct these facts. The new historical
+evaluator must stop on that uncertainty regardless of discovery provider.
+Changing to an official index does not prove temporal or identity disjointness.
+Prepare a concise decision boundary rather than an executable campaign with
+an unsupported unseen claim. Baseline `make check` passed before implementation.
 
 ## Validation and advisory result
 

@@ -100,6 +100,32 @@ def _safe(root: Path, path: Path) -> None:
         raise HistoricalControlError("missing input file")
 
 
+def _verify_inventory_manifest(root: Path, actual: dict[str, str]) -> None:
+    """Anchor observed membership to the authoritative source inventory.
+
+    Check only this audit's input subtree, avoiding a circular binding to the
+    audit output elsewhere in the repository. Never regenerate the manifest.
+    """
+    path = root / "MANIFEST.sha256"
+    _safe(root, path)
+    if path.stat().st_size > MAX_FILE_BYTES:
+        raise HistoricalControlError("source manifest byte budget exceeded")
+    expected: dict[str, str] = {}
+    seen: set[str] = set()
+    for line in path.read_text(encoding="utf-8").splitlines():
+        match = re.fullmatch(r"([a-f0-9]{64})  (.+)", line)
+        if match is None or match[2] in seen:
+            raise HistoricalControlError("invalid or duplicate source manifest entry")
+        digest, relative = match.groups()
+        seen.add(relative)
+        if relative.startswith(SCOPE + "/"):
+            expected[relative] = digest
+    if not expected or expected != actual:
+        raise HistoricalControlError(
+            "metadata inventory differs from authoritative source manifest"
+        )
+
+
 def _walk(
     value: Any,
     values: dict[str, set[str]],
@@ -213,7 +239,8 @@ def audit_repository(root: Path) -> dict[str, Any]:
                 "gap_codes": sorted(file_gaps),
             }
         )
-    file_digests = {item["path"]: item["sha256"] for item in inputs}
+    file_digests = {str(item["path"]): str(item["sha256"]) for item in inputs}
+    _verify_inventory_manifest(root, file_digests)
     reference_checks = []
     for reference_path, digest in sorted(set(references)):
         if file_digests.get(reference_path) == digest:

@@ -21,7 +21,20 @@ def _input(root: Path, name: str, value: object) -> Path:
     path = root / "data/methods/g2" / name
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value), encoding="utf-8")
+    _manifest(root)
     return path
+
+
+def _manifest(root: Path) -> None:
+    paths = sorted(path for path in (root / "data/methods/g2").rglob("*") if path.is_file())
+    (root / "MANIFEST.sha256").write_text(
+        "".join(
+            f"{hashlib.sha256(path.read_bytes()).hexdigest()}  "
+            f"{path.relative_to(root).as_posix()}\n"
+            for path in paths
+        ),
+        encoding="utf-8",
+    )
 
 
 def _response(*links: str) -> bytes:
@@ -287,3 +300,29 @@ def test_timezone_equivalent_upper_cutoff_is_excluded(tmp_path: Path) -> None:
     )
     assert result["selected"] == []
     assert "fewer_than_two_metadata_hypotheses" in result["stop_reasons"]
+
+
+def test_partial_checkout_cannot_rebuild_a_valid_audit(tmp_path: Path) -> None:
+    _input(tmp_path, "kept.json", {})
+    omitted = _input(tmp_path, "omitted.json", {"url": "https://example.org/exposed"})
+    omitted.unlink()
+    with pytest.raises(HistoricalControlError, match="authoritative source manifest"):
+        audit_repository(tmp_path)
+
+
+def test_rebuilt_audit_rejects_undeclared_file_and_digest_drift(tmp_path: Path) -> None:
+    path = _input(tmp_path, "kept.json", {})
+    path.write_text('{"url":"https://example.org/changed"}')
+    with pytest.raises(HistoricalControlError, match="authoritative source manifest"):
+        audit_repository(tmp_path)
+    _manifest(tmp_path)
+    (path.parent / "undeclared.json").write_text("{}")
+    with pytest.raises(HistoricalControlError, match="authoritative source manifest"):
+        audit_repository(tmp_path)
+
+
+def test_missing_authoritative_manifest_fails_closed(tmp_path: Path) -> None:
+    _input(tmp_path, "kept.json", {})
+    (tmp_path / "MANIFEST.sha256").unlink()
+    with pytest.raises(HistoricalControlError, match="missing"):
+        audit_repository(tmp_path)

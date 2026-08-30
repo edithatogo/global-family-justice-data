@@ -1,14 +1,17 @@
 # G2 historical-edition alternative: preparation plan
 
-Status: in progress; repository-only preparation under standing owner direction.
+Status: proposal prepared; repository-only preparation under standing owner direction.
 Supports WI-G2-04 and WI-G2-07 without replacing their acceptance-bearing evidence.
 
-- [~] Compare the proposed route with failed historical frames and current
+- [x] Compare the proposed route with failed historical frames and current
   future-publication authority; obtain role-separated advisory advice.
-- [ ] Bind an exact historical metadata-request proposal, eligibility rules,
+- [x] Bind an exact historical metadata-request proposal, eligibility rules,
   budgets, stopping rules, limitations and outstanding execution prerequisites.
-- [ ] Record options and the recommended owner decision boundary; validate and
-  deliver through a signed reviewed PR without external source access.
+- [x] Record options and the recommended owner decision boundary. Proposal
+  implementation: signed commit `c7a5cea`.
+
+Delivery requires full validation, reviewed signed commits, passing exact-head
+hosted checks and verified merge. Repository readiness is not execution authority.
 
 The deliverable is a design proposal, not an executable campaign, accepted
 sample or G2 decision. No historical URL becomes unseen by changing a date rule.
@@ -18,3 +21,32 @@ The recommended route removes a calendar wait only if later authorized and if
 genuinely non-overlapping editions exist. Complete exposure normalization,
 exact role/interlock bindings and feasibility remain prerequisites. Do not ask
 the owner to approve a placeholder execution packet.
+
+## Bound deliverable and next repository-owned work
+
+`data/methods/g2/G2HISTORICAL-PROPOSAL-20260830-01/design/MANIFEST.sha256`
+binds the proposal, panel advice, options and eleven reference artifacts in total.
+It is a reference inventory, **not** the complete current exposure inventory or
+an execution freeze. The exact request is inactive and the proposal declares
+`execution_ready=false` and all external authority fields false.
+
+- [ ] Reconcile and normalize the complete current JSON/JSONL exposure chain,
+  including failed partial runs and all monitor observations, with negative tests.
+- [ ] Implement the separate historical-window metadata evaluator and immutable
+  complete-enumeration/exposure receipt contract using synthetic responses.
+- [ ] Bind prospective source-resolution, role, schema and sampling-scope
+  interlocks, or state precisely why a metadata-only first stage is required.
+- [ ] Present one exact-bound execution decision when those prerequisites pass.
+
+No new permission is needed for the first three repository-owned preparation
+steps. External execution, source access and G2 adjudication remain gated.
+
+## Validation and advisory result
+
+All eleven reference hashes verify. Offline JSON checks confirm that the exact
+proposed request differs from the existing index template only in its lower date
+filter; request/count/byte limits and all false external-authority flags hold.
+Methods and exposure reviewers re-read the completed proposal and reported no
+actionable findings. Governance advice is captured in the bound panel report.
+The pre-change full check passed all 496 tests using two file-grouped workers;
+the same test set and thresholds are retained for final phase validation.

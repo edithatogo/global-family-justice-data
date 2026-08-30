@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
-  "campaign_id": "G2FUTURE-EDITION-THREE-ROOT-20260829-01",
+  "campaign_id": "G2FUTURE-EDITION-THREE-ROOT-20260830-02",
   "status": "frozen_for_prospective_monitoring",
-  "predecessor": "G2FUTURE-EDITION-MULTIROOT-20260829-01",
+  "predecessor": "G2FUTURE-EDITION-THREE-ROOT-20260829-01",
   "exposure_cutoff": "2026-08-29T05:17:40Z",
   "allowed_locator_hosts": [
     "courts.ca.gov",
@@ -11,7 +11,8 @@
   ],
   "cumulative_exposure_ledgers": [
     "data/methods/g2/G2FUTURE-EDITION-MULTIROOT-20260829-01/execution-control/baseline-exposure-ledger.jsonl",
-    "data/methods/g2/G2FUTURE-EDITION-MULTIROOT-20260829-01/execution/run-33240864641-1/exposure-ledger.jsonl"
+    "data/methods/g2/G2FUTURE-EDITION-MULTIROOT-20260829-01/execution/run-33240864641-1/exposure-ledger.jsonl",
+    "data/methods/g2/G2FUTURE-EDITION-THREE-ROOT-20260829-01/execution/run-33288137424-1/novel-exposure-ledger.jsonl"
   ],
   "ordered_endpoints": [
     "https://courts.ca.gov/sitemap.xml",

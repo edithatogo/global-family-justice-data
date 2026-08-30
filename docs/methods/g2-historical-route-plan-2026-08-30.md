@@ -50,3 +50,10 @@ Methods and exposure reviewers re-read the completed proposal and reported no
 actionable findings. Governance advice is captured in the bound panel report.
 The pre-change full check passed all 496 tests using two file-grouped workers;
 the same test set and thresholds are retained for final phase validation.
+
+## Review fix
+
+- [x] `424ec97`: name the eleven-file binding `reference-manifest.sha256` so the
+  root source inventory includes it. The root inventory excludes files named
+  `MANIFEST.sha256`; avoiding that reserved name preserves packaging coverage.
+  The reference contents and digest are unchanged.

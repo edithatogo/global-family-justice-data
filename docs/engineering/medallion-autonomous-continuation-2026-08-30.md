@@ -1,6 +1,8 @@
 # Medallion autonomous continuation
 
-Status: in progress; repository-owned execution preparation, not gate acceptance.
+Status: implementation complete; repository-owned execution preparation, not gate
+acceptance. Validation and delivery are tracked by the exact-head checks and
+merge state of [PR #127](https://github.com/edithatogo/global-family-justice-data/pull/127).
 
 ## Immediate prerequisite
 
@@ -9,7 +11,10 @@ Status: in progress; repository-owned execution preparation, not gate acceptance
   remain outside the executable queue.
 - [x] Bind this continuation plan and the standing-owner policy into resume
   packets; align the operator guidance with sole-owner decision rights.
-- [ ] Validate, review, commit, check hosted CI, merge and clean the local branch.
+
+Delivery requires full local validation, reviewed signed commits, passing
+exact-head hosted checks and verified merge before local branch cleanup. The
+linked PR is the delivery record; this document does not assert a future merge.
 
 The inspected resume packet incorrectly put WI-G4-MED-04 (public Hugging Face
 publication) into the repository-owned queue because it was planned. This is

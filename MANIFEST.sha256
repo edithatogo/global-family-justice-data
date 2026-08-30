@@ -549,7 +549,7 @@ ed231dbef8081e8b343b3613d22daf4a0148ce450fb450e3ac91efb1201884e0  docs/methods/d
 8f0d4ee1862e96bdfba8fd2fb794a0fbe41a1515524cd2752aa4a8fb910d261c  docs/methods/g2-agent-blinded-known-edition-terminal-stop-2026-08-25.md
 5fa3fef05cc816cb6378811b1b524bec9c82ab4f006bc1581ddc8b471aae34c1  docs/methods/g2-agent-panel-reextraction-control-2026-08-03.md
 3cff0659e13beab8e149e2929678c2b72f22a030bf6f58a4803d9d5c3a2a0210  docs/methods/g2-api-interface-qualification-2026-08-31.md
-3411b41724facb79a1aa985942216a38f5a2f1705062c77809c6b612733bbefe  docs/methods/g2-api-qualification-plan-2026-08-31.md
+b2a915a409cd80855640d59505606adc1b4e90f579c7a0ae28a50b02c7641d85  docs/methods/g2-api-qualification-plan-2026-08-31.md
 531ca660c5461b0f4e14f3be845fd8aa9ffe7058cbda7321e3b5caa8fa1675d0  docs/methods/g2-atomic-field-contract-plan-2026-08-26.md
 c43887e8bf63fb43924d8ce95921a6254b4bc6c9b5a1a307487c38fc4953ddf8  docs/methods/g2-atomic-two-row-predelegation-terminal-evidence-2026-08-27.md
 ca8c0c43730a3901f269012b115b1d13ad2c34b22e3aa85fd45cad4a856ffe26  docs/methods/g2-atomic-two-row-successor-terminal-evidence-2026-08-27.md
@@ -669,7 +669,7 @@ bde4486924cc085d6d6479352f30aeb90da5abf588c14d9d28473d6efcb107f4  docs/preservat
 4e7f0947a8a3bc38b436d6b5683c62b6f0ecbb3dc262b2c212d2063eed5b1240  docs/programme/benefits-and-harms-evaluation.md
 b10515baf6f547477e43280229edc5432a0c93f1426fa52fbec5b4284727a75d  docs/programme/control-gap-dependency-audit-2026-08-16.md
 6bdd1bfd7f904ae06f5ddfe8248962a24dfc5a1426108ce2c0ddfa15aa3346db  docs/programme/generated/programme-graph.mmd
-0136fb1b2e80e8e4e02eecc21ae944fae0b74a1208628b8c8f9b8203a44b36a5  docs/programme/generated/status.md
+8e0f65dc4ccbc5a05aeb1f3ed0963aa26b8b29ca8a7275cc23aa579408e8cc35  docs/programme/generated/status.md
 5f44f2a64e49c3ac616f5dd456061d9c00bdbdfc09e218bab6fab36852109465  docs/programme/maximal-public-medallion-federation-plan-2026-08-26.md
 0ad9141ba5324d51875c18319afa3a40b05e5e15bf8603d439f10f4bd45e7576  docs/programme/milestone-scorecard-template.md
 7621ecf6f91cfd2c12f14ee44289d9e8a9c26f1273061e9517c16c7a574afe8d  docs/programme/risk-register.md

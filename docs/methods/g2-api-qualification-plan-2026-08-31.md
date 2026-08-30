@@ -11,7 +11,15 @@ it is not a renewed metadata-request or source-access authorization.
 - [x] Record precise claims, limitations and digest references (`3b00b82`);
   separate network-disabled advisory review found no blocking issue. Clarify
   statistical-source versus technical-source access and index coverage limits.
-- [ ] Index the qualification in Conductor; validate, commit and submit a PR.
+- [x] Index the qualification in Conductor (`3b00b82`), commit and submit PR #134.
+- [ ] Complete stable-head local and hosted validation before merging PR #134.
+
+Validation corrections: an initial deterministic-build test observed the
+orchestrator committing between builds (`3b00b82` versus `ad63be7` source_revision).
+No test was waived; further runs use an unchanged checkout. The second run
+passed all 597 tests twice (78.78% coverage), then correctly rejected a stale
+generated Conductor status after the evidence-register addition. Regenerate
+the status and manifest, then rerun the full gate; neither failed run is a pass.
 
 No example query in the documentation is to be executed. No returned source
 locator is opened. Technical documentation access is not candidate discovery.

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "decision_id": "D-G2-HISTORICAL-METADATA-EXECUTION-20260831",
+  "campaign_id": "G2HISTORICAL-REPRO-METADATA-20260830-01",
+  "owner_role": "sole repository owner and accountable decision-maker",
+  "owner_account": "edithatogo",
+  "recorded_date_local": "2026-08-31",
+  "timezone": "Australia/Brisbane",
+  "owner_statement": "I authorize the one bound metadata request, with no retries, returned-URL access, source access, extraction, publication, release or G2 acceptance.",
+  "predecision_commit": "ed7a892c12b98f12b699cd372ab40d197cb1992d",
+  "bundle_path": "data/methods/g2-repro/metadata-bundle-2026-08-30.json",
+  "bundle_sha256": "e166ea3785521bdcf1802bdc005383af40f054a1c349871d313c91e963107004",
+  "metadata_request_authorized": true,
+  "requests": 1,
+  "retries": 0,
+  "returned_url_access": false,
+  "source_access": false,
+  "extraction": false,
+  "publication": false,
+  "release": false,
+  "g2_acceptance": false,
+  "record_type": "actual owner statement recorded with repository commit provenance; not an agent-created owner decision"
+}

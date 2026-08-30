@@ -93,6 +93,7 @@ c53248f7c5809719e7bb231b36218c9a1f134f933ff5176f007ca8c456dae69d  config/workflo
 06370c4b17f019e72b27d93ac97ebd0b731d6283ee6753e9d2a864a4ac373af6  data/census/search_log.csv
 ff2225046414cf9052b8216d3831cad55b5987fa3641e3a3ba99a512b8a7ceb8  data/gold/README.md
 ae6700dea7436688486d2389ec79c45a6886ba9bba29397dce2b6990fb493b18  data/methods/g2-audits/historical-persisted-exposure-2026-08-30.json
+cdeda4e778e323186b5f8682eba2b2c4e51f22a29614e8b0f432c90c0065098e  data/methods/g2-repro/metadata-authority-2026-08-31.json
 e166ea3785521bdcf1802bdc005383af40f054a1c349871d313c91e963107004  data/methods/g2-repro/metadata-bundle-2026-08-30.json
 02b975257f3254b8152cf801694df5b2e11656ba5f3cf04927dfdfccbe629948  data/methods/g2/G2API-BRA-TJSP-20260822-01/packet.json
 d50f18a2420977ceb9886ac1342c4225a910e946f2657df0c40da3851d325fd3  data/methods/g2/G2ATOMIC-FIELD-CONTRACT-20260826-01/contract.json
@@ -558,6 +559,7 @@ d14dccdccaf601684209b103b238a44a86a7fa6df6a7a93a5014e31c500c8eeb  docs/methods/g
 20c9a76bfdefb21902bdf20b2f491645e5233c474888e31dd2582e80da3c44b7  docs/methods/g2-four-edition-pre-extraction-assessment-2026-08-21.md
 47144211d887f0a06970c14b419f36dc75ede869fcf9e7de8aefd0d073eb11aa  docs/methods/g2-future-edition-manifest-registration-stop-2026-08-29.md
 0e70bc5b1f07f53d8ce28e0de61887c3c450730e4f761a0f72801eb0d74a9059  docs/methods/g2-historical-controls-evidence-2026-08-30.md
+fd814a676e22d375ce725a152d40b0bbc33284493aa9fd3a30a783f2c1ac8fea  docs/methods/g2-historical-metadata-execution-plan-2026-08-31.md
 d4b4ba888cb8df481c882da430d131f72a357b9a998d58e7fac2eb4e4a5e81c0  docs/methods/g2-historical-repro-advisory-2026-08-30.md
 049c18bb1eccfa9aab5c236aeb2d3c1eb5adea36233d7773f612cda3a827c071  docs/methods/g2-historical-repro-metadata-contract-2026-08-30.md
 54ae54edb0280b85e70a2899ba35b71ae8bc8f1d4be55afee40d871e3e51698f  docs/methods/g2-historical-repro-preparation-plan-2026-08-30.md

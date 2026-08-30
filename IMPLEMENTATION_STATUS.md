@@ -6,6 +6,26 @@
 
 This repository is a bootstrap-ready engineering and programme-control baseline. It is not a completed international family-justice dataset and is not the stable v1.0 service.
 
+## Continuation ledger — 2026-08-30 monitor preservation
+
+- Commit `c7438c7` preserves exact receipts for five additional completed metadata
+  monitor runs, four StatCan metadata observations and digest-indexed references
+  to existing identical or empty ledgers. This follows the three-root ledger
+  preservation in PR #123; it does not rewrite historical receipts.
+- Conductor evidence: `E-G2-MONITOR-RECEIPT-PRESERVATION-20260830`, still
+  `in_review`. The [preservation report](docs/methods/g2-monitor-receipt-preservation-2026-08-30.md)
+  records exact runs, provenance, options, limitations and next actions.
+- The complete local `autonomy-full` harness passed on that commit: 429 tests
+  both with coverage and without, 78.00% branch-aware coverage, integration,
+  backup/restore and deterministic package/draft-release checks. This is
+  repository validation, not G2 acceptance.
+- Preservation is bounded to the named observations, not raw-response replay or
+  all future monitoring history. The original StatCan receipt lacks a separate
+  observations-file digest; retrospective indexing does not repair that fact.
+- Continue the existing bounded monitors and retain their future receipts.
+  These five observations establish no eligible edition. G2 remains 9/13;
+  G2-C04/C07, WI-G2-04/07 and the evidence-specific L2 requirement remain open.
+
 ## Implemented and exercised
 
 | Capability | Current implementation |

@@ -39,13 +39,24 @@ def verify_layer_contract(contract: dict[str, Any]) -> list[str]:
     expected = ["b0", "b1", "silver", "gold", "platinum"]
     ids = [item.get("id") for item in layers if isinstance(item, dict)]
     ordinals = [item.get("ordinal") for item in layers if isinstance(item, dict)]
-    if ids != expected or ordinals != list(range(len(expected))):
+    if (
+        ids != expected
+        or ordinals != list(range(len(expected)))
+        or any(type(ordinal) is not int for ordinal in ordinals)
+    ):
         errors.append("layers and ordinals must be the canonical ordered sequence")
     for item in layers:
         required = item.get("required_evidence") if isinstance(item, dict) else None
-        if not isinstance(required, list) or not required or len(required) != len(set(required)):
+        if (
+            not isinstance(required, list)
+            or not required
+            or not all(isinstance(field, str) and field.strip() for field in required)
+            or len(required) != len(set(required))
+        ):
             errors.append("each layer requires unique non-empty evidence fields")
     quarantine = contract.get("quarantine", {})
+    if not isinstance(quarantine, dict):
+        return [*errors, "quarantine must be an object"]
     if quarantine.get("orthogonal") is not True:
         errors.append("quarantine must be orthogonal")
     if quarantine.get("visible_in_coverage") is not True:
@@ -72,7 +83,7 @@ def verify_layer_record(record: dict[str, Any], contract: dict[str, Any]) -> lis
         return errors
     layer_index = {item["id"]: item for item in contract["layers"]}
     layer = record.get("layer")
-    if layer not in layer_index:
+    if not isinstance(layer, str) or layer not in layer_index:
         return ["record layer is not canonical"]
     if record.get("contract_version") != contract["contract_version"]:
         errors.append("record contract_version does not match")

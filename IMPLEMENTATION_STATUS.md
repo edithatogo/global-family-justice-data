@@ -28,6 +28,15 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 
 ## Implemented and exercised
 
+### Continuation — 2026-08-30 medallion validator prerequisite
+
+The [validator hardening report](docs/engineering/medallion-validator-hardening-2026-08-30.md)
+records four malformed-input boundary corrections and 16 regression cases.
+Invalid evidence-name types, quarantine shapes, ordinals and layer identifiers
+now fail validation explicitly. Existing valid-promotion behaviour is retained.
+This supports the lineage/replay prerequisite only: `WI-G4-MED-02` remains
+planned, and no G2/G4 criterion or maturity state is promoted.
+
 | Capability | Current implementation |
 |---|---|
 | Repository handoff | Multi-commit Git history with checkpoint tags, Git-bundle packaging, source manifest, `AGENTS.md`, internal Codex briefs and a plan-first bootstrap path |

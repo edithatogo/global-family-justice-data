@@ -1,10 +1,20 @@
 from __future__ import annotations
 
 import copy
+import json
 from pathlib import Path
 from typing import Any
 
-from gfjd.medallion import load_layer_contract, record_sha256, verify_layer_record, verify_promotion
+import pytest
+
+from gfjd.medallion import (
+    MedallionContractError,
+    load_layer_contract,
+    record_sha256,
+    verify_layer_contract,
+    verify_layer_record,
+    verify_promotion,
+)
 
 
 def _contract(project_root: Path) -> dict[str, Any]:
@@ -123,3 +133,49 @@ def test_b0_rejects_malformed_integrity_evidence(project_root: Path) -> None:
     assert "content_sha256 must be a lowercase SHA-256 digest" in errors
     assert "size_bytes must be a positive integer" in errors
     assert "media_type must be an explicit type/subtype" in errors
+
+
+@pytest.mark.parametrize("required", [[{}], [[]], [None], [True], [1], [""], [" "]])
+def test_contract_rejects_non_string_or_blank_evidence_names(
+    project_root: Path, required: list[Any]
+) -> None:
+    contract = _contract(project_root)
+    contract["layers"][0]["required_evidence"] = required
+    assert verify_layer_contract(contract)
+    assert verify_layer_record(_b0(), contract)
+
+
+@pytest.mark.parametrize("quarantine", [[], None, "quarantine", True])
+def test_contract_rejects_non_object_quarantine(project_root: Path, quarantine: Any) -> None:
+    contract = _contract(project_root)
+    contract["quarantine"] = quarantine
+    assert "quarantine must be an object" in verify_layer_contract(contract)
+
+
+@pytest.mark.parametrize("ordinal", [False, 0.0])
+def test_contract_rejects_non_integer_ordinals(project_root: Path, ordinal: Any) -> None:
+    contract = _contract(project_root)
+    contract["layers"][0]["ordinal"] = ordinal
+    assert verify_layer_contract(contract)
+
+
+@pytest.mark.parametrize("layer", [[], {}])
+def test_promotion_rejects_non_string_layer_without_crashing(
+    project_root: Path, layer: Any
+) -> None:
+    contract = _contract(project_root)
+    candidate = _b0()
+    candidate["layer"] = layer
+    assert "record layer is not canonical" in verify_layer_record(candidate, contract)
+    assert "candidate: record layer is not canonical" in verify_promotion(
+        _b0(), candidate, contract
+    )
+
+
+def test_loader_reports_structural_contract_error(project_root: Path, tmp_path: Path) -> None:
+    contract = _contract(project_root)
+    contract["layers"][0]["required_evidence"] = [{}]
+    path = tmp_path / "invalid-contract.json"
+    path.write_text(json.dumps(contract), encoding="utf-8")
+    with pytest.raises(MedallionContractError, match="evidence"):
+        load_layer_contract(path)

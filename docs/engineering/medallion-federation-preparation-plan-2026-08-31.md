@@ -825,3 +825,58 @@ This corrects a validation gap, not a rights or acceptance policy. Earlier
 role-separated review did not identify this issue. Copilot review was unavailable
 due quota; it is not counted as completed assurance. Revalidation and exact-head
 review resolution are required on the corrected commit before merge.
+
+## Reference delivery and composition freeze
+
+PR #145 merged at signed `6eb5b214e158f513ce0044ef48952f3855dd06f3`
+on 2026-08-31T16:17:18Z. Corrected full validation passed: 1,604 tests twice
+(133.66s/111.20s), 84% coverage, all 17 exact-head hosted checks and completed
+hosted Codex review with no further findings. The review thread was resolved.
+One clean main branch/worktree remained; signed history and remote branches
+were preserved. This is engineering delivery, not programme acceptance.
+
+Recommended next: compose the existing independently checked components through
+one additive API, not a scope-v2 migration. This preserves existing callers and
+makes cross-component contradictions testable. Separate reports alone are
+simpler but do not establish that the same scope and byte identities were used.
+
+Freeze `prepare_interface_bundle` with the eight existing replayed-bundle
+arguments followed by `parquet_raw`, `expected_parquet_sha256`, `partner_raw`,
+`expected_partner_sha256`, `contract_bank`. Both sidecars are mandatory; empty
+declarations are explicit pending coverage, not an implicit complete bundle.
+The verifier accepts the same inputs plus exact output artifacts and regenerates
+every byte. No supplied precomputed report is trusted.
+
+Recompute replay, canonical references, Parquet and partner assessments with
+identical scope, metadata and estate inputs. Retain all component size/membership
+limits and require shared digest keys to identify identical supplied bytes.
+Reject declared Parquet hashes matching known non-Parquet input bytes: metadata,
+estate TOML/policy, normative assets, pinned partner text/schemas, structured
+replay inputs, verified JSON/XLSX replay sources and canonical replayed rows.
+Classify replay formats only after successful replay under the current explicit
+JSON/XLSX contracts; reject unknown future formats rather than guessing from a
+filename. Include raw input and canonical row identities, not just report hashes.
+Unknown payload hashes remain declarations with format and digest unverified.
+
+Add exactly `interfaces/parquet-reference-report.json` and
+`interfaces/partner-interface-report.json`. Preserve the replayed bundle fields,
+replace its manifest version with `gfjd-federation-interface-bundle-v1`, and bind
+both sidecars, contract-bank hashes, all component compiler fingerprints, pending
+coverage and all output hashes. No source, metadata-bank, replay-bank or partner
+code bytes are copied. Partner binding grants neither ownership nor layer aliases;
+all authority fields remain false. Filesystem fingerprint reads remain disclosed.
+
+Extend the conspicuously fictional integration rehearsal while retaining all
+four standards routes, six estate roles and one selected replay entity. Use a
+different scoped object for the unknown Parquet hash; leave its provenance
+pending. Bind available technical partners and explicitly unavailable interfaces.
+Exercise incomplete declarations, changed bindings, known-format contradictions,
+forged outputs, exact recomputation and network denial. Preserve old reports.
+
+After source freeze, record a digest-bound fictional rehearsal report and a new
+`in_review` supporting Conductor evidence entry. Do not replace or promote
+`E-FEDERATED-MEDALLION-REGISTRY` or `WI-G4-MED-05`. Factual registration, rights,
+custody, verified Parquet serialization, full standards/partner conformance and
+publication remain separately pending. Missing facts are the contingency, never
+invented fields. Review, full validation, exact-head CI and signed PR integration
+remain required before this phase is delivered.

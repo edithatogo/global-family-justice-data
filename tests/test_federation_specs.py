@@ -23,6 +23,10 @@ import pytest
             "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
         ),
         (
+            "ro-crate-1.3-context.jsonld",
+            "5a3df1a43185501db4d45cdde5a478c57eeb1d673eedfe400488fc4c4b21dd91",
+        ),
+        (
             "dcat-ap-3.0.1-shapes.ttl",
             "7fe9815e0f32b10f5cbce74fa6ccd0290aae3ef9e5080fb84e2d8093eb984d1d",
         ),

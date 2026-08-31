@@ -52,3 +52,30 @@ Only the base and range shape sets are included here. Controlled-vocabulary
 closure, recommended shapes, deprecated-URI checks and full application-profile
 conformance are not established by these files. The upstream import manifests
 are not executed, and no mutable vocabulary or ontology is fetched implicitly.
+
+## RO-Crate 1.3 context
+
+`ro-crate-1.3-context.jsonld` is the unchanged 196,942-byte technical context at
+ResearchObject/ro-crate commit `22fbd7e098ccd2839c80967e363a2201528a2efe`,
+path `docs/_specification/1.3/context.jsonld` (release tag `1.3.0`). SHA-256:
+`5a3df1a43185501db4d45cdde5a478c57eeb1d673eedfe400488fc4c4b21dd91`.
+
+Source: https://github.com/ResearchObject/ro-crate/blob/22fbd7e098ccd2839c80967e363a2201528a2efe/docs/_specification/1.3/context.jsonld
+
+Attribution: University of Technology Sydney, University of Manchester and
+RO-Crate contributors. The context is CC0 1.0, as stated separately from the
+documentation licence at
+https://www.researchobject.org/ro-crate/specification/1.3/index.html .
+No content modification was made; the filename is versioned locally. The
+context identifies vocabulary terms, not proof of dataset rights or publication.
+It is bound and inspected as supplied bytes, never resolved through a loader.
+
+## GFJD Croissant declaration profile
+
+`gfjd-croissant-profile-v1.json` is GFJD-authored configuration, not a normative
+Croissant schema or a modified specification. It references Croissant 1.1 by
+MLCommons Association and contributors:
+https://docs.mlcommons.org/croissant/docs/croissant-spec-1.1.html .
+The unchanged specification remains at that link under its CC BY-ND 4.0 terms.
+GFJD's restricted checks do not establish full conformance, extraction,
+publication, licence validity or custody of declared distributions.

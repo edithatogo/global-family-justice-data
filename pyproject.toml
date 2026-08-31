@@ -67,6 +67,7 @@ where = ["src"]
 [tool.setuptools.package-data]
 gfjd = [
   "federation_specs/*.json",
+  "federation_specs/*.jsonld",
   "federation_specs/*.txt",
   "federation_specs/*.md",
   "federation_specs/*.ttl",

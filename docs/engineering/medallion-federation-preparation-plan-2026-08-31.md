@@ -526,3 +526,19 @@ recomputation must reject altered edges or references even if self-hashes are
 recomputed. Missing parents, cross-partition revisions, namespace/role changes,
 extra bank members, digest substitution and forged authority are negative tests.
 All factual/rights/gate/publication/registration authority remains unverified.
+
+### Bundle integration contract
+
+`prepare_bundle(scope_raw, expected_sha256, metadata_bank, estate_inputs,
+standards)` returns only deterministic draft files. Recompute reference and
+estate results; bind all five normative/profile artifacts by their existing
+hashes before dispatching supplied metadata to OpenLineage, DCAT, RO-Crate or
+Croissant checks. Recognisable malformed standard documents stop; ordinary JSON
+metadata with no selected standard remains explicitly `profile_not_selected`.
+Do not reinterpret those as standards-valid or fabricate mandatory declarations.
+Keep metadata reports separate from desired partner references and actual
+factual evidence. The bundle contains no source payloads or copied input metadata.
+Its manifest binds every output and supplied input digest, and verification
+regenerates the exact file set and bytes. PROV exports remain separately
+recomputed outputs until their exact replay-input relationship is integrated;
+no unverified prebuilt provenance blob is accepted merely to fill that slot.

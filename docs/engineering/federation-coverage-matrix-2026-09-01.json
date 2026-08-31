@@ -1,0 +1,101 @@
+{
+  "contract_version": "gfjd-federation-preparation-coverage-audit-v1",
+  "scope": "repository_owned_limited_preparation",
+  "work_item_id": "WI-G4-MED-05",
+  "acceptance_evidence_id": "E-FEDERATED-MEDALLION-REGISTRY",
+  "acceptance_established": false,
+  "review_status": "advisory_reviewed_limited_preparation_only",
+  "requirements": [
+    {
+      "id": "estate_roles",
+      "implementation_paths": ["src/gfjd/medallion_estate.py", "src/gfjd/federation_config_drafts.py"],
+      "test_paths": ["tests/test_medallion_estate.py", "tests/test_federation_config_drafts.py", "tests/test_federation_config_snapshot.py"],
+      "retained_evidence_paths": ["data/federation/config-drafts-2026-09-01/receipt.json"],
+      "implemented_scope": "Six reconciled declared roles; five incomplete dataset-profile pairs; explorer remains a Space; exact configuration provenance and recomputation.",
+      "unimplemented_technical_scope": [],
+      "missing_factual_inputs": ["Actual hosted estate registration and availability", "Dataset creator and publisher identities", "Publication and licence evidence", "Applicable gate and release acceptance"]
+    },
+    {
+      "id": "canonical_responsibility",
+      "implementation_paths": ["src/gfjd/federation_references.py", "src/gfjd/federation_ownership.py"],
+      "test_paths": ["tests/test_federation_references.py", "tests/test_federation_ownership.py"],
+      "retained_evidence_paths": [],
+      "implemented_scope": "Scoped canonical IDs and metadata references; declared canonical/reference/unresolved responsibility; selected partner native IDs; contradictory shared-target content hashes fail closed.",
+      "unimplemented_technical_scope": ["Cross-partner ownership authentication and transfer protocol; no compatible GFJD protocol is inferred from pinned partner implementations"],
+      "missing_factual_inputs": ["Accountable partner-native responsibility records", "Authenticated ownership and any permitted transfer evidence"]
+    },
+    {
+      "id": "dcat_ap",
+      "implementation_paths": ["src/gfjd/federation_dcat.py", "src/gfjd/federation_rdf_input.py"],
+      "test_paths": ["tests/test_federation_dcat.py", "tests/test_federation_rdf_input.py", "tests/test_federation_specs.py"],
+      "retained_evidence_paths": ["data/federation/preparation-2026-09-01-02/report.json"],
+      "implemented_scope": "Pinned DCAT-AP 3.0.1 base and range SHACL on bounded supplied RDF; imports disabled; fictional positive and negative evidence.",
+      "unimplemented_technical_scope": ["Pinned controlled-vocabulary closure and vocabulary membership validation", "Broader RDF syntax and complete conformance coverage"],
+      "missing_factual_inputs": ["Actual catalogue publication and distribution facts", "Accountable licence and publisher facts"]
+    },
+    {
+      "id": "ro_crate",
+      "implementation_paths": ["src/gfjd/federation_rocrate.py", "src/gfjd/federation_config_drafts.py"],
+      "test_paths": ["tests/test_federation_rocrate.py", "tests/test_federation_config_drafts.py"],
+      "retained_evidence_paths": ["data/federation/preparation-2026-09-01-02/report.json", "data/federation/config-drafts-2026-09-01/receipt.json"],
+      "implemented_scope": "Pinned RO-Crate 1.3 context and restricted flattened declaration checks; actual-config drafts retain missing facts.",
+      "unimplemented_technical_scope": ["General JSON-LD expansion and full RO-Crate conformance", "Broader entity representations and extension profiles"],
+      "missing_factual_inputs": ["Actual payload entities and provenance", "Publication and licence evidence"]
+    },
+    {
+      "id": "croissant",
+      "implementation_paths": ["src/gfjd/federation_croissant.py", "src/gfjd/federation_config_drafts.py"],
+      "test_paths": ["tests/test_federation_croissant.py", "tests/test_federation_config_drafts.py"],
+      "retained_evidence_paths": ["data/federation/preparation-2026-09-01-02/report.json", "data/federation/config-drafts-2026-09-01/receipt.json"],
+      "implemented_scope": "Restricted GFJD declaration profile referencing Croissant 1.1; field/file references; actual-config incomplete documents, not normative schema certification.",
+      "unimplemented_technical_scope": ["General JSON-LD and full Croissant validation", "File sets, transforms, joins and actual data-loader verification"],
+      "missing_factual_inputs": ["Verified distribution and field-level content", "Dataset creator, licence and publication evidence"]
+    },
+    {
+      "id": "prov_o",
+      "implementation_paths": ["src/gfjd/federation_prov.py", "src/gfjd/federation_replayed_bundle.py"],
+      "test_paths": ["tests/test_federation_prov.py", "tests/test_federation_replayed_bundle.py"],
+      "retained_evidence_paths": ["data/federation/preparation-2026-09-01-02/report.json"],
+      "implemented_scope": "PROV-O representation from regenerated bounded projection or pipeline-history replay; selected entity digest association; no inferred actual activity.",
+      "unimplemented_technical_scope": ["General PROV-CONSTRAINTS validity and broader provenance models"],
+      "missing_factual_inputs": ["Actual accepted input and transformation evidence", "Accountable activity and agent records"]
+    },
+    {
+      "id": "openlineage",
+      "implementation_paths": ["src/gfjd/federation_openlineage.py", "src/gfjd/federation_run_sequence.py", "src/gfjd/federation_replayed_run.py"],
+      "test_paths": ["tests/test_federation_openlineage.py", "tests/test_federation_run_sequence.py", "tests/test_federation_replayed_run.py"],
+      "retained_evidence_paths": ["data/federation/preparation-2026-09-01-02/report.json"],
+      "implemented_scope": "Pinned OpenLineage 2-0-2 schema with separate design and bounded RunEvent lifecycle profiles; exact declared replay association; no observed execution. Retained composition covers design metadata only; lifecycle is covered by tests.",
+      "unimplemented_technical_scope": ["Nonempty extension facets and live producer integration", "Broader event and timestamp representations"],
+      "missing_factual_inputs": ["Authenticated actual run records", "Observed production evidence and operational custody"]
+    },
+    {
+      "id": "parquet_zero_copy",
+      "implementation_paths": ["src/gfjd/federation_parquet_references.py", "src/gfjd/federation_interface_bundle.py"],
+      "test_paths": ["tests/test_federation_parquet_references.py", "tests/test_federation_interface_bundle.py"],
+      "retained_evidence_paths": ["data/federation/preparation-2026-09-01-02/report.json"],
+      "implemented_scope": "Digest-bound reference declarations with nullable missing facts and known non-Parquet contradiction guards, including generated artifacts. No payload copying or actual format assertion.",
+      "unimplemented_technical_scope": ["Supplied-byte Parquet format/schema and BLAKE3 verification", "Actual partner reference/record interoperability"],
+      "missing_factual_inputs": ["Verified Parquet payloads and immutable remote revisions", "Retrieval, custody and estate-wide nonduplication evidence"]
+    },
+    {
+      "id": "partner_interfaces",
+      "implementation_paths": ["src/gfjd/federation_partner_interfaces.py", "src/gfjd/federation_interface_bundle.py"],
+      "test_paths": ["tests/test_federation_partner_interfaces.py", "tests/test_federation_interface_bundle.py"],
+      "retained_evidence_paths": ["data/federation/preparation-2026-09-01-02/report.json"],
+      "implemented_scope": "Two exact pinned technical contract sets; schema syntax checked offline; source text not executed; two interfaces explicitly unavailable. GMA strata are not silently mapped to GFJD and archive transfer scope excludes GFJD.",
+      "unimplemented_technical_scope": ["Partner-native record validation and semantic mappings", "Exact contracts for dataset-estate-registry and reimbursement-atlas"],
+      "missing_factual_inputs": ["Partner acceptance and registration", "Actual compatible records and operational interoperability"]
+    },
+    {
+      "id": "composed_evidence",
+      "implementation_paths": ["src/gfjd/federation_bundle.py", "src/gfjd/federation_replayed_bundle.py", "src/gfjd/federation_interface_bundle.py", "scripts/rehearse_federation_bundle.py"],
+      "test_paths": ["tests/test_federation_bundle.py", "tests/test_federation_replayed_bundle.py", "tests/test_federation_interface_bundle.py", "tests/test_federation_rehearsal.py"],
+      "retained_evidence_paths": ["data/federation/preparation-2026-09-01/report.json", "data/federation/preparation-2026-09-01-02/report.json", "data/federation/config-drafts-2026-09-01/receipt.json"],
+      "implemented_scope": "Exact input/output/component bindings; recomputed replay and sidecar associations; immutable fictional predecessors and actual-config incomplete successor class. No blanket federation-pass result.",
+      "unimplemented_technical_scope": ["Unified ownership and RunEvent attachment in one higher-level envelope if required by an eventual partner protocol"],
+      "missing_factual_inputs": ["Successful accepted actual federation evidence", "Applicable G2-G6 decisions and public release authorization"]
+    }
+  ],
+  "authority": {"source_access": false, "network": false, "publication": false, "release": false, "rights_clearance": false, "ownership_authentication": false, "partner_registration": false, "gate_acceptance": false}
+}

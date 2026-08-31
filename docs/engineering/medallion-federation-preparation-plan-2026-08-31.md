@@ -934,3 +934,19 @@ replay association, frozen in
 `docs/engineering/federation-run-lifecycle-plan-2026-09-01.md`. Preserve OTHER
 metadata after completion as permitted by the pinned schema; disclose all stricter
 GFJD profile rules. This remains offline preparation, not observed run evidence.
+
+## Later preparation checkpoints and coverage audit
+
+RunEvent lifecycle and exact declared replay association were delivered by
+PR #147, signed `de3455342595535b0054425aa615162c9e94a79c`. Actual-configuration
+incomplete metadata and its retained 22-artifact snapshot were delivered by
+PR #148, signed `7f55714e2f5c5a288c5eb322c99f869ca035c4b0`. Their linked plans
+record full validation, exact-head CI/review, merge and local cleanup evidence.
+
+Canonical responsibility declaration checks and the finite coverage audit are
+tracked in `docs/engineering/federation-ownership-coverage-plan-2026-09-01.md`.
+The machine-readable matrix is
+`docs/engineering/federation-coverage-matrix-2026-09-01.json`. It distinguishes
+limited implemented preparation from unfinished broader technical coverage and
+missing factual inputs. These checkpoints do not complete WI-G4-MED-05 or the
+factual registry evidence, and do not authorize publication or partner changes.

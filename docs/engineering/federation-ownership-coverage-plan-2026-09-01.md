@@ -66,14 +66,14 @@ input content. Only compiler/helper fingerprint reads are performed.
 
 ## Ordered work
 
-- [~] Checker/verifier and meaningful negative-first tests.
-- [ ] Exact coverage, target/relationship mismatch, unselected partner,
+- [x] Checker/verifier and meaningful negative-first tests.
+- [x] Exact coverage, target/relationship mismatch, unselected partner,
   contradictory shared-target hashes, retained nulls, distinct identity/equal
   bytes, duplicate objects, bounds, forged reports and no-network tests.
-- [ ] Requirements-to-evidence coverage matrix covering estate roles, canonical
+- [x] Requirements-to-evidence coverage matrix covering estate roles, canonical
   declarations, standards profiles, lifecycle/replay, Parquet references and
   partner boundaries. Identify concrete missing cross-contract guards only.
-- [ ] Role-separated advisory review; full validation; signed reviewed PR;
+- [~] Role-separated advisory review; full validation; signed reviewed PR;
   exact-head CI; history-preserving merge and local cleanup.
 
 The audit must distinguish completed limited preparation, unfinished broader
@@ -84,3 +84,21 @@ verified payloads, remote retrieval and accepted Gold remain separate. WI-G4-MED
 and E-FEDERATED-MEDALLION-REGISTRY retain their factual states. After this audit,
 continue other eligible repository-owned preparation without claiming federation
 acceptance or waiving the remaining requirements.
+
+## Implementation and audit ledger
+
+The checker and exact verifier implement the frozen declaration-only contract.
+The missing-coverage test failed against a stub before implementation. All 42
+ownership tests pass; combined ownership, reference and autonomous-context
+validation passes 106 tests (3.26s). Ruff and module mypy pass.
+
+`docs/engineering/federation-coverage-matrix-2026-09-01.json` maps ten requirement
+groups to 61 existing implementation, test and retained-evidence file references.
+It explicitly records unfinished broader technical coverage as well as missing
+facts; neither is reclassified as completed. Acceptance remains false.
+
+Role-separated read-only review found no actionable issue in the implementation,
+completed tests, matrix or frozen contract. No additional cross-contract guard
+is justified by this bounded scope. Review is advisory only and did not certify
+factual ownership, standards conformance or gate acceptance. Full local gate,
+exact-head hosted review/CI and delivery remain pending at this source freeze.

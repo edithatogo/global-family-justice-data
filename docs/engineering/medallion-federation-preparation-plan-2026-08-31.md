@@ -426,3 +426,21 @@ with missing declarations return `profile_incomplete`. Fictional complete and
 incomplete fixtures, hostile syntax, context drift, reference substitution and
 no-I/O tests are mandatory. Role-separated implementation and reciprocal review
 remain advisory; complete local checks and exact-head CI precede merge.
+
+### Profile assets and shared-boundary ledger
+
+- `ef95061` packages the unchanged RO-Crate context and attribution. Exact
+  SHA-256 and 196,942-byte length were verified after acquisition from the
+  pinned official technical repository. No court-source request occurred.
+- `dd2d6b9` adds shared strict JSON/reference/report helpers. Negative tests
+  first exposed three URL guard omissions (DEL, repeated fragment marker and
+  excessive length); the correction passes all 27 focused tests and strict
+  typing. Report authority remains false even for complete declarations.
+- Freeze `gfjd-croissant-profile-v1.json` before its assessor at SHA-256
+  `e0bcf9bbfcba4101cb7bf53b8b883b137e8ba74db6aa0a2fb0ba21ca89b4ed60`.
+  This GFJD-authored configuration references the upstream specification and
+  contains the explicit context/field/type limits; it is not a normative schema.
+
+The shared profile accepts explicit `YYYY-MM-DD` publication declarations only;
+other valid standard date/time forms remain unsupported by this implementation.
+No empty, inferred or current build date fills a missing source publication fact.

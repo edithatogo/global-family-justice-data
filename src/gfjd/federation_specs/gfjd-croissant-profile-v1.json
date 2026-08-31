@@ -1,0 +1,27 @@
+{
+  "profile": "gfjd-croissant-declarations-v1",
+  "authorship": "GFJD-authored restricted preparation configuration; not a normative Croissant schema",
+  "reference": "https://docs.mlcommons.org/croissant/docs/croissant-spec-1.1.html",
+  "reference_attribution": "Croissant 1.1, MLCommons Association and contributors",
+  "conformsTo": "http://mlcommons.org/croissant/1.1",
+  "context": {
+    "@vocab": "http://schema.org/",
+    "sc": "http://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "dct": "http://purl.org/dc/terms/",
+    "conformsTo": {"@id": "dct:conformsTo", "@type": "@id"},
+    "recordSet": "cr:recordSet",
+    "field": "cr:field",
+    "dataType": {"@id": "cr:dataType", "@type": "@vocab"},
+    "source": "cr:source",
+    "fileObject": "cr:fileObject",
+    "extract": "cr:extract",
+    "column": "cr:column"
+  },
+  "dataset_keys": ["@context", "@type", "@id", "conformsTo", "name", "description", "creator", "license", "datePublished", "url", "distribution", "recordSet"],
+  "file_keys": ["@type", "@id", "name", "description", "contentUrl", "encodingFormat", "sha256"],
+  "recordset_keys": ["@type", "@id", "name", "description", "field"],
+  "field_keys": ["@type", "@id", "name", "description", "dataType", "source"],
+  "datatypes": ["sc:Text", "sc:Integer", "sc:Float", "sc:Boolean", "sc:Date", "sc:DateTime"],
+  "limitations": ["declarations_only", "no_jsonld_expansion", "no_data_loading", "no_filesets", "no_transforms", "no_joins", "no_embedded_records", "no_factual_or_full_conformance_verification"]
+}

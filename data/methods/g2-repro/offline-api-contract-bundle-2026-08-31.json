@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "G2-GOVUK-OFFLINE-METADATA-20260831-01",
+  "qualification": "synthetic_offline_only",
+  "execution_ready": false,
+  "network_requests": 0,
+  "historical_failed_evidence_reused": false,
+  "bindings": [
+    {
+      "path": "data/methods/g2-repro/offline-api-contract-2026-08-31.json",
+      "sha256": "23a3224be228ef2ad82141182024f63ef083d6a4c466e35cbd27b0ee92b5ea0a",
+      "bytes": 3763
+    },
+    {
+      "path": "data/methods/g2-repro/api-interface-evidence-2026-08-31.json",
+      "sha256": "aa90c8346c819a06aa2aa92a7d285f959623b714c5de9fc144e8b64f57eec813",
+      "bytes": 1940
+    },
+    {
+      "path": "docs/methods/g2-api-interface-qualification-2026-08-31.md",
+      "sha256": "3cff0659e13beab8e149e2929678c2b72f22a030bf6f58a4803d9d5c3a2a0210",
+      "bytes": 6405
+    },
+    {
+      "path": "docs/methods/g2-offline-api-contract-2026-08-31.md",
+      "sha256": "768884f46dafb3b081e55de13895e82157493dc3b2753d522bc24b8b67645174",
+      "bytes": 4148
+    },
+    {
+      "path": "src/gfjd/govuk_metadata_contract.py",
+      "sha256": "bfeeb7ebcb1bf27c8aad2c0cf337211df29334653a1a62a6364bb1d1c20c0534",
+      "bytes": 7378
+    },
+    {
+      "path": "tests/test_govuk_metadata_contract.py",
+      "sha256": "9a1f27143164dd718cc4a2ae4b67e749340fb9b83fa654e5b3d5ba723fc40d9d",
+      "bytes": 7944
+    },
+    {
+      "path": "tests/test_offline_api_contract_bundle.py",
+      "sha256": "fedf45dea5bc40347211688e6743acf53f9d06f5ee08263f5cc99984eba13c1c",
+      "bytes": 2752
+    }
+  ]
+}

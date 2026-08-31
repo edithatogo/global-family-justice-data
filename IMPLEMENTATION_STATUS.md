@@ -222,6 +222,14 @@ rating, source right or publication permission changes.
 
 ## Not supplied by code
 
+Offline API contract continuation (2026-08-31): a separate synthetic-qualified
+GOV.UK metadata parser now bounds documented presenter extras, verifies response
+shape and preserves update/first-publication distinctions. Its detached bundle
+is supporting evidence only, not an execution packet; no transport, fresh
+request, candidate selection or G2 acceptance is implemented. See
+`docs/methods/g2-offline-api-contract-2026-08-31.md`. Next safe engineering work
+is append-only correction and bitemporal partition replay in WI-G4-MED-02.
+
 Monitor preservation continuation (2026-08-31): eight named completed Actions
 runs have exact metadata retention, seven modern identity bindings and one
 explicitly weaker legacy artifact-only binding. One terminal failed partial

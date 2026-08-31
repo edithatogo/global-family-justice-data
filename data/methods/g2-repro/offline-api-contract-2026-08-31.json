@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "G2-GOVUK-OFFLINE-METADATA-20260831-01",
+  "purpose": "prospective_offline_metadata_shape_qualification_only",
+  "publisher_interface_evidence": "data/methods/g2-repro/api-interface-evidence-2026-08-31.json",
+  "publisher_commit": "a6b92bc1dc36b1081835f44a10eaecf18f651a32",
+  "runtime": "src/gfjd/govuk_metadata_contract.py",
+  "limits": {
+    "input_bytes": 2097152,
+    "results": 100,
+    "depth": 16,
+    "nodes": 10000,
+    "array_items": 1000,
+    "object_members": 128,
+    "string_characters": 4096,
+    "network_requests": 0
+  },
+  "root_required": ["results", "total", "start"],
+  "root_incidental": ["aggregates", "suggested_queries", "suggested_autocomplete", "es_cluster"],
+  "row_required": ["link", "title", "format", "public_timestamp"],
+  "row_optional_semantic": ["first_published_at"],
+  "row_incidental": ["index", "es_score", "_id", "elasticsearch_type", "document_type"],
+  "incidental_policy": "Any structurally bounded JSON type; never retain incidental values or select on them. This is not a claim about deployed types.",
+  "unknown_fields": "Root and result-row keys must be allowlisted; other keys nested within named incidental containers are structurally bounded and discarded. Unknown root or row keys terminate with fixed diagnostics only.",
+  "semantic_types": "link and title are nonempty bounded strings; title rejects whitespace-only and C0/C1 controls; format is an allowed string; populated dates are strings and may otherwise be null; total and start are nonnegative integers excluding booleans.",
+  "enumeration": "Integer start zero; integer total exactly equals result count; at most 100 rows. This proves only response-shape consistency, not publisher-index completeness.",
+  "locator": "Relative /government/statistics/[a-z0-9][a-z0-9-]* only; no duplicate locators; no URL access.",
+  "formats": ["official_statistics", "national_statistics"],
+  "date_policy": {
+    "public_timestamp": "nullable_update_time_only",
+    "first_published_at": "optional_nullable_first_publication_time_not_exact_edition_identity",
+    "populated_dates": "YYYY-MM-DDTHH:MM:SS with optional fractional seconds and required Z or signed HH:MM timezone; valid calendar/time/offset required; lexical text preserved",
+    "fallback_between_date_fields": false
+  },
+  "retention": {
+    "passing_observations": ["locator", "update_time", "first_publication_time"],
+    "string_link_fingerprints_after_bounded_parse": true,
+    "fingerprint_identity": "Exact returned link string UTF-8 bytes, not canonical URL identities or a replacement for the cumulative exposure chain.",
+    "exposure_complete_meaning": "Every returned result row has a string link whose exact bytes were hashed after bounded parsing; does not mean total/start enumeration, index or historical exposure completeness. May remain true on semantic failure.",
+    "fingerprints_are_anonymization": false,
+    "partial_passing_observations_on_failure": false,
+    "titles_incidental_values_raw_response_unknown_key_names": false
+  },
+  "roles": {
+    "implementation": "bounded_artifact_reader",
+    "orchestrator": "repository orchestrator",
+    "advisory_review": "api_contract_advice",
+    "accountable_decision": "sole repository owner"
+  },
+  "execution_readiness": {
+    "ready": false,
+    "transport_implemented": false,
+    "exact_request_bound": false,
+    "current_cumulative_exposure_bound": false,
+    "owner_execution_authorization_bound": false,
+    "deployed_schema_verified": false
+  },
+  "authority": {
+    "network": false,
+    "source_access": false,
+    "extraction": false,
+    "rights_clearance": false,
+    "publication": false,
+    "release": false,
+    "maturity": false,
+    "g2_acceptance": false
+  }
+}

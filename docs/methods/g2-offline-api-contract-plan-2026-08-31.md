@@ -21,12 +21,12 @@ synthetic-first, without transport or live response access.
 ## Tasks
 
 - [x] Establish clean signed baseline and commit this prospective plan.
-- [ ] Implement/test the isolated parser with bounded structural diagnostics,
+- [x] Implement/test the isolated parser with bounded structural diagnostics,
   strict enumeration, locator checks, duplicate rejection and date separation.
-- [ ] Prepare a digest-bound repository-only contract bundle with explicit
+- [x] Prepare a digest-bound repository-only contract bundle with explicit
   limits, metadata retention, roles, limitations and future authorization needs.
-- [ ] Obtain separate advisory review; fix substantive defects.
-- [ ] Update supporting Conductor evidence without changing acceptance mappings.
+- [x] Obtain separate advisory review; fix substantive defects.
+- [x] Update supporting Conductor evidence without changing acceptance mappings.
 - [ ] Validate, sign, PR, await exact-head checks, merge and clean local branch.
 
 ## Controls and contingencies

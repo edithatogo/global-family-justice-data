@@ -156,7 +156,12 @@ autonomy-context:
 
 autonomy-fast: compile contracts validate-strict unit generated policy autonomy-context
 
-autonomy-full: format lint typecheck coverage check integration-rehearsals package-reproducibility release-reproducibility autonomy-context
+.PHONY: medallion-lineage-rehearsal
+medallion-lineage-rehearsal:
+	PYTHONPATH=src $(PYTHON) scripts/rehearse_medallion_lineage.py --output build/medallion-lineage/rehearsal.json
+	PYTHONPATH=src $(PYTHON) scripts/rehearse_medallion_lineage.py --verify build/medallion-lineage/rehearsal.json
+
+autonomy-full: format lint typecheck coverage check integration-rehearsals medallion-lineage-rehearsal package-reproducibility release-reproducibility autonomy-context
 
 check: compile contracts validate test generated policy release-rehearsal
 

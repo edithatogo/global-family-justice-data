@@ -20,6 +20,14 @@ import pytest
             "OpenLineage-LICENSE.txt",
             "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
         ),
+        (
+            "dcat-ap-3.0.1-shapes.ttl",
+            "7fe9815e0f32b10f5cbce74fa6ccd0290aae3ef9e5080fb84e2d8093eb984d1d",
+        ),
+        (
+            "dcat-ap-3.0.1-range.ttl",
+            "24d3bfd0fa17a3d0e877c9ebb91c8174124e5038538e1bf081b2cb679ad0f1b2",
+        ),
     ],
 )
 def test_upstream_asset_is_unchanged(name: str, digest: str) -> None:

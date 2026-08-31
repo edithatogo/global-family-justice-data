@@ -293,3 +293,40 @@ IRIs/literals, unsupported datatype and import payloads, duplicate-statement
 limits, missing targets/properties, wrong ranges, normative tampering, silent
 diagnostics and no implicit filesystem/network calls. RDFLib and SHACL success
 do not replace the later identity, publication or factual-evidence controls.
+
+## Dependency refresh finding
+
+Resolving the RDF dependencies flagged the existing `zizmor==1.27.0` security
+tool pin as yanked. The upstream advisory
+[GHSA-f42p-wjw5-97qh](https://github.com/zizmorcore/zizmor/security/advisories/GHSA-f42p-wjw5-97qh)
+identifies credential disclosure in debug logging and names 1.28.0 as patched.
+The checked-in Make/workflow invocations use explicit `--offline`; the advisory
+says this clears credentials before the affected logging. This is evidence of
+a vulnerable dependency, not evidence that this repository disclosed a token.
+
+Select the minimal patched pin 1.28.0, refresh the lock and rerun the existing
+offline workflow audit. Retaining the yanked version is not recommended; moving
+to newer feature releases adds unrelated changes and is unnecessary for this
+fix. No credentials are used to reproduce the issue, and no token rotation or
+historical non-disclosure is claimed. Preserve all audit severities and controls.
+
+The refreshed offline workflow audit passed with zizmor 1.28.0. The first
+complete locked dependency audit also identified pip 26.1.2 as affected by
+PYSEC-2026-3721 (CVE-2026-13346). Update the lock to patched pip 26.2.1;
+this is a toolchain correction, not evidence of exploitation. A fresh-cache
+`pip-audit --strict` over all locked extras then exited zero with no known
+vulnerabilities. Preserve the initial failed audit separately from the passing
+retest; no severity, dependency or audit exclusion was introduced.
+
+## DCAT implementation and advisory review
+
+The two pinned upstream TTL artifacts are now packaged unchanged with source,
+copyright and CC BY 4.0 attribution. RDF parsing and SHACL evaluation were
+implemented by separate advisory agents. Meaningful failing tests established
+duplicate-statement accounting and rejection of altered normative shape bytes
+before implementation. Cross-review and full phase delivery remain pending.
+
+The restricted parser performs complete lexical preflight before constructing
+RDFLib terms. The adapter executes the bound base/range shapes and returns only
+digests, aggregate counts and explicit unverified factual/conformance states.
+Neither adapter grants access, publication, rights, maturity or gate authority.

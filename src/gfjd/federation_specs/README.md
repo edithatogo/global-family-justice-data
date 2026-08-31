@@ -27,3 +27,28 @@ Full schema validation and a bounded design-event profile are not proof of
 complete execution lineage, source truth, full interoperability, registration,
 or any accountable acceptance. Additional standards, facet schemas and
 execution-lifecycle controls remain tracked in the federation preparation plan.
+
+## DCAT-AP 3.0.1 base and range shapes
+
+The two `dcat-ap-3.0.1-*.ttl` files are unchanged upstream artifacts from
+`releases/3.0.1/html/shacl/` at commit
+`729eddfc176d0afee5850ade6528f96f72579412` in SEMICeu/DCAT-AP:
+
+| Upstream file | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `shapes.ttl` | 20,619 | `7fe9815e0f32b10f5cbce74fa6ccd0290aae3ef9e5080fb84e2d8093eb984d1d` |
+| `range.ttl` | 12,490 | `24d3bfd0fa17a3d0e877c9ebb91c8174124e5038538e1bf081b2cb679ad0f1b2` |
+
+Source directory: https://github.com/SEMICeu/DCAT-AP/tree/729eddfc176d0afee5850ade6528f96f72579412/releases/3.0.1/html/shacl
+
+Attribution: Copyright 2025 European Union, SEMIC DCAT-AP contributors.
+Licence: Creative Commons Attribution 4.0 International,
+https://creativecommons.org/licenses/by/4.0/ . The upstream recommendation's
+licence statement is https://semiceu.github.io/DCAT-AP/releases/3.0.1/#license .
+No content changes were made; only the local filenames have versioned prefixes.
+This attribution is not an endorsement of GFJD and does not license GFJD data.
+
+Only the base and range shape sets are included here. Controlled-vocabulary
+closure, recommended shapes, deprecated-URI checks and full application-profile
+conformance are not established by these files. The upstream import manifests
+are not executed, and no mutable vocabulary or ontology is fetched implicitly.

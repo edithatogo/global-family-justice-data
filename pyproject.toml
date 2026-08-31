@@ -28,7 +28,9 @@ dependencies = [
   "jsonschema>=4.23,<5",
   "openpyxl>=3.1,<4",
   "pypdf>=6,<7",
+  "pyshacl==0.40.1",
   "PyYAML>=6.0,<7",
+  "rdflib>=7.3,<8",
 ]
 
 [project.optional-dependencies]
@@ -49,7 +51,7 @@ dev = [
 security = [
   "bandit>=1.8,<2",
   "pip-audit>=2.10,<3",
-  "zizmor==1.27.0",
+  "zizmor==1.28.0",
 ]
 
 [project.scripts]
@@ -63,7 +65,12 @@ include-package-data = true
 where = ["src"]
 
 [tool.setuptools.package-data]
-gfjd = ["federation_specs/*.json", "federation_specs/*.txt", "federation_specs/*.md"]
+gfjd = [
+  "federation_specs/*.json",
+  "federation_specs/*.txt",
+  "federation_specs/*.md",
+  "federation_specs/*.ttl",
+]
 
 [tool.pytest.ini_options]
 addopts = "-ra --strict-markers --strict-config --import-mode=importlib"

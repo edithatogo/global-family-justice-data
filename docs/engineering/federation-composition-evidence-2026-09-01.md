@@ -80,8 +80,11 @@ review found the correction adequate and no further actionable issue.
 Successor report: `data/federation/preparation-2026-09-01-02/report.json`, SHA-256
 `c4ba3dca52c23f51ead58674a8fba95a0d0ed8ffa73ca1b74c8cbf0f6592910e`.
 Its 16 sibling bundle artifacts match the report digest map. It is separately
-indexed as `E-FEDERATION-COMPOSITION-FICTIONAL-20260901-02`, in review. All original
-factual/authority limitations remain. Corrected full validation and exact-head
+indexed as `E-FEDERATION-COMPOSITION-FICTIONAL-20260901-02`, in review.
+The corrected implementation and successor snapshot are committed at signed
+`37be480`; use that revision with the report's exact compiler/fixture bindings.
+All original factual/authority limitations remain. Corrected full validation and
+exact-head
 CI/review are required before PR integration; earlier green results do not count
 as validation of the correction.
 

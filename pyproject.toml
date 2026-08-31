@@ -62,6 +62,9 @@ include-package-data = true
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+gfjd = ["federation_specs/*.json", "federation_specs/*.txt", "federation_specs/*.md"]
+
 [tool.pytest.ini_options]
 addopts = "-ra --strict-markers --strict-config --import-mode=importlib"
 testpaths = ["tests"]

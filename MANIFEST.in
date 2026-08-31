@@ -31,6 +31,7 @@ recursive-include examples *.md *.json *.toml *.csv *.html *.txt *.xlsx
 recursive-include portfolio *.toml *.md *.json
 recursive-include programme *.toml *.md *.json *.csv
 recursive-include schemas *.json
+recursive-include src/gfjd/federation_specs *.json *.txt *.md
 recursive-include scripts *.py *.sh *.ps1
 recursive-include tests *.py
 prune build

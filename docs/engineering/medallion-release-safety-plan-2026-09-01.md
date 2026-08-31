@@ -229,3 +229,72 @@ Disclosure uses only mapped Gold count diagnostics and retains accountable revie
 as pending; other formats/units remain unsupported. A separate exact dependency
 parser/SBOM/package contract will be frozen before that component is implemented.
 No not_applicable state is granted merely from a role or a supplied receipt.
+
+## Frozen supplied dependency evidence
+
+Implement `assess_dependency_evidence(lock_raw, sbom_raw, package_bindings_raw,
+*, project_name, candidate_id, as_of, candidate_bank, scope_objects)` and its exact
+verifier in a pure module. No path-based lock loader, package import, installation,
+registry request, audit command or supplied code execution. Existing LockedPackage,
+LockInventory and deterministic SPDX builder may be reused in memory; a synthetic
+Path label on LockInventory is metadata only and must never be opened.
+
+All three metadata inputs are nonempty bytes at most 1 MiB; candidate bank uses
+the inventory's 8 MiB/member and 26 MiB total bounds, checked before hashing.
+The lock is strict UTF-8 TOML with bounded parsed tree (depth 16, 50,000 nodes,
+2,000 entries/container, strings 4,096, integers 4,096 bits, finite numbers).
+Reject unsupported native TOML datetime values rather than coercing them. Scan
+decoded key/string values for existing secret patterns before returning any
+identity metadata. SPDX and bindings use strict JSON preflight. The raw lock,
+SPDX and bindings must all occur exactly by hash/bytes in the candidate bank.
+
+Lock version is exactly integer 1. package is a nonempty list of at most 500
+records. Each record requires a bounded normalized Python package name and
+nonempty bounded version, source, and optional dependency/distribution arrays.
+Exactly one record matches project_name after canonical normalization. Duplicate
+name/version pairs and colliding computed SPDX IDs reject. Every dependency name
+in core, optional and development groups must resolve to a supplied package;
+references from non-project packages back to the project root reject rather than
+being silently dropped by the existing SPDX builder. Unknown fields are retained
+in the bound raw bytes but never treated as validated semantics.
+
+Dependency items are dicts with name and optional version/source/marker; groups
+are bounded dicts of such arrays. Build a conservative all-branch graph: project
+core dependencies are runtime_direct; optional/development groups are
+development_direct; non-root packages include all declared groups. All locked
+versions of a referenced canonical name participate; this is not an environment-
+specific solver or proof of actual imports. Do not silently omit unresolved edges.
+
+The project source is exactly editable='.'. Non-root package sources are exactly
+registry='https://pypi.org/simple'. Other source kinds remain unsupported and fail
+this bounded graph contract. Source locations are never requested. Each sdist
+record and wheel entry requires url, hash and size, allowing additional metadata
+such as upload-time without claiming its authenticity. URL is HTTPS on
+files.pythonhosted.org, with the same no-credential/query/fragment/port/control
+rules as restore locators. Hash is sha256: followed by 64 lowercase hex; size is
+a positive integer, not bool. Conflicting size declarations for a shared digest
+reject. Distribution declarations without bytes remain explicitly unavailable.
+
+Recompute the entire SPDX document using existing build_spdx_document with scope
+build, release_version from the project lock record, created_at equal as_of,
+namespace_base='https://global-family-justice-data.example/spdx', and
+project_uri='https://github.com/edithatogo/global-family-justice-data'. Compare
+canonical complete supplied SPDX, not field presence or a supplied status. The
+example namespace is a declaration and is never published or requested.
+
+Package bindings exact keys: contract_version (`gfjd-candidate-package-bindings-v1`),
+candidate_id, lock_sha256, sbom_sha256, packages. packages contains at most 500
+unique object_id entries, each exactly object_id, name, version, distribution_sha256.
+Each points to a candidate role=package object and an exact declared non-root
+lock package/distribution. Recompute candidate bytes' SHA/size and require the
+locked distribution size too. A declaration cannot bind an unrelated archive.
+Every unbound candidate package stays explicitly unsupported; not all packages
+are Python distributions, and no other package may borrow these checks.
+
+Report bound input hashes, package/edge/distribution counts, exact validated
+candidate package bindings, missing distribution digests, unbound package object
+IDs, and component fingerprints. Do not emit registry responses, source bytes or
+raw unvalidated lock fields. Internal graph/SPDX consistency may be checked;
+artifact authenticity, signatures, provenance attestations, vulnerability-feed
+freshness/completeness, actual imports and release authority remain unverified.
+Neither a supplied audit success nor an SBOM license field grants clearance.

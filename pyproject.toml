@@ -30,7 +30,7 @@ dependencies = [
   "pypdf>=6,<7",
   "pyshacl==0.40.1",
   "PyYAML>=6.0,<7",
-  "rdflib>=7.3,<8",
+  "rdflib==7.6.0",
 ]
 
 [project.optional-dependencies]

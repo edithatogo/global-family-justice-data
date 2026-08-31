@@ -4,7 +4,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import tomllib
 from importlib.resources import files
+from pathlib import Path
 
 import pytest
 
@@ -41,3 +43,14 @@ def test_upstream_schema_identity() -> None:
     schema = json.loads(raw)
     assert schema["$id"] == "https://openlineage.io/spec/2-0-2/OpenLineage.json"
     assert schema["$schema"] == "https://json-schema.org/draft/2020-12/schema"
+
+
+def test_distribution_requirements_match_dcat_engine_guards() -> None:
+    from gfjd.federation_dcat import ENGINE_VERSIONS
+
+    project = tomllib.loads(
+        (Path(__file__).parents[1] / "pyproject.toml").read_text(encoding="utf-8")
+    )
+    requirements = project["project"]["dependencies"]
+    for name, version in ENGINE_VERSIONS.items():
+        assert f"{name}=={version}" in requirements

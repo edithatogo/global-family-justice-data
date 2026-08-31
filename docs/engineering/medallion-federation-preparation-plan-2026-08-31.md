@@ -116,7 +116,8 @@ Core `shapes.ttl` is 20,619 bytes, SHA-256
 `7fe9815e0f32b10f5cbce74fa6ccd0290aae3ef9e5080fb84e2d8093eb984d1d`;
 `range.ttl` is 12,490 bytes, SHA-256
 `24d3bfd0fa17a3d0e877c9ebb91c8174124e5038538e1bf081b2cb679ad0f1b2`.
-These are research bindings, not yet vendored or executed in this phase.
+Initially these were research bindings; they are now packaged and executed as
+recorded under DCAT implementation and advisory review below.
 
 Upstream imports include mutable vocabularies. Never enable automatic imports
 or invent vocabulary-membership triples. Pin a local closure separately and
@@ -177,7 +178,7 @@ Success reports `schema_validated: true`, `profile: design_event_only`, and
 `factual_evidence`/`full_conformance: unverified`; all authority flags are false.
 It does not inspect dataset content, grant rights or certify safe publication.
 
-The foundation review and complete delivery checks remain in progress. Later
+Foundation delivery is complete as recorded below. Later
 metadata generation, RDF checks, partner contracts and full federation work
 remain unchecked above. No result is registered as factual acceptance evidence.
 
@@ -357,3 +358,16 @@ The second local full run was interrupted (exit 130) for this code correction,
 not accepted as phase evidence. Regenerate the status on the UTC basis and rerun
 the entire gate and exact-head CI. The known upcoming risk reviews remain
 recorded above; no risk record or review date is altered by this fix.
+
+### Hosted review correction: installed dependency contract
+
+At `68185fa`, all 17 hosted checks passed and full local validation exited zero:
+1,331 tests twice (87.81s and 81.40s), 83% coverage. Wheel resource checks also
+verified both exact shape hashes. The final hosted review then identified a
+distribution mismatch: the RDFLib requirement allowed 7.x versions that the
+deliberately pinned runtime engine guard rejects. A new regression failed
+against that range. Pin RDFLib to the tested 7.6.0 in package requirements as
+well as the lock; do not weaken the guard or imply untested compatibility.
+The corrected head requires fresh local and hosted validation before merge.
+The two superseded historical preparation sentences identified by the ledger
+review have also been clarified; factual work-item acceptance remains pending.

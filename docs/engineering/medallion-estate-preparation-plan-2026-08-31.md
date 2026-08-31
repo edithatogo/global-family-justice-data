@@ -53,17 +53,17 @@ zero-copy references remain requirements of the following federation track.
 - [x] Reconcile all six declared roles, including source archive and Gold-only
   explorer, with planned rather than observed status. Correct the bootstrap
   visibility description using configuration and regression tests.
-- [ ] Implement bounded offline declaration reconciliation, exact input hashes,
+- [x] Implement bounded offline declaration reconciliation, exact input hashes,
   role-specific layers/payload/gates, explicit links and canonical ownership.
   Reject missing/duplicate/extra roles, ambiguous identities, type/visibility
   drift and contradictory declarations. No caller-supplied pass flags.
-- [ ] Generate deterministic public-safe draft cards and manifest; independently
+- [x] Generate deterministic public-safe draft cards and manifest; independently
   regenerate all expected bytes in verification. Missing or modified artifacts,
   extra files, unsafe paths/links and unsupported input shapes fail closed.
-- [ ] Add negative tests and a conspicuously synthetic rehearsal. Distinguish
+- [x] Add negative tests and a conspicuously synthetic rehearsal. Distinguish
   declaration consistency from actual remote availability, retrieval, custody,
   rights, accepted Gold, release authority and publication.
-- [ ] Bind supporting evidence and this plan into Conductor continuation
+- [x] Bind supporting evidence and this plan into Conductor continuation
   context without making WI-G4-MED-04 publicly executable or changing its
   acceptance-bearing mapping or dependencies.
 - [ ] Advisory review, full local validation, signed commits, reviewed PR,
@@ -139,5 +139,44 @@ reference and hash alongside prospective target rules, not qualification claims.
   Existing benchmark classification is unchanged. The six-role declaration
   regression and all 13 bootstrap tests pass (5.29s).
 
-Compiler, bundle verification, supporting evidence, phase review and full
-validation remain in progress. This ledger does not claim future delivery.
+- `f9bba0b` records the portfolio reconciliation; `f98db63` binds this plan in
+  autonomous continuation context without enabling publication. All 34 autonomy
+  tests pass, including the exclusion of WI-G4-MED-04 from executable actions.
+- `6af1074`: pure offline compiler and exact byte/set verifier. All 28 tests
+  pass, including fictional-namespace rehearsal, changed authority fields,
+  altered cards, missing/duplicate/extra roles and invalid declaration types.
+  Role policy is prospective; the factual states remain unverified.
+- `b6770fa`: fresh-only bounded filesystem CLI and tests. All 20 CLI tests pass
+  locally, including real declaration roundtrip, preserved partial writes,
+  unsafe links, missing/extra directories, and explicit capability failure.
+- Separate role reviewers cross-reviewed the compiler and filesystem wrapper
+  without finding actionable contradictions. Their advice is not acceptance.
+- Combined 95 bootstrap/autonomy/compiler/CLI tests pass (8.31s), with Ruff
+  formatting/lint and strict typing passing. Full phase validation remains due.
+
+## Bound draft and limitations
+
+The eight-file draft bundle is `data/estate/preparation-2026-08-31`.
+Its manifest SHA-256 is
+`555da748161253174a9da789bc35001f29a5bd0a57f1854fde811bb81b9bafe1`.
+Generation and independent exact recomputation passed. The real intended
+repository declarations are metadata, not synthetic empirical observations;
+the separate test fixtures use an explicitly fictional namespace. No source
+artifact or extracted observation is in this bundle.
+
+Run `python scripts/prepare_medallion_estate.py --verify` with that directory to
+recompute every artifact from the bound current configuration and compiler.
+`--output` requires a fresh directory whose parent already exists; an existing
+or partial output is preserved and never repaired or overwritten automatically.
+
+The filesystem CLI requires POSIX descriptor-relative operations and no-follow
+directory/file opening. It explicitly fails before any read or write when those
+capabilities are unavailable, including Windows. POSIX-specific tests declare
+this platform condition; the capability-failure test remains runnable elsewhere.
+The pure bytes-in/bytes-out compiler is portable, but no Windows filesystem
+verification or full Hugging Face card-standard conformance is claimed.
+
+E-HF-ESTATE-DRAFT-20260831 is supporting `in_review` evidence only.
+E-HF-PUBLIC-MEDALLION-ESTATE remains missing and WI-G4-MED-04 remains planned.
+Full local validation, reviewed PR delivery and cleanup are pending; hosted
+estate publication and the next federation track are not completed by this plan.

@@ -636,3 +636,29 @@ changed source or output, extra membership and forged authority. Rehearsal
 success proves machinery only. Parquet-reference declarations, prospective
 partner-interface qualification and supporting-evidence indexing remain later
 items within this same federation track.
+
+### Attachment review and implementation binding
+
+`cd2bfc4` implements both attachment modes; `9a890b6` adds the full fictional
+rehearsal and local/hosted integration hooks. The 37 focused tests pass (23.95s),
+with Ruff and strict adapter typing passing. The new Make rehearsal writes and
+independently verifies a content-addressed report; earlier reports are retained,
+not overwritten. Its end-to-end tests run in the integration tier, with negative
+cases also selected by the existing adversarial tier rules.
+
+Review corrected three concrete issues. Pipeline contract bank keys now preserve
+supplied-byte digests while deriving canonical keys required by replay; aliases
+that collapse to one canonical key fail. The trailing-newline regression failed
+before this correction. Rehearsal input negatives call preparation directly,
+so changed output hashes cannot mask a missing input guard. A deliberately
+defective-adapter regression failed before this correction. CLI output handling
+rejects symlink ancestors and special files and uses bounded, nonblocking,
+descriptor-checked reads. The ancestor-link regression also failed before the
+correction. This is local report hygiene, not an OS sandbox guarantee.
+
+Additionally bind exact attachment and PROV-compiler source-file hashes in the
+composed manifest, alongside the existing base-bundle and replay fingerprints.
+Version labels alone do not identify the relationship-generating code. This
+introduces only two disclosed implementation-fingerprint reads, never a source
+loader or remote lookup. Exact report verification must reject changed compiler
+bindings, even when an output manifest's other hashes are rewritten.

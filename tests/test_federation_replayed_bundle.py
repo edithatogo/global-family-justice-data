@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pytest
 
+from gfjd import federation_prov
 from gfjd import federation_replayed_bundle as bundle
 from gfjd.federation_bundle import ASSETS
 from gfjd.federation_metadata import MetadataError
@@ -20,6 +21,23 @@ def encoded(value: object) -> bytes:
 
 def sha(value: bytes) -> str:
     return hashlib.sha256(value).hexdigest()
+
+
+@pytest.mark.parametrize(
+    "field,module",
+    [
+        ("attachment_implementation_sha256", bundle),
+        ("provenance_implementation_sha256", federation_prov),
+    ],
+)
+def test_relationship_compiler_bound(inputs, field, module) -> None:
+    artifacts = bundle.prepare_replayed_bundle(*inputs)
+    manifest = json.loads(artifacts["bundle-manifest.json"])
+    assert manifest.get(field) == sha(Path(module.__file__).read_bytes())
+    manifest[field] = "0" * 64
+    artifacts["bundle-manifest.json"] = encoded(manifest)
+    with pytest.raises(MetadataError):
+        bundle.verify_replayed_bundle(*inputs, artifacts)
 
 
 @pytest.fixture

@@ -2,8 +2,10 @@
 
 import hashlib
 import re
+from pathlib import Path
 from typing import Any
 
+from gfjd import federation_prov
 from gfjd.federation_bundle import prepare_bundle
 from gfjd.federation_metadata import MetadataError, parse_json, require
 from gfjd.federation_prov import _canonical, prepare_pipeline_prov, prepare_projection_prov
@@ -118,7 +120,7 @@ def prepare_replayed_bundle(
 ) -> dict[str, bytes]:
     """Recompute one attachment and its exact scoped byte identity, not ownership.
 
-    Existing estate/bundle/replay helpers fingerprint implementation files.
+    This adapter, PROV compiler and existing helpers fingerprint implementation files.
     No source loader, remote lookup, or prebuilt provenance input is accepted.
     """
     try:
@@ -143,7 +145,8 @@ def prepare_replayed_bundle(
             b"factual provenance, custody, rights, standards conformance, "
             b"publication or acceptance. "
             b"No source payload or input metadata is copied. Existing helper implementation "
-            b"fingerprint reads occur; no source loader or network request occurs.\n"
+            b"fingerprint reads and adapter/PROV compiler fingerprint reads occur; "
+            b"no source loader or network request occurs.\n"
         )
         manifest.update(
             {
@@ -161,6 +164,11 @@ def prepare_replayed_bundle(
             }
         )
         manifest["base_bundle_implementation_sha256"] = manifest.pop("implementation_sha256")
+        require(type(federation_prov.__file__) is str)
+        manifest["attachment_implementation_sha256"] = _sha(Path(__file__).read_bytes())
+        manifest["provenance_implementation_sha256"] = _sha(
+            Path(str(federation_prov.__file__)).read_bytes()
+        )
         outputs["bundle-manifest.json"] = _canonical(manifest) + b"\n"
         return dict(sorted(outputs.items()))
     except Exception:

@@ -77,7 +77,7 @@ filesystem source loader, execution, registration or publisher is invoked.
   it as supporting preparation only. Historical snapshot tests verify retained
   bytes and scope, not equality with a later compiler. No input source payload
   or claimed factual acceptance is included.
-- [~] Role-separated advisory review; full gate; signed reviewed PR; all
+- [x] Role-separated advisory review; full gate; signed reviewed PR; all
   required exact-head CI; history-preserving merge and local cleanup.
 
 Canonical ownership declarations and the remaining standards/partner coverage
@@ -127,3 +127,14 @@ reports 22 checks, zero errors and zero warnings. Separate advisory review
 verified all 22 retained hashes, exact membership, receipt/input/compiler
 bindings and incomplete metadata boundaries; no actionable finding remained.
 Full local validation and hosted review/CI remain mandatory before delivery.
+
+### Delivery
+
+PR #148 merged at signed `7f55714e2f5c5a288c5eb322c99f869ca035c4b0` on
+2026-08-31T17:29:27Z. Full validation exited zero: 1,760 tests passed twice
+(169.77s/125.41s), 84% coverage, integration and reproducibility checks passed.
+All 17 exact-head hosted checks succeeded. Hosted Codex review completed without
+findings or review threads; Copilot quota prevented its review. History was
+preserved and local cleanup left one clean main branch/worktree.
+
+Continue with `docs/engineering/federation-ownership-coverage-plan-2026-09-01.md`.

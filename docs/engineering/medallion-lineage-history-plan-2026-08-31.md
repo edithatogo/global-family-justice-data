@@ -49,7 +49,7 @@ historical receipts require their original implementation for exact replay.
   synthetic end-to-end rehearsal with an independently recomputed receipt
   (`489fe72`; 8 rehearsal regression tests).
 - [x] Update Conductor supporting evidence and remaining factual prerequisites.
-- [x] Full validation and signed implementation commits.
+- [~] Full validation after hosted review fixes; signed implementation commits.
 - [~] PR, exact-head CI, merge and local cleanup.
 
 No new source requests, source-content access, failed-G2-output reuse, publication,
@@ -83,17 +83,17 @@ runtime; historical verification requires the retained implementation and lock.
 
 The XLSX advisory re-review independently passed all 65 format tests. No material
 safety/fidelity finding remained in the bounded subset; full OOXML conformance,
-rendered display fidelity, formula evaluation and date interpretation are not
+rendered display fidelity, formula evaluation and source-time interpretation are not
 claimed. Eight rehearsal tests cover determinism, real fictional-cell changes,
 tampered outputs/self-hashes and malformed or oversized verification reports.
 
 Run `make medallion-lineage-rehearsal` to build and separately recompute the
 fictional receipt. It is also part of `autonomy-full`. The frozen supporting
-report is `data/synthetic/medallion-lineage-rehearsal-2026-08-31.json`; verify it
+current report is `data/synthetic/medallion-lineage-rehearsal-2026-08-31-02.json`; verify it
 with `python scripts/rehearse_medallion_lineage.py --verify` followed by that path.
 Its custody assertions are explicitly fictional and never evidence of retrieval.
 
-Full local checkpoint: `PYTEST_ADDOPTS='-n 2 --dist loadfile' make autonomy-full`
+Pre-review-fix local checkpoint: `PYTEST_ADDOPTS='-n 2 --dist loadfile' make autonomy-full`
 using the locked `.venv` interpreter exited 0. Both suite passes ran 876 tests;
 branch coverage was 80.52%. Formatting, lint, strict typing, contract and generated
 state checks, programme validation, policy checks, restore and integration
@@ -102,3 +102,22 @@ wheel/sdist/release rebuilds passed. The final autonomy context verified. These
 are local technical results; hosted CI and merge remain separate delivery steps.
 The final advisory review also verified the frozen report hash and unchanged
 in-progress/in-review statuses without a gate or maturity promotion.
+
+### Hosted review follow-up
+
+- [x] `89d4793`: reject impossible calendar dates, clock components and offset
+  components in selected explicit date cells, preserving valid lexical text
+  unchanged. Fifteen added regression cases cover impossible dates/times/offsets,
+  leap days, fractions, naive times and offsets. This validates a restricted
+  representation; it does not infer source time or perform date-system conversion.
+- [x] Verify the cited implementation commits are retained signed-branch
+  ancestors. The review used a temporary squash snapshot rather than actual PR
+  head `8929f54`; all four references resolve in the preserved history. Do not
+  replace them or squash the branch.
+- [~] Rerun the full checkpoint and exact-head hosted checks before integration.
+
+The original `medallion-lineage-rehearsal-2026-08-31.json` is retained unchanged
+as historical synthetic evidence and requires its original implementation
+(`489fe72`). Rehearsal 02 binds the tightened parser and is the current supporting
+report. This is a synthetic engineering rerun, not a G2 extraction lineage or
+an empirical promotion. The hosted PR is #137; its live state controls delivery.

@@ -53,7 +53,8 @@ release-candidate assurance remains separately unmet even after preparation work
 `scan_candidate_bytes(raw, media_type)` returns metadata only, deterministically.
 `verify_candidate_scan(raw, media_type, report)` recomputes it. Raw must be plain
 bytes, nonempty and at most 8 MiB; media_type is a bounded string at most 128
-characters. Reject invalid API types/budgets with fixed errors before hashing or
+characters matching lowercase ASCII type/subtype tokens (letters, digits, dot,
+plus and hyphen; each token starts with a letter). Reject invalid API types/budgets with fixed errors before hashing or
 parsing. Return input SHA-256/BLAKE3/size, declared media, scanner status, fixed
 finding codes/severities, per-check coverage, component fingerprints, limitations
 and false authority. Never return source text, matched values or member names.

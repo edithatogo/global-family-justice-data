@@ -79,3 +79,44 @@ https://docs.mlcommons.org/croissant/docs/croissant-spec-1.1.html .
 The unchanged specification remains at that link under its CC BY-ND 4.0 terms.
 GFJD's restricted checks do not establish full conformance, extraction,
 publication, licence validity or custody of declared distributions.
+
+## Pinned partner technical references
+
+The following unchanged technical files were read from local Git objects, not
+from court-source endpoints. Python files are packaged with a `.py.txt` suffix
+and are never imported or executed by the reference adapter. JSON schemas are
+checked for syntax only. No partner registration, operational compatibility,
+publication receipt or rights to underlying data follows from these copies.
+
+Archive Govt NZ reference commit:
+`af427c2632239a8869684c849c0fcc1981277b02`, repository
+https://github.com/edithatogo/archive-govt-nz .
+
+| Local filename | Original path |
+| --- | --- |
+| `partner-archive-ownership.py.txt` | `src/archive_govt_nz/foi_ownership.py` |
+| `partner-archive-publication.schema.json` | `schemas/archive/v1/publication-receipt.schema.json` |
+| `partner-archive-LICENSE.txt` | `LICENSE` |
+
+Global Medicines Atlas reference commit:
+`f7550d5f84b6a831cd99c3b6882c0d33c4b0c939`, repository
+https://github.com/edithatogo/global-medicines-atlas .
+
+| Local filename | Original path |
+| --- | --- |
+| `partner-gma-federation.schema.json` | `contracts/medallion/v4/federation.schema.json` |
+| `partner-gma-semantics.py.txt` | `src/global_medicines_atlas/federation.py` |
+| `partner-gma-LICENSE.txt` | `LICENSE` |
+| `partner-gma-NOTICE.txt` | `NOTICE` |
+
+Attribution: the respective repository contributors; Global Medicines Atlas
+copyright 2026 Edith Atogo. Both software references are Apache-2.0; their
+unchanged licences and the Global Medicines Atlas NOTICE are included. The
+Archive Govt NZ root at the recorded commit has no NOTICE file. Contents are
+unchanged; only local filenames differ. All seven asset digests are pinned in
+`tests/test_federation_specs.py`; the four contract digests and commit identities
+are additionally pinned in `gfjd.federation_partner_interfaces`.
+
+Archive ownership allowlists do not include GFJD. Global Medicines Atlas's
+B0 index / B1 metadata / B2 raw definitions are not direct aliases for GFJD's
+medallion layers. These limitations remain explicit in every assessment.

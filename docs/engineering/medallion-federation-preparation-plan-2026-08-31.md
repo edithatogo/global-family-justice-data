@@ -786,3 +786,27 @@ interface conformance. Emit metadata/digests only, all authority false, and
 verify by full recomputation. Disclose existing helper/compiler fingerprint
 reads. Integrated sidecar composition and supporting evidence indexing follow
 these tested adapters within the same federation track.
+
+### Reference adapter implementation ledger
+
+Implemented the two frozen declaration adapters and whole-report recomputation
+verifiers. Observed meaningful RED for an incorrect partner declaration digest
+before implementation; the Parquet implementation likewise began with a failing
+digest-binding test. The 52 focused adapter tests passed in 1.88 seconds; Ruff
+and mypy passed. Tests cover exact input-bank membership, missing declarations,
+revision kinds, canonical identity, known metadata/format contradictions, unknown
+payload hashes, unavailable interfaces, authority forgery and boolean/integer
+aliases. Network entry points are disabled in positive regression tests.
+
+Role-separated advisory review found no actionable contradiction against the
+frozen contract. It recommends keeping unavailable partners and factual states
+pending; no external or independent assurance is asserted. Main review checked
+both implementations and retained the distinction between hash declarations,
+local schema syntax, actual payload verification and live interoperability.
+
+Seven unchanged partner technical assets have explicit provenance, original
+path mappings, licences, the applicable NOTICE and package-resource digest tests.
+No partner Python is executed and no court-source content is copied. Full local
+validation, exact-head hosted CI and PR delivery remain pending for this slice.
+Integration of these sidecars and supporting evidence indexing remain next in
+this same federation track; no programme criterion is promoted by this ledger.

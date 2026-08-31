@@ -15,6 +15,34 @@ import pytest
     ("name", "digest"),
     [
         (
+            "partner-archive-ownership.py.txt",
+            "9bdbecd2cd84f1faff7d69b5bdad729f8add68baa98b9345b066ccc1775d031a",
+        ),
+        (
+            "partner-archive-publication.schema.json",
+            "6097ba87f4eafa04bcea8f586144cb9129961d085709fe99350e600274137c9d",
+        ),
+        (
+            "partner-archive-LICENSE.txt",
+            "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9",
+        ),
+        (
+            "partner-gma-federation.schema.json",
+            "ac28485a70e0853266e4c140f9a07cd557eb27816b0b408b9bf2927a4cffacec",
+        ),
+        (
+            "partner-gma-semantics.py.txt",
+            "2a21eb2d09a8a9ba1e956c1b0d5c123529c185d79bb31ced2c2a0cb8bebaeb78",
+        ),
+        (
+            "partner-gma-LICENSE.txt",
+            "450ea334a0b6b4cfc91760135d029f8182bb20689ba77ae3c1251cc7f4265066",
+        ),
+        (
+            "partner-gma-NOTICE.txt",
+            "5e71f55fe41db303f30b5eb4659ecbdfec6e8dc0de8886c2f15ca8bace5a114b",
+        ),
+        (
             "openlineage-2-0-2.json",
             "69f68bee00b9beac88a87059c0102410e7bb05f3f43c46d02a0409831eceb0d2",
         ),

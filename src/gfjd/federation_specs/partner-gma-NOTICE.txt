@@ -1,0 +1,10 @@
+Global Medicines Atlas
+Copyright 2026 Edith Atogo.
+
+Repository software is licensed under the Apache License, Version 2.0. See
+LICENSE. Eligible maintainer-owned derived datasets may be licensed under
+CC-BY-4.0 only when an approved public artifact manifest expressly says so.
+
+Third-party medicine data, terminology, documents, and metadata remain subject
+to their respective source licences, access conditions, and redistribution
+restrictions. See docs/data-sources/SOURCE_RIGHTS.md.

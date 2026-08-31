@@ -36,9 +36,9 @@ Options and trade-offs:
 - [~] RDF/JSON-LD preparation: DCAT-AP, RO-Crate and PROV-O using offline
   normative contexts/shapes where available; Croissant profile preparation with
   explicit validation coverage. No homegrown subset is full conformance.
-- [ ] Canonical identity, six-role estate and zero-copy reference reconciliation;
+- [~] Canonical identity, six-role estate and zero-copy reference reconciliation;
   prospective partner/registry records without cross-repository mutation.
-- [ ] Deterministic draft bundle, exact recomputation and conspicuously fictional
+- [~] Deterministic draft bundle, exact recomputation and conspicuously fictional
   positive/negative rehearsals. Actual drafts preserve missing factual fields.
 - [ ] Conductor supporting evidence, advisory review, full validation, reviewed
   signed PR delivery, exact-head CI, history-preserving merge and local cleanup.
@@ -542,3 +542,29 @@ Its manifest binds every output and supplied input digest, and verification
 regenerates the exact file set and bytes. PROV exports remain separately
 recomputed outputs until their exact replay-input relationship is integrated;
 no unverified prebuilt provenance blob is accepted merely to fill that slot.
+
+## Identity, provenance and bundle implementation checkpoint
+
+The canonical reference adapter is implemented at `a358dda`, replay-derived
+PROV exports at `7d9050c`, and metadata-only bundle assembly at `ebe4cd3`.
+The combined focused suite passes 62 tests (2.19s); Ruff and strict module
+typing pass. Tests cover exact membership and digest binding, all four metadata
+dispatch routes, incomplete declarations, rehashed output forgery, malformed
+standards, missing replay parents, cross-partition revisions and no network.
+Meaningful failing tests preceded scope binding and replay-receipt verification.
+
+Role-separated read-only advisory reviews found no actionable defects in the
+reference, PROV or bundle implementations. Their recommendation is to continue
+with full validation while retaining an explicit pending PROV integration state.
+A valid but unrelated replay must never satisfy a scoped object's provenance
+requirement. The next integration must recompute one explicitly typed projection
+or pipeline-history input, bind a scoped canonical object to a recomputed entity
+digest, use fixed output paths and bound aggregate input size. Unknown content
+hashes remain pending, rather than acquiring an invented provenance binding.
+
+The current bundle contains estate drafts, reference metadata, assessment reports
+and output hashes, never input metadata or source payloads. PROV remains a
+separately replayed output until that exact relationship is implemented. This
+checkpoint does not complete the federation track, factual registry evidence,
+partner registration, source rights, maturity, publication or any programme gate.
+Full validation, exact-head CI and reviewed signed PR integration are pending.

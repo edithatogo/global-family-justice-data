@@ -1,6 +1,6 @@
 # WI-G4-MED-04 — public estate preparation
 
-Status: in-progress repository-owned preparation. The publication-bearing work
+Status: completed repository-owned preparation. The publication-bearing work
 item remains planned; its dependencies and acceptance evidence are unchanged.
 This plan implements the next item in the approved autonomous continuation
 queue, before the separate WI-G4-MED-05 federation track.
@@ -66,7 +66,7 @@ zero-copy references remain requirements of the following federation track.
 - [x] Bind supporting evidence and this plan into Conductor continuation
   context without making WI-G4-MED-04 publicly executable or changing its
   acceptance-bearing mapping or dependencies.
-- [ ] Advisory review, full local validation, signed commits, reviewed PR,
+- [x] Advisory review, full local validation, signed commits, reviewed PR,
   exact-head hosted checks, history-preserving merge and local cleanup.
 
 ## Contingencies and stopping rules
@@ -178,8 +178,8 @@ verification or full Hugging Face card-standard conformance is claimed.
 
 E-HF-ESTATE-DRAFT-20260831-02 is supporting `in_review` evidence only.
 E-HF-PUBLIC-MEDALLION-ESTATE remains missing and WI-G4-MED-04 remains planned.
-Full local validation, reviewed PR delivery and cleanup are pending; hosted
-estate publication and the next federation track are not completed by this plan.
+Full local validation, reviewed PR delivery and cleanup passed as recorded below;
+hosted estate publication and federation are not completed by this plan.
 
 ## Hosted review correction — mandatory policy bytes
 
@@ -202,8 +202,20 @@ green validation did not justify accepting that gap or merging.
   `555da748161253174a9da789bc35001f29a5bd0a57f1854fde811bb81b9bafe1`.
   Retain that historical implementation for v1 recomputation; do not repair or
   relabel it as current v2 evidence.
-- [ ] Post-fix advisory review, full local validation and exact-head hosted
+- [x] Post-fix advisory review, full local validation and exact-head hosted
   checks, resolved review, history-preserving integration and local cleanup.
 
 The four-configuration contract above records the initial interface; this v2
 correction adds mandatory policy bytes without broadening execution authority.
+
+## Delivery closeout
+
+PR #139 merged at signed commit `048c4bd5d3172b989bfbc3b8033deab8d8e5a74f`
+on 2026-08-31T13:34:47Z. Post-fix role-separated advisory review confirmed the
+mandatory policy binding and preserved historical draft. All 17 exact-head
+hosted checks passed and the actionable review thread was resolved. Full local
+validation exited zero: 1,208 tests passed twice (81.70s and 128.43s), reported
+coverage 82%; package, restore, bootstrap and deterministic distribution checks
+passed. Integration preserved signed history. Local cleanup left one worktree
+and main only; no remote branch was deleted. This closes preparation, not the
+publication-bearing work item or its missing factual evidence.

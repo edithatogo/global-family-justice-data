@@ -102,7 +102,7 @@ release-rehearsal:
 	SOURCE_DATE_EPOCH=$(SOURCE_DATE_EPOCH) PYTHONPATH=src $(PYTHON) -m gfjd release build --version $(REHEARSAL_VERSION) --output build/rehearsal --source-date-epoch $(SOURCE_DATE_EPOCH) --allow-version-override
 	PYTHONPATH=src $(PYTHON) -m gfjd release verify build/rehearsal/gfjd-$(REHEARSAL_VERSION)
 
-integration-rehearsals:
+integration-rehearsals: federation-bundle-rehearsal
 	rm -rf build/demo build/evidence build/comparability build/census build/warehouse build/backup build/restore-rehearsal build/bootstrap-rehearsal build/governance build/gate-packs
 	PYTHONPATH=src $(PYTHON) -m gfjd demo run --output build/demo
 	PYTHONPATH=src $(PYTHON) -m gfjd demo verify --output build/demo
@@ -161,7 +161,12 @@ medallion-lineage-rehearsal:
 	PYTHONPATH=src $(PYTHON) scripts/rehearse_medallion_lineage.py --output build/medallion-lineage/rehearsal.json
 	PYTHONPATH=src $(PYTHON) scripts/rehearse_medallion_lineage.py --verify build/medallion-lineage/rehearsal.json
 
-autonomy-full: format lint typecheck coverage check integration-rehearsals medallion-lineage-rehearsal package-reproducibility release-reproducibility autonomy-context
+.PHONY: federation-bundle-rehearsal
+federation-bundle-rehearsal:
+	PYTHONPATH=src $(PYTHON) scripts/rehearse_federation_bundle.py --output-directory build/federation-rehearsal
+	PYTHONPATH=src $(PYTHON) scripts/rehearse_federation_bundle.py --verify-directory build/federation-rehearsal
+
+autonomy-full: format lint typecheck coverage check integration-rehearsals medallion-lineage-rehearsal federation-bundle-rehearsal package-reproducibility release-reproducibility autonomy-context
 
 check: compile contracts validate test generated policy release-rehearsal
 

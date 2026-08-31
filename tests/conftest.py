@@ -32,6 +32,7 @@ def pytest_collection_modifyitems(items: list[pytest.Item]) -> None:
         "test_bootstrap.py",
         "test_pipeline.py",
         "test_release.py",
+        "test_federation_rehearsal.py",
     }
     for item in items:
         lowered = item.nodeid.lower()

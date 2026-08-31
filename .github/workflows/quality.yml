@@ -274,6 +274,7 @@ jobs:
             build/restore-rehearsal
             build/bootstrap-rehearsal
             build/rehearsal
+            build/federation-rehearsal
           if-no-files-found: error
           retention-days: 14
 

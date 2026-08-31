@@ -248,3 +248,48 @@ successful static analysis alone cannot establish full conformance. A later
 explicit GFJD profile must expose its partial coverage; any reference-library
 execution needs pinned dependencies and actual I/O restrictions, not a presumed
 metadata-only mode. No Croissant library or source-data loader has been run.
+
+## DCAT adapter contract freeze
+
+Use `pyshacl==0.40.1` and a locked RDFLib 7.x dependency. The reviewed direct
+`Validator` API requires `DataGraph.from_rdflib(graph)` in this version; pin and
+test that adapter rather than silently migrating its implementation interface.
+Provide an isolated non-propagating logger. The public convenience entrypoint
+installs stderr logging and additional loader/global setup; it is not needed.
+
+Data input is a deliberately restricted N-Triples profile: absolute ASCII HTTP,
+HTTPS or URN IRIs; IRI subjects/predicates; IRI objects or safe string/language
+literals (optionally explicit XSD string). No blank nodes, escaped IRIs,
+unsupported datatypes, imports, embedded shapes, arbitrary source formats or
+caller-supplied parser/validator options. Preflight lexical forms before RDFLib
+term construction so malformed values cannot reach its diagnostic logger.
+Count statements including duplicates before graph insertion. Limit input to
+1 MiB, 8,192 characters per line, 4,096 per literal/IRI, and 2,000 statements.
+These are input bounds, not an operating-system resource isolation claim.
+
+Freeze two module interfaces:
+
+- `federation_rdf_input.parse_metadata(raw: bytes) -> tuple[Graph, int]`:
+  bounded in-memory parsing with no ambient resource lookup; errors use fixed
+  messages without exposing input in ordinary tracebacks or diagnostics.
+- `federation_dcat.validate_catalogue(data_bytes: bytes,
+  shape_bytes: dict[str, bytes]) -> dict`: require exactly `shapes.ttl` and
+  `range.ttl` with the frozen upstream hashes; parse those unchanged trusted
+  shapes separately. Require one typed catalogue linked to at least one typed
+  dataset before evaluating shapes, so empty/untargeted graphs cannot pass.
+
+Run the complete supplied base/range shape sets, with no extra ontology,
+inference, imports, JavaScript, advanced rules, rule iteration, remote graph
+mode, focus-node or shape filtering. Use maximum validation depth 15. Return
+deterministic aggregate constraint/severity counts and input/shape/engine
+bindings, never raw literal values or textual validation reports. Invalid
+input/bindings stop; validly parsed but nonconforming graphs return a failed
+shape result. Controlled vocabularies, full DCAT-AP conformance, factual
+provenance, rights, partner registration and all authority remain unverified.
+
+Reviewers recommended this narrow adapter over global logging suppression or
+unbounded reference-library loaders. Regression tests must exercise malformed
+IRIs/literals, unsupported datatype and import payloads, duplicate-statement
+limits, missing targets/properties, wrong ranges, normative tampering, silent
+diagnostics and no implicit filesystem/network calls. RDFLib and SHACL success
+do not replace the later identity, publication or factual-evidence controls.

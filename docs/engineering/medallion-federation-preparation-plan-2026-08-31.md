@@ -371,3 +371,58 @@ well as the lock; do not weaken the guard or imply untested compatibility.
 The corrected head requires fresh local and hosted validation before merge.
 The two superseded historical preparation sentences identified by the ledger
 review have also been clarified; factual work-item acceptance remains pending.
+
+## DCAT delivery closeout
+
+PR #141 merged on 2026-08-31T14:43:31Z at signed commit
+`9c56ecf85355de511e63378e450f718a44c6e03d`. All 16 reported exact-head hosted
+checks passed and the review thread was resolved after the dependency fix.
+Full local validation passed with 1,332 tests twice (102.70s and 60.58s), 83%
+coverage, and successful package/restore/reproducibility checks. The built wheel
+also verified both normative shape hashes and its exact RDFLib requirement.
+History-preserving integration and local cleanup left only main and one worktree.
+
+## Supplied-byte metadata profiles — prospective contract
+
+Continue this same federation track with RO-Crate and Croissant preparation.
+The selected option is explicit, closed GFJD representation profiles backed by
+the versioned references above, not a claim of full JSON-LD or standard
+conformance. General-purpose JSON-LD expansion would enable implicit loaders;
+custom profile checks avoid those capabilities but must reject unsupported
+representations honestly. Broader interoperability remains a separate phase,
+not a silent fallback. No standard or data licence is rewritten by this profile.
+
+Use a shared `federation_metadata` module for strict supplied-byte JSON, fixed
+errors and deterministic report helpers. Bound metadata to 1 MiB, depth 16,
+10,000 values, 1,000 entries per collection and 4,096 characters per string.
+Reject duplicate keys, nonfinite numbers, control/surrogate text and unsupported
+JSON-LD contexts. No parser/assessor may read files, fetch identifiers, open
+locators, run extraction or emit input values in errors. A context asset is a
+separately bound technical artifact, not subject to ordinary metadata limits.
+
+`assess_rocrate(metadata_raw, context_raw)` checks a closed flattened graph:
+exact supplied 1.3 context SHA above; descriptor `ro-crate-metadata.json`;
+root `./`; unique entity IDs; explicit descriptor-to-root and version links;
+supported Dataset, File, Organization and licence CreativeWork declarations;
+internal reference integrity and safe relative file paths. Required factual
+declarations may be missing in a draft: report deterministic incomplete issues
+rather than invent publication dates, licences, names or descriptions. Never
+equate a declared licence with rights clearance or a file descriptor with bytes.
+
+`assess_croissant(metadata_raw, profile_raw)` checks a hash-bound GFJD-authored
+closed profile referencing, not copying, the Croissant 1.1 specification. Use a
+single exact inline context; Dataset metadata and simple FileObject references;
+optional flat RecordSets/Fields with explicit distribution/column references.
+No FileSet globs, transformations, joins, external/scoped contexts, embedded
+records or extraction. Missing creator, licence, publication or distribution
+facts remain explicit incomplete issues. Supplied checksums are syntax-checked
+declarations, not verified custody. No hosted dataset locator is fabricated.
+
+Both APIs return deterministic digest-bound profile results, explicit coverage,
+sorted issue codes, `full_conformance` and `factual_evidence` unverified, and all
+authority false. Verification independently recomputes and compares the complete
+report. Malformed/binding/unsupported input raises fixed errors; supported drafts
+with missing declarations return `profile_incomplete`. Fictional complete and
+incomplete fixtures, hostile syntax, context drift, reference substitution and
+no-I/O tests are mandatory. Role-separated implementation and reciprocal review
+remain advisory; complete local checks and exact-head CI precede merge.

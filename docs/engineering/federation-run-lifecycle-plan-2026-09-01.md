@@ -86,15 +86,34 @@ network, signing, publication, rights, maturity or gate acceptance occurs.
 
 ## Implementation and validation order
 
-- [~] Sequence schema/profile validator with positive START/RUNNING/OTHER/terminal
+- [x] Sequence schema/profile validator with positive START/RUNNING/OTHER/terminal
   cases, including FAIL/ABORT and post-terminal OTHER; negative types, identity,
   ordering, timestamps, facets, bounds, schema drift and duplicate events.
-- [ ] Exact replay association and verifier, with wrong-direction/unrelated replay,
+- [x] Exact replay association and verifier, with wrong-direction/unrelated replay,
   forged reports, failed-terminal and post-terminal-only association tests.
-- [ ] Role-separated review, focused/full validation, implementation ledger,
+- [~] Role-separated review, focused/full validation, implementation ledger,
   exact-head hosted review/CI, signed history-preserving merge and local cleanup.
 
 No new runtime dependency or external input is required. Unsupported facets or
 formats fail closed; actual runtime records and full standards coverage remain
 separate requirements. Keep actual-config drafts, canonical ownership/reference
 checks and remaining standards/partner coverage on the federation queue.
+
+## Implementation ledger
+
+The standalone sequence validator and replay association implement the frozen
+contract without changing the existing design-event or replay-bundle APIs.
+Meaningful RED tests established missing-terminal and wrong-binding-digest
+rejection before implementation. The combined focused suite passes 107 tests
+(73 sequence and 34 association); Ruff and mypy pass for both modules.
+
+Role-separated read-only advisory review found no actionable issue. It checked
+identity, terminal ordering, timestamp precision, dataset directions, empty
+facets, local schema resolution, regenerated replay membership, failed and
+post-terminal states, and recomputed report verification. This is advisory
+code review, not independent assurance or observed operational evidence.
+
+The lifecycle plan is included in the generated autonomous context. Factual
+execution, production, ownership, full standards conformance and programme gate
+acceptance remain unverified. Full validation, exact-head CI/hosted review and
+signed history-preserving delivery are pending at this source freeze.

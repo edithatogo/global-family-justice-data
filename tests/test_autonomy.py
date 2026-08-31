@@ -46,6 +46,7 @@ def test_autonomy_context_is_bounded_and_fail_closed(tmp_path: Path) -> None:
         "docs/engineering/medallion-layer-qualification-plan-2026-08-31.md",
         "docs/engineering/medallion-estate-preparation-plan-2026-08-31.md",
         "docs/engineering/medallion-federation-preparation-plan-2026-08-31.md",
+        "docs/engineering/federation-run-lifecycle-plan-2026-09-01.md",
     }
     assert required_context <= {item["path"] for item in payload["files"] if item["content"]}
     assert len(payload["blocker_matrix"]) == 6

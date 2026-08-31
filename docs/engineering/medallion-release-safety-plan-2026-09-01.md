@@ -301,3 +301,65 @@ raw unvalidated lock fields. Internal graph/SPDX consistency may be checked;
 artifact authenticity, signatures, provenance attestations, vulnerability-feed
 freshness/completeness, actual imports and release authority remain unverified.
 Neither a supplied audit success nor an SBOM license field grants clearance.
+
+## Frozen coordinator applicability and report rules
+
+Scan every unique candidate digest once, then retain results for every inventory
+object/role edge. Report no source excerpts. Fixity and locator syntax apply to
+every object. Secrets/prohibited-data statuses come from the bounded scanner;
+role labels never suppress findings or unsupported coverage. Do not introduce a
+role-only not_applicable shortcut for any dimension.
+
+Disclosures remain unsupported except an exactly mapped Gold data object's
+recomputed quality/quarantine diagnostics. Verified bounded count diagnostics may
+be checked_no_findings; failed diagnostics remain failed, and absent checks remain
+missing_evidence. This never supplies the pending accountable disclosure decision.
+
+Qualification mapping is compiler-controlled: data maps source for B0 and rows
+for B1/Silver/Gold; transformation maps contract for B1/Silver; manifest maps
+manifest for Platinum. Metadata may map a wrapper's own file digest or exact
+capture/safety/custody/rights/restore/receipt/history/checkpoint/semantic/quality/
+policy/disclosure/owner/scope/federation artifact roles. Match logical_object_id,
+edition_id and layer before bytes. Record the matched role explicitly. More than
+one different eligible role for a candidate is unsupported ambiguous provenance,
+not a convenient selection. Every qualification cell must have a corresponding
+candidate wrapper entry; missing/invalid/inactive native cells remain visible.
+
+Native qualification/restore control bytes must occur in the candidate bank,
+including inactive wrapper payload references. Native replica membership equals
+candidate membership. The restore bundle must reference the same scope/contract
+as any qualification bundle. Lifecycle current active heads must match exact
+candidate identities, bytes and active state; matching historical objects must
+match declared size/BLAKE3/state too. Missing inactive historical payloads appear
+as digest-only gaps. A shared identity with inconsistent bytes/state rejects.
+
+Provenance may establish only the mapped native check or declared control-file
+association. Data derivation requires its mapped cell's verified lineage (B0
+retains capture authenticity as a separate pending fact). Nonmapped candidates
+remain missing_evidence; arbitrary equal hashes do not establish association.
+Package-member edges reconcile the scanner's complete member-content-hash multiset
+before package composition can be internally checked; this is not executable
+package authenticity. Unsupported package scanning remains unsupported composition.
+
+Dependencies and supply-chain graph checks apply to exact dependency bundle
+inputs and validated candidate distribution bindings. Unbound packages remain
+unsupported; missing bundles stay missing_evidence. Non-executable applicability
+is not inferred merely from data/metadata labels: without a suitable compiler
+proof, keep other members unsupported rather than claiming not_applicable.
+Actual import coverage, signatures, audit freshness, publisher authenticity and
+key custody remain separate unverified facts even for matched internal graphs.
+
+Report per-object eight-dimension statuses, scanner codes/severities, exact mapped
+evidence references, package composition results and missing/unsupported coverage.
+Native reports are recomputed and hash-bound; emit only closed-code/count/digest
+summaries, mapped candidate identities and all cell statuses, not arbitrary nested
+source or review strings. Preserve lifecycle historical gaps and declared provider
+backlog. All control identifiers emitted from native evidence must reconcile with
+guarded candidate identifiers or be represented by hashes.
+
+Mechanical coverage completeness requires every required dimension to be checked
+without failure/missing/unsupported states; it is not factual acceptance. No
+source-byte acquisition, comprehensive safety, absence of unresolved critical
+risks, rights, promotion, publication, public restore, release or gate authority
+is established. Release remains blocked regardless of a successful mechanical
+subset. Findings use compiler-owned severity and are never downgraded by callers.

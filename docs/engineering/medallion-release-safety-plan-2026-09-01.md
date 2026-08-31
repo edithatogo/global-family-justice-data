@@ -177,6 +177,10 @@ to every category where they appear. Within one category count each digest once.
 Shared digests must have identical BLAKE3/size/media declarations. Check all sizes,
 membership and budgets before SHA/BLAKE3 work. Every declared object remains in
 the report, including duplicates by content, inactive members and metadata.
+Decoded plan/scope keys and strings must also be checked against the existing
+literal secret patterns before returning control metadata; a match fails with a
+fixed diagnostic and is never echoed. This prevents a credential-shaped object
+ID or escaped locator/control value from leaking through the report itself.
 
 The external evidence-bundle tree is bounded before fingerprinting: plain dicts,
 lists, strings, bytes, ints/bools/null only; depth at most 12, 50,000 nodes, at most

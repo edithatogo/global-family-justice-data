@@ -91,7 +91,7 @@ network, signing, publication, rights, maturity or gate acceptance occurs.
   ordering, timestamps, facets, bounds, schema drift and duplicate events.
 - [x] Exact replay association and verifier, with wrong-direction/unrelated replay,
   forged reports, failed-terminal and post-terminal-only association tests.
-- [~] Role-separated review, focused/full validation, implementation ledger,
+- [x] Role-separated review, focused/full validation, implementation ledger,
   exact-head hosted review/CI, signed history-preserving merge and local cleanup.
 
 No new runtime dependency or external input is required. Unsupported facets or
@@ -117,3 +117,17 @@ The lifecycle plan is included in the generated autonomous context. Factual
 execution, production, ownership, full standards conformance and programme gate
 acceptance remain unverified. Full validation, exact-head CI/hosted review and
 signed history-preserving delivery are pending at this source freeze.
+
+### Delivery
+
+PR #147 merged at signed `de3455342595535b0054425aa615162c9e94a79c` on
+2026-08-31T17:12:29Z. Full validation exited zero: 1,734 tests passed twice
+(181.03s/169.67s), 84% coverage, integration and reproducibility checks passed.
+All 16 reported exact-head checks succeeded, including every required check.
+Hosted Codex review completed without findings; no review threads remained.
+Copilot could not review because of quota, and no codecov commit status was
+reported at merge; neither is claimed as review/validation evidence. The merge
+preserved history and local cleanup left one clean main branch/worktree.
+
+Continue the federation track with
+`docs/engineering/federation-config-drafts-plan-2026-09-01.md`.

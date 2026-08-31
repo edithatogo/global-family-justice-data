@@ -341,3 +341,19 @@ are risk-review dates that became overdue after 2026-08-31, not DCAT failures.
 Preserve them for the grouped remaining-risk review; do not advance review dates
 or adjudicate risks merely to remove warnings. Project validation passes with
 zero errors and these warnings retained.
+
+### CI review correction: calendar consistency
+
+The first hosted static job failed generated-status parity: Brisbane had
+already reached September 1 while CI was still on August 31 UTC. Conductor
+used host-local `date.today()` despite emitting UTC timestamps. Two regression
+tests first failed when local-calendar access was prohibited. Default validation,
+expiry comparisons and newly recorded Conductor calendar dates now use UTC;
+explicit `as_of` and supplied dates remain unchanged. A separate regression
+retains overdue warnings for an explicit September 1 assessment. The 17 focused
+Conductor/clock tests, lint and formatting checks passed after the correction.
+
+The second local full run was interrupted (exit 130) for this code correction,
+not accepted as phase evidence. Regenerate the status on the UTC basis and rerun
+the entire gate and exact-head CI. The known upcoming risk reviews remain
+recorded above; no risk record or review date is altered by this fix.

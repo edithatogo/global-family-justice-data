@@ -5,7 +5,7 @@ from __future__ import annotations
 import csv
 import json
 import math
-from datetime import date
+from datetime import UTC, date, datetime
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -27,7 +27,7 @@ def validate_project(
     include_security: bool = True,
 ) -> Report:
     project = load_project(root)
-    as_of = as_of or date.today()
+    as_of = as_of or datetime.now(UTC).date()
     report = Report("GFJD project validation")
     tables = validate_contracts(project, report)
     _semantic_validation(project, tables, report, as_of=as_of)

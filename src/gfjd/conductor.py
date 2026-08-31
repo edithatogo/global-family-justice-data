@@ -522,7 +522,7 @@ class Conductor:
         return records
 
     def validate(self, *, as_of: date | None = None) -> Report:
-        as_of = as_of or date.today()
+        as_of = as_of or datetime.now(UTC).date()
         report = Report("Programme conductor validation")
         self._validate_uniqueness(report)
         self._validate_tracks(report)
@@ -1103,7 +1103,7 @@ class Conductor:
         decision_valid = bool(
             decision
             and decision.status == conductor_cfg.get("accepted_gate_decision_status", "accepted")
-            and (decision.expires_on is None or decision.expires_on >= date.today())
+            and (decision.expires_on is None or decision.expires_on >= datetime.now(UTC).date())
         )
         require_decision = bool(conductor_cfg.get("require_recorded_gate_decision", True))
         passed = ready and (decision_valid or not require_decision)
@@ -1171,7 +1171,7 @@ class Conductor:
         approved_exception = any(
             record.criterion_id == criterion.id
             and record.status == "approved"
-            and (record.expires_on is None or record.expires_on >= date.today())
+            and (record.expires_on is None or record.expires_on >= datetime.now(UTC).date())
             for record in self.exceptions.values()
         )
         if approved_exception and criterion.waivable:
@@ -1500,7 +1500,7 @@ class Conductor:
         updates: dict[str, str] = {
             "status": status,
             "reviewer_role": reviewer_role,
-            "reviewed_on": (reviewed_on or date.today()).isoformat(),
+            "reviewed_on": (reviewed_on or datetime.now(UTC).date()).isoformat(),
         }
         if notes is not None:
             updates["notes"] = notes
@@ -1552,7 +1552,7 @@ class Conductor:
             gate_id,
             {
                 "status": status,
-                "decided_on": date.today().isoformat(),
+                "decided_on": datetime.now(UTC).date().isoformat(),
                 "decision_authority": authority,
                 "decision_reference": reference,
                 "conditions": conditions,
@@ -1576,7 +1576,7 @@ class Conductor:
     ) -> Risk:
         if risk_id not in self.risks:
             raise KeyError(f"Unknown risk {risk_id}")
-        updates: dict[str, str] = {"reviewed_on": date.today().isoformat()}
+        updates: dict[str, str] = {"reviewed_on": datetime.now(UTC).date().isoformat()}
         if status is not None:
             if status not in {"open", "mitigating", "accepted", "closed"}:
                 raise ValueError(f"Invalid risk status {status!r}")

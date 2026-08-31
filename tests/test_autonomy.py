@@ -45,6 +45,7 @@ def test_autonomy_context_is_bounded_and_fail_closed(tmp_path: Path) -> None:
         "docs/engineering/medallion-autonomous-continuation-2026-08-30.md",
         "docs/engineering/medallion-layer-qualification-plan-2026-08-31.md",
         "docs/engineering/medallion-estate-preparation-plan-2026-08-31.md",
+        "docs/engineering/medallion-federation-preparation-plan-2026-08-31.md",
     }
     assert required_context <= {item["path"] for item in payload["files"] if item["content"]}
     assert len(payload["blocker_matrix"]) == 6
@@ -78,7 +79,9 @@ def test_explicit_repository_scope_can_execute_without_mutating_input(
     assert "execution_scope" not in action
 
 
-@pytest.mark.parametrize("work_id", ["WI-G4-MED-04", "WI-FUTURE-UNKNOWN", None, [], {}])
+@pytest.mark.parametrize(
+    "work_id", ["WI-G4-MED-04", "WI-G4-MED-05", "WI-FUTURE-UNKNOWN", None, [], {}]
+)
 @pytest.mark.parametrize("status", ["planned", "in_progress"])
 def test_publication_and_unclassified_work_fail_closed(work_id: Any, status: str) -> None:
     action = {"work_item_id": work_id, "status": status, "title": "Safe local preparation"}

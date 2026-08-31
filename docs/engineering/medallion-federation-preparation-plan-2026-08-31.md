@@ -106,3 +106,27 @@ locator is requested by validation. Avoid credentials, personal data and source
 payloads; preserve earlier failed evidence. Actual publication, registration,
 rights, custody, Gold, maturity and G2–G6 acceptance remain unchanged. Group any
 genuine authority/factual gap at the end of the authorized queue.
+
+## RDF advisory research for the following phase
+
+The role-separated RDF adviser identified the specification-linked
+[DCAT shape directory](https://github.com/SEMICeu/DCAT-AP/tree/729eddfc176d0afee5850ade6528f96f72579412/releases/3.0.1/html/shacl).
+Use `html/shacl`, not the different sibling generated `shacl` directory.
+Core `shapes.ttl` is 20,619 bytes, SHA-256
+`7fe9815e0f32b10f5cbce74fa6ccd0290aae3ef9e5080fb84e2d8093eb984d1d`;
+`range.ttl` is 12,490 bytes, SHA-256
+`24d3bfd0fa17a3d0e877c9ebb91c8174124e5038538e1bf081b2cb679ad0f1b2`.
+These are research bindings, not yet vendored or executed in this phase.
+
+Upstream imports include mutable vocabularies. Never enable automatic imports
+or invent vocabulary-membership triples. Pin a local closure separately and
+report any missing controlled-vocabulary validation. Prefer explicit bounded
+Turtle/N-Triples, disabled imports/advanced rules/JavaScript and a locked engine;
+library flags alone do not provide operating-system isolation. These limitations
+must remain visible in later validation reports.
+
+PROV-O representation is distinct from full
+[PROV-CONSTRAINTS validity](https://www.w3.org/TR/2013/REC-prov-constraints-20130430/).
+Do not label a small application profile as full constraint validation or
+infer actual activities from planned transformations. The advisers' findings
+guide implementation; neither is independent specialist assurance or acceptance.

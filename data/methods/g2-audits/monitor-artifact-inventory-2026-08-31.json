@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "repository": "edithatogo/global-family-justice-data",
+  "repository_id": 1313678863,
+  "canonical_main": "aaf85ba60dac08cfae38338b59088394337280fd",
+  "scope": "completed main runs in preceding seven days; at most 30 unpreserved runs oldest first",
+  "inventory_reviewed_on": "2026-08-31",
+  "workflow_listings_complete": true,
+  "completed_runs_observed": 20,
+  "receipt_bound_runs": 12,
+  "unpreserved_runs": 8,
+  "artifact_payloads_verified": false,
+  "artifacts": [
+    {
+      "created_at": "2026-08-29T07:11:24Z",
+      "digest": "sha256:694daaf5f77356b1d157341e308d21c23a8483f491c162102d6e9df1d128ae48",
+      "expired": false,
+      "expires_at": "2026-11-27T07:10:09Z",
+      "id": 9711123195,
+      "name": "g2-future-manifest-monitor-33240200746-1",
+      "size_in_bytes": 68413,
+      "workflow_run": {
+        "head_branch": "main",
+        "head_repository_id": 1313678863,
+        "head_sha": "cc86d206f323e6f4953fee9f8cdb659323ed83c3",
+        "id": 33240200746,
+        "repository_id": 1313678863
+      }
+    },
+    {
+      "created_at": "2026-08-29T07:19:01Z",
+      "digest": "sha256:317d53ed1cdce0ffb9dc4786f6d85d8bef0cd944b5181a667a2540e77d309c6f",
+      "expired": false,
+      "expires_at": "2026-11-27T07:17:56Z",
+      "id": 9711212795,
+      "name": "g2-future-manifest-monitor-33240510062-1",
+      "size_in_bytes": 68463,
+      "workflow_run": {
+        "head_branch": "main",
+        "head_repository_id": 1313678863,
+        "head_sha": "66eca9a3d232985a07cac629d8a4f6fb0154a660",
+        "id": 33240510062,
+        "repository_id": 1313678863
+      }
+    },
+    {
+      "created_at": "2026-08-29T07:37:59Z",
+      "digest": "sha256:c78d57489c0f483d66197d66d0a087ac3bd86434954063aa6fd9915d5ade0339",
+      "expired": false,
+      "expires_at": "2026-11-27T07:37:45Z",
+      "id": 9711428798,
+      "name": "g2-future-multiroot-monitor-33241287646-1",
+      "size_in_bytes": 30888,
+      "workflow_run": {
+        "head_branch": "main",
+        "head_repository_id": 1313678863,
+        "head_sha": "400ebcf65539716cad252477e296849adb473cac",
+        "id": 33241287646,
+        "repository_id": 1313678863
+      }
+    },
+    {
+      "created_at": "2026-08-30T06:39:56Z",
+      "digest": "sha256:9142a6def4e6f66a7cb8c2afa2929ebc8530e6744318b431218c73e4ef3e3d33",
+      "expired": false,
+      "expires_at": "2026-11-28T06:39:42Z",
+      "id": 9727845892,
+      "name": "g2-nz-justice-index-33297404761-1",
+      "size_in_bytes": 807,
+      "workflow_run": {
+        "head_branch": "main",
+        "head_repository_id": 1313678863,
+        "head_sha": "9cbc42ed1c56efa5eb693a7a6a9783a2650108dc",
+        "id": 33297404761,
+        "repository_id": 1313678863
+      }
+    },
+    {
+      "created_at": "2026-08-30T08:29:17Z",
+      "digest": "sha256:96912db02dec6e1dd3586f9c953df47939f7a7ac24f7d6a048b0c606c9557b76",
+      "expired": false,
+      "expires_at": "2026-11-28T08:22:54Z",
+      "id": 9729146436,
+      "name": "g2-uk-family-calendar-33301440152-1",
+      "size_in_bytes": 692,
+      "workflow_run": {
+        "head_branch": "main",
+        "head_repository_id": 1313678863,
+        "head_sha": "e6dbd267bdd957eb9e6f048f0357ef2fd99109b6",
+        "id": 33301440152,
+        "repository_id": 1313678863
+      }
+    },
+    {
+      "created_at": "2026-08-30T09:22:20Z",
+      "digest": "sha256:d5072cc87cd96a2bdb3a90161e2df485d4f698f88f7da722bd857996f54fe802",
+      "expired": false,
+      "expires_at": "2026-11-28T09:21:00Z",
+      "id": 9729815475,
+      "name": "g2-future-manifest-monitor-33303832206-1",
+      "size_in_bytes": 68465,
+      "workflow_run": {
+        "head_branch": "main",
+        "head_repository_id": 1313678863,
+        "head_sha": "308c752d3c5baae552965151dd74cc4094e6d11d",
+        "id": 33303832206,
+        "repository_id": 1313678863
+      }
+    },
+    {
+      "created_at": "2026-08-30T09:35:29Z",
+      "digest": "sha256:d5406654830d9b795cc36bd4a11e5cc9b48ea39e5acf7582adf471a29108dabe",
+      "expired": false,
+      "expires_at": "2026-11-28T09:26:35Z",
+      "id": 9729988360,
+      "name": "g2-future-multiroot-monitor-33304063733-1",
+      "size_in_bytes": 17998,
+      "workflow_run": {
+        "head_branch": "main",
+        "head_repository_id": 1313678863,
+        "head_sha": "ed7a892c12b98f12b699cd372ab40d197cb1992d",
+        "id": 33304063733,
+        "repository_id": 1313678863
+      }
+    },
+    {
+      "created_at": "2026-08-30T09:54:26Z",
+      "digest": "sha256:d6a4fe885b14ebcee87a919462958c896fb8383b95fe79558a257ba4ca2863c1",
+      "expired": false,
+      "expires_at": "2026-11-28T09:54:12Z",
+      "id": 9730216228,
+      "name": "g2-official-publication-feed-monitor-33305171731-1",
+      "size_in_bytes": 1410,
+      "workflow_run": {
+        "head_branch": "main",
+        "head_repository_id": 1313678863,
+        "head_sha": "ed7a892c12b98f12b699cd372ab40d197cb1992d",
+        "id": 33305171731,
+        "repository_id": 1313678863
+      }
+    }
+  ]
+}

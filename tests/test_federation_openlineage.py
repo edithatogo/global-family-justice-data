@@ -1,6 +1,7 @@
 """Fictional design events; no dataset retrieval or execution evidence."""
 
 import json
+import traceback
 from pathlib import Path
 
 import pytest
@@ -167,3 +168,19 @@ def test_local_registry_denies_unknown_resource() -> None:
 
     with pytest.raises(NoSuchResource):
         _deny_resource("https://example.invalid/unbound-schema")
+
+
+@pytest.mark.parametrize("invalid_utf8", [False, True])
+def test_rejected_input_is_not_rendered_in_traceback(
+    schema: bytes, event: dict, invalid_utf8: bool
+) -> None:
+    marker = "FICTIONAL_" + "REJECTED_INPUT_MARKER"
+    event["eventTime"] = "not-a-date"
+    event["job"]["name"] = marker
+    payload = raw(event) + (b"\xff" if invalid_utf8 else b"")
+    with pytest.raises(FederationError) as caught:
+        validate_design_event(payload, schema)
+    rendered = "".join(traceback.format_exception(caught.value))
+    assert marker not in rendered
+    assert "jsonschema.exceptions.ValidationError" not in rendered
+    assert "UnicodeDecodeError" not in rendered

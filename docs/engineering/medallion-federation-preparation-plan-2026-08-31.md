@@ -180,3 +180,15 @@ It does not inspect dataset content, grant rights or certify safe publication.
 The foundation review and complete delivery checks remain in progress. Later
 metadata generation, RDF checks, partner contracts and full federation work
 remain unchecked above. No result is registered as factual acceptance evidence.
+
+## Foundation review correction
+
+The role-separated code reviewer found that chained validation exceptions could
+print the rejected event in a normal traceback. Two new regression cases first
+failed (schema-invalid fictional input and invalid UTF-8). Suppress the original
+exception chain in ordinary rendering; retain the fixed public-facing error.
+This does not claim that an introspective debugger cannot inspect process memory.
+
+The initial full local run at `99d3d1d` was intentionally interrupted to apply
+this correction and is not a successful validation. Its log is retained locally;
+the corrected commit requires a new complete run and exact-head hosted checks.

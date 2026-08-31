@@ -196,5 +196,7 @@ def validate_design_event(event_bytes: bytes, schema_bytes: bytes) -> dict[str, 
         }
     except FederationError:
         raise
-    except (ValueError, TypeError, KeyError, RecursionError, ValidationError) as exc:
-        raise FederationError("federation design-event contract violation") from exc
+    except (ValueError, TypeError, KeyError, RecursionError, ValidationError):
+        # ValidationError contains the rejected document. Ordinary tracebacks
+        # must not disclose it merely because the outer error text is fixed.
+        raise FederationError("federation design-event contract violation") from None

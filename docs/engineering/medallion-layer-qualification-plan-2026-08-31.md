@@ -32,9 +32,9 @@ bounded adapters and explicit unsupported-evidence dispositions instead.
 
 ## Ordered implementation
 
-- [~] Obtain role-separated advisory review of reusable verifiers, evidence
+- [x] Obtain role-separated advisory review of reusable verifiers, evidence
   scope, requirements and adversarial cases. Freeze the concrete adapter contract
-  before functional implementation.
+  before functional implementation (contract below).
 - [ ] Implement bounded input resolution and exact object/layer/content binding.
   Missing, malformed, conflicting, unsupported or stale evidence must not pass.
 - [ ] Recompute independently supported layer checks and emit an exhaustive
@@ -69,3 +69,47 @@ cross-repository writes, rights clearance, maturity or Gold promotion,
 publication, release or G2/G4 acceptance is authorized. This track prepares
 repository-owned mechanisms; actual factual qualification remains separately
 evidenced and subject to the existing owner-controlled process.
+
+## Frozen implementation interfaces
+
+Advisory inputs from `api_contract_advice` and `preservation_inventory` agree on
+separate layer adapters, a separately bound expected inventory, explicit missing
+evidence and no authority inferred from a reference or claimed pass. Existing
+structural medallion validators and pending governance templates cannot establish
+substantive qualification. The canonical layer-contract bytes must also be bound.
+
+The evaluator uses bounded digest-addressed supplied bytes only. There are no
+paths, retrieval callbacks, arbitrary verifier plugins or caller-supplied pass
+booleans. Every expected object and all five layers appear in coverage, including
+absent, quarantined, withdrawn and tombstoned evidence. Lifecycle interlocks run
+before payload processing. Layer-local mechanical success remains visible even
+when its upstream factual dependencies block promotion.
+
+1. Core evaluator: pin the canonical layer contract and separate scope inventory;
+   validate exact object/edition/layer binding; recompute available B0 fixity and
+   safety/receipt consistency, B1 lexical extraction, Silver projection/history;
+   build the exhaustive matrix and exact-recomputation verifier. Unsupported
+   source formats or unavailable payloads remain explicit, never silently omitted.
+2. Gold quality adapter `assess_quality(rows_raw, policy)`: independently compute
+   mandatory-field completeness, duplicate observation identity, finite exact
+   decimal/nonnegative/percent bounds, explicit period ordering, small-cell
+   diagnostics and source-defined comparability-signature diversity. Policy binds
+   the exact Silver row bytes and explicit diagnostic threshold. Return original
+   input digests and deterministic diagnostics, not selected/promoted rows. These
+   metrics do not accept methods, privacy/disclosure risk or owner adjudication.
+3. Platinum composition adapter `assess_release(manifest_raw, federation_raw,
+   artifacts, expected_scope_raw)`: independently recompute exact declared Gold
+   object membership, content digests, byte counts and federation identities.
+   Reject duplicates, extra/missing objects, non-Gold roles, altered bytes and
+   mismatched scope/release bindings. This internal composition contract does not
+   claim DCAT/Croissant/RO-Crate conformance, accepted Gold, public retrieval or
+   release authority; those remain independently required.
+4. Typed authority/review evidence may establish a scoped, digest-bound record
+   and expose expiry/conflicts, but authenticity and substantive acceptance may
+   not be inferred from its contents. Unknown authority remains pending. The
+   evaluator never performs a promotion or publication, even if mechanics pass.
+
+Each adapter has fixed limits and a recomputing verifier. The Gold and Platinum
+adapters are part of this implementation, not omitted merely because B0/B1/Silver
+are easier to exercise. Fictional tests must demonstrate verified mechanics,
+real detected failures and pending factual requirements together.

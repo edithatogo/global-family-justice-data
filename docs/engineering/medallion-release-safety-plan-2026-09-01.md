@@ -264,6 +264,9 @@ core dependencies are runtime_direct; optional/development groups are
 development_direct; non-root packages include all declared groups. All locked
 versions of a referenced canonical name participate; this is not an environment-
 specific solver or proof of actual imports. Do not silently omit unresolved edges.
+Precompute the expanded SPDX relationship count and reject more than 5,000
+before building the document; its complete canonical bytes must remain within
+1 MiB. Oversized graphs stop, never truncate edges or select convenient versions.
 
 The project source is exactly editable='.'. Non-root package sources are exactly
 registry='https://pypi.org/simple'. Other source kinds remain unsupported and fail

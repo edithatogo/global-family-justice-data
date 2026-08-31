@@ -156,9 +156,9 @@ reference and hash alongside prospective target rules, not qualification claims.
 
 ## Bound draft and limitations
 
-The eight-file draft bundle is `data/estate/preparation-2026-08-31`.
+The current eight-file draft bundle is `data/estate/preparation-2026-08-31-02`.
 Its manifest SHA-256 is
-`555da748161253174a9da789bc35001f29a5bd0a57f1854fde811bb81b9bafe1`.
+`b31d8c78392accaada2bd612736d4b1e7db310ffc2061e3faa2e4a4907b643cb`.
 Generation and independent exact recomputation passed. The real intended
 repository declarations are metadata, not synthetic empirical observations;
 the separate test fixtures use an explicitly fictional namespace. No source
@@ -176,7 +176,34 @@ this platform condition; the capability-failure test remains runnable elsewhere.
 The pure bytes-in/bytes-out compiler is portable, but no Windows filesystem
 verification or full Hugging Face card-standard conformance is claimed.
 
-E-HF-ESTATE-DRAFT-20260831 is supporting `in_review` evidence only.
+E-HF-ESTATE-DRAFT-20260831-02 is supporting `in_review` evidence only.
 E-HF-PUBLIC-MEDALLION-ESTATE remains missing and WI-G4-MED-04 remains planned.
 Full local validation, reviewed PR delivery and cleanup are pending; hosted
 estate publication and the next federation track are not completed by this plan.
+
+## Hosted review correction — mandatory policy bytes
+
+PR #139 review identified that v1 emitted a policy hash without verifying the
+referenced policy bytes. Its original full local validation passed 1,199 tests
+twice (96.08s and 83.79s), but those tests did not cover the missing binding;
+green validation did not justify accepting that gap or merging.
+
+- [x] `d0949b5`: v2 requires a fifth supplied input at the exact policy path.
+  `SOURCEFILES` still names four TOML configurations; the input bank additionally
+  requires the approved policy bytes. They must match the frozen policy hash
+  before any TOML parsing. Missing, changed, empty or oversized policy fails.
+  The manifest binds all five input hashes and computes its policy hash from
+  the supplied bytes; there is no implicit policy-file lookup or fallback.
+- [x] The missing-policy regression failed on v1. All 57 updated compiler/CLI
+  tests pass (1.08s), including fifth-file bounds and tampering. Ruff and strict
+  typing pass. The contract version is now `gfjd-offline-estate-v2`.
+- [x] Generate and exactly verify draft 02. Draft 01 and its eight files remain
+  byte-identical to signed head `6f1f815`; its SHA-256 remains
+  `555da748161253174a9da789bc35001f29a5bd0a57f1854fde811bb81b9bafe1`.
+  Retain that historical implementation for v1 recomputation; do not repair or
+  relabel it as current v2 evidence.
+- [ ] Post-fix advisory review, full local validation and exact-head hosted
+  checks, resolved review, history-preserving integration and local cleanup.
+
+The four-configuration contract above records the initial interface; this v2
+correction adds mandatory policy bytes without broadening execution authority.

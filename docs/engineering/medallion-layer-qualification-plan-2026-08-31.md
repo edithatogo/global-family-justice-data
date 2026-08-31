@@ -219,9 +219,37 @@ unsupported scan, and missing/unsupported safety contributes an upstream blocker
 Known safety failures and declared quarantine stop downstream transformation.
 Review conditions and authenticity remain pending rather than inferred accepted.
 
-The synthetic report is `data/synthetic/medallion-qualification-rehearsal-2026-08-31.json`.
+The current synthetic report is `data/synthetic/medallion-qualification-rehearsal-2026-08-31-02.json`.
 Recompute it with `python scripts/rehearse_medallion_qualification.py --verify`
 followed by that path. It binds the fictional test builder, rehearsal and adapter
 implementations. Provider-shaped fixtures are not retrieval evidence. The
 acceptance-bearing E-MEDALLION-MATURITY-QUALIFICATION remains missing, and
 WI-G4-MED-03 remains planned behind its existing dependencies.
+
+## Hosted review fixes and replacement rehearsal
+
+PR #138 original signed head `6aa93fc` passed all 17 hosted checks and the full
+local `autonomy-full` harness: 1,136 tests passed twice (301.12s and 536.77s),
+reported coverage 82%, coverage budget passed, package/restore checks passed,
+and wheel/sdist/release reproducibility checks passed. Two subsequently posted
+review findings still required correction; green checks did not authorize merge.
+
+- [x] `15deb6b`: require Gold disclosure artifact bytes as well as a declared
+  digest; missing references or bytes mark completeness missing and add a blocker.
+  Failed disclosure or rights reviews mark quarantine blocked and propagate it.
+  The fictional positive fixture now supplies an explicitly pending disclosure
+  record, not an approval. Six new regressions failed on the old implementation;
+  the corrected suite includes eight added cases and passes all 34 core tests.
+- [x] `60fd171`: format the immutable predecessor binding in the new rehearsal.
+- [x] A role-separated advisory reviewer reran all 34 core and two rehearsal
+  tests, confirmed both fixes, and checked that the original rehearsal remained
+  byte-identical. No factual acceptance is supplied by this review.
+- [ ] Full validation and exact-head hosted checks after these fixes, then
+  verified history-preserving merge and local branch cleanup.
+
+Rehearsal 02 SHA-256:
+`b08c6ed19fbb7578dbadd1a7b42f8c05b6f741911d0e2f4ce87bdd8167cef8fd`.
+It binds original rehearsal SHA-256
+`58c47f7f18e5a19f51ddee00531967318aa24632a96dcd254b3dfdf60cc65fd2`.
+The original file and signed implementation history remain retained; its known
+pre-fix reporting limitations are documented rather than repaired or promoted.

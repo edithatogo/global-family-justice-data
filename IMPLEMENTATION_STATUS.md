@@ -237,6 +237,18 @@ ledger remains failed. See `docs/methods/g2-monitor-preservation-report-2026-08-
 No response replay, complete lifetime exposure, source access or G2 acceptance
 is claimed. The distinct offline API contract is the next preparation slice.
 
+Medallion correction-history continuation (2026-08-31): `f18e2cc`, `b64c133`
+and `52b8dd4` add source-recomputed full-partition correction history, explicit
+XLSX lexical-cell extraction and custody-bound B1/Silver preparation. Full linked
+append checkpoints reject custody-only and outer-source rewrites even when the
+projected rows do not change. A deterministic fictional correction rehearsal
+recomputes the complete chain; its public test report is supporting engineering
+evidence only. See `docs/engineering/medallion-lineage-history-plan-2026-08-31.md`.
+WI-G4-MED-02 remains in progress pending genuine public custody, authorized exact
+editions and reviewed empirical rebuilds. No current remote custody, rights,
+Gold promotion, G2 acceptance or release is established. After technical delivery,
+the next repository-owned slice is independent per-layer qualification.
+
 Stable v1.0 still requires authentic evidence for real source editions and retrievals, source-rights facts and owner decisions, multilingual searches, jurisdiction-aware triangulation, real connectors and fixtures, blinded role-separated re-extraction, methods adjudication, outcomes-evidence appraisal, agent/tool accessibility review, production operations, two-location preservation, tested restore, publication state and the owner's dated 12-month resource commitment. Agent panels cannot manufacture those facts or create legal, independent-specialist, local-human or lived-experience claims.
 
 A passing technical workflow cannot approve a programme gate or transform process speed into evidence of child or family outcomes.

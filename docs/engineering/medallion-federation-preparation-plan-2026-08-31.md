@@ -920,3 +920,17 @@ and limitations. Rerun full validation and exact-head CI/review before merging.
 The broader preparation audit still identifies deferred OpenLineage lifecycle,
 actual-configuration incomplete drafts and canonical ownership/reference checks;
 this composition fix does not close those tasks or the federation work item.
+
+## Composition delivery and lifecycle continuation
+
+PR #146 merged at signed `e3e206e0a57e2e6d0d7c17cc8f2e09762cf3115e` on
+2026-08-31T16:48:40Z. Corrected full validation passed (1,627 tests twice,
+147.93s/124.30s, 84% coverage), all 17 exact-head checks succeeded and corrected
+hosted review found no further issue. The finding was resolved. Main and remote
+matched; one clean local main branch/worktree remained after cleanup.
+
+Next implement the explicitly deferred RunEvent lifecycle and exact declared
+replay association, frozen in
+`docs/engineering/federation-run-lifecycle-plan-2026-09-01.md`. Preserve OTHER
+metadata after completion as permitted by the pinned schema; disclose all stricter
+GFJD profile rules. This remains offline preparation, not observed run evidence.

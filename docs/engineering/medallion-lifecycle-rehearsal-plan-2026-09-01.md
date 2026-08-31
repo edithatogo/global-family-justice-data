@@ -145,7 +145,7 @@ they preserve their exact state and never change the series head.
   provider disagreement, digest substitution and forged reports.
 - [x] Preserve a fictional all-operation rehearsal with explicit provider loss and
   declared recovery, separately indexed as supporting preparation only.
-- [~] Role-separated review, full validation, signed PR, CI, merge and local cleanup.
+- [x] Role-separated review, full validation, signed PR, CI, merge and local cleanup.
 
 Any structural, digest, history or transition violation fails the whole replay.
 Provider mismatch is retained as an explicit fail-closed operational backlog,
@@ -171,4 +171,11 @@ artifacts, 15 events, all eight operation types, and provider loss/recovery
 declarations. A separate counterexample retains the implicit predecessor
 withdrawal backlog instead of borrowing the successor's matching declarations.
 The report is supporting preparation, not E-PUBLIC-SUPERSESSION-OPERATIONS.
-Full validation and hosted delivery remain pending at this checkpoint.
+Full validation and hosted delivery completed: PR #151 merged signed checkpoint
+`e7bbe5f1b392347fa4873eecc52d807a100a5bd4` at 2026-08-31T18:34:28Z.
+The full gate exited 0 with 1,931 tests twice (111.39s and 107.29s), 84% coverage,
+and deterministic build/restore/bootstrap checks. All 17 hosted checks passed;
+hosted Codex review completed without unresolved threads. The local topic branch
+was removed after GitHub confirmed merge; one local main/worktree remained.
+PR #151 comment 5482732763 records full validation evidence. This is completion
+of the scoped preparation, not factual public lifecycle operations.

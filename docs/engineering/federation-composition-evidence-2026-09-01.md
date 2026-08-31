@@ -40,6 +40,8 @@ Preserved report: `data/federation/preparation-2026-09-01/report.json`, SHA-256
 `e0d65f3d721522319715fc2aea14898c0a56bb8d250cf034b91a3555c4594da6`.
 Its sibling `bundle/` preserves all 16 generated artifacts, each matched to the
 report's digest map. Neither source bytes nor raw input-bank payloads are stored.
+Generating implementation and preserved snapshot are committed at signed
+`0462805`; the report's compiler and fixture hashes provide exact byte bindings.
 The report proves a fictional rehearsal only; it is indexed separately as
 `E-FEDERATION-COMPOSITION-FICTIONAL-20260901`, in review.
 

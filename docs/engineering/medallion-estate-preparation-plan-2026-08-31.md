@@ -48,7 +48,7 @@ zero-copy references remain requirements of the following federation track.
 
 ## Ordered implementation and evidence
 
-- [ ] Obtain role-separated advisory review; freeze concrete input/output
+- [x] Obtain role-separated advisory review; freeze concrete input/output
   contracts and negative cases before functional implementation.
 - [ ] Reconcile all six declared roles, including source archive and Gold-only
   explorer, with planned rather than observed status. Correct the bootstrap
@@ -84,3 +84,39 @@ cross-repository write, publication, release, rights clearance, maturity or
 Gold promotion, or G2/G4 acceptance is enabled by this track. Routine Git PR
 delivery remains covered by standing owner direction. Preserve earlier failed
 evidence and report factual gaps together at the end of the authorized queue.
+
+## Advisory contract freeze
+
+The role-separated advisory review recommends a pure compiler, not reuse of
+`bootstrap.build_plan`, which performs account and remote discovery. Inputs are
+the exact bytes of `config/bootstrap.toml`, `config/archive_targets.toml`,
+`portfolio/products.toml` and `.gfjd/product.toml`. Bound each input by SHA-256;
+parse bounded TOML without execution or discovery. Resolve a blank bootstrap
+namespace only from the explicit archive-target namespace, never an account.
+
+Output is an internal versioned estate manifest, five draft dataset cards and
+one draft static explorer card/entry point. Use fixed safe artifact names and
+recompute the complete artifact set and bytes in verification. Bind compiler
+implementation and artifact hashes without a circular manifest self-hash.
+Every role includes its intended identity, type, public visibility, payload
+policy, layer constraints, minimum gate and canonical control-plane reference.
+All factual availability, rights, custody, accepted Gold and publication states
+remain unverified. Draft links have `requested: false`; no data loads or source
+payloads occur. Metadata drafts do not prove Hugging Face card conformance.
+
+The benchmark's existing experimental classification must remain explicit;
+do not silently promote it to an accepted observation product. Retain distinct
+GitHub G6 and role-specific Hugging Face gates. The unresolved-rights upload
+flag cannot override the stronger metadata-only and exact-edition requirements.
+An explicit diagnostic must preserve that distinction.
+
+Bootstrap review found both private prose and a hardcoded `--private` command,
+plus omission of the existing Space SDK argument. Reuse one configured command
+builder for planning and applying, tested with mocked execution; no actual
+creation is authorized or needed. Existing public configurations remain public.
+
+Negative cases include role omission/duplication/addition, namespace/type/name/
+visibility conflict, unsafe paths, modified/extra/missing artifacts, fabricated
+licence or availability, accidental active explorer loads and schema drift.
+Tests must assert that the offline compiler performs no subprocess, credential,
+transport or remote-discovery calls. This advisory review is not acceptance.

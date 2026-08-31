@@ -50,7 +50,7 @@ zero-copy references remain requirements of the following federation track.
 
 - [x] Obtain role-separated advisory review; freeze concrete input/output
   contracts and negative cases before functional implementation.
-- [ ] Reconcile all six declared roles, including source archive and Gold-only
+- [x] Reconcile all six declared roles, including source archive and Gold-only
   explorer, with planned rather than observed status. Correct the bootstrap
   visibility description using configuration and regression tests.
 - [ ] Implement bounded offline declaration reconciliation, exact input hashes,
@@ -120,3 +120,24 @@ visibility conflict, unsafe paths, modified/extra/missing artifacts, fabricated
 licence or availability, accidental active explorer loads and schema drift.
 Tests must assert that the offline compiler performs no subprocess, credential,
 transport or remote-discovery calls. This advisory review is not acceptance.
+
+Target layer policy comes from the approved maximal-public-medallion plan dated
+2026-08-26: source archive B0, observations B1/Silver/Gold, explorer accepted
+Gold/Platinum only. Catalogue is cross-layer metadata; outcomes is separately
+governed evidence and benchmark remains experimental. The latter roles must not
+be assigned invented analytical maturity. The compiler records the policy
+reference and hash alongside prospective target rules, not qualification claims.
+
+## Implementation ledger
+
+- `5f91da8`: shared configured creation-command builder fixes private/public and
+  Space SDK plan/apply drift. A regression first failed on the hardcoded private
+  proposal. All 13 bootstrap tests then passed; Ruff and strict typing passed.
+  Calls in these tests are mocked; no remote repository was created.
+- The portfolio now includes the missing source archive as a planned generated
+  distribution under `gfjd-platform-release`, matching the approved topology.
+  Existing benchmark classification is unchanged. The six-role declaration
+  regression and all 13 bootstrap tests pass (5.29s).
+
+Compiler, bundle verification, supporting evidence, phase review and full
+validation remain in progress. This ledger does not claim future delivery.

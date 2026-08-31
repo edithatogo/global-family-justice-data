@@ -29,11 +29,11 @@ Options and trade-offs:
 
 ## Ordered phases
 
-- [~] Standards foundation: primary-reference inventory, supplied hash-bound
+- [x] Standards foundation: primary-reference inventory, supplied hash-bound
   artifacts, strict bounded parsing and offline OpenLineage 2-0-2 schema
   validation. Unknown references and unsupported facet schemas fail closed.
   Do not treat base-schema success as complete lineage or standards acceptance.
-- [ ] RDF/JSON-LD preparation: DCAT-AP, RO-Crate and PROV-O using offline
+- [~] RDF/JSON-LD preparation: DCAT-AP, RO-Crate and PROV-O using offline
   normative contexts/shapes where available; Croissant profile preparation with
   explicit validation coverage. No homegrown subset is full conformance.
 - [ ] Canonical identity, six-role estate and zero-copy reference reconciliation;
@@ -192,3 +192,59 @@ This does not claim that an introspective debugger cannot inspect process memory
 The initial full local run at `99d3d1d` was intentionally interrupted to apply
 this correction and is not a successful validation. Its log is retained locally;
 the corrected commit requires a new complete run and exact-head hosted checks.
+
+## Foundation delivery closeout
+
+PR #140 merged at signed commit `033a592511d0c2fd8afc94627097e4b5e960a390`
+on 2026-08-31T14:03:57Z. The reviewer confirmed the traceback correction resolved.
+All 17 exact-head hosted checks passed. Full local validation exited zero:
+1,258 tests passed twice (121.87s and 119.57s), reported coverage 82%; package,
+restore, bootstrap, wheel/sdist and release reproducibility checks passed. The
+built wheel also contained the exact pinned schema and licence hashes.
+
+The earlier hosted coverage job timed out while obtaining a Codecov OIDC token;
+the corrected head passed that upload without changing or disabling controls.
+Copilot review was unavailable because of quota; the role-separated repository
+review and its correction are recorded, not mislabelled as a Copilot success.
+Integration preserved history and cleanup left one local branch/worktree.
+
+This completes the foundation phase only. The real federation registry evidence
+remains missing. No source data, publication, rights or gate state changed.
+
+## RDF phase preparation — 2026-09-01 local date
+
+Continue from the verified foundation commit above. The source manifest verifies
+all 1,038 entries and the non-mutating bootstrap plan completed without warnings.
+The plan generated at 2026-08-31T14:05:36Z applied no remote changes.
+
+First implement DCAT-AP base/range SHACL validation over bounded supplied RDF,
+with the exact two upstream artifacts identified above. Pin the validator and
+transitive dependencies; explicitly disable automatic imports, remote SPARQL,
+JavaScript and advanced rules. Validation must not accept arbitrary caller shapes
+or silently load missing vocabularies. Mandatory controlled-vocabulary closure
+remains separately pending until its exact local inputs exist.
+
+Options: pinned local SHACL is recommended for reproducible structural checks;
+custom field tests alone would not execute the normative shapes; unconstrained
+RDF/JSON-LD parsing would introduce implicit network/file access. Decide the
+bounded engine interface after reviewing its logging and loader paths. Suppress
+untrusted-input diagnostics in ordinary reports. Use fictional graph fixtures,
+negative cardinality/type tests, malformed and oversized inputs, no-I/O tests,
+and exact normative-byte binding. Do not claim an operating-system sandbox from
+Python flags or profile checks.
+
+RO-Crate follow-on context is pinned to release tag `1.3.0`, commit
+`22fbd7e098ccd2839c80967e363a2201528a2efe`, path
+`docs/_specification/1.3/context.jsonld` in the official ResearchObject/ro-crate
+repository. The inspected context is 196,942 bytes, SHA-256
+`5a3df1a43185501db4d45cdde5a478c57eeb1d673eedfe400488fc4c4b21dd91`.
+It contains 3,069 context terms; do not confuse it with the draft context or
+silently truncate it to ordinary data-input limits. It is not yet vendored here.
+
+Croissant reference-library research at commit
+`401f6fff81db26a49c0d1704f02bffc4e4fa8fe2` found implicit JSON-LD loader paths and
+optional warnings for some fields required by the specification. Therefore its
+successful static analysis alone cannot establish full conformance. A later
+explicit GFJD profile must expose its partial coverage; any reference-library
+execution needs pinned dependencies and actual I/O restrictions, not a presumed
+metadata-only mode. No Croissant library or source-data loader has been run.

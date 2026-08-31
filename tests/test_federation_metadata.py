@@ -73,6 +73,13 @@ def test_safe_reference_and_date() -> None:
     assert not date_label(None)
 
 
+@pytest.mark.parametrize("suffix", ["a[b]", "a?x=[b]"])
+def test_raw_brackets_rejected(suffix: str) -> None:
+    with pytest.raises(MetadataError):
+        safe_url("https://example.invalid/" + suffix)
+    assert safe_url("https://example.invalid/a%5Bb%5D")
+
+
 def test_fixed_traceback() -> None:
     try:
         parse_json(b"FICTIONAL_SECRET_SENTINEL")

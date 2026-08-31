@@ -65,6 +65,7 @@ def safe_url(value: Any) -> str:
         assert isinstance(value, str)
         require(len(value) <= 4096 and all(32 < ord(c) < 127 for c in value))
         require(value.count("#") <= 1)
+        require("[" not in value and "]" not in value)
         require(not re.search(r'[\s<>"{}|^`\\]', value))
         require(re.search(r"%(?![0-9A-Fa-f]{2})", value) is None)
         parsed = urlsplit(value)

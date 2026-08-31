@@ -73,7 +73,7 @@ input content. Only compiler/helper fingerprint reads are performed.
 - [x] Requirements-to-evidence coverage matrix covering estate roles, canonical
   declarations, standards profiles, lifecycle/replay, Parquet references and
   partner boundaries. Identify concrete missing cross-contract guards only.
-- [~] Role-separated advisory review; full validation; signed reviewed PR;
+- [x] Role-separated advisory review; full validation; signed reviewed PR;
   exact-head CI; history-preserving merge and local cleanup.
 
 The audit must distinguish completed limited preparation, unfinished broader
@@ -102,3 +102,17 @@ completed tests, matrix or frozen contract. No additional cross-contract guard
 is justified by this bounded scope. Review is advisory only and did not certify
 factual ownership, standards conformance or gate acceptance. Full local gate,
 exact-head hosted review/CI and delivery remain pending at this source freeze.
+
+### Delivery and authorized queue continuation
+
+PR #149 merged at signed `f61e35ea880acdfa6c5f9b0c1bfb6ff11a1acd0d` on
+2026-08-31T17:44:06Z. Full validation exited zero: 1,802 tests passed twice
+(133.02s/144.36s), 84% coverage, integration and reproducibility checks passed.
+All 17 exact-head hosted checks succeeded. Hosted Codex review completed without
+findings or review threads; Copilot quota prevented its review. History was
+preserved and local cleanup left one clean main branch/worktree.
+
+This completes the bounded declaration/audit checkpoint, not factual federation
+or every broader technical item in the matrix. Continue eligible restore
+preparation under `docs/engineering/medallion-two-replica-restore-plan-2026-09-01.md`;
+the original federation requirements and dependency states remain open.

@@ -38,30 +38,29 @@ bounded adapters and explicit unsupported-evidence dispositions instead.
 - [x] Implement bounded declared-scope metadata resolution and exact
   object/edition/layer binding (`df1bce4`; 28 focused tests). This establishes
   coverage and structural consistency only, not payload qualification.
-- [ ] Implement bounded payload resolution and exact content binding.
+- [x] Implement bounded payload resolution and exact content binding.
   Missing, malformed, conflicting, unsupported or stale evidence must not pass.
   Active allowlisted byte-bank resolution is implemented in `e42eb94` (11
-  tests); linking those bytes to each layer's evidence and recomputed predecessor
-  output remains an integration requirement, not a completed claim.
-- [ ] Recompute independently supported layer checks and emit an exhaustive
+  tests); `481ec55` links bytes to layer evidence and recomputed predecessors.
+- [x] Recompute independently supported layer checks and emit an exhaustive
   matrix of verified, failed and pending requirements with evidence references
   and limitations. Do not turn self-reported review labels into verified facts.
-- [ ] Preserve all lifecycle states in coverage. Quarantine, withdrawal and
+- [x] Preserve all lifecycle states in coverage. Quarantine, withdrawal and
   tombstoning prohibit downstream promotion without erasing valid upstream
   evidence. Missing layers remain visible rather than disappearing from counts.
-- [ ] Enforce the Gold owner-decision and Platinum release boundaries separately
+- [x] Enforce the Gold owner-decision and Platinum release boundaries separately
   from technical checks. Validate available decision bindings without inventing
   authority or treating advisory reports as accountable acceptance.
   Scoped declared review-record bindings are implemented in `432fcc6` (45
   tests). They expose current/expired/future status, conditions and conflicts;
   they never authenticate a reviewer, adjudicate conditions or accept a layer.
 - [x] Implement independent Gold quality diagnostics (`e55d733`; 39 tests) and
-  Platinum composition checks (`97a2cd4`; 30 tests). Their integration and
-  predecessor-scope checks remain pending below; neither grants authority.
-- [ ] Add adversarial tests, deterministic fictional fixtures and an independently
+  Platinum composition checks (`97a2cd4`; 30 tests). `481ec55` integrates them
+  with predecessor-scope checks; neither grants authority.
+- [x] Add adversarial tests, deterministic fictional fixtures and an independently
   recomputed rehearsal/report. Include cross-layer borrowing, digest/object
   substitution, false pass flags, missing predecessor evidence and quarantine.
-- [ ] Record supporting evidence and explicitly scoped resume guidance without
+- [x] Record supporting evidence and explicitly scoped resume guidance without
   bypassing programme dependency checks or changing any gate/acceptance mapping.
 - [ ] Advisory review, full local validation, signed commits, PR, exact-head CI,
   history-preserving merge and local branch cleanup.
@@ -144,11 +143,10 @@ success. Gold reports unassessed small-cell units/values explicitly rather than
 equating zero detected cells with disclosure clearance. All three adapters bind
 their implementation identities and fully recompute supplied reports.
 
-Current continuation: integrate source-recomputing B0/B1/Silver and
-Gold/Platinum adapters into the
-eight-dimension matrix. Complete adversarial integration, fictional rehearsal,
-programme supporting evidence and whole-track delivery afterward. No full-track
-validation, PR or merge is claimed for this intermediate checkpoint.
+Current continuation: finish programme supporting-evidence registration, then
+whole-track validation and delivery. The five-layer/eight-dimension matrix and
+fictional rehearsal are implemented. No full-track validation, PR or merge is
+claimed until their observed results are recorded.
 
 The payload resolver rejects extra bank entries and entries referenced only by
 inactive or malformed records before hashing payload bytes. Its 8 MiB aggregate
@@ -185,3 +183,45 @@ than treating `payload_processing_eligible` as readiness, match each review's
 returned `review_kind` to its artifact role, and check wrapper-to-evidence and
 predecessor content bindings. These are mandatory integration checks; the helper
 approval does not approve the unfinished evaluator or any programme evidence.
+
+## Integrated implementation checkpoint
+
+- `dd4a1e1`: B0 original SHA-256/BLAKE3/size verification, bounded text/CSV/JSON
+  and XLSX container scans, and recorded custody consistency (20 tests).
+  Unsupported PDF/other formats remain explicit, not counted as safety passes.
+- `b252a3c`: full scoped correction-journal replay and exact supplied checkpoint
+  prefix verification (33 tests). Checkpoint authenticity remains pending.
+- `481ec55`: coordinator with all five layers and eight dimensions (26 tests).
+  It recomputes adapters, verifies exact predecessor bytes before transforming,
+  enforces role and evidence bindings, and retains missing/failed upstream cells.
+- `2ed6fe6`: deterministic fictional two-revision qualification rehearsal and
+  a rejected Gold substitution that preserves upstream fixity (two tests).
+- `1a47674`: bounded repository-preparation resume scope and plan inclusion
+  (34 autonomy tests). Current dependency-filtered routing still excludes
+  WI-G4-MED-03 until its prerequisites permit it; this is not a dependency waiver.
+
+The helper checkpoint at `dbf8b25` passed `autonomy-fast`: 702 unit tests passed,
+342 were excluded by the documented unit/not-slow selector; contracts, strict
+validation, generated views, policy and resume verification passed. This is not
+the full final-track test result.
+
+### Integration review and fixes
+
+Role-separated advisory review found and reproduced missing B0 capture/custody
+references being reported as complete, and content fixity failures being
+misclassified as pending. `481ec55` records required missing receipts explicitly,
+propagates blockers, identifies proven fixity failures as failed and preserves
+independently verified original fixity when a later receipt check fails. The
+reviewer reran all 26 core tests and confirmed both findings resolved.
+
+Additional source-safety checks ensure a known negative receipt overrides an
+unsupported scan, and missing/unsupported safety contributes an upstream blocker.
+Known safety failures and declared quarantine stop downstream transformation.
+Review conditions and authenticity remain pending rather than inferred accepted.
+
+The synthetic report is `data/synthetic/medallion-qualification-rehearsal-2026-08-31.json`.
+Recompute it with `python scripts/rehearse_medallion_qualification.py --verify`
+followed by that path. It binds the fictional test builder, rehearsal and adapter
+implementations. Provider-shaped fixtures are not retrieval evidence. The
+acceptance-bearing E-MEDALLION-MATURITY-QUALIFICATION remains missing, and
+WI-G4-MED-03 remains planned behind its existing dependencies.

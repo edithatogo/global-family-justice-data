@@ -186,15 +186,21 @@ def fixture(root: Path) -> tuple[dict, list[dict], dict[str, bytes], bytes]:
         "small_cell_threshold": 5,
     }
     quality_id = put(medallion_quality_checks.assess_quality(bank[rows_id], policy))
+    disclosure_id = put(disclosure_record(rows_id))
     add(
         "gold",
         {
             "quality_report_sha256": quality_id,
             "comparability_disposition": "FICTIONAL-PENDING",
-            "disclosure_assessment_sha256": "f" * 64,
+            "disclosure_assessment_sha256": disclosure_id,
             "owner_decision_reference": "FICTIONAL-PENDING",
         },
-        {"rows": rows_id, "policy": put(policy), "quality": quality_id},
+        {
+            "rows": rows_id,
+            "policy": put(policy),
+            "quality": quality_id,
+            "disclosure": disclosure_id,
+        },
     )
     release_scope = {
         "contract_version": "gfjd-platinum-scope-v1",
@@ -459,7 +465,7 @@ def test_gold_review_evidence_reference_must_match(project_root: Path, role: str
     raw = canonical(review)
     bank[sha(raw)] = raw
     records[3]["artifacts"][role] = sha(raw)
-    report = evaluate((scope, records, bank, contract))
+    report = evaluate((scope, records, prune(records, bank), contract))
     assert f"{role}_review_failed" in report["coverage"][3]["blockers"]
     assert all(cell["dimensions"]["fixity"] == "verified" for cell in report["coverage"][:3])
     assert report["coverage"][4]["blockers"]
@@ -540,3 +546,76 @@ def test_bad_receipt_preserves_independently_verified_original_fixity(project_ro
     assert first["dimensions"]["fixity"] == "verified"
     assert first["dimensions"]["reproducibility"] == "failed"
     assert first["blockers"]
+
+
+def disclosure_record(content_sha256: str) -> dict:
+    return {
+        "contract_version": "gfjd-review-binding-v1",
+        "object_id": "FICTIONAL",
+        "edition_id": "FICTIONAL-EDITION",
+        "layer": "gold",
+        "content_sha256": content_sha256,
+        "review_kind": "disclosure",
+        "decision_reference": "FICTIONAL-DISCLOSURE-PENDING",
+        "reviewer_reference": "FICTIONAL",
+        "issued_at": "2026-01-01T00:00:00Z",
+        "expires_at": "2027-01-01T00:00:00Z",
+        "status": "pending",
+        "conditions": [],
+        "conflicts": [],
+    }
+
+
+@pytest.mark.parametrize("missing", ["reference", "bytes"])
+def test_missing_disclosure_bytes_are_explicitly_incomplete(
+    project_root: Path, missing: str
+) -> None:
+    scope, records, bank, contract = fixture(project_root)
+    if missing == "reference":
+        records[3]["artifacts"].pop("disclosure")
+    else:
+        del bank[records[3]["artifacts"]["disclosure"]]
+    report = evaluate((scope, records, prune(records, bank), contract))
+    gold = report["coverage"][3]
+    assert gold["dimensions"]["completeness"] == "missing"
+    assert "required_disclosure_evidence_missing" in gold["blockers"]
+    assert report["coverage"][0]["dimensions"]["fixity"] == "verified"
+    assert report["coverage"][4]["blockers"]
+
+
+@pytest.mark.parametrize("failure", ["rejected", "expired", "future", "conflicting", "malformed"])
+def test_failed_disclosure_blocks_quarantine(project_root: Path, failure: str) -> None:
+    scope, records, bank, contract = fixture(project_root)
+    review = disclosure_record(records[3]["artifacts"]["rows"])
+    if failure == "rejected":
+        review["status"] = "rejected"
+    elif failure == "expired":
+        review["expires_at"] = "2026-08-01T00:00:00Z"
+    elif failure == "future":
+        review["issued_at"] = "2026-09-01T00:00:00Z"
+    elif failure == "conflicting":
+        review["conflicts"] = ["FICTIONAL-CONFLICT"]
+    else:
+        del review["reviewer_reference"]
+    raw = canonical(review)
+    bank[sha(raw)] = raw
+    records[3]["artifacts"]["disclosure"] = sha(raw)
+    records[3]["record"]["evidence"]["disclosure_assessment_sha256"] = sha(raw)
+    rebind(records)
+    report = evaluate((scope, records, prune(records, bank), contract))
+    assert "disclosure_review_failed" in report["coverage"][3]["blockers"]
+    assert report["coverage"][3]["dimensions"]["quarantine"] == "blocked"
+    assert report["coverage"][4]["dimensions"]["quarantine"] == "blocked"
+
+
+def test_failed_rights_review_also_blocks_quarantine(project_root: Path) -> None:
+    scope, records, bank, contract = fixture(project_root)
+    review = disclosure_record(records[3]["artifacts"]["rows"])
+    review.update(review_kind="rights", status="rejected")
+    raw = canonical(review)
+    bank[sha(raw)] = raw
+    records[3]["artifacts"]["rights"] = sha(raw)
+    report = evaluate((scope, records, bank, contract))
+    assert report["coverage"][3]["dimensions"]["rights"] == "failed"
+    assert report["coverage"][3]["dimensions"]["quarantine"] == "blocked"
+    assert report["coverage"][4]["dimensions"]["quarantine"] == "blocked"

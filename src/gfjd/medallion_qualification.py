@@ -120,6 +120,8 @@ def _reviews(
             cell["dimensions"][dimension] = status
         if status == "failed":
             cell["blockers"].append(f"{role}_review_failed")
+            if role in {"rights", "disclosure"}:
+                cell["dimensions"]["quarantine"] = "blocked"
 
 
 def qualify_layers(
@@ -292,6 +294,10 @@ def qualify_layers(
                     )
                 elif layer == "gold":
                     content = _get(refs, payload_bank, "rows")
+                    if "disclosure" not in refs or refs["disclosure"] not in payload_bank:
+                        dimensions["completeness"] = "missing"
+                        dimensions["quarantine"] = "pending"
+                        cell["blockers"].append("required_disclosure_evidence_missing")
                     upstream = rows_by_layer.get((identity, "silver"))
                     if upstream is not None:
                         _require(content == upstream)

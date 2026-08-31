@@ -87,7 +87,8 @@ def build_report() -> dict[str, Any]:
     ):
         raise ValueError("fictional qualification rehearsal contract failed")
     report = {
-        "rehearsal_id": "FICTIONAL-MEDALLION-QUALIFICATION-20260831-01",
+        "rehearsal_id": "FICTIONAL-MEDALLION-QUALIFICATION-20260831-02",
+        "predecessor_rehearsal_sha256": "58c47f7f18e5a19f51ddee00531967318aa24632a96dcd254b3dfdf60cc65fd2",
         "synthetic": True,
         "fixture_implementation_sha256": sha(builder.read_bytes()),
         "rehearsal_implementation_sha256": sha(Path(__file__).read_bytes()),

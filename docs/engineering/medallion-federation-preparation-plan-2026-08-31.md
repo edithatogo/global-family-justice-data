@@ -324,7 +324,10 @@ The two pinned upstream TTL artifacts are now packaged unchanged with source,
 copyright and CC BY 4.0 attribution. RDF parsing and SHACL evaluation were
 implemented by separate advisory agents. Meaningful failing tests established
 duplicate-statement accounting and rejection of altered normative shape bytes
-before implementation. Cross-review and full phase delivery remain pending.
+before implementation. Reciprocal read-only cross-review found no actionable
+issues. The combined parser, adapter, asset and OpenLineage suite passed 118
+tests (5.48s); focused Ruff and strict mypy checks passed. Full phase validation
+and exact-head PR delivery remain pending and are not implied by these checks.
 
 The restricted parser performs complete lexical preflight before constructing
 RDFLib terms. The adapter executes the bound base/range shapes and returns only

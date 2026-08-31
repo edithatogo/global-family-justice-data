@@ -49,8 +49,9 @@ historical receipts require their original implementation for exact replay.
   synthetic end-to-end rehearsal with an independently recomputed receipt
   (`489fe72`; 8 rehearsal regression tests).
 - [x] Update Conductor supporting evidence and remaining factual prerequisites.
-- [~] Full validation after hosted review fixes; signed implementation commits.
-- [~] PR, exact-head CI, merge and local cleanup.
+- [x] Full validation after hosted review fixes; signed implementation commits.
+- [x] PR #137: all 17 exact-head checks passed; merged signed `fb3f277` at
+  2026-08-31T11:08:17Z; merged local branch removed, one clean main worktree retained.
 
 No new source requests, source-content access, failed-G2-output reuse, publication,
 release, layer promotion or gate acceptance is authorized. The next track after
@@ -114,10 +115,18 @@ in-progress/in-review statuses without a gate or maturity promotion.
   ancestors. The review used a temporary squash snapshot rather than actual PR
   head `8929f54`; all four references resolve in the preserved history. Do not
   replace them or squash the branch.
-- [~] Rerun the full checkpoint and exact-head hosted checks before integration.
+- [x] Rerun the full checkpoint and exact-head hosted checks before integration.
 
 The original `medallion-lineage-rehearsal-2026-08-31.json` is retained unchanged
 as historical synthetic evidence and requires its original implementation
 (`489fe72`). Rehearsal 02 binds the tightened parser and is the current supporting
 report. This is a synthetic engineering rerun, not a G2 extraction lineage or
 an empirical promotion. The hosted PR is #137; its live state controls delivery.
+
+Post-fix checkpoint on `fb3f277`: `autonomy-full` exited 0, with 891 tests in
+each suite pass and 80.53% coverage. All integration/restore, package-policy,
+wheel/sdist/release reproducibility and autonomy-context checks passed. Both
+hosted review threads were resolved, and all 17 checks passed before the signed
+history-preserving merge. The full WI-G4-MED-02 remains in progress because its
+genuine source/custody and reviewed empirical rebuild criteria are not supplied
+by this synthetic engineering completion.

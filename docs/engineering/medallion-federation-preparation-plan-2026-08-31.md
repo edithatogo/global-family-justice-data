@@ -471,3 +471,58 @@ the complete report and reject changed authority flags or other forged fields.
 No caller-provided success field or checksum can replace that recomputation.
 `profile_complete` means only this restricted declaration profile; all factual,
 full-conformance, custody, publication and acceptance states remain unverified.
+
+## Metadata profile delivery closeout
+
+PR #142 merged at signed commit `72d437ff800014f30f04089cc79650483c6a0d3f`
+on 2026-08-31T14:59:59Z. Full local validation passed: 1,439 tests twice
+(141.41s and 93.00s), 83% coverage. All 17 exact-head hosted checks passed;
+there were no unresolved review threads. Built-wheel context/profile hashes
+matched. History-preserving integration and cleanup left one local main/worktree.
+
+## Canonical reference and provenance contract freeze
+
+Continue with two separate contracts, then integrate metadata results into the
+same federation bundle. Recommended: bind logical identity explicitly and
+derive provenance only through existing replay verifiers. Hash-only identity
+would conflate distinct logical objects; caller-asserted provenance would not
+establish that transformations reproduce. No semantic equivalence is inferred.
+
+`reconcile_references(scope_raw, expected_sha256, metadata_bank, estate_inputs)`
+must verify the separately supplied scope digest, recompute the six-role estate,
+and require exact object/metadata-bank membership. Scope version
+`gfjd-federation-reference-scope-v1` has only `contract_version`, `state`
+(`preparation`), `estate_manifest_sha256`, `objects` and `partners`.
+Each object has exactly `object_id`, `canonical_id`, `kind`, `role`,
+`content_sha256`, `metadata_sha256`, `media_type` and `references`.
+Kinds cover jurisdiction, institution, source, edition, acquisition, observation,
+transformation and release. Logical IDs and canonical URNs are unique; canonical
+URNs must use `urn:gfjd:<kind>:`. Roles come from the recomputed estate. Missing
+content hashes remain null and unverified, not invented. Metadata bytes are
+digest-bound supplied objects; no content hash declares verified data custody.
+References are bounded HTTPS metadata locators, never requested. Partners are
+prospective identifiers from the named archive-govt-nz, global-medicines-atlas,
+reimbursement-atlas and dataset-estate-registry interfaces, not registrations.
+Bound scope/metadata to 1 MiB each, 100 objects, 8 MiB total metadata, and 20
+references per object. Output contains references/digests only, no source bytes.
+This meaning of zero-copy applies to this generated artifact, not the whole estate.
+
+`prepare_projection_prov(source, contract, receipt)` recomputes the existing
+projection receipt before exporting sorted N-Triples and a binding report.
+`prepare_pipeline_prov(entries, sources, safety_receipts, custody_receipts,
+contracts)` likewise uses complete pipeline-history replay before exporting
+B0/B1/Silver derivation and verified revision edges. Use exact serialized-byte
+hashes, not semantic receipt self-hashes, for artifact entity identities. Preserve
+partition/revision rules. No Activity, Agent, publication or execution timestamp
+is fabricated from `recorded_at` or `valid_from`. Repeated bytes do not establish
+semantic equivalence; avoid false self-revision or derivation assertions.
+
+Use PROV-O Entity/Plan/derivation/revision terms only where supported by the
+recomputed inputs; this is not full PROV-CONSTRAINTS validation. The existing
+replay/estate helpers read their own implementation files for fingerprints, so
+the composed API must disclose that narrow file access, not claim absolute
+filesystem isolation. No transport or source loader is introduced. Exact output
+recomputation must reject altered edges or references even if self-hashes are
+recomputed. Missing parents, cross-partition revisions, namespace/role changes,
+extra bank members, digest substitution and forged authority are negative tests.
+All factual/rights/gate/publication/registration authority remains unverified.

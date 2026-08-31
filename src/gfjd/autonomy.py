@@ -22,6 +22,7 @@ CONTEXT_FILES = (
     "AUTONOMOUS_IMPLEMENTATION.md",
     "docs/engineering/medallion-autonomous-continuation-2026-08-30.md",
     "docs/engineering/medallion-layer-qualification-plan-2026-08-31.md",
+    "docs/engineering/medallion-estate-preparation-plan-2026-08-31.md",
     "IMPLEMENTATION_STATUS.md",
     "PROJECT_PLAN.md",
     "docs/governance/t0-acceptance-runbook.md",

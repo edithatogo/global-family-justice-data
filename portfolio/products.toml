@@ -12,6 +12,14 @@ local_path = "."
 description = "Core software, contracts, programme conductor and release compiler."
 
 [[products]]
+id = "gfjd-source-archive"
+class = "generated_distribution"
+status = "planned"
+authority = "gfjd-platform-release"
+huggingface_repository = "edithatogo/gfjd-source-archive"
+publication_mode = "generated_only"
+
+[[products]]
 id = "gfjd-source-catalogue"
 class = "generated_distribution"
 status = "planned"

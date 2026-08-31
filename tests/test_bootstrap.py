@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import tomllib
 from pathlib import Path
 
 import pytest
@@ -202,3 +203,15 @@ def test_gfjd_remote_estate_is_public_and_includes_source_archive(tmp_path: Path
         and entry["publication_mode"] == "public_source_archive"
         for entry in repositories
     )
+    portfolio = tomllib.loads((project.root / "portfolio/products.toml").read_text("utf-8"))
+    declared_hf = {
+        item["huggingface_repository"]
+        for item in portfolio["products"]
+        if "huggingface_repository" in item
+    }
+    assert declared_hf == {f"edithatogo/{entry['name']}" for entry in repositories}
+    source_archive = next(
+        item for item in portfolio["products"] if item["id"] == "gfjd-source-archive"
+    )
+    assert source_archive["status"] == "planned"
+    assert source_archive["authority"] == "gfjd-platform-release"

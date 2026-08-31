@@ -880,3 +880,26 @@ custody, verified Parquet serialization, full standards/partner conformance and
 publication remain separately pending. Missing facts are the contingency, never
 invented fields. Review, full validation, exact-head CI and signed PR integration
 remain required before this phase is delivered.
+
+### Composition implementation and supporting evidence
+
+Implemented `gfjd.federation_interface_bundle` with exact recomputation,
+mandatory sidecars, known-format contradictions across component inputs and
+canonical rows from every historical entry. Extended the existing integration
+rehearsal and retained prior APIs. The combined composer/rehearsal suite passed
+30 tests in 99.75 seconds. Ruff, mypy and project validation passed; the latter
+reported 22 checks with zero errors/warnings. The persisted report reproduces
+exactly using the rehearsal's `--verify` command.
+
+Preserved `data/federation/preparation-2026-09-01/report.json` and all 16 generated
+metadata artifacts. Separate advisory review verified both digest maps, exact
+artifact membership, absence of input/replay bytes and false authority flags.
+Review found no actionable issue in the composer, rehearsal or supporting record.
+The source-level missing-sidecar and missing-interface-report tests failed before
+implementation. Nine rehearsal counterexamples exercise recomputed failure paths.
+
+`E-FEDERATION-COMPOSITION-FICTIONAL-20260901` is supporting evidence in review;
+its limitations and reproduction instructions are recorded in
+`docs/engineering/federation-composition-evidence-2026-09-01.md`. The factual
+registry evidence remains missing and WI-G4-MED-05 remains planned. Full local
+gate, exact-head CI and signed PR delivery remain pending at this source freeze.

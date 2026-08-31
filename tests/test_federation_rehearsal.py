@@ -1,5 +1,7 @@
 """Fictional federation integration; generated reports never confer authority."""
 
+import csv
+import hashlib
 import json
 import runpy
 import stat
@@ -9,6 +11,38 @@ from types import SimpleNamespace
 import pytest
 
 SCRIPT = Path(__file__).resolve().parents[1] / "scripts/rehearse_federation_bundle.py"
+
+
+def test_interfaces_have_bound_references_without_format_or_partner_acceptance() -> None:
+    script = runpy.run_path(str(SCRIPT))
+    report = script["build_report"]()
+    assert report["parquet_format_verified"] is False
+    assert report["bound_partner_count"] == 2
+    assert report["pending_partner_ids"] == ["dataset-estate-registry", "reimbursement-atlas"]
+    assert report["incomplete_parquet_preserved"] is True
+
+
+def test_preserved_composition_evidence_is_supporting_only() -> None:
+    root = SCRIPT.parents[1]
+    with (root / "programme/evidence_register.csv").open(newline="") as stream:
+        evidence = {row["evidence_id"]: row for row in csv.DictReader(stream)}
+    support = evidence["E-FEDERATION-COMPOSITION-FICTIONAL-20260901"]
+    raw = (root / support["path"]).read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == support["sha256"]
+    report = json.loads(raw)
+    assert report["synthetic"] is True
+    assert report["factual_evidence"] == "unverified"
+    assert not any(report["authority"].values())
+    bundle = (root / support["path"]).parent / "bundle"
+    assert {
+        path.relative_to(bundle).as_posix() for path in bundle.rglob("*") if path.is_file()
+    } == set(report["artifact_sha256"])
+    for name, digest in report["artifact_sha256"].items():
+        assert hashlib.sha256((bundle / name).read_bytes()).hexdigest() == digest
+    assert support["path"] != evidence["E-FEDERATED-MEDALLION-REGISTRY"]["path"]
+    with (root / "programme/work_items.csv").open(newline="") as stream:
+        items = {row["work_item_id"]: row for row in csv.DictReader(stream)}
+    assert support["evidence_id"] not in items["WI-G4-MED-05"]["evidence_ids"].split(";")
 
 
 def test_forged_report_cannot_pass(tmp_path: Path) -> None:
@@ -29,7 +63,7 @@ def test_deterministic_complete_machinery_with_pending_facts() -> None:
     assert report["provenance_pending_object_ids"] == ["fictional-1", "fictional-2", "fictional-3"]
     assert not any(report["authority"].values())
     assert report["incomplete_metadata_preserved"] is True
-    assert len(report["negative_cases_rejected"]) == 4
+    assert len(report["negative_cases_rejected"]) == 9
     assert "FICTIONAL_INPUT_ONLY_MARKER" not in json.dumps(report)
 
 
@@ -92,7 +126,7 @@ def test_input_counterexample_does_not_rely_on_changed_output_hash(
     from gfjd.federation_metadata import MetadataError
 
     script = runpy.run_path(str(SCRIPT))
-    original = script["prepare_replayed_bundle"]
+    original = script["prepare_interface_bundle"]
     good = script["fictional_inputs"]()
 
     def defective_prepare(*inputs):
@@ -110,8 +144,8 @@ def test_input_counterexample_does_not_rely_on_changed_output_hash(
             raise MetadataError("output mismatch")
 
     scope = script["build_report"].__globals__
-    monkeypatch.setitem(scope, "prepare_replayed_bundle", defective_prepare)
-    monkeypatch.setitem(scope, "verify_replayed_bundle", defective_verify)
+    monkeypatch.setitem(scope, "prepare_interface_bundle", defective_prepare)
+    monkeypatch.setitem(scope, "verify_interface_bundle", defective_verify)
     with pytest.raises(ValueError, match="negative case was accepted"):
         script["build_report"]()
 

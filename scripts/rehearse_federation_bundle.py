@@ -17,8 +17,9 @@ from pathlib import Path
 from typing import Any
 
 from gfjd.federation_bundle import ASSETS
+from gfjd.federation_interface_bundle import prepare_interface_bundle, verify_interface_bundle
 from gfjd.federation_metadata import MetadataError
-from gfjd.federation_replayed_bundle import prepare_replayed_bundle, verify_replayed_bundle
+from gfjd.federation_partner_interfaces import PINNED
 from gfjd.medallion_estate import POLICY_REFERENCE, SOURCEFILES, prepare_estate
 from gfjd.medallion_replay import replay_projection
 
@@ -78,7 +79,7 @@ def fictional_inputs() -> tuple[Any, ...]:
             "canonical_id": f"urn:gfjd:source:fictional-{ordinal}",
             "kind": "source",
             "role": "source-catalogue",
-            "content_sha256": sha(source) if ordinal == 0 else None,
+            "content_sha256": sha(source) if ordinal == 0 else "a" * 64 if ordinal == 1 else None,
             "metadata_sha256": sha(raw),
             "media_type": media,
             "references": [f"https://example.invalid/fictional-{ordinal}"],
@@ -91,7 +92,12 @@ def fictional_inputs() -> tuple[Any, ...]:
             "state": "preparation",
             "estate_manifest_sha256": sha(prepare_estate(estate)["estate-manifest.json"]),
             "objects": objects,
-            "partners": ["dataset-estate-registry"],
+            "partners": [
+                "archive-govt-nz",
+                "global-medicines-atlas",
+                "dataset-estate-registry",
+                "reimbursement-atlas",
+            ],
         }
     )
     replay_raw = canonical(
@@ -111,6 +117,52 @@ def fictional_inputs() -> tuple[Any, ...]:
             },
         }
     )
+    parquet_raw = canonical(
+        {
+            "contract_version": "gfjd-parquet-reference-declarations-v1",
+            "scope_sha256": sha(scope_raw),
+            "state": "preparation",
+            "objects": [
+                {
+                    "object_id": "fictional-1",
+                    "canonical_id": "urn:gfjd:source:fictional-1",
+                    "content_format": "parquet",
+                    "content_sha256": "a" * 64,
+                    "blake3": "b" * 64,
+                    "byte_count": 123,
+                    "locations": [
+                        {
+                            "url": "https://example.invalid/fictional.parquet",
+                            "revision": {"kind": "content_sha256", "value": "a" * 64},
+                        }
+                    ],
+                }
+            ],
+        }
+    )
+    partner_raw = canonical(
+        {
+            "contract_version": "gfjd-partner-interface-references-v1",
+            "scope_sha256": sha(scope_raw),
+            "state": "preparation",
+            "partners": [
+                {
+                    "partner_id": name,
+                    **copy.deepcopy(PINNED.get(name, {"commit": None, "artifacts": {}})),
+                }
+                for name in json.loads(scope_raw)["partners"]
+            ],
+        }
+    )
+    contracts = [
+        (ROOT / "src/gfjd/federation_specs" / name).read_bytes()
+        for name in (
+            "partner-archive-ownership.py.txt",
+            "partner-archive-publication.schema.json",
+            "partner-gma-federation.schema.json",
+            "partner-gma-semantics.py.txt",
+        )
+    ]
     return (
         scope_raw,
         sha(scope_raw),
@@ -120,14 +172,29 @@ def fictional_inputs() -> tuple[Any, ...]:
         replay_raw,
         sha(replay_raw),
         {sha(raw): raw for raw in (source, contract_raw, receipt_raw)},
+        parquet_raw,
+        sha(parquet_raw),
+        partner_raw,
+        sha(partner_raw),
+        {sha(raw): raw for raw in contracts},
     )
+
+
+def rebind_scope(inputs: list[Any], scope: dict[str, Any]) -> None:
+    inputs[0] = canonical(scope)
+    inputs[1] = sha(inputs[0])
+    for index in (8, 10):
+        declaration = json.loads(inputs[index])
+        declaration["scope_sha256"] = inputs[1]
+        inputs[index] = canonical(declaration)
+        inputs[index + 1] = sha(inputs[index])
 
 
 def build_report() -> dict[str, Any]:
     inputs = fictional_inputs()
-    artifacts = prepare_replayed_bundle(*inputs)
-    verify_replayed_bundle(*inputs, artifacts)
-    if artifacts != prepare_replayed_bundle(*inputs):
+    artifacts = prepare_interface_bundle(*inputs)
+    verify_interface_bundle(*inputs, artifacts)
+    if artifacts != prepare_interface_bundle(*inputs):
         raise ValueError("fictional federation nondeterminism")
     manifest = json.loads(artifacts["bundle-manifest.json"])
     assessments = json.loads(artifacts["metadata-assessments.json"])
@@ -161,46 +228,95 @@ def build_report() -> dict[str, Any]:
     raw = canonical(document)
     incomplete[2][sha(raw)] = raw
     scope["objects"][2]["metadata_sha256"] = sha(raw)
-    incomplete[0] = canonical(scope)
-    incomplete[1] = sha(incomplete[0])
-    incomplete_artifacts = prepare_replayed_bundle(*incomplete)
-    verify_replayed_bundle(*incomplete, incomplete_artifacts)
+    rebind_scope(incomplete, scope)
+    incomplete_artifacts = prepare_interface_bundle(*incomplete)
+    verify_interface_bundle(*incomplete, incomplete_artifacts)
     if json.loads(incomplete_artifacts["bundle-manifest.json"])["incomplete_document_count"] != 1:
         raise ValueError("missing declaration was not retained")
 
+    parquet = json.loads(artifacts["interfaces/parquet-reference-report.json"])
+    partners = json.loads(artifacts["interfaces/partner-interface-report.json"])
+    if parquet["parquet_format_verified"] or partners["bound_partner_count"] != 2:
+        raise ValueError("fictional interface state mismatch")
+    missing = list(copy.deepcopy(inputs))
+    declaration = json.loads(missing[8])
+    declaration["objects"][0]["blake3"] = None
+    missing[8] = canonical(declaration)
+    missing[9] = sha(missing[8])
+    missing_outputs = prepare_interface_bundle(*missing)
+    verify_interface_bundle(*missing, missing_outputs)
+    missing_report = json.loads(missing_outputs["interfaces/parquet-reference-report.json"])
+    if "fictional-1:missing_blake3" not in missing_report["issues"]:
+        raise ValueError("missing Parquet declaration was not retained")
+
     negative_checks = []
-    for change in ("unrelated_object", "source_bytes", "extra_bank", "forged_output"):
+    for change in (
+        "unrelated_object",
+        "source_bytes",
+        "extra_bank",
+        "forged_output",
+        "source_as_parquet",
+        "rows_as_parquet",
+        "partner_text_as_parquet",
+        "partner_contract_drift",
+        "missing_sidecar",
+    ):
         changed = list(copy.deepcopy(inputs))
         output = copy.deepcopy(artifacts)
         if change == "unrelated_object":
             scoped = json.loads(changed[0])
             scoped["objects"][0]["content_sha256"] = "0" * 64
-            changed[0] = canonical(scoped)
-            changed[1] = sha(changed[0])
+            rebind_scope(changed, scoped)
         elif change == "source_bytes":
             digest = json.loads(changed[5])["inputs"]["source_sha256"]
             changed[7][digest] += b" "
         elif change == "extra_bank":
             changed[7][sha(b"{}")] = b"{}"
+        elif change.endswith("_as_parquet"):
+            replay = json.loads(changed[5])
+            if change == "source_as_parquet":
+                digest = replay["inputs"]["source_sha256"]
+            elif change == "rows_as_parquet":
+                receipt = json.loads(changed[7][replay["inputs"]["receipt_sha256"]])
+                digest = sha(canonical(receipt["rows"]))
+            else:
+                digest = next(iter(changed[12]))
+            scoped = json.loads(changed[0])
+            scoped["objects"][1]["content_sha256"] = digest
+            rebind_scope(changed, scoped)
+            declaration = json.loads(changed[8])
+            declaration["objects"][0]["content_sha256"] = digest
+            declaration["objects"][0]["locations"][0]["revision"]["value"] = digest
+            changed[8] = canonical(declaration)
+            changed[9] = sha(changed[8])
+        elif change == "partner_contract_drift":
+            digest = next(iter(changed[12]))
+            changed[12][digest] += b" "
+        elif change == "missing_sidecar":
+            changed[8] = b""
+            changed[9] = sha(b"")
         else:
             forged = json.loads(output["bundle-manifest.json"])
             forged["authority"]["publication"] = True
             output["bundle-manifest.json"] = canonical(forged)
         try:
             if change == "forged_output":
-                verify_replayed_bundle(*changed, output)
+                verify_interface_bundle(*changed, output)
             else:
-                prepare_replayed_bundle(*changed)
+                prepare_interface_bundle(*changed)
         except MetadataError:
             negative_checks.append(change)
         else:
             raise ValueError("fictional negative case was accepted")
     return {
-        "rehearsal_id": "FICTIONAL-FEDERATION-BUNDLE-20260901-01",
+        "rehearsal_id": "FICTIONAL-FEDERATION-INTERFACES-20260901-01",
         "synthetic": True,
         "factual_evidence": "unverified",
         "scope_sha256": inputs[1],
         "replay_sha256": inputs[6],
+        "parquet_declaration_sha256": inputs[9],
+        "partner_declaration_sha256": inputs[11],
+        "partner_contract_sha256": sorted(inputs[12]),
         "artifact_sha256": {name: sha(raw) for name, raw in sorted(artifacts.items())},
         "fixture_builder_sha256": {name: sha((ROOT / name).read_bytes()) for name in BUILDERS},
         "rehearsal_implementation_sha256": sha(Path(__file__).read_bytes()),
@@ -210,6 +326,10 @@ def build_report() -> dict[str, Any]:
         "selected_entity_binding": manifest["replay_binding"],
         "provenance_pending_object_ids": manifest["provenance_pending_object_ids"],
         "incomplete_metadata_preserved": True,
+        "incomplete_parquet_preserved": True,
+        "parquet_format_verified": parquet["parquet_format_verified"],
+        "bound_partner_count": partners["bound_partner_count"],
+        "pending_partner_ids": partners["pending_partner_ids"],
         "negative_cases_rejected": negative_checks,
         "authority": manifest["authority"],
         "limitation": "fictional machinery rehearsal; no empirical or partner acceptance",

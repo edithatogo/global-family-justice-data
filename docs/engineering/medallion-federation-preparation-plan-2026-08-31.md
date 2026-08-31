@@ -568,3 +568,71 @@ separately replayed output until that exact relationship is implemented. This
 checkpoint does not complete the federation track, factual registry evidence,
 partner registration, source rights, maturity, publication or any programme gate.
 Full validation, exact-head CI and reviewed signed PR integration are pending.
+
+## Identity/provenance delivery closeout
+
+PR #143 merged at signed commit `66abdb2186ea17bb24a9e5a6c93c17d1f9d5495e`
+on 2026-08-31T15:25:54Z. Full local validation passed: 1,501 tests twice
+(95.74s and 82.10s), 83% coverage, security, integration/restore and deterministic
+package/rehearsal checks. All 17 exact-head hosted checks passed; automated
+review completed without findings or unresolved threads. Local cleanup left
+one main branch/worktree. This closes that engineering phase, not WI-G4-MED-05.
+
+## Exact replay attachment contract freeze
+
+Recommended next: one explicitly typed replay attachment per bundle. This is
+simpler to audit than unconstrained multi-job routing while covering both
+projection and complete pipeline-history replay. Caller-supplied PROV reports
+are not an alternative: unrelated valid provenance must not satisfy an object's
+binding. Unknown content remains pending through the ordinary bundle API.
+
+Add `prepare_replayed_bundle(scope_raw, expected_scope_sha256, metadata_bank,
+estate_inputs, standards, replay_raw, expected_replay_sha256, replay_bank)` and
+the corresponding exact-output verifier. Preserve the existing bundle API.
+The replay envelope is strict JSON with exactly `contract_version`
+(`gfjd-federation-replay-attachment-v1`), `mode`, `selection` and `inputs`.
+Bind its exact bytes to the separately supplied digest before replay.
+
+`selection` has exactly `object_id`, `entity_role`, `event_id` and
+`entity_sha256`. Require one matching scoped object with a non-null content
+hash equal to the recomputed selected entity digest. Projection mode uses
+`event_id: null`, and `entity_role` is `source` or `projection_rows`.
+Pipeline-history mode uses an exact event ID and role `source`, `bronze` or
+`silver`. Use actual bytes for source identity and the PROV module's canonical
+JSON serialization for row identity; never use receipt self-hashes. Record only
+byte-identity binding, not factual ownership or semantic equivalence.
+
+Projection `inputs` has exactly `source_sha256`, `contract_sha256` and
+`receipt_sha256`, referencing supplied bank bytes. Pipeline-history `inputs`
+has exactly `entries_sha256`, `sources`, `safety_receipts`, `custody_receipts`
+and `contracts`: the latter four are unique lists of bank digests. Parse exact
+contract/receipt/entry bytes and call the existing PROV preparation functions;
+complete-history replay and exact bank membership remain mandatory. Recompute
+the selected entity from those verified inputs and require it in the generated
+PROV graph. Every bank member must be used by the envelope. No lookup, file
+loader, URL request or prebuilt provenance-report input is permitted.
+
+Bound the envelope and each bank member to 1 MiB, the bank to 401 members and
+8 MiB total, and use the existing strict metadata JSON parser for structured
+inputs. Its additional depth/node/collection limits apply; an oversized valid
+upstream history must fail this bounded attachment profile, not be truncated.
+The existing metadata bank adds at most 8 MiB; normative assets and estate
+inputs keep their own existing bounds. Existing implementation-fingerprint file
+reads remain disclosed.
+
+Add exactly `provenance/provenance.nt` and `provenance/provenance-report.json`
+to the ordinary bundle. Rebuild its manifest with all output hashes, replay
+input hashes, the selected canonical object/role/entity binding, and explicit
+pending IDs for every other scoped object. Exact verification regenerates all
+files from source inputs, rejecting rehashed output forgery. No source bytes,
+input metadata, receipt contents or row values enter the output. All factual,
+full-conformance, custody, rights, publication, gate and registration states
+remain unverified/unauthorized.
+
+Then add a conspicuously fictional deterministic end-to-end rehearsal using
+the six-role estate, all four metadata assessment routes, canonical references
+and the exact replay attachment. Exercise incomplete metadata, unrelated replay,
+changed source or output, extra membership and forged authority. Rehearsal
+success proves machinery only. Parquet-reference declarations, prospective
+partner-interface qualification and supporting-evidence indexing remain later
+items within this same federation track.

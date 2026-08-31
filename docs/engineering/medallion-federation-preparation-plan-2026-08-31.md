@@ -444,3 +444,30 @@ remain advisory; complete local checks and exact-head CI precede merge.
 The shared profile accepts explicit `YYYY-MM-DD` publication declarations only;
 other valid standard date/time forms remain unsupported by this implementation.
 No empty, inferred or current build date fills a missing source publication fact.
+
+### Metadata implementation review
+
+The RO-Crate assessor checks exact File declarations against root `hasPart`,
+while permitting a metadata-only crate with no Files. Missing required keys
+produce incomplete findings; malformed supplied values, including blank dates
+or licence references, fail the profile. External Organization/licence IDs stay
+unverified references. The Croissant assessor additionally flags missing dataset
+URL, file names and field names, and rejects repeated field names in a RecordSet.
+Those three omissions were corrected after failing regression tests. RecordSet
+names remain optional in this profile. Content-size checks, complex creators or
+licences, general JSON-LD interpretation and data loading remain excluded.
+
+Shared-code review found raw URI brackets were incorrectly accepted. Two tests
+first failed; `7c42d57` rejects raw brackets while retaining percent-encoded
+forms. Reciprocal assessor reviews found no further actionable findings. The
+combined metadata-helper, RO-Crate, Croissant and asset suite passes 113 tests;
+formatting, lint and strict module typing pass. Full phase validation, packaged
+resource verification and exact-head PR delivery are still required.
+
+Use `assess_rocrate(metadata_bytes, context_bytes)` or
+`assess_croissant(metadata_bytes, profile_bytes)` with explicit byte inputs.
+The corresponding `verify_rocrate` / `verify_croissant` functions recompute
+the complete report and reject changed authority flags or other forged fields.
+No caller-provided success field or checksum can replace that recomputation.
+`profile_complete` means only this restricted declaration profile; all factual,
+full-conformance, custody, publication and acceptance states remain unverified.

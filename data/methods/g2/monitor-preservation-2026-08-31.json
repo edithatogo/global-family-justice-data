@@ -1,0 +1,438 @@
+{
+  "schema_version": "1.0",
+  "preserved_on": "2026-08-31",
+  "metadata_observed_on": "2026-08-31",
+  "repository": "edithatogo/global-family-justice-data",
+  "repository_id": 1313678863,
+  "canonical_main_at_inventory": "aaf85ba60dac08cfae38338b59088394337280fd",
+  "inventory_path": "data/methods/g2-audits/monitor-artifact-inventory-2026-08-31.json",
+  "scope": "Eight named completed runs only; exact metadata preservation, no source response replay or gate acceptance.",
+  "advisory_review_roles": [
+    "bounded_artifact_reader",
+    "preservation_inventory"
+  ],
+  "limits": {
+    "maximum_archive_bytes": 8388608,
+    "maximum_members": 32,
+    "maximum_member_bytes": 8388608,
+    "maximum_expanded_bytes": 16777216,
+    "maximum_compression_ratio": 1000
+  },
+  "limitations": [
+    "Source response bytes and execution logs are not preserved.",
+    "Legacy run 33240200746-1 has no receipt-internal run/source identity; only separate artifact-bound provenance is claimed.",
+    "Run 33304063733-1 remains terminal_failure after one completed endpoint; no novelty ledger or missing-endpoint evidence is invented.",
+    "No lifetime monitoring coverage or candidate eligibility is established."
+  ],
+  "runs": [
+    {
+      "run_id": "33240200746-1",
+      "source_commit": "cc86d206f323e6f4953fee9f8cdb659323ed83c3",
+      "workflow": "g2-future-manifest-monitor.yml",
+      "route": "sitemap",
+      "campaign_id": "G2FUTURE-EDITION-MONITOR-20260829-01",
+      "expected_endpoints": [
+        "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/1/",
+        "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/2/",
+        "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/3/"
+      ],
+      "artifact_id": 9711123195,
+      "artifact_name": "g2-future-manifest-monitor-33240200746-1",
+      "provider_reported_archive_bytes": 68413,
+      "verified_archive_bytes": 68413,
+      "provider_reported_archive_sha256": "694daaf5f77356b1d157341e308d21c23a8483f491c162102d6e9df1d128ae48",
+      "verified_archive_sha256": "694daaf5f77356b1d157341e308d21c23a8483f491c162102d6e9df1d128ae48",
+      "artifact_expires_at": "2026-11-27T07:10:09Z",
+      "original_outcome": "monitor_no_candidates",
+      "original_status": "complete",
+      "preservation_class": "legacy_artifact_bound_only",
+      "original_receipt_run_id_present": false,
+      "original_receipt_source_commit_present": false,
+      "modern_receipt_identity_validation": "failed_missing_fields",
+      "identity_basis": "github_artifact_metadata",
+      "original_receipt_modified": false,
+      "gate_evidence_eligible": false,
+      "source_contract": {
+        "path": "config/g2_future_manifest_monitor.json",
+        "sha256": "86d199881bab6c86a4f873fe024197a821a1589db9d2d3e35b7fae213df66a04",
+        "source_commit": "cc86d206f323e6f4953fee9f8cdb659323ed83c3"
+      },
+      "baseline_bindings": [
+        {
+          "path": "data/methods/g2/G2FUTURE-EDITION-CANONICAL-20260829-01/execution/exposure-ledger.jsonl",
+          "sha256": "e939b55e474816c8ac2dd6608f336e0dd22cfa66661ab0298fbde5ebb1bd60ad"
+        }
+      ],
+      "novelty_recomputation": "verified_against_source_commit_baselines",
+      "files": {
+        "exposure-ledger.jsonl": {
+          "bytes": 666996,
+          "sha256": "e939b55e474816c8ac2dd6608f336e0dd22cfa66661ab0298fbde5ebb1bd60ad",
+          "path": "data/methods/g2/G2FUTURE-EDITION-CANONICAL-20260829-01/execution/exposure-ledger.jsonl"
+        },
+        "novel-exposure-ledger.jsonl": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "data/methods/g2/monitor-preservation/empty-exposure-ledger.jsonl"
+        },
+        "receipt.json": {
+          "bytes": 1912,
+          "sha256": "868c452c184584d95811c58da6454fbba72b835d27a2ccb0c489811b8144e30d",
+          "path": "data/methods/g2/G2FUTURE-EDITION-MONITOR-20260829-01/execution/run-33240200746-1/receipt.json"
+        }
+      }
+    },
+    {
+      "run_id": "33240510062-1",
+      "source_commit": "66eca9a3d232985a07cac629d8a4f6fb0154a660",
+      "workflow": "g2-future-manifest-monitor.yml",
+      "route": "sitemap",
+      "campaign_id": "G2FUTURE-EDITION-MONITOR-20260829-01",
+      "expected_endpoints": [
+        "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/1/",
+        "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/2/",
+        "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/3/"
+      ],
+      "artifact_id": 9711212795,
+      "artifact_name": "g2-future-manifest-monitor-33240510062-1",
+      "provider_reported_archive_bytes": 68463,
+      "verified_archive_bytes": 68463,
+      "provider_reported_archive_sha256": "317d53ed1cdce0ffb9dc4786f6d85d8bef0cd944b5181a667a2540e77d309c6f",
+      "verified_archive_sha256": "317d53ed1cdce0ffb9dc4786f6d85d8bef0cd944b5181a667a2540e77d309c6f",
+      "artifact_expires_at": "2026-11-27T07:17:56Z",
+      "original_outcome": "monitor_no_candidates",
+      "original_status": "complete",
+      "preservation_class": "receipt_and_artifact_bound",
+      "original_receipt_run_id_present": true,
+      "original_receipt_source_commit_present": true,
+      "modern_receipt_identity_validation": "passed",
+      "identity_basis": "original_receipt_and_github_artifact_metadata",
+      "original_receipt_modified": false,
+      "gate_evidence_eligible": false,
+      "source_contract": {
+        "path": "config/g2_future_manifest_monitor.json",
+        "sha256": "86d199881bab6c86a4f873fe024197a821a1589db9d2d3e35b7fae213df66a04",
+        "source_commit": "66eca9a3d232985a07cac629d8a4f6fb0154a660"
+      },
+      "baseline_bindings": [
+        {
+          "path": "data/methods/g2/G2FUTURE-EDITION-CANONICAL-20260829-01/execution/exposure-ledger.jsonl",
+          "sha256": "e939b55e474816c8ac2dd6608f336e0dd22cfa66661ab0298fbde5ebb1bd60ad"
+        }
+      ],
+      "novelty_recomputation": "verified_against_source_commit_baselines",
+      "files": {
+        "exposure-ledger.jsonl": {
+          "bytes": 666996,
+          "sha256": "e939b55e474816c8ac2dd6608f336e0dd22cfa66661ab0298fbde5ebb1bd60ad",
+          "path": "data/methods/g2/G2FUTURE-EDITION-CANONICAL-20260829-01/execution/exposure-ledger.jsonl"
+        },
+        "novel-exposure-ledger.jsonl": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "data/methods/g2/monitor-preservation/empty-exposure-ledger.jsonl"
+        },
+        "receipt.json": {
+          "bytes": 2004,
+          "sha256": "fc9a8c4fd838e1adf5e039b06abd47f10424a3b7f00fb7b779d4f4ae512029e1",
+          "path": "data/methods/g2/G2FUTURE-EDITION-MONITOR-20260829-01/execution/run-33240510062-1/receipt.json"
+        }
+      }
+    },
+    {
+      "run_id": "33241287646-1",
+      "source_commit": "400ebcf65539716cad252477e296849adb473cac",
+      "workflow": "g2-future-multiroot-monitor.yml",
+      "route": "sitemap",
+      "campaign_id": "G2FUTURE-EDITION-THREE-ROOT-20260829-01",
+      "expected_endpoints": [
+        "https://courts.ca.gov/sitemap.xml",
+        "https://datajud-wiki.cnj.jus.br/sitemap.xml",
+        "https://provincialcourt.bc.ca/sitemap.xml"
+      ],
+      "artifact_id": 9711428798,
+      "artifact_name": "g2-future-multiroot-monitor-33241287646-1",
+      "provider_reported_archive_bytes": 30888,
+      "verified_archive_bytes": 30888,
+      "provider_reported_archive_sha256": "c78d57489c0f483d66197d66d0a087ac3bd86434954063aa6fd9915d5ade0339",
+      "verified_archive_sha256": "c78d57489c0f483d66197d66d0a087ac3bd86434954063aa6fd9915d5ade0339",
+      "artifact_expires_at": "2026-11-27T07:37:45Z",
+      "original_outcome": "monitor_no_candidates",
+      "original_status": "complete",
+      "preservation_class": "receipt_and_artifact_bound",
+      "original_receipt_run_id_present": true,
+      "original_receipt_source_commit_present": true,
+      "modern_receipt_identity_validation": "passed",
+      "identity_basis": "original_receipt_and_github_artifact_metadata",
+      "original_receipt_modified": false,
+      "gate_evidence_eligible": false,
+      "source_contract": {
+        "path": "config/g2_future_three_root_monitor.json",
+        "sha256": "bc343c6b07f97bfa0f4cd2176942acadf1944ac06a91b38ada083ed188324275",
+        "source_commit": "400ebcf65539716cad252477e296849adb473cac"
+      },
+      "baseline_bindings": [
+        {
+          "path": "data/methods/g2/G2FUTURE-EDITION-MULTIROOT-20260829-01/execution-control/baseline-exposure-ledger.jsonl",
+          "sha256": "7553d17b9c526cdcfb1239cb75f28ce5dc6d227bb55c507153f29215d1af1738"
+        },
+        {
+          "path": "data/methods/g2/G2FUTURE-EDITION-MULTIROOT-20260829-01/execution/run-33240864641-1/exposure-ledger.jsonl",
+          "sha256": "d1998e9198aaa1809f2739658a440682098f6ac1192dbfcac86c0176f678ae0c"
+        }
+      ],
+      "novelty_recomputation": "verified_against_source_commit_baselines",
+      "files": {
+        "exposure-ledger.jsonl": {
+          "bytes": 260984,
+          "sha256": "d1998e9198aaa1809f2739658a440682098f6ac1192dbfcac86c0176f678ae0c",
+          "path": "data/methods/g2/G2FUTURE-EDITION-MULTIROOT-20260829-01/execution/run-33240864641-1/exposure-ledger.jsonl"
+        },
+        "novel-exposure-ledger.jsonl": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "data/methods/g2/monitor-preservation/empty-exposure-ledger.jsonl"
+        },
+        "receipt.json": {
+          "bytes": 1860,
+          "sha256": "9f79484f787991d64badae44d7e42cc76a46670e459c6cc2b1a29c2fcf11a644",
+          "path": "data/methods/g2/G2FUTURE-EDITION-THREE-ROOT-20260829-01/execution/run-33241287646-1/receipt.json"
+        }
+      }
+    },
+    {
+      "run_id": "33297404761-1",
+      "source_commit": "9cbc42ed1c56efa5eb693a7a6a9783a2650108dc",
+      "workflow": "g2-nz-justice-index-monitor.yml",
+      "route": "nz",
+      "campaign_id": "G2FUTURE-NZ-JUSTICE-INDEX-20260829-01",
+      "expected_endpoints": [
+        "https://www.justice.govt.nz/justice-sector-policy/research-data/justice-statistics/data-tables/"
+      ],
+      "artifact_id": 9727845892,
+      "artifact_name": "g2-nz-justice-index-33297404761-1",
+      "provider_reported_archive_bytes": 807,
+      "verified_archive_bytes": 807,
+      "provider_reported_archive_sha256": "9142a6def4e6f66a7cb8c2afa2929ebc8530e6744318b431218c73e4ef3e3d33",
+      "verified_archive_sha256": "9142a6def4e6f66a7cb8c2afa2929ebc8530e6744318b431218c73e4ef3e3d33",
+      "artifact_expires_at": "2026-11-28T06:39:42Z",
+      "original_outcome": "baseline_unchanged",
+      "original_status": "complete",
+      "preservation_class": "receipt_and_artifact_bound",
+      "original_receipt_run_id_present": true,
+      "original_receipt_source_commit_present": true,
+      "modern_receipt_identity_validation": "passed",
+      "identity_basis": "original_receipt_and_github_artifact_metadata",
+      "original_receipt_modified": false,
+      "gate_evidence_eligible": false,
+      "source_contract": {
+        "path": "config/g2_nz_justice_index_monitor.json",
+        "sha256": "8cbb73c28a9077279c97f43886ba4d660a28a2752a9105b4e50793b9ccf42b62",
+        "source_commit": "9cbc42ed1c56efa5eb693a7a6a9783a2650108dc"
+      },
+      "baseline_bindings": [],
+      "novelty_recomputation": "not_applicable",
+      "files": {
+        "receipt.json": {
+          "bytes": 1360,
+          "sha256": "3c354baae1e6ff874444656af785bd72c8ac7c7b85209e4c1dfdb8bcf6151fe0",
+          "path": "data/methods/g2/G2FUTURE-NZ-JUSTICE-INDEX-20260829-01/execution/run-33297404761-1/receipt.json"
+        }
+      }
+    },
+    {
+      "run_id": "33301440152-1",
+      "source_commit": "e6dbd267bdd957eb9e6f048f0357ef2fd99109b6",
+      "workflow": "g2-uk-family-release-calendar-monitor.yml",
+      "route": "calendar",
+      "campaign_id": "G2FUTURE-UK-FAMILY-CALENDAR-20260829-01",
+      "expected_endpoints": [
+        "https://data.justice.gov.uk/info/publications"
+      ],
+      "artifact_id": 9729146436,
+      "artifact_name": "g2-uk-family-calendar-33301440152-1",
+      "provider_reported_archive_bytes": 692,
+      "verified_archive_bytes": 692,
+      "provider_reported_archive_sha256": "96912db02dec6e1dd3586f9c953df47939f7a7ac24f7d6a048b0c606c9557b76",
+      "verified_archive_sha256": "96912db02dec6e1dd3586f9c953df47939f7a7ac24f7d6a048b0c606c9557b76",
+      "artifact_expires_at": "2026-11-28T08:22:54Z",
+      "original_outcome": "baseline_unchanged",
+      "original_status": "complete",
+      "preservation_class": "receipt_and_artifact_bound",
+      "original_receipt_run_id_present": true,
+      "original_receipt_source_commit_present": true,
+      "modern_receipt_identity_validation": "passed",
+      "identity_basis": "original_receipt_and_github_artifact_metadata",
+      "original_receipt_modified": false,
+      "gate_evidence_eligible": false,
+      "source_contract": {
+        "path": "config/g2_uk_family_release_calendar_monitor.json",
+        "sha256": "cdbe86bafa08eee76bfcae22195a9eef3a19bdb1912d1706596423e3f2867720",
+        "source_commit": "e6dbd267bdd957eb9e6f048f0357ef2fd99109b6"
+      },
+      "baseline_bindings": [],
+      "novelty_recomputation": "not_applicable",
+      "files": {
+        "receipt.json": {
+          "bytes": 1004,
+          "sha256": "919246af019036f5ca32aad50e9b2146f9aca0508c221017461f782e34c610ed",
+          "path": "data/methods/g2/G2FUTURE-UK-FAMILY-CALENDAR-20260829-01/execution/run-33301440152-1/receipt.json"
+        }
+      }
+    },
+    {
+      "run_id": "33303832206-1",
+      "source_commit": "308c752d3c5baae552965151dd74cc4094e6d11d",
+      "workflow": "g2-future-manifest-monitor.yml",
+      "route": "sitemap",
+      "campaign_id": "G2FUTURE-EDITION-MONITOR-20260829-01",
+      "expected_endpoints": [
+        "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/1/",
+        "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/2/",
+        "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/3/"
+      ],
+      "artifact_id": 9729815475,
+      "artifact_name": "g2-future-manifest-monitor-33303832206-1",
+      "provider_reported_archive_bytes": 68465,
+      "verified_archive_bytes": 68465,
+      "provider_reported_archive_sha256": "d5072cc87cd96a2bdb3a90161e2df485d4f698f88f7da722bd857996f54fe802",
+      "verified_archive_sha256": "d5072cc87cd96a2bdb3a90161e2df485d4f698f88f7da722bd857996f54fe802",
+      "artifact_expires_at": "2026-11-28T09:21:00Z",
+      "original_outcome": "monitor_no_candidates",
+      "original_status": "complete",
+      "preservation_class": "receipt_and_artifact_bound",
+      "original_receipt_run_id_present": true,
+      "original_receipt_source_commit_present": true,
+      "modern_receipt_identity_validation": "passed",
+      "identity_basis": "original_receipt_and_github_artifact_metadata",
+      "original_receipt_modified": false,
+      "gate_evidence_eligible": false,
+      "source_contract": {
+        "path": "config/g2_future_manifest_monitor.json",
+        "sha256": "76772f959395de9619e8e41cd6d95538becc38d3c45fdf14b538fed0e6076a39",
+        "source_commit": "308c752d3c5baae552965151dd74cc4094e6d11d"
+      },
+      "baseline_bindings": [
+        {
+          "path": "data/methods/g2/G2FUTURE-EDITION-CANONICAL-20260829-01/execution/exposure-ledger.jsonl",
+          "sha256": "e939b55e474816c8ac2dd6608f336e0dd22cfa66661ab0298fbde5ebb1bd60ad"
+        }
+      ],
+      "novelty_recomputation": "verified_against_source_commit_baselines",
+      "files": {
+        "exposure-ledger.jsonl": {
+          "bytes": 666996,
+          "sha256": "e939b55e474816c8ac2dd6608f336e0dd22cfa66661ab0298fbde5ebb1bd60ad",
+          "path": "data/methods/g2/G2FUTURE-EDITION-CANONICAL-20260829-01/execution/exposure-ledger.jsonl"
+        },
+        "novel-exposure-ledger.jsonl": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "data/methods/g2/monitor-preservation/empty-exposure-ledger.jsonl"
+        },
+        "receipt.json": {
+          "bytes": 2004,
+          "sha256": "d115b8ea45a1014c14414197af1bd0a25b8e2e137c3a7db4844db79e531bf811",
+          "path": "data/methods/g2/G2FUTURE-EDITION-MONITOR-20260829-01/execution/run-33303832206-1/receipt.json"
+        }
+      }
+    },
+    {
+      "run_id": "33304063733-1",
+      "source_commit": "ed7a892c12b98f12b699cd372ab40d197cb1992d",
+      "workflow": "g2-future-multiroot-monitor.yml",
+      "route": "sitemap",
+      "campaign_id": "G2FUTURE-EDITION-THREE-ROOT-20260830-02",
+      "expected_endpoints": [
+        "https://courts.ca.gov/sitemap.xml",
+        "https://datajud-wiki.cnj.jus.br/sitemap.xml",
+        "https://provincialcourt.bc.ca/sitemap.xml"
+      ],
+      "artifact_id": 9729988360,
+      "artifact_name": "g2-future-multiroot-monitor-33304063733-1",
+      "provider_reported_archive_bytes": 17998,
+      "verified_archive_bytes": 17998,
+      "provider_reported_archive_sha256": "d5406654830d9b795cc36bd4a11e5cc9b48ea39e5acf7582adf471a29108dabe",
+      "verified_archive_sha256": "d5406654830d9b795cc36bd4a11e5cc9b48ea39e5acf7582adf471a29108dabe",
+      "artifact_expires_at": "2026-11-28T09:26:35Z",
+      "original_outcome": "terminal_failure",
+      "original_status": "terminal_failure",
+      "preservation_class": "receipt_and_artifact_bound",
+      "original_receipt_run_id_present": true,
+      "original_receipt_source_commit_present": true,
+      "modern_receipt_identity_validation": "passed",
+      "identity_basis": "original_receipt_and_github_artifact_metadata",
+      "original_receipt_modified": false,
+      "gate_evidence_eligible": false,
+      "source_contract": {
+        "path": "config/g2_future_three_root_monitor.json",
+        "sha256": "163031d2d3df68ce1ca584e01f7745cf37ecffb297ecee595fc8ad0759d6bb5d",
+        "source_commit": "ed7a892c12b98f12b699cd372ab40d197cb1992d"
+      },
+      "baseline_bindings": [],
+      "novelty_recomputation": "not_available_partial_failure",
+      "files": {
+        "exposure-ledger.jsonl": {
+          "bytes": 143147,
+          "sha256": "26b0c6bf7cca092293c0740df1252a09c5f2c78e17903f695dccb38e798aaadd",
+          "path": "data/methods/g2/G2FUTURE-EDITION-THREE-ROOT-20260830-02/execution/run-33304063733-1/exposure-ledger.jsonl"
+        },
+        "receipt.json": {
+          "bytes": 1017,
+          "sha256": "de9ffb49e2d5f5667e935ce5975b5787d7456c08992dfcae88447e6d1f32e157",
+          "path": "data/methods/g2/G2FUTURE-EDITION-THREE-ROOT-20260830-02/execution/run-33304063733-1/receipt.json"
+        }
+      }
+    },
+    {
+      "run_id": "33305171731-1",
+      "source_commit": "ed7a892c12b98f12b699cd372ab40d197cb1992d",
+      "workflow": "g2-official-publication-feed-monitor.yml",
+      "route": "feed",
+      "campaign_id": "G2FUTURE-OFFICIAL-FEED-20260829-01",
+      "expected_endpoints": [
+        "https://www.gov.uk/api/search.json?count=100&fields=format&fields=link&fields=public_timestamp&fields=title&filter_format=national_statistics&filter_format=official_statistics&filter_part_of_taxonomy_tree=fae66b20-eacd-4a41-a417-81cae5fa4b8c&filter_public_timestamp=from%3A2026-08-29%2005%3A17%3A40&order=public_timestamp&start=0"
+      ],
+      "artifact_id": 9730216228,
+      "artifact_name": "g2-official-publication-feed-monitor-33305171731-1",
+      "provider_reported_archive_bytes": 1410,
+      "verified_archive_bytes": 1410,
+      "provider_reported_archive_sha256": "d6a4fe885b14ebcee87a919462958c896fb8383b95fe79558a257ba4ca2863c1",
+      "verified_archive_sha256": "d6a4fe885b14ebcee87a919462958c896fb8383b95fe79558a257ba4ca2863c1",
+      "artifact_expires_at": "2026-11-28T09:54:12Z",
+      "original_outcome": "monitor_no_candidates",
+      "original_status": "complete",
+      "preservation_class": "receipt_and_artifact_bound",
+      "original_receipt_run_id_present": true,
+      "original_receipt_source_commit_present": true,
+      "modern_receipt_identity_validation": "passed",
+      "identity_basis": "original_receipt_and_github_artifact_metadata",
+      "original_receipt_modified": false,
+      "gate_evidence_eligible": false,
+      "source_contract": {
+        "path": "config/g2_official_publication_feed_monitor.json",
+        "sha256": "02870d91c6366b05732e58c665f606a0def63cb1059eeecd084a03a7aec0935a",
+        "source_commit": "ed7a892c12b98f12b699cd372ab40d197cb1992d"
+      },
+      "baseline_bindings": [],
+      "novelty_recomputation": "empty_observation_set",
+      "files": {
+        "exposure-ledger.jsonl": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "data/methods/g2/monitor-preservation/empty-exposure-ledger.jsonl"
+        },
+        "novel-exposure-ledger.jsonl": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "path": "data/methods/g2/monitor-preservation/empty-exposure-ledger.jsonl"
+        },
+        "receipt.json": {
+          "bytes": 1406,
+          "sha256": "231361582e664e9796b3c36e1dbbb643227fdc31ee02c96e9e807eff538c997c",
+          "path": "data/methods/g2/G2FUTURE-OFFICIAL-FEED-20260829-01/execution/run-33305171731-1/receipt.json"
+        }
+      }
+    }
+  ]
+}

@@ -222,6 +222,13 @@ rating, source right or publication permission changes.
 
 ## Not supplied by code
 
+Monitor preservation continuation (2026-08-31): eight named completed Actions
+runs have exact metadata retention, seven modern identity bindings and one
+explicitly weaker legacy artifact-only binding. One terminal failed partial
+ledger remains failed. See `docs/methods/g2-monitor-preservation-report-2026-08-31.md`.
+No response replay, complete lifetime exposure, source access or G2 acceptance
+is claimed. The distinct offline API contract is the next preparation slice.
+
 Stable v1.0 still requires authentic evidence for real source editions and retrievals, source-rights facts and owner decisions, multilingual searches, jurisdiction-aware triangulation, real connectors and fixtures, blinded role-separated re-extraction, methods adjudication, outcomes-evidence appraisal, agent/tool accessibility review, production operations, two-location preservation, tested restore, publication state and the owner's dated 12-month resource commitment. Agent panels cannot manufacture those facts or create legal, independent-specialist, local-human or lived-experience claims.
 
 A passing technical workflow cannot approve a programme gate or transform process speed into evidence of child or family outcomes.

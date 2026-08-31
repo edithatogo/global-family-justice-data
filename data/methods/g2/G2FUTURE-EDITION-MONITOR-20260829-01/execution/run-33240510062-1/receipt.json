@@ -1,0 +1,56 @@
+{
+  "boundary": {
+    "candidate_document_access": false,
+    "extraction": false,
+    "g2_acceptance": false,
+    "returned_locator_access": false
+  },
+  "campaign_id": "G2FUTURE-EDITION-MONITOR-20260829-01",
+  "checked_at": "2026-08-29T07:18:03Z",
+  "cutoff": "2026-08-29T05:17:40Z",
+  "exposure_ledger_sha256": "e939b55e474816c8ac2dd6608f336e0dd22cfa66661ab0298fbde5ebb1bd60ad",
+  "requests": [
+    {
+      "content_type": "application/xml",
+      "http_status": 200,
+      "locator_count": 998,
+      "ordinal": 1,
+      "response_bytes": 323359,
+      "response_sha256": "103ec89cff9334923c6d8125845934f26a7f193de48fd87bf524231aed0740aa",
+      "url": "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/1/"
+    },
+    {
+      "content_type": "application/xml",
+      "http_status": 200,
+      "locator_count": 994,
+      "ordinal": 2,
+      "response_bytes": 367233,
+      "response_sha256": "5eb1cffa8c88e54fe10f4ed4ec3b206db8b43e272a27d82ee4a1f2bacdebf90d",
+      "url": "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/2/"
+    },
+    {
+      "content_type": "application/xml",
+      "http_status": 200,
+      "locator_count": 310,
+      "ordinal": 3,
+      "response_bytes": 107114,
+      "response_sha256": "0ea1068060f6d803b904b96eb2452633137f8136a51eadbbf037902e3864fb7f",
+      "url": "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/3/"
+    }
+  ],
+  "run_id": "33240510062-1",
+  "schema_version": "1.0",
+  "source_commit": "66eca9a3d232985a07cac629d8a4f6fb0154a660",
+  "status": "complete",
+  "summary": {
+    "duplicate_locator_count": 13,
+    "novel_exposure_count": 0,
+    "novel_exposure_ledger_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observed_locator_count": 2302,
+    "outcome": "monitor_no_candidates",
+    "post_cutoff_lastmod_count": 0,
+    "total_response_bytes": 797706,
+    "uncertain_lastmod_count": 0,
+    "unique_locator_count": 2289
+  }
+}

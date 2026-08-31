@@ -1,0 +1,33 @@
+{
+  "boundary": {
+    "candidate_document_access": false,
+    "extraction": false,
+    "g2_acceptance": false,
+    "returned_locator_access": false
+  },
+  "campaign_id": "G2FUTURE-EDITION-THREE-ROOT-20260830-02",
+  "checked_at": "2026-08-30T09:33:27Z",
+  "cutoff": "2026-08-29T05:17:40Z",
+  "error": "<urlopen error timed out>",
+  "exposure_ledger_sha256": "26b0c6bf7cca092293c0740df1252a09c5f2c78e17903f695dccb38e798aaadd",
+  "requests": [
+    {
+      "content_type": "text/xml",
+      "http_status": 200,
+      "locator_count": 711,
+      "ordinal": 1,
+      "response_bytes": 137058,
+      "response_sha256": "accd6bbcf0fbb1fb91b7176cb481130d1e1887e78966000285488b674c7bf5b6",
+      "url": "https://courts.ca.gov/sitemap.xml"
+    }
+  ],
+  "run_id": "33304063733-1",
+  "schema_version": "1.0",
+  "source_commit": "ed7a892c12b98f12b699cd372ab40d197cb1992d",
+  "status": "terminal_failure",
+  "summary": {
+    "completed_endpoint_count": 1,
+    "outcome": "terminal_failure",
+    "total_response_bytes": 137058
+  }
+}

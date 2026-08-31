@@ -12,7 +12,21 @@ it is not a renewed metadata-request or source-access authorization.
   separate network-disabled advisory review found no blocking issue. Clarify
   statistical-source versus technical-source access and index coverage limits.
 - [x] Index the qualification in Conductor (`3b00b82`), commit and submit PR #134.
-- [ ] Complete stable-head local and hosted validation before merging PR #134.
+- [x] Complete stable-head local validation on `ae238fa`: `autonomy-full`
+  exited 0 with 597 tests passing twice and 78.78% coverage. All 17 hosted
+  checks subsequently passed. Fresh pre-edit `make check` also passed.
+- [ ] Revalidate the review correction and merge PR #134 after exact-head CI.
+
+## PR review correction
+
+Canonical GitHub parent records confirm the full chain
+`4ac0077 -> 358046a -> 3b00b82 -> ad63be7 -> ae238fa`; the review's squash
+claim was incorrect. Keep the original provenance references. The indexing
+checkbox was already corrected. Clarify the remaining ambiguous JSON flag:
+technical documentation/code was accessed; candidate pages/statistical sources
+were not. Rebind the current preparation evidence without changing failed
+campaign artifacts or granting any new authority. The previous preparation
+record remains available in Git history; it was not an execution receipt.
 
 Validation corrections: an initial deterministic-build test observed the
 orchestrator committing between builds (`3b00b82` versus `ad63be7` source_revision).

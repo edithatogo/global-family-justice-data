@@ -95,7 +95,7 @@ c53248f7c5809719e7bb231b36218c9a1f134f933ff5176f007ca8c456dae69d  config/workflo
 ff2225046414cf9052b8216d3831cad55b5987fa3641e3a3ba99a512b8a7ceb8  data/gold/README.md
 ae6700dea7436688486d2389ec79c45a6886ba9bba29397dce2b6990fb493b18  data/methods/g2-audits/historical-persisted-exposure-2026-08-30.json
 238327f54b70caf893941a23bbc29c85408f9c4c1cd17996e3575a6a761d477b  data/methods/g2-audits/historical-postrequest-exposure-2026-08-31.json
-2ffedca99e09f3f389f7b7952a4aa9c2ecb672996e7845afb366b72dda7f3261  data/methods/g2-repro/api-interface-evidence-2026-08-31.json
+aa90c8346c819a06aa2aa92a7d285f959623b714c5de9fc144e8b64f57eec813  data/methods/g2-repro/api-interface-evidence-2026-08-31.json
 0801c39cee1320c421dd7ad73445693f22894049d639e3da45f9b6e52d060530  data/methods/g2-repro/frozen-controls/MANIFEST-080db21.sha256
 44a8aa64589af2363894a5ee22aa4e8d1998d21210ada9e86400a8c7b00ca1a7  data/methods/g2-repro/frozen-controls/test_g2_historical_repro-20260830.py.txt
 cdeda4e778e323186b5f8682eba2b2c4e51f22a29614e8b0f432c90c0065098e  data/methods/g2-repro/metadata-authority-2026-08-31.json
@@ -549,7 +549,7 @@ ed231dbef8081e8b343b3613d22daf4a0148ce450fb450e3ac91efb1201884e0  docs/methods/d
 8f0d4ee1862e96bdfba8fd2fb794a0fbe41a1515524cd2752aa4a8fb910d261c  docs/methods/g2-agent-blinded-known-edition-terminal-stop-2026-08-25.md
 5fa3fef05cc816cb6378811b1b524bec9c82ab4f006bc1581ddc8b471aae34c1  docs/methods/g2-agent-panel-reextraction-control-2026-08-03.md
 3cff0659e13beab8e149e2929678c2b72f22a030bf6f58a4803d9d5c3a2a0210  docs/methods/g2-api-interface-qualification-2026-08-31.md
-b2a915a409cd80855640d59505606adc1b4e90f579c7a0ae28a50b02c7641d85  docs/methods/g2-api-qualification-plan-2026-08-31.md
+7cb253cd07690830967b47317be94d272935d73293ae421ad80f8131cfd9adda  docs/methods/g2-api-qualification-plan-2026-08-31.md
 531ca660c5461b0f4e14f3be845fd8aa9ffe7058cbda7321e3b5caa8fa1675d0  docs/methods/g2-atomic-field-contract-plan-2026-08-26.md
 c43887e8bf63fb43924d8ce95921a6254b4bc6c9b5a1a307487c38fc4953ddf8  docs/methods/g2-atomic-two-row-predelegation-terminal-evidence-2026-08-27.md
 ca8c0c43730a3901f269012b115b1d13ad2c34b22e3aa85fd45cad4a856ffe26  docs/methods/g2-atomic-two-row-successor-terminal-evidence-2026-08-27.md
@@ -713,7 +713,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  programme/.git
 51f2f566ad185c17218a6023544b087be034353df4803fbaeef5a52113dc3f4d  programme/audit-log.jsonl
 3347991cd823a0eb02b499fbff69b892a0b1b90104eecffd33fd6bce989bebce  programme/decision_log.csv
 18eb5dd051fa64977654c890f1dc78bfdeefacd168b552f3bb0484ceca75f7a7  programme/defect_register.csv
-8b6b37fad189f0c4168d25239d5b3137976b918d80a250878771156480735dbd  programme/evidence_register.csv
+61a8f0112e81acbdcabfeeff8ad2003a548c615f902b624f98683996f71a8387  programme/evidence_register.csv
 6426d6e3777e32f2667d10c9a4b1b09d59b594582da25b84f93f1f01ddf20a89  programme/exception_register.csv
 478dd535cc84c6e92bdb830821a816ddcd175d306073f31f5e74bf4430e87c7a  programme/gate_decisions.csv
 36cd8ff95715bd4e9373080aa8a7cf2ae06d0ac85ed21943a6d3e367c7bb500a  programme/maturity_assessment.csv

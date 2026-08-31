@@ -72,12 +72,12 @@ filesystem source loader, execution, registration or publisher is invoked.
 - [x] Validate all six roles, real configured identifiers, ten incomplete
   documents, exact provenance, no inferred facts, wrong/missing/extra inputs,
   rehashed forgeries, determinism and no network.
-- [ ] Preserve a generated actual-configuration snapshot after the compiler's
+- [x] Preserve a generated actual-configuration snapshot after the compiler's
   signed source freeze. Bind its source commit and input/artifact hashes; index
   it as supporting preparation only. Historical snapshot tests verify retained
   bytes and scope, not equality with a later compiler. No input source payload
   or claimed factual acceptance is included.
-- [ ] Role-separated advisory review; full gate; signed reviewed PR; all
+- [~] Role-separated advisory review; full gate; signed reviewed PR; all
   required exact-head CI; history-preserving merge and local cleanup.
 
 Canonical ownership declarations and the remaining standards/partner coverage
@@ -100,3 +100,30 @@ Role-separated read-only advisory review found no actionable issue in the
 compiler, field provenance, missing-fact handling or exact verifier. It did not
 execute tests or certify factual evidence. The snapshot, complete local gate,
 hosted review/CI and delivery remain pending at this compiler freeze.
+
+### Retained snapshot
+
+Compiler freeze: signed `7fc43f8ad0ab4729bfdb1c8ca460422c53340b84`.
+Receipt: `data/federation/config-drafts-2026-09-01/receipt.json`, SHA-256
+`33111dad536c7243cb02cdef36597eda6b70ad8ca6de38bfff9fb27a314eaf69`.
+The receipt binds all 22 generated sibling bundle files and original input
+hashes. Direct recomputation with the frozen compiler reproduced every byte.
+The receipt is indexed separately as E-FEDERATION-CONFIG-DRAFTS-20260901,
+in review; E-FEDERATED-MEDALLION-REGISTRY and WI-G4-MED-05 are not promoted.
+
+To reproduce, use the generating source revision, load the five repository
+inputs named by `gfjd.medallion_estate.SOURCEFILES` and POLICY_REFERENCE, load
+the two packaged assets named by `gfjd.federation_config_drafts.ASSETS`, and call
+`prepare_config_metadata_draft(inputs, standards)` followed by
+`verify_config_metadata_draft(inputs, standards, artifacts)`. The API consumes
+supplied bytes, not paths. Snapshot tests verify exact retained membership and
+digests without substituting future compiler output for historical evidence.
+No source bytes, raw acquisition output or fictional empirical values appear
+in this configuration-only snapshot.
+
+Final focused closeout: 62 combined generator, snapshot and autonomous-context
+tests pass (1.92s); Ruff/format checks and module mypy pass. Project validation
+reports 22 checks, zero errors and zero warnings. Separate advisory review
+verified all 22 retained hashes, exact membership, receipt/input/compiler
+bindings and incomplete metadata boundaries; no actionable finding remained.
+Full local validation and hosted review/CI remain mandatory before delivery.

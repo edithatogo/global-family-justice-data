@@ -76,6 +76,13 @@ def test_build_plan_is_schema_valid(monkeypatch: pytest.MonkeyPatch, tmp_path: P
 
     plan = bootstrap.build_plan(context, github_repository="global-family-justice-data")
     bootstrap.validate_bootstrap_plan(context, plan)
+    hf_actions = [item for item in plan["actions"] if item["id"].startswith("create-hf-")]
+    assert len(hf_actions) == 6
+    for item in hf_actions:
+        assert "Create missing public Hugging Face" in item["description"]
+        assert "--private" not in item["command"]
+    explorer = next(item for item in hf_actions if item["id"] == "create-hf-explorer")
+    assert explorer["command"][-2:] == ["--space-sdk", "static"]
     outputs = bootstrap.write_plan(context, plan)
     assert Path(outputs["plan_json"]).is_file()
     assert (
@@ -144,6 +151,39 @@ def test_huggingface_space_uses_current_sdk_option(
     )
     assert "--space-sdk" in space_create
     assert "--sdk" not in space_create
+    creations = [command for command in commands if command[:3] == ["hf", "repos", "create"]]
+    assert len(creations) == 6
+    for entry, command in zip(
+        context.config["huggingface"]["repositories"], creations, strict=True
+    ):
+        assert command == bootstrap._huggingface_creation_command(entry, "example")
+        assert "--private" not in command
+
+
+@pytest.mark.parametrize("visibility", ["public", "private"])
+@pytest.mark.parametrize("namespace", ["", "example"])
+def test_huggingface_proposal_preserves_configured_visibility(
+    visibility: str, namespace: str
+) -> None:
+    command = bootstrap._huggingface_creation_command(
+        {"name": "fictional", "repo_type": "dataset", "visibility": visibility}, namespace
+    )
+    assert command[3] == (f"{namespace}/fictional" if namespace else "fictional")
+    assert ("--private" in command) == (visibility == "private")
+    assert "--space-sdk" not in command
+
+
+@pytest.mark.parametrize(
+    "entry",
+    [
+        {"name": "", "repo_type": "dataset"},
+        {"name": "fictional", "repo_type": "unsupported"},
+        {"name": "fictional", "visibility": "invalid"},
+    ],
+)
+def test_huggingface_proposal_rejects_invalid_declarations(entry: dict[str, str]) -> None:
+    with pytest.raises(BootstrapError):
+        bootstrap._huggingface_creation_command(entry, "example")
 
 
 def test_gfjd_remote_estate_is_public_and_includes_source_archive(tmp_path: Path) -> None:

@@ -1065,22 +1065,14 @@ def build_plan(
         name = str(entry.get("name", ""))
         repo_type = str(entry.get("repo_type", "dataset"))
         full_name = f"{inferred_hf_namespace}/{name}" if inferred_hf_namespace else name
+        visibility = str(entry.get("visibility", "private"))
         actions.append(
             _action(
                 f"create-hf-{entry.get('id', name)}",
-                f"Create missing private Hugging Face {repo_type} repository {full_name}.",
+                f"Create missing {visibility} Hugging Face {repo_type} repository {full_name}.",
                 mutating=True,
                 status="opt_in" if inferred_hf_namespace else "blocked",
-                command=[
-                    "hf",
-                    "repos",
-                    "create",
-                    full_name,
-                    "--repo-type",
-                    repo_type,
-                    "--private",
-                    "--exist-ok",
-                ],
+                command=_huggingface_creation_command(entry, inferred_hf_namespace),
                 reason="No Hugging Face namespace is configured or discoverable."
                 if not inferred_hf_namespace
                 else "",
@@ -1520,6 +1512,26 @@ def apply_github_repository_settings(context: BootstrapContext, slug: str) -> di
     return payload if isinstance(payload, dict) else {}
 
 
+def _huggingface_creation_command(entry: Mapping[str, Any], namespace: str) -> list[str]:
+    """Keep discovery-plan proposals identical to configured apply arguments."""
+    name = str(entry.get("name", ""))
+    repo_type = str(entry.get("repo_type", "dataset"))
+    visibility = str(entry.get("visibility", "private"))
+    if not name:
+        raise BootstrapError("Hugging Face repository entry has no name")
+    if repo_type not in {"model", "dataset", "space"}:
+        raise BootstrapError(f"Unsupported Hugging Face repository type {repo_type!r}")
+    if visibility not in {"public", "private"}:
+        raise BootstrapError("Unsupported Hugging Face repository visibility")
+    repo_id = f"{namespace}/{name}" if namespace else name
+    command = ["hf", "repos", "create", repo_id, "--repo-type", repo_type, "--exist-ok"]
+    if visibility == "private":
+        command.append("--private")
+    if repo_type == "space" and entry.get("sdk"):
+        command.extend(["--space-sdk", str(entry["sdk"])])
+    return command
+
+
 def create_huggingface_repositories(
     context: BootstrapContext,
     *,
@@ -1539,11 +1551,7 @@ def create_huggingface_repositories(
         if not name:
             raise BootstrapError("Hugging Face repository entry has no name")
         repo_id = f"{namespace}/{name}"
-        command = ["hf", "repos", "create", repo_id, "--repo-type", repo_type, "--exist-ok"]
-        if visibility == "private":
-            command.append("--private")
-        if repo_type == "space" and entry.get("sdk"):
-            command.extend(["--space-sdk", str(entry["sdk"])])
+        command = _huggingface_creation_command(entry, namespace)
         result = run_command(context, command, timeout=180, check=True)
         plural = {"model": "models", "dataset": "datasets", "space": "spaces"}.get(repo_type)
         if not plural:

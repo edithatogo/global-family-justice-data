@@ -15,7 +15,7 @@ import tomllib
 from pathlib import Path
 from typing import Any
 
-VERSION = "gfjd-offline-estate-v1"
+VERSION = "gfjd-offline-estate-v2"
 SOURCEFILES = (
     "config/bootstrap.toml",
     "config/archive_targets.toml",
@@ -423,9 +423,20 @@ def _reconcile(
 
 
 def prepare_estate(config_bytes: dict[str, bytes]) -> dict[str, bytes]:
-    """Compile exactly four configuration byte inputs into eight fixed draft files."""
+    """Compile four TOMLs and exact frozen policy bytes into eight draft files.
+
+    SOURCEFILES remains the four configuration paths. The policy is a fifth,
+    mandatory supplied input, verified before parsing configuration. No implicit
+    policy-file access or current-working-directory fallback is permitted.
+    """
     try:
-        _require(isinstance(config_bytes, dict) and set(config_bytes) == set(SOURCEFILES))
+        _require(
+            isinstance(config_bytes, dict) and set(config_bytes) == {*SOURCEFILES, POLICY_REFERENCE}
+        )
+        policy = config_bytes[POLICY_REFERENCE]
+        _require(isinstance(policy, bytes) and 0 < len(policy) <= MAX_CONFIG_BYTES)
+        policy_digest = _sha(policy)
+        _require(policy_digest == POLICY_SHA256)
         config = {name: _parse(config_bytes[name]) for name in SOURCEFILES}
         namespace, canonical, roles, diagnostics = _reconcile(config)
         outputs: dict[str, bytes] = {}
@@ -479,11 +490,13 @@ def prepare_estate(config_bytes: dict[str, bytes]) -> dict[str, bytes]:
             "canonical_control_plane": canonical,
             "github_minimum_publish_gate": "G6",
             "roles": roles,
-            "input_sha256": {name: _sha(config_bytes[name]) for name in SOURCEFILES},
+            "input_sha256": {
+                name: _sha(config_bytes[name]) for name in (*SOURCEFILES, POLICY_REFERENCE)
+            },
             "implementation_sha256": _sha(Path(__file__).read_bytes()),
             "role_policy": {
                 "path": POLICY_REFERENCE,
-                "sha256": POLICY_SHA256,
+                "sha256": policy_digest,
                 "state": "approved_direction_not_qualification",
             },
             "artifact_sha256": {name: _sha(raw) for name, raw in sorted(outputs.items())},

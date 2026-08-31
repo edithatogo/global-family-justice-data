@@ -35,6 +35,7 @@ def cli(project_root: Path, tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> 
             "config/archive_targets.toml",
             "portfolio/products.toml",
             ".gfjd/product.toml",
+            "docs/programme/maximal-public-medallion-federation-plan-2026-08-26.md",
         }
         assert all(raw == b"fictional = true\n" for raw in configs.values())
         return {name: b"FICTIONAL OFFLINE DRAFT\n" for name in FILES}
@@ -44,15 +45,18 @@ def cli(project_root: Path, tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> 
             raise EstateError("fictional mismatch")
 
     module.EstateError = EstateError  # type: ignore[attr-defined]
+    module.POLICY_REFERENCE = (  # type: ignore[attr-defined]
+        "docs/programme/maximal-public-medallion-federation-plan-2026-08-26.md"
+    )
     module.prepare_estate = prepare  # type: ignore[attr-defined]
     module.verify_estate = verify  # type: ignore[attr-defined]
     monkeypatch.setitem(sys.modules, "gfjd.medallion_estate", module)
     script = runpy.run_path(str(project_root / "scripts/prepare_medallion_estate.py"))
     root = tmp_path / "fixture-project"
     root.mkdir()
-    for name in script["SOURCEFILES"]:
+    for name in script["INPUTFILES"]:
         target = root / name
-        target.parent.mkdir(exist_ok=True)
+        target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(b"fictional = true\n")
     script["main"].__globals__["ROOT"] = root
     script["fixture_root"] = root
@@ -109,10 +113,17 @@ def test_symlink_root_and_parent_paths_fail(cli: dict, tmp_path: Path) -> None:
 
 
 @pytest.mark.parametrize("mode", ["missing", "symlink", "oversized", "directory"])
+@pytest.mark.parametrize(
+    "relative",
+    [
+        "config/bootstrap.toml",
+        "docs/programme/maximal-public-medallion-federation-plan-2026-08-26.md",
+    ],
+)
 def test_config_metadata_inputs_are_regular_and_bounded(
-    cli: dict, tmp_path: Path, mode: str
+    cli: dict, tmp_path: Path, mode: str, relative: str
 ) -> None:
-    target = cli["fixture_root"] / "config/bootstrap.toml"
+    target = cli["fixture_root"] / relative
     target.unlink()
     if mode == "symlink":
         external = tmp_path / "external.toml"

@@ -1,4 +1,4 @@
-"""Create/verify a fresh local estate draft from four configuration files only.
+"""Create/verify an estate draft from four configurations and their bound policy.
 
 No discovery, subprocess, network, source payload or upload operation exists.
 Intended identities are configuration metadata, not observed remote availability
@@ -15,7 +15,7 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from pathlib import Path
 
-from gfjd.medallion_estate import EstateError, prepare_estate, verify_estate
+from gfjd.medallion_estate import POLICY_REFERENCE, EstateError, prepare_estate, verify_estate
 
 ROOT = Path(__file__).absolute().parents[1]
 SOURCEFILES = (
@@ -24,6 +24,7 @@ SOURCEFILES = (
     "portfolio/products.toml",
     ".gfjd/product.toml",
 )
+INPUTFILES = (*SOURCEFILES, POLICY_REFERENCE)
 OUTPUT_FILES = frozenset(
     {
         "estate-manifest.json",
@@ -103,7 +104,7 @@ def _read_at(parent: int, name: str) -> bytes:
 def read_configs() -> dict[str, bytes]:
     result = {}
     with _directory(ROOT) as root:
-        for name in SOURCEFILES:
+        for name in INPUTFILES:
             relative = Path(name)
             with _descend(root, relative.parts[:-1]) as parent:
                 result[name] = _read_at(parent, relative.name)

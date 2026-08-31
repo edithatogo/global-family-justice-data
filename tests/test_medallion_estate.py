@@ -6,16 +6,50 @@ from pathlib import Path
 
 import pytest
 
-from gfjd.medallion_estate import SOURCEFILES, EstateError, prepare_estate, verify_estate
+from gfjd.medallion_estate import (
+    POLICY_REFERENCE,
+    SOURCEFILES,
+    EstateError,
+    prepare_estate,
+    verify_estate,
+)
 
 
 @pytest.fixture
 def configs() -> dict[str, bytes]:
     root = Path(__file__).resolve().parents[1]
-    return {
+    inputs = {
         name: (root / name).read_bytes().replace(b"edithatogo", b"fictional-estate")
         for name in SOURCEFILES
     }
+    inputs[POLICY_REFERENCE] = (root / POLICY_REFERENCE).read_bytes()
+    return inputs
+
+
+def test_missing_policy_cannot_assert_approved_direction(configs: dict[str, bytes]) -> None:
+    configs.pop(POLICY_REFERENCE)
+    with pytest.raises(EstateError):
+        prepare_estate(configs)
+
+
+@pytest.mark.parametrize("policy", [b"altered policy", b"", b"x" * (1024 * 1024 + 1)])
+def test_policy_binding_precedes_toml_parse(
+    configs: dict[str, bytes], policy: bytes, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def forbidden_parse(raw: bytes) -> None:
+        raise AssertionError("TOML parsed before policy binding")
+
+    monkeypatch.setattr("gfjd.medallion_estate._parse", forbidden_parse)
+    configs[POLICY_REFERENCE] = policy
+    with pytest.raises(EstateError):
+        prepare_estate(configs)
+
+
+def test_existing_artifacts_cannot_bypass_changed_policy(configs: dict[str, bytes]) -> None:
+    artifacts = prepare_estate(configs)
+    configs[POLICY_REFERENCE] += b"\nChanged direction.\n"
+    with pytest.raises(EstateError):
+        verify_estate(configs, artifacts)
 
 
 def test_exact_six_role_deterministic_drafts(configs: dict[str, bytes]) -> None:
@@ -24,6 +58,7 @@ def test_exact_six_role_deterministic_drafts(configs: dict[str, bytes]) -> None:
     assert len(artifacts) == 8
     verify_estate(configs, artifacts)
     manifest = json.loads(artifacts["estate-manifest.json"])
+    assert manifest["contract_version"] == "gfjd-offline-estate-v2"
     assert len(manifest["roles"]) == 6
     assert manifest["namespace"] == "fictional-estate"
     assert manifest["github_minimum_publish_gate"] == "G6"

@@ -1,0 +1,7 @@
+<urn:gfjd:sha256:1cf97760074590c5922ebe6e4c0f997e69dace0bb427d68df1a4e761318535fc> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
+<urn:gfjd:sha256:4d9b0130cd3ab82bcf8d539597fd8f706d5d722f40b117604b114cb246a8a39f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
+<urn:gfjd:sha256:4d9b0130cd3ab82bcf8d539597fd8f706d5d722f40b117604b114cb246a8a39f> <http://www.w3.org/ns/prov#wasDerivedFrom> <urn:gfjd:sha256:9de3d68afd3998992632e43715bead3fd86eac57c8fd9e91b95855a0ff3b9031> .
+<urn:gfjd:sha256:9de3d68afd3998992632e43715bead3fd86eac57c8fd9e91b95855a0ff3b9031> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
+<urn:gfjd:sha256:edd37131b7900559a7fdef519eecd6371be80dceafc9d64c37dca4fde9fd39f1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
+<urn:gfjd:sha256:edd37131b7900559a7fdef519eecd6371be80dceafc9d64c37dca4fde9fd39f1> <http://www.w3.org/ns/prov#wasDerivedFrom> <urn:gfjd:sha256:1cf97760074590c5922ebe6e4c0f997e69dace0bb427d68df1a4e761318535fc> .
+<urn:gfjd:sha256:edd37131b7900559a7fdef519eecd6371be80dceafc9d64c37dca4fde9fd39f1> <http://www.w3.org/ns/prov#wasDerivedFrom> <urn:gfjd:sha256:4d9b0130cd3ab82bcf8d539597fd8f706d5d722f40b117604b114cb246a8a39f> .

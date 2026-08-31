@@ -903,3 +903,20 @@ its limitations and reproduction instructions are recorded in
 `docs/engineering/federation-composition-evidence-2026-09-01.md`. The factual
 registry evidence remains missing and WI-G4-MED-05 remains planned. Full local
 gate, exact-head CI and signed PR delivery remain pending at this source freeze.
+
+### Composition review fix
+
+Hosted review of `8699c2e` found generated non-Parquet artifact hashes omitted
+from the known-format guard. The full gate and 17 hosted checks had passed;
+those checks did not cover this contradiction. Three new regression cases
+reproduced it before correction. Add both base-generated artifacts and composed
+report/README hashes before returning any bundle; retain all previous checks.
+The 20 composer tests pass, and separate advisory review found no further issue.
+
+Preserve the original snapshot unchanged. Successor 02 is separately digest-bound
+and indexed as supporting evidence, with ten rehearsal negatives. See
+`docs/engineering/federation-composition-evidence-2026-09-01.md` for exact hashes
+and limitations. Rerun full validation and exact-head CI/review before merging.
+The broader preparation audit still identifies deferred OpenLineage lifecycle,
+actual-configuration incomplete drafts and canonical ownership/reference checks;
+this composition fix does not close those tasks or the federation work item.

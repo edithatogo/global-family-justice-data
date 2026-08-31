@@ -258,6 +258,7 @@ def build_report() -> dict[str, Any]:
         "source_as_parquet",
         "rows_as_parquet",
         "partner_text_as_parquet",
+        "generated_as_parquet",
         "partner_contract_drift",
         "missing_sidecar",
     ):
@@ -279,6 +280,8 @@ def build_report() -> dict[str, Any]:
             elif change == "rows_as_parquet":
                 receipt = json.loads(changed[7][replay["inputs"]["receipt_sha256"]])
                 digest = sha(canonical(receipt["rows"]))
+            elif change == "generated_as_parquet":
+                digest = sha(artifacts["estate/estate-manifest.json"])
             else:
                 digest = next(iter(changed[12]))
             scoped = json.loads(changed[0])
@@ -309,7 +312,7 @@ def build_report() -> dict[str, Any]:
         else:
             raise ValueError("fictional negative case was accepted")
     return {
-        "rehearsal_id": "FICTIONAL-FEDERATION-INTERFACES-20260901-01",
+        "rehearsal_id": "FICTIONAL-FEDERATION-INTERFACES-20260901-02",
         "synthetic": True,
         "factual_evidence": "unverified",
         "scope_sha256": inputs[1],

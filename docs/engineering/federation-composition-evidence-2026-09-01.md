@@ -62,6 +62,34 @@ review reproduced both output digest maps and found no input-bank/source copies
 or acceptance promotion. Project validation passed all 22 checks with zero
 errors/warnings. These results do not stand in for the pending full gate or CI.
 
+## Review correction and successor 02
+
+The original source freeze `8699c2e` passed full local validation (1,623 tests
+twice, 117.45s/121.70s, 84% coverage) and all 17 hosted checks. Hosted review
+then identified that generated JSON/text artifact hashes were missing from the
+non-Parquet contradiction set. These successful checks did not prove that
+missing case. The original snapshot remains unchanged and is superseded for
+current implementation validation, not repaired or promoted retrospectively.
+
+Three new tests reproduced the issue using estate-manifest, provenance and
+README hashes with consistently rebound declarations. The guard now includes
+base artifacts and composed interface-report/README bytes. All 20 composer
+tests pass (2.46s); the rehearsal adds a tenth negative case. Separate advisory
+review found the correction adequate and no further actionable issue.
+
+Successor report: `data/federation/preparation-2026-09-01-02/report.json`, SHA-256
+`c4ba3dca52c23f51ead58674a8fba95a0d0ed8ffa73ca1b74c8cbf0f6592910e`.
+Its 16 sibling bundle artifacts match the report digest map. It is separately
+indexed as `E-FEDERATION-COMPOSITION-FICTIONAL-20260901-02`, in review. All original
+factual/authority limitations remain. Corrected full validation and exact-head
+CI/review are required before PR integration; earlier green results do not count
+as validation of the correction.
+
+Corrected focused closeout: all 34 composer/rehearsal tests passed in 43.09
+seconds, including both immutable snapshot digest maps and non-acceptance
+mappings. Successor 02 passed direct exact recomputation. Ruff and module mypy
+passed. The original snapshot has no byte changes in the corrective diff.
+
 ## Limits and next evidence
 
 - Parquet format, footer, schema, row statistics and payload digests are not

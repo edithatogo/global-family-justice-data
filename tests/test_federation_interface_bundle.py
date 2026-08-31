@@ -113,6 +113,19 @@ def test_pipeline_rows(pipeline_inputs: list) -> None:
         prepare_interface_bundle(*args)
 
 
+@pytest.mark.parametrize(
+    "artifact", ["estate/estate-manifest.json", "provenance/provenance.nt", "README.md"]
+)
+def test_generated_nonparquet_identity_rejected(inputs: list, artifact: str) -> None:
+    args = sidecars(inputs)
+    output = prepare_interface_bundle(*args)
+    digest = sha(output[artifact])
+    # These artifacts do not depend on the separate declared Parquet object.
+    replace_parquet_hash(args, digest)
+    with pytest.raises(MetadataError):
+        prepare_interface_bundle(*args)
+
+
 def test_rehashed_forgery(inputs: list) -> None:
     args = sidecars(inputs)
     output = prepare_interface_bundle(*args)

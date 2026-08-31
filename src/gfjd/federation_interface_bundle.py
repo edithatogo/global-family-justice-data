@@ -122,13 +122,10 @@ def prepare_interface_bundle(
         known = set(metadata_bank) | set(contract_bank) | _known_replay(replay_raw, replay_bank)
         known.update(_sha(raw) for raw in (*estate_inputs.values(), *standards.values()))
         known.update(_sha(raw) for raw in (scope_raw, replay_raw, parquet_raw, partner_raw))
-        require(
-            all(
-                obj["content_sha256"] is None or obj["content_sha256"] not in known
-                for obj in parquet["objects"]
-            )
-        )
-        manifest = parse_json(outputs.pop("bundle-manifest.json"))
+        # All generated component artifacts are JSON, RDF, HTML or text, never
+        # Parquet. Include both the base artifacts and the composed report/README
+        # bytes; declaration-dependent hashes are not a reason to omit known bytes.
+        known.update(_sha(raw) for raw in outputs.values())
         outputs["interfaces/parquet-reference-report.json"] = _encode(parquet)
         outputs["interfaces/partner-interface-report.json"] = _encode(partner)
         outputs["README.md"] += (
@@ -137,6 +134,14 @@ def prepare_interface_bundle(
             b"and digests remain unverified. No partner ownership or layer equivalence is "
             b"conferred. Component compiler fingerprint reads are performed.\n"
         )
+        known.update(_sha(raw) for raw in outputs.values())
+        require(
+            all(
+                obj["content_sha256"] is None or obj["content_sha256"] not in known
+                for obj in parquet["objects"]
+            )
+        )
+        manifest = parse_json(outputs.pop("bundle-manifest.json"))
         modules = (
             federation_bundle,
             federation_croissant,

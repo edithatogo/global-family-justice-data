@@ -22,11 +22,12 @@ def test_interfaces_have_bound_references_without_format_or_partner_acceptance()
     assert report["incomplete_parquet_preserved"] is True
 
 
-def test_preserved_composition_evidence_is_supporting_only() -> None:
+@pytest.mark.parametrize("suffix", ["", "-02"])
+def test_preserved_composition_evidence_is_supporting_only(suffix: str) -> None:
     root = SCRIPT.parents[1]
     with (root / "programme/evidence_register.csv").open(newline="") as stream:
         evidence = {row["evidence_id"]: row for row in csv.DictReader(stream)}
-    support = evidence["E-FEDERATION-COMPOSITION-FICTIONAL-20260901"]
+    support = evidence["E-FEDERATION-COMPOSITION-FICTIONAL-20260901" + suffix]
     raw = (root / support["path"]).read_bytes()
     assert hashlib.sha256(raw).hexdigest() == support["sha256"]
     report = json.loads(raw)
@@ -63,7 +64,7 @@ def test_deterministic_complete_machinery_with_pending_facts() -> None:
     assert report["provenance_pending_object_ids"] == ["fictional-1", "fictional-2", "fictional-3"]
     assert not any(report["authority"].values())
     assert report["incomplete_metadata_preserved"] is True
-    assert len(report["negative_cases_rejected"]) == 9
+    assert len(report["negative_cases_rejected"]) == 10
     assert "FICTIONAL_INPUT_ONLY_MARKER" not in json.dumps(report)
 
 

@@ -129,3 +129,97 @@ key custody. Locator syntax cannot prove remote safety, anonymous availability
 or actual withdrawal. No "not applicable" state comes from user-supplied assertions.
 The final report must distinguish bounded mechanical results, missing/unsupported
 technical coverage, factual assurance, owner acceptance and release authority.
+
+## Frozen candidate inventory and native-evidence envelope
+
+Coordinator API: `assess_candidate_assurance(plan_raw, expected_plan_sha256,
+scope_raw, candidate_bank, evidence_bundles)`, plus exact recomputation verifier.
+Internal `prepare_candidate_inputs` uses the same arguments and returns parsed
+plan/scope, exact candidate bytes, typed bundles, descriptor fingerprints and
+metadata inventory counts. It never scans, runs evidence or contacts providers.
+
+Plan exact keys: contract_version (`gfjd-candidate-assurance-plan-v1`), state
+(`preparation`), candidate_id, as_of, scope_sha256, evidence_bindings. Candidate ID
+uses the bounded opaque identifier syntax; time is explicit UTC seconds. The
+scope SHA and plan SHA independently bind exact supplied bytes. evidence_bindings
+is exactly qualification, restore, lifecycle, dependencies, each null or SHA-256
+of the supplied bundle's typed descriptor. Null requires no corresponding bundle;
+nonnull requires exactly one matching bundle. There are no unbound extras.
+
+Scope exact keys: contract_version (`gfjd-candidate-assurance-scope-v1`),
+candidate_id, objects. It describes the complete declared candidate release,
+never an unstated selected subset. objects is 1–1,502 unique object_id entries.
+Each object has exactly object_id, logical_object_id, edition_id, layer, role,
+lifecycle, sha256, blake3, size_bytes, media_type, edges, locators. IDs are opaque;
+layer is b0/b1/silver/gold/platinum/cross_layer; role is data/metadata/transformation/
+package/manifest/dependency/locator_record. Lifecycle uses the existing four
+states; it does not establish maturity. Size is a positive integer, not bool.
+Media uses the scanner's syntax, never arbitrary diagnostic text.
+
+Each edge is exactly relation and target_object_id. Relations are source,
+metadata, transformation, package_member, dependency, manifest or locator.
+Targets exist within this scope, and duplicate relation/target pairs are rejected.
+Edges remain declarations until a relevant compiler verifies them. Package-member
+edges must later reconcile the entire bounded unpacked member-hash multiset;
+generic adjacency is not proof of derivation. Role alone cannot waive any scan.
+
+Locators is exactly github and huggingface; each value is null or an HTTPS
+declaration on github.com/huggingface.co respectively, with nonempty path and no
+user info, port, query, fragment, backslash, control or malformed percent escape.
+Reuse the strict restore locator validator. Null stays missing_evidence, not
+not_applicable. No locator is requested. Non-typed embedded URLs in text remain
+outside locator assurance; this limitation must be reported explicitly.
+
+Candidate bank membership is exactly the unique object SHA-256 set. Each byte
+object is at most 8 MiB; total unique bytes at most 26 MiB. Each of the seven role
+categories has an independent 8 MiB budget, with shared byte identities charged
+to every category where they appear. Within one category count each digest once.
+Shared digests must have identical BLAKE3/size/media declarations. Check all sizes,
+membership and budgets before SHA/BLAKE3 work. Every declared object remains in
+the report, including duplicates by content, inactive members and metadata.
+
+The external evidence-bundle tree is bounded before fingerprinting: plain dicts,
+lists, strings, bytes, ints/bools/null only; depth at most 12, 50,000 nodes, at most
+2,000 entries/container, strings at most 4,096 without controls/surrogates, bytes
+at most 8 MiB each, and total byte leaves at most 64 MiB counting repeated leaves
+independently. No subclasses, paths, callables or floats. Each typed descriptor
+node is tagged: bytes becomes [bytes,SHA-256,size]; strings/ints/bools/null retain
+their value with a type tag; lists preserve order; dicts sort string keys and
+contain their recursively tagged values. Hash canonical JSON of this descriptor.
+This is a deterministic input binding, not authenticated provenance.
+
+Native bundle keys are exact, using the existing APIs:
+
+- qualification: scope_raw, scope_sha256, layer_contract_raw, record_bank,
+  payload_bank, as_of;
+- restore: plan_raw, expected_plan_sha256, scope_raw, expected_scope_sha256,
+  layer_contract_raw, replica_banks;
+- lifecycle: plan_raw, expected_plan_sha256, scope_raw, layer_contract_raw,
+  checkpoint_raw, event_bank, receipt_bank;
+- dependencies: lock_raw, sbom_raw, package_bindings_raw, project_name.
+
+The input helper checks shapes and byte-leaf bounds but does not trust nested
+claims. The coordinator invokes the corresponding native recomputation only
+after all candidate and evidence budgets/bindings pass. All native times must
+equal coordinator as_of; restore release_id and dependency candidate binding must
+equal candidate_id. Qualification/restore roots, wrappers and every supplied
+payload must match the candidate bank by exact bytes, never an ambient cache.
+The complete restore inventory must equal the candidate bank, not a subset.
+
+Qualification associations use candidate logical_object_id/edition_id/layer plus
+the exact wrapper artifact role and byte hash; equal hashes alone do not associate
+different objects. Every qualification cell remains visible, including inactive,
+invalid or missing evidence. Native lifecycle artifact identity/source/content
+bindings must reconcile matching candidate cells. Current active lifecycle heads
+must be present by exact identity/hash/BLAKE3/size. Historical inactive payloads
+may be unavailable after removal: retain explicit missing historical payload
+coverage, without fetching, retaining unsafe bytes, claiming fixity or erasing
+their metadata. Supplied historical bytes must agree exactly when present.
+
+The coordinator must not treat missing native bundles as successful checks.
+Wrongly bound supplied evidence rejects the operation. Well-bound but blocked
+native results remain blocked; they cannot be repaired or converted into a pass.
+Disclosure uses only mapped Gold count diagnostics and retains accountable review
+as pending; other formats/units remain unsupported. A separate exact dependency
+parser/SBOM/package contract will be frozen before that component is implemented.
+No not_applicable state is granted merely from a role or a supplied receipt.

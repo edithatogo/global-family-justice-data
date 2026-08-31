@@ -333,3 +333,11 @@ The restricted parser performs complete lexical preflight before constructing
 RDFLib terms. The adapter executes the bound base/range shapes and returns only
 digests, aggregate counts and explicit unverified factual/conformance states.
 Neither adapter grants access, publication, rights, maturity or gate authority.
+
+The first DCAT full run was interrupted (exit 130) after noticing that the
+regenerated programme status had not been staged; it is not passing evidence.
+Include that generated view before the replacement full run. Its 14 warnings
+are risk-review dates that became overdue after 2026-08-31, not DCAT failures.
+Preserve them for the grouped remaining-risk review; do not advance review dates
+or adjudicate risks merely to remove warnings. Project validation passes with
+zero errors and these warnings retained.

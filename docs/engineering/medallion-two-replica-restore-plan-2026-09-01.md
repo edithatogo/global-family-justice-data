@@ -119,13 +119,13 @@ Disclose implementation fingerprint file reads; no other loader is present.
 
 ## Ordered implementation and contingencies
 
-- [~] Complete-inventory replica verifier and denominator/budget tests.
-- [ ] Independent full five-layer replay wrapper and exact report verifier.
-- [ ] Missing/corrupt peer objects, inactive-only dependencies, shared identities,
+- [x] `af78f64`: Complete-inventory replica verifier and denominator/budget tests.
+- [x] `af78f64`: Independent full five-layer replay wrapper and exact report verifier.
+- [x] `af78f64`: Missing/corrupt peer objects, inactive-only dependencies, shared identities,
   scope/time substitution, unsupported/failed qualification and no-loader tests.
-- [ ] Preserve a conspicuously fictional full-five-layer rehearsal report and
+- [x] Preserve a conspicuously fictional full-five-layer rehearsal report and
   targeted failures; index only supporting preparation, never factual restore.
-- [ ] Role-separated review, full validation, signed reviewed PR, exact-head CI,
+- [~] Role-separated review, full validation, signed reviewed PR, exact-head CI,
   history-preserving merge and local cleanup.
 
 Any contract, inventory, budget, fixity or expected-result binding failure rejects
@@ -135,3 +135,22 @@ G5 acceptance or dependent gate advancement is authorized. After this bounded
 machinery is verified, prepare the remaining lifecycle and release-safety work,
 then group actual execution/evidence requirements without concealing technical
 coverage gaps or reclassifying factual dependencies as complete.
+
+## Implementation checkpoint
+
+The functional source freeze is signed commit `af78f64`. All 65 focused tests
+pass; Ruff and both-module mypy pass. The helper's initial RED proved missing
+inventory rejection was absent; the wrapper's initial RED proved the new API
+was absent. Separate advisory review checked both helper and wrapper and found
+no remaining actionable defect. Its requested real blocked-result reproduction
+and expected-report substitution tests were added and pass.
+
+The fictional report is
+`data/synthetic/medallion-two-replica-restore-2026-09-01.json`, SHA-256
+`93b15d8f39b954167419c89ae342ac1d9117d04bc1df810f4b8efb830017db6e`.
+Recompute with `.venv/bin/python scripts/rehearse_medallion_restore.py --verify`
+followed by that path. The snapshot covers five layers from supplied fictional
+banks, missing-peer rejection and exact reproduction of a blocked qualification.
+It is separately indexed as supporting preparation, not E-PUBLIC-REMOTE-RESTORE.
+WI-G5-MED-01 remains planned with its factual public-restore dependencies unmet.
+Full gate and hosted delivery are pending at this checkpoint.

@@ -662,3 +662,47 @@ Version labels alone do not identify the relationship-generating code. This
 introduces only two disclosed implementation-fingerprint reads, never a source
 loader or remote lookup. Exact report verification must reject changed compiler
 bindings, even when an output manifest's other hashes are rewritten.
+
+`adeca05` implements those compiler bindings after two failing hash assertions.
+The combined attachment/rehearsal suite now passes 39 tests (13.77s), with Ruff
+and strict adapter typing passing. Read-only review found the raw/canonical
+mapping, direct input counterexamples and filesystem corrections addressed;
+full local validation and exact-head hosted delivery follow this source freeze.
+
+Run `make PYTHON=.venv/bin/python federation-bundle-rehearsal` to generate and
+verify `build/federation-rehearsal/report-<sha256>.json`. The report binds every
+composed artifact hash, the four observed metadata profiles, all six estate
+roles, selected entity, remaining pending object IDs and rejected counterexamples.
+Fixtures are development-only, conspicuously fictional and supplied in memory.
+No source bytes or input metadata are persisted by this rehearsal. The Make
+integration target and hosted integration receipt upload include this check.
+
+### Remaining federation interface work
+
+Local technical-contract inspection (not source-data access) identified useful
+prospective bindings. These are observed local snapshots, not verified hosted
+revisions, accepted ownership transfers or partner registration:
+
+- archive-govt-nz at `af427c2632239a8869684c849c0fcc1981277b02`:
+  `src/archive_govt_nz/foi_ownership.py`, SHA-256
+  `9bdbecd2cd84f1faff7d69b5bdad729f8add68baa98b9345b066ccc1775d031a`;
+  `schemas/archive/v1/publication-receipt.schema.json`, SHA-256
+  `6097ba87f4eafa04bcea8f586144cb9129961d085709fe99350e600274137c9d`.
+  The ownership API is scoped to fyi-archive and archive-govt-nz; GFJD is not
+  an allowed owner. Treat it as a reference, never an executable GFJD transfer.
+- global-medicines-atlas at `f7550d5f84b6a831cd99c3b6882c0d33c4b0c939`:
+  `contracts/medallion/v4/federation.schema.json`, SHA-256
+  `ac28485a70e0853266e4c140f9a07cd557eb27816b0b408b9bf2927a4cffacec`;
+  `src/global_medicines_atlas/federation.py`, SHA-256
+  `2a21eb2d09a8a9ba1e956c1b0d5c123529c185d79bb31ced2c2a0cb8bebaeb78`.
+  Its B0 index / B1 acquisition metadata / B2 raw evidence meanings are not
+  GFJD's B0 preservation / B1 analytical representation. No direct aliasing.
+- The exact named reimbursement-atlas local checkout was absent. No substitute
+  repository was guessed, and no network request was made for this inspection.
+
+Next prepare explicit checksum-bound partner-interface references with
+compatibility pending; never fill live-publication fields with invented receipts
+or invoke data-loading federation readers. Add the still-missing Parquet
+reference declarations and consistency checks, then index engineering support
+separately from factual `E-FEDERATED-MEDALLION-REGISTRY` acceptance. These
+remaining items keep this federation track in progress.

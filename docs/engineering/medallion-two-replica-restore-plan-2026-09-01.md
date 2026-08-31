@@ -125,7 +125,7 @@ Disclose implementation fingerprint file reads; no other loader is present.
   scope/time substitution, unsupported/failed qualification and no-loader tests.
 - [x] Preserve a conspicuously fictional full-five-layer rehearsal report and
   targeted failures; index only supporting preparation, never factual restore.
-- [~] Role-separated review, full validation, signed reviewed PR, exact-head CI,
+- [x] Role-separated review, full validation, signed reviewed PR, exact-head CI,
   history-preserving merge and local cleanup.
 
 Any contract, inventory, budget, fixity or expected-result binding failure rejects
@@ -153,4 +153,11 @@ followed by that path. The snapshot covers five layers from supplied fictional
 banks, missing-peer rejection and exact reproduction of a blocked qualification.
 It is separately indexed as supporting preparation, not E-PUBLIC-REMOTE-RESTORE.
 WI-G5-MED-01 remains planned with its factual public-restore dependencies unmet.
-Full gate and hosted delivery are pending at this checkpoint.
+Full gate and hosted delivery completed: PR #150 merged signed checkpoint
+`1b43ea3502ddc132059057d91cfe9f1c053e6783` at 2026-08-31T18:14:57Z.
+The full gate exited 0 with 1,867 tests twice (253.20s and 212.74s), 84% coverage,
+and deterministic build/restore checks. All 17 reported CI checks passed;
+hosted Codex review completed with no unresolved threads. Local topic branch
+was removed after GitHub confirmed merge; one local main/worktree remained.
+This completes the scoped offline preparation, not the factual public-restore
+work item. Delivery evidence is also recorded in PR #150 comment 5482503280.

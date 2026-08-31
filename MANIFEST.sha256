@@ -391,6 +391,7 @@ ffd486915203d0c59d3e4556536fceeb645ff6471657ed1ff8041ed820bad582  docs/developme
 d8d569830f1ca835dac614abfd63e568e7796924dd9652c0918e06e6f01f127c  docs/engineering/executable-medallion-contracts-2026-08-27.md
 eaccd2ab071f1c9ee22689a04538d7b84d28567a87b690c425329faa7d252866  docs/engineering/g2-known-source-quarantine-clean-build-2026-08-21.md
 a69b61e9899250f46f0e4ebcaceeec025a9d4b0c443984a3e51316dae8100171  docs/engineering/medallion-autonomous-continuation-2026-08-30.md
+b3212767c538331f0805328186f11ebc8d01db99d6f7fcf1234b3e68fb6b27e4  docs/engineering/medallion-lineage-history-plan-2026-08-31.md
 c83a2a7d64c3dbda3a7c17f869c274ef2b74852dbd6482aedd4f708ee682eb25  docs/engineering/medallion-projection-replay-plan-2026-08-30.md
 4f23c93acc735510e23a27d4be5153a50136c108db1b89df93c90896a246a227  docs/engineering/medallion-validator-hardening-2026-08-30.md
 704b3d0e6c9d2cf2ab30e937d97393122e3c62371864f098bcba50ba3853454d  docs/engineering/pipeline-runbook.md
@@ -607,7 +608,7 @@ d75dcc28801bc5d660713bd69503388af1baddbc372dac03455585e76af2f002  docs/methods/g
 417964cf820a2781ff386ff2a5f6b39c2fb6ca230b15d9d722bb2ac917f2d80f  docs/methods/g2-official-manifest-root-discovery-stop-2026-08-21.md
 bed801b4912782db41de9e325a7ea24053fabd09cd1f813bf505a83744f660ed  docs/methods/g2-official-publication-feed-first-observation-2026-08-29.md
 768884f46dafb3b081e55de13895e82157493dc3b2753d522bc24b8b67645174  docs/methods/g2-offline-api-contract-2026-08-31.md
-faad63941f9885428b15a644a509656e2349182029ec7cbc9361e85e52e49d29  docs/methods/g2-offline-api-contract-plan-2026-08-31.md
+a7fdcd06ab8aa7e9df959ca07e3f66cda18ca477e363a12f2ac0429a700c9022  docs/methods/g2-offline-api-contract-plan-2026-08-31.md
 c31adb6c70aea25ba9b11bbc4041b50d67c4ac83ee04d429762a4f679ae46b1c  docs/methods/g2-offline-candidate-intake-2026-08-20.md
 d98c162c54e3d5ea9cdc6174aa67dc016a06487c219aee35cfbf292de927d539  docs/methods/g2-orchestrator-bound-terminal-evidence-2026-08-26.md
 5a4395cb6ad88a3c99eb7f3394ae982f37ad1a1e60d5e8de24b1229ec632cdd0  docs/methods/g2-overlap-successor-design-evidence-2026-08-16.md

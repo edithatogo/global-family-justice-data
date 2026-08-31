@@ -27,7 +27,9 @@ synthetic-first, without transport or live response access.
   limits, metadata retention, roles, limitations and future authorization needs.
 - [x] Obtain separate advisory review; fix substantive defects.
 - [x] Update supporting Conductor evidence without changing acceptance mappings.
-- [ ] Validate, sign, PR, await exact-head checks, merge and clean local branch.
+- [x] Validate, sign, PR, await exact-head checks, merge and clean local branch.
+  PR #136 merged signed `3c9d9ec`; `autonomy-full`, 745 tests twice,
+  79.57% coverage and all 17 hosted checks passed; local branch removed.
 
 ## Controls and contingencies
 

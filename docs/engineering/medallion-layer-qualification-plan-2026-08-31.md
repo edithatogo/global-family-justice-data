@@ -1,6 +1,6 @@
 # WI-G4-MED-03 — independent per-layer qualification preparation
 
-Status: in-progress repository-owned preparation. The acceptance-bearing work
+Status: completed repository-owned preparation. The acceptance-bearing work
 item remains planned behind WI-G4-MED-02; neither its dependencies nor acceptance
 criteria are waived by this engineering plan.
 
@@ -62,7 +62,7 @@ bounded adapters and explicit unsupported-evidence dispositions instead.
   substitution, false pass flags, missing predecessor evidence and quarantine.
 - [x] Record supporting evidence and explicitly scoped resume guidance without
   bypassing programme dependency checks or changing any gate/acceptance mapping.
-- [ ] Advisory review, full local validation, signed commits, PR, exact-head CI,
+- [x] Advisory review, full local validation, signed commits, PR, exact-head CI,
   history-preserving merge and local branch cleanup.
 
 ## Contingencies and authority boundaries
@@ -244,7 +244,7 @@ review findings still required correction; green checks did not authorize merge.
 - [x] A role-separated advisory reviewer reran all 34 core and two rehearsal
   tests, confirmed both fixes, and checked that the original rehearsal remained
   byte-identical. No factual acceptance is supplied by this review.
-- [ ] Full validation and exact-head hosted checks after these fixes, then
+- [x] Full validation and exact-head hosted checks after these fixes, then
   verified history-preserving merge and local branch cleanup.
 
 Rehearsal 02 SHA-256:
@@ -253,3 +253,16 @@ It binds original rehearsal SHA-256
 `58c47f7f18e5a19f51ddee00531967318aa24632a96dcd254b3dfdf60cc65fd2`.
 The original file and signed implementation history remain retained; its known
 pre-fix reporting limitations are documented rather than repaired or promoted.
+
+## Verified delivery
+
+PR #138 merged at signed commit `00172e86684b1ab7f61deb58899ec71026d4a2bf`
+on 2026-08-31T12:55:09Z after both review findings were resolved and all 17
+exact-head hosted checks passed. The final successful local `autonomy-full`
+run passed 1,144 tests twice (50.19s and 40.76s), reported coverage 82%, passed
+restore/bootstrap and deterministic package/release checks, and verified the
+autonomy context. A previous run stopped when PortableSSD disconnected; it
+remains recorded as interrupted, not passed. Git integrity and all 1,010
+manifest entries verified after reconnection before the successful rerun.
+Local cleanup left main and one worktree. No factual maturity, source rights,
+gate acceptance or publication was inferred from this engineering delivery.

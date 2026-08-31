@@ -43,6 +43,7 @@ def test_autonomy_context_is_bounded_and_fail_closed(tmp_path: Path) -> None:
         "AUTONOMOUS_IMPLEMENTATION.md",
         "docs/governance/standing-owner-direction-policy-2026-08-20.md",
         "docs/engineering/medallion-autonomous-continuation-2026-08-30.md",
+        "docs/engineering/medallion-layer-qualification-plan-2026-08-31.md",
     }
     assert required_context <= {item["path"] for item in payload["files"] if item["content"]}
     assert len(payload["blocker_matrix"]) == 6
@@ -64,8 +65,11 @@ def test_autonomy_context_detects_tampering(tmp_path: Path) -> None:
 
 
 @pytest.mark.parametrize("status", ["planned", "in_progress"])
-def test_explicit_repository_scope_can_execute_without_mutating_input(status: str) -> None:
-    action = {"work_item_id": "WI-G4-MED-02", "status": status, "title": "Lineage"}
+@pytest.mark.parametrize("work_id", ["WI-G4-MED-02", "WI-G4-MED-03"])
+def test_explicit_repository_scope_can_execute_without_mutating_input(
+    status: str, work_id: str
+) -> None:
+    action = {"work_item_id": work_id, "status": status, "title": "Repository preparation"}
     queued, held = _classify_actions([action])
     assert not held
     assert queued[0]["work_item_id"] == action["work_item_id"]
@@ -85,8 +89,9 @@ def test_publication_and_unclassified_work_fail_closed(work_id: Any, status: str
 @pytest.mark.parametrize(
     "status", ["in_review", "review", "done", "accepted", "blocked", "new", None, [], {}]
 )
-def test_status_cannot_bypass_acceptance_or_scope_review(status: Any) -> None:
-    action = {"work_item_id": "WI-G4-MED-02", "status": status}
+@pytest.mark.parametrize("work_id", ["WI-G4-MED-02", "WI-G4-MED-03"])
+def test_status_cannot_bypass_acceptance_or_scope_review(status: Any, work_id: str) -> None:
+    action = {"work_item_id": work_id, "status": status}
     queued, held = _classify_actions([action])
     assert queued == []
     assert held == [action]

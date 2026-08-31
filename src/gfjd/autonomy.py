@@ -21,6 +21,7 @@ CONTEXT_FILES = (
     "docs/governance/standing-owner-direction-policy-2026-08-20.md",
     "AUTONOMOUS_IMPLEMENTATION.md",
     "docs/engineering/medallion-autonomous-continuation-2026-08-30.md",
+    "docs/engineering/medallion-layer-qualification-plan-2026-08-31.md",
     "IMPLEMENTATION_STATUS.md",
     "PROJECT_PLAN.md",
     "docs/governance/t0-acceptance-runbook.md",
@@ -42,6 +43,11 @@ REPOSITORY_IMPLEMENTATION_SCOPES = {
     "WI-G4-MED-02": (
         "Repository-only lineage, correction and replay implementation with synthetic tests. "
         "No source access, acquisition, publication, rights clearance or gate acceptance."
+    ),
+    "WI-G4-MED-03": (
+        "Repository-only qualification adapters, synthetic rehearsal and advisory review. "
+        "No source access, real evidence acceptance, rights clearance, maturity or Gold "
+        "promotion, publication, release or gate acceptance. Programme dependencies remain binding."
     ),
 }
 

@@ -138,17 +138,37 @@ they preserve their exact state and never change the series head.
 
 ## Ordered work and acceptance limits
 
-- [~] Strict complete-inventory/event/receipt/checkpoint input validation.
-- [ ] Full state machine, historical views and provider reconciliation.
-- [ ] Negative tests for rewritten prefix, changed edition bytes, missing historical
+- [x] `c483cea`: Strict complete-inventory/event/receipt/checkpoint input validation.
+- [x] `c483cea`: Full state machine, historical views and provider reconciliation.
+- [x] `c483cea`: Negative tests for rewritten prefix, changed edition bytes, missing historical
   records, stale/cross-series edges, tombstone resurrection, unsafe extensions,
   provider disagreement, digest substitution and forged reports.
-- [ ] Preserve a fictional all-operation rehearsal with explicit provider loss and
+- [x] Preserve a fictional all-operation rehearsal with explicit provider loss and
   declared recovery, separately indexed as supporting preparation only.
-- [ ] Role-separated review, full validation, signed PR, CI, merge and local cleanup.
+- [~] Role-separated review, full validation, signed PR, CI, merge and local cleanup.
 
 Any structural, digest, history or transition violation fails the whole replay.
 Provider mismatch is retained as an explicit fail-closed operational backlog,
 not silently repaired or used as proof of an actual takedown. Actual execution
 remains gated by public restore, safety/rights and owner authority. WI-G5-MED-02
 stays planned until its factual acceptance criteria are met.
+
+## Implementation and review checkpoint
+
+Signed functional commit `c483cea` implements the contract. All 64 focused tests
+pass, as do Ruff and both-module mypy. Initial RED evidence demonstrated missing
+input rejection and the absent replay API. Review identified missing exact reason
+pairings; three fully rebound tests failed before the correction and now pass.
+Historical interval tests verify half-open boundaries, implicit withdrawal timing
+and that observations do not split or alter lifecycle transition intervals.
+
+The fictional report is
+`data/synthetic/medallion-lifecycle-rehearsal-2026-09-01.json`, SHA-256
+`82d2eaf0610b1a4c2eb9c93c1d9753fc5f65b187d1b157a9db365142523f98d0`.
+Recompute with `.venv/bin/python scripts/rehearse_medallion_lifecycle.py --verify`
+followed by that path. It covers five logical layer series, seven immutable
+artifacts, 15 events, all eight operation types, and provider loss/recovery
+declarations. A separate counterexample retains the implicit predecessor
+withdrawal backlog instead of borrowing the successor's matching declarations.
+The report is supporting preparation, not E-PUBLIC-SUPERSESSION-OPERATIONS.
+Full validation and hosted delivery remain pending at this checkpoint.

@@ -706,3 +706,83 @@ or invoke data-loading federation readers. Add the still-missing Parquet
 reference declarations and consistency checks, then index engineering support
 separately from factual `E-FEDERATED-MEDALLION-REGISTRY` acceptance. These
 remaining items keep this federation track in progress.
+
+## Replay composition delivery closeout
+
+PR #144 merged at signed `d83dbcef983510b76030ff93ac5b16a7fc8f85b2` on
+2026-08-31T15:50:12Z. Full local validation passed (1,540 tests twice,
+107.83s/100.77s, 83% coverage), including the integrated federation rehearsal.
+All 17 exact-head hosted checks passed; completed automated review had no
+findings or unresolved threads. Main and remote matched; one local branch and
+worktree remained after history-preserving integration and cleanup.
+
+## Parquet and partner reference contract freeze
+
+Recommended: additive, separately versioned declaration sidecars. Keep reference
+scope v1 unchanged: `application/json` describes metadata bytes, never a verified
+Parquet payload. A scope-v2 migration is possible but adds no necessary evidence
+for this slice. Missing facts must remain incomplete rather than be invented.
+
+`assess_parquet_references(declaration_raw, expected_declaration_sha256,
+scope_raw, expected_scope_sha256, metadata_bank, estate_inputs)` recomputes
+canonical references and returns a deterministic declaration assessment.
+Its verifier takes the same inputs plus a report and recomputes every field.
+The strict JSON envelope has exactly `contract_version`
+(`gfjd-parquet-reference-declarations-v1`), `scope_sha256`, `state`
+(`preparation`) and `objects`. Each object has exactly `object_id`,
+`canonical_id`, `content_format` (`parquet`), `content_sha256`, `blake3`,
+`byte_count` and `locations`. Match a unique scoped object and canonical ID;
+content SHA must equal the scoped value, including null. SHA-256 and BLAKE3 are
+nullable lowercase 64-hex declarations, not computed payload checks. Byte count
+is null or an integer from zero through 2^63-1, never a boolean.
+
+Each location has exactly `url` and `revision`. URL is bounded HTTPS, never
+requested. Revision is null or an object with exactly `kind` and `value`:
+`git_commit` requires lowercase 40-hex; `content_sha256` requires a non-null
+matching content SHA; `persistent_id` requires a HTTPS identifier. These are
+declared identifiers, not proof of immutability or version-specific resolution.
+This permits Git, content-addressed and persistent-identifier providers without
+inventing Git revisions for non-Git archives. Reject duplicate locations/objects.
+
+Limit to 100 objects, 20 locations per object, and existing strict JSON limits
+(1 MiB/depth 16/10,000 values/4,096-character strings). Missing content hash,
+BLAKE3, size, locator or locator revision yields explicit missing-field codes;
+unattached scope IDs stay pending. A content hash equal to supplied JSON or
+N-Triples metadata bytes is a known format contradiction and fails. Otherwise
+a hash alone cannot reveal Parquet format: a canonical JSON row hash must not
+be promoted into verified Parquet identity. Row counts, schemas, footers and
+statistics are outside this declaration-only check. Report format/digest
+verification false, all rights/custody/ownership/remote/semantic states
+unverified and all authority false. Zero-copy describes the output only.
+
+`assess_partner_interfaces(declaration_raw, expected_declaration_sha256,
+scope_raw, expected_scope_sha256, metadata_bank, estate_inputs, contract_bank)`
+also recomputes canonical references. Envelope keys are exactly
+`contract_version` (`gfjd-partner-interface-references-v1`), `scope_sha256`,
+`state` (`preparation`) and `partners`. Each partner has exactly `partner_id`,
+`commit` and `artifacts` (contract relative path to SHA-256 map). Require exact
+coverage of the scope's selected partner IDs. Null commit with an empty artifact
+map is explicitly unavailable, not an inferred compatible interface.
+
+Non-null references must match the exact observed commit, paths and hashes
+recorded above for archive-govt-nz and global-medicines-atlas. Unknown or drifted
+contracts fail closed, never become valid merely through a caller-supplied
+checksum. The supplied contract bank must contain exactly those referenced
+bytes, at most eight members, 1 MiB each and 8 MiB total. Validate supplied
+JSON Schema syntax locally; never execute supplied Python, invoke a reader,
+resolve a receipt, load a source or write another repository. Pin the compiler
+implementation and every input hash. Both selected upstream schemas have been
+read at their exact Git commits and their recorded SHA-256 values reproduced.
+
+Report archive ownership transfer as unsupported for GFJD (its allowlist names
+only fyi-archive and archive-govt-nz), and its publication receipt as requiring
+actual publication evidence. Report GMA as a prospective declaration contract,
+with the B0/B1/B2 terminology mismatch explicit, no direct layer alias, and
+schema plus semantic validation and authentic receipt/byte evidence still
+required before interoperability acceptance. Reimbursement/estate-registry
+interfaces remain unavailable until exact technical contracts are provided.
+These are qualified reference bindings, not partner registration or live
+interface conformance. Emit metadata/digests only, all authority false, and
+verify by full recomputation. Disclose existing helper/compiler fingerprint
+reads. Integrated sidecar composition and supporting evidence indexing follow
+these tested adapters within the same federation track.

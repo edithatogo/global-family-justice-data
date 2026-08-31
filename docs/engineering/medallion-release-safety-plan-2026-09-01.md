@@ -182,7 +182,8 @@ The external evidence-bundle tree is bounded before fingerprinting: plain dicts,
 lists, strings, bytes, ints/bools/null only; depth at most 12, 50,000 nodes, at most
 2,000 entries/container, strings at most 4,096 without controls/surrogates, bytes
 at most 8 MiB each, and total byte leaves at most 64 MiB counting repeated leaves
-independently. No subclasses, paths, callables or floats. Each typed descriptor
+independently. All dict-key and string-value UTF-8 bytes together are at most
+1 MiB before descriptor construction. No subclasses, paths, callables or floats. Each typed descriptor
 node is tagged: bytes becomes [bytes,SHA-256,size]; strings/ints/bools/null retain
 their value with a type tag; lists preserve order; dicts sort string keys and
 contain their recursively tagged values. Hash canonical JSON of this descriptor.

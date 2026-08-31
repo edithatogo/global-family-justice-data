@@ -155,6 +155,22 @@ def test_missing_content_hash_remains_null(arguments: list) -> None:
     assert result["objects"][0]["content_sha256"] is None
 
 
+@pytest.mark.parametrize("estate_index", range(5))
+def test_known_estate_bytes_are_not_parquet(arguments: list, estate_index: int) -> None:
+    digest = sha(list(arguments[5].values())[estate_index])
+    scope = json.loads(arguments[2])
+    scope["objects"][0]["content_sha256"] = digest
+    arguments[2] = encode(scope)
+    arguments[3] = sha(arguments[2])
+    doc = json.loads(arguments[0])
+    doc["scope_sha256"] = arguments[3]
+    obj = doc["objects"][0]
+    obj["content_sha256"] = digest
+    obj["locations"][0]["revision"]["value"] = digest
+    with pytest.raises(MetadataError):
+        assess_parquet_references(*changed(arguments, doc))
+
+
 @pytest.mark.parametrize(
     "revision",
     [

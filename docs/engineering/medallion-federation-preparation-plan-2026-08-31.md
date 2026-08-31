@@ -810,3 +810,18 @@ No partner Python is executed and no court-source content is copied. Full local
 validation, exact-head hosted CI and PR delivery remain pending for this slice.
 Integration of these sidecars and supporting evidence indexing remain next in
 this same federation track; no programme criterion is promoted by this ledger.
+
+### Hosted review correction
+
+Initial exact-head validation at `a6a3770` passed 1,599 tests twice
+(99.12s/97.67s, 84% coverage), all 17 hosted checks and the full local gate.
+Hosted Codex review identified a missing known-format contradiction: supplied
+estate configuration/policy bytes could be declared as Parquet. Five new tests
+(four TOML inputs and the pinned Markdown policy) reproduced the failure before
+the fix. The adapter now rejects these known non-Parquet input hashes alongside
+JSON/N-Triples metadata hashes. Unknown payload formats remain unverified.
+
+This corrects a validation gap, not a rights or acceptance policy. Earlier
+role-separated review did not identify this issue. Copilot review was unavailable
+due quota; it is not counted as completed assurance. Revalidation and exact-head
+review resolution are required on the corrected commit before merge.

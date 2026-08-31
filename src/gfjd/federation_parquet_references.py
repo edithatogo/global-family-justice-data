@@ -48,6 +48,9 @@ def _assess(
         scope_raw, expected_scope_sha256, metadata_bank, estate_inputs
     )
     scoped = {obj["object_id"]: obj for obj in reference_report["objects"]}
+    # Reconciliation has validated all estate inputs as bounded TOML or the
+    # exact pinned Markdown policy. Their identities are also known non-Parquet.
+    known_non_parquet = set(metadata_bank) | {_sha(raw) for raw in estate_inputs.values()}
     objects = doc["objects"]
     require(type(objects) is list and len(objects) <= 100)
     covered: set[str] = set()
@@ -70,7 +73,7 @@ def _assess(
                 _digest(obj[field])
         # Bank bytes have already been checked as JSON objects or restricted
         # N-Triples. Equal hashes are a concrete contradiction, not format inference.
-        require(obj["content_sha256"] not in metadata_bank)
+        require(obj["content_sha256"] not in known_non_parquet)
         size = obj["byte_count"]
         if size is None:
             issues.append(identifier + ":missing_byte_count")

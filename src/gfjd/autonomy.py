@@ -25,6 +25,7 @@ CONTEXT_FILES = (
     "docs/engineering/medallion-estate-preparation-plan-2026-08-31.md",
     "docs/engineering/medallion-federation-preparation-plan-2026-08-31.md",
     "docs/engineering/federation-run-lifecycle-plan-2026-09-01.md",
+    "docs/engineering/federation-config-drafts-plan-2026-09-01.md",
     "IMPLEMENTATION_STATUS.md",
     "PROJECT_PLAN.md",
     "docs/governance/t0-acceptance-runbook.md",

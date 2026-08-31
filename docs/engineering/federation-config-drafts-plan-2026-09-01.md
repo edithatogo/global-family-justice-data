@@ -68,10 +68,15 @@ filesystem source loader, execution, registration or publisher is invoked.
 
 ## Ordered work
 
-- [~] Add the generator and exact verifier with meaningful negative-first tests.
-- [ ] Validate all six roles, real configured identifiers, ten incomplete
+- [x] Add the generator and exact verifier with meaningful negative-first tests.
+- [x] Validate all six roles, real configured identifiers, ten incomplete
   documents, exact provenance, no inferred facts, wrong/missing/extra inputs,
   rehashed forgeries, determinism and no network.
+- [ ] Preserve a generated actual-configuration snapshot after the compiler's
+  signed source freeze. Bind its source commit and input/artifact hashes; index
+  it as supporting preparation only. Historical snapshot tests verify retained
+  bytes and scope, not equality with a later compiler. No input source payload
+  or claimed factual acceptance is included.
 - [ ] Role-separated advisory review; full gate; signed reviewed PR; all
   required exact-head CI; history-preserving merge and local cleanup.
 
@@ -79,3 +84,19 @@ Canonical ownership declarations and the remaining standards/partner coverage
 audit follow this slice. Actual registration/publication and acceptance-bearing
 evidence remain separately pending. No new owner decision is needed for this
 offline implementation.
+
+## Implementation ledger
+
+The generator returns 22 bound artifacts from the actual configuration, including
+ten explicitly incomplete dataset-profile documents. Explorer remains a Space
+and its missing licensing fact is labelled space-content licensing, not dataset
+licensing. The missing-profile test failed against the initial stub before
+implementation; all 24 focused tests now pass (0.98s). Ruff and module mypy pass.
+The 36 autonomous-context tests also pass. The retained-snapshot integrity test
+initially failed because its receipt was absent; preserve the generated files
+only after the signed compiler freeze.
+
+Role-separated read-only advisory review found no actionable issue in the
+compiler, field provenance, missing-fact handling or exact verifier. It did not
+execute tests or certify factual evidence. The snapshot, complete local gate,
+hosted review/CI and delivery remain pending at this compiler freeze.

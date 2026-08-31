@@ -322,8 +322,9 @@ capture/safety/custody/rights/restore/receipt/history/checkpoint/semantic/qualit
 policy/disclosure/owner/scope/federation artifact roles. Match logical_object_id,
 edition_id and layer before bytes. Record the matched role explicitly. More than
 one different eligible role for a candidate is unsupported ambiguous provenance,
-not a convenient selection. Every qualification cell must have a corresponding
-candidate wrapper entry; missing/invalid/inactive native cells remain visible.
+not a convenient selection. Every supplied qualification wrapper must have a
+corresponding candidate wrapper entry. Cells with no supplied wrapper remain
+visible as missing; they are not assigned a fabricated wrapper or dropped.
 
 Native qualification/restore control bytes must occur in the candidate bank,
 including inactive wrapper payload references. Native replica membership equals
@@ -332,6 +333,11 @@ as any qualification bundle. Lifecycle current active heads must match exact
 candidate identities, bytes and active state; matching historical objects must
 match declared size/BLAKE3/state too. Missing inactive historical payloads appear
 as digest-only gaps. A shared identity with inconsistent bytes/state rejects.
+For B0 an exact object/edition identity cannot change source bytes. For derived
+objects different historical revisions remain distinct by content hash. Supplied
+source edges must agree with the native source digest and object/edition; missing
+source edges remain explicit missing provenance. When qualification and lifecycle
+both supply a source binding for the same object/edition, those digests must agree.
 
 Provenance may establish only the mapped native check or declared control-file
 association. Data derivation requires its mapped cell's verified lineage (B0

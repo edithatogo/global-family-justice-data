@@ -15,6 +15,7 @@ import stat
 import zipfile
 import zlib
 from bisect import bisect_left
+from datetime import datetime
 from pathlib import Path, PurePosixPath
 from typing import Any
 from xml.etree import ElementTree as ET
@@ -345,8 +346,8 @@ def _value(cell: ET.Element, strings: list[str]) -> tuple[str, str]:
             is not None
         )
     elif kind == "d":
-        # Preserve the explicit OOXML date lexical value, without date-system
-        # coercion. Exact calendar interpretation is outside this bridge.
+        # Validate the bounded date representation but preserve its exact text:
+        # no date-system conversion, timezone normalization or source inference.
         _require(
             re.fullmatch(
                 r"[0-9]{4}-[0-9]{2}-[0-9]{2}(?:T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\.[0-9]+)?(?:Z|[+-][0-9]{2}:[0-9]{2})?)?",
@@ -354,6 +355,12 @@ def _value(cell: ET.Element, strings: list[str]) -> tuple[str, str]:
             )
             is not None
         )
+        offset = re.search(r"[+-]([0-9]{2}):([0-9]{2})$", value)
+        if offset:
+            _require(int(offset[1]) <= 23 and int(offset[2]) <= 59)
+        # fromisoformat alone normalizes offset minute overflow; the explicit
+        # check above prevents that malformed lexical form from passing.
+        datetime.fromisoformat(value.replace("Z", "+00:00"))
     return value, kind
 
 

@@ -200,7 +200,7 @@ def build_report() -> dict[str, Any]:
     )
     report = {
         "schema_version": "1.0",
-        "rehearsal_id": "FICTIONAL-MEDALLION-LINEAGE-20260831-01",
+        "rehearsal_id": "FICTIONAL-MEDALLION-LINEAGE-20260831-02",
         "synthetic": True,
         "current_remote_custody_verified": False,
         "custody_assertions": (

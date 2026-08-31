@@ -90,6 +90,52 @@ def test_exact_lexical_rows_and_replay() -> None:
 
 
 @pytest.mark.parametrize(
+    "value",
+    [
+        "2026-99-99",
+        "2026-02-29",
+        "0000-01-01",
+        "2026-04-31",
+        "2026-01-01T25:99:99Z",
+        "2026-01-01T23:59:60Z",
+        "2026-01-01T00:00:00+99:99",
+        "2026-01-01T00:00:00+01:60",
+        "2026-01-01T00:00:00-24:00",
+        "2026-01-01T00:00:00-00:99",
+    ],
+)
+def test_malformed_date_components_fail_closed(value: str) -> None:
+    entries = parts()
+    entries["xl/worksheets/sheet1.xml"] = entries["xl/worksheets/sheet1.xml"].replace(
+        '<c r="B2"><v>001.2300</v></c>', f'<c r="B2" t="d"><v>{value}</v></c>'
+    )
+    raw = source(entries)
+    with pytest.raises(MedallionXlsxError):
+        extract_xlsx(raw, contract(raw))
+
+
+@pytest.mark.parametrize(
+    "value",
+    [
+        "2024-02-29",
+        "2026-08-31T23:59:59.00100Z",
+        "2026-08-31T01:02:03+05:30",
+        "2026-08-31T01:02:03-00:30",
+        "2026-08-31T01:02:03",
+    ],
+)
+def test_valid_date_text_is_not_normalized(value: str) -> None:
+    entries = parts()
+    entries["xl/worksheets/sheet1.xml"] = entries["xl/worksheets/sheet1.xml"].replace(
+        '<c r="B2"><v>001.2300</v></c>', f'<c r="B2" t="d"><v>{value}</v></c>'
+    )
+    raw = source(entries)
+    result = extract_xlsx(raw, contract(raw))
+    assert result["rows"][0]["Fictional amount"] == value
+    verify_xlsx(raw, contract(raw), result)
+
+
+@pytest.mark.parametrize(
     "field,value",
     [
         ("source_sha256", "0" * 64),

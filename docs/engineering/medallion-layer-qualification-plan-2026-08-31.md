@@ -35,8 +35,14 @@ bounded adapters and explicit unsupported-evidence dispositions instead.
 - [x] Obtain role-separated advisory review of reusable verifiers, evidence
   scope, requirements and adversarial cases. Freeze the concrete adapter contract
   before functional implementation (contract below).
-- [ ] Implement bounded input resolution and exact object/layer/content binding.
+- [x] Implement bounded declared-scope metadata resolution and exact
+  object/edition/layer binding (`df1bce4`; 28 focused tests). This establishes
+  coverage and structural consistency only, not payload qualification.
+- [ ] Implement bounded payload resolution and exact content binding.
   Missing, malformed, conflicting, unsupported or stale evidence must not pass.
+  Active allowlisted byte-bank resolution is implemented in `e42eb94` (11
+  tests); linking those bytes to each layer's evidence and recomputed predecessor
+  output remains an integration requirement, not a completed claim.
 - [ ] Recompute independently supported layer checks and emit an exhaustive
   matrix of verified, failed and pending requirements with evidence references
   and limitations. Do not turn self-reported review labels into verified facts.
@@ -46,6 +52,12 @@ bounded adapters and explicit unsupported-evidence dispositions instead.
 - [ ] Enforce the Gold owner-decision and Platinum release boundaries separately
   from technical checks. Validate available decision bindings without inventing
   authority or treating advisory reports as accountable acceptance.
+  Scoped declared review-record bindings are implemented in `432fcc6` (45
+  tests). They expose current/expired/future status, conditions and conflicts;
+  they never authenticate a reviewer, adjudicate conditions or accept a layer.
+- [x] Implement independent Gold quality diagnostics (`e55d733`; 39 tests) and
+  Platinum composition checks (`97a2cd4`; 30 tests). Their integration and
+  predecessor-scope checks remain pending below; neither grants authority.
 - [ ] Add adversarial tests, deterministic fictional fixtures and an independently
   recomputed rehearsal/report. Include cross-layer borrowing, digest/object
   substitution, false pass flags, missing predecessor evidence and quarantine.
@@ -113,3 +125,63 @@ Each adapter has fixed limits and a recomputing verifier. The Gold and Platinum
 adapters are part of this implementation, not omitted merely because B0/B1/Silver
 are easier to exercise. Fictional tests must demonstrate verified mechanics,
 real detected failures and pending factual requirements together.
+
+## Adapter checkpoint and review fixes
+
+The metadata binder retains all five expected layer cells per object, rejects
+extra or conflicting records, and pins the canonical layer contract. It does
+not consume source payloads or accept referenced reports. Strict input checks
+also reject overflowed JSON numbers and unpaired Unicode surrogates.
+
+Role-separated advisory review identified non-transitive dependency reporting:
+a missing B0 blocked B1 but was not carried into otherwise structurally valid
+Silver. `df1bce4` propagates that blocker through descendants without erasing
+their useful structural evidence. Regression cases cover missing, invalid and
+quarantined ancestors, including an unaffected second object.
+
+Platinum now rejects an empty declared cohort, avoiding vacuous composition
+success. Gold reports unassessed small-cell units/values explicitly rather than
+equating zero detected cells with disclosure clearance. All three adapters bind
+their implementation identities and fully recompute supplied reports.
+
+Current continuation: integrate source-recomputing B0/B1/Silver and
+Gold/Platinum adapters into the
+eight-dimension matrix. Complete adversarial integration, fictional rehearsal,
+programme supporting evidence and whole-track delivery afterward. No full-track
+validation, PR or merge is claimed for this intermediate checkpoint.
+
+The payload resolver rejects extra bank entries and entries referenced only by
+inactive or malformed records before hashing payload bytes. Its 8 MiB aggregate
+limit is checked before hashing. Missing active references remain visible. This
+is fixity/eligibility checking, not proof that a source digest, capture claim,
+quality report or review record has the right meaning for a layer.
+
+### Coordinator integration requirements
+
+The next coordinator must recompute the metadata and payload bindings rather
+than accept their reports as caller assertions. For each active layer, it must
+match role digests against the layer record's evidence, use only its explicit
+versioned adapter, and cross-check inputs against the exact recomputed immediate
+predecessor outputs. A missing predecessor leaves lineage pending/blocked even
+if a downstream adapter can mechanically inspect its own bytes.
+
+The eight dimensions must carry separate scoped results and limitations: declared
+completeness, content fixity, rights, lineage, reproducibility, quality,
+quarantine and restore. Unavailable factual evidence is pending, malformed or
+conflicting evidence fails, and unsupported formats are explicit. A repository
+backup rehearsal cannot stand in for a source/layer restore. A current declared
+review record cannot pass rights, semantic, disclosure or owner authority.
+
+Gold diagnostics must bind the exact Silver rows; Platinum must bind the
+separately expected cohort and exact Gold content, not derive its denominator
+from whatever happened to be supplied. Recorded custody assertions may be
+consistent but are not a fresh remote retrieval. Preserve every failed, missing
+or inactive cell and do not perform any promotion.
+
+Follow-up advisory review approved the bounded helpers and the transitive fix
+(84 independently rerun tests across input, payload and review-binding helpers).
+It explicitly requires the coordinator to consume transitive blockers rather
+than treating `payload_processing_eligible` as readiness, match each review's
+returned `review_kind` to its artifact role, and check wrapper-to-evidence and
+predecessor content bindings. These are mandatory integration checks; the helper
+approval does not approve the unfinished evaluator or any programme evidence.

@@ -16,7 +16,9 @@ exact-head CI, history-preserving merge and local cleanup.
   missing artifacts, incomplete receipts and original binding gaps separately.
 - [x] Add append-only preservation index and offline integrity tests; obtain
   role-separated advisory review, update Conductor supporting evidence.
-- [ ] Validate fixed revision, commit, PR, await CI, merge and clean local branch.
+- [x] Validate fixed revision, commit, PR, await CI, merge and clean local branch.
+  PR #135 merged signed `a10d905`; 696 tests twice, 79.38% coverage,
+  `autonomy-full` and all 17 hosted checks passed. Local branch removed.
 
 ## Recommendation, trade-offs and contingencies
 

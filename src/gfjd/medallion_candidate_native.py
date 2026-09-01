@@ -296,10 +296,15 @@ def _lifecycle(bundle: dict[str, Any], prepared: dict[str, Any]) -> dict[str, An
             if candidate["layer"] == "b0":
                 _require(item["source_sha256"] == candidate["sha256"])
             elif source_edges:
+                layers = ("b0", "b1", "silver", "gold", "platinum")
+                _require(candidate["layer"] in layers and layers.index(candidate["layer"]) > 0)
+                source = objects_by_id[source_edges[0]["target_object_id"]]
                 _require(
                     len(source_edges) == 1
-                    and objects_by_id[source_edges[0]["target_object_id"]]["sha256"]
-                    == item["source_sha256"]
+                    and source["logical_object_id"] == candidate["logical_object_id"]
+                    and source["edition_id"] == candidate["edition_id"]
+                    and source["layer"] == layers[layers.index(candidate["layer"]) - 1]
+                    and source["sha256"] == item["source_sha256"]
                 )
         cells.append(
             {

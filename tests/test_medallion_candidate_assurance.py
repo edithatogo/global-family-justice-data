@@ -118,6 +118,38 @@ def test_package_composition_requires_exact_multiset(copies):
     )
 
 
+def test_package_composition_cannot_downgrade_failed_provenance(monkeypatch):
+    data = fixture()
+    member = b"FICTIONAL"
+    package = archive([("unsupported.dat", member)])
+    obj = add(data, "package", package, "package", "application/zip")
+    target = add(data, "member", member, "metadata", "text/plain")
+    obj["edges"] = [{"relation": "package_member", "target_object_id": target["object_id"]}]
+
+    def native(prepared):
+        return {
+            "provenance": {
+                item["object_id"]: {
+                    "status": "failed" if item["object_id"] == "package" else "missing_evidence",
+                    "roles": [],
+                    "references": [],
+                }
+                for item in prepared["scope"]["objects"]
+            },
+            "disclosure": {
+                item["object_id"]: "unsupported" for item in prepared["scope"]["objects"]
+            },
+            "summaries": dict.fromkeys(
+                ("qualification", "restore", "lifecycle"), {"status": "missing_evidence"}
+            ),
+        }
+
+    monkeypatch.setattr(assurance.medallion_candidate_native, "assess_native_evidence", native)
+    row = next(item for item in assess(data)["objects"] if item["object_id"] == "package")
+    assert row["provenance"]["status"] == "failed"
+    assert row["dimensions"]["provenance"] == "failed"
+
+
 def test_shared_content_scanned_once_but_every_object_reported(monkeypatch):
     data = fixture()
     add(data, "duplicate", next(iter(data[2].values())), media="text/plain")

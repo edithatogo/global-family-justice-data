@@ -390,6 +390,71 @@ def test_lifecycle_rejects_candidate_fixity_or_source_mismatch(monkeypatch):
             native._lifecycle(bundle, prepared)
 
 
+def test_lifecycle_rejects_equal_digest_wrong_source_identity(monkeypatch):
+    predecessor = {
+        "object_id": "predecessor",
+        "logical_object_id": "OTHER",
+        "edition_id": "OTHER",
+        "layer": "silver",
+        "role": "data",
+        "lifecycle": "active",
+        "sha256": "s" * 64,
+        "blake3": "p" * 64,
+        "size_bytes": 5,
+        "edges": [],
+    }
+    candidate = {
+        "object_id": "candidate",
+        "logical_object_id": "LOGICAL",
+        "edition_id": "EDITION",
+        "layer": "gold",
+        "role": "data",
+        "lifecycle": "active",
+        "sha256": "a" * 64,
+        "blake3": "b" * 64,
+        "size_bytes": 10,
+        "edges": [{"relation": "source", "target_object_id": predecessor["object_id"]}],
+    }
+    report = {
+        "as_of": "2026-09-01T00:00:00Z",
+        "heads": [{"artifact_id": "ART", "state": "active"}],
+        "inventory": [
+            {
+                "artifact_id": "ART",
+                "object_id": "LOGICAL",
+                "edition_id": "EDITION",
+                "layer": "gold",
+                "content_sha256": "a" * 64,
+                "content_blake3": "b" * 64,
+                "size_bytes": 10,
+                "source_sha256": "s" * 64,
+                "state": "active",
+            }
+        ],
+        "declared_provider_backlog": [],
+    }
+    monkeypatch.setattr(
+        native.medallion_lifecycle, "assess_lifecycle_journal", lambda *a, **k: report
+    )
+    prepared = {
+        "plan": {"as_of": report["as_of"]},
+        "scope": {"objects": [candidate, predecessor]},
+    }
+    with pytest.raises(ValueError):
+        native._lifecycle(
+            {
+                "plan_raw": b"x",
+                "expected_plan_sha256": "x",
+                "scope_raw": b"x",
+                "layer_contract_raw": b"x",
+                "checkpoint_raw": b"x",
+                "event_bank": {},
+                "receipt_bank": {},
+            },
+            prepared,
+        )
+
+
 def test_lifecycle_preserves_missing_inactive_history_with_current_sibling(monkeypatch):
     current = {
         "object_id": "current",

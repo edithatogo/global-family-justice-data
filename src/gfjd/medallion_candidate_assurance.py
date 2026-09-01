@@ -129,7 +129,16 @@ def _assess(
             any(edge["relation"] == "package_member" for edge in obj["edges"])
             and composition["status"] != "checked_no_findings"
         ):
-            dimensions["provenance"] = composition["status"]
+            severity = {
+                "checked_no_findings": 0,
+                "missing_evidence": 1,
+                "unsupported": 2,
+                "failed": 3,
+            }
+            dimensions["provenance"] = max(
+                (dimensions["provenance"], composition["status"]),
+                key=severity.__getitem__,
+            )
         _require(
             set(dimensions) == set(DIMENSIONS)
             and all(value in STATUSES for value in dimensions.values())

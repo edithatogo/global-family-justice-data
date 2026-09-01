@@ -227,8 +227,9 @@ GOV.UK metadata parser now bounds documented presenter extras, verifies response
 shape and preserves update/first-publication distinctions. Its detached bundle
 is supporting evidence only, not an execution packet; no transport, fresh
 request, candidate selection or G2 acceptance is implemented. See
-`docs/methods/g2-offline-api-contract-2026-08-31.md`. Next safe engineering work
-is append-only correction and bitemporal partition replay in WI-G4-MED-02.
+`docs/methods/g2-offline-api-contract-2026-08-31.md`. The later append-only
+correction and bitemporal partition-replay mechanics are complete; their empirical
+evidence remains separately pending in WI-G4-MED-02.
 
 Monitor preservation continuation (2026-08-31): eight named completed Actions
 runs have exact metadata retention, seven modern identity bindings and one
@@ -244,10 +245,11 @@ append checkpoints reject custody-only and outer-source rewrites even when the
 projected rows do not change. A deterministic fictional correction rehearsal
 recomputes the complete chain; its public test report is supporting engineering
 evidence only. See `docs/engineering/medallion-lineage-history-plan-2026-08-31.md`.
-WI-G4-MED-02 remains in progress pending genuine public custody, authorized exact
-editions and reviewed empirical rebuilds. No current remote custody, rights,
-Gold promotion, G2 acceptance or release is established. After technical delivery,
-the next repository-owned slice is independent per-layer qualification.
+Repository mechanics are complete and WI-G4-MED-02 is `in_review` pending genuine
+public custody, authorized exact editions and reviewed empirical rebuilds. No
+current remote custody, rights, Gold promotion, G2 acceptance or release is
+established. Per-layer qualification preparation is also complete; its factual
+acceptance remains dependency- and evidence-bound.
 
 Stable v1.0 still requires authentic evidence for real source editions and retrievals, source-rights facts and owner decisions, multilingual searches, jurisdiction-aware triangulation, real connectors and fixtures, blinded role-separated re-extraction, methods adjudication, outcomes-evidence appraisal, agent/tool accessibility review, production operations, two-location preservation, tested restore, publication state and the owner's dated 12-month resource commitment. Agent panels cannot manufacture those facts or create legal, independent-specialist, local-human or lived-experience claims.
 

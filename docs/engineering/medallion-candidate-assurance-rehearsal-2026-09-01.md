@@ -23,7 +23,11 @@ containers, malformed formats, prohibited headers, complete candidate and role
 budgets, evidence-tree bombs, wrong bindings, whole-SPDX drift, dependency graph
 ambiguity, package-byte mismatch, package-member multiset mismatch, inactive
 objects, auxiliary secrets, preflight-before-scan, scan-once deduplication,
-network-disabled locator syntax and forged report self-hashes.
+network-disabled locator syntax and forged report self-hashes. Hosted review then
+identified two sibling-association defects. Commit `d30d70d` added meaningful
+failing regressions and now requires exact Gold row mapping for disclosure plus a
+unique lifecycle content match across sibling roles; the focused suite passes 174
+tests.
 
 No network, provider, source, package installer, executable, vulnerability feed or
 locator was requested. Internal consistency does not establish actual inventory

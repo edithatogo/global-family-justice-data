@@ -44,6 +44,11 @@ precomputed success receipts. Missing evidence is reported, never invented.
 - [ ] Role-separated review, full validation, signed reviewed PR, CI, merge and
   local cleanup; then audit the entire authorized queue and remaining gaps.
 
+Hosted review remediation rejects disclosure borrowed by unrelated Gold bytes and
+scope-order-dependent lifecycle matches. Both regressions failed before commit
+`d30d70d`; association now requires the exact eligible Gold `rows` digest and a
+unique lifecycle content match among same-identity sibling roles.
+
 All seven tasks above remain part of this track. A scanner-only or status-matrix
 delivery must not be labelled completion of the full coordinator. Actual public
 release-candidate assurance remains separately unmet even after preparation works.

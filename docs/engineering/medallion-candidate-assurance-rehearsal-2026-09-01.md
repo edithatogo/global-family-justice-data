@@ -32,6 +32,10 @@ incorrect treatment of missing historical bytes when a newer sibling existed.
 Commit `9640d23` requires an exact immediate-predecessor edge for derived native
 provenance and preserves unmatched inactive artifacts as digest-only gaps. The
 focused suite now passes 176 tests.
+An exact-head review then found digest-only wrapper association. Commit `fa3d650`
+requires wrapper logical object, edition and layer identity before digest matching;
+both mismatched-identity and unrelated-duplicate regressions now pass. The focused
+suite passes 178 tests.
 
 No network, provider, source, package installer, executable, vulnerability feed or
 locator was requested. Internal consistency does not establish actual inventory

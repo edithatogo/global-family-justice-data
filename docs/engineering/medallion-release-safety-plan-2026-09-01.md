@@ -55,6 +55,11 @@ missing provenance and wrong edges fail. Inactive historical artifacts without
 supplied bytes remain digest-only gaps even when a newer sibling exists. Both
 regressions failed before commit `9640d23`; the focused suite passes 176 tests.
 
+Exact-head hosted-review remediation requires qualification wrapper candidates to
+match logical object, edition and layer before bytes. Mismatched identities reject;
+an unrelated duplicate digest no longer creates ambiguity. Both regressions failed
+before commit `fa3d650`; the focused suite passes 178 tests.
+
 The first exact-head closeout retry stopped fail-closed because a nested-ZIP test
 fixture embedded wall-clock metadata and produced different collected IDs across
 parallel workers. Commit `c56f58d` fixes the fixture timestamp; no production

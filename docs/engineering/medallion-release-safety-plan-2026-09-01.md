@@ -1,6 +1,7 @@
 # WI-G5-MED-03 — complete candidate assurance preparation
 
-Status: in progress, repository-owned preparation only. Baseline signed main
+Status: repository-owned preparation complete; factual candidate assurance remains
+unmet. Baseline signed main
 `e7bbe5f1b392347fa4873eecc52d807a100a5bd4`, PR #151. Full gate passed with 1,931
 tests twice, 84% coverage and 17 green hosted checks. No source or network access,
 publication, rights clearance or gate acceptance is enabled by this work.
@@ -41,8 +42,18 @@ precomputed success receipts. Missing evidence is reported, never invented.
 - [x] Fictional all-role rehearsal and adversarial tests including unsupported
   package/media, auxiliary secret, omitted history, false audit/disclosure success,
   lock/SBOM mismatch, unsafe locator and rehashed report forgery.
-- [ ] Role-separated review, full validation, signed reviewed PR, CI, merge and
+- [x] Role-separated review, full validation, signed reviewed PR, CI, merge and
   local cleanup; then audit the entire authorized queue and remaining gaps.
+
+PR #152 retained the signed commit chain and merged by fast-forward at
+`f3d666fdeabcdcc7831df4d898b774b846881d9c` on 2026-09-01T12:16:01Z. The exact
+head passed 2,115 tests, 85.18% coverage, all 17 hosted checks and a completed
+Codex review with no new finding. Fourteen historical review threads were resolved
+only after their remediations and regressions were bound. The local topic branch
+was removed and one clean `main` worktree remained. This completes repository-owned
+preparation and delivery only; `WI-G5-MED-03` stays planned and
+`E-PUBLIC-MEDALLION-RELEASE-SAFETY` stays missing until a factual public candidate
+and all acceptance-bearing controls exist.
 
 Hosted review remediation rejects disclosure borrowed by unrelated Gold bytes and
 scope-order-dependent lifecycle matches. Both regressions failed before commit

@@ -1,18 +1,27 @@
 # WI-G4-MED-02: exact projection and replay
 
-Status: in progress; bounded repository-owned first slice.
+Status: historical first slice; repository-owned implementation subsequently
+completed and moved to `in_review`. Acceptance-bearing empirical evidence remains
+missing.
 
 ## Plan
 
 - [x] Implement and test an offline exact-string JSON projection API, with source
   and transformation-code hashes, per-field source locators, explicit clock
   fields, deterministic snapshot identity and a recomputing verifier.
-- [ ] Integrate independently verified public B0 custody and safety evidence;
-  demonstrate real B0-to-B1 and reviewed Silver partition rebuilds.
-- [ ] Add append-only correction history, ordered supersession and cycle checks,
+- [x] Integrate custody/safety evidence-binding mechanics using fictional inputs;
+  real public B0-to-B1 and reviewed Silver partition rebuilds remain unperformed.
+- [x] Add append-only correction history, ordered supersession and cycle checks,
   bitemporal intervals and partition-level replay verification.
 - [ ] Complete layer qualification and return acceptance evidence through the
   existing Conductor process. This slice cannot satisfy the full work item.
+
+The completed repository implementation and its limits are recorded in
+`medallion-lineage-history-plan-2026-08-31.md` and merged PR #137. On 2026-09-01
+the work item moved from `in_progress` to `in_review`: this prevents autonomy from
+repeating completed synthetic implementation while retaining
+`E-MEDALLION-LINEAGE-REPLAY` as missing until an empirical public B0 rebuild and
+review actually exist.
 
 ## Options and recommendation
 

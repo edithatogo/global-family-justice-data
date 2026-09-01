@@ -30,14 +30,10 @@ def test_autonomy_context_is_bounded_and_fail_closed(tmp_path: Path) -> None:
     ]
     assert payload["external_boundaries"]
     assert all(item["kind"] == "governance_decision" for item in payload["external_boundaries"])
-    assert {item["work_item_id"] for item in payload["autonomous_queue"]} == {
-        "WI-G4-MED-02",
-    }
-    assert {item["work_item_id"]: item["status"] for item in payload["autonomous_queue"]} == {
-        "WI-G4-MED-02": "in_progress",
-    }
+    assert payload["autonomous_queue"] == []
     assert payload["external_actions"]
-    assert "WI-G4-MED-04" in {item["work_item_id"] for item in payload["external_actions"]}
+    external_ids = {item["work_item_id"] for item in payload["external_actions"]}
+    assert {"WI-G4-MED-02", "WI-G4-MED-04"} <= external_ids
     assert all(item["execution_scope"] for item in payload["autonomous_queue"])
     required_context = {
         "AUTONOMOUS_IMPLEMENTATION.md",

@@ -1,6 +1,6 @@
 # Generated programme status
 
-Generated: `2026-09-01T12:17:13+00:00`
+Generated: `2026-09-01T12:27:17+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G2**
@@ -25,7 +25,7 @@ Conductor validation: **PASS** (0 errors, 14 warnings)
 | T1 — Scope, ontology and methods | 3/3 (100.0%) | 2/3 (66.7%) | 0 | 3/5 |
 | T2 — Jurisdiction universe and source census | 8/8 (100.0%) | 5/8 (62.5%) | 0 | 8/18 |
 | T3 — Acquisition, preservation and source monitoring | 5/5 (100.0%) | 3/5 (60.0%) | 0 | 3/5 |
-| T4 — Data platform and engineering | 8/9 (88.9%) | 5/9 (55.6%) | 0 | 6/14 |
+| T4 — Data platform and engineering | 9/9 (100.0%) | 5/9 (55.6%) | 0 | 6/14 |
 | T5 — Harmonisation, quality and assurance | 13/14 (92.9%) | 6/14 (42.9%) | 0 | 20/70 |
 | T6 — Product, documentation and accessibility | 7/9 (77.8%) | 0/9 (0.0%) | 0 | 0/11 |
 | T7 — Security, privacy, legal and supply-chain assurance | 7/8 (87.5%) | 4/8 (50.0%) | 0 | 7/13 |
@@ -58,7 +58,7 @@ Evidence-assured maturity floor: **L1**
 
 ## Next dependency-ready actions
 
-- **P0 WI-G4-MED-02** (T4/G4): Implement public field lineage, bitemporal snapshot identity and deterministic partition replay. — _in_progress_
+- **P0 WI-G4-MED-02** (T4/G4): Implement public field lineage, bitemporal snapshot identity and deterministic partition replay. — _in_review_
 - **P1 WI-G2-04** (T5/G2): Pilot extractions and mappings have documented dual review, adjudication and quarantine outcomes. — _in_review_
 - **P1 WI-G2-07** (T5/G2): Blinded role-separated agent re-extraction of the pilot sample passes the approved concordance threshold and is owner-adjudicated. — _in_review_
 - **P1 WI-G4-MED-04** (T6/G4): Publish and verify the role-separated GFJD Hugging Face medallion estate. — _planned_

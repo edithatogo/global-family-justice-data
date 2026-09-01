@@ -47,6 +47,12 @@ as unsupported rather than aborting the report. Commit `b22e048` implements both
 the focused suite passes 182 tests. The reported Boolean-size issue was already
 closed by exact `type(size) is int` validation and an existing `size = true`
 negative regression, so no production change was made for that false positive.
+The following review found that lifecycle source validation still accepted an
+equal digest from the wrong logical object or edition, and that incomplete package
+composition could overwrite an already failed native-provenance state with a less
+severe status. Commit `f02b18c` binds derived lifecycle sources to the exact logical
+object, edition and immediate predecessor layer, and combines package provenance
+states by fail-closed severity. The focused suite passes 184 tests.
 
 No network, provider, source, package installer, executable, vulnerability feed or
 locator was requested. Internal consistency does not establish actual inventory

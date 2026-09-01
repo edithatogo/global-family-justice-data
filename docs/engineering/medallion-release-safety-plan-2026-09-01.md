@@ -378,6 +378,9 @@ objects different historical revisions remain distinct by content hash. Supplied
 source edges must agree with the native source digest and object/edition; missing
 source edges remain explicit missing provenance. When qualification and lifecycle
 both supply a source binding for the same object/edition, those digests must agree.
+For derived lifecycle evidence, the source edge must target the exact same logical
+object and edition at the immediate predecessor layer; digest equality alone cannot
+associate an unrelated object.
 
 Provenance may establish only the mapped native check or declared control-file
 association. Data derivation requires its mapped cell's verified lineage (B0
@@ -386,6 +389,8 @@ remain missing_evidence; arbitrary equal hashes do not establish association.
 Package-member edges reconcile the scanner's complete member-content-hash multiset
 before package composition can be internally checked; this is not executable
 package authenticity. Unsupported package scanning remains unsupported composition.
+Composition evidence combines with native provenance by fail-closed severity and
+cannot downgrade a failed native-provenance result.
 
 Dependencies and supply-chain graph checks apply to exact dependency bundle
 inputs and validated candidate distribution bindings. Unbound packages remain

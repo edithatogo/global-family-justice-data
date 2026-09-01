@@ -99,7 +99,13 @@ def _qualification(
             wrapper,
         )
         candidates = [
-            obj for obj in objects if obj["role"] == "metadata" and obj["sha256"] == digest
+            obj
+            for obj in objects
+            if obj["role"] == "metadata"
+            and obj["logical_object_id"] == wrapper["object_id"]
+            and obj["edition_id"] == wrapper["edition_id"]
+            and obj["layer"] == wrapper["record"]["layer"]
+            and obj["sha256"] == digest
         ]
         _require(len(candidates) == 1)
         wrapper_candidates.add(candidates[0]["object_id"])

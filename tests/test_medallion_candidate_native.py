@@ -4,6 +4,7 @@ import copy
 import json
 from pathlib import Path
 
+import pytest
 from blake3 import blake3
 
 from gfjd import medallion_candidate_native as native
@@ -127,6 +128,28 @@ def test_recomputes_qualification_and_preserves_all_cells():
     )
     assert all("source" not in str(cell).lower() for cell in summary["cells"])
     assert any(item["status"] == "checked_no_findings" for item in report["provenance"].values())
+
+
+def test_wrapper_binding_requires_identity_before_digest():
+    prepared = qualification_candidate()
+    wrapper = next(
+        obj for obj in prepared["scope"]["objects"] if obj["object_id"].startswith("wrapper")
+    )
+    wrapper["logical_object_id"] = "WRONG-LOGICAL"
+    with pytest.raises(ValueError):
+        assess_native_evidence(prepared)
+
+
+def test_unrelated_duplicate_wrapper_digest_does_not_create_ambiguity():
+    prepared = qualification_candidate()
+    wrapper = next(
+        obj for obj in prepared["scope"]["objects"] if obj["object_id"].startswith("wrapper")
+    )
+    unrelated = copy.deepcopy(wrapper)
+    unrelated.update(object_id="unrelated-wrapper", logical_object_id="OTHER", edition_id="OTHER")
+    prepared["scope"]["objects"].append(unrelated)
+    report = assess_native_evidence(prepared)
+    assert report["summaries"]["qualification"]["status"] == "recomputed"
 
 
 def test_unrelated_gold_bytes_cannot_borrow_disclosure():

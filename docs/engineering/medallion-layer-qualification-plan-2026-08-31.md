@@ -224,7 +224,7 @@ Recompute it with `python scripts/rehearse_medallion_qualification.py --verify`
 followed by that path. It binds the fictional test builder, rehearsal and adapter
 implementations. Provider-shaped fixtures are not retrieval evidence. The
 acceptance-bearing E-MEDALLION-MATURITY-QUALIFICATION remains missing, and
-WI-G4-MED-03 remains planned behind its existing dependencies.
+WI-G4-MED-03 remains `in_review` behind its existing dependencies.
 
 ## Hosted review fixes and replacement rehearsal
 

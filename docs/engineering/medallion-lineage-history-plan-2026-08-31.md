@@ -1,6 +1,6 @@
 # WI-G4-MED-02 — correction history and custody-bound replay
 
-Status: in progress; repository-owned implementation. The full work item remains
+Status: repository-owned implementation complete; full work item `in_review` and
 subject to real B0/B1/Silver evidence and accountable acceptance.
 
 Baseline: signed `3c9d9ec`, merged PR #136; `autonomy-full`, 745 tests twice,

@@ -35,10 +35,11 @@ exception at the outer CLI would obscure the specific validation error. Neither
 alternative is used. Existing malformed records remain invalid and require
 correction at their source; no sealed evidence is repaired by this change.
 
-## Remaining work
+## Subsequent work disposition
 
-`WI-G4-MED-02` remains planned. Public field lineage, bitemporal snapshot identity,
-ordered corrections, acyclic supersession and deterministic B0-to-B1/Silver
-replay still need their own implementation and evidence. These regression tests
-do not establish source truth, public custody, layer maturity, rights clearance,
-G2/G4 acceptance, publication or release readiness.
+Public field lineage, bitemporal snapshot identity, ordered corrections, acyclic
+supersession and deterministic replay mechanics were subsequently implemented.
+`WI-G4-MED-02` is now `in_review`; an empirical public B0-to-B1 and reviewed
+Silver rebuild remains missing. These prerequisite regression tests do not
+establish source truth, public custody, layer maturity, rights clearance, G2/G4
+acceptance, publication or release readiness.

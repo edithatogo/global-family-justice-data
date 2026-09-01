@@ -85,8 +85,9 @@ The [validator hardening report](docs/engineering/medallion-validator-hardening-
 records four malformed-input boundary corrections and 16 regression cases.
 Invalid evidence-name types, quarantine shapes, ordinals and layer identifiers
 now fail validation explicitly. Existing valid-promotion behaviour is retained.
-This supports the lineage/replay prerequisite only: `WI-G4-MED-02` remains
-planned, and no G2/G4 criterion or maturity state is promoted.
+This was a historical lineage/replay prerequisite. The later repository mechanics
+are complete and `WI-G4-MED-02` is `in_review`; empirical evidence remains missing,
+and no G2/G4 criterion or maturity state is promoted.
 
 | Capability | Current implementation |
 |---|---|

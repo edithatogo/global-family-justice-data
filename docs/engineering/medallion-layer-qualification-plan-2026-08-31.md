@@ -1,8 +1,8 @@
 # WI-G4-MED-03 — independent per-layer qualification preparation
 
-Status: completed repository-owned preparation. The acceptance-bearing work
-item remains planned behind WI-G4-MED-02; neither its dependencies nor acceptance
-criteria are waived by this engineering plan.
+Status: completed repository-owned preparation; acceptance-bearing work item
+`in_review` behind WI-G4-MED-02. Neither its dependencies nor acceptance criteria
+are waived by this engineering plan.
 
 Baseline: signed `fb3f277`, merged PR #137 at 2026-08-31T11:08:17Z. Both local
 post-review suite passes ran 891 tests; coverage was 80.53%. The complete

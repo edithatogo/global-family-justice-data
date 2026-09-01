@@ -195,6 +195,58 @@ def test_derived_provenance_requires_exact_declared_source_edge():
     )
     gold["edges"] = [{"relation": "source", "target_object_id": "native-scope"}]
     assert assess_native_evidence(prepared)["provenance"][gold["object_id"]]["status"] == "failed"
+    wrong_layer = copy.deepcopy(source)
+    wrong_layer.update(object_id="wrong-layer-source", layer="b1")
+    prepared["scope"]["objects"].append(wrong_layer)
+    gold["edges"] = [{"relation": "source", "target_object_id": wrong_layer["object_id"]}]
+    assert assess_native_evidence(prepared)["provenance"][gold["object_id"]]["status"] == "failed"
+
+
+def test_ambiguous_metadata_roles_remain_visible_as_unsupported(monkeypatch):
+    prepared = qualification_candidate()
+    bundle = prepared["evidence_bundles"]["qualification"]
+    original_report = native.medallion_qualification.qualify_layers(
+        bundle["scope_raw"],
+        bundle["scope_sha256"],
+        bundle["layer_contract_raw"],
+        bundle["record_bank"],
+        bundle["payload_bank"],
+        as_of=bundle["as_of"],
+    )
+    old_digest, old_raw = next(
+        (digest, raw)
+        for digest, raw in bundle["record_bank"].items()
+        if json.loads(raw)["record"]["layer"] == "b0"
+    )
+    wrapper = json.loads(old_raw)
+    capture_digest = wrapper["artifacts"]["capture"]
+    wrapper["artifacts"]["custody"] = capture_digest
+    new_raw = encoded(wrapper)
+    new_digest = sha(new_raw)
+    bundle["record_bank"].pop(old_digest)
+    bundle["record_bank"][new_digest] = new_raw
+    wrapper_candidate = next(
+        obj for obj in prepared["scope"]["objects"] if obj["sha256"] == old_digest
+    )
+    wrapper_candidate.update(
+        sha256=new_digest, blake3=blake3(new_raw).hexdigest(), size_bytes=len(new_raw)
+    )
+    monkeypatch.setattr(
+        native.medallion_qualification, "qualify_layers", lambda *a, **k: original_report
+    )
+    provenance = {
+        obj["object_id"]: {"status": "missing_evidence", "roles": [], "references": []}
+        for obj in prepared["scope"]["objects"]
+    }
+    native._qualification(
+        bundle,
+        prepared,
+        provenance,
+        {obj["object_id"]: "unsupported" for obj in prepared["scope"]["objects"]},
+    )
+    ambiguous = next(obj for obj in prepared["scope"]["objects"] if obj["sha256"] == capture_digest)
+    assert provenance[ambiguous["object_id"]]["status"] == "unsupported"
+    assert provenance[ambiguous["object_id"]]["roles"] == ["capture", "custody"]
 
 
 def test_exact_edge_cannot_mask_failed_native_lineage(monkeypatch):

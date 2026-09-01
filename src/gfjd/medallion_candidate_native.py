@@ -137,7 +137,14 @@ def _qualification(
                     else QUALIFICATION_ROLES.get((obj["layer"], obj["role"]), set())
                 )
                 roles = sorted(role for role in eligible if refs.get(role) == obj["sha256"])
-                _require(len(roles) <= 1)
+                if len(roles) > 1:
+                    provenance[obj["object_id"]] = {
+                        "status": "unsupported",
+                        "roles": roles,
+                        "references": [obj["sha256"], cell["record_sha256"]],
+                    }
+                    mapped.append(obj["object_id"])
+                    continue
                 if roles:
                     status = (
                         "checked_no_findings"
@@ -164,6 +171,7 @@ def _qualification(
                                 if len(targets) == 1
                                 and targets[0]["logical_object_id"] == key[0]
                                 and targets[0]["edition_id"] == key[1]
+                                and targets[0]["layer"] == layers[layers.index(key[2]) - 1]
                                 and targets[0]["sha256"] == expected_source
                                 else "failed"
                             )

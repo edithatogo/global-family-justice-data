@@ -49,6 +49,11 @@ scope-order-dependent lifecycle matches. Both regressions failed before commit
 `d30d70d`; association now requires the exact eligible Gold `rows` digest and a
 unique lifecycle content match among same-identity sibling roles.
 
+The first exact-head closeout retry stopped fail-closed because a nested-ZIP test
+fixture embedded wall-clock metadata and produced different collected IDs across
+parallel workers. Commit `c56f58d` fixes the fixture timestamp; no production
+contract or assertion was loosened.
+
 All seven tasks above remain part of this track. A scanner-only or status-matrix
 delivery must not be labelled completion of the full coordinator. Actual public
 release-candidate assurance remains separately unmet even after preparation works.

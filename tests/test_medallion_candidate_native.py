@@ -1,10 +1,12 @@
 """Fictional native associations, never public execution evidence."""
 
+import copy
 import json
 from pathlib import Path
 
 from blake3 import blake3
 
+from gfjd import medallion_candidate_native as native
 from gfjd.medallion_candidate_inputs import bundle_fingerprint, prepare_candidate_inputs
 from gfjd.medallion_candidate_native import assess_native_evidence
 from tests.test_medallion_candidate_inputs import call, encoded, fixture, sha
@@ -125,3 +127,78 @@ def test_recomputes_qualification_and_preserves_all_cells():
     )
     assert all("source" not in str(cell).lower() for cell in summary["cells"])
     assert any(item["status"] == "checked_no_findings" for item in report["provenance"].values())
+
+
+def test_unrelated_gold_bytes_cannot_borrow_disclosure():
+    prepared = qualification_candidate()
+    gold = next(
+        obj
+        for obj in prepared["scope"]["objects"]
+        if obj["layer"] == "gold" and obj["role"] == "data"
+    )
+    unrelated = copy.deepcopy(gold)
+    raw = b'{"fictional":"unrelated"}'
+    unrelated.update(
+        object_id="unrelated-gold",
+        sha256=sha(raw),
+        blake3=blake3(raw).hexdigest(),
+        size_bytes=len(raw),
+    )
+    prepared["scope"]["objects"].append(unrelated)
+    prepared["candidate_bank"][sha(raw)] = raw
+    report = assess_native_evidence(prepared)
+    assert report["disclosure"]["unrelated-gold"] == "unsupported"
+    assert report["provenance"]["unrelated-gold"]["status"] == "missing_evidence"
+
+
+def test_lifecycle_matches_unique_exact_sibling_not_scope_order(monkeypatch):
+    matching = {
+        "object_id": "matching",
+        "logical_object_id": "LOGICAL",
+        "edition_id": "EDITION",
+        "layer": "gold",
+        "role": "data",
+        "lifecycle": "active",
+        "sha256": "a" * 64,
+    }
+    unrelated = {
+        **matching,
+        "object_id": "unrelated",
+        "role": "metadata",
+        "sha256": "b" * 64,
+    }
+    report = {
+        "as_of": "2026-09-01T00:00:00Z",
+        "heads": [{"artifact_id": "ART", "state": "active"}],
+        "inventory": [
+            {
+                "artifact_id": "ART",
+                "object_id": "LOGICAL",
+                "edition_id": "EDITION",
+                "layer": "gold",
+                "content_sha256": "a" * 64,
+                "state": "active",
+            }
+        ],
+        "declared_provider_backlog": [],
+    }
+    monkeypatch.setattr(
+        native.medallion_lifecycle, "assess_lifecycle_journal", lambda *a, **k: report
+    )
+    prepared = {
+        "plan": {"as_of": report["as_of"]},
+        "scope": {"objects": [matching, unrelated]},
+    }
+    summary = native._lifecycle(
+        {
+            "plan_raw": b"x",
+            "expected_plan_sha256": "x",
+            "scope_raw": b"x",
+            "layer_contract_raw": b"x",
+            "checkpoint_raw": b"x",
+            "event_bank": {},
+            "receipt_bank": {},
+        },
+        prepared,
+    )
+    assert summary["cells"][0]["candidate_id"] == "matching"

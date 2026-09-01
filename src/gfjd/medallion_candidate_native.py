@@ -136,7 +136,7 @@ def _qualification(
                         "references": [obj["sha256"], cell["record_sha256"]],
                     }
                     mapped.append(obj["object_id"])
-                if obj["layer"] == "gold" and obj["role"] == "data":
+                if obj["layer"] == "gold" and obj["role"] == "data" and roles == ["rows"]:
                     quality = cell["dimensions"].get("quality")
                     quarantine = cell["dimensions"].get("quarantine")
                     disclosure[obj["object_id"]] = (
@@ -212,26 +212,30 @@ def _lifecycle(bundle: dict[str, Any], prepared: dict[str, Any]) -> dict[str, An
         bundle["receipt_bank"],
     )
     _require(report["as_of"] == prepared["plan"]["as_of"])
-    candidates = {
-        (o["logical_object_id"], o["edition_id"], o["layer"]): o
-        for o in prepared["scope"]["objects"]
-    }
+    candidates: dict[tuple[str, str, str], list[dict[str, Any]]] = {}
+    for obj in prepared["scope"]["objects"]:
+        candidates.setdefault(
+            (obj["logical_object_id"], obj["edition_id"], obj["layer"]), []
+        ).append(obj)
     active = {row["artifact_id"] for row in report["heads"] if row["state"] == "active"}
     gaps, cells = [], []
     for item in report["inventory"]:
-        candidate = candidates.get((item["object_id"], item["edition_id"], item["layer"]))
+        siblings = candidates.get((item["object_id"], item["edition_id"], item["layer"]), [])
+        matching = [
+            candidate for candidate in siblings if candidate["sha256"] == item["content_sha256"]
+        ]
+        _require(len(matching) <= 1)
+        candidate = matching[0] if matching else None
         if item["artifact_id"] in active:
             _require(candidate is not None)
             assert candidate is not None
             _require(candidate["lifecycle"] == "active")
-            _require(candidate["sha256"] == item["content_sha256"])
-        elif candidate is None:
+        elif candidate is None and not siblings:
             gaps.append(sha(item["artifact_id"].encode()))
+        elif candidate is None:
+            _require(False)
         else:
-            _require(
-                candidate["sha256"] == item["content_sha256"]
-                and candidate["lifecycle"] == item["state"]
-            )
+            _require(candidate["lifecycle"] == item["state"])
         cells.append(
             {
                 "artifact_id_sha256": sha(item["artifact_id"].encode()),

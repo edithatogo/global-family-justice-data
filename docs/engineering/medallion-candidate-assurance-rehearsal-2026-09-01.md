@@ -41,6 +41,12 @@ The following completed review found three further fail-closed defects. Commit
 SHA-256, BLAKE3, size and declared source; and prevents unbound package objects from
 borrowing dependency success through shared metadata bytes. The focused suite
 passes 181 tests.
+The next review required the source edge's target layer to be the immediate native
+predecessor and required legitimate multi-role digest ambiguity to remain visible
+as unsupported rather than aborting the report. Commit `b22e048` implements both;
+the focused suite passes 182 tests. The reported Boolean-size issue was already
+closed by exact `type(size) is int` validation and an existing `size = true`
+negative regression, so no production change was made for that false positive.
 
 No network, provider, source, package installer, executable, vulnerability feed or
 locator was requested. Internal consistency does not establish actual inventory

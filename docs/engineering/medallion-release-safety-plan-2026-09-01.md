@@ -66,6 +66,12 @@ size and declared source bindings to agree with the candidate, and permits packa
 dependency success only through an exact validated package binding. All three
 regressions failed before commit `8e437cd`; the focused suite passes 181 tests.
 
+Further review remediation requires a derived source target's layer to equal the
+immediate predecessor and reports multiple eligible provenance roles as unsupported
+instead of rejecting the complete operation. Both regressions failed before commit
+`b22e048`; the focused suite passes 182 tests. Distribution sizes already require
+exact integer type and `size = true` already has a negative regression.
+
 The first exact-head closeout retry stopped fail-closed because a nested-ZIP test
 fixture embedded wall-clock metadata and produced different collected IDs across
 parallel workers. Commit `c56f58d` fixes the fixture timestamp; no production

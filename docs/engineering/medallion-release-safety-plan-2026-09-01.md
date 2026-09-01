@@ -25,20 +25,20 @@ precomputed success receipts. Missing evidence is reported, never invented.
 
 ## Full implementation sequence and acceptance scope
 
-- [~] Candidate-byte scanner with hard text/JSON/CSV/XLSX/ZIP bounds and explicit
+- [x] Candidate-byte scanner with hard text/JSON/CSV/XLSX/ZIP bounds and explicit
   unsupported outcomes for other formats; immutable finding codes and no output
   excerpts. This is a component, not complete WI-G5-MED-03 preparation.
-- [ ] Full candidate inventory/root/role-edge/locator binder; exact supplied-bank
+- [x] Full candidate inventory/root/role-edge/locator binder; exact supplied-bank
   membership and SHA-256/BLAKE3/size, preserving all declared categories.
-- [ ] Typed qualifier/restore/lifecycle evidence-input binding and independent
+- [x] Typed qualifier/restore/lifecycle evidence-input binding and independent
   recomputation; reject wrong candidate/time/scope associations. Do not accept
   precomputed "passed" reports as proof.
-- [ ] Pure supplied-byte lock/SBOM dependency graph and package-binding checks;
+- [x] Pure supplied-byte lock/SBOM dependency graph and package-binding checks;
   retain vulnerability-feed freshness, authenticity and signatures as unverified.
-- [ ] Eight-dimension coordinator: fixity, secrets, prohibited data, disclosure,
+- [x] Eight-dimension coordinator: fixity, secrets, prohibited data, disclosure,
   dependencies, provenance, supply chain and locators for every inventory member.
   Compiler-owned applicability and finding severity; no caller-provided waivers.
-- [ ] Fictional all-role rehearsal and adversarial tests including unsupported
+- [x] Fictional all-role rehearsal and adversarial tests including unsupported
   package/media, auxiliary secret, omitted history, false audit/disclosure success,
   lock/SBOM mismatch, unsafe locator and rehashed report forgery.
 - [ ] Role-separated review, full validation, signed reviewed PR, CI, merge and
@@ -105,6 +105,13 @@ core content-type/workbook members and passes the same XML constraints; do not
 claim source extraction or workbook semantic correctness from scanner success.
 CSV/JSON/XML members with unsupported coverage make the package coverage explicit.
 Unknown member extensions are unsupported even if bytes happen to decode.
+
+Review remediation: decode namespace declarations too, including unused prefixes
+and numeric character references. After `_xmls` hard preflight, a bounded second
+in-memory XML pass observes namespace events; members are not decompressed again.
+Bound namespace events across the package to 100,000 and each prefix/URI to 4,096
+characters. Scan full expanded tags as well. Both used/unused escaped-namespace
+regressions failed before this fix; the scanner suite now passes 71 tests.
 
 Report separate secret and prohibited-data results using checked_no_findings,
 failed or unsupported, along with the exact limited check scope. Overall scanner

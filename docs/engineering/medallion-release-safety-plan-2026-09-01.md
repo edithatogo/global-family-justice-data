@@ -49,6 +49,12 @@ scope-order-dependent lifecycle matches. Both regressions failed before commit
 `d30d70d`; association now requires the exact eligible Gold `rows` digest and a
 unique lifecycle content match among same-identity sibling roles.
 
+Second hosted-review remediation requires exact source edges from derived data and
+transformations to the native immediate-predecessor bytes. Missing edges remain
+missing provenance and wrong edges fail. Inactive historical artifacts without
+supplied bytes remain digest-only gaps even when a newer sibling exists. Both
+regressions failed before commit `9640d23`; the focused suite passes 176 tests.
+
 The first exact-head closeout retry stopped fail-closed because a nested-ZIP test
 fixture embedded wall-clock metadata and produced different collected IDs across
 parallel workers. Commit `c56f58d` fixes the fixture timestamp; no production

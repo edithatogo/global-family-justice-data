@@ -27,7 +27,11 @@ network-disabled locator syntax and forged report self-hashes. Hosted review the
 identified two sibling-association defects. Commit `d30d70d` added meaningful
 failing regressions and now requires exact Gold row mapping for disclosure plus a
 unique lifecycle content match across sibling roles; the focused suite passes 174
-tests.
+tests. A second hosted review then identified missing source-edge enforcement and
+incorrect treatment of missing historical bytes when a newer sibling existed.
+Commit `9640d23` requires an exact immediate-predecessor edge for derived native
+provenance and preserves unmatched inactive artifacts as digest-only gaps. The
+focused suite now passes 176 tests.
 
 No network, provider, source, package installer, executable, vulnerability feed or
 locator was requested. Internal consistency does not establish actual inventory

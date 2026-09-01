@@ -36,6 +36,11 @@ An exact-head review then found digest-only wrapper association. Commit `fa3d650
 requires wrapper logical object, edition and layer identity before digest matching;
 both mismatched-identity and unrelated-duplicate regressions now pass. The focused
 suite passes 178 tests.
+The following completed review found three further fail-closed defects. Commit
+`8e437cd` prevents exact edges from masking failed native lineage; matches lifecycle
+SHA-256, BLAKE3, size and declared source; and prevents unbound package objects from
+borrowing dependency success through shared metadata bytes. The focused suite
+passes 181 tests.
 
 No network, provider, source, package installer, executable, vulnerability feed or
 locator was requested. Internal consistency does not establish actual inventory

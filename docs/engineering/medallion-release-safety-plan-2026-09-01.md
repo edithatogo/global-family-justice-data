@@ -60,6 +60,12 @@ match logical object, edition and layer before bytes. Mismatched identities reje
 an unrelated duplicate digest no longer creates ambiguity. Both regressions failed
 before commit `fa3d650`; the focused suite passes 178 tests.
 
+Subsequent hosted-review remediation preserves a failed/pending native lineage
+result even with an exact source edge, requires lifecycle content SHA-256/BLAKE3/
+size and declared source bindings to agree with the candidate, and permits package
+dependency success only through an exact validated package binding. All three
+regressions failed before commit `8e437cd`; the focused suite passes 181 tests.
+
 The first exact-head closeout retry stopped fail-closed because a nested-ZIP test
 fixture embedded wall-clock metadata and produced different collected IDs across
 parallel workers. Commit `c56f58d` fixes the fixture timestamp; no production

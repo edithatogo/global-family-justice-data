@@ -83,6 +83,7 @@ def _qualification(
     )
     _require(bundle["as_of"] == prepared["plan"]["as_of"])
     objects = prepared["scope"]["objects"]
+    objects_by_id = {obj["object_id"]: obj for obj in objects}
     by_identity: dict[tuple[str, str, str], list[dict[str, Any]]] = {}
     for obj in objects:
         by_identity.setdefault(
@@ -102,6 +103,19 @@ def _qualification(
         ]
         _require(len(candidates) == 1)
         wrapper_candidates.add(candidates[0]["object_id"])
+    data_roles = {"b0": "source", "b1": "rows", "silver": "rows", "gold": "rows"}
+    layers = ("b0", "b1", "silver", "gold", "platinum")
+    source_by_identity_layer = {}
+    for key in wrappers:
+        position = layers.index(key[2])
+        if position == 0:
+            continue
+        predecessor_key = (key[0], key[1], layers[position - 1])
+        predecessor = wrappers.get(predecessor_key)
+        if predecessor is not None:
+            source_by_identity_layer[key] = predecessor[1]["artifacts"].get(
+                data_roles.get(predecessor_key[2], "")
+            )
     cells = []
     for cell in report["coverage"]:
         key = (cell["object_id"], cell["edition_id"], cell["layer"])
@@ -119,19 +133,36 @@ def _qualification(
                 roles = sorted(role for role in eligible if refs.get(role) == obj["sha256"])
                 _require(len(roles) <= 1)
                 if roles:
-                    provenance[obj["object_id"]] = {
-                        "status": (
-                            "checked_no_findings"
-                            if cell["dimensions"].get("lineage") == "verified"
-                            or (
-                                obj["layer"] == "b0"
-                                and cell["dimensions"].get("fixity") == "verified"
+                    status = (
+                        "checked_no_findings"
+                        if cell["dimensions"].get("lineage") == "verified"
+                        or (obj["layer"] == "b0" and cell["dimensions"].get("fixity") == "verified")
+                        or obj["role"] == "metadata"
+                        else "failed"
+                        if cell["dimensions"].get("lineage") == "failed"
+                        else "missing_evidence"
+                    )
+                    if obj["role"] in {"data", "transformation"} and obj["layer"] != "b0":
+                        source_edges = [
+                            edge for edge in obj["edges"] if edge["relation"] == "source"
+                        ]
+                        expected_source = source_by_identity_layer.get(key)
+                        if not source_edges or expected_source is None:
+                            status = "missing_evidence"
+                        else:
+                            targets = [
+                                objects_by_id[edge["target_object_id"]] for edge in source_edges
+                            ]
+                            status = (
+                                "checked_no_findings"
+                                if len(targets) == 1
+                                and targets[0]["logical_object_id"] == key[0]
+                                and targets[0]["edition_id"] == key[1]
+                                and targets[0]["sha256"] == expected_source
+                                else "failed"
                             )
-                            or obj["role"] == "metadata"
-                            else "failed"
-                            if cell["dimensions"].get("lineage") == "failed"
-                            else "missing_evidence"
-                        ),
+                    provenance[obj["object_id"]] = {
+                        "status": status,
                         "roles": roles,
                         "references": [obj["sha256"], cell["record_sha256"]],
                     }
@@ -230,10 +261,8 @@ def _lifecycle(bundle: dict[str, Any], prepared: dict[str, Any]) -> dict[str, An
             _require(candidate is not None)
             assert candidate is not None
             _require(candidate["lifecycle"] == "active")
-        elif candidate is None and not siblings:
-            gaps.append(sha(item["artifact_id"].encode()))
         elif candidate is None:
-            _require(False)
+            gaps.append(sha(item["artifact_id"].encode()))
         else:
             _require(candidate["lifecycle"] == item["state"])
         cells.append(

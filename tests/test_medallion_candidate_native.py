@@ -151,6 +151,29 @@ def test_unrelated_gold_bytes_cannot_borrow_disclosure():
     assert report["provenance"]["unrelated-gold"]["status"] == "missing_evidence"
 
 
+def test_derived_provenance_requires_exact_declared_source_edge():
+    prepared = qualification_candidate()
+    gold = next(
+        obj
+        for obj in prepared["scope"]["objects"]
+        if obj["layer"] == "gold" and obj["role"] == "data"
+    )
+    source = next(
+        obj
+        for obj in prepared["scope"]["objects"]
+        if obj["layer"] == "silver" and obj["role"] == "data"
+    )
+    assert assess_native_evidence(prepared)["provenance"][gold["object_id"]]["status"] == (
+        "missing_evidence"
+    )
+    gold["edges"] = [{"relation": "source", "target_object_id": source["object_id"]}]
+    assert assess_native_evidence(prepared)["provenance"][gold["object_id"]]["status"] == (
+        "checked_no_findings"
+    )
+    gold["edges"] = [{"relation": "source", "target_object_id": "native-scope"}]
+    assert assess_native_evidence(prepared)["provenance"][gold["object_id"]]["status"] == "failed"
+
+
 def test_lifecycle_matches_unique_exact_sibling_not_scope_order(monkeypatch):
     matching = {
         "object_id": "matching",
@@ -202,3 +225,56 @@ def test_lifecycle_matches_unique_exact_sibling_not_scope_order(monkeypatch):
         prepared,
     )
     assert summary["cells"][0]["candidate_id"] == "matching"
+
+
+def test_lifecycle_preserves_missing_inactive_history_with_current_sibling(monkeypatch):
+    current = {
+        "object_id": "current",
+        "logical_object_id": "LOGICAL",
+        "edition_id": "EDITION",
+        "layer": "gold",
+        "role": "data",
+        "lifecycle": "active",
+        "sha256": "a" * 64,
+    }
+    report = {
+        "as_of": "2026-09-01T00:00:00Z",
+        "heads": [{"artifact_id": "CURRENT", "state": "active"}],
+        "inventory": [
+            {
+                "artifact_id": "OLD",
+                "object_id": "LOGICAL",
+                "edition_id": "EDITION",
+                "layer": "gold",
+                "content_sha256": "b" * 64,
+                "state": "withdrawn",
+            },
+            {
+                "artifact_id": "CURRENT",
+                "object_id": "LOGICAL",
+                "edition_id": "EDITION",
+                "layer": "gold",
+                "content_sha256": "a" * 64,
+                "state": "active",
+            },
+        ],
+        "declared_provider_backlog": [],
+    }
+    monkeypatch.setattr(
+        native.medallion_lifecycle, "assess_lifecycle_journal", lambda *a, **k: report
+    )
+    prepared = {"plan": {"as_of": report["as_of"]}, "scope": {"objects": [current]}}
+    summary = native._lifecycle(
+        {
+            "plan_raw": b"x",
+            "expected_plan_sha256": "x",
+            "scope_raw": b"x",
+            "layer_contract_raw": b"x",
+            "checkpoint_raw": b"x",
+            "event_bank": {},
+            "receipt_bank": {},
+        },
+        prepared,
+    )
+    assert len(summary["historical_digest_only_gaps"]) == 1
+    assert summary["cells"][0]["candidate_id"] is None

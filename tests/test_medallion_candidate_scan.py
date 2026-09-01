@@ -18,7 +18,14 @@ def package(members, compression=zipfile.ZIP_STORED):
     stream = io.BytesIO()
     with zipfile.ZipFile(stream, "w", compression=compression) as archive:
         for name, raw in members:
-            archive.writestr(name, raw)
+            entry = (
+                name
+                if isinstance(name, zipfile.ZipInfo)
+                else zipfile.ZipInfo(name, date_time=(2026, 9, 1, 0, 0, 0))
+            )
+            if not isinstance(name, zipfile.ZipInfo):
+                entry.compress_type = compression
+            archive.writestr(entry, raw)
     return stream.getvalue()
 
 

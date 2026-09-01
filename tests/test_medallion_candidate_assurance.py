@@ -66,7 +66,8 @@ def archive(members):
     stream = io.BytesIO()
     with zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_STORED) as zipped:
         for name, raw in members:
-            zipped.writestr(name, raw)
+            entry = zipfile.ZipInfo(name, date_time=(2026, 9, 1, 0, 0, 0))
+            zipped.writestr(entry, raw)
     return stream.getvalue()
 
 

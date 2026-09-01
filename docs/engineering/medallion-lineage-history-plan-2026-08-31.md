@@ -127,6 +127,6 @@ Post-fix checkpoint on `fb3f277`: `autonomy-full` exited 0, with 891 tests in
 each suite pass and 80.53% coverage. All integration/restore, package-policy,
 wheel/sdist/release reproducibility and autonomy-context checks passed. Both
 hosted review threads were resolved, and all 17 checks passed before the signed
-history-preserving merge. The full WI-G4-MED-02 remains in progress because its
-genuine source/custody and reviewed empirical rebuild criteria are not supplied
-by this synthetic engineering completion.
+history-preserving merge. Repository mechanics are complete and WI-G4-MED-02 is
+`in_review`; its genuine source/custody and reviewed empirical rebuild evidence
+remains missing after this synthetic engineering completion.

@@ -20,22 +20,24 @@ The inspected resume packet incorrectly put WI-G4-MED-04 (public Hugging Face
 publication) into the repository-owned queue because it was planned. This is
 a preparation-control defect, not evidence of an unauthorised publication.
 
-## Ordered remaining queue
+## Queue disposition
 
-1. WI-G4-MED-02: implement and test append-only correction history, explicit
-   valid/recorded intervals, acyclic supersession and deterministic partition
-   replay. Begin with conspicuously synthetic fixtures, never failed G2 outputs.
-2. WI-G4-MED-02: integrate verified B0 custody/safety bindings with source-faithful
-   B1 and reviewed Silver rebuilds. Implement local contracts and fixtures first;
-   actual source access must match an existing bounded authorisation or wait.
-3. WI-G4-MED-03: prepare independent per-layer qualification and quarantine
-   checks. Respect Conductor dependencies; preparation is not acceptance.
-4. WI-G4-MED-04/05: prepare estate manifests, federation metadata and dry-run
-   verification. Public writes and cross-repository changes require their exact
-   applicable authority and cannot be inferred from a planned work item.
-5. WI-G5-MED-01/02/03: prepare restore, lifecycle and safety rehearsals as their
-   dependencies allow. Actual remote execution and factual completion remain
-   separately evidenced. G6 publication remains gated.
+1. [x] WI-G4-MED-02 repository mechanics: append-only correction history,
+   explicit valid/recorded intervals, acyclic supersession, deterministic replay
+   and custody/safety-binding contracts are implemented and reviewed with
+   conspicuously fictional fixtures.
+2. [ ] WI-G4-MED-02 empirical evidence: a source-faithful public B0-to-B1 and
+   reviewed Silver rebuild remains evidence-required. It is not autonomous work
+   and must not be inferred from the completed mechanics.
+3. [x] WI-G4-MED-03 repository preparation: per-layer qualification and
+   quarantine checks are implemented with synthetic evidence; acceptance remains
+   dependency- and fact-bound.
+4. [x] WI-G4-MED-04/05 repository preparation: estate manifests, federation
+   metadata and dry-run verification are implemented. Public writes and factual
+   registration remain external actions under their applicable authority.
+5. [x] WI-G5-MED-01/02/03 repository preparation: restore, lifecycle and safety
+   rehearsals are implemented. Actual public restore, operations and candidate
+   assurance remain separately evidenced. G6 publication remains gated.
 
 ## Execution recommendation and alternatives
 

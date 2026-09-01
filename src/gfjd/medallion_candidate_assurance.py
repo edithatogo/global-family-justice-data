@@ -115,7 +115,8 @@ def _assess(
         if dependency is not None:
             graph_status = (
                 "checked_no_findings"
-                if obj["sha256"] in dependency_digests or identity in package_ids
+                if identity in package_ids
+                or (obj["role"] != "package" and obj["sha256"] in dependency_digests)
                 else "unsupported"
             )
             dimensions["dependencies"] = graph_status

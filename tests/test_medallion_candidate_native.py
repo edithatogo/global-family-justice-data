@@ -197,6 +197,32 @@ def test_derived_provenance_requires_exact_declared_source_edge():
     assert assess_native_evidence(prepared)["provenance"][gold["object_id"]]["status"] == "failed"
 
 
+def test_exact_edge_cannot_mask_failed_native_lineage(monkeypatch):
+    prepared = qualification_candidate()
+    gold = next(
+        obj
+        for obj in prepared["scope"]["objects"]
+        if obj["layer"] == "gold" and obj["role"] == "data"
+    )
+    source = next(
+        obj
+        for obj in prepared["scope"]["objects"]
+        if obj["layer"] == "silver" and obj["role"] == "data"
+    )
+    gold["edges"] = [{"relation": "source", "target_object_id": source["object_id"]}]
+    original = native.medallion_qualification.qualify_layers
+
+    def failed(*args, **kwargs):
+        report = copy.deepcopy(original(*args, **kwargs))
+        next(cell for cell in report["coverage"] if cell["layer"] == "gold")["dimensions"][
+            "lineage"
+        ] = "failed"
+        return report
+
+    monkeypatch.setattr(native.medallion_qualification, "qualify_layers", failed)
+    assert assess_native_evidence(prepared)["provenance"][gold["object_id"]]["status"] == "failed"
+
+
 def test_lifecycle_matches_unique_exact_sibling_not_scope_order(monkeypatch):
     matching = {
         "object_id": "matching",
@@ -206,6 +232,9 @@ def test_lifecycle_matches_unique_exact_sibling_not_scope_order(monkeypatch):
         "role": "data",
         "lifecycle": "active",
         "sha256": "a" * 64,
+        "blake3": "c" * 64,
+        "size_bytes": 10,
+        "edges": [],
     }
     unrelated = {
         **matching,
@@ -223,6 +252,9 @@ def test_lifecycle_matches_unique_exact_sibling_not_scope_order(monkeypatch):
                 "edition_id": "EDITION",
                 "layer": "gold",
                 "content_sha256": "a" * 64,
+                "content_blake3": "c" * 64,
+                "size_bytes": 10,
+                "source_sha256": "a" * 64,
                 "state": "active",
             }
         ],
@@ -250,6 +282,62 @@ def test_lifecycle_matches_unique_exact_sibling_not_scope_order(monkeypatch):
     assert summary["cells"][0]["candidate_id"] == "matching"
 
 
+def test_lifecycle_rejects_candidate_fixity_or_source_mismatch(monkeypatch):
+    candidate = {
+        "object_id": "candidate",
+        "logical_object_id": "LOGICAL",
+        "edition_id": "EDITION",
+        "layer": "b0",
+        "role": "data",
+        "lifecycle": "active",
+        "sha256": "a" * 64,
+        "blake3": "b" * 64,
+        "size_bytes": 10,
+        "edges": [],
+    }
+    base = {
+        "artifact_id": "ART",
+        "object_id": "LOGICAL",
+        "edition_id": "EDITION",
+        "layer": "b0",
+        "content_sha256": "a" * 64,
+        "content_blake3": "b" * 64,
+        "size_bytes": 10,
+        "source_sha256": "a" * 64,
+        "state": "active",
+    }
+    bundle = {
+        "plan_raw": b"x",
+        "expected_plan_sha256": "x",
+        "scope_raw": b"x",
+        "layer_contract_raw": b"x",
+        "checkpoint_raw": b"x",
+        "event_bank": {},
+        "receipt_bank": {},
+    }
+    prepared = {
+        "plan": {"as_of": "2026-09-01T00:00:00Z"},
+        "scope": {"objects": [candidate]},
+    }
+    for field, value in (
+        ("content_blake3", "c" * 64),
+        ("size_bytes", 11),
+        ("source_sha256", "d" * 64),
+    ):
+        item = {**base, field: value}
+        report = {
+            "as_of": prepared["plan"]["as_of"],
+            "heads": [{"artifact_id": "ART", "state": "active"}],
+            "inventory": [item],
+            "declared_provider_backlog": [],
+        }
+        monkeypatch.setattr(
+            native.medallion_lifecycle, "assess_lifecycle_journal", lambda *a, r=report, **k: r
+        )
+        with pytest.raises(ValueError):
+            native._lifecycle(bundle, prepared)
+
+
 def test_lifecycle_preserves_missing_inactive_history_with_current_sibling(monkeypatch):
     current = {
         "object_id": "current",
@@ -259,6 +347,9 @@ def test_lifecycle_preserves_missing_inactive_history_with_current_sibling(monke
         "role": "data",
         "lifecycle": "active",
         "sha256": "a" * 64,
+        "blake3": "c" * 64,
+        "size_bytes": 10,
+        "edges": [],
     }
     report = {
         "as_of": "2026-09-01T00:00:00Z",
@@ -271,6 +362,9 @@ def test_lifecycle_preserves_missing_inactive_history_with_current_sibling(monke
                 "layer": "gold",
                 "content_sha256": "b" * 64,
                 "state": "withdrawn",
+                "content_blake3": "d" * 64,
+                "size_bytes": 9,
+                "source_sha256": "b" * 64,
             },
             {
                 "artifact_id": "CURRENT",
@@ -279,6 +373,9 @@ def test_lifecycle_preserves_missing_inactive_history_with_current_sibling(monke
                 "layer": "gold",
                 "content_sha256": "a" * 64,
                 "state": "active",
+                "content_blake3": "c" * 64,
+                "size_bytes": 10,
+                "source_sha256": "a" * 64,
             },
         ],
         "declared_provider_backlog": [],

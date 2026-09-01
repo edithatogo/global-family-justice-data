@@ -154,12 +154,12 @@ def _qualification(
                         ]
                         expected_source = source_by_identity_layer.get(key)
                         if not source_edges or expected_source is None:
-                            status = "missing_evidence"
+                            edge_status = "missing_evidence"
                         else:
                             targets = [
                                 objects_by_id[edge["target_object_id"]] for edge in source_edges
                             ]
-                            status = (
+                            edge_status = (
                                 "checked_no_findings"
                                 if len(targets) == 1
                                 and targets[0]["logical_object_id"] == key[0]
@@ -167,6 +167,13 @@ def _qualification(
                                 and targets[0]["sha256"] == expected_source
                                 else "failed"
                             )
+                        status = (
+                            "failed"
+                            if "failed" in {status, edge_status}
+                            else "checked_no_findings"
+                            if status == edge_status == "checked_no_findings"
+                            else "missing_evidence"
+                        )
                     provenance[obj["object_id"]] = {
                         "status": status,
                         "roles": roles,
@@ -254,12 +261,17 @@ def _lifecycle(bundle: dict[str, Any], prepared: dict[str, Any]) -> dict[str, An
         candidates.setdefault(
             (obj["logical_object_id"], obj["edition_id"], obj["layer"]), []
         ).append(obj)
+    objects_by_id = {obj["object_id"]: obj for obj in prepared["scope"]["objects"]}
     active = {row["artifact_id"] for row in report["heads"] if row["state"] == "active"}
     gaps, cells = [], []
     for item in report["inventory"]:
         siblings = candidates.get((item["object_id"], item["edition_id"], item["layer"]), [])
         matching = [
-            candidate for candidate in siblings if candidate["sha256"] == item["content_sha256"]
+            candidate
+            for candidate in siblings
+            if candidate["sha256"] == item["content_sha256"]
+            and candidate["blake3"] == item["content_blake3"]
+            and candidate["size_bytes"] == item["size_bytes"]
         ]
         _require(len(matching) <= 1)
         candidate = matching[0] if matching else None
@@ -271,6 +283,16 @@ def _lifecycle(bundle: dict[str, Any], prepared: dict[str, Any]) -> dict[str, An
             gaps.append(sha(item["artifact_id"].encode()))
         else:
             _require(candidate["lifecycle"] == item["state"])
+        if candidate is not None:
+            source_edges = [edge for edge in candidate["edges"] if edge["relation"] == "source"]
+            if candidate["layer"] == "b0":
+                _require(item["source_sha256"] == candidate["sha256"])
+            elif source_edges:
+                _require(
+                    len(source_edges) == 1
+                    and objects_by_id[source_edges[0]["target_object_id"]]["sha256"]
+                    == item["source_sha256"]
+                )
         cells.append(
             {
                 "artifact_id_sha256": sha(item["artifact_id"].encode()),

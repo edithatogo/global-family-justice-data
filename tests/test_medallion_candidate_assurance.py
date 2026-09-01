@@ -169,6 +169,33 @@ def test_dependency_graph_is_not_package_authenticity(dependency_case):
     assert report["release_status"] == "blocked"
 
 
+def test_unbound_package_cannot_borrow_dependency_metadata_digest(dependency_case):
+    args, kwargs = dependency_case
+    data = fixture()
+    created = {}
+    for obj in kwargs["scope_objects"]:
+        created[obj["object_id"]] = add(
+            data,
+            obj["object_id"],
+            kwargs["candidate_bank"][obj["sha256"]],
+            obj["role"],
+            "text/plain" if obj["object_id"] in {"lock", "wheel"} else "application/json",
+        )
+    duplicate = copy.deepcopy(created["lock"])
+    duplicate.update(object_id="unbound-shared-lock-package", role="package")
+    data[1]["objects"].append(duplicate)
+    bundle = dict(zip(("lock_raw", "sbom_raw", "package_bindings_raw"), args, strict=True))
+    bundle["project_name"] = kwargs["project_name"]
+    data[3]["dependencies"] = bundle
+    data[0]["evidence_bindings"]["dependencies"] = bundle_fingerprint(bundle)
+    row = next(
+        item
+        for item in assess(data)["objects"]
+        if item["object_id"] == "unbound-shared-lock-package"
+    )
+    assert row["dimensions"]["dependencies"] == "unsupported"
+
+
 def test_locator_declarations_remain_unrequested(monkeypatch):
     import socket
 

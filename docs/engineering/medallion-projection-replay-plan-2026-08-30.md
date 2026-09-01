@@ -71,5 +71,6 @@ Implementation commit: `08fe50a` (module and 30 synthetic regression cases).
 The focused suite passes. Tests cover exact strings and row order, pointer
 escaping, explicit clocks, malformed contracts and sources, duplicate keys,
 byte/row/field/cell budgets and receipt tampering, including false-versus-zero.
-This is supporting implementation evidence only. WI-G4-MED-02 remains in
-progress; its acceptance-bearing lineage/replay evidence remains incomplete.
+This is supporting implementation evidence only. Repository mechanics are
+complete and WI-G4-MED-02 is `in_review`; its acceptance-bearing empirical
+lineage/replay evidence remains missing.

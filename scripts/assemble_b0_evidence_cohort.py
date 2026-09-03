@@ -24,24 +24,25 @@ def sha256(path: Path) -> str:
 
 def assemble(root: Path, inventory: Path) -> dict[str, object]:
     rows: list[dict[str, object]] = []
-    for record in csv.DictReader(inventory.open(newline="", encoding="utf-8")):
-        payload = root / record["payload_path"]
-        exists = payload.is_file()
-        observed = sha256(payload) if exists else None
-        digest_matches = observed == record["sha256"] if exists else False
-        rows.append(
-            {
-                "inventory_id": record["inventory_id"],
-                "source_id": record["source_id"],
-                "edition": record["edition"],
-                "payload_path": record["payload_path"],
-                "expected_sha256": record["sha256"],
-                "observed_sha256": observed,
-                "exists": exists,
-                "digest_matches": digest_matches,
-                "status": "eligible_b0" if digest_matches else "blocked_missing_or_mismatched_bytes",
-            }
-        )
+    with inventory.open(newline="", encoding="utf-8") as handle:
+        for record in csv.DictReader(handle):
+            payload = root / record["payload_path"]
+            exists = payload.is_file()
+            observed = sha256(payload) if exists else None
+            digest_matches = observed == record["sha256"] if exists else False
+            rows.append(
+                {
+                    "inventory_id": record["inventory_id"],
+                    "source_id": record["source_id"],
+                    "edition": record["edition"],
+                    "payload_path": record["payload_path"],
+                    "expected_sha256": record["sha256"],
+                    "observed_sha256": observed,
+                    "exists": exists,
+                    "digest_matches": digest_matches,
+                    "status": "eligible_b0" if digest_matches else "blocked_missing_or_mismatched_bytes",
+                }
+            )
     eligible = [row for row in rows if row["status"] == "eligible_b0"]
     return {
         "schema_version": "1.0",

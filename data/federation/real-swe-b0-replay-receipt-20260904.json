@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "E-REAL-SWE-B0-REPLAY-20260904",
+  "inventory_id": "ARC-SWE-DOMSTOLSVERKET-2026",
+  "source_sha256": "47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb",
+  "replay_artifact_sha256": "19d13eafa01671a97fe94116f414d2d083375d31d584af928dcc3ede68d3a8cd",
+  "b1_rows_sha256": "38cb7f27b909addc62e7454e911a7d0b2b7a670402056aceb18af9e92b58a0bf",
+  "b1_row_count": 10,
+  "status": "replayed_pending_review",
+  "semantic_review_required": true,
+  "promotion_authorized": false,
+  "rights_clearance": false,
+  "publication_authorized": false,
+  "release_authorized": false,
+  "owner_adjudication": false,
+  "artifact_retention": "outside_repository_restricted"
+}

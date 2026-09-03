@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "E-OWNER-GATE-RIGHTS-RELEASE-RISK-20260904",
+  "decision_path": "docs/governance/owner-gate-rights-publication-release-risk-disposition-2026-09-04.md",
+  "status": "in_review",
+  "gate_acceptance": "conditional_only",
+  "g2_blockers": ["WI-G2-04", "WI-G2-07"],
+  "rights": "metadata_and_citation_only",
+  "publication": "not_authorized",
+  "release": "not_authorized",
+  "residual_risk": "hard_blockers_preserved",
+  "specialist_assurance": "pending",
+  "owner_adjudication": true,
+  "supersedes": null
+}

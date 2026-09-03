@@ -236,6 +236,22 @@ def test_compatibility_report_cannot_be_forged() -> None:
         verify_compatibility_report(report)
 
 
+@pytest.mark.parametrize(("field", "value"), [("publication", 0), ("release", 0)])
+def test_compatibility_report_comparison_is_type_sensitive(field: str, value: int) -> None:
+    report = build_compatibility_report()
+    report["authority"][field] = value
+    with pytest.raises(SharedMedallionError):
+        verify_compatibility_report(report)
+
+
+@pytest.mark.parametrize("status", ["blocked", "rejected"])
+def test_v1_nonapproved_decision_cannot_leave_artifact_approved(status: str) -> None:
+    document = json.loads(_fixture("v1", "valid.json"))
+    document["promotion_decisions"][0]["status"] = status
+    with pytest.raises(SharedMedallionError, match="disposition mismatch"):
+        validate_shared_document("v1", json.dumps(document).encode())
+
+
 def test_retained_compatibility_report_is_current_and_canonical() -> None:
     path = ROOT / "data/federation/shared-medallion-contracts-2026-09-03/report.json"
     raw = path.read_bytes()

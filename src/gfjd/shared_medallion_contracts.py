@@ -233,12 +233,17 @@ def build_compatibility_report() -> dict[str, Any]:
 def verify_compatibility_report(report: dict[str, Any]) -> None:
     """Reject any report that differs from a complete local recomputation."""
     try:
-        if type(report) is not dict or report != build_compatibility_report():
+        expected = build_compatibility_report()
+        if type(report) is not dict or _canonical(report) != _canonical(expected):
             raise SharedMedallionError("shared compatibility report mismatch")
     except SharedMedallionError:
         raise
     except Exception:
         raise SharedMedallionError("shared compatibility report violation") from None
+
+
+def _canonical(value: Any) -> bytes:
+    return json.dumps(value, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()
 
 
 def validate_shared_document(version: str, raw: bytes) -> dict[str, Any]:
@@ -299,6 +304,8 @@ def _validate_v1_semantics(document: dict[str, Any]) -> None:
                 raise SharedMedallionError("v1 artifact rights decision mismatch")
             if subject["promotion_status"] != "approved_within_scope":
                 raise SharedMedallionError("v1 artifact is not approved")
+        elif subject["promotion_status"] != decision["status"]:
+            raise SharedMedallionError("v1 artifact and promotion disposition mismatch")
 
 
 def _validate_v4_semantics(document: dict[str, Any]) -> None:

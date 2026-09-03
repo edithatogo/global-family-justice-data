@@ -6,6 +6,8 @@
   "status": "in_review",
   "disposition": "terminal_failed_quarantine",
   "packet": "G2PKT-MATERIAL-ORCHESTRATED-20260826-01",
+  "packet_sha256": "1dcfe445a2179670fa4cc759e7e98774974a6b7c62639734e1d31d27e92b6b7b",
+  "terminal_result_sha256": "5b1dd48d3f73e5a8e8faa8b7f9e6dfe2e9ae5a0815c3f05be33e3c298b31700e",
   "metrics": {"critical_matches": 58, "critical_total": 76, "populated_matches": 42, "populated_total": 60},
   "thresholds": {"critical": 1.0, "overall_populated": 0.99},
   "critical_differences": 18,

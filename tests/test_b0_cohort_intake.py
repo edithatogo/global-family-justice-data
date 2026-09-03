@@ -8,7 +8,8 @@ import importlib.util
 from pathlib import Path
 
 _SPEC = importlib.util.spec_from_file_location(
-    "assemble_b0_evidence_cohort", Path(__file__).parents[1] / "scripts/assemble_b0_evidence_cohort.py"
+    "assemble_b0_evidence_cohort",
+    Path(__file__).parents[1] / "scripts/assemble_b0_evidence_cohort.py",
 )
 assert _SPEC and _SPEC.loader
 _MODULE = importlib.util.module_from_spec(_SPEC)

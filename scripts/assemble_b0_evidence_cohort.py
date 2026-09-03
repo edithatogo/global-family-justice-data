@@ -40,7 +40,9 @@ def assemble(root: Path, inventory: Path) -> dict[str, object]:
                     "observed_sha256": observed,
                     "exists": exists,
                     "digest_matches": digest_matches,
-                    "status": "eligible_b0" if digest_matches else "blocked_missing_or_mismatched_bytes",
+                    "status": "eligible_b0"
+                    if digest_matches
+                    else "blocked_missing_or_mismatched_bytes",
                 }
             )
     eligible = [row for row in rows if row["status"] == "eligible_b0"]
@@ -57,7 +59,10 @@ def assemble(root: Path, inventory: Path) -> dict[str, object]:
         "replay_authorized": bool(eligible),
         "limitations": [
             "No source bytes are downloaded or substituted by this command.",
-            "Inventory metadata and acquisition receipts do not establish B0 custody without matching bytes.",
+            (
+                "Inventory metadata and acquisition receipts do not establish B0 custody "
+                "without matching bytes."
+            ),
         ],
     }
 
@@ -69,11 +74,21 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     root = args.root.resolve()
-    inventory = (root / args.inventory).resolve() if not args.inventory.is_absolute() else args.inventory
+    inventory = (
+        (root / args.inventory).resolve() if not args.inventory.is_absolute() else args.inventory
+    )
     report = assemble(root, inventory)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"status": report["status"], "eligible_count": report["eligible_count"], "total_count": report["total_count"]}))
+    print(
+        json.dumps(
+            {
+                "status": report["status"],
+                "eligible_count": report["eligible_count"],
+                "total_count": report["total_count"],
+            }
+        )
+    )
     return 0 if report["status"] == "ready_for_replay" else 2
 
 

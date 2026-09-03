@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Verify WI-G2-07 terminal evidence without promoting it."""
+
 from __future__ import annotations
 
 import argparse
@@ -19,7 +20,10 @@ def verify(root: Path) -> dict[str, object]:
     terminal_bytes = digest(terminal)
     result = json.loads(terminal.read_text(encoding="utf-8"))
     metrics = result["metrics"]
-    passed = metrics["critical_concordance"] == metrics["critical_threshold"] and metrics["overall_populated_concordance"] >= metrics["overall_threshold"]
+    passed = (
+        metrics["critical_concordance"] == metrics["critical_threshold"]
+        and metrics["overall_populated_concordance"] >= metrics["overall_threshold"]
+    )
     return {
         "schema_version": "1.0",
         "work_item": "WI-G2-07",

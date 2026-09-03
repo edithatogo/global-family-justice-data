@@ -76,6 +76,7 @@ coverage:
 
 contracts:
 	PYTHONPATH=src $(PYTHON) -m gfjd harness contracts
+	PYTHONPATH=src $(PYTHON) scripts/verify_shared_medallion_contracts.py --verify data/federation/shared-medallion-contracts-2026-09-03/report.json
 
 policy:
 	PYTHONPATH=src $(PYTHON) -m gfjd policy ci

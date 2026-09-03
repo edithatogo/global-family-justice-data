@@ -99,11 +99,14 @@ https://github.com/edithatogo/archive-govt-nz .
 | `partner-archive-LICENSE.txt` | `LICENSE` |
 
 Global Medicines Atlas reference commit:
-`f7550d5f84b6a831cd99c3b6882c0d33c4b0c939`, repository
+`0190183f6b313ad21746c5b15b7cf4bd7153085c`, repository
 https://github.com/edithatogo/global-medicines-atlas .
 
 | Local filename | Original path |
 | --- | --- |
+| `shared-medallion-v1.schema.json` | `contracts/medallion/v1/medallion-conformance.schema.json` |
+| `shared-medallion-v2.schema.json` | `contracts/medallion/v2/field-lineage.schema.json` |
+| `shared-medallion-v3.schema.json` | `contracts/medallion/v3/backfill-replay.schema.json` |
 | `partner-gma-federation.schema.json` | `contracts/medallion/v4/federation.schema.json` |
 | `partner-gma-semantics.py.txt` | `src/global_medicines_atlas/federation.py` |
 | `partner-gma-LICENSE.txt` | `LICENSE` |
@@ -113,9 +116,16 @@ Attribution: the respective repository contributors; Global Medicines Atlas
 copyright 2026 Edith Atogo. Both software references are Apache-2.0; their
 unchanged licences and the Global Medicines Atlas NOTICE are included. The
 Archive Govt NZ root at the recorded commit has no NOTICE file. Contents are
-unchanged; only local filenames differ. All seven asset digests are pinned in
-`tests/test_federation_specs.py`; the four contract digests and commit identities
-are additionally pinned in `gfjd.federation_partner_interfaces`.
+unchanged; only local filenames differ. All reference-asset digests are pinned
+in `tests/test_federation_specs.py`; the shared v1-v4 contract digests and
+current commit identities are additionally pinned in
+`gfjd.federation_partner_interfaces`.
+
+The shared v1-v4 schemas are also vendored with their portable canaries under
+the repository root `contracts/medallion/`. `gfjd-layer-mapping-v1.json` is a
+GFJD-authored, loss-aware projection from native B0/B1/Silver/Gold/Platinum
+semantics to the common contract vocabulary. The deterministic verifier checks
+that the packaged and repository schema and mapping bytes remain identical.
 
 Archive ownership allowlists do not include GFJD. Global Medicines Atlas's
 B0 index / B1 metadata / B2 raw definitions are not direct aliases for GFJD's

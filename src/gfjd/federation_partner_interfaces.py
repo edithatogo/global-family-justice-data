@@ -25,8 +25,17 @@ PINNED = {
         },
     },
     "global-medicines-atlas": {
-        "commit": "f7550d5f84b6a831cd99c3b6882c0d33c4b0c939",
+        "commit": "0190183f6b313ad21746c5b15b7cf4bd7153085c",
         "artifacts": {
+            "contracts/medallion/v1/medallion-conformance.schema.json": (
+                "4c1ee81b026c64cf8f962d602cd64441a4a023c132346349c8b27dab0981f10e"
+            ),
+            "contracts/medallion/v2/field-lineage.schema.json": (
+                "bf31ee62a3566a8fde512748b79f644e0fab760f60924e4eb9d510d3c1ef6f8a"
+            ),
+            "contracts/medallion/v3/backfill-replay.schema.json": (
+                "5d0f472b124701ef66dcc1a5c39670826b8e95e5faf576cc394a3cd22df9419c"
+            ),
             "contracts/medallion/v4/federation.schema.json": (
                 "ac28485a70e0853266e4c140f9a07cd557eb27816b0b408b9bf2927a4cffacec"
             ),
@@ -129,11 +138,12 @@ def assess_partner_interfaces(
                     "gma_bronze_strata": {"B0": "index", "B1": "metadata", "B2": "raw"},
                     "direct_gfjd_layer_aliasing": False,
                     "remaining_validation": [
-                        "record_schema",
-                        "record_semantics",
                         "authentic_receipts",
                         "remote_bytes",
                     ],
+                    "portable_contracts": ["v1", "v2", "v3", "v4"],
+                    "record_schema": "repository_verified",
+                    "record_semantics": "repository_verified_bounded",
                 }
             )
             records.append(

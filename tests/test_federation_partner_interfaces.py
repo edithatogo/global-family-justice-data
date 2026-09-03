@@ -30,6 +30,9 @@ def inputs(configs):
     root = Path(__file__).parents[1] / "src/gfjd/federation_specs"
     bank = {}
     for name in (
+        "shared-medallion-v1.schema.json",
+        "shared-medallion-v2.schema.json",
+        "shared-medallion-v3.schema.json",
         "partner-gma-federation.schema.json",
         "partner-gma-semantics.py.txt",
         "partner-archive-publication.schema.json",
@@ -94,6 +97,8 @@ def test_pinned_references_not_live_acceptance(inputs) -> None:
     gma = next(p for p in report["partners"] if p["partner_id"] == "global-medicines-atlas")
     assert gma["qualification"]["direct_gfjd_layer_aliasing"] is False
     assert gma["qualification"]["gma_bronze_strata"]["B2"] == "raw"
+    assert gma["qualification"]["portable_contracts"] == ["v1", "v2", "v3", "v4"]
+    assert gma["qualification"]["record_schema"] == "repository_verified"
     assert all(raw.decode() not in json.dumps(report) for raw in inputs[6].values())
     verify_partner_interfaces(*inputs, report)
     inputs[6] = dict(reversed(list(inputs[6].items())))

@@ -950,3 +950,19 @@ The machine-readable matrix is
 limited implemented preparation from unfinished broader technical coverage and
 missing factual inputs. These checkpoints do not complete WI-G4-MED-05 or the
 factual registry evidence, and do not authorize publication or partner changes.
+
+## Shared contract compatibility continuation — 2026-09-03
+
+WI-G4-MED-06 closes the repository-owned shared-schema gap independently of the
+factual WI-G4-MED-05 registration gate. GFJD now retains the immutable v1–v4
+schemas and portable canaries at their upstream byte digests, packages exact
+runtime copies, applies the shared v1 and v4 semantic rules offline, and emits a
+deterministic recomputed compatibility receipt. The explicit GFJD profile maps
+native B0 source evidence to shared Bronze B2 while keeping native B1 and Silver
+distinct inside the shared Silver class; no direct layer alias is asserted.
+
+The partner interface pin now covers all four GMA contract versions at observed
+remote commit `0190183f6b313ad21746c5b15b7cf4bd7153085c`. Actual v1–v4 GFJD
+records, authenticated receipts, remote bytes, partner acceptance and estate
+registration remain factual inputs to WI-G4-MED-05. Technical compatibility
+does not promote that work item or authorize publication, release or any gate.

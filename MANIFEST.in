@@ -25,6 +25,7 @@ include uv.lock
 recursive-include .gfjd *.toml
 recursive-include .github *.yml *.yaml *.md
 recursive-include config *.toml *.json
+recursive-include contracts *.json *.md
 recursive-include data *.csv *.md *.json *.toml
 recursive-include docs *.md *.mmd *.json *.csv *.toml
 recursive-include examples *.md *.json *.toml *.csv *.html *.txt *.xlsx

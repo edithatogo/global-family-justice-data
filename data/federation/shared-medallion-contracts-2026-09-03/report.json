@@ -1,0 +1,112 @@
+{
+  "authority": {
+    "gate_acceptance": false,
+    "gold_promotion": false,
+    "publication": false,
+    "release": false,
+    "rights_clearance": false
+  },
+  "contract_version": "gfjd-shared-medallion-compatibility-report-v1",
+  "gfjd_layer_projection": [
+    {
+      "direct_alias": false,
+      "native_layer": "B0",
+      "semantic_role": "immutable_raw_evidence",
+      "shared_layer": "bronze_b2",
+      "v1_promotion_boundary": true
+    },
+    {
+      "direct_alias": false,
+      "native_layer": "B1",
+      "semantic_role": "source_faithful_analytical_representation",
+      "shared_layer": "silver",
+      "v1_promotion_boundary": true
+    },
+    {
+      "direct_alias": false,
+      "native_layer": "Silver",
+      "semantic_role": "harmonised_evidence",
+      "shared_layer": "silver",
+      "v1_promotion_boundary": false
+    },
+    {
+      "direct_alias": false,
+      "native_layer": "Gold",
+      "semantic_role": "owner_accepted_comparable_evidence",
+      "shared_layer": "gold",
+      "v1_promotion_boundary": true
+    },
+    {
+      "direct_alias": false,
+      "native_layer": "Platinum",
+      "semantic_role": "release_bound_product",
+      "shared_layer": "platinum",
+      "v1_promotion_boundary": true
+    }
+  ],
+  "live_interoperability": "unverified",
+  "mapping_profile_sha256": "8cf918f88ef60afe5ac0fdaece6836f6bf640465f34ddd0ac5c2a63d26a4f4ed",
+  "negative_canaries": [
+    {
+      "document_sha256": "0f8f646301dcd642a19d01c6d8b39d7b8ddc77538fec4c63f4ba06e9a3cab4a5",
+      "fixture": "invalid-missing-gate.json",
+      "rejected": true,
+      "version": "v1"
+    },
+    {
+      "document_sha256": "72cc2e2476f345f417059ad2e4815545f91c9efe488215c3a1fc384d04dd9c68",
+      "fixture": "invalid-unversioned-code.json",
+      "rejected": true,
+      "version": "v2"
+    },
+    {
+      "document_sha256": "537771df61199f62c9e30740ed792af13dc71c940d8035d77325be58b1967f65",
+      "fixture": "invalid-overwrite-policy.json",
+      "rejected": true,
+      "version": "v3"
+    },
+    {
+      "document_sha256": "ffe28011abe9346e199f961ff6fc5e91e3552c471311652d5c251bff73f28e3c",
+      "fixture": "invalid-mismatched-digest.json",
+      "rejected": true,
+      "version": "v4"
+    }
+  ],
+  "positive_canaries": [
+    {
+      "document_sha256": "b7860189edd1568fcb719b6b5e15a5ab3180800070a126b634e94c1c8c17a079",
+      "fixture": "valid.json",
+      "status": "conformant",
+      "version": "v1"
+    },
+    {
+      "document_sha256": "1309579b85ac96442ea9a3b8802620d75796f9ab15af015bc9e9b2793e174c4e",
+      "fixture": "valid-field-lineage.json",
+      "status": "conformant",
+      "version": "v2"
+    },
+    {
+      "document_sha256": "9c4e92de0eb6cc3edba60074e474410a4594863a1c486a4e4ba49bd7d3b61062",
+      "fixture": "valid-backfill-replay.json",
+      "status": "conformant",
+      "version": "v3"
+    },
+    {
+      "document_sha256": "e9be19827c22bb5d9e0355d53cc5ae866de73359c59c8be2e51a92e26cce5c8e",
+      "fixture": "valid.json",
+      "status": "conformant",
+      "version": "v4"
+    }
+  ],
+  "schema_sha256": {
+    "v1": "4c1ee81b026c64cf8f962d602cd64441a4a023c132346349c8b27dab0981f10e",
+    "v2": "bf31ee62a3566a8fde512748b79f644e0fab760f60924e4eb9d510d3c1ef6f8a",
+    "v3": "5d0f472b124701ef66dcc1a5c39670826b8e95e5faf576cc394a3cd22df9419c",
+    "v4": "ac28485a70e0853266e4c140f9a07cd557eb27816b0b408b9bf2927a4cffacec"
+  },
+  "status": "repository_compatibility_verified",
+  "upstream_contract_revisions": {
+    "archive-govt-nz": "dcc8f37f5642fc6b4337c49bd482b126325e6b6c",
+    "global-medicines-atlas": "0190183f6b313ad21746c5b15b7cf4bd7153085c"
+  }
+}

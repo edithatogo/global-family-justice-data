@@ -159,6 +159,9 @@ def fictional_inputs() -> tuple[Any, ...]:
         for name in (
             "partner-archive-ownership.py.txt",
             "partner-archive-publication.schema.json",
+            "shared-medallion-v1.schema.json",
+            "shared-medallion-v2.schema.json",
+            "shared-medallion-v3.schema.json",
             "partner-gma-federation.schema.json",
             "partner-gma-semantics.py.txt",
         )

@@ -31,6 +31,22 @@ import pytest
             "ac28485a70e0853266e4c140f9a07cd557eb27816b0b408b9bf2927a4cffacec",
         ),
         (
+            "shared-medallion-v1.schema.json",
+            "4c1ee81b026c64cf8f962d602cd64441a4a023c132346349c8b27dab0981f10e",
+        ),
+        (
+            "shared-medallion-v2.schema.json",
+            "bf31ee62a3566a8fde512748b79f644e0fab760f60924e4eb9d510d3c1ef6f8a",
+        ),
+        (
+            "shared-medallion-v3.schema.json",
+            "5d0f472b124701ef66dcc1a5c39670826b8e95e5faf576cc394a3cd22df9419c",
+        ),
+        (
+            "gfjd-layer-mapping-v1.json",
+            "8cf918f88ef60afe5ac0fdaece6836f6bf640465f34ddd0ac5c2a63d26a4f4ed",
+        ),
+        (
             "partner-gma-semantics.py.txt",
             "2a21eb2d09a8a9ba1e956c1b0d5c123529c185d79bb31ced2c2a0cb8bebaeb78",
         ),

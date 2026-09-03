@@ -223,6 +223,19 @@ rating, source right or publication permission changes.
 
 ## Not supplied by code
 
+Shared medallion compatibility continuation (2026-09-03): GFJD now vendors the
+byte-identical cross-repository v1–v4 schemas and portable canaries used by
+Global Medicines Atlas, with v1–v3 also matching Archive Govt NZ. Installed
+package copies are digest-pinned; the offline validator applies Draft 2020-12
+format checking, v1 promotion semantics and v4 identity/lifecycle/recovery
+semantics. A versioned mapping projects GFJD B0 to shared raw-evidence B2 and
+keeps native B1 and Silver distinct within the shared Silver class. The
+deterministic retained receipt is independently recomputed by the contract
+target. This completes repository-owned schema compatibility only: no live
+partner record, registration, remote byte, rights, maturity, Gold, publication,
+release or gate status is promoted. See
+`docs/engineering/shared-medallion-schema-compatibility-plan-2026-09-03.md`.
+
 Offline API contract continuation (2026-08-31): a separate synthetic-qualified
 GOV.UK metadata parser now bounds documented presenter extras, verifies response
 shape and preserves update/first-publication distinctions. Its detached bundle

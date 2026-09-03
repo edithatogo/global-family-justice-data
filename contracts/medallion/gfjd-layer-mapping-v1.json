@@ -1,0 +1,51 @@
+{
+  "profile_version": "gfjd-shared-medallion-layer-map-v1",
+  "shared_contract_versions": [
+    "v1",
+    "v2",
+    "v3",
+    "v4"
+  ],
+  "mappings": [
+    {
+      "native_layer": "B0",
+      "shared_layer": "bronze_b2",
+      "semantic_role": "immutable_raw_evidence",
+      "direct_alias": false,
+      "v1_promotion_boundary": true
+    },
+    {
+      "native_layer": "B1",
+      "shared_layer": "silver",
+      "semantic_role": "source_faithful_analytical_representation",
+      "direct_alias": false,
+      "v1_promotion_boundary": true
+    },
+    {
+      "native_layer": "Silver",
+      "shared_layer": "silver",
+      "semantic_role": "harmonised_evidence",
+      "direct_alias": false,
+      "v1_promotion_boundary": false
+    },
+    {
+      "native_layer": "Gold",
+      "shared_layer": "gold",
+      "semantic_role": "owner_accepted_comparable_evidence",
+      "direct_alias": false,
+      "v1_promotion_boundary": true
+    },
+    {
+      "native_layer": "Platinum",
+      "shared_layer": "platinum",
+      "semantic_role": "release_bound_product",
+      "direct_alias": false,
+      "v1_promotion_boundary": true
+    }
+  ],
+  "limitations": [
+    "GFJD B0 means immutable source evidence and therefore projects to shared bronze_b2, not shared bronze_b0.",
+    "GFJD B1 and Silver are distinct native stages within shared silver; v2 field lineage preserves that internal boundary.",
+    "Schema and semantic conformance do not establish source rights, factual validity, promotion, publication, release or live interoperability."
+  ]
+}

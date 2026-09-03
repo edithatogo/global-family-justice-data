@@ -169,7 +169,7 @@ def test_v4_recovery_semantic_mutations_fail_closed(change: str) -> None:
         _validate_v4_recovery(recovery)
 
 
-@pytest.mark.parametrize("raw", [b"", b"[]", "not-bytes"])
+@pytest.mark.parametrize("raw", [b"", b"[]", b" " * (1024 * 1024 + 1), "not-bytes"])
 def test_shared_document_input_boundaries_fail_closed(raw: object) -> None:
     with pytest.raises(SharedMedallionError):
         validate_shared_document("v1", raw)  # type: ignore[arg-type]

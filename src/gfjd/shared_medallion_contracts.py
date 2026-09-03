@@ -244,7 +244,9 @@ def verify_compatibility_report(report: dict[str, Any]) -> None:
 def validate_shared_document(version: str, raw: bytes) -> dict[str, Any]:
     """Validate one supplied document offline against pinned schema and semantics."""
     try:
-        if type(raw) is not bytes or not 0 < len(raw) <= 8 * 1024 * 1024:
+        # Keep the public boundary aligned with federation_metadata.parse_json;
+        # batch contracts above 1 MiB must be split before validation.
+        if type(raw) is not bytes or not 0 < len(raw) <= 1024 * 1024:
             raise SharedMedallionError("shared document byte boundary")
         _, schema = _schema(version)
         document = parse_json(raw)

@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "E-REAL-AUS-PDF-QUALITY-20260904",
+  "source_extraction_evidence": "E-REAL-AUS-PDF-EXTRACTION-20260904",
+  "arithmetic": {"component_filings_sum": 2555, "reported_total": 2555, "pass": true},
+  "percentages": {"component_sum": 100.0, "reported_total_percentage": 100.0, "pass": true},
+  "status": "mechanical_quality_checks_pass",
+  "semantic_review": "pending",
+  "comparison_eligible": false,
+  "promotion_authorized": false
+}

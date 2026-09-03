@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "E-G2-WI-G2-07-DISPOSITION-20260903",
+  "work_item": "WI-G2-07",
+  "criterion": "G2-C07",
+  "status": "in_review",
+  "disposition": "terminal_failed_quarantine",
+  "packet": "G2PKT-MATERIAL-ORCHESTRATED-20260826-01",
+  "metrics": {"critical_matches": 58, "critical_total": 76, "populated_matches": 42, "populated_total": 60},
+  "thresholds": {"critical": 1.0, "overall_populated": 0.99},
+  "critical_differences": 18,
+  "owner_adjudication": null,
+  "failed_output_reusable": false,
+  "quarantine": true,
+  "required_next_evidence": ["new authorized lineage", "valid threshold-passing exact comparator receipt", "digest-bound owner adjudication"]
+}

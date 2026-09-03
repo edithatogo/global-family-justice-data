@@ -1,0 +1,14 @@
+{
+  "contract_version": "gfjd-prepared-parquet-lineage-qualification-v1",
+  "field_lineage_canaries_schema_valid": true,
+  "field_lineage_canary_count": 1,
+  "limitations": [
+    "No repository-visible Parquet payload bytes were found; declarations are not payload evidence.",
+    "Field-lineage qualification is limited to schema/canary conformance, not factual source lineage.",
+    "Remote availability, custody, rights, partner interoperability and accountable promotion remain unverified."
+  ],
+  "parquet_products": [],
+  "real_parquet_payload_count": 0,
+  "scope": "repository-visible prepared products; network disabled",
+  "status": "qualified_preparation_only"
+}

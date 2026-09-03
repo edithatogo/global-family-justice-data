@@ -23,3 +23,7 @@ WI-G2-07 can close only after a new authorized lineage produces a valid,
 threshold-passing exact comparator receipt and the sole owner records a
 digest-bound adjudication. This record does not claim independent assurance,
 rights clearance, G2 passage, publication or release.
+
+The machine-checkable verifier is `scripts/verify_g2_wi_g2_07.py`. It is
+expected to exit 2 for this terminal below-threshold lineage; that fail-closed
+result is recorded separately and cannot promote the evidence.

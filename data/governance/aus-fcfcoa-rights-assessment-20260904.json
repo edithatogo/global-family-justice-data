@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "E-RIGHTS-AUS-FCFCOA-20260904",
+  "inventory_id": "ARC-AUS-FCFCOA-202425",
+  "status": "conditional_reuse_with_exceptions",
+  "licence": "CC BY 4.0",
+  "attribution": "Commonwealth of Australia (Federal Circuit and Family Court) 2025",
+  "exceptions": ["Commonwealth Coat of Arms", "Court logos", "images", "third-party material"],
+  "source_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+  "publication_authorized": false,
+  "legal_advice": false
+}

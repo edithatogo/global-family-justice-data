@@ -48,9 +48,18 @@ def qualify() -> dict[str, object]:
         "status": "qualified_preparation_only"
         if not observed
         else "payloads_require_schema_and_lineage_checks",
-        "limitations": [
-            "No repository-visible Parquet payload bytes were found; "
-            "declarations are not payload evidence.",
+        "limitations": (
+            [
+                "No repository-visible Parquet payload bytes were found; "
+                "declarations are not payload evidence."
+            ]
+            if not observed
+            else [
+                "Observed Parquet magic bytes require complete schema, digest and "
+                "field-lineage qualification before use.",
+            ]
+        )
+        + [
             "Field-lineage qualification is limited to schema/canary "
             "conformance, not factual source lineage.",
             "Remote availability, custody, rights, partner interoperability "
@@ -63,8 +72,9 @@ def main() -> int:
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--verify", type=Path)
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument("--output", type=Path)
+    group.add_argument("--verify", type=Path)
     args = parser.parse_args()
     report = qualify()
     encoded = (json.dumps(report, indent=2, sort_keys=True) + "\n").encode()
@@ -72,6 +82,7 @@ def main() -> int:
         if args.verify.read_bytes() != encoded:
             raise SystemExit("qualification receipt mismatch")
     else:
+        assert args.output is not None
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_bytes(encoded)
     print(json.dumps(report, sort_keys=True))

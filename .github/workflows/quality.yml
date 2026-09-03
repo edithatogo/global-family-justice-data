@@ -70,6 +70,8 @@ jobs:
         run: uv run python -m gfjd security
       - name: Verify generated programme views
         run: uv run python -m gfjd conductor check-generated
+      - name: Verify prepared Parquet and field-lineage receipt
+        run: uv run python scripts/qualify_prepared_parquet_lineage.py --verify data/federation/prepared-parquet-lineage-qualification-2026-09-03.json
       - name: Verify source manifest
         run: uv run python -m gfjd manifest --verify
       - name: Diagnose handoff

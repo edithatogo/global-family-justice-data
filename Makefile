@@ -167,6 +167,10 @@ federation-bundle-rehearsal:
 	PYTHONPATH=src $(PYTHON) scripts/rehearse_federation_bundle.py --output-directory build/federation-rehearsal
 	PYTHONPATH=src $(PYTHON) scripts/rehearse_federation_bundle.py --verify-directory build/federation-rehearsal
 
+.PHONY: prepared-parquet-lineage
+prepared-parquet-lineage:
+	PYTHONPATH=src $(PYTHON) scripts/qualify_prepared_parquet_lineage.py --verify data/federation/prepared-parquet-lineage-qualification-2026-09-03.json
+
 autonomy-full: format lint typecheck coverage check integration-rehearsals medallion-lineage-rehearsal federation-bundle-rehearsal package-reproducibility release-reproducibility autonomy-context
 
 check: compile contracts validate test generated policy release-rehearsal

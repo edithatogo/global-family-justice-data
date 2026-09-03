@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "E-PDF-ZIP-STRUCTURAL-PREFLIGHT-20260904",
+  "status": "structural_preflight_complete",
+  "objects": [
+    {"inventory_id": "ARC-AUS-FCFCOA-202425", "format": "pdf", "pages": 340},
+    {"inventory_id": "ARC-USA-MN-MJB-PERF-2024", "format": "pdf", "pages": 59},
+    {"inventory_id": "ARC-ZAF-JUD-202425", "format": "pdf", "pages": 92},
+    {"inventory_id": "ARC-BRA-CNJ-2026", "format": "pdf", "pages": 637},
+    {"inventory_id": "ARC-GBR-EAW-2026Q1", "format": "zip", "members": 25}
+  ],
+  "semantic_extraction": "not_run",
+  "rights_clearance": false,
+  "promotion_authorized": false,
+  "limitations": ["Format/page/member inventory only; no semantic values or mappings asserted."]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "E-G2-WI-G2-04-DISPOSITION-20260903",
+  "work_item": "WI-G2-04",
+  "criterion": "G2-C04",
+  "status": "in_review",
+  "disposition": "fail_closed_quarantine",
+  "source_index": "docs/methods/g2-real-pilot-formal-run-evidence-index-2026-08-15.md",
+  "cohort": ["AUS", "USA-MN", "BRA", "ZAF"],
+  "diagnostic_concordance": {"critical_matches": 58, "critical_total": 76, "populated_matches": 59, "populated_total": 82},
+  "thresholds": {"critical": 1.0, "overall_populated": 0.99},
+  "owner_adjudication": null,
+  "rights_clearance": false,
+  "publication_authorized": false,
+  "release_authorized": false,
+  "required_next_evidence": ["fresh threshold-passing dual extraction", "row-level methods dispositions", "digest-bound owner adjudication"],
+  "immutable_predecessors": true
+}

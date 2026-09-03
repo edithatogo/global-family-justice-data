@@ -35,6 +35,7 @@ def test_all_shared_contract_assets_are_pinned_and_v4_copy_is_identical() -> Non
         version: item["sha256"] for version, item in SHARED_CONTRACTS.items()
     }
     assert report["mapping_profile_sha256"] == MAPPING_PROFILE_SHA256
+    assert report["repository_copy_verified"] is True
     assert (ROOT / "contracts/medallion/v4/federation.schema.json").read_bytes() == (
         ROOT / "src/gfjd/federation_specs/partner-gma-federation.schema.json"
     ).read_bytes()
@@ -81,6 +82,27 @@ def test_v4_semantic_identity_mismatch_fails_after_schema_validation() -> None:
     document["verification"]["sha256"] = "f" * 64
     with pytest.raises(SharedMedallionError):
         validate_shared_document("v4", json.dumps(document).encode())
+
+
+def test_v4_declared_schema_digest_must_match_the_pinned_contract() -> None:
+    document = json.loads(_fixture("v4", "valid.json"))
+    document["authority"]["schema_sha256"] = "f" * 64
+    with pytest.raises(SharedMedallionError, match="declared schema digest"):
+        validate_shared_document("v4", json.dumps(document).encode())
+
+
+@pytest.mark.parametrize("change", ["status", "decision_id", "scope"])
+def test_v1_approved_promotion_requires_identical_approved_artifact_rights(
+    change: str,
+) -> None:
+    document = json.loads(_fixture("v1", "valid.json"))
+    rights = document["artifacts"][0]["rights_decision"]
+    if change == "status":
+        rights["status"] = "pending"
+    else:
+        rights[change] += "-different"
+    with pytest.raises(SharedMedallionError, match="artifact rights decision"):
+        validate_shared_document("v1", json.dumps(document).encode())
 
 
 def test_gfjd_native_layers_are_projected_without_direct_aliasing() -> None:

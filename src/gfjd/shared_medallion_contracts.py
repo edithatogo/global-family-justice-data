@@ -136,19 +136,24 @@ def _schema(version: str) -> tuple[bytes, dict[str, Any]]:
 
 
 def verify_contract_assets() -> dict[str, Any]:
-    """Verify every repository and installed-package schema copy byte-for-byte."""
+    """Verify packaged assets and, in a source tree, repository copies."""
     digests: dict[str, str] = {}
+    repository_copy_verified = CONTRACT_ROOT.is_dir()
     for version in SHARED_CONTRACTS:
         packaged, _ = _schema(version)
-        repository = (CONTRACT_ROOT / version / SHARED_CONTRACTS[version]["schema"]).read_bytes()
-        if packaged != repository:
-            raise SharedMedallionError("repository and package schema copies drift")
+        if repository_copy_verified:
+            repository = (
+                CONTRACT_ROOT / version / SHARED_CONTRACTS[version]["schema"]
+            ).read_bytes()
+            if packaged != repository:
+                raise SharedMedallionError("repository and package schema copies drift")
         digests[version] = _sha(packaged)
     mapping_name = "gfjd-layer-mapping-v1.json"
     packaged_mapping = (PACKAGE_CONTRACT_ROOT / mapping_name).read_bytes()
-    repository_mapping = (CONTRACT_ROOT / mapping_name).read_bytes()
-    if packaged_mapping != repository_mapping or _sha(packaged_mapping) != MAPPING_PROFILE_SHA256:
+    if _sha(packaged_mapping) != MAPPING_PROFILE_SHA256:
         raise SharedMedallionError("GFJD layer mapping profile drift")
+    if repository_copy_verified and packaged_mapping != (CONTRACT_ROOT / mapping_name).read_bytes():
+        raise SharedMedallionError("repository and package mapping copies drift")
     mapping = parse_json(packaged_mapping)
     if (
         type(mapping) is not dict
@@ -162,6 +167,7 @@ def verify_contract_assets() -> dict[str, Any]:
         "versions": list(SHARED_CONTRACTS),
         "schema_sha256": digests,
         "mapping_profile_sha256": MAPPING_PROFILE_SHA256,
+        "repository_copy_verified": repository_copy_verified,
         "authority": dict(_NO_AUTHORITY),
     }
 
@@ -177,6 +183,8 @@ def project_gfjd_layer(native_layer: str) -> dict[str, Any]:
 def build_compatibility_report() -> dict[str, Any]:
     """Recompute the repository's portable canaries and loss-aware mapping."""
     assets = verify_contract_assets()
+    if not assets["repository_copy_verified"]:
+        raise SharedMedallionError("source-tree canaries unavailable")
     positive = []
     negative = []
     for version, (positive_name, negative_name) in _CANARIES.items():
@@ -282,6 +290,11 @@ def _validate_v1_semantics(document: dict[str, Any]) -> None:
                 raise SharedMedallionError("v1 required gate missing")
             if decision["rights_decision"]["status"] != "approved":
                 raise SharedMedallionError("v1 rights not approved")
+            if (
+                subject["rights_decision"]["status"] != "approved"
+                or subject["rights_decision"] != decision["rights_decision"]
+            ):
+                raise SharedMedallionError("v1 artifact rights decision mismatch")
             if subject["promotion_status"] != "approved_within_scope":
                 raise SharedMedallionError("v1 artifact is not approved")
 
@@ -290,6 +303,8 @@ def _validate_v4_semantics(document: dict[str, Any]) -> None:
     location = document["location"]
     verification = document["verification"]
     rights = document["rights"]
+    if document["authority"]["schema_sha256"] != SHARED_CONTRACTS["v4"]["sha256"]:
+        raise SharedMedallionError("v4 declared schema digest mismatch")
     for field in ("dataset", "revision", "path", "sha256", "bytes"):
         if location[field] != verification[field]:
             raise SharedMedallionError(f"v4 verification identity mismatch: {field}")

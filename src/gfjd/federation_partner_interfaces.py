@@ -139,11 +139,12 @@ def assess_partner_interfaces(
                     "direct_gfjd_layer_aliasing": False,
                     "remaining_validation": [
                         "authentic_receipts",
+                        "bounded_semantic_receipt_binding",
                         "remote_bytes",
                     ],
                     "portable_contracts": ["v1", "v2", "v3", "v4"],
                     "record_schema": "repository_verified",
-                    "record_semantics": "repository_verified_bounded",
+                    "record_semantics": "implemented_separately_not_bound_here",
                 }
             )
             records.append(

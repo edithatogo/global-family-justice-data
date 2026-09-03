@@ -92,8 +92,8 @@
       "implementation_paths": ["src/gfjd/federation_partner_interfaces.py", "src/gfjd/federation_interface_bundle.py"],
       "test_paths": ["tests/test_federation_partner_interfaces.py", "tests/test_federation_interface_bundle.py"],
       "retained_evidence_paths": ["data/federation/preparation-2026-09-01-02/report.json"],
-      "implemented_scope": "Two exact pinned technical contract sets; GMA v1-v4 schemas and bounded v1/v4 semantics verified offline; explicit GFJD mapping prevents silent strata aliases; archive transfer scope excludes GFJD; two interfaces remain unavailable.",
-      "unimplemented_technical_scope": ["Live partner-native receipt and record verification", "Exact contracts for dataset-estate-registry and reimbursement-atlas"],
+      "implemented_scope": "Two exact pinned technical contract sets; GMA v1-v4 schema syntax verified offline; explicit GFJD mapping prevents silent strata aliases; separately implemented bounded semantics are not claimed by this interface report; archive transfer scope excludes GFJD; two interfaces remain unavailable.",
+      "unimplemented_technical_scope": ["Bind the shared compatibility receipt into an actual partner-native interface run", "Live partner-native receipt and record verification", "Exact contracts for dataset-estate-registry and reimbursement-atlas"],
       "missing_factual_inputs": ["Partner acceptance and registration", "Actual compatible records and operational interoperability"]
     },
     {

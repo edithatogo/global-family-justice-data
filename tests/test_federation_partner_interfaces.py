@@ -99,6 +99,8 @@ def test_pinned_references_not_live_acceptance(inputs) -> None:
     assert gma["qualification"]["gma_bronze_strata"]["B2"] == "raw"
     assert gma["qualification"]["portable_contracts"] == ["v1", "v2", "v3", "v4"]
     assert gma["qualification"]["record_schema"] == "repository_verified"
+    assert gma["qualification"]["record_semantics"] == "implemented_separately_not_bound_here"
+    assert "bounded_semantic_receipt_binding" in gma["qualification"]["remaining_validation"]
     assert all(raw.decode() not in json.dumps(report) for raw in inputs[6].values())
     verify_partner_interfaces(*inputs, report)
     inputs[6] = dict(reversed(list(inputs[6].items())))

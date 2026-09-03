@@ -13,6 +13,9 @@ from gfjd.shared_medallion_contracts import (
     MAPPING_PROFILE_SHA256,
     SHARED_CONTRACTS,
     SharedMedallionError,
+    _validate_v4_layers,
+    _validate_v4_lifecycle,
+    _validate_v4_recovery,
     build_compatibility_report,
     project_gfjd_layer,
     validate_shared_document,
@@ -91,6 +94,13 @@ def test_v4_declared_schema_digest_must_match_the_pinned_contract() -> None:
         validate_shared_document("v4", json.dumps(document).encode())
 
 
+def test_v4_rights_identity_must_match_the_bound_location() -> None:
+    document = json.loads(_fixture("v4", "valid.json"))
+    document["rights"]["subject_sha256"] = "f" * 64
+    with pytest.raises(SharedMedallionError, match="authorization identity"):
+        validate_shared_document("v4", json.dumps(document).encode())
+
+
 @pytest.mark.parametrize("change", ["status", "decision_id", "scope"])
 def test_v1_approved_promotion_requires_identical_approved_artifact_rights(
     change: str,
@@ -103,6 +113,66 @@ def test_v1_approved_promotion_requires_identical_approved_artifact_rights(
         rights[change] += "-different"
     with pytest.raises(SharedMedallionError, match="artifact rights decision"):
         validate_shared_document("v1", json.dumps(document).encode())
+
+
+@pytest.mark.parametrize(
+    "change",
+    ["b0", "stratum", "raw", "projection", "derived", "index", "cohort"],
+)
+def test_v4_layer_semantic_mutations_fail_closed(change: str) -> None:
+    document = json.loads(_fixture("v4", "valid.json"))
+    source = document["source"]
+    if change == "b0":
+        source.update(bronze_stratum="B0", representation="raw")
+    elif change == "stratum":
+        source.update(layer="silver", bronze_stratum="B2")
+    elif change == "raw":
+        source.update(layer="silver", bronze_stratum=None, representation="raw")
+    elif change == "projection":
+        source.update(representation="projection")
+    elif change == "derived":
+        source.update(layer="silver", bronze_stratum=None, representation="projection")
+        document["lineage"]["inputs"] = [{"sha256": "a" * 64}]
+    elif change == "index":
+        source.update(bronze_stratum="B2", representation="index")
+    else:
+        source["comparison_cohort"] = "official"
+    with pytest.raises(SharedMedallionError):
+        _validate_v4_layers(document)
+
+
+@pytest.mark.parametrize("change", ["producer", "time", "cache_time", "cleanup"])
+def test_v4_lifecycle_semantic_mutations_fail_closed(change: str) -> None:
+    document = json.loads(_fixture("v4", "valid.json"))
+    if change == "producer":
+        document["publication"]["run"] = "https://github.com/other/repo/actions/runs/1"
+    elif change == "time":
+        document["source"]["retrieved_at"] = "2026-08-30T00:06:00Z"
+    elif change == "cache_time":
+        document["cache"]["expires_at"] = document["cache"]["created_at"]
+    else:
+        document["cache"]["cleanup_receipt"] = None
+    with pytest.raises(SharedMedallionError):
+        _validate_v4_lifecycle(document)
+
+
+@pytest.mark.parametrize("change", ["incomplete", "false_independence", "role_mismatch"])
+def test_v4_recovery_semantic_mutations_fail_closed(change: str) -> None:
+    recovery = json.loads(_fixture("v4", "valid.json"))["recovery"]
+    if change == "incomplete":
+        recovery.update(role="independent_replica", independent=True)
+    elif change == "false_independence":
+        recovery.update(role="compatibility_replica", independent=True)
+    else:
+        recovery["independent"] = True
+    with pytest.raises(SharedMedallionError):
+        _validate_v4_recovery(recovery)
+
+
+@pytest.mark.parametrize("raw", [b"", b"[]", "not-bytes"])
+def test_shared_document_input_boundaries_fail_closed(raw: object) -> None:
+    with pytest.raises(SharedMedallionError):
+        validate_shared_document("v1", raw)  # type: ignore[arg-type]
 
 
 def test_gfjd_native_layers_are_projected_without_direct_aliasing() -> None:

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "E-REAL-AUS-PDF-EXTRACTION-20260904",
+  "inventory_id": "ARC-AUS-FCFCOA-202425",
+  "source_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+  "locator": "PDF page 102; Table 3.3.1(a): total filings by application type, 2024–25",
+  "rows": [
+    {"application_type": "Applications for final orders", "filings": "1,015", "percentage": "39.7%"},
+    {"application_type": "Applications for interim orders (applications in a proceeding)", "filings": "1,375", "percentage": "53.8%"},
+    {"application_type": "Other", "filings": "165", "percentage": "6.5%"},
+    {"application_type": "TOTAL", "filings": "2,555", "percentage": "100.0%"}
+  ],
+  "status": "source_faithful_pending_semantic_review",
+  "rights_basis": "conditional_cc_by_4_with_exceptions",
+  "comparison_eligible": false,
+  "promotion_authorized": false,
+  "publication_authorized": false,
+  "owner_adjudication": false
+}

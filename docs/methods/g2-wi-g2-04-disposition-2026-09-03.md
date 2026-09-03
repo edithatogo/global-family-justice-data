@@ -11,10 +11,10 @@ substitute an owner adjudication.
 
 | source | primary/secondary evidence | comparator | disposition | blocking condition |
 |---|---|---|---|---|
-| AUS | formal-run index (digest-bound outputs) | diagnostic receipt | hard quarantine | 18 critical differences; ratio wording and court coverage are not safely comparable |
+| AUS | formal-run index (digest-bound outputs) | diagnostic receipt | hard quarantine | Cohort-level concordance failed; AUS-specific ratio ordering is internally inconsistent |
 | USA-MN | formal-run index (digest-bound outputs) | diagnostic receipt | quarantine | critical semantic/contract differences; source-defined statewide statistic requires fresh contract |
 | BRA | formal-run index (digest-bound outputs) | diagnostic receipt | quarantine | partial-year protective-measures snapshot; critical field differences |
-| ZAF | formal-run index (digest-bound outputs) | diagnostic receipt | hard quarantine | conflicting clock arithmetic, component mismatch and incomplete coverage |
+| ZAF | formal-run index (digest-bound outputs) | diagnostic receipt | hard quarantine | Cohort-level concordance failed; conflicting clock arithmetic, component mismatch and incomplete coverage |
 
 ## Controls verified
 

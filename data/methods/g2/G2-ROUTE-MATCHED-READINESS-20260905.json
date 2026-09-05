@@ -5,7 +5,7 @@
   "approved_scope": {"jurisdictions": ["AUS", "BRA", "GBR-EAW"], "routes": ["api", "spreadsheet", "html_dashboard", "pdf_manual"]},
   "missing_cells": [
     {"jurisdiction": "BRA", "route": "api", "candidate_id": "G2-API-BRA-TJSP-2026", "source_sha256": "f475ae52b31f0e9a509de1be1d312bb946f4f57944717d0bda5d68d1f59df2fe", "source_packet_sha256": "02b975257f3254b8152cf801694df5b2e11656ba5f3cf04927dfdfccbe629948"},
-    {"jurisdiction": "GBR-EAW", "route": "spreadsheet", "candidate_id": "G2-ODS-GBR-EAW-2026Q1", "source_sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2", "source_packet_sha256": null},
+    {"jurisdiction": "GBR-EAW", "route": "spreadsheet", "candidate_id": "G2-ODS-GBR-EAW-2026Q1", "source_sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2", "source_packet_path": "data/methods/g2/G2REAL-PILOT-20260821-01/packet.json", "source_packet_id": "G2PKT-REAL-PILOT-20260821-01", "source_packet_sha256": "ef9391489d63428e29f9e89b386c957348e4e5ac3b35389e59b7039caf4bd2b5"},
     {"jurisdiction": "GBR-EAW", "route": "html_dashboard", "candidate_id": "G2-DASH-GBR-EAW-2026Q1", "source_sha256": "52d356701a10ac6519da61d82ecf3f0cb0e04921597f19a4df6fe721687ac63f", "source_packet_sha256": "6ebad8e4b8f3070ff5353b0131be13c5a1c65f4a5f0f532e21c021893e34858c"}
   ],
   "execution_contract": {

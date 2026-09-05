@@ -214,7 +214,7 @@ f914a12ca647be33e686764bb07052264572e7c765e4785dc07b81bc4454a163  data/methods/g
 97278b360207acbf1965ee8d225304e0d410a1e8bf02a34f2157aacba48558fa  data/methods/g2-wi-g2-04-disposition-20260903.json
 8ae6f0971978f0d6d71863dabb690368bf08a351fb2990169dc3e8e803759e62  data/methods/g2-wi-g2-07-disposition-20260903.json
 9a3c6995bcb3c9b37e15eaa65f971da63296a3c34f7b79a32c9639cb2ffda4e9  data/methods/g2-wi-g2-07-verification-20260904.json
-c7b54650aa8a98109fb68f0f588ecc3971a07e0aae5bd2a5739ca67534165fd9  data/methods/g2/G2-ROUTE-MATCHED-READINESS-20260905.json
+e9f718195d0fe272b756afae6d1f8ede163806db11a786d4fe0d507524b345ee  data/methods/g2/G2-ROUTE-MATCHED-READINESS-20260905.json
 9309f7dc8742fed1cb02dbf88cbb9f3fcb576d8a1f838f101d7012bdd15885dc  data/methods/g2/G2-SCOPE-GAP-MATRIX-20260905.json
 02b975257f3254b8152cf801694df5b2e11656ba5f3cf04927dfdfccbe629948  data/methods/g2/G2API-BRA-TJSP-20260822-01/packet.json
 d50f18a2420977ceb9886ac1342c4225a910e946f2657df0c40da3851d325fd3  data/methods/g2/G2ATOMIC-FIELD-CONTRACT-20260826-01/contract.json
@@ -595,6 +595,7 @@ f66cf11811773ca1c66fea918c28524118d46432227c94d0143420c8136f2ca5  docs/governanc
 6e87765c979d426eb540040fba93a36697bee0fb2259f4f0f772cdb8bd22f426  docs/governance/g2-l2-availability-2026-09-05.md
 d2cebff3396c02f26b838d0c86cd4cf832b1b16852da484270bc31dd2db3cecb  docs/governance/g2-l2-fresh-evidence-intake-plan-2026-09-05.md
 a9d9dbc65d7116ae016297dbb93650e6d4a09508fe6aa69a60078b98fa13d707  docs/governance/g2-l2-reassessment-2026-08-26.md
+ef4cbdfb3c0b77aacda619ac206883231fe52d869f0b29506f6d7e95095843b6  docs/governance/g2-l2-recovery-execution-plan-2026-09-05.md
 1be90c4b2e376e09c34b6ea08aceed47308ed6965b9303508d6b51415779fe00  docs/governance/g2-material-distinct-option-a-owner-decision-2026-08-20.md
 353819e97779b979da0aa1b370d68f09e3fd712eb6a1689bf4850e6959e5c601  docs/governance/g2-metadata-search-successor-owner-decision-packet-2026-08-16.md
 e5f14699db54bebe92f75a45ea9d1071456812d9c8576bf26a28303b67ce9480  docs/governance/g2-next-unblock-agent-panel-2026-08-24.md
@@ -618,7 +619,7 @@ d323ab1683561601b73037bdae2b056e6dfed1c9fb3948d540f04c3733304504  docs/governanc
 76de3ff47777e419874c5092e349c89bf9dd72a04ef3129e8e0ea2f39ce7c865  docs/governance/g2-remaining-blockers-owner-decision-2026-08-26.md
 43f534617b8149df1f7ef85e4db27644ab7274fb49fb6c0cb2d8f35bb2128109  docs/governance/g2-rights-privacy-security-disclosure-agent-panel-2026-08-24.md
 ea9fd1cfd11548af1ee6b2acd950ef7da5f0408fa48f89587c28c5a6fbee05f3  docs/governance/g2-rights-privacy-security-disclosure-owner-decision-2026-08-24.md
-73c1bbca37d8af823277460d7c9113fd5ef3f4d87effe81fd9ffa8022508c7f1  docs/governance/g2-route-matched-readiness-2026-09-05.md
+5f5af9634aa1582474c78ad6015f21ae07a1fb92f707473fe626cc88c51c1617  docs/governance/g2-route-matched-readiness-2026-09-05.md
 10092ea88b912ede4a48009c13307c2dc0265304d61863e9e5d14c56bc760b47  docs/governance/g2-scope-gap-matrix-2026-09-05.md
 ba4cf34cfcee1d35b8f52fa597ad10e56009529a35d85a8315da2166548dec11  docs/governance/g2-structural-preflight-owner-decision-packet-2026-08-15.md
 7ce64586b7c38f0c9c40632ebf75b306732f864398ae1eaf424621adad820cd8  docs/governance/g2-structural-preflight-url-resolution-owner-decision-2026-08-15.md
@@ -884,7 +885,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  programme/.git
 c0ede842399e38f61ec010eb957888c65ce4c5967e85a88304bb01727c52da95  programme/audit-log.jsonl
 3347991cd823a0eb02b499fbff69b892a0b1b90104eecffd33fd6bce989bebce  programme/decision_log.csv
 18eb5dd051fa64977654c890f1dc78bfdeefacd168b552f3bb0484ceca75f7a7  programme/defect_register.csv
-0c17c7d44dc9bc88120a9e3d570b20226d395d3967c643b484c351c44b4c3085  programme/evidence_register.csv
+8b06217db8497fd3907b77bc973de72875f66ae7b70bef610636a53f71997cd5  programme/evidence_register.csv
 6426d6e3777e32f2667d10c9a4b1b09d59b594582da25b84f93f1f01ddf20a89  programme/exception_register.csv
 478dd535cc84c6e92bdb830821a816ddcd175d306073f31f5e74bf4430e87c7a  programme/gate_decisions.csv
 36cd8ff95715bd4e9373080aa8a7cf2ae06d0ac85ed21943a6d3e367c7bb500a  programme/maturity_assessment.csv

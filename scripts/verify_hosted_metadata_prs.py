@@ -1,17 +1,25 @@
-"""Verify and optionally merge the two bounded September 5 HF metadata PRs.
+"""Read-only verification of the tracked September 5 HF metadata merge receipt.
 
-Uses the authenticated HF SDK for merge and anonymous HTTPS for metadata readback.
-Never requests source documents. Refuses changed predecessors or unrelated edits.
+Only metadata files are retrieved. No source documents or mutation APIs are used.
+Run with the Hugging Face CLI Python environment providing huggingface_hub/httpx.
 """
 
 import argparse
 import hashlib
 import json
+import re
 from datetime import UTC, datetime
 from pathlib import Path
 
 import httpx
 from huggingface_hub import HfApi
+
+ROOT = Path(__file__).resolve().parents[1]
+RECEIPT = ROOT / "docs/engineering/hosted-metadata-merge-receipt-2026-09-05.json"
+ALLOWED = {
+    "edithatogo/dataset-estate-registry": {"catalog.json"},
+    "edithatogo/gfjd-source-archive": {"archive_inventory.csv", "README.md"},
+}
 
 
 def require(condition, message):
@@ -19,7 +27,30 @@ def require(condition, message):
         raise ValueError(message)
 
 
+def validate_receipt(payload):
+    require(payload.get("merged") is True, "Receipt does not record completion")
+    receipts = payload.get("receipts", [])
+    require(len(receipts) == len(ALLOWED), "Unexpected receipt count")
+    require({r.get("repo_id") for r in receipts} == set(ALLOWED), "Forbidden repository")
+    for receipt in receipts:
+        allowed = ALLOWED[receipt["repo_id"]]
+        paths = receipt.get("changed_paths", [])
+        require(len(paths) == len(allowed) and set(paths) == allowed, "Forbidden path")
+        require(set(receipt.get("sha256", {})) == allowed, "Digest paths differ")
+        for digest in receipt["sha256"].values():
+            require(
+                isinstance(digest, str) and re.fullmatch(r"[0-9a-f]{64}", digest), "Invalid digest"
+            )
+        for key in ("parent", "proposed", "merged_revision"):
+            value = receipt.get(key)
+            require(
+                isinstance(value, str) and re.fullmatch(r"[0-9a-f]{40}", value), "Invalid revision"
+            )
+    return receipts
+
+
 def metadata(repo, revision, name):
+    require(repo in ALLOWED and name in ALLOWED[repo], "Forbidden metadata request")
     response = httpx.get(
         f"https://huggingface.co/datasets/{repo}/resolve/{revision}/{name}",
         follow_redirects=True,
@@ -37,126 +68,54 @@ def tree(api, repo, revision):
     }
 
 
-def verify_pr_head(api, repo, proposed):
-    require(
-        api.repo_info(repo, repo_type="dataset", revision="refs/pr/1").sha == proposed,
-        "PR head changed",
-    )
-
-
-def checkpoint(path, receipts, requested, complete=False, error=None):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    payload = {
-        "observed_at": datetime.now(UTC).isoformat(),
-        "merge_requested": requested,
-        "merged": requested and complete,
-        "complete": complete,
+def verify(payload, api):
+    receipts = validate_receipt(payload)
+    verified = []
+    for receipt in receipts:
+        repo = receipt["repo_id"]
+        before = tree(api, repo, receipt["parent"])
+        proposed = tree(api, repo, receipt["proposed"])
+        merged = tree(api, repo, receipt["merged_revision"])
+        changed = {
+            key for key in before.keys() | proposed.keys() if before.get(key) != proposed.get(key)
+        }
+        require(changed == ALLOWED[repo], "Unexpected changed tree paths")
+        require(proposed == merged, "Merged tree differs")
+        for name, expected in receipt["sha256"].items():
+            raw = metadata(repo, receipt["merged_revision"], name)
+            require(hashlib.sha256(raw).hexdigest() == expected, "Anonymous digest differs")
+        verified.append(
+            {
+                "repo_id": repo,
+                "merged_revision": receipt["merged_revision"],
+                "changed_paths": sorted(changed),
+                "sha256": receipt["sha256"],
+            }
+        )
+    return {
+        "verified_at": datetime.now(UTC).isoformat(),
+        "read_only": True,
         "source_requests": 0,
         "gate_acceptance": False,
-        "receipts": receipts,
+        "verified": verified,
     }
-    if error is not None:
-        payload["error"] = error
-    staging = path.with_suffix(path.suffix + ".tmp")
-    with staging.open("x") as handle:
-        handle.write(json.dumps(payload, indent=2) + "\n")
-    staging.replace(path)
-
-
-def finish(api, receipts, output, merge):
-    checkpoint(output, receipts, merge)
-    try:
-        for receipt in receipts:
-            repo = receipt["repo_id"]
-            require(
-                api.repo_info(repo, repo_type="dataset").sha == receipt["parent"], "Main changed"
-            )
-            verify_pr_head(api, repo, receipt["proposed"])
-            if merge:
-                receipt["merge_attempted"] = True
-                checkpoint(output, receipts, merge)
-                api.merge_pull_request(
-                    repo,
-                    1,
-                    repo_type="dataset",
-                    comment=(
-                        "Exact metadata and unchanged source tree verified; "
-                        "no rights or gate acceptance."
-                    ),
-                )
-                receipt["merge_api_returned"] = True
-                checkpoint(output, receipts, merge)
-                revision = api.repo_info(repo, repo_type="dataset").sha
-                receipt["observed_revision_after_merge"] = revision
-                checkpoint(output, receipts, merge)
-                require(
-                    tree(api, repo, revision) == tree(api, repo, receipt["proposed"]),
-                    "Merged tree differs",
-                )
-                for name, expected in receipt["sha256"].items():
-                    require(
-                        hashlib.sha256(metadata(repo, revision, name)).hexdigest() == expected,
-                        "Anonymous readback differs",
-                    )
-                receipt.update(merged_revision=revision, anonymous_exact_revision_readback=True)
-                checkpoint(output, receipts, merge)
-        checkpoint(output, receipts, merge, complete=True)
-    except Exception as exc:
-        checkpoint(output, receipts, merge, error=type(exc).__name__)
-        raise
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--merge", action="store_true")
-    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    require(not args.output.exists(), "Receipt already exists")
-    api = HfApi()
-    cases = [
-        (
-            "edithatogo/dataset-estate-registry",
-            "2e85d5b56162d532caaa37c7d9f6a30e63621204",
-            "e8a67aab180328f74d9f954ef0d0cc5facd307c3",
-            {"catalog.json": "build/hosted-metadata-release-20260905/catalog.json"},
-        ),
-        (
-            "edithatogo/gfjd-source-archive",
-            "3f534c86d7b72978963049f6007df1dccd27e601",
-            "745561e7e24f04fa5400e229f38619274422a94f",
-            {
-                "archive_inventory.csv": "data/raw/archive_inventory.csv",
-                "README.md": "build/hosted-metadata-corrections-20260905/source-archive-README.md",
-            },
-        ),
-    ]
-    receipts = []
-    for repo, parent, proposed, files in cases:
-        require(api.repo_info(repo, repo_type="dataset").sha == parent, "Main changed")
-        before = tree(api, repo, parent)
-        after = tree(api, repo, proposed)
-        changed = {key for key in before.keys() | after.keys() if before.get(key) != after.get(key)}
-        require(changed == set(files), "Unexpected PR file changes")
-        digests = {}
-        for name, local in files.items():
-            raw = metadata(repo, proposed, name)
-            require(raw == Path(local).read_bytes(), "Proposed bytes differ")
-            digests[name] = hashlib.sha256(raw).hexdigest()
-        discussion = api.get_discussion_details(repo, 1, repo_type="dataset")
-        require(discussion.is_pull_request and discussion.status == "open", "PR not open")
-        verify_pr_head(api, repo, proposed)
-        receipts.append(
-            {
-                "repo_id": repo,
-                "parent": parent,
-                "proposed": proposed,
-                "changed_paths": sorted(changed),
-                "sha256": digests,
-                "pr_url": f"https://huggingface.co/datasets/{repo}/discussions/1",
-            }
-        )
-    finish(api, receipts, args.output, args.merge)
-    print(args.output)
+    if args.output:
+        require(not args.output.exists(), "Output already exists")
+    raw = RECEIPT.read_bytes()
+    result = verify(json.loads(raw), HfApi(token=False))
+    result["execution_receipt_sha256"] = hashlib.sha256(raw).hexdigest()
+    rendered = json.dumps(result, indent=2) + "\n"
+    if args.output:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        with args.output.open("x") as handle:
+            handle.write(rendered)
+    print(rendered, end="")
 
 
 if __name__ == "__main__":

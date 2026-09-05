@@ -15,8 +15,8 @@ decision.
 | G4 / WI-G4-01..09 | `in_review` | Broader empirical qualification, browser/accessibility and operational evidence | Six exact B0 files now verify locally; fresh SWE replay produces ten B1 and ten Silver rows | Existing bounded replay does not establish estate-wide qualification |
 | G4 / WI-G4-MED-02 | `in_review` | Remaining source routes and complete field/snapshot qualification | Fresh SWE double replay verifies; changed source and output are rejected; 30 fields match a sealed supporting extraction | One-edition replay supports only its exact scope; layer acceptance remains pending |
 | G4 / WI-G4-MED-03 | `in_review` | Layer-specific qualification and owner Gold adjudication | Run contract, quarantine, lineage and negative tests; prepare qualification matrix | No maturity promotion from later-layer or synthetic evidence |
-| G4 / WI-G4-MED-04 | `planned` | Reconciled inventory policy, populated qualified products and public Explorer | Five datasets verified public; archive metadata retrieved; four datasets contain cards only; authenticated Explorer is private and running | Policy-state mismatch and publication readiness remain; source archive existence is verified |
-| G4 / WI-G4-MED-05 | `planned` | Actual federation registration and provider/partner interoperability receipts | Local standards contracts exist; documented registry cannot be resolved anonymously or with the current owner credentials | Registry identity and actual registration remain unresolved |
+| G4 / WI-G4-MED-04 | `planned` | Populated qualified products and public Explorer | Hosted inventory policy now matches canonical GitHub; anonymous exact-revision retrieval verifies. Four datasets remain cards only and Explorer private | Metadata reconciliation is complete; product qualification and source rights remain open |
+| G4 / WI-G4-MED-05 | `planned` | Provider/partner interoperability receipts and qualified lineage products | Five GFJD entries now registered/corrected in the actual HF dataset-estate registry; merged and anonymously verified | Registration is factual; standards interoperability and work-item acceptance remain pending |
 | G5 / WI-G5-MED-01..03 | `planned` | Two-provider anonymous restore, lifecycle rehearsal and release safety evidence | Exercise offline restore/correction controls and inspect manifests | No public restore or release-candidate claim |
 | G6 / WI-G6-01..09 | `in_review` | Signed owner release decision, final quality/security/rights evidence, public products, custody and continuity | Keep the final criteria matrix current and fail closed on missing evidence | No release authorization or publication claim |
 
@@ -63,3 +63,23 @@ The September 3 missing-byte receipt remains historical evidence; it no longer
 describes current B0 availability. Preserve the approved G2 cohort unless the
 owner makes a material scope decision. Recover missing route inputs before
 delegating another qualifying extraction.
+
+## Follow-up remediation
+
+`docs/engineering/hosted-metadata-merge-receipt-2026-09-05.json` supersedes the
+initial observation for current registry and inventory state. The actual registry
+is on Hugging Face, not GitHub. Both owned metadata PRs were merged; exact-revision
+anonymous readback matched all changed files and unchanged source trees were
+verified. No source bytes, historical safety receipt or unrelated registry entry
+was modified. Twenty-four unrelated estate registrations remain outside this
+bounded GFJD correction. This is not whole-estate reconciliation.
+
+`docs/governance/g2-m07-browser-observation-2026-09-05.md` records an executed
+local Chrome review and a fixed skip-link focus defect. It does not establish
+hosted Explorer or comprehensive accessibility qualification.
+`docs/governance/g2-exact-input-recovery-extension-2026-09-05.md` extends recovery
+to backup ZIPs and all local Git blobs without finding the missing exact inputs.
+The next G2 step is restoration of those original objects from another backup;
+replacement acquisition would require a distinct prospective scope/lineage,
+not repair of immutable failed evidence. No additional owner decision is needed
+for the metadata and local code fixes recorded here.

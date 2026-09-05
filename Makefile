@@ -93,10 +93,12 @@ security:
 
 generated:
 	PYTHONPATH=src $(PYTHON) -m gfjd conductor check-generated
+	PYTHONPATH=src $(PYTHON) scripts/render_work_indexes.py --check
 
 status:
 	PYTHONPATH=src $(PYTHON) -m gfjd conductor status --write docs/programme/generated/status.md
 	PYTHONPATH=src $(PYTHON) -m gfjd conductor graph --write docs/programme/generated/programme-graph.mmd
+	PYTHONPATH=src $(PYTHON) scripts/render_work_indexes.py
 
 release-rehearsal:
 	rm -rf build/rehearsal

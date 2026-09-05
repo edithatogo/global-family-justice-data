@@ -19,6 +19,12 @@ The bootstrap never force-pushes, refuses a mismatched `origin`, creates the own
 
 ## Current status
 
+For daily work, use the [active backlog](docs/programme/generated/active-work.md)
+and [recorded completion index](docs/programme/generated/completed-work.md).
+These preserve the canonical programme and historical evidence; they do not
+promote gates or delete completed work. See the
+[cleanup and source-recovery plan](docs/programme/cleanup-and-source-recovery-2026-09-06.md).
+
 The repository is an **alpha engineering, programme-control and autonomous-handoff baseline**. It contains a working conductor, data contracts, validation, acquisition, harmonisation, quarantine, provenance, deterministic release tooling, multi-format adapters, outcomes-evidence and comparability components, resilience tooling, CI policy controls, and the local/remote bootstrap layer. It is **not** a completed international dataset and must not be represented as v1.0.
 
 The repository remains deliberately fail-closed:

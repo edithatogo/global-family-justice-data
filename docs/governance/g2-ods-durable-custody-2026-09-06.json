@@ -1,0 +1,17 @@
+{
+  "receipt_id": "G2-ODS-DURABLE-CUSTODY-20260906",
+  "recorded_at": "2026-09-05T14:14:18.150620+00:00",
+  "recovery_receipt": "docs/governance/g2-ods-exact-recovery-receipt-2026-09-06.json",
+  "recovery_receipt_sha256": "639fd24b35efa4f06ed3fc040488ff352cbcf19d5dc0b87a4f2f35d203dfee56",
+  "retained_path": "data/raw/files/g2-controlled/3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2.ods",
+  "sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2",
+  "size_bytes": 990297,
+  "directory_mode": "0o700",
+  "file_mode": "0o600",
+  "build_cleanup_survival": "outside Makefile clean targets",
+  "retention_review_by": "2027-08-24",
+  "copy_count": 2,
+  "provider_separated": false,
+  "source_content_published": false,
+  "gate_acceptance": false
+}

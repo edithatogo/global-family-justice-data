@@ -212,12 +212,9 @@ b4f5c4e6e8363fb1f4679d89884f1cc94283411eda5c5007f2c62a10f43ca1c8  data/methods/g
 139b216eb28b6d6fb93b7b35f2e5bca1c7dec0d0325c88111405f6b85309c7be  data/methods/g2-swe-aus-successor-20260905.json
 f914a12ca647be33e686764bb07052264572e7c765e4785dc07b81bc4454a163  data/methods/g2-swe-aus-successor-comparison-20260905.json
 97278b360207acbf1965ee8d225304e0d410a1e8bf02a34f2157aacba48558fa  data/methods/g2-wi-g2-04-disposition-20260903.json
-<<<<<<< Updated upstream
 8ae6f0971978f0d6d71863dabb690368bf08a351fb2990169dc3e8e803759e62  data/methods/g2-wi-g2-07-disposition-20260903.json
 9a3c6995bcb3c9b37e15eaa65f971da63296a3c34f7b79a32c9639cb2ffda4e9  data/methods/g2-wi-g2-07-verification-20260904.json
-=======
 9309f7dc8742fed1cb02dbf88cbb9f3fcb576d8a1f838f101d7012bdd15885dc  data/methods/g2/G2-SCOPE-GAP-MATRIX-20260905.json
->>>>>>> Stashed changes
 02b975257f3254b8152cf801694df5b2e11656ba5f3cf04927dfdfccbe629948  data/methods/g2/G2API-BRA-TJSP-20260822-01/packet.json
 d50f18a2420977ceb9886ac1342c4225a910e946f2657df0c40da3851d325fd3  data/methods/g2/G2ATOMIC-FIELD-CONTRACT-20260826-01/contract.json
 7bdf23ff7c1d20e62750715ad165ec0399f68c491e939ffec6500cb458898ef8  data/methods/g2/G2BLIND-KNOWN-EDITION-20260825-01/DESIGN_MANIFEST.sha256
@@ -885,11 +882,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  programme/.git
 c0ede842399e38f61ec010eb957888c65ce4c5967e85a88304bb01727c52da95  programme/audit-log.jsonl
 3347991cd823a0eb02b499fbff69b892a0b1b90104eecffd33fd6bce989bebce  programme/decision_log.csv
 18eb5dd051fa64977654c890f1dc78bfdeefacd168b552f3bb0484ceca75f7a7  programme/defect_register.csv
-<<<<<<< Updated upstream
-99b709eee3fec7800e781f9aad8dcd1ec5532d31d2936c78f596394c569c87b9  programme/evidence_register.csv
-=======
-0b1c4fd23faebd6bb72660b74646f7cdbc8bc3f6ff5e1f5ca7fddf9a82132d19  programme/evidence_register.csv
->>>>>>> Stashed changes
+af4fd87276f7e7121126877a4cea9b277815806b71faebde6f54e66141033d0d  programme/evidence_register.csv
 6426d6e3777e32f2667d10c9a4b1b09d59b594582da25b84f93f1f01ddf20a89  programme/exception_register.csv
 478dd535cc84c6e92bdb830821a816ddcd175d306073f31f5e74bf4430e87c7a  programme/gate_decisions.csv
 36cd8ff95715bd4e9373080aa8a7cf2ae06d0ac85ed21943a6d3e367c7bb500a  programme/maturity_assessment.csv

@@ -276,3 +276,26 @@ concordance for the bounded two-edition descriptive sample, not complete pilot
 scope or L2 maturity. Quarantine and prior failures remain; G2 remains blocked.
 
 A passing technical workflow cannot approve a programme gate or transform process speed into evidence of child or family outcomes.
+
+Current blocker execution (2026-09-05): corrected the BRA and dashboard
+route-readiness bindings to the approved extraction responses and added three
+regression checks against the source packets and approved scope. All six real
+B0 files are now present and hash-matching. A fresh SWE replay produces ten B1
+and ten Silver rows twice identically, with changed-source/output rejection
+and 30 lexical matches to the sealed supporting extraction. The verifier uses
+the same implementation; no new independent assurance is claimed.
+
+Fresh M07 product builds and local retrieval copies verify; static accessibility
+passes. M10 metadata checks cover 23 jurisdictions and 245 searches, with 171
+draft and 168 inaccessible records still visible. Hosted observation confirms
+five public HF datasets, four containing only cards, and a private running
+Explorer. The hosted archive inventory's policy claims conflict with canonical
+GitHub policy, despite matching source identities. The documented federation
+registry is unresolved. See the updated downstream gate blocker matrix and
+its four current execution receipts in the evidence register.
+
+The initial full suite recorded 2191 passes, two existing missing-private-input
+skips, and one manifest failure caused by concurrently arriving agent files.
+Integrating those files and regenerating the manifest addresses that failure;
+final validation is required after integration. No missing historical artifacts
+were reconstructed. Three exact G2 route inputs remain unavailable locally.

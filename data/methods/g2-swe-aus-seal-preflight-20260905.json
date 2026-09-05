@@ -1,0 +1,15 @@
+{
+  "contract_id": "G2-SWE-AUS-PROSPECTIVE-20260905-01",
+  "role_a_output_sha256": "1dbca17e12dec0c1c10900b20669ff13c76ab7120c54367d77d0e971637ebaa4",
+  "role_a_process_sha256": "e65e7ceda594adb0487f6584d2b8dd5313cfb67f95913f34d59732836826f657",
+  "role_b_output_sha256": null,
+  "role_b_process_sha256": "ddd2939b396581a3ef09c381616fb6e0bd86fd3f66b0299686533d6f00f9f517",
+  "status": "comparison_blocked_missing_second_output_and_terminal_lineage",
+  "critical_required": "1.00",
+  "populated_required": "0.99",
+  "critical_observed": null,
+  "populated_observed": null,
+  "comparator_executed": false,
+  "passed": false,
+  "reason": "Agent B stopped without output; its process record cannot substitute for extracted rows. Agent A seal matches the original reported digest."
+}

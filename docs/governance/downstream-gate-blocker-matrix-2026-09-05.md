@@ -50,7 +50,8 @@ decision.
 Current execution observations are bound in:
 
 - `docs/governance/g2-source-availability-reconciliation-2026-09-05.md`:
-  six B0 files match; three exact G2 route inputs remain missing locally.
+  historical scan: six B0 files matched and three G2 route inputs were missing.
+  The September 6 recovery below supersedes its ODS absence finding.
 - `data/federation/real-swe-b0-replay-receipt-20260905-02.json`:
   fresh deterministic real replay with source and output negative checks.
 - `docs/governance/g2-l2-fresh-local-checks-2026-09-05.json`:
@@ -83,3 +84,15 @@ The next G2 step is restoration of those original objects from another backup;
 replacement acquisition would require a distinct prospective scope/lineage,
 not repair of immutable failed evidence. No additional owner decision is needed
 for the metadata and local code fixes recorded here.
+
+## September 6 recovery and backlog cleanup
+
+The original official ODS URL now yielded the exact 990297-byte historical
+SHA-256 and verified local readback. See
+`docs/governance/g2-ods-exact-recovery-receipt-2026-09-06.json`.
+Two core inputs (BRA response and dashboard response) plus three dashboard
+support artifacts remain missing. No failed lineage was repaired or rerun.
+The active/completion views separate 51 unfinished items from 30 recorded
+accepted items without deleting canonical evidence. No whole T0–T9 track is
+archive-eligible. The next choices and trade-offs are in
+`docs/programme/cleanup-and-source-recovery-2026-09-06.md`.

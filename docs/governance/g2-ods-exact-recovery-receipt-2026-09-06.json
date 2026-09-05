@@ -1,0 +1,22 @@
+{
+  "receipt_id": "G2-ODS-EXACT-RECOVERY-20260906",
+  "retrieved_at": "2026-09-05T14:04:41.074039+00:00",
+  "url": "https://assets.publishing.service.gov.uk/media/6a3b9c9230b491f55b3c482e/Family_Court_Tables__Jan-Mar_2026_.ods",
+  "method": "GET",
+  "http_status": 200,
+  "content_type": "application/vnd.oasis.opendocument.spreadsheet",
+  "size_bytes": 990297,
+  "sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2",
+  "expected_sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2",
+  "exact_identity_match": true,
+  "local_path": "build/g2-exact-recovery-20260906/G2-ODS-GBR-EAW-2026Q1.ods",
+  "local_readback_sha256": "3d2018163db2e50c3ed2ce9206b1f1fc3145c5028de5fd7d7c63cde362ca6fd2",
+  "file_mode": "0600",
+  "directory_mode": "0700",
+  "retention_review_by": "2027-08-24",
+  "requests_this_recovery": 2,
+  "request_note": "First bounded GET verified size and digest without retention; second GET retained only exact-matching bytes. No redirects or retries.",
+  "source_content_published": false,
+  "extraction_performed": false,
+  "gate_acceptance": false
+}

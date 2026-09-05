@@ -311,3 +311,13 @@ broader interoperability and 24 unrelated estate registrations remain incomplete
 A real local browser review fixed skip-link focus and added a regression test;
 it is bounded support, not full accessibility conformance. Extended archive/Git
 recovery found no missing G2 originals. G2 and downstream gates remain blocked.
+
+Cleanup and recovery (2026-09-06): added generated active/completion indexes,
+with 51 unfinished items and 30 recorded accepted items. No T0–T9 track is fully
+accepted, so none was deleted or falsely archived. Canonical evidence paths and
+history remain unchanged. The original official ODS URL yielded an exact size
+and SHA-256 match, retained under controlled local custody with a new receipt.
+This supersedes the earlier ODS absence finding only. Five API/dashboard objects
+remain missing; a new dynamic capture would be a distinct prospective lineage.
+See `docs/programme/cleanup-and-source-recovery-2026-09-06.md`. No extraction,
+gate acceptance or source publication occurred.

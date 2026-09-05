@@ -20,5 +20,7 @@ Recommended path: retain the approved scope and prepare a fresh, route-matched
 run for the three missing approved route/jurisdiction cells. Contingency: the
 owner may explicitly narrow C04/C07 to the SWE/AUS descriptive sample, but
 that would be a material scope amendment and would not establish four-route
-pilot reproducibility. Either path requires a separate owner adjudication;
-G2 remains blocked until then.
+pilot reproducibility. Retaining the approved scope permits repository-owned
+preparation to continue under existing direction; narrowing the scope and any
+eventual gate acceptance require a separate owner adjudication. G2 remains
+blocked until the approved evidence conditions are satisfied.

@@ -7,6 +7,8 @@ import hashlib
 import importlib.util
 from pathlib import Path
 
+import pytest
+
 _SPEC = importlib.util.spec_from_file_location(
     "assemble_b0_evidence_cohort",
     Path(__file__).parents[1] / "scripts/assemble_b0_evidence_cohort.py",
@@ -15,6 +17,21 @@ assert _SPEC and _SPEC.loader
 _MODULE = importlib.util.module_from_spec(_SPEC)
 _SPEC.loader.exec_module(_MODULE)
 assemble = _MODULE.assemble
+
+
+@pytest.mark.parametrize("kind", ["absolute", "parent", "symlink"])
+def test_external_payload_rejected(tmp_path: Path, kind: str) -> None:
+    root = tmp_path / "repository"
+    root.mkdir()
+    external = tmp_path / "outside.bin"
+    external.write_bytes(b"outside")
+    payload = str(external) if kind == "absolute" else "../outside.bin"
+    if kind == "symlink":
+        (root / "link.bin").symlink_to(external)
+        payload = "link.bin"
+    inventory = _write_inventory(root, payload, hashlib.sha256(b"outside").hexdigest())
+    with pytest.raises(ValueError, match="escapes repository"):
+        assemble(root, inventory)
 
 
 def _write_inventory(root: Path, payload: str, expected: str) -> Path:

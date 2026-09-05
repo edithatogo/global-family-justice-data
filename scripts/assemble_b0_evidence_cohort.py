@@ -23,10 +23,16 @@ def sha256(path: Path) -> str:
 
 
 def assemble(root: Path, inventory: Path) -> dict[str, object]:
+    root = root.resolve()
     rows: list[dict[str, object]] = []
     with inventory.open(newline="", encoding="utf-8") as handle:
         for record in csv.DictReader(handle):
-            payload = root / record["payload_path"]
+            relative = Path(record["payload_path"])
+            if relative.is_absolute() or ".." in relative.parts:
+                raise ValueError("payload path escapes repository")
+            payload = (root / relative).resolve()
+            if not payload.is_relative_to(root):
+                raise ValueError("payload path escapes repository")
             exists = payload.is_file()
             observed = sha256(payload) if exists else None
             digest_matches = observed == record["sha256"] if exists else False

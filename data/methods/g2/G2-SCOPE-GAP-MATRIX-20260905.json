@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0",
+  "matrix_id": "G2-SCOPE-GAP-MATRIX-20260905",
+  "approved_scope": {
+    "jurisdictions": ["AUS", "BRA", "GBR-EAW"],
+    "routes": ["api", "spreadsheet", "html_dashboard", "pdf_manual"],
+    "criteria": ["G2-C04", "G2-C07"]
+  },
+  "fresh_successor_scope": {
+    "jurisdictions": ["SWE", "AUS"],
+    "routes": ["spreadsheet", "pdf_manual"],
+    "rows": 14,
+    "critical_concordance": "168/168",
+    "populated_concordance": "140/140",
+    "evidence_id": "E-SWE-AUS-SUCCESSOR-20260905"
+  },
+  "coverage": [
+    {"jurisdiction": "AUS", "route": "pdf_manual", "successor": true, "approved": true},
+    {"jurisdiction": "BRA", "route": "api", "successor": false, "approved": true},
+    {"jurisdiction": "GBR-EAW", "route": "spreadsheet", "successor": false, "approved": true},
+    {"jurisdiction": "GBR-EAW", "route": "html_dashboard", "successor": false, "approved": true},
+    {"jurisdiction": "SWE", "route": "spreadsheet", "successor": true, "approved": false}
+  ],
+  "disposition": {
+    "scope_complete": false,
+    "threshold_result_valid": true,
+    "successor_replaces_approved_scope": false,
+    "automatic_scope_reduction": false,
+    "owner_decision_required": true
+  }
+}

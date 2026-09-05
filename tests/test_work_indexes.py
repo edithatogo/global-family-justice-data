@@ -35,6 +35,33 @@ def test_reopened_work_returns_to_active_view(project_root: Path) -> None:
     assert "A \\| B C" in active
 
 
+@pytest.mark.parametrize("configured_statuses", [None, ["accepted"], ["waived", "done"]])
+def test_work_views_follow_configured_completion_statuses(
+    project_root: Path, configured_statuses: list[str] | None
+) -> None:
+    functions = runpy.run_path(str(project_root / "scripts/render_work_indexes.py"))
+    conductor = Conductor.load(project_root)
+    config = conductor.project.config.setdefault("conductor", {})
+    if configured_statuses is None:
+        config.pop("accepted_work_statuses", None)
+    else:
+        config["accepted_work_statuses"] = configured_statuses
+    statuses = {"accepted", "waived"} if configured_statuses is None else set(configured_statuses)
+    original_items = list(conductor.work_items.values())[:3]
+    for item, status in zip(original_items, ("accepted", "waived", "done"), strict=True):
+        conductor.work_items[item.id] = replace(item, status=status)
+    active = functions["render"](conductor, completed=False)
+    completed = functions["render"](conductor, completed=True)
+    for item in conductor.work_items.values():
+        marker = f"| {item.id} |"
+        assert (marker in completed) == (item.status in statuses)
+        assert (marker in active) == (item.status not in statuses)
+    waived = conductor.work_items[original_items[1].id]
+    view = completed if "waived" in statuses else active
+    assert f"| {waived.id} | {waived.track_id}/{waived.gate_id} | waived |" in view
+    assert "Recorded complete" in completed
+
+
 def test_check_rejects_missing_and_stale_views(
     project_root: Path, tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:

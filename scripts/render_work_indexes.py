@@ -14,7 +14,11 @@ def cell(value: str) -> str:
 
 def render(conductor: Conductor, *, completed: bool) -> str:
     items = sorted(conductor.work_items.values(), key=lambda item: item.id)
-    selected = [item for item in items if (item.status == "accepted") == completed]
+    conductor_config = conductor.project.config.get("conductor", {})
+    completion_statuses = set(
+        conductor_config.get("accepted_work_statuses", ["accepted", "waived"])
+    )
+    selected = [item for item in items if (item.status in completion_statuses) == completed]
     title = "Recorded completed work" if completed else "Active work"
     counterpart = "active-work.md" if completed else "completed-work.md"
     lines = [
@@ -25,18 +29,18 @@ def render(conductor: Conductor, *, completed: bool) -> str:
         "",
         f"{len(selected)} of {len(items)} work items. [Other view]({counterpart}).",
         "",
-        "Recorded acceptance is not renewed assurance, gate passage or track archival. "
-        "Items in review stay active even when implementation tests pass.",
+        "Recorded completion follows configured work statuses and is not renewed assurance, "
+        "gate passage or track archival. Waivers remain explicitly labelled as waived.",
         "",
-        "| Track | Recorded accepted | Total | Whole-track archive eligible |",
+        "| Track | Recorded complete | Total | Whole-track archive eligible |",
         "|---|---:|---:|---|",
     ]
     for track in sorted({item.track_id for item in items}):
         group = [item for item in items if item.track_id == track]
-        accepted = sum(item.status == "accepted" for item in group)
-        # Acceptance counts alone cannot establish current whole-track closure.
-        eligibility = "needs current closure review" if accepted == len(group) else "no"
-        lines.append(f"| {track} | {accepted} | {len(group)} | {eligibility} |")
+        complete_count = sum(item.status in completion_statuses for item in group)
+        # Completion counts alone cannot establish current whole-track closure.
+        eligibility = "needs current closure review" if complete_count == len(group) else "no"
+        lines.append(f"| {track} | {complete_count} | {len(group)} | {eligibility} |")
     lines += [
         "",
         "| Work item | Track/gate | Status | Title | Evidence IDs | Dependencies |",

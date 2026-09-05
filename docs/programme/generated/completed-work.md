@@ -4,9 +4,9 @@ Generated from [the canonical register](../../../programme/work_items.csv). No r
 
 30 of 81 work items. [Other view](active-work.md).
 
-Recorded acceptance is not renewed assurance, gate passage or track archival. Items in review stay active even when implementation tests pass.
+Recorded completion follows configured work statuses and is not renewed assurance, gate passage or track archival. Waivers remain explicitly labelled as waived.
 
-| Track | Recorded accepted | Total | Whole-track archive eligible |
+| Track | Recorded complete | Total | Whole-track archive eligible |
 |---|---:|---:|---|
 | T0 | 3 | 11 | no |
 | T1 | 2 | 3 | no |

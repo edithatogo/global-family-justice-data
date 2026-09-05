@@ -1,0 +1,121 @@
+{
+  "contract_id": "G2-SWE-AUS-PROSPECTIVE-20260905-02",
+  "version": 2,
+  "scope": "Known-source descriptive reproducibility preparation; 14 source-table rows across two editions",
+  "exposure": "Both editions, selected targets and previous outputs are known to the orchestrator. This is not project-unseen evidence.",
+  "cohort": [
+    {
+      "inventory_id": "ARC-SWE-DOMSTOLSVERKET-2026",
+      "sha256": "47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb",
+      "format": "xlsx",
+      "sheet": "Rapport_101 - 2026-07-31T093235",
+      "header_row": 8,
+      "columns": [
+        "B",
+        "C",
+        "D"
+      ],
+      "data_rows": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "context_cells": [
+        "A3",
+        "C7",
+        "A9",
+        "A27",
+        "A28",
+        "A29"
+      ],
+      "period_label": "2025",
+      "row_fields": [
+        "case_type_source",
+        "cases_filed_source",
+        "cases_determined_source"
+      ],
+      "mapping": {
+        "case_type_source": "B",
+        "cases_filed_source": "C",
+        "cases_determined_source": "D"
+      },
+      "locator_rule": "worksheet name followed by !B{row}:D{row}",
+      "exclusions": "Do not fill merged Category cells into rows. Exclude user metadata, internal paths and all nonselected cells from output. Preserve total row separately; never add total to component rows."
+    },
+    {
+      "inventory_id": "ARC-AUS-FCFCOA-202425",
+      "sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "format": "pdf",
+      "pdf_page_one_based": 102,
+      "table_heading": "Table 3.3.1(a): total filings by application type, 2024–25",
+      "table_rows_one_based": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "period_label": "2024–25",
+      "row_fields": [
+        "application_type_source",
+        "filings_source",
+        "percentage_source"
+      ],
+      "mapping": {
+        "application_type_source": "Application type",
+        "filings_source": "Filings",
+        "percentage_source": "Percentage"
+      },
+      "locator_rule": "PDF page 102; Table 3.3.1(a); data row {row}",
+      "exclusions": "Output excludes Figure 3.3.2(a), clearance rates, case narratives, names, images and unrelated pages. Inspection of surrounding aggregate prose on page 102 is permitted. Preserve total separately."
+    }
+  ],
+  "output_contract": {
+    "encoding": "UTF-8 JSON; one object containing contract_id and ordered rows",
+    "row_order": "cohort order above, then ascending source row",
+    "common_fields": [
+      "inventory_id",
+      "source_sha256",
+      "source_row",
+      "locator",
+      "period_label_source",
+      "period_start",
+      "period_end",
+      "comparison_eligible",
+      "quarantined"
+    ],
+    "additional_fields": "Exactly the edition-specific row_fields; no additional keys",
+    "types": "source_row is integer; comparison_eligible is false; quarantined is true; period_start and period_end are null; every other field is a string",
+    "lexical_rules": "Preserve case, punctuation, diacritics, thousands separators and percentage signs. XLSX uses OOXML lexical values, joining rich-text runs in order. PDF excludes layout padding; wrap breaks within a table cell become one space. Do not normalize Unicode or numbers.",
+    "semantics": "Source-defined labels and measures only. No translated ontology, denominator inference, clearance calculation, ISO date inference or cross-jurisdiction equivalence. Period labels are source context."
+  },
+  "concordance": {
+    "critical_fields": "Every common and edition-specific row field, exact row count/order and source identity",
+    "critical_threshold": "1.00",
+    "overall_populated_threshold": "0.99",
+    "comparison": "Exact typed equality; null remains a critical value; populated overall excludes null; recompute counts from both sealed outputs; no fuzzy matching",
+    "source_accuracy": "Separate review against the original selected cells/table; agreement alone is insufficient"
+  },
+  "execution_controls": {
+    "roles": [
+      "fresh extractor A",
+      "fresh extractor B",
+      "network-disabled comparator",
+      "source-accuracy advisory reviewer"
+    ],
+    "isolation": "Extractors receive only this contract and exact source editions. No prior outputs, expected values, sibling workspace, repository history or comparator differences. Bind workspace manifests before delegation.",
+    "seal": "Hash each output before comparator access; preserve all failures without editing or reuse",
+    "stopping_rules": "Any source-hash, scope, isolation, schema, prohibited-data, seal or critical-concordance failure terminates execution. No automatic rerun, substitution, exclusion or waiver.",
+    "resources": "Two existing source editions, two extraction agents, one comparator and one advisory review; zero network requests",
+    "execution_status": "not_started",
+    "historical_lineages": "Fresh successor authorized by user direction to proceed with recommended correction and remaining work. Previous lineage remains terminal and cannot be reused."
+  },
+  "acceptance": "Fresh bounded execution preparation. No gate acceptance inferred. Shared-host context/artifact isolation, not OS sandbox; no network. Same source scope, values and thresholds as predecessor.",
+  "inspection_boundary": "Inspect the full selected PDF page 102 (including surrounding aggregate prose and figure) and selected XLSX context cells to understand the target. Output only the selected table/cell fields. Incidental inspection of adjacent aggregate context on page 102 is permitted, not a scope failure. No unrelated pages, user metadata or internal paths in output."
+}

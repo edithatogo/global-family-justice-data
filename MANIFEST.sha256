@@ -206,6 +206,7 @@ e166ea3785521bdcf1802bdc005383af40f054a1c349871d313c91e963107004  data/methods/g
 23a3224be228ef2ad82141182024f63ef083d6a4c466e35cbd27b0ee92b5ea0a  data/methods/g2-repro/offline-api-contract-2026-08-31.json
 b4f5c4e6e8363fb1f4679d89884f1cc94283411eda5c5007f2c62a10f43ca1c8  data/methods/g2-repro/offline-api-contract-bundle-2026-08-31.json
 1265293d8f400980eabfd2293f72bea746d6e5cb5265a675dfd1befb1ece8b41  data/methods/g2-repro/schema-diagnostics-design-2026-08-31.json
+808318acb41fe055b3ff2c7b8e9bc352fa64bae1f40a1b0485bbe3c3f07d5398  data/methods/g2-swe-aus-freeze-20260905.json
 97278b360207acbf1965ee8d225304e0d410a1e8bf02a34f2157aacba48558fa  data/methods/g2-wi-g2-04-disposition-20260903.json
 8ae6f0971978f0d6d71863dabb690368bf08a351fb2990169dc3e8e803759e62  data/methods/g2-wi-g2-07-disposition-20260903.json
 9a3c6995bcb3c9b37e15eaa65f971da63296a3c34f7b79a32c9639cb2ffda4e9  data/methods/g2-wi-g2-07-verification-20260904.json
@@ -771,6 +772,7 @@ e827b05e3b4fc8a5fece91687181f34f4b9f4def22ed7c930e8f77e75330c3de  docs/methods/g
 6483c448e7d6306247395b4fdb72683c410dec89a6fe80a27e20a162e04bc638  docs/methods/g2-structural-preflight-design-evidence-2026-08-15.md
 46d3319537843ced16f434fe0d5e3aa9b875dcd40be5a774082c5986d1f4eb88  docs/methods/g2-successor-hardening-design-2026-08-29.md
 8a951f2c8b253512197ea7347d1c70337a3be319e20b75d66caa3c1f213109ba  docs/methods/g2-successor-metadata-registration-terminal-evidence-2026-08-29.md
+05c2ee2a0d130536c6958d2e8b56519c7b9edc9c94a64807da9df4d8a5121097  docs/methods/g2-swe-aus-freeze-2026-09-05.md
 26631eccf1dfa517497d45795913bc2a285eb4d288346393cbc6d0a064511c6b  docs/methods/g2-three-root-lastmod-consolidation-2026-08-30.md
 cd84ac41648a2940a783caaf8895e152e14d2e10e41e1e9144a823b843496276  docs/methods/g2-two-stage-structural-preflight-plan-2026-08-15.md
 0fe25155aa04e0e2276d116d740a6ed4467a9bd3185c114f3bc74ed304b5f5c9  docs/methods/g2-uk-family-release-calendar-first-observation-2026-08-29.md

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "cohort_id": "GFJD-B0-REAL-20260903-01",
+  "source_inventory": "data/raw/archive_inventory.csv",
+  "source_access": "local-only-verification",
+  "network_used": false,
+  "rows": [
+    {
+      "inventory_id": "ARC-GBR-EAW-2026Q1",
+      "source_id": "GBR-EAW-MOJ-FAMILY-Q",
+      "edition": "2026-Q1",
+      "payload_path": "data/raw/files/GBR-EAW-MOJ-FAMILY-Q/ACQ-GBR-EAW-MOJ-FAMILY-Q-20260731T222608Z-8EA47087/FCSQ_2026_Q1.zip",
+      "expected_sha256": "8ea470874a6d24ca0db2c7253dd4141f595304262617248c2063ecd0e4cb1c96",
+      "observed_sha256": null,
+      "exists": false,
+      "digest_matches": false,
+      "status": "blocked_missing_or_mismatched_bytes"
+    },
+    {
+      "inventory_id": "ARC-AUS-FCFCOA-202425",
+      "source_id": "AUS-FCFCOA-AR",
+      "edition": "2024-25",
+      "payload_path": "data/raw/files/FCFCOA-ANNUAL-2024-25/annual-report-2024-25.pdf",
+      "expected_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "observed_sha256": null,
+      "exists": false,
+      "digest_matches": false,
+      "status": "blocked_missing_or_mismatched_bytes"
+    },
+    {
+      "inventory_id": "ARC-BRA-CNJ-2026",
+      "source_id": "BRA-CNJ-DATAJUD",
+      "edition": "2026",
+      "payload_path": "data/raw/files/CNJ-JUSTICA-2026/justica-em-numeros-2026.pdf",
+      "expected_sha256": "3415d516d756f48d7337e83e6faa8477644fe98b5cedb43cb04999f59fd5a71f",
+      "observed_sha256": null,
+      "exists": false,
+      "digest_matches": false,
+      "status": "blocked_missing_or_mismatched_bytes"
+    },
+    {
+      "inventory_id": "ARC-SWE-DOMSTOLSVERKET-2026",
+      "source_id": "SWE-DOMSTOLSVERKET",
+      "edition": "2026",
+      "payload_path": "data/raw/files/direct-enquiries/SWE/Cases filed and determined, family cases in district courts 2025.xlsx",
+      "expected_sha256": "47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb",
+      "observed_sha256": null,
+      "exists": false,
+      "digest_matches": false,
+      "status": "blocked_missing_or_mismatched_bytes"
+    },
+    {
+      "inventory_id": "ARC-ZAF-JUD-202425",
+      "source_id": "ZAF-JUD-ANNUAL",
+      "edition": "2024-25",
+      "payload_path": "data/raw/files/SA-JUDICIARY-2024-25/annual-judiciary-report-2024-25.pdf",
+      "expected_sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce",
+      "observed_sha256": null,
+      "exists": false,
+      "digest_matches": false,
+      "status": "blocked_missing_or_mismatched_bytes"
+    },
+    {
+      "inventory_id": "ARC-USA-MN-MJB-PERF-2024",
+      "source_id": "USA-MN-MJB",
+      "edition": "2024",
+      "payload_path": "data/raw/files/USA-MN-MJB/ACQ-USA-MN-MJB-20260814T144054Z-32931494/Annual-Report-2024-Performance-Measures.pdf",
+      "expected_sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b",
+      "observed_sha256": null,
+      "exists": false,
+      "digest_matches": false,
+      "status": "blocked_missing_or_mismatched_bytes"
+    }
+  ],
+  "eligible_count": 0,
+  "total_count": 6,
+  "status": "terminal_stop_missing_bytes",
+  "replay_authorized": false,
+  "limitations": [
+    "No source bytes are downloaded or substituted by this command.",
+    "Inventory metadata and acquisition receipts do not establish B0 custody without matching bytes."
+  ]
+}

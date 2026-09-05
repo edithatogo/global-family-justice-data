@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "work_item": "WI-G2-07",
+  "packet_sha256": "1dcfe445a2179670fa4cc759e7e98774974a6b7c62639734e1d31d27e92b6b7b",
+  "terminal_result_sha256": "5b1dd48d3f73e5a8e8faa8b7f9e6dfe2e9ae5a0815c3f05be33e3c298b31700e",
+  "metrics": {
+    "critical_matches": 58,
+    "critical_comparisons": 76,
+    "critical_concordance": 0.7631578947368421,
+    "critical_threshold": 1.0,
+    "critical_differences": 18,
+    "overall_populated_matches": 42,
+    "overall_populated_comparisons": 60,
+    "overall_populated_concordance": 0.7,
+    "overall_threshold": 0.99
+  },
+  "status": "terminal_failed_below_threshold",
+  "promotion_authorized": false,
+  "owner_adjudication": false
+}

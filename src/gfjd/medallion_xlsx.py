@@ -319,6 +319,34 @@ def _text(container: ET.Element) -> str:
     return text.text or ""
 
 
+def _shared_text(container: ET.Element) -> str:
+    """Read a bounded shared-string item, including rich-text runs."""
+    _require(container.tag == f"{{{S}}}si")
+    _require(not container.attrib and not (container.text or "").strip())
+    if len(container) == 1 and container[0].tag == f"{{{S}}}t":
+        return _text(container)
+    parts: list[str] = []
+    for run in container:
+        _require(run.tag == f"{{{S}}}r")
+        _require(not run.attrib and not (run.text or "").strip())
+        _require(not (run.tail or "").strip())
+        _require(all(node.tag in {f"{{{S}}}rPr", f"{{{S}}}t"} for node in run))
+        _require(len(run.findall(f"{{{S}}}rPr")) <= 1)
+        texts = [node for node in run if node.tag == f"{{{S}}}t"]
+        _require(len(texts) == 1)
+        text = texts[0]
+        _require(
+            not text.attrib or set(text.attrib) <= {"{http://www.w3.org/XML/1998/namespace}space"}
+        )
+        _require(len(text) == 0 and not (text.tail or "").strip())
+        _require(
+            text.get("{http://www.w3.org/XML/1998/namespace}space") in {None, "default", "preserve"}
+        )
+        parts.append(text.text or "")
+    _require(bool(parts))
+    return "".join(parts)
+
+
 def _value(cell: ET.Element, strings: list[str]) -> tuple[str, str]:
     _require(not (cell.text or "").strip())
     _require(set(cell.attrib) <= {"r", "t", "s"})
@@ -388,7 +416,7 @@ def _extract(source: bytes, contract: dict[str, Any]) -> dict[str, Any]:
         _require(root.tag == f"{{{S}}}sst")
         for item in root:
             _require(item.tag == f"{{{S}}}si")
-            strings.append(_text(item))
+            strings.append(_shared_text(item))
     labels = []
     headers = []
     for col in contract["columns"]:

@@ -289,8 +289,16 @@ def test_plain_shared_strings_boolean_and_date() -> None:
     assert extract_xlsx(raw, contract(raw))["fields"][0]["Fictional amount"]["cell_type"] == "d"
     entries["xl/sharedStrings.xml"] = f'<sst xmlns="{S}"><si><r><t>rich</t></r></si></sst>'
     raw = source(entries)
-    with pytest.raises(MedallionXlsxError):
-        extract_xlsx(raw, contract(raw))
+    assert extract_xlsx(raw, contract(raw))["rows"][0][" Fictional label "] == "rich"
+    for malformed in (
+        "<r><t>rich</t><unknown/></r>",
+        '<r><t xml:space="invalid">rich</t></r>',
+        "<r><t>rich</t></r>lost text",
+    ):
+        entries["xl/sharedStrings.xml"] = f'<sst xmlns="{S}"><si>{malformed}</si></sst>'
+        raw = source(entries)
+        with pytest.raises(MedallionXlsxError):
+            extract_xlsx(raw, contract(raw))
 
 
 def test_receipt_tamper() -> None:

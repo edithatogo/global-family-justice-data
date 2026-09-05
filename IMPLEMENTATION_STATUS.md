@@ -267,4 +267,12 @@ acceptance remains dependency- and evidence-bound.
 
 Stable v1.0 still requires authentic evidence for real source editions and retrievals, source-rights facts and owner decisions, multilingual searches, jurisdiction-aware triangulation, real connectors and fixtures, blinded role-separated re-extraction, methods adjudication, outcomes-evidence appraisal, agent/tool accessibility review, production operations, two-location preservation, tested restore, publication state and the owner's dated 12-month resource commitment. Agent panels cannot manufacture those facts or create legal, independent-specialist, local-human or lived-experience claims.
 
+Swedish/AUS successor continuation (2026-09-05): two fresh context/artifact-isolated
+agents produced separately sealed outputs with 168/168 critical and 140/140
+populated exact matches. A separate advisory agent checked all 14 rows against
+the original selected source cells/table without discrepancy. See
+`docs/methods/g2-swe-aus-successor-result-2026-09-05.md`. This resolves missing
+concordance for the bounded two-edition descriptive sample, not complete pilot
+scope or L2 maturity. Quarantine and prior failures remain; G2 remains blocked.
+
 A passing technical workflow cannot approve a programme gate or transform process speed into evidence of child or family outcomes.

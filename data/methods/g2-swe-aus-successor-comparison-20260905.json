@@ -1,0 +1,12 @@
+{
+  "contract_sha256": "139b216eb28b6d6fb93b7b35f2e5bca1c7dec0d0325c88111405f6b85309c7be",
+  "a_sha256": "da6a1b140487714cba8df727deae1b64b022e7cc1e73e7d5d9085ca768b41474",
+  "b_sha256": "da6a1b140487714cba8df727deae1b64b022e7cc1e73e7d5d9085ca768b41474",
+  "critical_matches": 168,
+  "critical_fields": 168,
+  "populated_matches": 140,
+  "populated_fields": 140,
+  "passed": true,
+  "source_accuracy_review_required": true,
+  "gate_acceptance": false
+}

@@ -1,0 +1,57 @@
+{
+  "record_id": "HOSTED-ESTATE-OBSERVATION-20260905",
+  "record_type": "actual_anonymous_public_metadata_observations",
+  "source_commit": "f0ccb5e63ce5c48ef793b5e1f861f70c38191d32",
+  "configuration_bindings": {
+    "config/bootstrap.toml": "388925067beefa71809d846ea4ea3c901dfb019c40b2fb6e5ac5c1da59ae3827",
+    "portfolio/products.toml": "23a7ef17ac34ea00250e66d286df4816c2d6a4d6b1375a530629ddccff28799a"
+  },
+  "transport": {"method": "GET", "authentication": "none", "client": "Python urllib.request", "timeout_seconds": 30, "retries": 0, "source_documents_requested": false, "response_bodies_retained": false},
+  "observations": [
+    {"url": "https://api.github.com/repos/edithatogo/global-family-justice-data", "observed_at": "2026-09-05T12:32:21.687129+00:00", "status": 200, "bytes": 6214, "response_sha256": "cb22552c5738a43b379ee937ea42ccce3d157182405a80b800a35ef3791b5e8d", "repository_id": 1313678863, "private": false, "default_branch": "main"},
+    {"url": "https://huggingface.co/api/datasets/edithatogo/gfjd-source-archive", "observed_at": "2026-09-05T12:32:22.247942+00:00", "status": 200, "bytes": 1861, "response_sha256": "22446b21f619daf9cde578f306700ab2106d577009c45d7c0ff1f189dec6c12d", "private": false, "revision": "3f534c86d7b72978963049f6007df1dccd27e601", "listed_source_documents": 6, "metadata_files": ["archive_inventory.csv", "public_b0_safety.json"], "source_byte_retrieval_verified": false},
+    {"url": "https://huggingface.co/api/datasets/edithatogo/gfjd-source-catalogue", "observed_at": "2026-09-05T12:32:22.749206+00:00", "status": 200, "bytes": 1267, "response_sha256": "53f228c6a05ae470c1487a21acd5612a02fcad435fc895d3827d596c4e16140f", "private": false, "revision": "257802ec64818ebc5a2c1207f2ac4ffb5f4e42d5", "files": [".gitattributes", "README.md", "RIGHTS.md"]},
+    {"url": "https://huggingface.co/api/datasets/edithatogo/gfjd-observations", "observed_at": "2026-09-05T12:32:23.168948+00:00", "status": 200, "bytes": 1247, "response_sha256": "254b26555db21dd9269cdb9fdc736ee239bffc647fbb7a50f0c81868d81f15bc", "private": false, "revision": "48f9a68af864318160bc56da8256caa35b94a793", "files": [".gitattributes", "README.md", "RIGHTS.md"]},
+    {"url": "https://huggingface.co/api/datasets/edithatogo/gfjd-outcomes-evidence", "observed_at": "2026-09-05T12:32:23.635024+00:00", "status": 200, "bytes": 1280, "response_sha256": "fc6276f0d90c45180d86351ee2a905eba0dd8ac5034b7c3f6d87f98fcab8bf7a", "private": false, "revision": "02e12eb96c4f36a88b6162acaa7aa9c67afffbfa", "files": [".gitattributes", "README.md", "RIGHTS.md"]},
+    {"url": "https://huggingface.co/api/datasets/edithatogo/gfjd-extraction-benchmark", "observed_at": "2026-09-05T12:32:24.044343+00:00", "status": 200, "bytes": 1272, "response_sha256": "224cc40151ff4547dc35a147ff7b7a7912b1af0797fbe62a9cbd12096c1b83e4", "private": false, "revision": "05d4ad9038c388f988a6ca6be91e2f0de57f4d59", "files": [".gitattributes", "README.md", "RIGHTS.md"]},
+    {"url": "https://huggingface.co/api/spaces/edithatogo/gfjd-explorer", "observed_at": "2026-09-05T12:32:24.529700+00:00", "status": 401, "bytes": 41, "response_sha256": "65842e3d84e6b7f62a470c85204e80b953bb8f944e9b69813130a9d7f3eaa1d8", "disposition": "anonymous_availability_unverified_not_proof_of_absence"},
+    {"url": "https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/3f534c86d7b72978963049f6007df1dccd27e601/archive_inventory.csv", "observed_at": "2026-09-05T12:32:50.441078+00:00", "status": 200, "bytes": 3223, "response_sha256": "b2934a85551a89ef191f58025306daf52b7085ef69bda1af7256e10ada9dcd47", "redirect_host": "huggingface.co", "inventory_rows": 6},
+    {"url": "https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/3f534c86d7b72978963049f6007df1dccd27e601/public_b0_safety.json", "observed_at": "2026-09-05T12:32:51.114865+00:00", "status": 200, "bytes": 2789, "response_sha256": "0bc92a70fb35cee14ebfcb64f6eeadbe88a11186a5c52e9ea801b815e1172c88", "redirect_host": "huggingface.co", "declared_inventory_sha256_matches_retrieved_inventory": true, "declared_safety_status": "pass", "safety_recomputed": false},
+    {"url": "https://raw.githubusercontent.com/edithatogo/global-family-justice-data/f0ccb5e63ce5c48ef793b5e1f861f70c38191d32/data/raw/archive_inventory.csv", "observed_at": "2026-09-05T12:33:16.349007+00:00", "status": 200, "bytes": 2787, "response_sha256": "afb95099ec70aac3b7a1307d747a3ee421b2127ce545a0217db0766c1ad9a632", "matches_huggingface_inventory_bytes": false},
+    {"url": "https://api.github.com/repos/edithatogo/dataset-estate-registry", "observed_at": "2026-09-05T12:33:16.777856+00:00", "status": 404, "disposition": "anonymous_availability_unverified_not_proof_of_absence"},
+    {"url": "https://api.github.com/repos/edithatogo/dataset-estate-registry/git/trees/main?recursive=1", "observed_at": "2026-09-05T12:33:17.144529+00:00", "status": 404, "disposition": "registration_not_verified"}
+  ],
+  "followup_diagnosis": {
+    "observed_by": "owner-authenticated hf CLI and gh CLI",
+    "completed_at": "2026-09-05T12:36:19Z",
+    "explorer": {"id": "edithatogo/gfjd-explorer", "private": true, "disabled": false, "gated": false, "stage": "RUNNING", "revision": "e3d9e838765c70d9d070d9d4a0476aa27a638ee4", "files": [".gitattributes", "README.md", "index.html", "style.css"], "public_availability_blocker": "private visibility"},
+    "registry_target_reference": "docs/programme/maximal-public-medallion-federation-plan-2026-08-26.md:95",
+    "documented_registry": "edithatogo/dataset-estate-registry",
+    "authenticated_registry_result": "GraphQL could not resolve repository",
+    "inventory_comparison": {
+      "equal_fields_for_all_six_rows": ["inventory_id", "source_id", "edition", "manifest_path", "payload_path", "sha256"],
+      "different_fields_for_all_six_rows": ["rights_class", "github_policy", "huggingface_policy", "publication_status", "notes"],
+      "huggingface_rights_class": "owner_approved_public_archive",
+      "huggingface_github_policy": "public_exact_edition_archive",
+      "huggingface_huggingface_policy": "public_exact_edition_archive",
+      "huggingface_publication_status": "public_replicated",
+      "github_rights_classes": {"ARC-GBR-EAW-2026Q1": "review_required", "ARC-AUS-FCFCOA-202425": "unknown", "ARC-BRA-CNJ-2026": "unknown", "ARC-SWE-DOMSTOLSVERKET-2026": "unknown", "ARC-ZAF-JUD-202425": "unknown", "ARC-USA-MN-MJB-PERF-2024": "review_required"},
+      "github_github_policy": "metadata_and_receipt_only",
+      "github_huggingface_policy": "metadata_and_receipt_only",
+      "github_publication_status": "local_metadata_only",
+      "disposition": "same source identities and digests; conflicting rights and custody policy claims require reconciliation"
+    },
+    "hosted_mutations": false,
+    "source_documents_requested": false
+  },
+  "conclusions": {
+    "public_dataset_identity_availability_verified": 5,
+    "anonymous_project_metadata_retrieval_verified": true,
+    "identical_two_provider_inventory_verified": false,
+    "source_byte_custody_reverified": false,
+    "explorer_public_availability_verified": false,
+    "federation_registration_verified": false,
+    "gate_acceptance": false
+  },
+  "limitations": ["Response digests bind actual observations; response bodies were not retained, so this is not a replayable full transport capture.", "Repository metadata and source-file listings do not prove retrieval or safety of source bytes.", "GitHub and Hugging Face inventory hashes differ; two-provider identical-object custody is not established by these observations.", "Four public dataset repositories contain cards and rights notices only; qualified dataset publication is not established.", "HTTP 401 and 404 cannot distinguish a private resource from absence without additional authenticated inspection."]
+}

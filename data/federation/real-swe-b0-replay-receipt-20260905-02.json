@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "E-REAL-SWE-B0-REPLAY-20260905-02",
+  "source_sha256": "47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb",
+  "contract_sha256": "6ed5e01f69440a202c481885320e1dc652eab5083c6aede86e8f004e469d38a5",
+  "artifact_sha256": "bef446fe79cb5ed4adc07195b8e012bef1df0d8ad5a6d7f007ca80d94a1d5bd2",
+  "b1_rows_sha256": "38cb7f27b909addc62e7454e911a7d0b2b7a670402056aceb18af9e92b58a0bf",
+  "b1_row_count": 10,
+  "silver_row_count": 10,
+  "deterministic_double_execution": true,
+  "source_recomputation_verifier": true,
+  "verifier_implementation": "verify_pipeline invokes the same replay_pipeline implementation; this is recomputation, not implementation-independent verification.",
+  "negative_checks": {
+    "changed_source_rejected": true,
+    "changed_output_rejected": true
+  },
+  "source_field_mapping": {
+    "case_type_source": "Case type",
+    "cases_filed_source": "Cases filed",
+    "cases_determined_source": "Cases determined"
+  },
+  "supporting_g2_contract_sha256": "139b216eb28b6d6fb93b7b35f2e5bca1c7dec0d0325c88111405f6b85309c7be",
+  "supporting_sealed_extraction_output_sha256": "da6a1b140487714cba8df727deae1b64b022e7cc1e73e7d5d9085ca768b41474",
+  "sealed_extraction_lexical_field_matches": 30,
+  "lexical_match_scope": "Ten original SWE B:D triples; exact lexical values, same row order. Matches extractor A's sealed output. No new source-accuracy review, independent G2 run or extension of owner acceptance.",
+  "status": "empirical_replay_verified_pending_layer_adjudication",
+  "network_requests": 0,
+  "current_remote_custody_verified": false,
+  "rights_clearance": false,
+  "layer_acceptance": false,
+  "g2_acceptance": false,
+  "publication_authorized": false,
+  "release_authorized": false,
+  "artifact_directory": "build/real-swe-replay-20260905-02",
+  "historical_artifact_reconstructed": false,
+  "recorded_at_semantics": "Fixed replay metadata instant on observation date; not source publication or measured run time."
+}

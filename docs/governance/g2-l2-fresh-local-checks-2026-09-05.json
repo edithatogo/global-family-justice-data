@@ -1,0 +1,49 @@
+{
+  "evidence_id": "G2-L2-FRESH-LOCAL-CHECKS-20260905",
+  "record_type": "current_execution_observation",
+  "observed_on": "2026-09-05",
+  "source_commit": "f0ccb5e63ce5c48ef793b5e1f861f70c38191d32",
+  "scope": "repository candidate products and existing language metadata",
+  "maturity_accepted": false,
+  "external_requests": 0,
+  "historical_receipts_reconstructed": false,
+  "M07": {
+    "api": "gfjd.products.build_products / verify_products",
+    "fresh_build_directories": ["build/fresh-l2-20260905-agent/a", "build/fresh-l2-20260905-agent/b"],
+    "source_date_epoch": 0,
+    "exact_manifest_match": true,
+    "build_a_verification_errors": [],
+    "build_b_verification_errors": [],
+    "local_copy_verification_errors": [],
+    "retrieval_method": "shutil.copytree into a new local directory; not hosted or provider-separated retrieval",
+    "execution_isolation": "separate fresh output directories, shared interpreter and source tree; not independent build agents",
+    "accessibility_scope": "existing static document language, viewport, skip link, main landmark, responsible-use, catalogue and correction-link checks",
+    "browser_or_assistive_technology_review": false,
+    "artifacts": [
+      {"path": "README.md", "bytes": 175, "sha256": "4bdc1eedb9d3f41fff8997f3ac742e53c3a108d88e722bc016bd0c924972fac1"},
+      {"path": "catalogue.json", "bytes": 13133, "sha256": "184511f6319eede7181d208ca5f1fc0832cd48c556682734482d27cf170ed4a3"},
+      {"path": "corrections.md", "bytes": 158, "sha256": "57c05d89220371057d256e86fa5d9f4fe738bbc62b1140578f34c52a4e6acf35"},
+      {"path": "gfjd.sqlite", "bytes": 163840, "sha256": "c473f343cf72f2832c9c3d0ad2e20a00a87942b385cb0a2a0956a974e0f1811d"},
+      {"path": "gfjd.sqlite.metadata.json", "bytes": 3792, "sha256": "06c5a999d3edd274dd0dd2506c815eb9ea1b68df9ab1c41ed048e88b1ce9dddd"},
+      {"path": "index.html", "bytes": 868, "sha256": "b4d147e810822d1f0c2eb72e635f2c315bc1f3332c9b32502a30bad6a64fe69c"},
+      {"path": "manifest.json", "bytes": 878, "sha256": "b022b58be0b162ed0f914dceccc746445ac28d248bf0dfcd2c32cb320453d09a"}
+    ]
+  },
+  "M10": {
+    "jurisdiction_register": {"path": "data/seed/jurisdiction_register.csv", "sha256": "23283ff0e5c2659055863fdccac173cdd5b1d85fd2eb672d6310103ace7520f7"},
+    "search_log": {"path": "data/census/search_log.csv", "sha256": "06370c4b17f019e72b27d93ac97ebd0b731d6283ee6753e9d2a864a4ac373af6"},
+    "jurisdiction_count": 23,
+    "search_row_count": 245,
+    "jurisdictions_without_declared_languages": [],
+    "jurisdictions_without_search_rows": [],
+    "search_rows_without_language": 0,
+    "search_jurisdictions_absent_from_register": [],
+    "review_status_counts": {"draft": 171, "reviewed": 74},
+    "result_state_counts": {"source_inaccessible": 168, "official_source_found": 75, "search_incomplete": 2},
+    "source_language_accuracy_review_performed": false,
+    "publisher_triangulation_performed": false,
+    "native_or_local_human_review_performed": false,
+    "limitation": "Populated language labels and jurisdiction coverage do not establish completed searches, translation accuracy, publisher triangulation or native review. Mixed and broad language labels remain descriptive metadata."
+  },
+  "disposition": "bounded supporting evidence; M07/M10 remain at their recorded maturity pending requirements and accountable review"
+}

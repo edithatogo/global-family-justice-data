@@ -17,8 +17,16 @@ resolved from the existing repository record `G2PKT-REAL-PILOT-20260821-01`.
 This is a known-source calibration packet, not a new successor run, and does
 not by itself authorize execution or establish a qualifying C04/C07 result.
 
-Recommended next action: present one grouped execution authorization
-for all three cells. If any source digest, route identity, rights state or
-input packet is unavailable, stop and retain the cell as missing. A passing
-three-cell run would still require owner adjudication and would not itself
-pass G2.
+Review corrections bind the BRA class-filtered response (`626d1829…`) and
+dashboard quarterly response (`4009c22c…`), rather than the predecessor API
+response or dashboard entry page. All three packet paths and digests are
+checked against the approved source scope by `tests/test_g2_route_readiness.py`.
+
+The current local availability assessment is
+`g2-source-availability-reconciliation-2026-09-05.md`: none of these three
+exact extraction inputs was found in the bounded scan. Recover the original
+artifacts and dashboard support bindings before execution. Reconcile existing
+owner authorizations first; an artifact refresh alone is not a reason for
+another approval. If recovery fails, a changed acquisition or pilot scope
+requires one grouped decision. A passing run still requires accountable
+disposition and does not itself pass G2.

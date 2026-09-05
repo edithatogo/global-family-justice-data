@@ -1,0 +1,38 @@
+{
+  "observed_at": "2026-09-05T13:19:00.171249+00:00",
+  "merged": true,
+  "source_requests": 0,
+  "gate_acceptance": false,
+  "receipts": [
+    {
+      "repo_id": "edithatogo/dataset-estate-registry",
+      "parent": "2e85d5b56162d532caaa37c7d9f6a30e63621204",
+      "proposed": "e8a67aab180328f74d9f954ef0d0cc5facd307c3",
+      "changed_paths": [
+        "catalog.json"
+      ],
+      "sha256": {
+        "catalog.json": "001cf4fee54862995e1e513fb6dba6e68fd85a458898e7c52cc2ec6407ab4adb"
+      },
+      "pr_url": "https://huggingface.co/datasets/edithatogo/dataset-estate-registry/discussions/1",
+      "merged_revision": "8f4c5b03adebdc8cbe19d9f20b18745d4da1b83c",
+      "anonymous_exact_revision_readback": true
+    },
+    {
+      "repo_id": "edithatogo/gfjd-source-archive",
+      "parent": "3f534c86d7b72978963049f6007df1dccd27e601",
+      "proposed": "745561e7e24f04fa5400e229f38619274422a94f",
+      "changed_paths": [
+        "README.md",
+        "archive_inventory.csv"
+      ],
+      "sha256": {
+        "archive_inventory.csv": "afb95099ec70aac3b7a1307d747a3ee421b2127ce545a0217db0766c1ad9a632",
+        "README.md": "86c7f2070e8e5248a4d94fcbe1fa875a0753184b5979f5732ed53a049c3ad0d8"
+      },
+      "pr_url": "https://huggingface.co/datasets/edithatogo/gfjd-source-archive/discussions/1",
+      "merged_revision": "47c3c2564f22ae575d8d8fcd2fe5860b187584a3",
+      "anonymous_exact_revision_readback": true
+    }
+  ]
+}

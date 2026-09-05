@@ -62,7 +62,7 @@ def build_products(
         "<meta name='viewport' content='width=device-width, initial-scale=1'>"
         "<title>GFJD product catalogue</title></head><body>"
         "<a href='#main'>Skip to main content</a>"
-        "<main id='main'>"
+        "<main id='main' tabindex='-1'>"
         "<h1>Global Family Justice Data</h1>"
         "<p>This is a reproducible candidate bundle. Publication, rights and "
         "accessibility approval remain separate gates.</p>"
@@ -136,7 +136,7 @@ def verify_products(project_or_root: Project | Path | str | None, output: Path) 
             "lang='en'": "document language",
             "<meta name='viewport'": "responsive viewport",
             "Skip to main content": "skip link",
-            "<main id='main'>": "main landmark",
+            "<main id='main' tabindex='-1'>": "focusable main landmark",
             "Limitations and responsible use": "responsible-use guidance",
             "catalogue.json": "catalogue link",
             "corrections.md": "correction/takedown link",

@@ -299,3 +299,15 @@ skips, and one manifest failure caused by concurrently arriving agent files.
 Integrating those files and regenerating the manifest addresses that failure;
 final validation is required after integration. No missing historical artifacts
 were reconstructed. Three exact G2 route inputs remain unavailable locally.
+
+Follow-up remediation (2026-09-05): the actual federation registry was located
+on Hugging Face. Four stale GFJD entries were corrected and the source archive
+registered, preserving 47 unrelated entries. The archive inventory and README
+were reconciled to canonical policy without changing source bytes or the old
+safety receipt. Both HF PRs are merged and anonymously verified at exact revisions
+in `docs/engineering/hosted-metadata-merge-receipt-2026-09-05.json`.
+The initial missing-registry diagnosis is superseded, not erased. Qualification,
+broader interoperability and 24 unrelated estate registrations remain incomplete.
+A real local browser review fixed skip-link focus and added a regression test;
+it is bounded support, not full accessibility conformance. Extended archive/Git
+recovery found no missing G2 originals. G2 and downstream gates remain blocked.

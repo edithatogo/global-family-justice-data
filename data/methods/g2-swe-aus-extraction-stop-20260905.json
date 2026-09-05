@@ -1,0 +1,13 @@
+{
+  "contract_id": "G2-SWE-AUS-PROSPECTIVE-20260905-01",
+  "contract_sha256": "808318acb41fe055b3ff2c7b8e9bc352fa64bae1f40a1b0485bbe3c3f07d5398",
+  "input_manifest_sha256": "e142fe888f1a9b7115ebc8a3379b59131e9a2a3872109cc4f2cd1366d885bb4e",
+  "status": "terminal_scope_failure",
+  "role_b_process_sha256": "ddd2939b396581a3ef09c381616fb6e0bd86fd3f66b0299686533d6f00f9f517",
+  "reason": "Extractor B reported exposing excluded nearby PDF prose and clearance-rate content in tool output; it stopped without an extraction output. Orchestrator interrupted extractor A.",
+  "isolation": "Fresh contexts and separate input-only workspaces on shared host; access discipline, not OS sandbox",
+  "comparator_run": false,
+  "qualifying_concordance": false,
+  "automatic_retry": false,
+  "gate_acceptance": false
+}

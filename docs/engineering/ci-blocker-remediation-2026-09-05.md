@@ -12,3 +12,8 @@ regenerating status. The generated status now includes the added records.
 Historical replay fingerprints remain historical. Current rehearsal output
 must be generated separately against the current implementation. These fixes
 do not accept empirical evidence or programme gates.
+
+Receipt audit found two manually transcribed size errors in the September 4
+retrieval receipt: South Africa is 6,577,186 bytes and Minnesota is 1,402,492
+bytes. Both retained provider copies agree with the original custody inventory.
+The receipt sizes were corrected; its previous contents remain in Git history.

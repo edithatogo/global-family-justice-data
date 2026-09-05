@@ -9,8 +9,8 @@
     {"inventory_id": "ARC-AUS-FCFCOA-202425", "size_bytes": 13442996, "sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9", "github": "verified", "huggingface": "verified"},
     {"inventory_id": "ARC-BRA-CNJ-2026", "size_bytes": 26310437, "sha256": "3415d516d756f48d7337e83e6faa8477644fe98b5cedb43cb04999f59fd5a71f", "github": "verified", "huggingface": "verified"},
     {"inventory_id": "ARC-SWE-DOMSTOLSVERKET-2026", "size_bytes": 11657, "sha256": "47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb", "github": "verified", "huggingface": "verified"},
-    {"inventory_id": "ARC-ZAF-JUD-202425", "size_bytes": 5128192, "sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce", "github": "verified", "huggingface": "verified"},
-    {"inventory_id": "ARC-USA-MN-MJB-PERF-2024", "size_bytes": 32931494, "sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b", "github": "verified", "huggingface": "verified"}
+{"inventory_id": "ARC-ZAF-JUD-202425", "size_bytes": 6577186, "sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce", "github": "verified", "huggingface": "verified"},
+    {"inventory_id": "ARC-USA-MN-MJB-PERF-2024", "size_bytes": 1402492, "sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b", "github": "verified", "huggingface": "verified"}
   ],
   "status": "remote_retrieval_verified",
   "limitations": ["No source bytes are committed to Git.", "Retrieval verification does not establish rights clearance, semantic validity, G2 acceptance or release authorization."]

@@ -35,6 +35,13 @@ existing controlled-retention decision through review on 2027-08-24. They have
 not been published, relabelled, extracted or promoted. Exact identity recovery
 does not revive a terminated extraction lineage or establish G2 acceptance.
 
+A second exact copy is retained in the existing ignored `data/raw/files/`
+namespace, inside a dedicated 0700 directory, because `make clean` removes
+`build/`. `docs/governance/g2-ods-durable-custody-2026-09-06.json` binds that
+readback to the original recovery receipt. The two local copies are not
+provider-separated backup or public preservation evidence. No source was added
+to Git and the first custody receipt remains unchanged.
+
 ## Remaining G2 dependency and grouped choice
 
 Five exact objects remain unavailable in the recorded bounded recovery scope:

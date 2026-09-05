@@ -321,3 +321,8 @@ This supersedes the earlier ODS absence finding only. Five API/dashboard objects
 remain missing; a new dynamic capture would be a distinct prospective lineage.
 See `docs/programme/cleanup-and-source-recovery-2026-09-06.md`. No extraction,
 gate acceptance or source publication occurred.
+
+Recovered ODS custody also includes a hash-verified restricted copy in ignored
+`data/raw/files/g2-controlled/`, outside `make clean` targets. The original
+retrieval receipt is preserved and a linked custody receipt records the copy;
+this is not a second-provider preservation claim.

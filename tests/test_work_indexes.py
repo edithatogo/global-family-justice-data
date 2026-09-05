@@ -1,3 +1,5 @@
+import hashlib
+import json
 import runpy
 import sys
 from dataclasses import replace
@@ -51,3 +53,19 @@ def test_check_rejects_missing_and_stale_views(
     active.write_text("stale", encoding="utf-8")
     with pytest.raises(ValueError, match="Stale or missing"):
         functions["main"]()
+
+
+def test_recovered_custody_metadata_is_bound_outside_build(project_root: Path) -> None:
+    receipt_path = project_root / "docs/governance/g2-ods-durable-custody-2026-09-06.json"
+    custody = json.loads(receipt_path.read_text())
+    recovery = project_root / custody["recovery_receipt"]
+    assert hashlib.sha256(recovery.read_bytes()).hexdigest() == custody["recovery_receipt_sha256"]
+    recorded = json.loads(recovery.read_text())
+    assert custody["sha256"] == recorded["expected_sha256"] == recorded["local_readback_sha256"]
+    assert custody["size_bytes"] == recorded["size_bytes"] == 990297
+    retained = Path(custody["retained_path"])
+    assert Path("data/raw/files") in retained.parents
+    assert not retained.is_absolute() and ".." not in retained.parts
+    assert "data/raw/files/" in (project_root / ".gitignore").read_text().splitlines()
+    assert custody["provider_separated"] is False
+    assert custody["source_content_published"] is False

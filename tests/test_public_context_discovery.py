@@ -115,7 +115,6 @@ def test_one_shot_receipt_redacts_source_and_stops(stage, tmp_path, fail):
     plan.write_text(json.dumps(stage["CONTRACT"]))
     receipt_path = tmp_path / stage["RECEIPT"]
     receipt_path.parent.mkdir(parents=True)
-    (tmp_path / "data/raw/files").mkdir(parents=True)
     release = "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-january-to-march-2020"
     view = "https://app.powerbi.com/view?r=FICTIONAL_PRIVATE_RESOURCE"
     responses = [

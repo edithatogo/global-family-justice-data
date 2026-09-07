@@ -24,6 +24,13 @@ evidence. All preceding failures and their locks remain unchanged.
 
 ## Role-separated review
 
+Post-execution PR review identified that a clean checkout lacks the ignored
+lock parent. The maintained runner now creates that parent before the exclusive
+lineage lock. Removing the test's precreated parent reproduced the failure in
+both success/stop fixtures; both pass with the fix. This portability correction
+does not change the signed historical freeze or receipt, and no source request
+was repeated. The frozen historical command retains its original preconditions.
+
 Offline `public_context_review` confirmed the receipt's scope and limits. It
 recommended a consolidated browser-discovery decision, rather than another
 speculative selector revision. This is advisory agent review, not independent

@@ -221,6 +221,7 @@ def execute(root, freeze, fetcher=fetch_html):
     for path in (receipt_path, lock):
         require(not any(part.is_symlink() for part in (path, *path.parents)), "output symlink")
         require(not path.exists(), "lineage already attempted")
+    lock.parent.mkdir(mode=0o700, parents=True, exist_ok=True)
     lock.mkdir(mode=0o700)
     receipt = {
         "lineage_id": LINEAGE,

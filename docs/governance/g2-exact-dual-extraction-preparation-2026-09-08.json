@@ -1,0 +1,30 @@
+{
+  "evidence_id": "E-G2-EXACT-DUAL-EXTRACTION-PREP-20260908",
+  "packet_id": "G2PKT-MATERIAL-ORCHESTRATED-20260826-01",
+  "comparison_id": "G2CMP-MATERIAL-ORCHESTRATED-20260826-01",
+  "status": "in_review_preparation_only",
+  "source_commit": "b42bf4c",
+  "source_artifacts": {
+    "finland_metadata": "20621bfd4d339e4f1d724b3e2016da845303938367c92cc1fac5c07e9a74575a",
+    "finland_observation": "59348fe0b98c016881de8761953983fe402490a6de19094e0acf8fcab3f362f0",
+    "estonia_xlsx": "81e350d37f6d402f2570f1a0b71cfe1d3ccf2c9578ed023b8b1f1a49fa02d0ab",
+    "estonia_dashboard": "f0024a590b3423c8b533f95ed597e6fa6f8672b9bee1450403f09296b7fe45b9",
+    "south_africa_pdf": "41aee1f16221da483677619fc314060a318a5b2a6d7c4ff615a3af5f6952acee"
+  },
+  "artifacts": {
+    "extractor_a_output": "c0f9623085f7836a70e7b5da5980642541751b9407129f1bff539594ce399b9f",
+    "extractor_b_output": "285a98470bd8d6ac2427a4f9684aa22566ce1d1540c956e97ee49bdd61e02baf",
+    "concordance": "b404e2ce60a2b2b02b8fae54374e4367478c00770c604732c61fc2c1bb25c916",
+    "differences": "6c406b29bbded8386e83f17ed9781c3e3388f430fac894e53189dab93c35a5c6"
+  },
+  "metrics": {"rows": 4, "critical_comparisons": 64, "critical_matches": 64, "critical_concordance": 1.0, "overall_populated_concordance": 1.0, "critical_threshold": 1.0, "overall_threshold": 0.99},
+  "limitations": [
+    "Source bytes remain ignored local controlled custody and are not published.",
+    "Rights and specialist assurance remain unresolved.",
+    "The two output paths are physically separate and sealed, but this preparation run is not independent assurance: path B is materialised from the same source-semantic preparation contract.",
+    "Semantic equivalence across jurisdictions is not established.",
+    "Owner adjudication is required; no G2 criterion or maturity level is promoted."
+  ],
+  "g2_status": "blocked",
+  "publication_status": "not_authorized"
+}

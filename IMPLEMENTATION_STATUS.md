@@ -22,10 +22,11 @@ complete the negative-case matrix. No new owner decision is needed for offline
 engineering; G2 and WI-G2-04/07 remain unchanged.
 
 Offline CDP qualification follow-up (2026-09-08): attempts 07–10 completed the
-fictional matrix. Worker and shared-worker targets use the page/context Fetch
+fictional matrix. Worker targets use the page/context Fetch
 guard because Chrome rejects per-worker `Fetch.enable`; they resume only after
 runtime control, with the deny-all proxy active. All 13 cases passed with zero
-forwarded source bytes. This qualifies the offline fixture only, not live
+forwarded source bytes. Shared-worker lifecycle was exercised but its own
+request is not claimed as attributed. This qualifies the offline fixture only, not live
 browser execution, source evidence, G2, publication or release. See
 `docs/governance/g2-cdp-offline-qualification-2026-09-08.json`.
 

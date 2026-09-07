@@ -141,7 +141,8 @@ Attempts 07–10 completed the protocol-compatible correction. Worker and
 shared-worker sessions omit unsupported per-worker `Fetch.enable`; context Fetch
 interception is installed before any target resumes, and the deny-all proxy
 remains the physical egress backstop. The complete 13-case fictional matrix
-passed in attempt 10, including proxy isolation. Attempts 07–09 remain preserved
+passed in attempt 10, including proxy isolation. The shared-worker target
+lifecycle passed, but no shared-worker-attributed request is claimed. Attempts 07–09 remain preserved
 as intermediate evidence. Receipt hashes and target/request metadata are in
 `g2-cdp-offline-qualification-2026-09-08.json`.
 

@@ -23,11 +23,15 @@ function classify(raw, method) {
   if (url.protocol !== 'https:' || url.username || url.password || url.port) return {deny: 'url_identity'};
   if (PLAN.blocked_optional_hosts.includes(url.hostname)) return {optional: true};
   if (!PLAN.allowed_hosts.includes(url.hostname)) return {deny: 'destination_denied'};
-  let category = 'static_asset';
-  if (url.hostname === 'www.gov.uk') category = 'official_page';
+  if (/\/(?:login|signin|sign-in|oauth|authorize|export|download)(?:[/.]|$)/i.test(url.pathname) ||
+    /\.(?:pdf|ods|xlsx?|csv|zip|parquet)(?:$|\/)/i.test(url.pathname)) return {deny: 'path_denied'};
+  let category = null;
+  if (/\.(?:js|css|png|svg|ico|jpg|jpeg|gif|woff2?|ttf|webp|map)$/i.test(url.pathname)) category = 'static_asset';
+  if (url.hostname === 'www.gov.uk' && url.pathname.startsWith('/government/')) category = 'official_page';
   if (url.hostname === 'app.powerbi.com' && url.pathname === '/view') category = 'public_view';
   if (/^\/public\/reports\//.test(url.pathname) && /\/modelsAndExploration$/.test(url.pathname)) category = 'models';
   if (/^\/public\/reports\/(?:[a-f0-9-]+\/)?querydata$/i.test(url.pathname)) category = 'query';
+  if (!category) return {deny: 'path_denied'};
   if (!['GET', 'HEAD'].includes(method) && !(['POST', 'OPTIONS'].includes(method) && ['models', 'query'].includes(category))) return {deny: 'method_denied'};
   return {host: url.hostname, category, method, url_sha256: hash(raw)};
 }

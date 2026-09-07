@@ -1,0 +1,166 @@
+{
+  "status": "failed_offline_experiments",
+  "source_execution_enabled": false,
+  "records": [
+    {
+      "path": "build/g2-cdp-offline-01/receipt.json",
+      "sha256": "3fade2470e2e21ba991a83ae395d09ea40381ff20a610acc7e6bc553d9fe8df7",
+      "receipt": {
+        "kind": "fictional_offline_cdp_experiment",
+        "source_execution_enabled": false,
+        "started_at": "2026-09-07T12:18:34.797Z",
+        "browser_sha256": "755178ee89130a6f1c94cc4ecb2289fe74240db3e7efe9ec69a6cfcd4b93a6ee",
+        "controller_sha256": "2a1eb385c7ba953c29e65090f2f32067227b87aa6b4b6b39a70a3800fd749caa",
+        "protocol_sha256": "7fae4c21632b768ec5d6dea3b1d76123d68623d9f6e0dd81601e9ccddf2b53cb",
+        "cases": [
+          {
+            "case": "iframe",
+            "source_access": false,
+            "requests": [],
+            "targets": [],
+            "dashboard_loads": 0,
+            "top_navigations": 0,
+            "stop_reason": "controller_failure",
+            "passed": false,
+            "default_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            },
+            "context_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            }
+          }
+        ],
+        "passed": false,
+        "finished_at": "2026-09-07T12:18:37.053Z"
+      }
+    },
+    {
+      "path": "build/g2-cdp-offline-02/receipt.json",
+      "sha256": "0f4f697b034c17e6e1107571bfc6f912ef6f41b7d5663d7cad233e9615de1595",
+      "receipt": {
+        "kind": "fictional_offline_cdp_experiment",
+        "source_execution_enabled": false,
+        "started_at": "2026-09-07T12:19:11.307Z",
+        "browser_sha256": "755178ee89130a6f1c94cc4ecb2289fe74240db3e7efe9ec69a6cfcd4b93a6ee",
+        "controller_sha256": "e2b27c47f842a39a433f0a44423abd4d6ea3f6f7b3480dc65f81387042a7bcd9",
+        "protocol_sha256": "7fae4c21632b768ec5d6dea3b1d76123d68623d9f6e0dd81601e9ccddf2b53cb",
+        "cases": [
+          {
+            "case": "iframe",
+            "source_access": false,
+            "requests": [],
+            "targets": [],
+            "dashboard_loads": 0,
+            "top_navigations": 0,
+            "stop_reason": "controller_failure",
+            "passed": false,
+            "control_stage": "Target.setAutoAttach",
+            "default_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            },
+            "context_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            }
+          }
+        ],
+        "passed": false,
+        "finished_at": "2026-09-07T12:19:12.459Z"
+      }
+    },
+    {
+      "path": "build/g2-cdp-offline-03/receipt.json",
+      "sha256": "a5996232f9d771354fd162e7a9391ac852692251580795f5ea8167bcd06d835a",
+      "receipt": {
+        "kind": "fictional_offline_cdp_experiment",
+        "source_execution_enabled": false,
+        "started_at": "2026-09-07T12:19:48.013Z",
+        "browser_sha256": "755178ee89130a6f1c94cc4ecb2289fe74240db3e7efe9ec69a6cfcd4b93a6ee",
+        "controller_sha256": "452e9671dfcd1324231af7bc74fc8bd240606f26e36198fdf6cff3cb68032576",
+        "protocol_sha256": "7fae4c21632b768ec5d6dea3b1d76123d68623d9f6e0dd81601e9ccddf2b53cb",
+        "cases": [
+          {
+            "case": "iframe",
+            "source_access": false,
+            "requests": [],
+            "targets": [
+              {
+                "type": "page",
+                "initialized": false,
+                "resumed": false
+              }
+            ],
+            "dashboard_loads": 0,
+            "top_navigations": 0,
+            "stop_reason": "unsupported_target",
+            "passed": false,
+            "control_stage": "Target.createTarget",
+            "default_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            },
+            "context_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            }
+          }
+        ],
+        "passed": false,
+        "finished_at": "2026-09-07T12:19:49.484Z"
+      }
+    },
+    {
+      "path": "build/g2-cdp-offline-04/receipt.json",
+      "sha256": "120b0decf121f6f62f492044c69303b4573d8b0d2602a14f73c5eec7c4ceb535",
+      "receipt": {
+        "kind": "fictional_offline_cdp_experiment",
+        "source_execution_enabled": false,
+        "started_at": "2026-09-07T12:20:39.985Z",
+        "browser_sha256": "755178ee89130a6f1c94cc4ecb2289fe74240db3e7efe9ec69a6cfcd4b93a6ee",
+        "controller_sha256": "7da54751401b7a1bf50e7c9d5852f6464d0e7861c8e2c302f27ae0e9e86d97b2",
+        "protocol_sha256": "7fae4c21632b768ec5d6dea3b1d76123d68623d9f6e0dd81601e9ccddf2b53cb",
+        "cases": [
+          {
+            "case": "iframe",
+            "source_access": false,
+            "requests": [],
+            "targets": [
+              {
+                "type": "page",
+                "initialized": false,
+                "resumed": false
+              }
+            ],
+            "dashboard_loads": 0,
+            "top_navigations": 0,
+            "stop_reason": "unsupported_target",
+            "passed": false,
+            "control_stage": "Target.createTarget",
+            "unsupported_target_type": "unknown",
+            "default_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            },
+            "context_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            }
+          }
+        ],
+        "passed": false,
+        "finished_at": "2026-09-07T12:20:41.004Z"
+      }
+    }
+  ]
+}

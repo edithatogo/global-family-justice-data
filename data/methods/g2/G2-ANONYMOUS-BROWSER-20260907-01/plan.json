@@ -1,0 +1,36 @@
+{
+  "lineage_id": "G2-ANONYMOUS-BROWSER-20260907-01",
+  "entry": "https://www.gov.uk/government/collections/family-court-statistics-quarterly",
+  "deadline_ms": 900000,
+  "max_navigations": 6,
+  "max_dashboard_loads": 1,
+  "max_requests": 300,
+  "max_connections": 200,
+  "max_encrypted_bytes": 104857600,
+  "allowed_hosts": [
+    "www.gov.uk",
+    "assets.publishing.service.gov.uk",
+    "app.powerbi.com",
+    "content.powerapps.com",
+    "pbivisuals.powerbi.com",
+    "wabi-north-europe-e-primary-api.analysis.windows.net",
+    "wabi-north-europe-api.analysis.windows.net"
+  ],
+  "blocked_optional_hosts": [
+    "www.googletagmanager.com",
+    "www.google-analytics.com",
+    "dc.services.visualstudio.com",
+    "browser.events.data.microsoft.com"
+  ],
+  "inherited_session": false,
+  "sign_in": false,
+  "terms_acceptance": false,
+  "filter_changes": false,
+  "exports": false,
+  "manual_api_replay": false,
+  "raw_response_retention": false,
+  "screenshots": false,
+  "har": false,
+  "request_metadata_only": true,
+  "g2_acceptance": false
+}

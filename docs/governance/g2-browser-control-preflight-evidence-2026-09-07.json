@@ -1,0 +1,82 @@
+{
+  "status": "failed_preflight_only",
+  "source_execution_enabled": false,
+  "receipts": [
+    {
+      "path": "build/g2-browser-preflight/receipt.json",
+      "sha256": "ebba16e8b2acbcb2225a81604ea35bc24ba5dd422a5513486150206850ff1d91",
+      "receipt": {
+        "lineage_id": "FICTIONAL-BROWSER-CONTROL-PREFLIGHT",
+        "freeze_commit": null,
+        "plan_sha256": "ea295c364aa8a8f1b5792668bc921ce346186411fdaa69e37f1e75d7763c4a38",
+        "runtime": {
+          "playwright_version": "1.63.0-alpha-2026-08-31",
+          "package_sha256": "36ff5105063fe264930f2a897d7f242396582fcb55b2538353e1fa6b17859294",
+          "entry_sha256": "4e98f65f0a9d9bcab8cffc0c5cfdd87fd3f5b0be74fc494ff166a466b204cd44",
+          "browser_executable_sha256": "755178ee89130a6f1c94cc4ecb2289fe74240db3e7efe9ec69a6cfcd4b93a6ee"
+        },
+        "started_at": "2026-09-07T08:35:46.040Z",
+        "state": "terminal_stop",
+        "synthetic_offline": true,
+        "source_session_started": false,
+        "requests": [],
+        "navigations": 0,
+        "dashboard_loads": 0,
+        "optional_requests_blocked": 0,
+        "raw_response_retention": false,
+        "g2_acceptance": false,
+        "browser_version": "152.0.7977.76",
+        "initial_cookie_count": 0,
+        "stop_reason": "plain_http_denied",
+        "transport": {
+          "connections": 1,
+          "bytes": 0,
+          "stopReason": "plain_http_denied"
+        },
+        "finished_at": "2026-09-07T08:35:47.187Z",
+        "preflight_passed": false,
+        "models_observed_200": false,
+        "query_observed_200": false,
+        "request_contract_status": "metadata_only_not_replay_qualified"
+      }
+    },
+    {
+      "path": "build/g2-browser-preflight-02/receipt.json",
+      "sha256": "e41179e735886b126efce1057a0167d9313f9d7de46b89a86eefc95cacc7f740",
+      "receipt": {
+        "lineage_id": "FICTIONAL-BROWSER-CONTROL-PREFLIGHT",
+        "freeze_commit": null,
+        "plan_sha256": "ea295c364aa8a8f1b5792668bc921ce346186411fdaa69e37f1e75d7763c4a38",
+        "runtime": {
+          "playwright_version": "1.63.0-alpha-2026-08-31",
+          "package_sha256": "36ff5105063fe264930f2a897d7f242396582fcb55b2538353e1fa6b17859294",
+          "entry_sha256": "4e98f65f0a9d9bcab8cffc0c5cfdd87fd3f5b0be74fc494ff166a466b204cd44",
+          "browser_executable_sha256": "755178ee89130a6f1c94cc4ecb2289fe74240db3e7efe9ec69a6cfcd4b93a6ee"
+        },
+        "started_at": "2026-09-07T08:39:42.879Z",
+        "state": "terminal_stop",
+        "synthetic_offline": true,
+        "source_session_started": false,
+        "requests": [],
+        "navigations": 0,
+        "dashboard_loads": 0,
+        "optional_requests_blocked": 0,
+        "raw_response_retention": false,
+        "g2_acceptance": false,
+        "browser_version": "152.0.7977.76",
+        "initial_cookie_count": 0,
+        "stop_reason": "destination_denied",
+        "transport": {
+          "connections": 1,
+          "bytes": 0,
+          "stopReason": "destination_denied"
+        },
+        "finished_at": "2026-09-07T08:39:43.821Z",
+        "preflight_passed": false,
+        "models_observed_200": false,
+        "query_observed_200": false,
+        "request_contract_status": "metadata_only_not_replay_qualified"
+      }
+    }
+  ]
+}

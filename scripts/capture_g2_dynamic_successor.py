@@ -314,13 +314,28 @@ def execute(plan, vault, receipt_path, freeze_commit):
     return receipt
 
 
+def verify_freeze(head):
+    subprocess.run(
+        [
+            "git",
+            "-c",
+            f"gpg.ssh.allowedSignersFile={ROOT / 'config/ssh_allowed_signers'}",
+            "verify-commit",
+            head,
+        ],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+    )
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--freeze-commit", required=True)
     args = parser.parse_args()
     head = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     require(head == args.freeze_commit, "freeze is not HEAD")
-    subprocess.run(["git", "verify-commit", head], cwd=ROOT, check=True, capture_output=True)
+    verify_freeze(head)
     subprocess.run(["git", "diff", "--quiet", head, "--"], cwd=ROOT, check=True)
     tracked = subprocess.check_output(["git", "show", f"{head}:{PLAN.as_posix()}"], cwd=ROOT)
     require(tracked == (ROOT / PLAN).read_bytes(), "plan binding differs")

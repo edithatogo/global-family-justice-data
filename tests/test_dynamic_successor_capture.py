@@ -44,6 +44,28 @@ def test_valid_fictional_responses(capture, bra, models):
     capture["validate_models"](models)
 
 
+def test_freeze_verification_binds_repository_signers(capture, monkeypatch, project_root):
+    calls = []
+    monkeypatch.setattr(
+        capture["subprocess"], "run", lambda *args, **kwargs: calls.append((args, kwargs))
+    )
+    capture["verify_freeze"]("a" * 40)
+    assert calls == [
+        (
+            (
+                [
+                    "git",
+                    "-c",
+                    f"gpg.ssh.allowedSignersFile={project_root / 'config/ssh_allowed_signers'}",
+                    "verify-commit",
+                    "a" * 40,
+                ],
+            ),
+            {"cwd": project_root, "check": True, "capture_output": True},
+        )
+    ]
+
+
 @pytest.mark.parametrize(
     "mutation", ["hits", "extra_total", "bool_shard", "class", "partial", "extra_bucket"]
 )

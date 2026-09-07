@@ -18,6 +18,12 @@ retained; the private vault remains an execution lock, not an evidence cohort.
 
 ## Disposition
 
+Post-execution PR review identified a portability issue: signature verification
+implicitly depended on local Git signer configuration. The maintained runner
+now passes the repository-owned signer file explicitly, with an offline
+regression test. This maintenance fix does not alter the signed historical
+freeze, plan or receipt, and does not authorize re-execution of this lineage.
+
 Preserve this lineage as terminal failed evidence. It provides no acquisition,
 concordance, source accuracy, rights or acceptance evidence. G2 and WI-G2-04/07
 remain unchanged. The recovered exact historical ODS remains separately valid.

@@ -3,7 +3,7 @@
   "packet_id": "G2PKT-MATERIAL-ORCHESTRATED-20260826-01",
   "comparison_id": "G2CMP-MATERIAL-ORCHESTRATED-20260826-01",
   "status": "in_review_preparation_only",
-  "source_commit": "79cb393be530f53c07004cd09953276e4670d712",
+  "source_commit": "b42bf4c",
   "source_artifacts": {
     "finland_metadata": "20621bfd4d339e4f1d724b3e2016da845303938367c92cc1fac5c07e9a74575a",
     "finland_observation": "59348fe0b98c016881de8761953983fe402490a6de19094e0acf8fcab3f362f0",

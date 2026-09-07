@@ -1,0 +1,220 @@
+{
+  "status": "partial_offline_qualification_worker_blocked",
+  "source_execution_enabled": false,
+  "records": [
+    {
+      "path": "build/g2-cdp-offline-05/receipt.json",
+      "sha256": "7d61de3433760e43f3fc258266f568c7d215769bd8fc87a010b4bb7bdacf7687",
+      "receipt": {
+        "kind": "fictional_offline_cdp_experiment",
+        "source_execution_enabled": false,
+        "started_at": "2026-09-07T12:49:55.111Z",
+        "browser_sha256": "755178ee89130a6f1c94cc4ecb2289fe74240db3e7efe9ec69a6cfcd4b93a6ee",
+        "controller_sha256": "f2cd1082b6b8a5d4c81e89aa3e6bf0595b6e9c9079118dd16f29c0b1fdd460d4",
+        "protocol_sha256": "4dc8b45f33cc0ad27262be347224baaae51cd35526ffd5496eafb11502df40ee",
+        "policy_sha256": "f5a1a6aff72d0da20dd0120a331c9295efe0aaa57b9d0953054d40b5ba2053d3",
+        "transport_sha256": "4f24ddecd7ef58aa03384dcc070c4c4dd0abeff180da1dcb45a9f74c6326caeb",
+        "cases": [
+          {
+            "case": "iframe",
+            "source_access": false,
+            "requests": [],
+            "targets": [],
+            "dashboard_loads": 0,
+            "top_navigations": 0,
+            "stop_reason": "unsupported_target",
+            "passed": false,
+            "control_stage": "Target.createTarget",
+            "unsupported_target_type": "browser_ui",
+            "profile_cleanup": "removed_after_exit",
+            "default_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            },
+            "context_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            }
+          }
+        ],
+        "passed": false,
+        "finished_at": "2026-09-07T12:49:56.224Z"
+      }
+    },
+    {
+      "path": "build/g2-cdp-offline-06/receipt.json",
+      "sha256": "95e2e257463c36b9c7f0eef2796148a057d7514845ccf87d26bf5a814d4a8fd4",
+      "receipt": {
+        "kind": "fictional_offline_cdp_experiment",
+        "source_execution_enabled": false,
+        "started_at": "2026-09-07T12:54:05.429Z",
+        "browser_sha256": "755178ee89130a6f1c94cc4ecb2289fe74240db3e7efe9ec69a6cfcd4b93a6ee",
+        "controller_sha256": "21b44a84206ee0a26912d03bb61f3a22fc027d8ff1a0fbe33bb73447b206e8ef",
+        "protocol_sha256": "4dc8b45f33cc0ad27262be347224baaae51cd35526ffd5496eafb11502df40ee",
+        "policy_sha256": "f5a1a6aff72d0da20dd0120a331c9295efe0aaa57b9d0953054d40b5ba2053d3",
+        "transport_sha256": "4f24ddecd7ef58aa03384dcc070c4c4dd0abeff180da1dcb45a9f74c6326caeb",
+        "cases": [
+          {
+            "case": "iframe",
+            "source_access": false,
+            "requests": [
+              {
+                "host": "www.gov.uk",
+                "category": "official_page",
+                "method": "GET",
+                "url_sha256": "e26d3e2f30f2e652e1a5f11ea36684cf2394405cbd4b699d5e9cd0624bdd8aa2",
+                "header_names": [],
+                "target_type": "page"
+              },
+              {
+                "host": "app.powerbi.com",
+                "category": "public_view",
+                "method": "GET",
+                "url_sha256": "aa237f6979cb419051fb665b958948df7ca9af0b404915e62335df2d655317bd",
+                "header_names": [
+                  "referer"
+                ],
+                "target_type": "page"
+              },
+              {
+                "host": "app.powerbi.com",
+                "category": "models",
+                "method": "GET",
+                "url_sha256": "0d9210812bbea1c4264390b006cde7f7af818f043e52e24b544a2ea765928166",
+                "header_names": [
+                  "referer",
+                  "x-powerbi-resourcekey"
+                ],
+                "target_type": "iframe"
+              },
+              {
+                "host": "www.gov.uk",
+                "category": "static_asset",
+                "method": "GET",
+                "url_sha256": "cea70b1b5afc5e4afe57b826ce8b1a135c53efc177c7cb91dbf41d7cebc7c18b",
+                "header_names": [
+                  "referer"
+                ],
+                "target_type": "page"
+              }
+            ],
+            "targets": [
+              {
+                "type": "browser_ui",
+                "initialized": true,
+                "resumed": true
+              },
+              {
+                "type": "browser_ui",
+                "initialized": true,
+                "resumed": true
+              },
+              {
+                "type": "page",
+                "initialized": true,
+                "resumed": true
+              },
+              {
+                "type": "iframe",
+                "initialized": true,
+                "resumed": true
+              }
+            ],
+            "dashboard_loads": 1,
+            "top_navigations": 1,
+            "stop_reason": null,
+            "passed": true,
+            "control_stage": "Fetch.fulfillRequest",
+            "profile_cleanup": "removed_after_exit",
+            "default_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            },
+            "context_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            }
+          },
+          {
+            "case": "worker",
+            "source_access": false,
+            "requests": [
+              {
+                "host": "www.gov.uk",
+                "category": "official_page",
+                "method": "GET",
+                "url_sha256": "e26d3e2f30f2e652e1a5f11ea36684cf2394405cbd4b699d5e9cd0624bdd8aa2",
+                "header_names": [],
+                "target_type": "page"
+              },
+              {
+                "host": "www.gov.uk",
+                "category": "static_asset",
+                "method": "GET",
+                "url_sha256": "cea70b1b5afc5e4afe57b826ce8b1a135c53efc177c7cb91dbf41d7cebc7c18b",
+                "header_names": [
+                  "referer"
+                ],
+                "target_type": "page"
+              },
+              {
+                "host": "www.gov.uk",
+                "category": "static_asset",
+                "method": "GET",
+                "url_sha256": "a0157e2053db78ed2185a8c13ef6f91908d477c5cacb69b88d3c7495c0e7977f",
+                "header_names": [
+                  "referer"
+                ],
+                "target_type": "page"
+              }
+            ],
+            "targets": [
+              {
+                "type": "browser_ui",
+                "initialized": true,
+                "resumed": true
+              },
+              {
+                "type": "browser_ui",
+                "initialized": true,
+                "resumed": true
+              },
+              {
+                "type": "page",
+                "initialized": true,
+                "resumed": true
+              },
+              {
+                "type": "worker",
+                "initialized": false,
+                "resumed": false
+              }
+            ],
+            "dashboard_loads": 0,
+            "top_navigations": 1,
+            "stop_reason": "controller_failure",
+            "passed": false,
+            "control_stage": "Fetch.enable",
+            "profile_cleanup": "removed_after_exit",
+            "default_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            },
+            "context_transport": {
+              "connections": 0,
+              "bytes": 0,
+              "stopReason": null
+            }
+          }
+        ],
+        "passed": false,
+        "finished_at": "2026-09-07T12:54:09.665Z"
+      }
+    }
+  ]
+}

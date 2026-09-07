@@ -10,6 +10,17 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 
 ### 2026-09-07 anonymous browser control preparation
 
+Browser-UI lifecycle follow-up: attempt 05 identified `browser_ui`; attempt 06
+passed the fictional cross-origin iframe case after guarding that auxiliary
+target before resume. Both deny-all proxies recorded zero connections and bytes.
+The worker case then stopped at `Fetch.enable` before worker resume. Remaining
+cases did not execute; live source execution remains disabled. New immutable
+receipt copies are in `docs/governance/g2-browser-ui-offline-evidence-2026-09-07.json`.
+The 26 passing Node tests support this bounded engineering correction only.
+Next: qualify worker interception without bypassing the pre-resume guard, then
+complete the negative-case matrix. No new owner decision is needed for offline
+engineering; G2 and WI-G2-04/07 remain unchanged.
+
 Follow-up: closed implicit unknown-path authorization and added an offline-only
 CDP protocol prototype to investigate redirects and child targets. Four offline
 attempts failed before fixture navigation/admission, with zero forwarded bytes;

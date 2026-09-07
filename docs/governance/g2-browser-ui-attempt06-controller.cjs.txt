@@ -128,8 +128,7 @@ async function runCase(executable, caseName) {
         }
         const disposition = targetPolicy(p.targetInfo.type, Boolean(rootTarget));
         if (disposition) {
-          if (disposition === 'unsupported_target')
-            result.unsupported_target_type = targetTypeLabel(p.targetInfo.type);
+          result.unsupported_target_type = targetTypeLabel(p.targetInfo.type);
           return stop(disposition);
         }
         if (p.targetInfo.type === 'page') rootTarget = p.targetInfo.targetId;

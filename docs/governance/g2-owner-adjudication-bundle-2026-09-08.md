@@ -34,7 +34,7 @@ The comparator result is `critical_concordance=1.0` and `overall_populated_field
 
 I, the repository owner, may record one of the following decisions:
 
-**Accept bounded evidence.** I accept the sealed run only for the four named exact editions and the frozen contract. I accept `WI-G2-04` and `WI-G2-07` for this bounded exercise, with no generalisation to unseen editions. Rights, privacy, security, semantic equivalence, publication, release and G2 passage remain separately controlled.
+**Accept bounded evidence.** I accept this sealed run only as supporting repository-owned evidence for the four named exact editions and frozen contract. I do not accept `WI-G2-04` or `WI-G2-07` as complete, because this path-B recheck is not a blinded role-separated re-extraction. Rights, privacy, security, semantic equivalence, publication, release and G2 passage remain separately controlled.
 
 **Keep in review.** I retain both work items in review pending a stronger role-separated or external assurance record.
 
@@ -44,4 +44,4 @@ Any acceptance must name the option, owner identity, commit, record hashes, scop
 
 ## Recommended option
 
-Accept only as bounded repository-owned reproducibility evidence, keep G2-C04 and G2-C07 in review until the owner decision is recorded, and retain all rights/publication/release restrictions. This resolves the technical preparation blocker while preserving the accountable gate.
+Accept only as bounded repository-owned supporting evidence, keep `WI-G2-04`, `WI-G2-07`, G2-C04 and G2-C07 in review, and retain all rights/publication/release restrictions. This resolves a technical preparation gap while preserving the accountable gate.

@@ -14,7 +14,8 @@ orchestrated packet names these four exact inputs:
 This was checked against the repository tree. The ZAF edition was subsequently
 acquired from the official Department of Justice report index and matches its
 frozen hash; its custody receipt is
-`g2-zaf-exact-custody-2026-09-08.json`. Existing ODS/PDF files are different
+`g2-zaf-exact-custody-2026-09-08.json`; the bytes are retained in ignored
+durable controlled storage under `data/raw/files/g2-controlled/`. Existing ODS/PDF files are different
 editions and are not substitutes for the three still-absent inputs. No
 extraction, concordance result, WI-G2-04 acceptance or G2 promotion may be
 inferred from source presence alone.

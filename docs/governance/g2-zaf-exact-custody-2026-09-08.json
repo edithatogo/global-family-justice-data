@@ -6,7 +6,7 @@
   "retrieved_at": "2026-09-07T16:32:51Z",
   "bytes": 25569544,
   "sha256": "41aee1f16221da483677619fc314060a318a5b2a6d7c4ff615a3af5f6952acee",
-  "controlled_local_path": "build/g2-material-distinct-20260826-01/acquisition/private/sources/south-africa-pdf.bin",
+  "controlled_local_path": "data/raw/files/g2-controlled/south-africa-report-2024-25.pdf",
   "public_boundary": "metadata_and_citation_only",
   "source_bytes_in_git": false,
   "rights_status": "not_cleared",

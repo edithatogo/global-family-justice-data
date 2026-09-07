@@ -264,7 +264,17 @@ def independent_recheck(rows: list[dict[str, object]]) -> list[dict[str, object]
         text=True,
         errors="replace",
     )
-    match = re.search(r"87% of maintenance", pdf_text)
+    page = next(
+        (
+            block
+            for block in pdf_text.split("\f")
+            if "89% of maintenance" in block and "87% of maintenance" in block
+        ),
+        None,
+    )
+    if page is None:
+        raise SystemExit("recheck_failed:ZAF-PDF:page_not_found")
+    match = re.search(r"87% of maintenance", page)
     if match is None:
         raise SystemExit("recheck_failed:ZAF-PDF:value_not_found")
     expected["ZAF-PDF"] = int(match.group(0)[:2])

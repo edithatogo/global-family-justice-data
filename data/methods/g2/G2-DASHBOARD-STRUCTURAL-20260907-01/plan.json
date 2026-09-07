@@ -1,0 +1,30 @@
+{
+  "lineage_id": "G2-DASHBOARD-STRUCTURAL-20260907-01",
+  "scope": "New dashboard structural metadata only; not historical recovery or target extraction",
+  "owner_direction": "Proceed with your recommendations following PR167 recommendation for a separately scoped dashboard capture",
+  "max_requests": 1,
+  "retries": 0,
+  "redirects": false,
+  "timeout_seconds": 30,
+  "timeout_scope": "Per socket operation; not a DNS or whole-run deadline",
+  "maximum_body_read_bytes": 10000001,
+  "byte_budget_note": "At most 10000000 accepted body bytes plus one oversize-detection byte; headers and TLS framing are not included",
+  "retention_review_by": "2027-08-24",
+  "requests": [{
+    "id": "dashboard_models",
+    "method": "GET",
+    "url": "https://wabi-north-europe-e-primary-api.analysis.windows.net/public/reports/c809ac7e-68c0-41ae-8552-3e483d0d20b8/modelsAndExploration?preferReadOnlySession=true",
+    "maximum_bytes": 10000000,
+    "retain_body": true
+  }],
+  "stopping_rules": [
+    "Any binding, peer, transport, HTTP, size, schema, identity, prohibited-data or custody failure terminates the lineage",
+    "No retries, redirects, alternate endpoints, credential use, POST, target extraction, failed-output reuse or validator relaxation",
+    "Existing vault or receipt prevents execution; preexisting pending checkpoint prevents any request"
+  ],
+  "next_stage": "Structural success alone cannot authorize a query; source-derived exact query contract and separate scope authority remain required",
+  "public_boundary": "Hashes and receipt metadata only; source remains restricted local quarantine",
+  "quarantine": true,
+  "g2_acceptance": false,
+  "publication_authorized": false
+}

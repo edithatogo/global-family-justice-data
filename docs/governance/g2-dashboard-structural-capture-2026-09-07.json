@@ -1,0 +1,23 @@
+{
+  "lineage_id": "G2-DASHBOARD-STRUCTURAL-20260907-01",
+  "freeze_commit": "87eed766b35455517380f3c2fedd96bf1ba73a2b",
+  "plan_sha256": "e1d1336c211a82cfa2fb6aaba37b0d64cbd9232f44c98d28f28fd3fe2aedcfe6",
+  "started_at": "2026-09-07T02:59:20.967473+00:00",
+  "state": "terminal_stop",
+  "requests": [
+    {
+      "id": "dashboard_models",
+      "url": "https://wabi-north-europe-e-primary-api.analysis.windows.net/public/reports/c809ac7e-68c0-41ae-8552-3e483d0d20b8/modelsAndExploration?preferReadOnlySession=true",
+      "method": "GET",
+      "state": "attempted"
+    }
+  ],
+  "quarantine": true,
+  "extraction_performed": false,
+  "g2_acceptance": false,
+  "raw_source_publication": false,
+  "retention_review_by": "2027-08-24",
+  "failure_type": "ValueError",
+  "failure_reason": "HTTP status 401",
+  "finished_at": "2026-09-07T02:59:22.749910+00:00"
+}

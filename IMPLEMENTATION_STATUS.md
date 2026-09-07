@@ -8,6 +8,16 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 
 ## Continuation ledger — 2026-08-31 API qualification
 
+### 2026-09-07 dashboard-only structural outcome
+
+The separately scoped one-request stage was frozen at signed commit
+`87eed766b35455517380f3c2fedd96bf1ba73a2b`. Its exact GET returned HTTP 401;
+the lineage stopped without retained source bytes, retry, query or extraction.
+Conductor evidence `E-G2-DASHBOARD-STRUCTURAL-STOP-20260907` is failed supporting
+evidence only. See
+[outcome and access-context options](docs/governance/g2-dashboard-structural-outcome-2026-09-07.md).
+G2, WI-G2-04/07 and historical evidence remain unchanged.
+
 ### 2026-09-07 prospective acquisition outcome
 
 Signed freeze `cd2bc6d682c3fdb0b5988b8c005cd9e94ecd34fc` was executed once.

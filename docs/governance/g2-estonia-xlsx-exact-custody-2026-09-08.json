@@ -1,0 +1,17 @@
+{
+  "evidence_id": "E-G2-EST-XLSX-EXACT-CUSTODY-20260908",
+  "candidate_id": "EST-XLSX",
+  "source_edition_id": "EST_JUSTDIGI_REGISTERED_OFFENCES_2003_2025",
+  "retrieved_at": "2026-09-08T03:12:00+10:00",
+  "source_url": "https://www.justdigi.ee/kuritegevus2025/excel/registreeritud_kuriteod_2003-2025.xlsx",
+  "retrieval_method": "single direct HTTPS GET",
+  "bytes": 207223,
+  "sha256": "81e350d37f6d402f2570f1a0b71cfe1d3ccf2c9578ed023b8b1f1a49fa02d0ab",
+  "controlled_path": "data/raw/files/g2-controlled/estonia-offences.xlsx",
+  "storage_boundary": "ignored local controlled storage; not committed or published",
+  "rights_status": "not_cleared",
+  "privacy_security_status": "pending_review",
+  "extraction_status": "not_started",
+  "g2_status": "blocked",
+  "notes": "Exact frozen hash matched the official Estonia Justice Statistics workbook. Custody does not imply rights clearance, extraction approval, concordance, publication or G2 acceptance."
+}

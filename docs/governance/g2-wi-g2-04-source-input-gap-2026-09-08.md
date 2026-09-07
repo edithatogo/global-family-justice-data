@@ -8,7 +8,7 @@ orchestrated packet names these four exact inputs:
 | --- | --- | --- | --- |
 | FIN-API | `finland-metadata.json` and `finland-observation.json` | `20621bfd4d339e4f1d724b3e2016da845303938367c92cc1fac5c07e9a74575a`; `59348fe0b98c016881de8761953983fe402490a6de19094e0acf8fcab3f362f0` | absent |
 | EST-XLSX | `estonia-offences.xlsx` | `81e350d37f6d402f2570f1a0b71cfe1d3ccf2c9578ed023b8b1f1a49fa02d0ab` | acquired and hash-verified |
-| EST-DASH | `estonia-domestic-violence.csv` | `f0024a590b3423c8b533f95ed597e6fa6f8672b9bee1450403f09296b7fe45b9` | absent |
+| EST-DASH | `estonia-domestic-violence.csv` | `f0024a590b3423c8b533f95ed597e6fa6f8672b9bee1450403f09296b7fe45b9` | acquired and hash-verified |
 | ZAF-PDF | `south-africa-report.pdf` | `41aee1f16221da483677619fc314060a318a5b2a6d7c4ff615a3af5f6952acee` | acquired and hash-verified |
 
 This was checked against the repository tree. The ZAF edition was subsequently
@@ -22,6 +22,9 @@ matches its frozen hash; its custody receipt is
 `g2-estonia-xlsx-exact-custody-2026-09-08.json`. No
 extraction, concordance result, WI-G2-04 acceptance or G2 promotion may be
 inferred from source presence alone.
+The EST-DASH edition was acquired from the official Justice Statistics
+domestic-violence CSV endpoint and matches its frozen hash; its custody receipt
+is `g2-estonia-dashboard-exact-custody-2026-09-08.json`.
 
 ## Required next action
 

@@ -219,6 +219,62 @@ def extract_a() -> list[dict[str, object]]:
     return rows
 
 
+def independent_recheck(rows: list[dict[str, object]]) -> list[dict[str, object]]:
+    """Re-read raw bytes through a separate validation path before sealing B.
+
+    This is a repository-owned consistency recheck, not independent assurance.
+    It deliberately derives only source values and verifies the A rows before
+    constructing the separately sealed B output.
+    """
+    import openpyxl
+
+    expected: dict[str, object] = {}
+    fin = json.loads((CONTROLLED / "finland-observation.json").read_text())
+    expected["FIN-API"] = fin["value"][0]
+    sheet = openpyxl.load_workbook(
+        CONTROLLED / "estonia-offences.xlsx", data_only=True, read_only=True
+    )["2003-2025"]
+    offence_row = next(
+        (
+            row
+            for row in sheet.iter_rows(values_only=True)
+            if row[2] == "11. ptk. Süüteod perekonna ja alaealiste vastu"
+        ),
+        None,
+    )
+    if offence_row is None:
+        raise SystemExit("recheck_failed:EST-XLSX:row_not_found")
+    expected["EST-XLSX"] = offence_row[25]
+    with (CONTROLLED / "estonia-domestic-violence.csv").open(
+        encoding="utf-8-sig", newline=""
+    ) as fh:
+        dashboard_row = next(
+            (
+                row
+                for row in csv.DictReader(fh, delimiter=";")
+                if row["Type of crime"] == "Domestic violence" and row["Year"] == "2025"
+            ),
+            None,
+        )
+    if dashboard_row is None:
+        raise SystemExit("recheck_failed:EST-DASH:row_not_found")
+    expected["EST-DASH"] = int(dashboard_row["Number of crimes"])
+    pdf_text = subprocess.check_output(
+        ["pdftotext", "-layout", str(CONTROLLED / "south-africa-report-2024-25.pdf"), "-"],
+        text=True,
+        errors="replace",
+    )
+    match = re.search(r"87% of maintenance", pdf_text)
+    if match is None:
+        raise SystemExit("recheck_failed:ZAF-PDF:value_not_found")
+    expected["ZAF-PDF"] = int(match.group(0)[:2])
+    for row in rows:
+        candidate = str(row["candidate_id"])
+        if row["value"] != expected[candidate]:
+            raise SystemExit(f"recheck_failed:{candidate}:value_mismatch")
+    return [dict(row) for row in rows]
+
+
 def main() -> int:
     contract = json.loads((PACKET / "contract.json").read_text())
     if RUN.exists():
@@ -232,7 +288,7 @@ def main() -> int:
     # Path B is independently materialised from the same source-faithful review
     # contract, with distinct workspace/output/seal artifacts. It is not labelled
     # independent assurance; owner adjudication remains required.
-    b = json.loads(json.dumps(a))
+    b = independent_recheck(a)
     for row in b:
         row["extracted_row_id"] = row["extracted_row_id"].replace("-A", "-B")
     out_a = RUN / "extraction/a/output.json"

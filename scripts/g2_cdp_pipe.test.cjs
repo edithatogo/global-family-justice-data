@@ -34,6 +34,13 @@ test('failed or interrupted auxiliary initialization never resumes the target', 
     assert.equal(calls.includes('Runtime.runIfWaitingForDebugger'), false);
   }
 });
+test('worker initialization relies on context Fetch guard and never claims worker Fetch support', async () => {
+  const {initializeTarget} = require('./g2_cdp_offline.cjs');
+  const calls = [], record = {type: 'worker', initialized: false, resumed: false};
+  await initializeTarget(async (method, params, session) => { calls.push(method); return {}; }, record, 'fictional');
+  assert.deepEqual(calls, ['Target.setAutoAttach', 'Runtime.enable', 'Runtime.runIfWaitingForDebugger']);
+  assert.equal(record.resumed, true);
+});
 test('offline output creates the missing build parent but refuses reuse and symlinks', () => {
   const fs = require('node:fs'), os = require('node:os'), path = require('node:path');
   const {prepareOutput} = require('./g2_cdp_offline.cjs');

@@ -135,6 +135,21 @@ and prove pre-resume request control offline. If unavailable, retain the stop or
 qualify a compatible runtime; do not skip worker interception to obtain a pass.
 No source acquisition or owner acceptance has occurred.
 
+### Offline matrix result (2026-09-08)
+
+Attempts 07–10 completed the protocol-compatible correction. Worker and
+shared-worker sessions omit unsupported per-worker `Fetch.enable`; context Fetch
+interception is installed before any target resumes, and the deny-all proxy
+remains the physical egress backstop. The complete 13-case fictional matrix
+passed in attempt 10, including proxy isolation. Attempts 07–09 remain preserved
+as intermediate evidence. Receipt hashes and target/request metadata are in
+`g2-cdp-offline-qualification-2026-09-08.json`.
+
+This is an engineering qualification of the offline harness only. It does not
+establish live browser/source safety, source rights, factual data, G2 passage or
+release readiness. The approved source inspection remains disabled pending its
+separate source-execution interlock and owner-approved evidence handling.
+
 - **Recommended:** complete the above context-wide controls and negative fixtures,
   then freeze the same approved bounded inspection. This requires engineering
   work but preserves the authorized scope and avoids another approval packet.

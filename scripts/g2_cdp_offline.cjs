@@ -43,8 +43,10 @@ function requestStop(record) {
 }
 async function initializeTarget(send, record, sessionId) {
   await send('Target.setAutoAttach', autoAttach, sessionId);
-  await send('Fetch.enable', {patterns: [{urlPattern: '*', requestStage: 'Request'},
-    {urlPattern: '*', requestStage: 'Response'}], handleAuthRequests: true}, sessionId);
+  if (!['worker', 'shared_worker'].includes(record.type)) {
+    await send('Fetch.enable', {patterns: [{urlPattern: '*', requestStage: 'Request'},
+      {urlPattern: '*', requestStage: 'Response'}], handleAuthRequests: true}, sessionId);
+  }
   await send('Runtime.enable', {}, sessionId);
   if (['page', 'iframe'].includes(record.type)) {
     await send('Page.enable', {}, sessionId);
@@ -70,7 +72,7 @@ function consentScript() {
 function fixture(caseName, url) {
   const fetchModel = `fetch('${MODEL}',{headers:{'X-PowerBI-ResourceKey':'FICTIONAL_SECRET'}})`;
   if (url === WORKER) return {mime: 'application/javascript', body:
-    caseName === 'shared_worker' ? `onconnect=()=>{${fetchModel}}` : fetchModel};
+    caseName === 'shared_worker' ? `${fetchModel}; onconnect=()=>{}` : fetchModel};
   if (url === MODEL) return {mime: 'application/json', body: '{}'};
   if (url === VIEW) return {mime: 'text/html', body: caseName === 'child_consent' ?
     '<input type="password">' : `<script>${fetchModel}</script>`};
@@ -81,7 +83,7 @@ function fixture(caseName, url) {
   if (['iframe', 'child_consent', 'duplicate_dashboard'].includes(caseName)) body += `<iframe src="${VIEW}"></iframe>`;
   if (caseName === 'duplicate_dashboard') body += `<iframe src="${VIEW}"></iframe>`;
   if (caseName === 'worker') body += `<script>new Worker('${WORKER}')</script>`;
-  if (caseName === 'shared_worker') body += `<script>globalThis.fixtureWorker=new SharedWorker('${WORKER}')</script>`;
+  if (caseName === 'shared_worker') body += `<script>fetch('${MODEL}'); globalThis.fixtureWorker=new SharedWorker('${WORKER}')</script>`;
   if (caseName === 'popup') body += `<script>window.open('${ENTRY}?popup=1')</script>`;
   if (caseName === 'authorization') body += `<script>fetch('${MODEL}',{headers:{Authorization:'FICTIONAL_SECRET'}})</script>`;
   return {mime: 'text/html', body};
@@ -145,6 +147,9 @@ async function runCase(executable, caseName) {
       if (result.stop_reason) return;
       const requestDenial = requestStop(session);
       if (requestDenial) return stop(requestDenial);
+      if (caseName === 'proxy_isolation' && (p.responseStatusCode !== undefined || p.responseErrorReason)) {
+        return stop('offline_egress_denied');
+      }
       if (p.responseStatusCode !== undefined || p.responseErrorReason) {
         // The experiment fulfills at request stage. Unexpected real responses fail.
         return stop('unexpected_response');

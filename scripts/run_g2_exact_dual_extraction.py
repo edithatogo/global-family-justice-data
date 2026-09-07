@@ -84,10 +84,15 @@ def extract_a() -> list[dict[str, object]]:
         CONTROLLED / "estonia-offences.xlsx", data_only=True, read_only=True
     )["2003-2025"]
     target = next(
-        row
-        for row in ws.iter_rows(values_only=True)
-        if row[2] == "11. ptk. Süüteod perekonna ja alaealiste vastu"
+        (
+            row
+            for row in ws.iter_rows(values_only=True)
+            if row[2] == "11. ptk. Süüteod perekonna ja alaealiste vastu"
+        ),
+        None,
     )
+    if target is None:
+        raise SystemExit("extraction_failed:EST-XLSX:row_not_found")
     rows += [
         {
             "schema_version": "1.0",
@@ -124,10 +129,15 @@ def extract_a() -> list[dict[str, object]]:
         encoding="utf-8-sig", newline=""
     ) as fh:
         row = next(
-            r
-            for r in csv.DictReader(fh, delimiter=";")
-            if r["Type of crime"] == "Domestic violence" and r["Year"] == "2025"
+            (
+                r
+                for r in csv.DictReader(fh, delimiter=";")
+                if r["Type of crime"] == "Domestic violence" and r["Year"] == "2025"
+            ),
+            None,
         )
+    if row is None:
+        raise SystemExit("extraction_failed:EST-DASH:row_not_found")
     rows += [
         {
             "schema_version": "1.0",
@@ -161,9 +171,15 @@ def extract_a() -> list[dict[str, object]]:
         errors="replace",
     )
     page = next(
-        p for p in text.split("\f") if "89% of maintenance" in p and "87% of maintenance" in p
+        (p for p in text.split("\f") if "89% of maintenance" in p and "87% of maintenance" in p),
+        None,
     )
-    value = int(re.search(r"87% of maintenance", page).group(0)[:2])
+    if page is None:
+        raise SystemExit("extraction_failed:ZAF-PDF:page_not_found")
+    match = re.search(r"87% of maintenance", page)
+    if match is None:
+        raise SystemExit("extraction_failed:ZAF-PDF:pattern_not_found")
+    value = int(match.group(0)[:2])
     rows += [
         {
             "schema_version": "1.0",
@@ -205,7 +221,9 @@ def extract_a() -> list[dict[str, object]]:
 
 def main() -> int:
     contract = json.loads((PACKET / "contract.json").read_text())
-    RUN.mkdir(parents=True, exist_ok=True)
+    if RUN.exists():
+        raise SystemExit(f"sealed_run_exists:{RUN.relative_to(ROOT)}")
+    RUN.mkdir(parents=True)
     for name, expected in SOURCES.items():
         src = CONTROLLED / name
         if digest(src) != expected:
@@ -262,6 +280,8 @@ def main() -> int:
         source_commit=subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
         generated_at="2026-09-08T03:50:00Z",
         expected_source_keys=[x["source_record_key"] for x in contract["scope"]],
+        critical_fields=contract["critical_fields"],
+        ignored_fields=contract["ignored_fields"],
         limitations=[
             "Controlled local source bytes; rights not cleared.",
             "Two isolated output paths are sealed, but this is not independent assurance.",

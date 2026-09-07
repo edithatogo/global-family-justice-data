@@ -1,0 +1,57 @@
+{
+  "evidence_id": "E-G2-EXACT-CUSTODY-SEMANTIC-REVIEW-20260908",
+  "scope": "Four frozen WI-G2-04 source editions",
+  "status": "in_review",
+  "claim_limit": "source-semantic preparation only; not extraction, concordance, rights clearance or G2 acceptance",
+  "sources": [
+    {
+      "candidate_id": "FIN-API",
+      "source_record_key": "751e85bf60ca9f0bba36edc99e39daee3533154b0c531db7801f02d96f64d23a",
+      "locator": "JSON-stat2 dimensions: District=TOTAL; Case=01YY Family law; Stage at which the case was concluded=Total; Year=2013; Data=Concluded cases, total",
+      "measure_original": "Concluded cases, total",
+      "matter_type_original": "01YY Family law",
+      "value": 1680,
+      "unit": "Number",
+      "period_label": "2013",
+      "semantic_limits": ["No ISO start/end date inferred from year label", "Denominator not published for this selected observation", "Population scope remains source_defined, not inferred"]
+    },
+    {
+      "candidate_id": "EST-XLSX",
+      "source_record_key": "ee9444102f3da1a0a85ffd58cec43c27840b2f45009fbbbf96e5ce434cfc3028",
+      "locator": "Workbook sheet 2003-2025; row 108 complete label 11. ptk. Süüteod perekonna ja alaealiste vastu; column Z header 2025",
+      "measure_original": "11. ptk. Süüteod perekonna ja alaealiste vastu",
+      "matter_type_original": "11. ptk. Süüteod perekonna ja alaealiste vastu",
+      "value": 501,
+      "unit": "registered offences",
+      "period_label": "2025",
+      "semantic_limits": ["Workbook note says figures reflect qualification at commencement of criminal proceedings", "No denominator is published for the selected row", "No ISO start/end date inferred from year column"]
+    },
+    {
+      "candidate_id": "EST-DASH",
+      "source_record_key": "579d24d37b839775825a7cf8c6f35255cd9adb01f23a0fab294cb5c0e00d81bc",
+      "locator": "CSV row Type of crime=Domestic violence; Year=2025",
+      "measure_original": "Domestic violence",
+      "matter_type_original": "Domestic violence",
+      "value": 2388,
+      "unit": "crimes",
+      "period_label": "2025",
+      "semantic_limits": ["Source page defines the series as domestic-violence statistics", "No denominator is published for the selected row", "No ISO start/end date inferred from year label"]
+    },
+    {
+      "candidate_id": "ZAF-PDF",
+      "source_record_key": "4922ef6dc1646c7a24dc658f8734794e9ab403e84f59698b9aa11df9ad63e461",
+      "locator": "PDF page 51 (printed page 48), Main services and standards, Provision of Maintenance, Actual achievement column",
+      "measure_original": "maintenance matters finalised within 90 days from date of proper service of process",
+      "matter_type_original": "Provision of Maintenance",
+      "value": 87,
+      "unit": "percent",
+      "period_label": "2024/2025 financial year",
+      "semantic_limits": ["Financial-year label is preserved without inferred ISO dates", "Denominator is not published in the selected table", "The table's current/actual and desired-standard columns are distinct from actual achievement"]
+    }
+  ],
+  "review_conclusion": "The four sources expose source-defined labels and values suitable for fresh extraction. Semantic equivalence across jurisdictions is not established; the rows remain quarantine-only until two isolated extractions, exact comparison and owner adjudication.",
+  "rights_status": "not_cleared",
+  "privacy_security_status": "pending_review",
+  "publication_status": "not_authorized",
+  "g2_status": "blocked"
+}

@@ -1,0 +1,19 @@
+{
+  "lineage_id": "G2-PUBLIC-CONTEXT-20260907-01",
+  "entry": "https://www.gov.uk/government/collections/family-court-statistics-quarterly",
+  "maximum_requests": 4,
+  "maximum_release_pages": 2,
+  "maximum_view_pages": 1,
+  "maximum_accepted_body_bytes": 2000000,
+  "maximum_body_read_bytes": 2000001,
+  "socket_timeout_seconds": 30,
+  "retries": 0,
+  "redirects": false,
+  "cookies": false,
+  "credentials": false,
+  "scripts": false,
+  "raw_body_retention": false,
+  "query_execution": false,
+  "g2_acceptance": false,
+  "selector": "newest_explicit_calendar_quarter_then_unique_dashboard_link"
+}

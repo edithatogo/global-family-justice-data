@@ -8,6 +8,17 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 
 ## Continuation ledger — 2026-08-31 API qualification
 
+### 2026-09-07 prospective acquisition outcome
+
+Signed freeze `cd2bc6d682c3fdb0b5988b8c005cd9e94ecd34fc` was executed once.
+The first DataJud public-key documentation request timed out; the lineage
+terminated before any aggregate query or dashboard request. No source bytes
+were retained, and no extraction or gate acceptance occurred. The receipt is
+`docs/governance/g2-dynamic-successor-capture-2026-09-07.json`; see the
+[outcome and next options](docs/governance/g2-dynamic-successor-outcome-2026-09-07.md).
+Recovered historical ODS custody remains valid; dynamic historical objects
+remain missing. WI-G2-04 and WI-G2-07 remain in review.
+
 Official technical documentation/code is now pinned and indexed in
 `docs/methods/g2-api-interface-qualification-2026-08-31.md`. Repeated query
 parameters are supported; documented presenter extras contradict the old

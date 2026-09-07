@@ -1,0 +1,23 @@
+{
+  "lineage_id": "G2-DYNAMIC-SUCCESSOR-20260907-01",
+  "freeze_commit": "cd2bc6d682c3fdb0b5988b8c005cd9e94ecd34fc",
+  "plan_sha256": "9106dff73dec60f344081ff13aee70ae4babbe1eddcb03b1dd584344928f11d9",
+  "started_at": "2026-09-07T02:08:53.977595+00:00",
+  "state": "terminal_stop",
+  "requests": [
+    {
+      "id": "public_key_document",
+      "url": "https://datajud-wiki.cnj.jus.br/api-publica/acesso",
+      "method": "GET",
+      "state": "attempted"
+    }
+  ],
+  "quarantine": true,
+  "extraction_performed": false,
+  "g2_acceptance": false,
+  "raw_source_publication": false,
+  "retention_review_by": "2027-08-24",
+  "failure_type": "TimeoutError",
+  "failure_reason": "transport_or_processing_failure",
+  "finished_at": "2026-09-07T02:09:33.531627+00:00"
+}

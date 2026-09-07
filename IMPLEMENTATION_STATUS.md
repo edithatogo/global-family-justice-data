@@ -8,6 +8,16 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 
 ## Continuation ledger — 2026-08-31 API qualification
 
+### 2026-09-07 public entry-context outcome
+
+Signed freeze `ae5f7ce695f1336f94b905ee66fb09aa0ace592c` was executed once.
+The collection and selected 2026 Q1 release HTML were observed, then the frozen
+selector stopped without a unique permitted dashboard continuation. No Power BI
+request, body retention, query or extraction occurred. Evidence
+`E-G2-PUBLIC-CONTEXT-STOP-20260907` is supporting failed-lineage evidence only.
+See [outcome and grouped next options](docs/governance/g2-public-context-outcome-2026-09-07.md).
+G2 remains 9/13 with WI-G2-04/07 and the L2 evidence requirement open.
+
 ### 2026-09-07 dashboard-only structural outcome
 
 The separately scoped one-request stage was frozen at signed commit

@@ -1,0 +1,40 @@
+{
+  "lineage_id": "G2-PUBLIC-CONTEXT-20260907-01",
+  "freeze_commit": "ae5f7ce695f1336f94b905ee66fb09aa0ace592c",
+  "plan_sha256": "f254dcdcd2b921ee4a50dc7708393867e5e640565e83dd2afbd4c5572b952062",
+  "started_at": "2026-09-07T03:19:58.676343+00:00",
+  "state": "terminal_stop",
+  "requests": [
+    {
+      "base_url": "https://www.gov.uk/government/collections/family-court-statistics-quarterly",
+      "url_sha256": "5f2f25b1d52002507bddf64c8812386627e3dd2b1fa26479091b1f295a1920e9",
+      "kind": "entry",
+      "method": "GET",
+      "requested": true,
+      "state": "observed",
+      "attempted_at": "2026-09-07T03:19:58.677202+00:00",
+      "body_sha256": "0104d6c3460721a0e7f3fdbb468075f54c29eef2eec0f5b444e8e3b4cf29b12c",
+      "body_bytes": 112524,
+      "link_count": 123
+    },
+    {
+      "base_url": "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-january-to-march-2026",
+      "url_sha256": "d2cac12924d6ac0c4d10e6eb634358bfb6dd696abf679d1c5b3e5521c87a86cf",
+      "kind": "release",
+      "method": "GET",
+      "requested": true,
+      "state": "observed",
+      "attempted_at": "2026-09-07T03:20:00.848666+00:00",
+      "body_sha256": "a4d187fc3831c4f3913ba7d9b125c7d40cbf9dc38b44462a37c407cb412ade56",
+      "body_bytes": 99172,
+      "link_count": 106
+    }
+  ],
+  "request_contract_qualified": false,
+  "extraction_performed": false,
+  "g2_acceptance": false,
+  "raw_body_retention": false,
+  "failure_type": "ContextStop",
+  "failure_reason": "missing or ambiguous dashboard detail",
+  "finished_at": "2026-09-07T03:20:03.155459+00:00"
+}

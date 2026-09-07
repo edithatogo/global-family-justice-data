@@ -1,0 +1,58 @@
+{
+  "lineage_id": "G2-DYNAMIC-SUCCESSOR-20260907-01",
+  "scope": "Fresh current BRA aggregate snapshot and dashboard structural metadata, not historical recovery",
+  "owner_direction": "Proceed with your recommendations, following the September 6 cleanup and source-recovery fallback",
+  "authority_plan": "docs/programme/cleanup-and-source-recovery-2026-09-06.md",
+  "max_requests": 3,
+  "retries": 0,
+  "redirects": false,
+  "timeout_seconds": 30,
+  "retention_review_by": "2027-08-24",
+  "requests": [
+    {
+      "id": "public_key_document",
+      "method": "GET",
+      "url": "https://datajud-wiki.cnj.jus.br/api-publica/acesso",
+      "maximum_bytes": 1000000,
+      "retain_body": false
+    },
+    {
+      "id": "bra_aggregate",
+      "method": "POST",
+      "url": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsp/_search",
+      "maximum_bytes": 1000000,
+      "body": {
+        "size": 0,
+        "track_total_hits": false,
+        "query": {"bool": {"must": [{"match": {"classe.codigo": 1389}}]}},
+        "aggs": {"case_classes": {"terms": {"field": "classe.codigo", "size": 20}}}
+      },
+      "retain_body": true
+    },
+    {
+      "id": "dashboard_models",
+      "method": "GET",
+      "url": "https://wabi-north-europe-e-primary-api.analysis.windows.net/public/reports/c809ac7e-68c0-41ae-8552-3e483d0d20b8/modelsAndExploration?preferReadOnlySession=true",
+      "maximum_bytes": 10000000,
+      "retain_body": true
+    }
+  ],
+  "stopping_rules": [
+    "Any binding, public-peer, transport, HTTP, byte-budget, JSON, credential-discovery or aggregate-boundary failure terminates the stage with no retry or substitution",
+    "No nonempty case hits, unknown response fields, failed shards, truncation or unexpected class buckets",
+    "Metadata lacking explicit matching model and visual identity stops the dashboard route",
+    "No old query reconstruction from prose or historical expected values"
+  ],
+  "next_stage": "Only source-derived matching schema and visual query may support a separately signed exact query/semantic freeze before any dashboard POST or target extraction. No automatic query endpoint discovery.",
+  "extraction_contract": {
+    "roles": "two fresh artifact-isolated agents; one offline exact comparator; separate source-accuracy advisory review",
+    "critical_concordance": 1.0,
+    "overall_populated_concordance": 0.99,
+    "failure_disposition": "terminal; no repair, output reuse, fuzzy matching, waiver or automatic rerun",
+    "status": "not_executed_by_this_acquisition_stage"
+  },
+  "public_boundary": "metadata and hashes only; no raw responses, credentials, source layouts or excerpts",
+  "quarantine": true,
+  "g2_acceptance": false,
+  "publication_authorized": false
+}

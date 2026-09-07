@@ -2,6 +2,59 @@
 
 Status: implementation preparation; source execution disabled; G2 unchanged.
 
+## Follow-up implementation checkpoint
+
+Unknown paths on allowed hosts no longer default to static assets. Explicit
+authentication/export/download paths and source-file extensions are rejected.
+PR review additionally closed the `oauth2` path variant with regression cases.
+It also rejects encoded forbidden paths and ambiguous double encoding. The
+offline output helper creates a missing build parent while rejecting symlinks
+and preserving exclusive attempt directories.
+A dedicated offline CDP pipe prototype now has bounded framing, redacted errors,
+recursive target setup, a terminal latch and independent deny-all proxies for
+the default browser and test context. It has **no live execution mode**.
+
+The installed Playwright implementation automatically continues redirected
+requests instead of rerunning the route handler. Therefore merely replacing
+page routing with context routing would not qualify same-host redirect safety.
+The prototype investigates interception of each hop without a competing
+Playwright session. API references: [Playwright context routing](https://playwright.dev/docs/api/class-browsercontext#browser-context-route)
+and [CDP target attachment](https://chromedevtools.github.io/devtools-protocol/tot/Target/#method-setAutoAttach).
+
+Four failed offline attempts are preserved in
+`g2-cdp-offline-evidence-2026-09-07.json`. Attempts 01–02 failed during initial
+setup; 03–04 reached context-target creation but stopped on an unsupported
+target. Every attempt recorded zero proxy-forwarded bytes and zero admitted
+fixture requests. Neither iframe interception nor proxy isolation was qualified.
+Historical receipts bind the controller and protocol hashes, not complete
+runtime/source snapshots; they must not be presented as reproducible empirical
+source evidence. The original two startup failures above remain unchanged.
+
+The Conductor bounded fix loop stopped further browser attempts. Offline review
+then fixed malformed protocol-envelope handling, post-stop dispatch, child-exit
+cleanup and target-detachment handling. It also added safe target-type labels
+and policy/transport hashes for future receipts. Those post-stop corrections
+have unit coverage; the browser experiment has not been rerun after them.
+Future experiment success also requires confirmed graceful process cleanup;
+forced termination cannot yield a passing receipt.
+Future success additionally requires zero default-proxy connections and no
+default-proxy stop reason, so blocked default-profile traffic cannot mask an
+escape from the instrumented context. This stricter condition is unqualified.
+
+Navigation and dashboard counters in the experiment count attempted document
+loads, including the rejected over-budget attempt; `requests` contains admitted
+requests only. Simulated checkpoint and observation-deadline cases are stop-path
+fixtures, not proof of real I/O failure or whole-controller timeout recovery.
+All cases after the first failed iframe fixture remain **unexecuted**.
+
+Next: identify the unsupported target using the sanitized type diagnostic,
+implement its safe lifecycle (or explicitly reject it), and qualify the entire
+offline matrix. Then integrate a source controller with response-stage handling,
+all-frame consent observation, complete bindings and a positive success predicate.
+Keep the existing live runner disabled until that separate qualification passes.
+These are repository-owned engineering tasks under the existing direction;
+no additional owner approval is currently required.
+
 The owner approved the bounded anonymous-browser recommendation in the public
 context outcome. No additional owner decision is needed for repository-owned
 control remediation. The proposed plan is in

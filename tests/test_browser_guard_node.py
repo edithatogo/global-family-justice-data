@@ -16,6 +16,7 @@ def test_node_browser_guards(project_root):
             "--test",
             "scripts/g2_browser_egress.test.cjs",
             "scripts/g2_browser_policy.test.cjs",
+            "scripts/g2_cdp_pipe.test.cjs",
         ],
         cwd=project_root,
         check=True,

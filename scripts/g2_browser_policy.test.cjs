@@ -7,6 +7,24 @@ const path = require('node:path');
 const {PLAN, classify, requestMetadata, selectNavigation} = require('./g2_browser_policy.cjs');
 const {checkpoint} = require('./inspect_g2_browser.cjs');
 
+test('allowlisted hosts cannot implicitly authorize unknown or export paths', () => {
+  for (const url of ['https://app.powerbi.com/login', 'https://www.gov.uk/login',
+    'https://app.powerbi.com/export/report', 'https://app.powerbi.com/unknown',
+    'https://www.gov.uk/government/oauth2', 'https://app.powerbi.com/oauth2/client.js',
+    'https://www.gov.uk/login.html', 'https://app.powerbi.com/oauth2',
+    'https://app.powerbi.com/authorize/callback',
+    'https://www.gov.uk/government/%64ownload/report',
+    'https://www.gov.uk/government/report%2Epdf',
+    'https://www.gov.uk/government/%2564ownload/report',
+    'https://www.gov.uk/government/%zz',
+    'https://www.gov.uk/government/%5cdownload/report',
+    'https://assets.publishing.service.gov.uk/report.pdf',
+    'https://www.gov.uk/government/report.ods']) {
+    assert.equal(classify(url, 'GET').deny, 'path_denied');
+  }
+  assert.equal(classify('https://assets.publishing.service.gov.uk/fictional.js', 'GET').category, 'static_asset');
+});
+
 test('unqualified controller refuses real execution before runtime access', () => {
   const result = require('node:child_process').spawnSync(process.execPath,
     [path.join(__dirname, 'inspect_g2_browser.cjs')], {encoding: 'utf8'});

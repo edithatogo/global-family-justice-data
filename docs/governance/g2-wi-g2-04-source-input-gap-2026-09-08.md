@@ -6,7 +6,7 @@ orchestrated packet names these four exact inputs:
 
 | Candidate | Required input | Required SHA-256 | Current state |
 | --- | --- | --- | --- |
-| FIN-API | `finland-metadata.json` and `finland-observation.json` | `20621bfd4d339e4f1d724b3e2016da845303938367c92cc1fac5c07e9a74575a`; `59348fe0b98c016881de8761953983fe402490a6de19094e0acf8fcab3f362f0` | absent |
+| FIN-API | `finland-metadata.json` and `finland-observation.json` | `20621bfd4d339e4f1d724b3e2016da845303938367c92cc1fac5c07e9a74575a`; `59348fe0b98c016881de8761953983fe402490a6de19094e0acf8fcab3f362f0` | acquired and hash-verified |
 | EST-XLSX | `estonia-offences.xlsx` | `81e350d37f6d402f2570f1a0b71cfe1d3ccf2c9578ed023b8b1f1a49fa02d0ab` | acquired and hash-verified |
 | EST-DASH | `estonia-domestic-violence.csv` | `f0024a590b3423c8b533f95ed597e6fa6f8672b9bee1450403f09296b7fe45b9` | acquired and hash-verified |
 | ZAF-PDF | `south-africa-report.pdf` | `41aee1f16221da483677619fc314060a318a5b2a6d7c4ff615a3af5f6952acee` | acquired and hash-verified |
@@ -16,7 +16,7 @@ acquired from the official Department of Justice report index and matches its
 frozen hash; its custody receipt is
 `g2-zaf-exact-custody-2026-09-08.json`; the bytes are retained in ignored
 durable controlled storage under `data/raw/files/g2-controlled/`. Existing ODS/PDF files are different
-editions and are not substitutes for the two still-absent inputs. The EST-XLSX
+editions and are not substitutes for any other source. The EST-XLSX
 edition was acquired from the official Justice Statistics workbook URL and
 matches its frozen hash; its custody receipt is
 `g2-estonia-xlsx-exact-custody-2026-09-08.json`. No
@@ -24,15 +24,17 @@ extraction, concordance result, WI-G2-04 acceptance or G2 promotion may be
 inferred from source presence alone.
 The EST-DASH edition was acquired from the official Justice Statistics
 domestic-violence CSV endpoint and matches its frozen hash; its custody receipt
-is `g2-estonia-dashboard-exact-custody-2026-09-08.json`.
+is `g2-estonia-dashboard-exact-custody-2026-09-08.json`. The FIN-API pair was
+recovered from the official Statistics Finland passive PxWeb archive and matches
+both frozen hashes; its custody receipt is
+`g2-finland-api-exact-custody-2026-09-08.json`.
 
 ## Required next action
 
-Acquire or restore the two remaining exact editions under the already approved source
-access boundary, verify byte hashes and custody receipts, and only then run two
-fresh isolated extractors plus the network-disabled comparator. If any edition
-cannot be restored exactly, stop and return the bounded scope decision; do not
-replace it silently.
+All four frozen editions are now present and hash-verified. The next action is
+to verify the custody manifest, then run two fresh isolated extractors and the
+network-disabled comparator. If any input or binding fails verification, stop
+and return the bounded scope decision; do not replace it silently.
 
 This record is a blocker register, not an authorization to contact a provider,
 accept terms, clear rights, publish, release or pass G2.

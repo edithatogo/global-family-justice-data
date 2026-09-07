@@ -38,3 +38,20 @@ none matched. Official Estonia catalogue pages were located as metadata-only
 candidates, including NH25 (2025 offences by administrative unit), but they do
 not establish the frozen `EST_JUSTDIGI_REGISTERED_OFFENCES_2003_2025` XLSX or
 the `EST_JUSTDIGI_DV_SNAPSHOT_20260525` CSV and were not substituted.
+
+The audit is reproducible from the repository at
+`https://github.com/edithatogo/global-family-justice-data.git`, checked at
+commit `f997f64519b4271232eb35481c09983bb898aaa4`. The local object inventory
+reported `count=603`, `in-pack=5912`, `packs=2`, `prune-packable=0`,
+`garbage=0`; `git fsck --full --no-reflogs --unreachable` reported 13
+unreachable-object lines. For each frozen input hash, the exact command
+`git cat-file -e <hash>^{blob}` returned `ABSENT` for all four hashes; no
+matching blob was found in reachable or unreachable Git objects. The audit
+therefore establishes absence from this clone's Git object database only, not
+absence from external storage.
+
+The metadata-only Estonia candidate is the stable official Statistics Estonia
+NH25 locator:
+`https://andmed.stat.ee/en/stat/eri-valdkondade-statistika__noorteseire/NH25`.
+It remains a non-substituting hypothesis because its series identity and
+edition bytes do not match the frozen EST-JUSTDIGI hashes.

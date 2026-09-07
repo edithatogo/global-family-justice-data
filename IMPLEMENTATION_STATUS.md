@@ -8,6 +8,16 @@ This repository is a bootstrap-ready engineering and programme-control baseline.
 
 ## Continuation ledger — 2026-08-31 API qualification
 
+### 2026-09-07 anonymous browser control preparation
+
+Browser source execution remains disabled. Two synthetic startup preflights
+stopped with zero forwarded bytes before source-session initiation (plain HTTP,
+then an unexpected destination). Advisory review also found incomplete browser
+target interception. Transport and redaction unit tests are not browser
+qualification. See `docs/governance/g2-browser-control-readiness-2026-09-07.md`
+for preserved receipt digests and the ordered remediation plan. The approved
+source inspection has not run; no G2 or work-item status is promoted.
+
 ### 2026-09-07 public entry-context outcome
 
 Signed freeze `ae5f7ce695f1336f94b905ee66fb09aa0ace592c` was executed once.

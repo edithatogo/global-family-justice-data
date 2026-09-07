@@ -108,6 +108,27 @@ independent assurance. There is no recorded dissent from retaining the stop.
 
 ## Options and recommendation
 
+### Browser UI target correction and worker stop
+
+Attempts 05 and 06 are preserved separately in
+`g2-browser-ui-offline-evidence-2026-09-07.json`; earlier failures remain intact.
+Chromium identifies its own toolbar as `browser_ui`
+([upstream change](https://chromium.googlesource.com/chromium/src/+/327d939af510cc32a34b28cfa3a6fa82fe5d7418)).
+The controller now admits exactly that auxiliary type, installs interception
+before resume, rejects all its requests before admission, and never selects it
+as the source page. Unknown targets and second pages remain terminal.
+
+Attempt 06 passed the fictional iframe case with zero proxy connections or
+forwarded bytes. Its worker case failed at `Fetch.enable`; that worker was not
+resumed. This is a new concrete interception blocker, not a passing worker test.
+All subsequent cases remain unexecuted. Unit tests check auxiliary classification,
+initialization order and failure-before-resume; they do not replace browser proof.
+
+Recommendation: investigate a protocol-supported worker interception mechanism
+and prove pre-resume request control offline. If unavailable, retain the stop or
+qualify a compatible runtime; do not skip worker interception to obtain a pass.
+No source acquisition or owner acceptance has occurred.
+
 - **Recommended:** complete the above context-wide controls and negative fixtures,
   then freeze the same approved bounded inspection. This requires engineering
   work but preserves the authorized scope and avoids another approval packet.

@@ -32,6 +32,30 @@ function prepareOutput(root, attempt) {
 }
 const autoAttach = {autoAttach: true, waitForDebuggerOnStart: true, flatten: true,
   filter: [{type: 'tab', exclude: true}, {type: 'browser', exclude: true}, {}]};
+function targetPolicy(type, hasRoot) {
+  if (!['page', 'iframe', 'worker', 'shared_worker', 'browser_ui'].includes(type)) return 'unsupported_target';
+  if (type === 'page' && hasRoot) return 'extra_page';
+  return null;
+}
+function requestStop(record) {
+  if (!record || !record.initialized) return 'uninitialized_target';
+  return record.type === 'browser_ui' ? 'browser_ui_network' : null;
+}
+async function initializeTarget(send, record, sessionId) {
+  await send('Target.setAutoAttach', autoAttach, sessionId);
+  await send('Fetch.enable', {patterns: [{urlPattern: '*', requestStage: 'Request'},
+    {urlPattern: '*', requestStage: 'Response'}], handleAuthRequests: true}, sessionId);
+  await send('Runtime.enable', {}, sessionId);
+  if (['page', 'iframe'].includes(record.type)) {
+    await send('Page.enable', {}, sessionId);
+    const tree = await send('Page.getFrameTree', {}, sessionId);
+    record.mainFrame = tree.frameTree.frame.id;
+    await send('Runtime.addBinding', {name: '__gfjdStop'}, sessionId);
+    await send('Page.addScriptToEvaluateOnNewDocument', {source: `(${consentScript.toString()})()`}, sessionId);
+  }
+  record.initialized = true;
+  await send('Runtime.runIfWaitingForDebugger', {}, sessionId); record.resumed = true;
+}
 function consentScript() {
   // Sends a fixed signal only; no DOM text or values cross the pipe.
   const check = () => {
@@ -77,7 +101,7 @@ async function runCase(executable, caseName) {
   };
   const deadline = setTimeout(() => stop('controller_deadline'), 15000);
   const safeSend = async (method, params, sessionId) => {
-    if (result.stop_reason) throw new Error('terminal');
+    if (result.stop_reason || closing) throw new Error('terminal');
     result.control_stage = method;
     return pipe.send(method, params, sessionId);
   };
@@ -102,27 +126,16 @@ async function runCase(executable, caseName) {
         if (!contextId || p.targetInfo.browserContextId !== contextId) {
           await pipe.send('Runtime.runIfWaitingForDebugger', {}, p.sessionId); return;
         }
-        if (!['page', 'iframe', 'worker', 'shared_worker'].includes(p.targetInfo.type)) {
-          result.unsupported_target_type = targetTypeLabel(p.targetInfo.type);
-          return stop('unsupported_target');
+        const disposition = targetPolicy(p.targetInfo.type, Boolean(rootTarget));
+        if (disposition) {
+          if (disposition === 'unsupported_target')
+            result.unsupported_target_type = targetTypeLabel(p.targetInfo.type);
+          return stop(disposition);
         }
-        if (p.targetInfo.type === 'page' && rootTarget) return stop('extra_page');
         if (p.targetInfo.type === 'page') rootTarget = p.targetInfo.targetId;
         const record = {type: p.targetInfo.type, initialized: false, resumed: false};
         result.targets.push(record); sessions.set(p.sessionId, record);
-        await safeSend('Target.setAutoAttach', autoAttach, p.sessionId);
-        await safeSend('Fetch.enable', {patterns: [{urlPattern: '*', requestStage: 'Request'},
-          {urlPattern: '*', requestStage: 'Response'}], handleAuthRequests: true}, p.sessionId);
-        await safeSend('Runtime.enable', {}, p.sessionId);
-        if (['page', 'iframe'].includes(record.type)) {
-          await safeSend('Page.enable', {}, p.sessionId);
-          const tree = await safeSend('Page.getFrameTree', {}, p.sessionId);
-          record.mainFrame = tree.frameTree.frame.id;
-          await safeSend('Runtime.addBinding', {name: '__gfjdStop'}, p.sessionId);
-          await safeSend('Page.addScriptToEvaluateOnNewDocument', {source: `(${consentScript.toString()})()`}, p.sessionId);
-        }
-        record.initialized = true;
-        await safeSend('Runtime.runIfWaitingForDebugger', {}, p.sessionId); record.resumed = true;
+        await initializeTarget(safeSend, record, p.sessionId);
         if (record.type === 'page') rootSession = p.sessionId;
         return;
       }
@@ -130,7 +143,8 @@ async function runCase(executable, caseName) {
       if (event.method === 'Fetch.authRequired') return stop('authentication_challenge');
       if (event.method !== 'Fetch.requestPaused') return;
       if (result.stop_reason) return;
-      if (!session || !session.initialized) return stop('uninitialized_target');
+      const requestDenial = requestStop(session);
+      if (requestDenial) return stop(requestDenial);
       if (p.responseStatusCode !== undefined || p.responseErrorReason) {
         // The experiment fulfills at request stage. Unexpected real responses fail.
         return stop('unexpected_response');
@@ -229,4 +243,4 @@ async function main() {
   process.exitCode = receipt.passed ? 0 : 2;
 }
 if (require.main === module) main().catch(() => { process.stdout.write('{"state":"offline_preflight_control_failure"}\n'); process.exitCode = 2; });
-module.exports = {runCase, CASES, targetTypeLabel, prepareOutput};
+module.exports = {runCase, CASES, targetTypeLabel, prepareOutput, targetPolicy, requestStop, initializeTarget};

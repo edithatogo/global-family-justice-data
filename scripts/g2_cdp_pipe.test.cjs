@@ -3,6 +3,37 @@ const {test} = require('node:test');
 const assert = require('node:assert/strict');
 const {PassThrough} = require('node:stream');
 const {CdpPipe} = require('./g2_cdp_pipe.cjs');
+test('browser UI is auxiliary and cannot admit any request or replace the root page', () => {
+  const {targetPolicy, requestStop} = require('./g2_cdp_offline.cjs');
+  assert.equal(targetPolicy('browser_ui', false), null);
+  assert.equal(targetPolicy('browser_ui', true), null);
+  assert.equal(targetPolicy('page', false), null);
+  assert.equal(targetPolicy('page', true), 'extra_page');
+  assert.equal(targetPolicy('unknown', false), 'unsupported_target');
+  assert.equal(requestStop({type: 'browser_ui', initialized: true}), 'browser_ui_network');
+  assert.equal(requestStop({type: 'browser_ui', initialized: false}), 'uninitialized_target');
+});
+test('auxiliary target guards are installed before resume without Page assumptions', async () => {
+  const {initializeTarget} = require('./g2_cdp_offline.cjs');
+  const calls = [], record = {type: 'browser_ui', initialized: false, resumed: false};
+  await initializeTarget(async (method, params, session) => { calls.push({method, params, session}); return {}; }, record, 'fictional');
+  assert.deepEqual(calls.map(x => x.method), ['Target.setAutoAttach', 'Fetch.enable', 'Runtime.enable', 'Runtime.runIfWaitingForDebugger']);
+  assert.equal(calls[1].params.handleAuthRequests, true);
+  assert.deepEqual(calls[1].params.patterns.map(x => x.requestStage), ['Request', 'Response']);
+  assert.ok(calls.every(x => x.session === 'fictional'));
+  assert.equal(record.resumed, true); assert.equal(record.mainFrame, undefined);
+});
+test('failed or interrupted auxiliary initialization never resumes the target', async () => {
+  const {initializeTarget} = require('./g2_cdp_offline.cjs');
+  for (const failedMethod of ['Target.setAutoAttach', 'Fetch.enable', 'Runtime.enable']) {
+    const calls = [], record = {type: 'browser_ui', initialized: false, resumed: false};
+    await assert.rejects(initializeTarget(async method => {
+      calls.push(method); if (method === failedMethod) throw new Error('fixture_stop'); return {};
+    }, record, 'fictional'), /fixture_stop/);
+    assert.equal(record.resumed, false);
+    assert.equal(calls.includes('Runtime.runIfWaitingForDebugger'), false);
+  }
+});
 test('offline output creates the missing build parent but refuses reuse and symlinks', () => {
   const fs = require('node:fs'), os = require('node:os'), path = require('node:path');
   const {prepareOutput} = require('./g2_cdp_offline.cjs');

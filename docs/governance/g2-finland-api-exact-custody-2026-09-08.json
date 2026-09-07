@@ -1,0 +1,22 @@
+{
+  "evidence_id": "E-G2-FIN-API-EXACT-CUSTODY-20260908",
+  "candidate_id": "FIN-API",
+  "source_edition_id": "FIN_STATFIN_KOIKRS_2004_2013_QUERY_2013",
+  "retrieved_at": "2026-09-08T03:15:00+10:00",
+  "metadata_url": "https://pxdata.stat.fi/PxWeb/api/v1/en/StatFin_Passiivi/koikrs/005_koikrs_tau_103_en.px",
+  "observation_url": "https://pxdata.stat.fi/PxWeb/api/v1/en/StatFin_Passiivi/koikrs/005_koikrs_tau_103_en.px",
+  "query": {"District": ["SSS"], "Case": ["01YY"], "Stage at which the case was concluded": ["1"], "Year": ["2013"], "Data": ["Sar1"]},
+  "response_format": "json-stat2",
+  "retrieval_method": "one metadata GET and one exact JSON-stat2 POST",
+  "artifacts": [
+    {"name": "finland-metadata.json", "bytes": 18824, "sha256": "20621bfd4d339e4f1d724b3e2016da845303938367c92cc1fac5c07e9a74575a"},
+    {"name": "finland-observation.json", "bytes": 2412, "sha256": "59348fe0b98c016881de8761953983fe402490a6de19094e0acf8fcab3f362f0"}
+  ],
+  "controlled_path": "data/raw/files/g2-controlled/",
+  "storage_boundary": "ignored local controlled storage; not committed or published",
+  "rights_status": "not_cleared",
+  "privacy_security_status": "pending_review",
+  "extraction_status": "not_started",
+  "g2_status": "blocked",
+  "notes": "Both frozen Finland hashes matched the official Statistics Finland passive PxWeb archive. Custody does not imply rights clearance, extraction approval, concordance, publication or G2 acceptance."
+}

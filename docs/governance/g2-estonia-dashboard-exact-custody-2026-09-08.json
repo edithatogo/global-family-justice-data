@@ -1,0 +1,18 @@
+{
+  "evidence_id": "E-G2-EST-DASH-EXACT-CUSTODY-20260908",
+  "candidate_id": "EST-DASH",
+  "source_edition_id": "EST_JUSTDIGI_DV_SNAPSHOT_20260525",
+  "retrieved_at": "2026-09-08T03:13:00+10:00",
+  "source_url": "https://statistika.justdigi.ee/sites/default/files/2026-07/Perev%C3%A4givalla%20statistika_eng_0.csv",
+  "landing_page": "https://statistika.justdigi.ee/en/crime-statistics/offences-against-person/domestic-violence",
+  "retrieval_method": "single direct HTTPS GET",
+  "bytes": 1054,
+  "sha256": "f0024a590b3423c8b533f95ed597e6fa6f8672b9bee1450403f09296b7fe45b9",
+  "controlled_path": "data/raw/files/g2-controlled/estonia-domestic-violence.csv",
+  "storage_boundary": "ignored local controlled storage; not committed or published",
+  "rights_status": "not_cleared",
+  "privacy_security_status": "pending_review",
+  "extraction_status": "not_started",
+  "g2_status": "blocked",
+  "notes": "Exact frozen hash matched the official Estonia Justice Statistics domestic-violence CSV. Custody does not imply rights clearance, extraction approval, concordance, publication or G2 acceptance."
+}

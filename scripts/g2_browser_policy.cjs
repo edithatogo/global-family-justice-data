@@ -23,7 +23,7 @@ function classify(raw, method) {
   if (url.protocol !== 'https:' || url.username || url.password || url.port) return {deny: 'url_identity'};
   if (PLAN.blocked_optional_hosts.includes(url.hostname)) return {optional: true};
   if (!PLAN.allowed_hosts.includes(url.hostname)) return {deny: 'destination_denied'};
-  if (/\/(?:login|signin|sign-in|oauth|authorize|export|download)(?:[/.]|$)/i.test(url.pathname) ||
+  if (/\/(?:login|signin|sign-in|oauth2?|authorize|export|download)(?:[/.]|$)/i.test(url.pathname) ||
     /\.(?:pdf|ods|xlsx?|csv|zip|parquet)(?:$|\/)/i.test(url.pathname)) return {deny: 'path_denied'};
   let category = null;
   if (/\.(?:js|css|png|svg|ico|jpg|jpeg|gif|woff2?|ttf|webp|map)$/i.test(url.pathname)) category = 'static_asset';

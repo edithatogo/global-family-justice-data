@@ -10,6 +10,9 @@ const {checkpoint} = require('./inspect_g2_browser.cjs');
 test('allowlisted hosts cannot implicitly authorize unknown or export paths', () => {
   for (const url of ['https://app.powerbi.com/login', 'https://www.gov.uk/login',
     'https://app.powerbi.com/export/report', 'https://app.powerbi.com/unknown',
+    'https://www.gov.uk/government/oauth2', 'https://app.powerbi.com/oauth2/client.js',
+    'https://www.gov.uk/login.html', 'https://app.powerbi.com/oauth2',
+    'https://app.powerbi.com/authorize/callback',
     'https://assets.publishing.service.gov.uk/report.pdf',
     'https://www.gov.uk/government/report.ods']) {
     assert.equal(classify(url, 'GET').deny, 'path_denied');

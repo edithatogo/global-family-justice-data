@@ -6,6 +6,7 @@ Status: implementation preparation; source execution disabled; G2 unchanged.
 
 Unknown paths on allowed hosts no longer default to static assets. Explicit
 authentication/export/download paths and source-file extensions are rejected.
+PR review additionally closed the `oauth2` path variant with regression cases.
 A dedicated offline CDP pipe prototype now has bounded framing, redacted errors,
 recursive target setup, a terminal latch and independent deny-all proxies for
 the default browser and test context. It has **no live execution mode**.
@@ -31,6 +32,8 @@ then fixed malformed protocol-envelope handling, post-stop dispatch, child-exit
 cleanup and target-detachment handling. It also added safe target-type labels
 and policy/transport hashes for future receipts. Those post-stop corrections
 have unit coverage; the browser experiment has not been rerun after them.
+Future experiment success also requires confirmed graceful process cleanup;
+forced termination cannot yield a passing receipt.
 
 Navigation and dashboard counters in the experiment count attempted document
 loads, including the rejected over-budget attempt; `requests` contains admitted

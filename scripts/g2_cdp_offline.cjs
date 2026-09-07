@@ -188,7 +188,8 @@ async function runCase(executable, caseName) {
   const modelSeen = result.requests.some(x => x.category === 'models');
   const success = expected[caseName] ? result.stop_reason === expected[caseName] :
     !result.stop_reason && modelSeen && result.targets.some(x => x.type === (caseName === 'iframe' ? 'iframe' : caseName) && x.initialized && x.resumed);
-  result.passed = success && result.default_transport?.bytes === 0 && result.context_transport?.bytes === 0 &&
+  result.passed = success && result.profile_cleanup === 'removed_after_exit' &&
+    result.default_transport?.bytes === 0 && result.context_transport?.bytes === 0 &&
     !JSON.stringify(result).includes('FICTIONAL_SECRET');
   return result;
 }

@@ -7,6 +7,9 @@ Status: implementation preparation; source execution disabled; G2 unchanged.
 Unknown paths on allowed hosts no longer default to static assets. Explicit
 authentication/export/download paths and source-file extensions are rejected.
 PR review additionally closed the `oauth2` path variant with regression cases.
+It also rejects encoded forbidden paths and ambiguous double encoding. The
+offline output helper creates a missing build parent while rejecting symlinks
+and preserving exclusive attempt directories.
 A dedicated offline CDP pipe prototype now has bounded framing, redacted errors,
 recursive target setup, a terminal latch and independent deny-all proxies for
 the default browser and test context. It has **no live execution mode**.
@@ -34,6 +37,9 @@ and policy/transport hashes for future receipts. Those post-stop corrections
 have unit coverage; the browser experiment has not been rerun after them.
 Future experiment success also requires confirmed graceful process cleanup;
 forced termination cannot yield a passing receipt.
+Future success additionally requires zero default-proxy connections and no
+default-proxy stop reason, so blocked default-profile traffic cannot mask an
+escape from the instrumented context. This stricter condition is unqualified.
 
 Navigation and dashboard counters in the experiment count attempted document
 loads, including the rejected over-budget attempt; `requests` contains admitted

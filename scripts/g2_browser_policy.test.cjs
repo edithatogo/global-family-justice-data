@@ -13,6 +13,11 @@ test('allowlisted hosts cannot implicitly authorize unknown or export paths', ()
     'https://www.gov.uk/government/oauth2', 'https://app.powerbi.com/oauth2/client.js',
     'https://www.gov.uk/login.html', 'https://app.powerbi.com/oauth2',
     'https://app.powerbi.com/authorize/callback',
+    'https://www.gov.uk/government/%64ownload/report',
+    'https://www.gov.uk/government/report%2Epdf',
+    'https://www.gov.uk/government/%2564ownload/report',
+    'https://www.gov.uk/government/%zz',
+    'https://www.gov.uk/government/%5cdownload/report',
     'https://assets.publishing.service.gov.uk/report.pdf',
     'https://www.gov.uk/government/report.ods']) {
     assert.equal(classify(url, 'GET').deny, 'path_denied');

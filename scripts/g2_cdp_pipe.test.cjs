@@ -3,6 +3,18 @@ const {test} = require('node:test');
 const assert = require('node:assert/strict');
 const {PassThrough} = require('node:stream');
 const {CdpPipe} = require('./g2_cdp_pipe.cjs');
+test('offline output creates the missing build parent but refuses reuse and symlinks', () => {
+  const fs = require('node:fs'), os = require('node:os'), path = require('node:path');
+  const {prepareOutput} = require('./g2_cdp_offline.cjs');
+  const root = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), 'gfjd-fixture-output-')));
+  try {
+    const output = prepareOutput(root, '01');
+    assert.equal(fs.existsSync(path.dirname(output)), true);
+    assert.throws(() => prepareOutput(root, '01'), /EEXIST/);
+    fs.symlinkSync(path.join(root, 'build', 'g2-cdp-offline-01'), path.join(root, 'build', 'g2-cdp-offline-02'), 'junction');
+    assert.throws(() => prepareOutput(root, '02'), /output_symlink/);
+  } finally { fs.rmSync(root, {recursive: true, force: true}); }
+});
 test('target type diagnostics cannot retain URLs, titles or credentials', () => {
   const {targetTypeLabel} = require('./g2_cdp_offline.cjs');
   assert.equal(targetTypeLabel('background_page'), 'background_page');

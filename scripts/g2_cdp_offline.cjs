@@ -18,6 +18,18 @@ const CASES = ['iframe', 'worker', 'shared_worker', 'popup', 'redirect_same_host
   'child_consent', 'simulated_checkpoint_stop', 'observation_deadline_stop', 'proxy_isolation'];
 const pause = ms => new Promise(resolve => setTimeout(resolve, ms));
 const targetTypeLabel = value => typeof value === 'string' && /^[a-z_]{1,40}$/.test(value) ? value : 'unknown';
+function prepareOutput(root, attempt) {
+  if (!/^[0-9]{2}$/.test(attempt)) throw new Error('arguments');
+  const directory = path.join(root, 'build', `g2-cdp-offline-${attempt}`);
+  for (let cursor = directory;; cursor = path.dirname(cursor)) {
+    try { if (fs.lstatSync(cursor).isSymbolicLink()) throw new Error('output_symlink'); }
+    catch (error) { if (error.code !== 'ENOENT') throw error; }
+    if (path.dirname(cursor) === cursor) break;
+  }
+  fs.mkdirSync(path.dirname(directory), {recursive: true, mode: 0o700});
+  fs.mkdirSync(directory, {mode: 0o700}); // Exclusive attempt; never repair/reuse.
+  return path.join(directory, 'receipt.json');
+}
 const autoAttach = {autoAttach: true, waitForDebuggerOnStart: true, flatten: true,
   filter: [{type: 'tab', exclude: true}, {type: 'browser', exclude: true}, {}]};
 function consentScript() {
@@ -189,6 +201,7 @@ async function runCase(executable, caseName) {
   const success = expected[caseName] ? result.stop_reason === expected[caseName] :
     !result.stop_reason && modelSeen && result.targets.some(x => x.type === (caseName === 'iframe' ? 'iframe' : caseName) && x.initialized && x.resumed);
   result.passed = success && result.profile_cleanup === 'removed_after_exit' &&
+    result.default_transport?.connections === 0 && result.default_transport?.stopReason === null &&
     result.default_transport?.bytes === 0 && result.context_transport?.bytes === 0 &&
     !JSON.stringify(result).includes('FICTIONAL_SECRET');
   return result;
@@ -196,8 +209,7 @@ async function runCase(executable, caseName) {
 async function main() {
   const args = process.argv.slice(2);
   if (args.length !== 4 || args[0] !== '--browser-executable' || args[2] !== '--attempt' || !/^[0-9]{2}$/.test(args[3])) throw new Error('arguments');
-  const output = path.resolve(__dirname, '..', 'build', `g2-cdp-offline-${args[3]}`, 'receipt.json');
-  fs.mkdirSync(path.dirname(output), {recursive: false});
+  const output = prepareOutput(path.resolve(__dirname, '..'), args[3]);
   const receipt = {kind: 'fictional_offline_cdp_experiment', source_execution_enabled: false,
     started_at: new Date().toISOString(), browser_sha256: hash(fs.readFileSync(args[1])),
     controller_sha256: hash(fs.readFileSync(__filename)),
@@ -217,4 +229,4 @@ async function main() {
   process.exitCode = receipt.passed ? 0 : 2;
 }
 if (require.main === module) main().catch(() => { process.stdout.write('{"state":"offline_preflight_control_failure"}\n'); process.exitCode = 2; });
-module.exports = {runCase, CASES, targetTypeLabel};
+module.exports = {runCase, CASES, targetTypeLabel, prepareOutput};

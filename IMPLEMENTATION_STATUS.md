@@ -15,7 +15,7 @@ CDP protocol prototype to investigate redirects and child targets. Four offline
 attempts failed before fixture navigation/admission, with zero forwarded bytes;
 the current blocker is unsupported target initialization. Receipt copies are
 bound by `docs/governance/g2-cdp-offline-evidence-2026-09-07.json`. Subsequent
-review fixes and 22 Node unit tests do not qualify browser execution. No source
+review fixes and 23 Node unit tests do not qualify browser execution. No source
 request or G2 promotion occurred. See the readiness ledger for the remaining
 ordered implementation work; no new owner decision is needed for that work.
 

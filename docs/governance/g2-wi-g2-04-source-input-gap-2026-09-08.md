@@ -30,3 +30,11 @@ replace it silently.
 
 This record is a blocker register, not an authorization to contact a provider,
 accept terms, clear rights, publish, release or pass G2.
+
+## Recovery audit — 2026-09-08
+
+The frozen hashes were checked against reachable and unreachable Git objects;
+none matched. Official Estonia catalogue pages were located as metadata-only
+candidates, including NH25 (2025 offences by administrative unit), but they do
+not establish the frozen `EST_JUSTDIGI_REGISTERED_OFFENCES_2003_2025` XLSX or
+the `EST_JUSTDIGI_DV_SNAPSHOT_20260525` CSV and were not substituted.

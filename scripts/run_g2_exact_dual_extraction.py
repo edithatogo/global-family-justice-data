@@ -303,6 +303,17 @@ def extract_path_b() -> list[dict[str, object]]:
 
 def main() -> int:
     contract = json.loads((PACKET / "contract.json").read_text())
+    # Fresh run directories receive distinct lineage identifiers while retaining
+    # the frozen field/threshold contract. The historical default remains byte
+    # compatible and fail-closed.
+    default_run = ROOT / "build/g2-material-orchestrated-20260826-01"
+    if default_run != RUN:
+        token = re.sub(r"[^A-Za-z0-9]+", "-", RUN.name).strip("-").upper()
+        contract = {
+            **contract,
+            "packet_id": f"{contract['packet_id']}-{token}",
+            "comparison_id": f"{contract['comparison_id']}-{token}",
+        }
     if RUN.exists():
         raise SystemExit(f"sealed_run_exists:{RUN.relative_to(ROOT)}")
     RUN.mkdir(parents=True)

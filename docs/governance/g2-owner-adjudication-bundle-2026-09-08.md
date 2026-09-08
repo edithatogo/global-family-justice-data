@@ -23,9 +23,9 @@ The build directory is ignored and must be verified by hash before any decision 
 |---|---|
 | Path A output | `c0f9623085f7836a70e7b5da5980642541751b9407129f1bff539594ce399b9f` |
 | Path A receipt | `cbfd331306bd40dccd079b939a42a88b59770f7c01b8bb4bf87b9e65e0d91c06` |
-| Path B output | `285a98470bd8d6ac2427a4f9684aa22566ce1d1540c956e97ee49ee49bdd61e02baf` |
+| Path B output | `285a98470bd8d6ac2427a4f9684aa22566ce1d1540c956e97ee49bdd61e02baf` |
 | Path B receipt | `37dcd4d0fda29d5118b9476a07f8841d82434d7de0d5dfab5ef48913351cabd9` |
-| Exact comparator receipt | `4db4970725714e3dd1fa87aa7adb8e8e0716035e62014f8f4ccca1c447d0f46b` |
+| Exact comparator receipt | `e9fed08aa520c30862e92672376c98b52c6c4de2449382f322dc5f2245befd00` |
 | Difference report | `6c406b29bbded8386e83f17ed9781c3e3388f430fac894e53189dab93c35a5c6` |
 
 The comparator result is `critical_concordance=1.0` and `overall_populated_field_concordance=1.0`. Path B now uses a separate implementation and fresh process over the same exact bytes, with a raw-source recheck. It remains repository-owned evidence, not agent-blinded independent assurance.

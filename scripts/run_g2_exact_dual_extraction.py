@@ -20,7 +20,11 @@ from gfjd.io import canonical_json_bytes
 ROOT = Path(__file__).resolve().parents[1]
 PACKET = ROOT / "data/methods/g2/G2PKT-MATERIAL-ORCHESTRATED-20260826-01"
 CONTROLLED = ROOT / "data/raw/files/g2-controlled"
-RUN = ROOT / "build/g2-material-orchestrated-20260826-01"
+# A fresh run directory may be supplied for a new, prospectively authorized
+# lineage. The historical default remains immutable and fail-closed.
+RUN = ROOT / __import__("os").environ.get(
+    "GFJD_G2_RUN", "build/g2-material-orchestrated-20260826-01"
+)
 
 SOURCES = {
     "finland-metadata.json": "20621bfd4d339e4f1d724b3e2016da845303938367c92cc1fac5c07e9a74575a",

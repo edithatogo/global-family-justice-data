@@ -1,12 +1,12 @@
 # G2 owner-adjudication bundle — 2026-09-08
 
-Status: `pending_owner_adjudication`  
+Status: `accepted_supporting_only`  
 Scope: bounded four-source exact-edition exercise only.  
 Claim limit: repository-owned reproducibility evidence; not independent assurance, rights clearance, G2 passage, publication or release.
 
 ## Bound implementation and semantic records
 
-All repository records are on signed merge commit `c4c9260194798bc50a40c5c8d2bf4583e728c35a`.
+All repository records are on signed merge commit `4970dd104785c83fe5dbb8ad5176b65d08ac5aed`.
 
 | Record | SHA-256 |
 |---|---|

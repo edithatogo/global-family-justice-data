@@ -285,6 +285,15 @@ def independent_recheck(rows: list[dict[str, object]]) -> list[dict[str, object]
     return [dict(row) for row in rows]
 
 
+def extract_path_b() -> list[dict[str, object]]:
+    """Run the separate path-B implementation in a fresh Python process."""
+    raw = subprocess.check_output(
+        ["python", str(ROOT / "scripts/g2_extract_path_b.py")],
+        text=True,
+    )
+    return json.loads(raw)
+
+
 def main() -> int:
     contract = json.loads((PACKET / "contract.json").read_text())
     if RUN.exists():
@@ -298,9 +307,8 @@ def main() -> int:
     # Path B is independently materialised from the same source-faithful review
     # contract, with distinct workspace/output/seal artifacts. It is not labelled
     # independent assurance; owner adjudication remains required.
-    b = independent_recheck(a)
-    for row in b:
-        row["extracted_row_id"] = row["extracted_row_id"].replace("-A", "-B")
+    b = extract_path_b()
+    independent_recheck(a)
     out_a = RUN / "extraction/a/output.json"
     out_b = RUN / "extraction/b/output.json"
     out_a.parent.mkdir(parents=True, exist_ok=True)

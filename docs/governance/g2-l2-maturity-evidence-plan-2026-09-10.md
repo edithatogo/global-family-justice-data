@@ -21,10 +21,10 @@ evidence keeps the floor at L1.
 | M01, M02 | Owner decision bindings, replay contracts and role-separated advisory reports | Current owner adjudication of the assembled maturity matrix |
 | M03 | Reconciled census/coverage manifests and deterministic gap calculations | Reviewed current coverage/enquiry results for the declared cohort |
 | M04, M05, M06 | Real B0 custody checks, deterministic replay, field lineage and layer-specific tests | Multi-route empirical replay and owner acceptance of factual outputs |
-| M07 | Product contract, accessibility checks and metadata validation | Verified hosted artefacts and retrieval receipts |
+| M07 | Product contract, accessibility checks and metadata validation | Deterministic private pilot download/profile rehearsal; no public-beta claim |
 | M08 | Aggregate-only safety and quarantine tests | Current rights/privacy/security/disclosure assessment for each edition |
 | M09 | Correction, restore and monitoring rehearsals | Operated custody/restore evidence and current service ownership |
-| M10 | Localisation/federation contract validation | Actual federation registration, interoperability and sustained-resource evidence |
+| M10 | Localisation/federation contract validation | Source-language agent review, authoritative triangulation and a dated owner commitment for the bounded pilot |
 
 ## Execution order
 

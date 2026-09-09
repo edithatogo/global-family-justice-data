@@ -1,0 +1,31 @@
+{
+  "receipt_id": "R-G2-L2-M07-CLEAN-LOCAL-COPY-20260909",
+  "evidence_id": "E-G2-L2-M07-FRESH-REPLAY-20260910",
+  "observed_at": "2026-09-09T20:26:59Z",
+  "method": "local_copy_replay",
+  "source_path": "build/g2-l2-m07-fresh-20260910-a",
+  "destination_path": "build/g2-l2-m07-fresh-20260910-retrieved",
+  "procedure": [
+    "cp -R build/g2-l2-m07-fresh-20260910-a/. build/g2-l2-m07-fresh-20260910-retrieved/",
+    "uv run python -m gfjd products verify --output build/g2-l2-m07-fresh-20260910-retrieved"
+  ],
+  "verification_output": "Product bundle verified.",
+  "verification_errors": [],
+  "network_observation": "No network-capable step was invoked; the products verify command is local-only.",
+  "network_requests_observed": 0,
+  "manifest_sha256": "b73f53ffc59fd639817acb7a99178475e00cacfa74fcae1c0ce1720c71124c8f",
+  "artifact_sha256": {
+    "manifest.json": "b73f53ffc59fd639817acb7a99178475e00cacfa74fcae1c0ce1720c71124c8f",
+    "catalogue.json": "ed3b67c371b27e0162d3f3fb93163852b3eb5d1737a4d761636ffa79a45a21e0",
+    "index.html": "1f106ae65dbcc5615e0c21f9e4f21462341f19f282705ea8d69c91518fed9061",
+    "README.md": "4bdc1eedb9d3f41fff8997f3ac742e53c3a108d88e722bc016bd0c924972fac1",
+    "corrections.md": "57c05d89220371057d256e86fa5d9f4fe738bbc62b1140578f34c52a4e6acf35",
+    "gfjd.sqlite": "c473f343cf72f2832c9c3d0ad2e20a00a87942b385cb0a2a0956a974e0f1811d",
+    "gfjd.sqlite.metadata.json": "06c5a999d3edd274dd0dd2506c815eb9ea1b68df9ab1c41ed048e88b1ce9dddd"
+  },
+  "limitations": [
+    "This is a repository-local copy and verification receipt, not a hosted or provider-separated retrieval receipt.",
+    "It does not establish human accessibility review, maturity acceptance, G2 passage, publication or release."
+  ],
+  "status": "supporting_only"
+}

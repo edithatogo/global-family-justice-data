@@ -17,6 +17,8 @@
   ],
   "exact_manifest_match": true,
   "clean_retrieval": {
+    "receipt_path": "data/federation/g2-l2-m07-clean-retrieval-receipt-20260909.json",
+    "method": "local_copy_replay",
     "path": "build/g2-l2-m07-fresh-20260910-retrieved",
     "verification_errors": [],
     "network_requests": 0,

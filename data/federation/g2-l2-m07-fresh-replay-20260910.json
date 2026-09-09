@@ -1,0 +1,29 @@
+{
+  "evidence_id": "E-G2-L2-M07-FRESH-REPLAY-20260910",
+  "record_type": "repository_owned_m07_product_replay",
+  "observed_on": "2026-09-10",
+  "source_commit": "8206fbfa950342bced16afc5b9c24ed3e0ddfb4c",
+  "builds": [
+    {
+      "path": "build/g2-l2-m07-fresh-20260910-a",
+      "manifest_sha256": "b73f53ffc59fd639817acb7a99178475e00cacfa74fcae1c0ce1720c71124c8f",
+      "verification_errors": []
+    },
+    {
+      "path": "build/g2-l2-m07-fresh-20260910-b",
+      "manifest_sha256": "b73f53ffc59fd639817acb7a99178475e00cacfa74fcae1c0ce1720c71124c8f",
+      "verification_errors": []
+    }
+  ],
+  "exact_manifest_match": true,
+  "local_clean_retrieval_errors": [],
+  "network_requests": 0,
+  "publication_authorized": false,
+  "status": "fresh_repository_owned_supporting_evidence",
+  "limitations": [
+    "Both builds used the shared repository interpreter and source tree.",
+    "This is not hosted or provider-separated retrieval evidence.",
+    "Automated accessibility checks are not human or assistive-technology review.",
+    "This record does not establish M07 acceptance, G2 passage, publication or release."
+  ]
+}

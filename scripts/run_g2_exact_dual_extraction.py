@@ -10,6 +10,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 import re
 import subprocess
 from pathlib import Path
@@ -20,7 +21,13 @@ from gfjd.io import canonical_json_bytes
 ROOT = Path(__file__).resolve().parents[1]
 PACKET = ROOT / "data/methods/g2/G2PKT-MATERIAL-ORCHESTRATED-20260826-01"
 CONTROLLED = ROOT / "data/raw/files/g2-controlled"
-RUN = ROOT / "build/g2-material-orchestrated-20260826-01"
+# A fresh run directory may be supplied for a new, prospectively authorized
+# lineage. The historical default remains immutable and fail-closed.
+_run_value = os.environ.get("GFJD_G2_RUN", "build/g2-material-orchestrated-20260826-01")
+_run_path = Path(_run_value)
+if _run_path.is_absolute() or ".." in _run_path.parts or _run_path.parts[:1] != ("build",):
+    raise SystemExit(f"invalid_run_path:{_run_value}")
+RUN = ROOT / _run_path
 
 SOURCES = {
     "finland-metadata.json": "20621bfd4d339e4f1d724b3e2016da845303938367c92cc1fac5c07e9a74575a",
@@ -296,6 +303,17 @@ def extract_path_b() -> list[dict[str, object]]:
 
 def main() -> int:
     contract = json.loads((PACKET / "contract.json").read_text())
+    # Fresh run directories receive distinct lineage identifiers while retaining
+    # the frozen field/threshold contract. The historical default remains byte
+    # compatible and fail-closed.
+    default_run = ROOT / "build/g2-material-orchestrated-20260826-01"
+    if default_run != RUN:
+        token = re.sub(r"[^A-Za-z0-9]+", "-", RUN.name).strip("-").upper()
+        contract = {
+            **contract,
+            "packet_id": f"{contract['packet_id']}-{token}",
+            "comparison_id": f"{contract['comparison_id']}-{token}",
+        }
     if RUN.exists():
         raise SystemExit(f"sealed_run_exists:{RUN.relative_to(ROOT)}")
     RUN.mkdir(parents=True)

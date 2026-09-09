@@ -106,7 +106,7 @@ waivable = false
 id = "G2-C04"
 track_id = "T5"
 description = "Pilot extractions and mappings have documented dual review, adjudication and quarantine outcomes."
-evidence_ids = ["E-PILOT-REVIEW"]
+evidence_ids = ["E-G2-FRESH-REPLAY-SEMANTIC-REVIEW-20260910", "E-G2-OWNER-FINAL-ADJUDICATION-20260910"]
 mandatory = true
 waivable = false
 
@@ -130,7 +130,7 @@ waivable = false
 id = "G2-C07"
 track_id = "T5"
 description = "Blinded role-separated agent re-extraction of the pilot sample passes the approved concordance threshold and is adjudicated by the owner."
-evidence_ids = ["E-PILOT-INDEPENDENT-ASSURANCE"]
+evidence_ids = ["E-G2-FRESH-REPLAY-SEMANTIC-REVIEW-20260910", "E-G2-WI-G2-07-BLINDNESS-PANEL-20260910", "E-G2-OWNER-FINAL-ADJUDICATION-20260910"]
 mandatory = true
 waivable = false
 

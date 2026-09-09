@@ -254,4 +254,4 @@ def test_work_acceptance_requires_accepted_evidence(project_root: Path, tmp_path
     root = _copy_project(project_root, tmp_path / "repo")
     conductor = Conductor.load(root)
     with pytest.raises(ValueError, match="evidence not accepted"):
-        conductor.set_work_status("WI-G2-04", "accepted", actor="reviewer")
+        conductor.set_work_status("WI-G3-02", "accepted", actor="reviewer")

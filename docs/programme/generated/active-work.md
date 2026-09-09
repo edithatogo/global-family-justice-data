@@ -2,7 +2,7 @@
 
 Generated from [the canonical register](../../../programme/work_items.csv). No record, dependency or historical evidence is removed.
 
-51 of 81 work items. [Other view](completed-work.md).
+49 of 81 work items. [Other view](completed-work.md).
 
 Recorded completion follows configured work statuses and is not renewed assurance, gate passage or track archival. Waivers remain explicitly labelled as waived.
 
@@ -13,7 +13,7 @@ Recorded completion follows configured work statuses and is not renewed assuranc
 | T2 | 5 | 8 | no |
 | T3 | 3 | 5 | no |
 | T4 | 6 | 10 | no |
-| T5 | 6 | 14 | no |
+| T5 | 8 | 14 | no |
 | T6 | 0 | 9 | no |
 | T7 | 4 | 8 | no |
 | T8 | 1 | 8 | no |
@@ -21,9 +21,7 @@ Recorded completion follows configured work statuses and is not renewed assuranc
 
 | Work item | Track/gate | Status | Title | Evidence IDs | Dependencies |
 |---|---|---|---|---|---|
-| WI-G2-04 | T5/G2 | in_review | Pilot extractions and mappings have documented dual review, adjudication and quarantine outcomes. | E-PILOT-REVIEW | WI-G1-CLOSE (accepted) |
-| WI-G2-07 | T5/G2 | in_review | Blinded role-separated agent re-extraction of the pilot sample passes the approved concordance threshold and is owner-adjudicated. | E-PILOT-INDEPENDENT-ASSURANCE | WI-G1-CLOSE (accepted) |
-| WI-G2-CLOSE | T0/G2 | in_review | Assemble and approve the G2 gate evidence pack |  | WI-G2-01 (accepted); WI-G2-02 (accepted); WI-G2-03 (accepted); WI-G2-04 (in_review); WI-G2-05 (accepted); WI-G2-06 (accepted); WI-G2-07 (in_review); WI-G2-08 (accepted) |
+| WI-G2-CLOSE | T0/G2 | in_review | Assemble and approve the G2 gate evidence pack |  | WI-G2-01 (accepted); WI-G2-02 (accepted); WI-G2-03 (accepted); WI-G2-04 (accepted); WI-G2-05 (accepted); WI-G2-06 (accepted); WI-G2-07 (accepted); WI-G2-08 (accepted) |
 | WI-G3-01 | T2/G3 | in_review | The in-scope jurisdiction universe, federal/devolved rules and review cycle are frozen. | E-GLOBAL-UNIVERSE | WI-G2-CLOSE (in_review) |
 | WI-G3-02 | T2/G3 | in_review | Every in-scope jurisdiction has exactly one current reviewed coverage status and institutional map. | E-GLOBAL-COVERAGE-REPORT | WI-G2-CLOSE (in_review) |
 | WI-G3-03 | T5/G3 | in_review | Negative findings, inaccessible sources and non-official-only findings have second review. | E-NEGATIVE-FINDINGS-AUDIT | WI-G2-CLOSE (in_review) |

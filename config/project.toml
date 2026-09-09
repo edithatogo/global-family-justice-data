@@ -58,7 +58,7 @@ minimum_maturity_by_gate = { G1 = 1, G2 = 2, G3 = 3, G4 = 3, G5 = 4, G6 = 5 }
 require_distinct_evidence_reviewer = true
 # Explicitly owner-decidable G1 evidence for the approved single-person model.
 # This does not turn agent advice into independent or specialist assurance.
-owner_decidable_evidence_ids = ["E-GOV-CHARTER", "E-RACI", "E-TRACK-CHARTERS", "E-PILOT-UNIVERSE", "E-ETHICS-BOUNDARY", "E-SECURITY-POLICY", "E-ARCH-V1", "E-RISK-REGISTER", "E-THREAT-BASELINE", "E-RIGHTS-BASELINE", "E-SOLE-OWNER-GATE-MODEL-DECISION-2026-08-15"]
+owner_decidable_evidence_ids = ["E-GOV-CHARTER", "E-RACI", "E-TRACK-CHARTERS", "E-PILOT-UNIVERSE", "E-ETHICS-BOUNDARY", "E-SECURITY-POLICY", "E-ARCH-V1", "E-RISK-REGISTER", "E-THREAT-BASELINE", "E-RIGHTS-BASELINE", "E-SOLE-OWNER-GATE-MODEL-DECISION-2026-08-15", "E-G2-OWNER-FINAL-ADJUDICATION-20260910"]
 
 [toolchain]
 uv_version = "0.10.0"

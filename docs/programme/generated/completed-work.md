@@ -2,7 +2,7 @@
 
 Generated from [the canonical register](../../../programme/work_items.csv). No record, dependency or historical evidence is removed.
 
-30 of 81 work items. [Other view](active-work.md).
+32 of 81 work items. [Other view](active-work.md).
 
 Recorded completion follows configured work statuses and is not renewed assurance, gate passage or track archival. Waivers remain explicitly labelled as waived.
 
@@ -13,7 +13,7 @@ Recorded completion follows configured work statuses and is not renewed assuranc
 | T2 | 5 | 8 | no |
 | T3 | 3 | 5 | no |
 | T4 | 6 | 10 | no |
-| T5 | 6 | 14 | no |
+| T5 | 8 | 14 | no |
 | T6 | 0 | 9 | no |
 | T7 | 4 | 8 | no |
 | T8 | 1 | 8 | no |
@@ -33,13 +33,15 @@ Recorded completion follows configured work statuses and is not renewed assuranc
 | WI-G2-01 | T2/G2 | accepted | The approved bounded pilot cohort has institutional maps, search logs and reviewed coverage states. | E-PILOT-CENSUS | WI-G1-CLOSE (accepted) |
 | WI-G2-02 | T3/G2 | accepted | Representative API, spreadsheet, HTML/dashboard and PDF/manual acquisition paths have reproducible manifests. | E-PILOT-ACQUISITION | WI-G1-CLOSE (accepted) |
 | WI-G2-03 | T4/G2 | accepted | A representative bronze-to-silver-to-gold pipeline builds deterministically from frozen pilot inputs. | E-PILOT-PIPELINE; E-CLEAN-BUILD | WI-G1-CLOSE (accepted) |
+| WI-G2-04 | T5/G2 | accepted | Pilot extractions and mappings have documented dual review, adjudication and quarantine outcomes. | E-G2-FRESH-REPLAY-SEMANTIC-REVIEW-20260910; E-G2-OWNER-FINAL-ADJUDICATION-20260910 | WI-G1-CLOSE (accepted) |
 | WI-G2-05 | T1/G2 | accepted | Pilot evidence has been used to resolve material ontology, clock, denominator and missingness questions. | E-PILOT-METHODS-ADJUDICATION | WI-G1-CLOSE (accepted) |
 | WI-G2-06 | T7/G2 | accepted | Pilot source rights, privacy, security and disclosure assessments have no unresolved critical finding. | E-PILOT-RIGHTS-SECURITY | WI-G1-CLOSE (accepted) |
+| WI-G2-07 | T5/G2 | accepted | Blinded role-separated agent re-extraction of the pilot sample passes the approved concordance threshold and is owner-adjudicated. | E-G2-FRESH-REPLAY-SEMANTIC-REVIEW-20260910; E-G2-WI-G2-07-BLINDNESS-PANEL-20260910; E-G2-OWNER-FINAL-ADJUDICATION-20260910 | WI-G1-CLOSE (accepted) |
 | WI-G2-08 | T8/G2 | accepted | The pilot release process, correction path and restoration of its artefacts have been rehearsed. | E-PILOT-OPERATIONS-REHEARSAL | WI-G1-CLOSE (accepted) |
-| WI-G2-09 | T2/G2 | accepted | Prepare a materially distinct non-search blind-holdout method option set for future owner authorization. | E-G2-METHODS-DISTINCT-PROPOSAL-20260818; E-G2-METHODS-DISTINCT-ADVISORY-REVIEW-20260819; E-G2-METHODS-DISTINCT-OPS-EXPOSURE-REVIEW-20260819; E-G2-METHODS-DISTINCT-GOV-REVIEW-20260819 | WI-G2-07 (in_review) |
+| WI-G2-09 | T2/G2 | accepted | Prepare a materially distinct non-search blind-holdout method option set for future owner authorization. | E-G2-METHODS-DISTINCT-PROPOSAL-20260818; E-G2-METHODS-DISTINCT-ADVISORY-REVIEW-20260819; E-G2-METHODS-DISTINCT-OPS-EXPOSURE-REVIEW-20260819; E-G2-METHODS-DISTINCT-GOV-REVIEW-20260819 | WI-G2-07 (accepted) |
 | WI-G2-10 | T2/G2 | accepted | Prepare a reusable single-decision G2 evidence-campaign protocol without external activity. | E-G2-EVIDENCE-CAMPAIGN-PROTOCOL-20260820 | WI-G2-09 (accepted) |
 | WI-G2-11 | T2/G2 | accepted | Validate offline non-exposed candidate metadata before a future G2 campaign. | E-G2-OFFLINE-CANDIDATE-INTAKE-20260820 | WI-G2-10 (accepted) |
-| WI-G2-12 | T5/G2 | accepted | Convert terminal concordance differences into a source-independent atomic field contract and executable tests. | E-G2-ATOMIC-FIELD-CONTRACT-20260826 | WI-G2-07 (in_review) |
+| WI-G2-12 | T5/G2 | accepted | Convert terminal concordance differences into a source-independent atomic field contract and executable tests. | E-G2-ATOMIC-FIELD-CONTRACT-20260826 | WI-G2-07 (accepted) |
 | WI-G2-13 | T5/G2 | accepted | Operate a prospective official structured publication-index monitor with explicit publisher timestamps. | E-G2-FUTURE-OFFICIAL-FEED-PREPARATION-20260829; E-G2-FUTURE-OFFICIAL-FEED-OBSERVATION-20260829 | WI-G2-12 (accepted) |
 | WI-G2-14 | T5/G2 | accepted | Operate an exact-product Statistics Canada family-law metadata monitor. | E-G2-STATCAN-METADATA-PREPARATION-20260829; E-G2-STATCAN-METADATA-OBSERVATION-20260829 | WI-G2-13 (accepted) |
 | WI-G2-15 | T5/G2 | accepted | Operate an exact New Zealand justice-statistics index monitor. | E-G2-NZ-JUSTICE-INDEX-PREPARATION-20260829; E-G2-NZ-JUSTICE-INDEX-OBSERVATION-20260829 | WI-G2-14 (accepted) |

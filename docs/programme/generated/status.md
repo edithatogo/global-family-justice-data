@@ -1,6 +1,6 @@
 # Generated programme status
 
-Generated: `2026-09-09T17:59:25+00:00`
+Generated: `2026-09-09T18:09:30+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G2**
@@ -11,7 +11,7 @@ Conductor validation: **PASS** (0 errors, 14 warnings)
 | Gate | Target | State | Ready | Decision | Controls complete | Principal blockers |
 |---|---:|---|---:|---|---:|---|
 | G1 — Foundation controls accepted | 0.4.0 | passed | yes | accepted | 13/13 | — |
-| G2 — Reproducible pilot proven | 0.5.0 | blocked_by_maturity | no | not_evaluated | 10/13 | evidence-assured maturity floor L1 is below required L2; criterion G2-C04: in_review; criterion G2-C07: in_review |
+| G2 — Reproducible pilot proven | 0.5.0 | blocked_by_maturity | no | not_evaluated | 9/13 | required work not accepted: WI-G2-04; required work not accepted: WI-G2-07; evidence-assured maturity floor L1 is below required L2; +2 more |
 | G3 — Global source census complete | 0.6.0 | blocked_by_dependency | no | not_evaluated | 2/13 | dependency gate not accepted: G2; required work not accepted: WI-G3-01; required work not accepted: WI-G3-02; +15 more |
 | G4 — Feature-complete public beta | 0.7.0 | blocked_by_dependency | no | not_evaluated | 2/14 | dependency gate not accepted: G3; required work not accepted: WI-G4-01; required work not accepted: WI-G4-02; +21 more |
 | G5 — v1.0 release candidate assured | 0.9.0 | blocked_by_dependency | no | not_evaluated | 1/15 | dependency gate not accepted: G4; required work not accepted: WI-G5-01; required work not accepted: WI-G5-02; +41 more |
@@ -26,7 +26,7 @@ Conductor validation: **PASS** (0 errors, 14 warnings)
 | T2 — Jurisdiction universe and source census | 8/8 (100.0%) | 5/8 (62.5%) | 0 | 8/18 |
 | T3 — Acquisition, preservation and source monitoring | 5/5 (100.0%) | 3/5 (60.0%) | 0 | 3/8 |
 | T4 — Data platform and engineering | 10/10 (100.0%) | 6/10 (60.0%) | 0 | 7/20 |
-| T5 — Harmonisation, quality and assurance | 14/14 (100.0%) | 8/14 (57.1%) | 0 | 25/105 |
+| T5 — Harmonisation, quality and assurance | 14/14 (100.0%) | 6/14 (42.9%) | 0 | 23/105 |
 | T6 — Product, documentation and accessibility | 7/9 (77.8%) | 0/9 (0.0%) | 0 | 0/13 |
 | T7 — Security, privacy, legal and supply-chain assurance | 7/8 (87.5%) | 4/8 (50.0%) | 0 | 7/13 |
 | T8 — Operations, reliability and release management | 6/8 (75.0%) | 1/8 (12.5%) | 0 | 1/10 |
@@ -58,8 +58,9 @@ Evidence-assured maturity floor: **L1**
 
 ## Next dependency-ready actions
 
-- **P0 WI-G2-CLOSE** (T0/G2): Assemble and approve the G2 gate evidence pack — _in_review_
 - **P0 WI-G4-MED-02** (T4/G4): Implement public field lineage, bitemporal snapshot identity and deterministic partition replay. — _in_review_
+- **P1 WI-G2-04** (T5/G2): Pilot extractions and mappings have documented dual review, adjudication and quarantine outcomes. — _in_review_
+- **P1 WI-G2-07** (T5/G2): Blinded role-separated agent re-extraction of the pilot sample passes the approved concordance threshold and is owner-adjudicated. — _in_review_
 - **P1 WI-G4-MED-04** (T6/G4): Publish and verify the role-separated GFJD Hugging Face medallion estate. — _planned_
 
 > A gate is ready only after evidence, work, maturity, risk, defect and dependency controls pass. It passes only after a recorded governance decision. Document presence and self-assessment do not constitute acceptance.

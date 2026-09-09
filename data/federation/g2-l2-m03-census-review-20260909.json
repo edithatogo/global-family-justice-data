@@ -1,0 +1,26 @@
+{
+  "evidence_id": "E-G2-L2-M03-CENSUS-REVIEW-20260909",
+  "record_type": "repository_owned_census_reconciliation",
+  "observed_on": "2026-09-09",
+  "inputs": {
+    "jurisdiction_register": {"path": "data/seed/jurisdiction_register.csv", "sha256": "23283ff0e5c2659055863fdccac173cdd5b1d85fd2eb672d6310103ace7520f7"},
+    "search_log": {"path": "data/census/search_log.csv", "sha256": "06370c4b17f019e72b27d93ac97ebd0b731d6283ee6753e9d2a864a4ac373af6"},
+    "coverage_assessment": {"path": "data/census/coverage_assessment.csv", "sha256": "48edec124e45d5a2c3b4aa617f8196bf2683a5d7526c357cffb482f15926d555"}
+  },
+  "counts": {
+    "registered_jurisdictions": 23,
+    "search_rows": 245,
+    "search_jurisdictions": 23,
+    "coverage_assessments": 23,
+    "coverage_states": {"partial": 23},
+    "search_review_states": {"reviewed": 74, "draft": 171},
+    "search_result_states": {"official_source_found": 75, "source_inaccessible": 168, "search_incomplete": 2}
+  },
+  "status": "bounded_supporting_census_metadata",
+  "limitations": [
+    "All 23 coverage assessments are partial; no global completeness is inferred.",
+    "171 search rows remain draft and two searches are incomplete.",
+    "This is a deterministic reconciliation of repository records, not fresh external census evidence.",
+    "M03 maturity and G2 passage remain unchanged."
+  ]
+}

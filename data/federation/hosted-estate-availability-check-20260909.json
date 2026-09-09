@@ -1,0 +1,21 @@
+{
+  "receipt_id": "R-HOSTED-ESTATE-AVAILABILITY-20260909",
+  "observed_at": "2026-09-09T20:44:58Z",
+  "operator": "repository-owned availability check",
+  "targets": [
+    "https://huggingface.co/datasets/fictional-estate/gfjd-source-archive",
+    "https://huggingface.co/datasets/fictional-estate/gfjd-source-catalogue",
+    "https://huggingface.co/datasets/fictional-estate/gfjd-observations",
+    "https://huggingface.co/datasets/fictional-estate/gfjd-outcomes-evidence",
+    "https://huggingface.co/spaces/fictional-estate/gfjd-explorer"
+  ],
+  "method": "curl -L -s -o /dev/null -w '%{http_code}'",
+  "responses": [401, 401, 401, 401, 401],
+  "interpretation": "Unauthenticated requests were unauthorized for every target. This does not establish existence, availability, custody, publication, rights, or anonymous retrieval.",
+  "status": "unverified",
+  "limitations": [
+    "No authenticated Hugging Face session or token was used.",
+    "No repository was created, modified, or published by this check.",
+    "No source bytes or dataset content was accessed."
+  ]
+}

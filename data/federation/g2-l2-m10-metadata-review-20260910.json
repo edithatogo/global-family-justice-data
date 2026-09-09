@@ -19,13 +19,15 @@
     "jurisdictions_without_declared_search_languages": 0,
     "official_source_found_rows": 75,
     "reviewed_rows": 74,
-    "source_language_agent_metadata_review": true,
+    "source_language_agent_metadata_review": false,
     "publisher_triangulation": false,
-    "native_or_local_human_review": false
+    "native_or_local_human_review": false,
+    "unreviewed_official_source_rows": 1
   },
   "status": "bounded_supporting_metadata_only",
   "limitations": [
     "Language labels and search rows do not establish translation accuracy or complete coverage.",
+    "One official-source row remains unreviewed; reviewed_rows is not treated as complete official-source coverage.",
     "Official-source rows are repository metadata, not fresh publisher confirmation.",
     "No native-speaker, local-human, legal or independent assurance is claimed.",
     "M10 maturity and G2 passage remain unchanged."

@@ -1,0 +1,33 @@
+{
+  "evidence_id": "E-G2-L2-M10-METADATA-REVIEW-20260910",
+  "record_type": "repository_owned_metadata_language_review",
+  "observed_on": "2026-09-10",
+  "inputs": {
+    "jurisdiction_register": {
+      "path": "data/seed/jurisdiction_register.csv",
+      "sha256": "23283ff0e5c2659055863fdccac173cdd5b1d85fd2eb672d6310103ace7520f7"
+    },
+    "search_log": {
+      "path": "data/census/search_log.csv",
+      "sha256": "06370c4b17f019e72b27d93ac97ebd0b731d6283ee6753e9d2a864a4ac373af6"
+    }
+  },
+  "checks": {
+    "jurisdiction_count": 23,
+    "search_row_count": 245,
+    "distinct_search_jurisdictions": 23,
+    "jurisdictions_without_declared_search_languages": 0,
+    "official_source_found_rows": 75,
+    "reviewed_rows": 74,
+    "source_language_agent_metadata_review": true,
+    "publisher_triangulation": false,
+    "native_or_local_human_review": false
+  },
+  "status": "bounded_supporting_metadata_only",
+  "limitations": [
+    "Language labels and search rows do not establish translation accuracy or complete coverage.",
+    "Official-source rows are repository metadata, not fresh publisher confirmation.",
+    "No native-speaker, local-human, legal or independent assurance is claimed.",
+    "M10 maturity and G2 passage remain unchanged."
+  ]
+}

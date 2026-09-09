@@ -22,7 +22,7 @@ receipt. It is repository-owned advisory review, not independent assurance.
 
 - extractor A: `c0f9623085f7836a70e7b5da5980642541751b9407129f1bff539594ce399b9f`
 - extractor B: `285a98470bd8d6ac2427a4f9684aa22566ce1d1540c956e97ee49bdd61e02baf`
-- comparator: `9f0df4ebbb295ecbc51a1846c040fddde2ff063652adee4975b242fcfd83e8cf`
+- comparator: `194e0a860fbae8b1285da45d7a4f4a72d16d01b5431e458c484156c2f53ad6e7`
 
 Conclusion: the fresh replay satisfies the approved concordance thresholds for
 its bounded cohort, subject to owner adjudication. This record does not pass

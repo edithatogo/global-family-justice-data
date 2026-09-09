@@ -1,20 +1,21 @@
 {
   "receipt_id": "R-HOSTED-ESTATE-AVAILABILITY-20260909",
-  "observed_at": "2026-09-09T20:44:58Z",
+  "observed_at": "2026-09-09T20:52:44Z",
   "operator": "repository-owned availability check",
   "targets": [
-    "https://huggingface.co/datasets/fictional-estate/gfjd-source-archive",
-    "https://huggingface.co/datasets/fictional-estate/gfjd-source-catalogue",
-    "https://huggingface.co/datasets/fictional-estate/gfjd-observations",
-    "https://huggingface.co/datasets/fictional-estate/gfjd-outcomes-evidence",
-    "https://huggingface.co/spaces/fictional-estate/gfjd-explorer"
+    "https://huggingface.co/datasets/edithatogo/gfjd-source-archive",
+    "https://huggingface.co/datasets/edithatogo/gfjd-source-catalogue",
+    "https://huggingface.co/datasets/edithatogo/gfjd-observations",
+    "https://huggingface.co/datasets/edithatogo/gfjd-outcomes-evidence",
+    "https://huggingface.co/datasets/edithatogo/gfjd-extraction-benchmark",
+    "https://huggingface.co/spaces/edithatogo/gfjd-explorer"
   ],
   "method": "curl -L -s -o /dev/null -w '%{http_code}'",
-  "responses": [401, 401, 401, 401, 401],
-  "interpretation": "Unauthenticated requests were unauthorized for every target. This does not establish existence, availability, custody, publication, rights, or anonymous retrieval.",
+  "responses": [200, 200, 200, 200, 200, 401],
+  "interpretation": "Unauthenticated landing-page requests returned HTTP 200 for five configured datasets and HTTP 401 for the configured explorer space. This establishes only observed landing-page HTTP responses at this time; it does not establish dataset contents, custody, rights, anonymous file retrieval, standards conformance, publication acceptance or release readiness.",
   "status": "unverified",
   "limitations": [
-    "No authenticated Hugging Face session or token was used.",
+    "No authenticated Hugging Face session or token was used; only landing pages were requested.",
     "No repository was created, modified, or published by this check.",
     "No source bytes or dataset content was accessed."
   ]

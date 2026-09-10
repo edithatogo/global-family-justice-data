@@ -1,0 +1,15 @@
+{
+  "receipt_id": "R-HOSTED-RIGHTS-20260910",
+  "observed_at": "2026-09-10T06:41:40Z",
+  "method": "anonymous GET of revision-pinned RIGHTS.md endpoints",
+  "records": [
+    {"dataset":"gfjd-source-archive","revision":"47c3c2564f22ae575d8d8fcd2fe5860b187584a3","url":"https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/47c3c2564f22ae575d8d8fcd2fe5860b187584a3/RIGHTS.md","http_status":404,"bytes":15,"sha256":"f36668ddf22403a332f978057d527cf285b01468bc3431b04094a7bafa6aba59"},
+    {"dataset":"gfjd-source-catalogue","revision":"257802ec64818ebc5a2c1207f2ac4ffb5f4e42d5","url":"https://huggingface.co/datasets/edithatogo/gfjd-source-catalogue/resolve/257802ec64818ebc5a2c1207f2ac4ffb5f4e42d5/RIGHTS.md","http_status":200,"bytes":417,"sha256":"d4f9101af387d9a0bc9a3952a5d3d2c0f930accbc1c5fa1222ca2db2de913442"},
+    {"dataset":"gfjd-observations","revision":"48f9a68af864318160bc56da8256caa35b94a793","url":"https://huggingface.co/datasets/edithatogo/gfjd-observations/resolve/48f9a68af864318160bc56da8256caa35b94a793/RIGHTS.md","http_status":200,"bytes":413,"sha256":"74509f464e9d3480a8ffa2ae0aff2f03a6f26bc3cdf98926058e72bc733e22ef"},
+    {"dataset":"gfjd-outcomes-evidence","revision":"02e12eb96c4f36a88b6162acaa7aa9c67afffbfa","url":"https://huggingface.co/datasets/edithatogo/gfjd-outcomes-evidence/resolve/02e12eb96c4f36a88b6162acaa7aa9c67afffbfa/RIGHTS.md","http_status":200,"bytes":418,"sha256":"50074c9647f34affa564be9261da4e8e43b401d6647c5de066ef1e1badd26115"},
+    {"dataset":"gfjd-extraction-benchmark","revision":"05d4ad9038c388f988a6ca6be91e2f0de57f4d59","url":"https://huggingface.co/datasets/edithatogo/gfjd-extraction-benchmark/resolve/05d4ad9038c388f988a6ca6be91e2f0de57f4d59/RIGHTS.md","http_status":200,"bytes":421,"sha256":"8abb9f59818e4cba75758583a1437b33e6bfa1774410bd75ae3ea1a46a38db3e"}
+  ],
+  "interpretation": "Four configured datasets expose revision-pinned RIGHTS.md files; the source-archive RIGHTS.md path returned HTTP 404. This records retrieval facts only and does not interpret licence terms or clear source redistribution.",
+  "status": "supporting_rights_metadata",
+  "limitations": ["No rights conclusion is made.","No source bytes or dataset payloads were requested."]
+}

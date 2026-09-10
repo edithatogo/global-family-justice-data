@@ -1,0 +1,35 @@
+{
+  "receipt_id": "R-HOSTED-ESTATE-TREE-20260910",
+  "observed_at": "2026-09-10T06:20:45Z",
+  "method": "anonymous GET of Hugging Face dataset tree metadata",
+  "endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-source-archive/tree/main?recursive=true&expand=false",
+  "http_status": 200,
+  "response_bytes": 3106,
+  "response_sha256": "be43cdb7dbf51b045f2b2ff67f6ebe347354d69ec2612119fab2126bb54f91a2",
+  "entry_count": 17,
+  "entries": [
+    {"path":"README.md","size":1459,"oid":"9a885a07a348089fa038c78a69cd1db479d2a197"},
+    {"path":"archive_inventory.csv","size":2787,"oid":"60bda4ea9c3c51e44e19b24ae024e4465103fc14"},
+    {"path":"public_b0_safety.json","size":2789,"oid":"2878438dedcfb952eb93de638b955df829268213"},
+    {"path":".gitattributes","size":2897,"oid":"15a62415e156f7dd5fc1a2af01d0398307c27209"},
+    {"path":"sources/ARC-AUS-FCFCOA-202425/annual-report-2024-25.pdf","size":13442996,"oid":"72e325b4068367d9305c703b2fb0c6c7d3cd7c2b"},
+    {"path":"sources/ARC-BRA-CNJ-2026/justica-em-numeros-2026.pdf","size":26310437,"oid":"1e548d54e82560cfa35a2e20cca6dc67e0d20397"},
+    {"path":"sources/ARC-GBR-EAW-2026Q1/FCSQ_2026_Q1.zip","size":1181359,"oid":"cfa421c2d84134abca2d166f6a1ffc721b5e7197"},
+    {"path":"sources/ARC-SWE-DOMSTOLSVERKET-2026/Cases filed and determined, family cases in district courts 2025.xlsx","size":11657,"oid":"3de3b9f5af963427869ab60ab76a28093fa5738d"},
+    {"path":"sources/ARC-USA-MN-MJB-PERF-2024/Annual-Report-2024-Performance-Measures.pdf","size":1402492,"oid":"ffb509b4c8e549cb7fe2482f236fac3f0e48645c"},
+    {"path":"sources/ARC-ZAF-JUD-202425/annual-judiciary-report-2024-25.pdf","size":6577186,"oid":"e528f9b6d5b8cd1e244b921067b5938bca5aaec4"},
+    {"path":"sources","size":0,"oid":"5d4eb9a93bc8680385a2b3c182a33d9dbe2e61a6"},
+    {"path":"sources/ARC-AUS-FCFCOA-202425","size":0,"oid":"921c62d90fc1bb2c5a52ab53476c9c6b90ee506d"},
+    {"path":"sources/ARC-BRA-CNJ-2026","size":0,"oid":"cb43aebac9058e98637edcb6e47715df441c99a4"},
+    {"path":"sources/ARC-GBR-EAW-2026Q1","size":0,"oid":"b87196459900d08d5b060ed7044fa11bd5927ab9"},
+    {"path":"sources/ARC-SWE-DOMSTOLSVERKET-2026","size":0,"oid":"c762609d5c04cb0374a80e66267cca226ec60cb8"},
+    {"path":"sources/ARC-USA-MN-MJB-PERF-2024","size":0,"oid":"e7e28e72138b6ade11a74115443191db4eb7b10b"},
+    {"path":"sources/ARC-ZAF-JUD-202425","size":0,"oid":"83391ebe7b5561943d6bad1f3026bacff7ce42b5"}
+  ],
+  "status": "supporting_hosted_metadata",
+  "limitations": [
+    "Tree metadata proves a public API listing at observation time, not successful anonymous restoration of every payload.",
+    "Git LFS or file endpoints, exact byte hashes, rights clearance, custody acceptance and release readiness remain separately unverified.",
+    "No source file content was requested or persisted by this check."
+  ]
+}

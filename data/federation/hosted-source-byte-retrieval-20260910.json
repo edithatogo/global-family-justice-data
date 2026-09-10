@@ -1,0 +1,23 @@
+{
+  "receipt_id": "R-HOSTED-SOURCE-BYTES-20260910",
+  "observed_at": "2026-09-10T06:53:13Z",
+  "provider": "huggingface",
+  "dataset": "edithatogo/gfjd-source-archive",
+  "revision": "47c3c2564f22ae575d8d8fcd2fe5860b187584a3",
+  "method": "anonymous GET of exact revision-pinned source payload URLs",
+  "staging_policy": "ephemeral local staging only; payloads were not added to Git or retained as repository artifacts",
+  "artifacts": [
+    {"source_id":"ARC-AUS-FCFCOA-202425","path":"sources/ARC-AUS-FCFCOA-202425/annual-report-2024-25.pdf","url":"https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/47c3c2564f22ae575d8d8fcd2fe5860b187584a3/sources/ARC-AUS-FCFCOA-202425/annual-report-2024-25.pdf","http_status":200,"bytes":13442996,"sha256":"e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9"},
+    {"source_id":"ARC-BRA-CNJ-2026","path":"sources/ARC-BRA-CNJ-2026/justica-em-numeros-2026.pdf","url":"https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/47c3c2564f22ae575d8d8fcd2fe5860b187584a3/sources/ARC-BRA-CNJ-2026/justica-em-numeros-2026.pdf","http_status":200,"bytes":26310437,"sha256":"3415d516d756f48d7337e83e6faa8477644fe98b5cedb43cb04999f59fd5a71f"},
+    {"source_id":"ARC-GBR-EAW-2026Q1","path":"sources/ARC-GBR-EAW-2026Q1/FCSQ_2026_Q1.zip","url":"https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/47c3c2564f22ae575d8d8fcd2fe5860b187584a3/sources/ARC-GBR-EAW-2026Q1/FCSQ_2026_Q1.zip","http_status":200,"bytes":1181359,"sha256":"8ea470874a6d24ca0db2c7253dd4141f595304262617248c2063ecd0e4cb1c96"},
+    {"source_id":"ARC-SWE-DOMSTOLSVERKET-2026","path":"sources/ARC-SWE-DOMSTOLSVERKET-2026/Cases filed and determined, family cases in district courts 2025.xlsx","url":"https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/47c3c2564f22ae575d8d8fcd2fe5860b187584a3/sources/ARC-SWE-DOMSTOLSVERKET-2026/Cases%20filed%20and%20determined,%20family%20cases%20in%20district%20courts%202025.xlsx","http_status":200,"bytes":11657,"sha256":"47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb"},
+    {"source_id":"ARC-USA-MN-MJB-PERF-2024","path":"sources/ARC-USA-MN-MJB-PERF-2024/Annual-Report-2024-Performance-Measures.pdf","url":"https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/47c3c2564f22ae575d8d8fcd2fe5860b187584a3/sources/ARC-USA-MN-MJB-PERF-2024/Annual-Report-2024-Performance-Measures.pdf","http_status":200,"bytes":1402492,"sha256":"329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b"},
+    {"source_id":"ARC-ZAF-JUD-202425","path":"sources/ARC-ZAF-JUD-202425/annual-judiciary-report-2024-25.pdf","url":"https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/47c3c2564f22ae575d8d8fcd2fe5860b187584a3/sources/ARC-ZAF-JUD-202425/annual-judiciary-report-2024-25.pdf","http_status":200,"bytes":6577186,"sha256":"24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce"}
+  ],
+  "status": "supporting_b0_custody",
+  "limitations": [
+    "HTTP 200 and observed hashes establish an acquisition observation, not independent custody assurance or rights clearance.",
+    "No extraction, semantic review, publication, release or G2/G4 acceptance is established by this receipt.",
+    "Source rights, privacy, security and disclosure conditions remain governed by their separate evidence."
+  ]
+}

@@ -26,6 +26,10 @@
     {"path":"sources/ARC-USA-MN-MJB-PERF-2024","size":0,"oid":"e7e28e72138b6ade11a74115443191db4eb7b10b"},
     {"path":"sources/ARC-ZAF-JUD-202425","size":0,"oid":"83391ebe7b5561943d6bad1f3026bacff7ce42b5"}
   ],
+  "metadata_file_retrievals": [
+    {"path":"archive_inventory.csv","url":"https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/47c3c2564f22ae575d8d8fcd2fe5860b187584a3/archive_inventory.csv","http_status":200,"bytes":2787,"sha256":"afb95099ec70aac3b7a1307d747a3ee421b2127ce545a0217db0766c1ad9a632"},
+    {"path":"public_b0_safety.json","url":"https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/47c3c2564f22ae575d8d8fcd2fe5860b187584a3/public_b0_safety.json","http_status":200,"bytes":2789,"sha256":"0bc92a70fb35cee14ebfcb64f6eeadbe88a11186a5c52e9ea801b815e1172c88"}
+  ],
   "status": "supporting_hosted_metadata",
   "limitations": [
     "Tree metadata proves a public API listing at observation time, not successful anonymous restoration of every payload.",

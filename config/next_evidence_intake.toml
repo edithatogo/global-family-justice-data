@@ -1,7 +1,7 @@
 [intake]
 schema_version = "1.0"
 status = "queued_external_inputs"
-current_gate = "G1"
+current_gate = "G2"
 no_publication_until = "G6"
 no_outbound_without_owner_approval = true
 assurance_preparation = "role_separated_agent_panel_advice"

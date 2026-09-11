@@ -10,12 +10,20 @@
   },
   "implementation": {
     "module": "src/gfjd/bra_aggregate_replay.py",
-    "module_sha256": "7884df3bb6a532c8c7b5f3ffa80d8d2da942d41eaeafdcabb53ce051d34549e5",
+    "module_sha256": "cbd9da8b4448040c310e1cf5ccf71ff257655a8640b3fd4b0cf98151d514af63",
     "entrypoint": "scripts/execute_bra_aggregate_replay.py",
     "entrypoint_sha256": "9feb02d6e1754f91f05ac713d8630f019b94c555910d22a051442a875f6f71c5",
     "tests": "tests/test_bra_aggregate_replay.py",
-    "tests_sha256": "aaf7add47ebe74a230089b1c82fdb6c9985b3f64e0fcfecd9397f4321ae89e61",
-    "test_result": "21 passed; focused module branch coverage 97%"
+    "tests_sha256": "2b469fc37edaa972f03cc1555eb888edea4581e3678d57036bb88fe9996d4a9f",
+    "test_result": "19 passed; focused module branch coverage 100%",
+    "authorization_schema": {
+      "path": "docs/governance/g2-bra-replay-owner-authorization.schema.json",
+      "sha256": "18eceb5ddc2984a5de3845fd8323e9fccbbe96862f0616cd953c3f8c7506fad3"
+    },
+    "authorization_template": {
+      "path": "docs/governance/g2-bra-aggregate-replay-owner-authorization-template-2026-09-11.md",
+      "sha256": "b81d47db9ff5c2a044091edaed5710ea823978bef4b08a137a9af40905cb841d"
+    }
   },
   "controls": [
     "exact packet hash is required as an explicit authorization argument",

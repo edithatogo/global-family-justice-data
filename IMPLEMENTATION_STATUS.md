@@ -408,8 +408,7 @@ rights, standards conformance, maturity, publication or release.
 
 Real B0 qualification continuation (2026-09-11):
 `E-G4-MEDALLION-B0-QUALIFICATION-20260911` independently rechecked all six
-local payload digests. The existing bounded B0 scanner and supporting B1/Silver
-replay are verified for the SWE XLSX route; PDF and ZIP routes remain explicitly
-not evaluated because the current scanner and extraction contracts do not
-support them. No layer promotion, rights clearance, maturity or gate acceptance
-is claimed.
+local payload digests and exercised bounded PDF, ZIP and XLSX safety mechanics.
+The supporting B1/Silver replay remains verified only for the SWE XLSX route;
+route-specific PDF/ZIP replay is still pending. No layer promotion, rights
+clearance, maturity or gate acceptance is claimed.

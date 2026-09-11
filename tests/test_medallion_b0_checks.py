@@ -8,7 +8,7 @@ from pathlib import Path
 import pytest
 from blake3 import blake3
 
-from gfjd.medallion_b0_checks import assess_b0, verify_b0
+from gfjd.medallion_b0_checks import MAX_SOURCE_BYTES, assess_b0, verify_b0
 
 
 def sha(raw: bytes) -> str:
@@ -48,11 +48,26 @@ def test_supplied_xlsx_is_scanned_and_assertions_only_consistent() -> None:
     assert result["current_remote_custody_verified"] is False
 
 
-def test_unsupported_pdf_keeps_fixity() -> None:
+def test_malformed_pdf_fails_closed_and_keeps_fixity() -> None:
     raw = b"%PDF-fictional-not-a-document"
     result = assess_b0(raw, evidence(raw, "application/pdf"), object_id="FICTIONAL")
     assert result["checks"]["fixity"] == "verified"
-    assert result["checks"]["safety"] == "unsupported"
+    assert result["checks"]["safety"] == "failed"
+    assert "PDF_UNREADABLE" in result["finding_codes"]
+
+
+def test_safe_zip_is_bounded_and_scanned() -> None:
+    import io
+    import zipfile
+
+    stream = io.BytesIO()
+    with zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_STORED) as archive:
+        archive.writestr("metadata.txt", "fictional aggregate metadata\n")
+    result = assess_b0(
+        stream.getvalue(), evidence(stream.getvalue(), "application/zip"), object_id="FICTIONAL"
+    )
+    assert result["checks"]["fixity"] == "verified"
+    assert result["checks"]["safety"] == "missing"
 
 
 def test_prohibited_csv_headers_are_codes_only() -> None:
@@ -96,7 +111,7 @@ def test_size_checked_before_hash(monkeypatch: pytest.MonkeyPatch) -> None:
 
     monkeypatch.setattr("gfjd.medallion_b0_checks._sha", forbidden)
     with pytest.raises(ValueError):
-        assess_b0(b"x" * (8 * 1024 * 1024 + 1), {}, object_id="FICTIONAL")
+        assess_b0(b"x" * (MAX_SOURCE_BYTES + 1), {}, object_id="FICTIONAL")
 
 
 def test_forged_report_fails_full_recomputation() -> None:
@@ -177,6 +192,6 @@ def test_recorded_negative_safety_overrides_unsupported_pdf(negative: str) -> No
     result = assess_b0(raw, binding, object_id="FICTIONAL", safety_raw=safety)
     assert result["checks"]["safety"] == "failed"
     assert result["checks"]["fixity"] == "verified"
-    assert result["scan_status"] == "unsupported"
+    assert result["scan_status"] == "failed"
     assert "RECORDED_SAFETY_NOT_PASS" in result["finding_codes"]
     assert "fictional private text" not in json.dumps(result)

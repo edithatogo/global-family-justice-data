@@ -1,7 +1,8 @@
 """Supplied-byte B0 fixity and bounded scanner mechanics, not public clearance.
 
-Only implementation fingerprinting reads files. PDF/unknown containers remain
-unsupported; no temporary files, subprocesses, remote reads, or rights inference.
+Only implementation fingerprinting reads files. PDF and ZIP inputs use the
+existing bounded public-archive safety scanners; no text extraction,
+temporary files, subprocesses, remote reads, or rights inference is performed.
 """
 
 from __future__ import annotations
@@ -20,7 +21,7 @@ from blake3 import blake3
 
 from . import medallion_pipeline, medallion_xlsx, public_archive
 
-MAX_SOURCE_BYTES = 8 * 1024 * 1024
+MAX_SOURCE_BYTES = 32 * 1024 * 1024
 MAX_RECEIPT_BYTES = 1024 * 1024
 XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
@@ -109,6 +110,12 @@ def _scan(source: bytes, media: str) -> tuple[str, list[str]]:
             ElementTree.ParseError,
         ):
             return "failed", ["XLSX_CONTAINER_SCAN_FAILED"]
+    elif media == "application/pdf":
+        findings = public_archive._scan_bytes(source, "supplied-source")
+        findings.extend(public_archive._scan_pdf(source, "supplied-source"))
+    elif media == "application/zip":
+        findings = public_archive._scan_bytes(source, "supplied-source")
+        findings.extend(public_archive._scan_zip(source, "supplied-source"))
     elif media in {"text/plain", "text/csv", "application/json"}:
         if source.startswith((b"PK", b"%PDF")):
             return "unsupported", ["UNSUPPORTED_CONTAINER"]

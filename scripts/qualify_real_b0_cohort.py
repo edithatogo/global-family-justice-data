@@ -72,6 +72,7 @@ def _b0_mechanical(
     source: bytes,
     inventory_id: str,
     edition: str,
+    source_media_type: str,
     safety_raw: bytes,
     custody_raw: bytes,
     safety_object: dict[str, Any],
@@ -81,17 +82,10 @@ def _b0_mechanical(
         "content_sha256": sha256(source),
         "content_blake3": blake3(source).hexdigest(),
         "size_bytes": len(source),
-        "media_type": media_type(Path(inventory_id)),
+        "media_type": source_media_type,
         "safety_receipt_sha256": sha256(safety_raw),
         "custody_receipt_sha256": sha256(custody_raw),
     }
-    # The receipt object carries the authoritative media-independent fixity;
-    # this path is deliberately limited to the existing XLSX scanner.
-    evidence["media_type"] = (
-        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        if inventory_id == "ARC-SWE-DOMSTOLSVERKET-2026"
-        else "application/octet-stream"
-    )
     report = medallion_b0_checks.assess_b0(
         source,
         evidence,
@@ -165,41 +159,47 @@ def qualify(intake: dict[str, Any], *, as_of: str) -> dict[str, Any]:
             row["b0_error"] = "intake does not match frozen archive inventory"
         if not fixity:
             row["b0_mechanical"] = {"status": "blocked", "reason": "fixity_failed"}
-        elif intake_row["inventory_id"] == "ARC-SWE-DOMSTOLSVERKET-2026":
+        elif row["media_type"] in {
+            "application/pdf",
+            "application/zip",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        }:
             try:
                 row["b0_mechanical"] = _b0_mechanical(
                     source,
                     intake_row["inventory_id"],
                     intake_row["edition"],
+                    row["media_type"],
                     safety_raw,
                     custody_raw,
                     _object(safety, intake_row["inventory_id"]),
                 )
-                replay_raw = SWE_REPLAY.read_bytes()
-                replay = json.loads(replay_raw)
-                replay_ok = (
-                    replay.get("source_sha256") == observed_sha
-                    and replay.get("status")
-                    == "empirical_replay_verified_pending_layer_adjudication"
-                    and replay.get("source_recomputation_verifier") is True
-                    and replay.get("deterministic_double_execution") is True
-                    and replay.get("negative_checks", {}).get("changed_source_rejected") is True
-                    and replay.get("negative_checks", {}).get("changed_output_rejected") is True
-                )
-                replay_status = "verified_supporting_receipt" if replay_ok else "failed"
-                row["b1_replay"] = {
-                    "status": replay_status,
-                    "receipt_path": str(SWE_REPLAY.relative_to(ROOT)),
-                    "receipt_sha256": sha256(replay_raw),
-                    "source_sha256": replay.get("source_sha256"),
-                    "row_count": replay.get("b1_row_count"),
-                }
-                row["silver_replay"] = {
-                    "status": replay_status,
-                    "receipt_path": str(SWE_REPLAY.relative_to(ROOT)),
-                    "receipt_sha256": sha256(replay_raw),
-                    "row_count": replay.get("silver_row_count"),
-                }
+                if intake_row["inventory_id"] == "ARC-SWE-DOMSTOLSVERKET-2026":
+                    replay_raw = SWE_REPLAY.read_bytes()
+                    replay = json.loads(replay_raw)
+                    replay_ok = (
+                        replay.get("source_sha256") == observed_sha
+                        and replay.get("status")
+                        == "empirical_replay_verified_pending_layer_adjudication"
+                        and replay.get("source_recomputation_verifier") is True
+                        and replay.get("deterministic_double_execution") is True
+                        and replay.get("negative_checks", {}).get("changed_source_rejected") is True
+                        and replay.get("negative_checks", {}).get("changed_output_rejected") is True
+                    )
+                    replay_status = "verified_supporting_receipt" if replay_ok else "failed"
+                    row["b1_replay"] = {
+                        "status": replay_status,
+                        "receipt_path": str(SWE_REPLAY.relative_to(ROOT)),
+                        "receipt_sha256": sha256(replay_raw),
+                        "source_sha256": replay.get("source_sha256"),
+                        "row_count": replay.get("b1_row_count"),
+                    }
+                    row["silver_replay"] = {
+                        "status": replay_status,
+                        "receipt_path": str(SWE_REPLAY.relative_to(ROOT)),
+                        "receipt_sha256": sha256(replay_raw),
+                        "row_count": replay.get("silver_row_count"),
+                    }
             except (KeyError, OSError, TypeError, ValueError) as exc:
                 row["b0_mechanical"] = {
                     "status": "failed",
@@ -209,7 +209,7 @@ def qualify(intake: dict[str, Any], *, as_of: str) -> dict[str, Any]:
         else:
             row["b0_mechanical"] = {
                 "status": "not_evaluated",
-                "reason": "format_not_supported_by_current_b0_scanner",
+                "reason": "format_not_supported_by_b0_scanner",
             }
         rows.append(row)
     return {
@@ -223,15 +223,19 @@ def qualify(intake: dict[str, Any], *, as_of: str) -> dict[str, Any]:
         "network_requests": 0,
         "rows": rows,
         "status": (
-            "b0_fixity_verified_replay_pending"
-            if all(row["b0_fixity"] == "verified" for row in rows)
-            else "b0_fixity_failed"
+            "b0_fixity_failed"
+            if not all(row["b0_fixity"] == "verified" for row in rows)
+            else (
+                "b0_mechanical_failed"
+                if any(row["b0_mechanical"].get("status") in {"failed", "blocked"} for row in rows)
+                else "b0_fixity_verified_replay_pending"
+            )
         ),
         "interpretation": (
-            "All six local payloads match the frozen inventory. Only the existing "
-            "bounded SWE XLSX route has a source-recomputing B1/Silver supporting "
-            "receipt; PDF and ZIP routes remain unqualified because the current "
-            "scanner/extraction contracts do not support them."
+            "All six local payloads match the frozen inventory. B0 fixity and "
+            "bounded safety mechanics are evaluated for supported PDF, ZIP and "
+            "XLSX routes; only the SWE XLSX route has a source-recomputing "
+            "B1/Silver supporting receipt."
         ),
         "limitations": [
             (
@@ -239,8 +243,8 @@ def qualify(intake: dict[str, Any], *, as_of: str) -> dict[str, Any]:
                 "semantic accuracy, independent assurance, or layer acceptance."
             ),
             (
-                "No PDF or ZIP content was extracted; no unsupported format is "
-                "treated as safe or replayed."
+                "No PDF or ZIP text was extracted; B1/Silver replay remains pending "
+                "for every route without a route-specific replay receipt."
             ),
             (
                 "The SWE replay receipt is repository-owned supporting evidence "
@@ -267,7 +271,7 @@ def main() -> int:
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(canonical(report) + b"\n")
     print(json.dumps({"status": report["status"], "rows": len(report["rows"])}))
-    return 0 if report["status"] != "b0_fixity_failed" else 1
+    return 0 if not report["status"].endswith("_failed") else 1
 
 
 if __name__ == "__main__":

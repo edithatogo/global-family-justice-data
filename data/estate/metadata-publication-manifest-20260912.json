@@ -1,0 +1,69 @@
+{
+  "manifest_id": "GFJD-METADATA-ESTATE-20260912-01",
+  "observed_on": "2026-09-11",
+  "owner": "edithatogo",
+  "publication_scope": "metadata_only",
+  "source_bytes_published_by_this_manifest": false,
+  "rights_clearance": "not_established",
+  "maturity_effect": "none",
+  "gate_effect": "none",
+  "release_effect": "none",
+  "hosted_observation_receipt": {
+    "path": "data/federation/hosted-medallion-tree-observation-20260911.json",
+    "sha256": "6c5595fccd0f5651bd704d72c2a6d3a29275bd664ad107a4bf34cba689e1b387"
+  },
+  "datasets": [
+    {
+      "dataset": "gfjd-source-catalogue",
+      "repository": "edithatogo/gfjd-source-catalogue",
+      "repo_type": "dataset",
+      "observed_revision": "257802ec64818ebc5a2c1207f2ac4ffb5f4e42d5",
+      "tree_response_sha256": "511d4d07b1541e7cf23885da4efba702579e8b1db7bfcef8a9e43ae6cc531eae",
+      "role": "source_catalogue",
+      "payload": "source-register metadata and rights dispositions only",
+      "status": "metadata_preparation"
+    },
+    {
+      "dataset": "gfjd-observations",
+      "repository": "edithatogo/gfjd-observations",
+      "repo_type": "dataset",
+      "observed_revision": "48f9a68af864318160bc56da8256caa35b94a793",
+      "tree_response_sha256": "283882b99fe1ee14325634d5d44e69a43d70a8aae3f5dd98e406c0d534153a31",
+      "role": "observations",
+      "payload": "schema and evidence references only; no accepted harmonised observations",
+      "status": "metadata_preparation"
+    },
+    {
+      "dataset": "gfjd-outcomes-evidence",
+      "repository": "edithatogo/gfjd-outcomes-evidence",
+      "repo_type": "dataset",
+      "observed_revision": "02e12eb96c4f36a88b6162acaa7aa9c67afffbfa",
+      "tree_response_sha256": "856219e382ad6b7effa6e234e9ea91ff131e06f8bd60660afee9488d4c9acfb0",
+      "role": "outcomes_evidence",
+      "payload": "evidence and disposition references only; no released outcome layer",
+      "status": "metadata_preparation"
+    },
+    {
+      "dataset": "gfjd-extraction-benchmark",
+      "repository": "edithatogo/gfjd-extraction-benchmark",
+      "repo_type": "dataset",
+      "observed_revision": "05d4ad9038c388f988a6ca6be91e2f0de57f4d59",
+      "tree_response_sha256": "0b845b420f3afe2f525ee499e29f6506df8839058202729df380ca4390e6d717",
+      "role": "extraction_benchmark",
+      "payload": "contract, replay and limitation references only; no Gold benchmark claim",
+      "status": "metadata_preparation"
+    }
+  ],
+  "required_before_product_release": [
+    "accepted exact-edition rights and redistribution records",
+    "accepted layer-specific qualification and field lineage",
+    "provider-separated anonymous restore receipts",
+    "accessibility and product review",
+    "owner Gold/Platinum adjudication and release authority",
+    "source manifest and SHA-256 verification",
+    "prohibited-data scan and secret scan",
+    "published receipt and two-provider-separated public receipts",
+    "configured release-gate acceptance"
+  ],
+  "claim_limit": "This manifest records a public metadata boundary only. It does not establish a populated medallion estate, rights clearance, maturity, G2-G6 passage, publication of source-derived products or release readiness."
+}

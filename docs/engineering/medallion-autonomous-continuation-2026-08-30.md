@@ -38,6 +38,11 @@ a preparation-control defect, not evidence of an unauthorised publication.
 5. [x] WI-G5-MED-01/02/03 repository preparation: restore, lifecycle and safety
    rehearsals are implemented. Actual public restore, operations and candidate
    assurance remain separately evidenced. G6 publication remains gated.
+6. [x] Public metadata boundary: `data/estate/metadata-publication-manifest-20260912.json`
+   records the exact observed Hugging Face revisions, tree-response digests and
+   publication prerequisites for the four medallion datasets. It is metadata
+   preparation only; no product payload, rights clearance, maturity promotion
+   or gate/release acceptance follows.
 
 ## Execution recommendation and alternatives
 

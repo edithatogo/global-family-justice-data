@@ -12,11 +12,11 @@ import json
 import tempfile
 import urllib.error
 import urllib.request
-from datetime import datetime, timezone
+from collections.abc import Callable
+from datetime import datetime
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 from urllib.parse import urlparse
-
 
 CONTRACT_VERSION = "gfjd-public-b0-restore-rehearsal-v1"
 MAX_OBJECT_BYTES = 500_000_000
@@ -87,10 +87,16 @@ def rehearse(custody: dict[str, Any], *, fetcher: Fetcher | None = None) -> dict
         restored = [item for item in observations if item["state"] == "restored"]
         tree_material = "\n".join(
             f"{item['provider']}|{item['inventory_id']}|{item['actual_sha256']}|{item['actual_size_bytes']}"
-            for item in sorted(restored, key=lambda value: (value["provider"], value["inventory_id"]))
+            for item in sorted(
+                restored, key=lambda value: (value["provider"], value["inventory_id"])
+            )
         ).encode()
         tree_sha = hashlib.sha256(tree_material).hexdigest()
-    status = "pass" if len(observations) == len(objects) * 2 and len(restored) == len(observations) else "fail"
+    status = (
+        "pass"
+        if len(observations) == len(objects) * 2 and len(restored) == len(observations)
+        else "fail"
+    )
     return {
         "contract_version": CONTRACT_VERSION,
         "status": status,
@@ -122,7 +128,9 @@ def main() -> int:
         }
     )
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    args.output.write_text(
+        json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
     print(json.dumps({"status": report["status"], "replica_count": report["replica_count"]}))
     return 0 if report["status"] == "pass" else 1
 

@@ -109,3 +109,11 @@ This is metadata-only supporting evidence: it does not establish source rights,
 accepted products, maturity, gate passage or release. The next action is to
 retain the manifest and receipt as in-review evidence while pursuing the still
 missing L2 empirical, rights and release records.
+
+The owned Source register monitoring workflow also completed run `34620587686`
+at commit `57c35dc8bc5e2d316203abe67b3e3a231795f603`. Its append-only receipt
+(`b0-monitor-34620587686-1/receipt.json`, SHA-256
+`a2d744d0aa9b6f79cdcd87131d7e5d85a8e3614dd7eaed3bd315cae7f5298790`) reports
+all twelve GitHub/Hugging Face replicas available and hash-matching. This is a
+fresh custody-monitoring observation only; sustained history, rights, restore,
+maturity, gate and release evidence remain open.

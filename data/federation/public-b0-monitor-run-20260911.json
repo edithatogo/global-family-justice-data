@@ -1,0 +1,19 @@
+{
+  "evidence_id": "E-PUBLIC-B0-MONITOR-20260911",
+  "workflow": "Source register monitoring",
+  "run_id": "34620587686",
+  "head_commit": "57c35dc8bc5e2d316203abe67b3e3a231795f603",
+  "checked_at": "2026-09-11T16:12:07Z",
+  "receipt_url": "https://github.com/edithatogo/global-family-justice-data/releases/download/b0-monitor-34620587686-1/receipt.json",
+  "receipt_sha256": "a2d744d0aa9b6f79cdcd87131d7e5d85a8e3614dd7eaed3bd315cae7f5298790",
+  "receipt_bytes": 10275,
+  "status": "pass",
+  "replica_count": 12,
+  "object_count": 6,
+  "providers": ["github", "huggingface"],
+  "limitations": [
+    "This is a fresh hosted custody-monitoring observation, not independent assurance or rights clearance.",
+    "The run does not establish semantic validity, medallion-layer acceptance, maturity promotion, gate passage or release readiness.",
+    "Sustained monitoring history and owner adjudication remain required for higher maturity."
+  ]
+}

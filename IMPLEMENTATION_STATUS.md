@@ -396,3 +396,12 @@ Recovered ODS custody also includes a hash-verified restricted copy in ignored
 `data/raw/files/g2-controlled/`, outside `make clean` targets. The original
 retrieval receipt is preserved and a linked custody receipt records the copy;
 this is not a second-provider preservation claim.
+
+Hosted-estate continuation (2026-09-11): an anonymous, revision-pinned tree
+observation verified HTTP 200 responses for the four medallion dataset
+repositories, but each tree contains only `.gitattributes`, `README.md` and
+`RIGHTS.md`; no product payloads or machine-readable data manifests are
+currently exposed. The observation is registered as
+`E-HOSTED-MEDALLION-TREES-20260911` and moves `WI-G4-MED-04` to `in_review`
+with an explicit hosted-publication blocker. It does not establish custody,
+rights, standards conformance, maturity, publication or release.

@@ -11,6 +11,7 @@ from gfjd.public_monitor import (
     _allowed_final_host,
     monitor_custody,
     verify_monitor_receipt,
+    verify_monitor_rollup,
     verify_supersession,
 )
 
@@ -88,6 +89,18 @@ def test_monitor_detects_drift_and_unavailability(project_root: Path, tmp_path: 
     assert any(
         "monitor status does not match" in error for error in verify_monitor_receipt(receipt)
     )
+
+
+def test_monitor_rollup_contract_is_verified(project_root: Path) -> None:
+    rollup = json.loads(
+        (project_root / "data/federation/public-b0-monitor-rollup-20260911.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert verify_monitor_rollup(rollup) == []
+    rollup["observations"][0]["receipt_sha256"] = "0" * 64
+    rollup["observations"][1]["receipt_sha256"] = "0" * 64
+    assert any("receipt hashes must be unique" in error for error in verify_monitor_rollup(rollup))
 
 
 def test_supersession_replay_is_deterministic_and_cycles_fail(tmp_path: Path) -> None:

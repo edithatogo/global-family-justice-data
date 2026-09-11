@@ -110,8 +110,10 @@ def _b0_mechanical(
 
 
 def qualify(
-    intake: dict[str, Any], *, as_of: str,
-    evidence_id: str = "E-G4-MEDALLION-B0-QUALIFICATION-20260911"
+    intake: dict[str, Any],
+    *,
+    as_of: str,
+    evidence_id: str = "E-G4-MEDALLION-B0-QUALIFICATION-20260911",
 ) -> dict[str, Any]:
     safety_raw = SAFETY_PATH.read_bytes()
     custody_raw = CUSTODY_PATH.read_bytes()

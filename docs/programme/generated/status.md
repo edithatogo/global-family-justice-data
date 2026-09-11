@@ -1,6 +1,6 @@
 # Generated programme status
 
-Generated: `2026-09-11T15:59:50+00:00`
+Generated: `2026-09-11T16:15:04+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G2**
@@ -10,8 +10,8 @@ Conductor validation: **PASS** (0 errors, 14 warnings)
 
 | Gate | Target | State | Ready | Decision | Controls complete | Principal blockers |
 |---|---:|---|---:|---|---:|---|
-| G1 — Foundation controls accepted | 0.4.0 | passed | yes | accepted | 13/13 | — |
-| G2 — Reproducible pilot proven | 0.5.0 | blocked_by_maturity | no | not_evaluated | 12/13 | evidence-assured maturity floor L1 is below required L2 |
+| G1 — Foundation controls accepted | 0.4.0 | blocked_by_maturity | no | accepted | 12/13 | evidence-assured maturity floor L0 is below required L1 |
+| G2 — Reproducible pilot proven | 0.5.0 | blocked_by_dependency | no | not_evaluated | 11/13 | dependency gate not accepted: G1; evidence-assured maturity floor L0 is below required L2 |
 | G3 — Global source census complete | 0.6.0 | blocked_by_dependency | no | not_evaluated | 2/13 | dependency gate not accepted: G2; required work not accepted: WI-G3-01; required work not accepted: WI-G3-02; +15 more |
 | G4 — Feature-complete public beta | 0.7.0 | blocked_by_dependency | no | not_evaluated | 2/14 | dependency gate not accepted: G3; required work not accepted: WI-G4-01; required work not accepted: WI-G4-02; +21 more |
 | G5 — v1.0 release candidate assured | 0.9.0 | blocked_by_dependency | no | not_evaluated | 1/15 | dependency gate not accepted: G4; required work not accepted: WI-G5-01; required work not accepted: WI-G5-02; +41 more |
@@ -24,7 +24,7 @@ Conductor validation: **PASS** (0 errors, 14 warnings)
 | T0 — Governance, ethics and independence | 11/11 (100.0%) | 3/11 (27.3%) | 0 | 5/26 |
 | T1 — Scope, ontology and methods | 3/3 (100.0%) | 2/3 (66.7%) | 0 | 3/5 |
 | T2 — Jurisdiction universe and source census | 8/8 (100.0%) | 5/8 (62.5%) | 0 | 8/19 |
-| T3 — Acquisition, preservation and source monitoring | 5/5 (100.0%) | 3/5 (60.0%) | 0 | 4/11 |
+| T3 — Acquisition, preservation and source monitoring | 5/5 (100.0%) | 3/5 (60.0%) | 0 | 4/12 |
 | T4 — Data platform and engineering | 10/10 (100.0%) | 6/10 (60.0%) | 0 | 7/22 |
 | T5 — Harmonisation, quality and assurance | 14/14 (100.0%) | 8/14 (57.1%) | 0 | 26/106 |
 | T6 — Product, documentation and accessibility | 7/9 (77.8%) | 0/9 (0.0%) | 0 | 0/20 |
@@ -35,14 +35,14 @@ Conductor validation: **PASS** (0 errors, 14 warnings)
 ## Evidence-assured maturity
 
 Self-assessed maturity floor: **L1**  
-Evidence-assured maturity floor: **L1**
+Evidence-assured maturity floor: **L0**
 
 | Dimension | Assessed | Assured | Target |
 |---|---:|---:|---:|
 | M01 — Governance and independence | L1 | L1 | L5 |
 | M02 — Methods and ontology | L2 | L2 | L5 |
 | M03 — Jurisdiction census | L1 | L1 | L5 |
-| M04 — Acquisition and preservation | L1 | L1 | L5 |
+| M04 — Acquisition and preservation | L1 | L0 | L5 |
 | M05 — Data engineering | L1 | L1 | L5 |
 | M06 — Quality and assurance | L1 | L1 | L5 |
 | M07 — Product and accessibility | L1 | L1 | L5 |

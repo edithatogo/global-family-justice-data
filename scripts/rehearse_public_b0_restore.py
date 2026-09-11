@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import ipaddress
 import json
 import tempfile
 import urllib.error
@@ -24,13 +25,45 @@ ALLOWED_PREFIXES = {
     "github": "https://github.com/",
     "huggingface": "https://huggingface.co/",
 }
+ALLOWED_REDIRECT_SUFFIXES = (
+    "github.com",
+    "githubusercontent.com",
+    "huggingface.co",
+    "cdn.hf.co",
+    "xethub.hf.co",
+)
 Fetcher = Callable[[str, int], tuple[bytes, int]]
 
 
+def _validate_destination(url: str) -> None:
+    parsed = urlparse(url)
+    host = (parsed.hostname or "").lower().rstrip(".")
+    if parsed.scheme != "https" or not any(
+        host == suffix or host.endswith("." + suffix) for suffix in ALLOWED_REDIRECT_SUFFIXES
+    ):
+        raise ValueError("redirect destination is outside the approved public hosts")
+    try:
+        address = ipaddress.ip_address(host)
+    except ValueError:
+        return
+    if not address.is_global:
+        raise ValueError("redirect destination is not a global address")
+
+
+class _SafeRedirectHandler(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):  # type: ignore[no-untyped-def]
+        _validate_destination(newurl)
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
 def _fetch(url: str, expected_size: int) -> tuple[bytes, int]:
+    _validate_destination(url)
     request = urllib.request.Request(url, headers={"User-Agent": "gfjd-public-restore/1"})
-    with urllib.request.urlopen(request, timeout=120) as response:  # noqa: S310
+    opener = urllib.request.build_opener(_SafeRedirectHandler)
+    with opener.open(request, timeout=120) as response:  # noqa: S310
         data = response.read(expected_size + 1)
+        if len(data) > expected_size:
+            raise ValueError(f"response size {len(data)} exceeds expected {expected_size}")
         return data, int(response.status)
 
 
@@ -41,19 +74,29 @@ def rehearse(custody: dict[str, Any], *, fetcher: Fetcher | None = None) -> dict
     retrieve = fetcher or _fetch
     observations: list[dict[str, Any]] = []
     with tempfile.TemporaryDirectory(prefix="gfjd-public-restore-") as temporary_root:
-        root = Path(temporary_root)
+        root = Path(temporary_root).resolve()
         for item in objects:
             inventory_id = str(item.get("inventory_id", ""))
             expected_size = int(item.get("size_bytes", 0))
             expected_sha = str(item.get("sha256", ""))
-            if not inventory_id or not expected_sha or not 0 < expected_size <= MAX_OBJECT_BYTES:
+            if (
+                not inventory_id
+                or Path(inventory_id).name != inventory_id
+                or inventory_id in {".", ".."}
+                or not expected_sha
+                or not 0 < expected_size <= MAX_OBJECT_BYTES
+            ):
                 raise ValueError(f"invalid custody object: {inventory_id}")
+            providers_for_object: set[str] = set()
             for replica in item.get("replicas", []):
                 provider = str(replica.get("provider", ""))
                 url = str(replica.get("url", ""))
                 prefix = ALLOWED_PREFIXES.get(provider)
                 if prefix is None or not url.startswith(prefix) or urlparse(url).scheme != "https":
                     raise ValueError(f"{inventory_id}: unapproved restore URL")
+                if provider in providers_for_object:
+                    raise ValueError(f"{inventory_id}: duplicate provider replica")
+                providers_for_object.add(provider)
                 record: dict[str, Any] = {
                     "inventory_id": inventory_id,
                     "provider": provider,
@@ -63,8 +106,12 @@ def rehearse(custody: dict[str, Any], *, fetcher: Fetcher | None = None) -> dict
                 }
                 try:
                     data, http_status = retrieve(url, expected_size)
+                    if len(data) > expected_size:
+                        raise ValueError(f"{inventory_id}: response exceeds expected size")
                     actual_sha = hashlib.sha256(data).hexdigest()
                     restored_path = root / provider / inventory_id
+                    if root not in restored_path.resolve().parents:
+                        raise ValueError(f"{inventory_id}: restore path escaped temporary root")
                     restored_path.parent.mkdir(parents=True, exist_ok=True)
                     restored_path.write_bytes(data)
                     record.update(
@@ -84,6 +131,10 @@ def rehearse(custody: dict[str, Any], *, fetcher: Fetcher | None = None) -> dict
                 except (OSError, ValueError, urllib.error.URLError) as exc:
                     record.update({"state": "unavailable", "error_type": type(exc).__name__})
                 observations.append(record)
+            if providers_for_object != set(ALLOWED_PREFIXES):
+                raise ValueError(
+                    f"{inventory_id}: exactly one GitHub and one Hugging Face replica required"
+                )
         restored = [item for item in observations if item["state"] == "restored"]
         tree_material = "\n".join(
             f"{item['provider']}|{item['inventory_id']}|{item['actual_sha256']}|{item['actual_size_bytes']}"

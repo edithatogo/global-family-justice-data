@@ -1,0 +1,49 @@
+{
+  "evidence_id": "E-G2-L2-M10-ROW-REVIEW-20260911",
+  "record_type": "repository_owned_metadata_row_review",
+  "observed_on": "2026-09-11",
+  "row": {
+    "search_log_id": "WEB-PILOT-234",
+    "jurisdiction_id": "USA-MN",
+    "source_id": "USA-MN-MJB",
+    "edition": "2024",
+    "result_state": "official_source_found",
+    "source_edition_id": "ED-USA-MN-MJB-PERF-2024",
+    "source_sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b",
+    "acquisition_manifest": "data/raw/manifests/ACQ-USA-MN-MJB-20260814T144054Z-32931494.json",
+    "acquisition_manifest_sha256": "0a4e45a77393dc7f316a2242a0d5788c8a6c0a8c966c0395b64fff471808eb69"
+  },
+  "inputs": {
+    "search_log": "data/census/search_log.csv",
+    "search_log_sha256": "06370c4b17f019e72b27d93ac97ebd0b731d6283ee6753e9d2a864a4ac373af6"
+  },
+  "disposition": {
+    "review_status": "reviewed_metadata_only",
+    "reviewed_fields": [
+      "official_source_found",
+      "source_id",
+      "edition_label",
+      "acquisition_manifest_locator",
+      "source_digest",
+      "rights_status"
+    ],
+    "confirmed": "The repository records an official-source discovery and a digest-bound private acquisition manifest for the 2024 USA-MN performance-measures edition.",
+    "unresolved": [
+      "exact-edition rights and redistribution",
+      "completeness and coverage",
+      "family taxonomy and semantic comparability",
+      "publisher triangulation",
+      "native or local human review"
+    ],
+    "public_boundary": "metadata_only",
+    "maturity_effect": "supporting_only_no_m10_promotion",
+    "g2_effect": "none"
+  },
+  "reviewer_role": "repository-owned metadata review",
+  "status": "supporting_evidence_only",
+  "limitations": [
+    "No source bytes or PDF text are reproduced in this receipt.",
+    "This is not legal, rights, semantic, accessibility or independent assurance.",
+    "It does not establish M10 L2, G2 passage, publication or release."
+  ]
+}

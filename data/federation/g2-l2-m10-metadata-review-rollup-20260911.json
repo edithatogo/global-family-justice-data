@@ -1,0 +1,31 @@
+{
+  "evidence_id": "E-G2-L2-M10-METADATA-REVIEW-ROLLUP-20260911",
+  "record_type": "repository_owned_m10_metadata_review_rollup",
+  "observed_on": "2026-09-11",
+  "prior_receipt": {
+    "path": "data/federation/g2-l2-m10-metadata-review-20260910.json",
+    "sha256": "15a6fe07b0a91d2ca4018b423d9c725d5c70ae75e18da7b33515fbd20d800824",
+    "reviewed_official_source_rows": 74,
+    "unreviewed_official_source_rows": 1
+  },
+  "new_row_receipt": {
+    "path": "data/federation/g2-l2-m10-row-review-20260911.json",
+    "sha256": "3932285c41035cce300d4dda7c78035bf06ab350c7d23df13687b54a3cfe2446",
+    "reviewed_metadata_rows_added": 1
+  },
+  "rollup": {
+    "official_source_rows_with_metadata_disposition": 75,
+    "unresolved_rights_or_completeness": true,
+    "source_language_accuracy": "not_assessed",
+    "publisher_triangulation": "not_done",
+    "native_or_local_human_review": "not_done",
+    "status": "supporting_evidence_only",
+    "m10_effect": "no_promotion",
+    "g2_effect": "none"
+  },
+  "limitations": [
+    "The prior 2026-09-10 receipt remains immutable and unchanged.",
+    "This rollup records metadata dispositions, not complete coverage or source validation.",
+    "No rights, semantic, accessibility, independent assurance, M10 L2, G2, publication or release claim is made."
+  ]
+}

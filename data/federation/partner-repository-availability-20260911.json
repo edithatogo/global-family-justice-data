@@ -1,0 +1,74 @@
+{
+  "receipt_id": "R-FEDERATION-PARTNER-AVAILABILITY-20260911",
+  "observed_at": "2026-09-11T20:23:10Z",
+  "method": "read-only GitHub repository metadata and contents inspection",
+  "operator": "repository-owned federation observer",
+  "scope": "owner-controlled repositories only",
+  "repositories": [
+    {
+      "repository": "edithatogo/archive-govt-nz",
+      "default_branch": "main",
+      "head_commit": "bfaa6cff9edd88ec2b2320244c52b34cc8a2f83d",
+      "observed_paths": [
+        {
+          "path": "schemas/archive/v1/publication-receipt.schema.json",
+          "blob_sha": "388265731612080a602dab894507933a81e6b827",
+          "size_bytes": 1062
+        },
+        {
+          "path": "src/archive_govt_nz/foi_ownership.py",
+          "blob_sha": "c653a52e6eb2948213bbc9e54c41ccd3f009cb45",
+          "size_bytes": 4519
+        }
+      ],
+      "status": "reachable_reference_only"
+    },
+    {
+      "repository": "edithatogo/global-medicines-atlas",
+      "default_branch": "main",
+      "head_commit": "694c47650226a5b6853b94011b899f77a60bbe82",
+      "observed_paths": [
+        {
+          "path": "contracts/medallion/v4/federation.schema.json",
+          "blob_sha": "ced7b2e8c30f9ea020395eb56f0512be91fd2e85",
+          "size_bytes": 8012
+        },
+        {
+          "path": "src/global_medicines_atlas/federation.py",
+          "blob_sha": "dc9456801e56cb94eea6a94f95ebb5aa91837a4b",
+          "size_bytes": 4940
+        }
+      ],
+      "status": "reachable_reference_only"
+    },
+    {
+      "repository": "edithatogo/reimbursement-atlas",
+      "default_branch": "main",
+      "head_commit": "c003bcbe3f829df1fe0a75e9ca235180ae6ae632",
+      "observed_paths": [],
+      "status": "reachable_repository_contract_path_not_found"
+    },
+    {
+      "repository": "edithatogo/dataset-estate-registry",
+      "observed_paths": [],
+      "status": "repository_not_found"
+    }
+  ],
+  "authority": {
+    "network": true,
+    "source_access": false,
+    "partner_contact": false,
+    "partner_registration": false,
+    "interoperability_acceptance": false,
+    "rights_clearance": false,
+    "publication": false,
+    "release": false,
+    "gate_acceptance": false
+  },
+  "limitations": [
+    "Reachability and blob identity do not establish semantic compatibility, partner consent, registration or live interoperability.",
+    "The observed heads differ from the older pinned preparation bundle and require a fresh compatibility run before rebinding.",
+    "No repository was modified and no source or product payload was requested."
+  ],
+  "status": "supporting_metadata_observation"
+}

@@ -192,7 +192,10 @@ def main() -> None:
         limitations=(
             "Two repository-owned extraction paths over the frozen local B0 bytes.",
             "This is supporting reproducibility evidence, not independent assurance.",
-            "Rows remain quarantined; rights, semantic equivalence, layer maturity, G2, publication and release are unresolved.",
+            (
+                "Rows remain quarantined; rights, semantic equivalence, layer maturity, "
+                "G2, publication and release are unresolved."
+            ),
         ),
     )
     receipt = {

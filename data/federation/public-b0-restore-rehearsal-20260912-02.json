@@ -1,0 +1,147 @@
+{
+  "contract_version": "gfjd-public-b0-restore-rehearsal-v1",
+  "status": "pass",
+  "object_count": 6,
+  "replica_count": 12,
+  "provider_count": 2,
+  "observations": [
+    {
+      "inventory_id": "ARC-GBR-EAW-2026Q1",
+      "provider": "huggingface",
+      "url": "https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/16e804c5d2bbcc650b78c0c0dea0b6e34ef7663d/sources/ARC-GBR-EAW-2026Q1/FCSQ_2026_Q1.zip",
+      "expected_sha256": "8ea470874a6d24ca0db2c7253dd4141f595304262617248c2063ecd0e4cb1c96",
+      "expected_size_bytes": 1181359,
+      "http_status": 200,
+      "actual_sha256": "8ea470874a6d24ca0db2c7253dd4141f595304262617248c2063ecd0e4cb1c96",
+      "actual_size_bytes": 1181359,
+      "state": "restored"
+    },
+    {
+      "inventory_id": "ARC-GBR-EAW-2026Q1",
+      "provider": "github",
+      "url": "https://github.com/edithatogo/global-family-justice-data/releases/download/b0-source-archive-2026-08-27.1/ARC-GBR-EAW-2026Q1__FCSQ_2026_Q1.zip",
+      "expected_sha256": "8ea470874a6d24ca0db2c7253dd4141f595304262617248c2063ecd0e4cb1c96",
+      "expected_size_bytes": 1181359,
+      "http_status": 200,
+      "actual_sha256": "8ea470874a6d24ca0db2c7253dd4141f595304262617248c2063ecd0e4cb1c96",
+      "actual_size_bytes": 1181359,
+      "state": "restored"
+    },
+    {
+      "inventory_id": "ARC-AUS-FCFCOA-202425",
+      "provider": "huggingface",
+      "url": "https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/16e804c5d2bbcc650b78c0c0dea0b6e34ef7663d/sources/ARC-AUS-FCFCOA-202425/annual-report-2024-25.pdf",
+      "expected_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "expected_size_bytes": 13442996,
+      "http_status": 200,
+      "actual_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "actual_size_bytes": 13442996,
+      "state": "restored"
+    },
+    {
+      "inventory_id": "ARC-AUS-FCFCOA-202425",
+      "provider": "github",
+      "url": "https://github.com/edithatogo/global-family-justice-data/releases/download/b0-source-archive-2026-08-27.1/ARC-AUS-FCFCOA-202425__annual-report-2024-25.pdf",
+      "expected_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "expected_size_bytes": 13442996,
+      "http_status": 200,
+      "actual_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "actual_size_bytes": 13442996,
+      "state": "restored"
+    },
+    {
+      "inventory_id": "ARC-BRA-CNJ-2026",
+      "provider": "huggingface",
+      "url": "https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/16e804c5d2bbcc650b78c0c0dea0b6e34ef7663d/sources/ARC-BRA-CNJ-2026/justica-em-numeros-2026.pdf",
+      "expected_sha256": "3415d516d756f48d7337e83e6faa8477644fe98b5cedb43cb04999f59fd5a71f",
+      "expected_size_bytes": 26310437,
+      "http_status": 200,
+      "actual_sha256": "3415d516d756f48d7337e83e6faa8477644fe98b5cedb43cb04999f59fd5a71f",
+      "actual_size_bytes": 26310437,
+      "state": "restored"
+    },
+    {
+      "inventory_id": "ARC-BRA-CNJ-2026",
+      "provider": "github",
+      "url": "https://github.com/edithatogo/global-family-justice-data/releases/download/b0-source-archive-2026-08-27.1/ARC-BRA-CNJ-2026__justica-em-numeros-2026.pdf",
+      "expected_sha256": "3415d516d756f48d7337e83e6faa8477644fe98b5cedb43cb04999f59fd5a71f",
+      "expected_size_bytes": 26310437,
+      "http_status": 200,
+      "actual_sha256": "3415d516d756f48d7337e83e6faa8477644fe98b5cedb43cb04999f59fd5a71f",
+      "actual_size_bytes": 26310437,
+      "state": "restored"
+    },
+    {
+      "inventory_id": "ARC-SWE-DOMSTOLSVERKET-2026",
+      "provider": "huggingface",
+      "url": "https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/16e804c5d2bbcc650b78c0c0dea0b6e34ef7663d/sources/ARC-SWE-DOMSTOLSVERKET-2026/Cases%20filed%20and%20determined%2C%20family%20cases%20in%20district%20courts%202025.xlsx",
+      "expected_sha256": "47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb",
+      "expected_size_bytes": 11657,
+      "http_status": 200,
+      "actual_sha256": "47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb",
+      "actual_size_bytes": 11657,
+      "state": "restored"
+    },
+    {
+      "inventory_id": "ARC-SWE-DOMSTOLSVERKET-2026",
+      "provider": "github",
+      "url": "https://github.com/edithatogo/global-family-justice-data/releases/download/b0-source-archive-2026-08-27.1/ARC-SWE-DOMSTOLSVERKET-2026__cases-filed-and-determined-family-2025.xlsx",
+      "expected_sha256": "47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb",
+      "expected_size_bytes": 11657,
+      "http_status": 200,
+      "actual_sha256": "47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb",
+      "actual_size_bytes": 11657,
+      "state": "restored"
+    },
+    {
+      "inventory_id": "ARC-ZAF-JUD-202425",
+      "provider": "huggingface",
+      "url": "https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/16e804c5d2bbcc650b78c0c0dea0b6e34ef7663d/sources/ARC-ZAF-JUD-202425/annual-judiciary-report-2024-25.pdf",
+      "expected_sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce",
+      "expected_size_bytes": 6577186,
+      "http_status": 200,
+      "actual_sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce",
+      "actual_size_bytes": 6577186,
+      "state": "restored"
+    },
+    {
+      "inventory_id": "ARC-ZAF-JUD-202425",
+      "provider": "github",
+      "url": "https://github.com/edithatogo/global-family-justice-data/releases/download/b0-source-archive-2026-08-27.1/ARC-ZAF-JUD-202425__annual-judiciary-report-2024-25.pdf",
+      "expected_sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce",
+      "expected_size_bytes": 6577186,
+      "http_status": 200,
+      "actual_sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce",
+      "actual_size_bytes": 6577186,
+      "state": "restored"
+    },
+    {
+      "inventory_id": "ARC-USA-MN-MJB-PERF-2024",
+      "provider": "huggingface",
+      "url": "https://huggingface.co/datasets/edithatogo/gfjd-source-archive/resolve/16e804c5d2bbcc650b78c0c0dea0b6e34ef7663d/sources/ARC-USA-MN-MJB-PERF-2024/Annual-Report-2024-Performance-Measures.pdf",
+      "expected_sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b",
+      "expected_size_bytes": 1402492,
+      "http_status": 200,
+      "actual_sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b",
+      "actual_size_bytes": 1402492,
+      "state": "restored"
+    },
+    {
+      "inventory_id": "ARC-USA-MN-MJB-PERF-2024",
+      "provider": "github",
+      "url": "https://github.com/edithatogo/global-family-justice-data/releases/download/b0-source-archive-2026-08-27.1/ARC-USA-MN-MJB-PERF-2024__Annual-Report-2024-Performance-Measures.pdf",
+      "expected_sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b",
+      "expected_size_bytes": 1402492,
+      "http_status": 200,
+      "actual_sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b",
+      "actual_size_bytes": 1402492,
+      "state": "restored"
+    }
+  ],
+  "restore_tree_sha256": "b1faee2104102bc0a628bef4d097ea3e6693f438234d483c22189203341d01d2",
+  "temporary_bytes_deleted": true,
+  "source_bytes_persisted": false,
+  "observed_at": "2026-09-11T22:51:45Z",
+  "custody_path": "data/preservation/public_b0_custody_20260827.json",
+  "custody_sha256": "1f6fe125739d9fc48e4906cb2fd7233999447fa731435a3b263c7ea5fe7505ad"
+}

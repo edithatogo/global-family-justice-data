@@ -1,10 +1,10 @@
 # Generated programme status
 
-Generated: `2026-09-11T13:41:41+00:00`
+Generated: `2026-09-11T13:46:51+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G2**
-Conductor validation: **FAIL** (1 errors, 14 warnings)
+Conductor validation: **PASS** (0 errors, 14 warnings)
 
 ## Gate readiness
 

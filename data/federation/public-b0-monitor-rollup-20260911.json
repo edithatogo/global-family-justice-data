@@ -1,0 +1,34 @@
+{
+  "evidence_id": "E-PUBLIC-B0-MONITOR-ROLLUP-20260911",
+  "contract_version": "gfjd-public-b0-monitor-rollup-v1",
+  "status": "pass",
+  "object_count": 6,
+  "replica_count_per_run": 12,
+  "providers": ["github", "huggingface"],
+  "observations": [
+    {
+      "run_id": "34094742129",
+      "event": "schedule",
+      "checked_at": "2026-09-07T07:17:21Z",
+      "head_commit": "dcc1eeb4481c25d478b09543ce8994887dfc5d76",
+      "receipt_url": "https://github.com/edithatogo/global-family-justice-data/releases/download/b0-monitor-34094742129-1/receipt.json",
+      "receipt_sha256": "fdaf587d5c9d289cd8ae60e017e5597fd3a93df4d3fcdd0ff5d5d67b7ec8958d",
+      "receipt_bytes": 10275,
+      "workflow_conclusion": "success"
+    },
+    {
+      "run_id": "34620587686",
+      "event": "workflow_dispatch",
+      "checked_at": "2026-09-11T16:12:07Z",
+      "head_commit": "57c35dc8bc5e2d316203abe67b3e3a231795f603",
+      "receipt_url": "https://github.com/edithatogo/global-family-justice-data/releases/download/b0-monitor-34620587686-1/receipt.json",
+      "receipt_sha256": "a2d744d0aa9b6f79cdcd87131d7e5d85a8e3614dd7eaed3bd315cae7f5298790",
+      "receipt_bytes": 10275,
+      "workflow_conclusion": "success"
+    }
+  ],
+  "limitations": [
+    "The rollup proves two successful repository-owned monitoring observations, not independent assurance.",
+    "Rights, semantic validity, public restore, medallion qualification, maturity promotion, gate passage and release remain unresolved."
+  ]
+}

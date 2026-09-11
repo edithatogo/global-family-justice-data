@@ -11,6 +11,17 @@
         "schemas/archive/v1/publication-receipt.schema.json",
         "src/archive_govt_nz/foi_ownership.py"
       ],
+      "observed_content_sha256": {
+        "schemas/archive/v1/publication-receipt.schema.json": "6097ba87f4eafa04bcea8f586144cb9129961d085709fe99350e600274137c9d",
+        "src/archive_govt_nz/foi_ownership.py": "9bdbecd2cd84f1faff7d69b5bdad729f8add68baa98b9345b066ccc1775d031a"
+      },
+      "schema_metadata": {
+        "schemas/archive/v1/publication-receipt.schema.json": {
+          "title": "Publication receipt",
+          "type": "object",
+          "required_count": 8
+        }
+      },
       "status": "reachable_reference_only"
     },
     {
@@ -20,6 +31,18 @@
         "contracts/medallion/v4/federation.schema.json",
         "src/global_medicines_atlas/federation.py"
       ],
+      "observed_content_sha256": {
+        "contracts/medallion/v4/federation.schema.json": "ac28485a70e0853266e4c140f9a07cd557eb27816b0b408b9bf2927a4cffacec",
+        "src/global_medicines_atlas/federation.py": "2a21eb2d09a8a9ba1e956c1b0d5c123529c185d79bb31ced2c2a0cb8bebaeb78"
+      },
+      "schema_metadata": {
+        "contracts/medallion/v4/federation.schema.json": {
+          "$id": "https://edithatogo.github.io/contracts/medallion/v4/federation.schema.json",
+          "title": "Immutable public dataset federation v4",
+          "required_count": 13,
+          "property_count": 13
+        }
+      },
       "status": "reachable_reference_only"
     },
     {
@@ -42,6 +65,12 @@
         "contracts/medallion/v1/medallion-conformance.schema.json": "4c1ee81b026c64cf8f962d602cd64441a4a023c132346349c8b27dab0981f10e",
         "contracts/medallion/v2/field-lineage.schema.json": "bf31ee62a3566a8fde512748b79f644e0fab760f60924e4eb9d510d3c1ef6f8a",
         "contracts/medallion/v3/backfill-replay.schema.json": "5d0f472b124701ef66dcc1a5c39670826b8e95e5faf576cc394a3cd22df9419c"
+      },
+      "schema_metadata": {
+        "contracts/medallion/manifest.json": {
+          "contract_versions": ["v1", "v2", "v3"],
+          "authority_transition_status": "not_yet_hosted"
+        }
       },
       "status": "reachable_reference_only_v1_to_v3; no_v4_federation_schema"
     },

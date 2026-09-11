@@ -200,9 +200,7 @@ def _scan_zip(data: bytes, location: str) -> list[Finding]:
         return findings
     expanded = sum(info.file_size for info in infos)
     if expanded > MAX_EXPANDED_BYTES:
-        findings.append(
-            Finding("ARCHIVE_EXPANDED_LIMIT", location, "expanded archive is too large")
-        )
+        return [Finding("ARCHIVE_EXPANDED_LIMIT", location, "expanded archive is too large")]
     names: set[str] = set()
     for info in infos:
         member = PurePosixPath(info.filename.replace("\\", "/"))

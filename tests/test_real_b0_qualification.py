@@ -15,7 +15,7 @@ DEFAULT_INTAKE = _MODULE.DEFAULT_INTAKE
 qualify = _MODULE.qualify
 
 
-def test_real_b0_report_keeps_unsupported_routes_pending() -> None:
+def test_real_b0_report_scans_supported_routes_and_keeps_replay_pending() -> None:
     intake = json.loads(DEFAULT_INTAKE.read_bytes())
     if any(
         not (Path(__file__).parents[1] / row["payload_path"]).is_file() for row in intake["rows"]
@@ -40,6 +40,6 @@ def test_real_b0_report_keeps_unsupported_routes_pending() -> None:
         "ARC-USA-MN-MJB-PERF-2024",
     ):
         row = by_id[inventory_id]
-        assert row["b0_mechanical"]["status"] == "not_evaluated"
+        assert row["b0_mechanical"]["status"] == "verified"
         assert row["b1_replay"]["status"] == "pending"
         assert row["promotion_authorized"] is False

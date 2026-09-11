@@ -9,6 +9,7 @@ layer, maturity, gate, publication or release acceptance.
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import io
@@ -23,7 +24,7 @@ from gfjd.io import canonical_json_bytes
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKET = ROOT / "data/federation/real-pdf-zip-replay-contract-20260911.json"
-RUN = ROOT / "data/federation/real-pdf-zip-replay-20260911"
+DEFAULT_RUN_ID = "20260911"
 
 
 def sha(raw: bytes) -> str:
@@ -248,25 +249,44 @@ def path_b(contracts: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def main() -> None:
-    packet = json.loads(PACKET.read_bytes())
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--run-id", default=DEFAULT_RUN_ID)
+    parser.add_argument("--generated-at", default="2026-09-11T00:00:00Z")
+    parser.add_argument("--packet", type=Path, default=PACKET)
+    parser.add_argument("--receipt", type=Path)
+    args = parser.parse_args()
+    packet_path = args.packet if args.packet.is_absolute() else ROOT / args.packet
+    run = ROOT / f"data/federation/real-pdf-zip-replay-{args.run_id}"
+    receipt_target = (
+        args.receipt
+        if args.receipt is not None and args.receipt.is_absolute()
+        else ROOT
+        / (args.receipt or f"data/federation/real-pdf-zip-replay-receipt-{args.run_id}.json")
+    )
+    if run.exists():
+        raise SystemExit(f"replay_run_exists:{run.relative_to(ROOT)}")
+    if receipt_target.exists():
+        raise SystemExit(f"replay_receipt_exists:{receipt_target.relative_to(ROOT)}")
+    packet = json.loads(packet_path.read_bytes())
     contracts = packet["contracts"]
-    RUN.mkdir(parents=True, exist_ok=False)
+    run.mkdir(parents=True, exist_ok=False)
+    evidence_id = f"E-REAL-PDF-ZIP-REPLAY-{args.run_id}"
     a_rows = path_a(contracts)
     b_rows = path_b(contracts)
-    a_path = RUN / "extraction-a.json"
-    b_path = RUN / "extraction-b.json"
+    a_path = run / "extraction-a.json"
+    b_path = run / "extraction-b.json"
     a_path.write_bytes(canonical(a_rows) + b"\n")
     b_path.write_bytes(canonical(b_rows) + b"\n")
-    threshold_path = RUN / "threshold-policy.json"
+    threshold_path = run / "threshold-policy.json"
     threshold_path.write_bytes(canonical(packet["thresholds"]) + b"\n")
     comparison = g2_concordance.compare_g2_extractions(
         ROOT,
         primary_path=a_path,
         secondary_path=b_path,
-        output_dir=RUN / "comparison",
-        comparison_id="G2CMP-REAL-PDF-ZIP-20260911-01",
+        output_dir=run / "comparison",
+        comparison_id=f"G2CMP-REAL-PDF-ZIP-{args.run_id}-01",
         packet_id=packet["packet_id"],
-        packet_sha256=sha(PACKET.read_bytes()),
+        packet_sha256=sha(packet_path.read_bytes()),
         primary_receipt={
             "path": a_path.relative_to(ROOT).as_posix(),
             "sha256": sha(a_path.read_bytes()),
@@ -282,7 +302,7 @@ def main() -> None:
         source_commit=subprocess.check_output(
             ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
         ).strip(),
-        generated_at="2026-09-11T00:00:00Z",
+        generated_at=args.generated_at,
         expected_source_keys=[item["source_record_key"] for item in contracts],
         limitations=(
             "Two repository-owned extraction paths over the frozen local B0 bytes.",
@@ -295,9 +315,9 @@ def main() -> None:
     )
     receipt = {
         "schema_version": "1.0",
-        "evidence_id": "E-REAL-PDF-ZIP-REPLAY-20260911",
+        "evidence_id": evidence_id,
         "packet_id": packet["packet_id"],
-        "packet_sha256": sha(PACKET.read_bytes()),
+        "packet_sha256": sha(packet_path.read_bytes()),
         "source_scope": [item["inventory_id"] for item in contracts],
         "source_bytes_local_only": True,
         "network_requests": 0,
@@ -326,8 +346,8 @@ def main() -> None:
         "publication_authorized": False,
         "release_authorized": False,
     }
-    receipt_path = ROOT / "data/federation/real-pdf-zip-replay-receipt-20260911.json"
-    receipt_path.write_bytes(canonical(receipt) + b"\n")
+    receipt_target.parent.mkdir(parents=True, exist_ok=True)
+    receipt_target.write_bytes(canonical(receipt) + b"\n")
     print(json.dumps(receipt, ensure_ascii=False))
 
 

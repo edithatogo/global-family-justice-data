@@ -1,0 +1,9 @@
+{
+  "comparison_id": "G2CMP-REAL-PDF-ZIP-20260912-03-01",
+  "difference_count": 0,
+  "differences": [],
+  "packet_id": "G2PKT-REAL-PDF-ZIP-REPLAY-20260911-01",
+  "primary_output_sha256": "f5fce323192d69131f9aa25d119c9683d1e585b080d8b66b12851a373444b49d",
+  "schema_version": "1.0",
+  "secondary_output_sha256": "37dc1c3b5bee4ba889cb3b78eb77bb177b7b06c5143e7a94fb7793f044094e2b"
+}

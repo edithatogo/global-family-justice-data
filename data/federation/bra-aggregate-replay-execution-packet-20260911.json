@@ -1,0 +1,49 @@
+{
+  "packet_id": "G2-BRA-AGGREGATE-REPLAY-20260911-01",
+  "schema_version": "1.0",
+  "prepared_at": "2026-09-11T18:15:00Z",
+  "status": "awaiting_owner_execution_authorization",
+  "purpose": "One fresh aggregate-only response to exercise the merged BRA adapter and produce a digest-bound replay receipt.",
+  "source": {
+    "source_id": "BRA-CNJ-DATAJUD",
+    "candidate_id": "G2-API-BRA-TJSP-2026",
+    "endpoint": "https://api-publica.datajud.cnj.jus.br/api_publica_tjsp/_search",
+    "method": "POST",
+    "class_code": 1389,
+    "class_name": "Ação de Alimentos",
+    "terms_locator": "https://formularios.cnj.jus.br/wp-content/uploads/2023/11/Termos-de-uso-api-publica-V1.2.pdf"
+  },
+  "request": {
+    "size": 0,
+    "track_total_hits": false,
+    "query": {"bool": {"must": [{"match": {"classe.codigo": 1389}}]}},
+    "aggs": {"case_classes": {"terms": {"field": "classe.codigo", "size": 20}}}
+  },
+  "request_sha256": "224c837e0491f557ac506d04ad899d12d41e49edee00255144ae510ad766233d",
+  "execution_controls": {
+    "provider_calls": 1,
+    "retries": 0,
+    "redirects": false,
+    "maximum_response_bytes": 2097152,
+    "retain_raw_response": "restricted_ephemeral_only",
+    "case_level_records": false,
+    "personal_data": false,
+    "network_disabled_after_acquisition": true,
+    "adapter": "gfjd-medallion-api-aggregate-v1",
+    "adapter_module": "src/gfjd/medallion_api.py",
+    "public_boundary": "metadata_and_digest_receipts_only"
+  },
+  "expected_receipt": {
+    "response_sha256": null,
+    "adapter_receipt_path": "data/federation/bra-aggregate-replay-receipt-20260911.json",
+    "semantic_review_required": true,
+    "promotion_authorized": false
+  },
+  "stop_conditions": [
+    "HTTP, content-type, response-size, schema, shard or bucket contract failure",
+    "any case-level, personal, contact or unexpected field",
+    "request digest or endpoint/class identity mismatch",
+    "any retry, redirect, response ambiguity or digest mismatch"
+  ],
+  "claim_limit": "Execution would produce supporting reproducibility evidence only. It would not establish rights clearance, semantic equivalence, L2 maturity, G2 passage, publication or release."
+}

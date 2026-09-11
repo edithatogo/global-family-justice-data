@@ -7,7 +7,7 @@
 **Accountable authority:** repository owner and sole accountable decision-maker
 
 This append-only reconciliation supersedes no historical receipt. It records the
-current merged head and manifest while preserving the earlier G2 addendum as
+current merged head and its parent manifest snapshot while preserving the earlier G2 addendum as
 immutable lineage. It does not create a response, maturity promotion, gate
 acceptance, rights clearance, publication or release authorization.
 
@@ -16,7 +16,7 @@ acceptance, rights clearance, publication or release authorization.
 | Binding | Value |
 |---|---|
 | Merged `main` | `c7dfcdf1625f85f35f3c5c35763c32f62e7e8f3f` |
-| Current `MANIFEST.sha256` SHA-256 | `d403d552736878781d910d34cff1fa659831f72d0624dfafaaf4941946a50e30` |
+| Parent `main` `MANIFEST.sha256` snapshot SHA-256 | `d403d552736878781d910d34cff1fa659831f72d0624dfafaaf4941946a50e30` |
 | Historical addendum | `docs/governance/g2-gate-evidence-pack-addendum-2026-09-12.md` |
 | Historical addendum SHA-256 | `9e3a8fa5d2bd209171f9fca1fa783f91ff14313cb04d8cdb098208b8527def9a` |
 | BRA execution packet | `data/federation/bra-aggregate-replay-execution-packet-20260911.json` |

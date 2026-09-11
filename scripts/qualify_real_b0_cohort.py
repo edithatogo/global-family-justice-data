@@ -109,7 +109,12 @@ def _b0_mechanical(
     }
 
 
-def qualify(intake: dict[str, Any], *, as_of: str) -> dict[str, Any]:
+def qualify(
+    intake: dict[str, Any],
+    *,
+    as_of: str,
+    evidence_id: str = "E-G4-MEDALLION-B0-QUALIFICATION-20260911",
+) -> dict[str, Any]:
     safety_raw = SAFETY_PATH.read_bytes()
     custody_raw = CUSTODY_PATH.read_bytes()
     safety = json.loads(safety_raw)
@@ -214,7 +219,7 @@ def qualify(intake: dict[str, Any], *, as_of: str) -> dict[str, Any]:
         rows.append(row)
     return {
         "schema_version": "1.0",
-        "evidence_id": "E-G4-MEDALLION-B0-QUALIFICATION-20260911",
+        "evidence_id": evidence_id,
         "observed_at": as_of,
         "cohort_id": intake["cohort_id"],
         "intake_sha256": sha256(canonical(intake)),
@@ -263,11 +268,12 @@ def main() -> int:
     parser.add_argument("--intake", type=Path, default=DEFAULT_INTAKE)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--as-of", required=True)
+    parser.add_argument("--evidence-id", required=True)
     args = parser.parse_args()
     intake_path = args.intake if args.intake.is_absolute() else ROOT / args.intake
     output = args.output if args.output.is_absolute() else ROOT / args.output
     intake = json.loads(intake_path.read_bytes())
-    report = qualify(intake, as_of=args.as_of)
+    report = qualify(intake, as_of=args.as_of, evidence_id=args.evidence_id)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(canonical(report) + b"\n")
     print(json.dumps({"status": report["status"], "rows": len(report["rows"])}))

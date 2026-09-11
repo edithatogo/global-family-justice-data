@@ -30,19 +30,20 @@ It is not yet a mature international service. The most important missing compone
 
 ## Verification baseline
 
-The current 37-test suite, including repository-manifest verification, passes in full and measures 69.35% branch-aware package coverage. CI enforces a 65% v0.3 floor and the staged ratchet in `docs/quality/testing-strategy.md`; the lower current threshold is not the v1 target.
+The current repository test suite, including repository-manifest verification, passes in hosted CI. CI enforces the staged branch-aware coverage floor in `docs/quality/testing-strategy.md`; the lower current threshold is not the v1 target.
 
-The integrated validator runs 16 checks and currently passes with no errors or warnings. Five informational findings remain because high-priority source rights require definitive review.
+The integrated validator currently passes with 22 checks, no errors, 14 overdue-risk warnings and seven high-priority source-rights review notices. Those findings are intentionally visible and are not treated as gate clearance.
 
 ## Current programme truth
 
-The repository deliberately reports an evidence-assured maturity floor of L0. This does not mean no engineering work exists. It means that the maturity assessment is not yet supported by independently accepted evidence across every mandatory dimension.
+The repository deliberately reports an evidence-assured maturity floor of L1. This does not mean no engineering work exists. It means that the maturity assessment is not yet supported by accepted L2 evidence across every mandatory dimension.
 
 The following remain true:
 
-- G1 is not ready and has no accepted decision;
+- G1 is passed under the recorded owner decision;
+- G2 remains blocked because its required evidence-assured maturity floor is L2 while the current floor is L1;
 - draft files are not accepted evidence;
-- no real observation has been promoted to gold;
+- fresh real replay evidence remains supporting reproducibility evidence and has not been promoted to Gold;
 - no global coverage claim has been earned;
 - no external methods, security, accessibility or operational assurance has occurred;
 - no production recovery or 30-day release-candidate soak has occurred.

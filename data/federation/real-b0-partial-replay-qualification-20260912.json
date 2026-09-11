@@ -19,15 +19,16 @@
     "ARC-BRA-CNJ-2026": "3415d516d756f48d7337e83e6faa8477644fe98b5cedb43cb04999f59fd5a71f"
   },
   "replay_receipt": {
-    "path": "data/federation/real-pdf-zip-replay-receipt-20260911.json",
-    "sha256": "682039fdb763f3a89fa125bae82ae2d01d066a2893577cf0e4fc23dea25ce6b4",
+    "evidence_id": "E-REAL-PDF-ZIP-REPLAY-20260912-03",
+    "path": "data/federation/real-pdf-zip-replay-receipt-20260912-03.json",
+    "sha256": "39efdc0ffaba4a149b7c25b1aeef07025a639c58dc5e76d5b55062a94ceddcf7",
     "source_scope": [
       "ARC-GBR-EAW-2026Q1",
       "ARC-AUS-FCFCOA-202425",
       "ARC-ZAF-JUD-202425",
       "ARC-USA-MN-MJB-PERF-2024"
     ],
-    "comparison_sha256": "0cb2a2840d860034585324901e2e90182d2fa50ebc12370d5e632418cdc71ee8",
+    "comparison_sha256": "d3a21629bac4a0306628317b6fa401c66de5cad1174efb0b1e8e4f78c496ee0d",
     "critical_concordance": 1.0,
     "overall_concordance": 1.0,
     "network_requests": 0

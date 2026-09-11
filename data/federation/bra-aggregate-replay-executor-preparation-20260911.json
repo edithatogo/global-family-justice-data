@@ -1,0 +1,44 @@
+{
+  "evidence_id": "E-G4-BRA-AGGREGATE-REPLAY-EXECUTOR-PREP-20260911",
+  "schema_version": "1.0",
+  "observed_at": "2026-09-11T18:47:05Z",
+  "status": "executor_prepared_authorization_pending",
+  "packet": {
+    "path": "data/federation/bra-aggregate-replay-execution-packet-20260911.json",
+    "sha256": "4620b15a9b96c8b9a66429ebff63d7f770c1b89b80b346c306f06541edb64855",
+    "request_sha256": "224c837e0491f557ac506d04ad899d12d41e49edee00255144ae510ad766233d"
+  },
+  "implementation": {
+    "module": "src/gfjd/bra_aggregate_replay.py",
+    "module_sha256": "7884df3bb6a532c8c7b5f3ffa80d8d2da942d41eaeafdcabb53ce051d34549e5",
+    "entrypoint": "scripts/execute_bra_aggregate_replay.py",
+    "entrypoint_sha256": "9feb02d6e1754f91f05ac713d8630f019b94c555910d22a051442a875f6f71c5",
+    "tests": "tests/test_bra_aggregate_replay.py",
+    "tests_sha256": "aaf7add47ebe74a230089b1c82fdb6c9985b3f64e0fcfecd9397f4321ae89e61",
+    "test_result": "21 passed; focused module branch coverage 97%"
+  },
+  "controls": [
+    "exact packet hash is required as an explicit authorization argument",
+    "a separate owner authorization record must be active and bound to the packet hash",
+    "one HTTPS POST, zero retries and zero redirects",
+    "adapter-canonical request digest is recomputed before transport",
+    "public address pinning and TLS hostname verification are used",
+    "response is limited to 2 MiB and must be JSON with HTTP 200",
+    "case-level and personal-data boundaries are enforced by the adapter",
+    "raw response is retained only in process memory and never written",
+    "dry-run verifies bindings without network access",
+    "terminal failures are written as non-retryable receipts even when a POST may have started"
+  ],
+  "authority": {
+    "owner_execution_authorization": false,
+    "network_access": false,
+    "source_bytes_persisted": false,
+    "publication": false,
+    "release": false,
+    "g2_passage": false
+  },
+  "limitations": [
+    "No provider call or response receipt exists until the owner authorizes the exact packet.",
+    "This preparation does not establish semantic equivalence, rights clearance, L2 maturity, G2 acceptance, publication or release."
+  ]
+}

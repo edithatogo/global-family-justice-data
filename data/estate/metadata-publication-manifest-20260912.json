@@ -1,0 +1,45 @@
+{
+  "manifest_id": "GFJD-METADATA-ESTATE-20260912-01",
+  "observed_on": "2026-09-11",
+  "owner": "edithatogo",
+  "publication_scope": "metadata_only",
+  "source_bytes_published_by_this_manifest": false,
+  "rights_clearance": "not_established",
+  "maturity_effect": "none",
+  "gate_effect": "none",
+  "release_effect": "none",
+  "datasets": [
+    {
+      "dataset": "gfjd-source-catalogue",
+      "role": "source_catalogue",
+      "payload": "source-register metadata and rights dispositions only",
+      "status": "metadata_preparation"
+    },
+    {
+      "dataset": "gfjd-observations",
+      "role": "observations",
+      "payload": "schema and evidence references only; no accepted harmonised observations",
+      "status": "metadata_preparation"
+    },
+    {
+      "dataset": "gfjd-outcomes-evidence",
+      "role": "outcomes_evidence",
+      "payload": "evidence and disposition references only; no released outcome layer",
+      "status": "metadata_preparation"
+    },
+    {
+      "dataset": "gfjd-extraction-benchmark",
+      "role": "extraction_benchmark",
+      "payload": "contract, replay and limitation references only; no Gold benchmark claim",
+      "status": "metadata_preparation"
+    }
+  ],
+  "required_before_product_release": [
+    "accepted exact-edition rights and redistribution records",
+    "accepted layer-specific qualification and field lineage",
+    "provider-separated anonymous restore receipts",
+    "accessibility and product review",
+    "owner Gold/Platinum adjudication and release authority"
+  ],
+  "claim_limit": "This manifest records a public metadata boundary only. It does not establish a populated medallion estate, rights clearance, maturity, G2-G6 passage, publication of source-derived products or release readiness."
+}

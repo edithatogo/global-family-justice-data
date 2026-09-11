@@ -63,7 +63,9 @@ def extract_zip_csv(source: bytes, contract: dict[str, Any]) -> dict[str, Any]:
             )
         )
         value_field = contract["value_field"]
-        _require(isinstance(value_field, str) and re.fullmatch(r"[A-Za-z0-9_]+", value_field))
+        _require(
+            isinstance(value_field, str) and re.fullmatch(r"[A-Za-z0-9_]+", value_field) is not None
+        )
         with zipfile.ZipFile(io.BytesIO(source), "r") as archive:
             _require(member in archive.namelist())
             raw = archive.read(member)

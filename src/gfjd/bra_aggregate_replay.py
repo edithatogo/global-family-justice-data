@@ -16,6 +16,8 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
 
+from jsonschema import Draft202012Validator, FormatChecker
+
 from .g2_successor_transport import (
     PeerBoundHTTPSConnection,
     bounded_read,
@@ -31,6 +33,7 @@ from .medallion_api import (
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_PACKET = ROOT / "data/federation/bra-aggregate-replay-execution-packet-20260911.json"
+AUTHORIZATION_SCHEMA = ROOT / "docs/governance/g2-bra-replay-owner-authorization.schema.json"
 MAX_RESPONSE_BYTES = 2 * 1024 * 1024
 
 
@@ -106,21 +109,18 @@ def verify_packet(packet: dict[str, Any], packet_sha256: str, authorized_sha256:
 def verify_owner_authorization(record: dict[str, Any], packet_sha256: str) -> None:
     if not isinstance(record, dict):
         raise BraReplayError("owner authorization record is not an object")
-    if record.get("decision_status") != "authorized":
-        raise BraReplayError("owner authorization is not active")
+    try:
+        schema = json.loads(AUTHORIZATION_SCHEMA.read_bytes())
+        errors = list(
+            Draft202012Validator(schema, format_checker=FormatChecker()).iter_errors(record)
+        )
+    except (OSError, json.JSONDecodeError, TypeError, ValueError) as exc:
+        raise BraReplayError(f"owner authorization schema unavailable: {exc}") from exc
+    if errors:
+        detail = "; ".join(error.message for error in errors[:3])
+        raise BraReplayError(f"owner authorization schema validation failed: {detail}")
     if record.get("packet_sha256") != packet_sha256:
         raise BraReplayError("owner authorization is not bound to this packet")
-    if (
-        not record.get("owner_identity")
-        or record.get("owner_role") != "repository owner and sole accountable decision-maker"
-    ):
-        raise BraReplayError("owner identity or role is missing")
-    if (
-        record.get("network_access") is not True
-        or record.get("publication") is not False
-        or record.get("release") is not False
-    ):
-        raise BraReplayError("owner authorization boundary is invalid")
 
 
 def execute(packet: dict[str, Any], packet_sha256: str, api_key: str) -> dict[str, Any]:

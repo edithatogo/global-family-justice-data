@@ -12,6 +12,26 @@ from gfjd import bra_aggregate_replay
 PACKET = Path("data/federation/bra-aggregate-replay-execution-packet-20260911.json")
 
 
+def owner_authorization(packet_sha: str) -> dict[str, object]:
+    return {
+        "schema_version": "1.0",
+        "decision_id": "D-G2-BRA-REPLAY-TEST",
+        "decided_at": "2026-09-11T19:20:00Z",
+        "decision_status": "authorized",
+        "owner_identity": "repository owner",
+        "owner_role": "repository owner and sole accountable decision-maker",
+        "packet_id": "G2-BRA-AGGREGATE-REPLAY-20260911-01",
+        "packet_sha256": packet_sha,
+        "network_access": True,
+        "publication": False,
+        "release": False,
+        "rights_clearance": False,
+        "immutable_reference": "test-owner-reference",
+        "conditions": ["exact packet only"],
+        "reopen_triggers": ["any stop condition"],
+    }
+
+
 def test_packet_verification_is_digest_and_contract_bound() -> None:
     packet, raw, packet_sha = bra_aggregate_replay.load_packet(PACKET)
     assert packet_sha == hashlib.sha256(raw).hexdigest()
@@ -26,19 +46,7 @@ def test_dry_run_has_no_network_and_reports_exact_bindings(
     packet, raw, packet_sha = bra_aggregate_replay.load_packet(PACKET)
     with TemporaryDirectory() as directory:
         authorization_path = Path(directory) / "authorization.json"
-        authorization_path.write_text(
-            json.dumps(
-                {
-                    "decision_status": "authorized",
-                    "packet_sha256": packet_sha,
-                    "owner_identity": "repository owner",
-                    "owner_role": "repository owner and sole accountable decision-maker",
-                    "network_access": True,
-                    "publication": False,
-                    "release": False,
-                }
-            )
-        )
+        authorization_path.write_text(json.dumps(owner_authorization(packet_sha)))
         assert (
             bra_aggregate_replay.main(
                 [
@@ -68,15 +76,7 @@ def test_owner_authorization_must_bind_exact_packet() -> None:
     packet, _, packet_sha = bra_aggregate_replay.load_packet(PACKET)
     with pytest.raises(bra_aggregate_replay.BraReplayError, match="bound to this packet"):
         bra_aggregate_replay.verify_owner_authorization(
-            {
-                "decision_status": "authorized",
-                "packet_sha256": "0" * 64,
-                "owner_identity": "repository owner",
-                "owner_role": "repository owner and sole accountable decision-maker",
-                "network_access": True,
-                "publication": False,
-                "release": False,
-            },
+            {**owner_authorization("0" * 64), "packet_sha256": "0" * 64},
             packet_sha,
         )
 
@@ -213,25 +213,30 @@ def test_load_and_owner_authorization_failures_are_explicit() -> None:
             bra_aggregate_replay.load_packet(path)
     with pytest.raises(bra_aggregate_replay.BraReplayError, match="not an object"):
         bra_aggregate_replay.verify_owner_authorization([], "0" * 64)  # type: ignore[arg-type]
-    with pytest.raises(bra_aggregate_replay.BraReplayError, match="not active"):
+    with pytest.raises(bra_aggregate_replay.BraReplayError, match="schema validation"):
         bra_aggregate_replay.verify_owner_authorization({}, "0" * 64)
-    with pytest.raises(bra_aggregate_replay.BraReplayError, match="identity or role"):
-        bra_aggregate_replay.verify_owner_authorization(
-            {"decision_status": "authorized", "packet_sha256": "0" * 64}, "0" * 64
-        )
-    with pytest.raises(bra_aggregate_replay.BraReplayError, match="boundary"):
+    with pytest.raises(bra_aggregate_replay.BraReplayError, match="schema validation"):
         bra_aggregate_replay.verify_owner_authorization(
             {
-                "decision_status": "authorized",
-                "packet_sha256": "0" * 64,
-                "owner_identity": "owner",
-                "owner_role": "repository owner and sole accountable decision-maker",
-                "network_access": False,
-                "publication": False,
-                "release": False,
+                **owner_authorization("0" * 64),
+                "owner_identity": "",
+                "owner_role": "wrong",
             },
             "0" * 64,
         )
+    with pytest.raises(bra_aggregate_replay.BraReplayError, match="schema validation"):
+        bra_aggregate_replay.verify_owner_authorization(
+            {**owner_authorization("0" * 64), "network_access": False},
+            "0" * 64,
+        )
+
+
+def test_owner_authorization_schema_unavailability_fails_closed(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(bra_aggregate_replay, "AUTHORIZATION_SCHEMA", Path("/missing/schema.json"))
+    with pytest.raises(bra_aggregate_replay.BraReplayError, match="schema unavailable"):
+        bra_aggregate_replay.verify_owner_authorization(owner_authorization("0" * 64), "0" * 64)
 
 
 def test_execute_rejects_missing_key_and_malformed_execution_packet(
@@ -285,19 +290,7 @@ def test_main_success_writes_receipt(monkeypatch: pytest.MonkeyPatch) -> None:
     with TemporaryDirectory() as directory:
         auth = Path(directory) / "auth.json"
         out = Path(directory) / "receipt.json"
-        auth.write_text(
-            json.dumps(
-                {
-                    "decision_status": "authorized",
-                    "packet_sha256": packet_sha,
-                    "owner_identity": "repository owner",
-                    "owner_role": "repository owner and sole accountable decision-maker",
-                    "network_access": True,
-                    "publication": False,
-                    "release": False,
-                }
-            )
-        )
+        auth.write_text(json.dumps(owner_authorization(packet_sha)))
         monkeypatch.setattr(
             bra_aggregate_replay,
             "execute",
@@ -326,19 +319,7 @@ def test_main_writes_terminal_failure_without_api_key(capsys: pytest.CaptureFixt
     with TemporaryDirectory() as directory:
         auth = Path(directory) / "auth.json"
         out = Path(directory) / "receipt.json"
-        auth.write_text(
-            json.dumps(
-                {
-                    "decision_status": "authorized",
-                    "packet_sha256": packet_sha,
-                    "owner_identity": "repository owner",
-                    "owner_role": "repository owner and sole accountable decision-maker",
-                    "network_access": True,
-                    "publication": False,
-                    "release": False,
-                }
-            )
-        )
+        auth.write_text(json.dumps(owner_authorization(packet_sha)))
         assert (
             bra_aggregate_replay.main(
                 [

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://global-family-justice-data.example/governance/g2-bra-replay-owner-authorization.schema.json",
+  "title": "Owner authorization for the bounded BRA aggregate replay",
+  "type": "object",
+  "required": [
+    "schema_version", "decision_id", "decided_at", "decision_status",
+    "owner_identity", "owner_role", "packet_id", "packet_sha256",
+    "network_access", "publication", "release", "rights_clearance",
+    "immutable_reference", "conditions", "reopen_triggers"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "decision_id": {"type": "string", "minLength": 8},
+    "decided_at": {"type": "string", "format": "date-time"},
+    "decision_status": {"const": "authorized"},
+    "owner_identity": {"type": "string", "minLength": 2},
+    "owner_role": {"const": "repository owner and sole accountable decision-maker"},
+    "packet_id": {"const": "G2-BRA-AGGREGATE-REPLAY-20260911-01"},
+    "packet_sha256": {"$ref": "#/$defs/sha256"},
+    "network_access": {"const": true},
+    "publication": {"const": false},
+    "release": {"const": false},
+    "rights_clearance": {"const": false},
+    "immutable_reference": {"type": "string", "minLength": 8},
+    "conditions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 3}},
+    "reopen_triggers": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 3}}
+  },
+  "$defs": {"sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"}},
+  "additionalProperties": false
+}

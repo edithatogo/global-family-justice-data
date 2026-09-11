@@ -1,0 +1,27 @@
+{
+  "evidence_id": "E-G4-BRA-AGGREGATE-ADAPTER-PREP-20260911",
+  "schema_version": "1.0",
+  "observed_at": "2026-09-11T17:51:29Z",
+  "route": "BRA-CNJ-DATAJUD",
+  "scope": "repository-owned preparation for the bounded aggregate DataJud class-1389 route",
+  "implementation": {
+    "module": "src/gfjd/medallion_api.py",
+    "implementation_sha256": "cfd74f87f482a559fcad72ca7a08b840806a95d5c23987baf9fe604d4448d5c1",
+    "contract_version": "gfjd-medallion-api-aggregate-v1",
+    "tests": "tests/test_medallion_api.py",
+    "tests_sha256": "fccf434679d3886e80f534317f5195a1e18d7b9217b255287802121f7b24fc52",
+    "test_result": "2 passed"
+  },
+  "controls": [
+    "source and request digests are required",
+    "only the exact aggregate response schema is accepted",
+    "case-level hits, duplicate keys, partial shards, approximate buckets and unexpected fields fail closed",
+    "receipt is non-promoting and cannot authorize publication, release or gate passage"
+  ],
+  "status": "adapter_prepared_real_response_pending",
+  "limitations": [
+    "No new network request or source response was used in this preparation step.",
+    "A fresh digest-bound aggregate response receipt is still required for BRA empirical replay.",
+    "This preparation does not establish semantic equivalence, rights clearance, maturity, G2 acceptance, publication or release."
+  ]
+}

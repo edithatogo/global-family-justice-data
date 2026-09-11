@@ -1,0 +1,56 @@
+{
+  "receipt_id": "R-HOSTED-MEDALLION-TREES-20260911",
+  "observed_at": "2026-09-11T11:50:16Z",
+  "operator": "repository-owned anonymous hosted-estate observer",
+  "method": "anonymous GET of revision-pinned Hugging Face dataset tree metadata",
+  "provider": "huggingface",
+  "repositories": [
+    {
+      "id": "gfjd-source-catalogue",
+      "revision": "257802ec64818ebc5a2c1207f2ac4ffb5f4e42d5",
+      "endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-source-catalogue/tree/257802ec64818ebc5a2c1207f2ac4ffb5f4e42d5?recursive=true&expand=false",
+      "http_status": 200,
+      "response_bytes": 293,
+      "response_sha256": "511d4d07b1541e7cf23885da4efba702579e8b1db7bfcef8a9e43ae6cc531eae",
+      "paths": [".gitattributes", "README.md", "RIGHTS.md"],
+      "product_payload_paths": []
+    },
+    {
+      "id": "gfjd-observations",
+      "revision": "48f9a68af864318160bc56da8256caa35b94a793",
+      "endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-observations/tree/48f9a68af864318160bc56da8256caa35b94a793?recursive=true&expand=false",
+      "http_status": 200,
+      "response_bytes": 293,
+      "response_sha256": "283882b99fe1ee14325634d5d44e69a43d70a8aae3f5dd98e406c0d534153a31",
+      "paths": [".gitattributes", "README.md", "RIGHTS.md"],
+      "product_payload_paths": []
+    },
+    {
+      "id": "gfjd-outcomes-evidence",
+      "revision": "02e12eb96c4f36a88b6162acaa7aa9c67afffbfa",
+      "endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-outcomes-evidence/tree/02e12eb96c4f36a88b6162acaa7aa9c67afffbfa?recursive=true&expand=false",
+      "http_status": 200,
+      "response_bytes": 293,
+      "response_sha256": "856219e382ad6b7effa6e234e9ea91ff131e06f8bd60660afee9488d4c9acfb0",
+      "paths": [".gitattributes", "README.md", "RIGHTS.md"],
+      "product_payload_paths": []
+    },
+    {
+      "id": "gfjd-extraction-benchmark",
+      "revision": "05d4ad9038c388f988a6ca6be91e2f0de57f4d59",
+      "endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-extraction-benchmark/tree/05d4ad9038c388f988a6ca6be91e2f0de57f4d59?recursive=true&expand=false",
+      "http_status": 200,
+      "response_bytes": 293,
+      "response_sha256": "0b845b420f3afe2f525ee499e29f6506df8839058202729df380ca4390e6d717",
+      "paths": [".gitattributes", "README.md", "RIGHTS.md"],
+      "product_payload_paths": []
+    }
+  ],
+  "status": "supporting_negative_hosted_contents_observation",
+  "interpretation": "All four medallion dataset tree endpoints returned HTTP 200, but each tree contains only repository metadata and no product payload or machine-readable data manifest.",
+  "limitations": [
+    "Tree metadata does not establish rights, quality, standards conformance, anonymous restoration or release readiness.",
+    "This observation does not alter hosted repositories and does not request source bytes.",
+    "No publication, maturity promotion, gate acceptance or release is established."
+  ]
+}

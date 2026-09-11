@@ -1,7 +1,7 @@
 {
   "comparator": {
     "name": "gfjd-g2-concordance",
-    "source_commit": "f3d467c1c3ca5ec73e3bc560540c0c7db1f1b5f1",
+    "source_commit": "777a407036a705986e2aac31245e56a51f61eeb3",
     "version": "1.0"
   },
   "comparison_id": "G2CMP-REAL-PDF-ZIP-20260911-01",
@@ -30,7 +30,7 @@
   "critical_threshold": 1.0,
   "difference_artifact": {
     "path": "data/federation/real-pdf-zip-replay-20260911/comparison/differences.json",
-    "sha256": "c5264d45249ab821d64a12928dadc335a0c78725c703297d496cfe3e3939a0d9"
+    "sha256": "9e63c215feee3eae6e1a9fbed194f79d2d88ae84026cad522b49d67b6098374b"
   },
   "expected_source_keys": [
     "2f4e2cb992246874932c8d71d0e0d8ab3b2968e5f638a2263a2d69bf2e5316f7",
@@ -160,15 +160,15 @@
   "overall_field_matches": 56,
   "overall_threshold": 0.99,
   "packet_id": "G2PKT-REAL-PDF-ZIP-REPLAY-20260911-01",
-  "packet_sha256": "e3c577bfe03572694ed65562a32f3f7d28fdc124643c507461e6ad02b9866812",
+  "packet_sha256": "798c50d0cb3ddc8f4acc5980d7729d15e2d9c2a82978ff949908db0189c1f058",
   "primary_only_rows": 0,
   "primary_output": {
     "path": "data/federation/real-pdf-zip-replay-20260911/extraction-a.json",
-    "sha256": "7c402c672757c23033a26ff3654b7ceb10c240941b81ac238d55a002d96a3b80"
+    "sha256": "f5fce323192d69131f9aa25d119c9683d1e585b080d8b66b12851a373444b49d"
   },
   "primary_receipt": {
     "path": "data/federation/real-pdf-zip-replay-20260911/extraction-a.json",
-    "sha256": "7c402c672757c23033a26ff3654b7ceb10c240941b81ac238d55a002d96a3b80"
+    "sha256": "f5fce323192d69131f9aa25d119c9683d1e585b080d8b66b12851a373444b49d"
   },
   "row_schema": {
     "path": "schemas/g2_extraction_row.schema.json",
@@ -178,11 +178,11 @@
   "secondary_only_rows": 0,
   "secondary_output": {
     "path": "data/federation/real-pdf-zip-replay-20260911/extraction-b.json",
-    "sha256": "7c402c672757c23033a26ff3654b7ceb10c240941b81ac238d55a002d96a3b80"
+    "sha256": "37dc1c3b5bee4ba889cb3b78eb77bb177b7b06c5143e7a94fb7793f044094e2b"
   },
   "secondary_receipt": {
     "path": "data/federation/real-pdf-zip-replay-20260911/extraction-b.json",
-    "sha256": "7c402c672757c23033a26ff3654b7ceb10c240941b81ac238d55a002d96a3b80"
+    "sha256": "37dc1c3b5bee4ba889cb3b78eb77bb177b7b06c5143e7a94fb7793f044094e2b"
   },
   "status": "pass",
   "threshold_passed": true,

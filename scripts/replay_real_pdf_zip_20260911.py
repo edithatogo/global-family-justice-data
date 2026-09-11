@@ -70,16 +70,105 @@ def row(contract: dict[str, Any], value: int | float, locator: str) -> dict[str,
     }
 
 
+PATH_B_FIELDS: dict[str, dict[str, str]] = {
+    "ARC-AUS-FCFCOA-202425": {
+        "candidate_id": "AUS",
+        "source_id": "AUS_FCFCOA_AR",
+        "source_edition_id": "AUS_FCFCOA_AR_2024_25",
+        "provenance_locator": (
+            "PDF page 102; Table 3.3.1(a): total filings by application type, TOTAL row"
+        ),
+        "measure_original": "total filings by application type",
+        "matter_type_original": "applications and filings",
+        "statistic_type": "count",
+        "unit": "filings",
+        "cohort_basis": "source-defined FCFCOA original-jurisdiction filings, 2024–25",
+        "population_scope": "source-defined FCFCOA Division 2 original jurisdiction",
+    },
+    "ARC-ZAF-JUD-202425": {
+        "candidate_id": "ZAF",
+        "source_id": "ZAF_DOJCD_ANNUAL_REPORT",
+        "source_edition_id": "ZAF_DOJCD_ANNUAL_REPORT_2024_2025",
+        "provenance_locator": (
+            "PDF page 52; Table 20; Administrative Region 12 (Western Cape A), actual achievement"
+        ),
+        "measure_original": (
+            "maintenance matters finalised within 90 days from date of proper service of process"
+        ),
+        "matter_type_original": "Provision of Maintenance",
+        "statistic_type": "percentage",
+        "unit": "percent",
+        "cohort_basis": (
+            "source-defined maintenance matters with proper service of process in "
+            "Administrative Region 12 (Western Cape A)"
+        ),
+        "population_scope": "source-defined Administrative Region 12 maintenance series",
+    },
+    "ARC-USA-MN-MJB-PERF-2024": {
+        "candidate_id": "USA",
+        "source_id": "USA_MN_MJB_PERFORMANCE",
+        "source_edition_id": "USA_MN_MJB_PERFORMANCE_2024",
+        "provenance_locator": "PDF page 14; Table 4 Statewide Clearance Rates; Family FY24",
+        "measure_original": "clearance rate",
+        "matter_type_original": "Family",
+        "statistic_type": "percentage",
+        "unit": "percent",
+        "cohort_basis": "source-defined statewide Family case group, FY24",
+        "population_scope": "source-defined Minnesota Judicial Branch statewide measure",
+    },
+    "ARC-GBR-EAW-2026Q1": {
+        "candidate_id": "GBR",
+        "source_id": "GBR_EAW_MOJ_FAMILY_Q",
+        "source_edition_id": "GBR_EAW_MOJ_FAMILY_Q_2026Q1",
+        "provenance_locator": (
+            "CSV Children Act 26 Weeks 2026 Q1.csv; source-defined first row selector"
+        ),
+        "measure_original": "Percentage_Disposed_in_26_weeks",
+        "matter_type_original": "Children Act (Private)",
+        "statistic_type": "proportion",
+        "unit": "source proportion",
+        "cohort_basis": (
+            "source-defined Children Act (Private), England and Wales, All, 2 Private Law"
+        ),
+        "population_scope": "source-defined England and Wales series",
+    },
+}
+
+
+def row_b(contract: dict[str, Any], value: int | float) -> dict[str, Any]:
+    """Build Path B metadata from its own frozen binding table."""
+    fields = PATH_B_FIELDS[contract["inventory_id"]]
+    return {
+        "schema_version": "1.0",
+        "extracted_row_id": contract["row_id"] + "-B",
+        "source_record_key": contract["source_record_key"],
+        **fields,
+        "value": value,
+        "component_values": {},
+        "denominator_value": None,
+        "denominator_definition": None,
+        "period_start": None,
+        "period_end": None,
+        "time_basis": "source_defined",
+        "suppression_or_disclosure_note": None,
+        "extraction_uncertainty": "none",
+        "notes": None,
+    }
+
+
 def path_a(contracts: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Primary path: versioned bounded adapters."""
     result = []
     for contract in contracts:
-        source = source_bytes(contract)
-        if contract["format"] == "pdf":
-            receipt = medallion_pdf.extract_pdf(source, contract["adapter_contract"])
-        else:
-            receipt = medallion_zip.extract_zip_csv(source, contract["adapter_contract"])
-        result.append(row(contract, receipt["value"], contract["locator"]))
+        try:
+            source = source_bytes(contract)
+            if contract["format"] == "pdf":
+                receipt = medallion_pdf.extract_pdf(source, contract["adapter_contract"])
+            else:
+                receipt = medallion_zip.extract_zip_csv(source, contract["adapter_contract"])
+            result.append(row(contract, receipt["value"], contract["locator"]))
+        except KeyError as exc:
+            raise SystemExit(f"path_a_missing_contract_key:{exc}") from exc
     return result
 
 
@@ -90,20 +179,23 @@ def path_b_pdf(source: bytes, contract: dict[str, Any]) -> int | float:
     with tempfile.NamedTemporaryFile(suffix=".pdf") as handle:
         handle.write(source)
         handle.flush()
-        text = subprocess.check_output(
-            [
-                "pdftotext",
-                "-f",
-                str(contract["page_number"]),
-                "-l",
-                str(contract["page_number"]),
-                "-layout",
-                handle.name,
-                "-",
-            ],
-            text=True,
-            errors="strict",
-        )
+        try:
+            text = subprocess.check_output(
+                [
+                    "pdftotext",
+                    "-f",
+                    str(contract["page_number"]),
+                    "-l",
+                    str(contract["page_number"]),
+                    "-layout",
+                    handle.name,
+                    "-",
+                ],
+                text=True,
+                errors="strict",
+            )
+        except (subprocess.CalledProcessError, FileNotFoundError, UnicodeError) as exc:
+            raise SystemExit(f"path_b_pdf_extraction_failed:{type(exc).__name__}") from exc
     if not all(marker in text for marker in contract["markers"]):
         raise SystemExit("path_b_pdf_marker_mismatch")
     import re
@@ -141,14 +233,17 @@ def path_b_zip(source: bytes, contract: dict[str, Any]) -> int | float:
 def path_b(contracts: list[dict[str, Any]]) -> list[dict[str, Any]]:
     result = []
     for contract in contracts:
-        source = source_bytes(contract)
-        adapter = contract["adapter_contract"]
-        value = (
-            path_b_pdf(source, adapter)
-            if contract["format"] == "pdf"
-            else path_b_zip(source, adapter)
-        )
-        result.append(row(contract, value, contract["locator"]))
+        try:
+            source = source_bytes(contract)
+            adapter = contract["adapter_contract"]
+            value = (
+                path_b_pdf(source, adapter)
+                if contract["format"] == "pdf"
+                else path_b_zip(source, adapter)
+            )
+            result.append(row_b(contract, value))
+        except KeyError as exc:
+            raise SystemExit(f"path_b_missing_contract_key:{exc}") from exc
     return result
 
 
@@ -208,6 +303,11 @@ def main() -> None:
         "network_requests": 0,
         "path_a": {"path": a_path.relative_to(ROOT).as_posix(), "sha256": sha(a_path.read_bytes())},
         "path_b": {"path": b_path.relative_to(ROOT).as_posix(), "sha256": sha(b_path.read_bytes())},
+        "implementation_bindings": {
+            "medallion_pdf": sha((ROOT / "src/gfjd/medallion_pdf.py").read_bytes()),
+            "medallion_zip": sha((ROOT / "src/gfjd/medallion_zip.py").read_bytes()),
+            "replay_script": sha(Path(__file__).read_bytes()),
+        },
         "comparison": {
             "path": comparison.receipt_path.relative_to(ROOT).as_posix(),
             "sha256": sha(comparison.receipt_path.read_bytes()),

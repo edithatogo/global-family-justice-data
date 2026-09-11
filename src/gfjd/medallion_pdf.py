@@ -8,6 +8,7 @@ promote a result to any medallion layer.
 from __future__ import annotations
 
 import hashlib
+import io
 import json
 import re
 from pathlib import Path
@@ -58,7 +59,7 @@ def extract_pdf(source: bytes, contract: dict[str, Any]) -> dict[str, Any]:
         )
         pattern = contract["pattern"]
         _require(isinstance(pattern, str) and 1 <= len(pattern) <= 1024)
-        reader = PdfReader(__import__("io").BytesIO(source), strict=True)
+        reader = PdfReader(io.BytesIO(source), strict=True)
         _require(0 < len(reader.pages) <= MAX_PAGES)
         _require(page_number <= len(reader.pages))
         text = reader.pages[page_number - 1].extract_text() or ""

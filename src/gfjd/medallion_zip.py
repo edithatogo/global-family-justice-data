@@ -51,7 +51,7 @@ def extract_zip_csv(source: bytes, contract: dict[str, Any]) -> dict[str, Any]:
         _require(isinstance(contract, dict) and set(contract) == CONTRACT_KEYS)
         _require(contract["extraction_version"] == VERSION)
         _require(contract["source_sha256"] == _sha(source))
-        _require(public_archive._scan_zip(source, "selected.zip") == [])
+        _require(public_archive.scan_zip(source, "selected.zip") == [])
         member = contract["member_name"]
         _require(isinstance(member, str) and 0 < len(member) <= 512)
         selector = contract["selector"]

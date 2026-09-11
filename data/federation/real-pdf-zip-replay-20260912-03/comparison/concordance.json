@@ -1,0 +1,193 @@
+{
+  "comparator": {
+    "name": "gfjd-g2-concordance",
+    "source_commit": "1ffedc506c6b272b4aab4a1f75259a3e9bf59b97",
+    "version": "1.0"
+  },
+  "comparison_id": "G2CMP-REAL-PDF-ZIP-20260912-03-01",
+  "critical_concordance": 1.0,
+  "critical_field_comparisons": 64,
+  "critical_field_matches": 64,
+  "critical_fields": [
+    "candidate_id",
+    "cohort_basis",
+    "component_values",
+    "denominator_definition",
+    "denominator_value",
+    "matter_type_original",
+    "measure_original",
+    "period_end",
+    "period_start",
+    "population_scope",
+    "provenance_locator",
+    "source_edition_id",
+    "source_id",
+    "statistic_type",
+    "time_basis",
+    "unit",
+    "value"
+  ],
+  "critical_threshold": 1.0,
+  "difference_artifact": {
+    "path": "data/federation/real-pdf-zip-replay-20260912-03/comparison/differences.json",
+    "sha256": "4b0e309ac2e7fec8d75d5bfb637ec0d9306aee14f3f08f4a3df062b44438fc67"
+  },
+  "expected_source_keys": [
+    "2f4e2cb992246874932c8d71d0e0d8ab3b2968e5f638a2263a2d69bf2e5316f7",
+    "4922ef6dc1646c7a24dc658f8734794e9ab403e84f59698b9aa11df9ad63e461",
+    "7a4e2c0b8269d80cb18aee625472d6a8845ba41989cceabcc8c20d2f7355bfe2",
+    "c8c7ba87f41fb4b2e1ce18f6034f2a0e4b14e18239d0982629598c516d2223c7"
+  ],
+  "field_metrics": {
+    "candidate_id": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 4
+    },
+    "cohort_basis": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 4
+    },
+    "denominator_definition": {
+      "comparisons": 0,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 0
+    },
+    "denominator_value": {
+      "comparisons": 0,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 0
+    },
+    "extraction_uncertainty": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": false,
+      "matches": 4
+    },
+    "matter_type_original": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 4
+    },
+    "measure_original": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 4
+    },
+    "period_end": {
+      "comparisons": 0,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 0
+    },
+    "period_start": {
+      "comparisons": 0,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 0
+    },
+    "population_scope": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 4
+    },
+    "provenance_locator": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 4
+    },
+    "schema_version": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": false,
+      "matches": 4
+    },
+    "source_edition_id": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 4
+    },
+    "source_id": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 4
+    },
+    "statistic_type": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 4
+    },
+    "time_basis": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 4
+    },
+    "unit": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 4
+    },
+    "value": {
+      "comparisons": 4,
+      "concordance": 1.0,
+      "critical": true,
+      "matches": 4
+    }
+  },
+  "generated_at": "2026-09-11T22:19:41Z",
+  "limitations": [
+    "Two repository-owned extraction paths over the frozen local B0 bytes.",
+    "This is supporting reproducibility evidence, not independent assurance.",
+    "Rows remain quarantined; rights, semantic equivalence, layer maturity, G2, publication and release are unresolved."
+  ],
+  "matched_rows": 4,
+  "overall_concordance": 1.0,
+  "overall_field_comparisons": 56,
+  "overall_field_matches": 56,
+  "overall_threshold": 0.99,
+  "packet_id": "G2PKT-REAL-PDF-ZIP-REPLAY-20260911-01",
+  "packet_sha256": "798c50d0cb3ddc8f4acc5980d7729d15e2d9c2a82978ff949908db0189c1f058",
+  "primary_only_rows": 0,
+  "primary_output": {
+    "path": "data/federation/real-pdf-zip-replay-20260912-03/extraction-a.json",
+    "sha256": "f5fce323192d69131f9aa25d119c9683d1e585b080d8b66b12851a373444b49d"
+  },
+  "primary_receipt": {
+    "path": "data/federation/real-pdf-zip-replay-20260912-03/extraction-a.json",
+    "sha256": "f5fce323192d69131f9aa25d119c9683d1e585b080d8b66b12851a373444b49d"
+  },
+  "row_schema": {
+    "path": "schemas/g2_extraction_row.schema.json",
+    "sha256": "449ad0f72b41ef8bb4e2c55c7daedab94e6dd818951645b873b2360ea50588ba"
+  },
+  "schema_version": "1.0",
+  "secondary_only_rows": 0,
+  "secondary_output": {
+    "path": "data/federation/real-pdf-zip-replay-20260912-03/extraction-b.json",
+    "sha256": "37dc1c3b5bee4ba889cb3b78eb77bb177b7b06c5143e7a94fb7793f044094e2b"
+  },
+  "secondary_receipt": {
+    "path": "data/federation/real-pdf-zip-replay-20260912-03/extraction-b.json",
+    "sha256": "37dc1c3b5bee4ba889cb3b78eb77bb177b7b06c5143e7a94fb7793f044094e2b"
+  },
+  "status": "pass",
+  "threshold_passed": true,
+  "threshold_policy": {
+    "path": "data/federation/real-pdf-zip-replay-20260912-03/threshold-policy.json",
+    "sha256": "ad2f31e21ac63ff5f12d3216c8b4ed43871096ed1f562e0528ddef290570183c"
+  }
+}

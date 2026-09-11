@@ -10,9 +10,14 @@ maturity, clear rights, authorise publication, or authorise release.
 
 ## Immutable bindings
 
-This pack was prepared from merged `main` at `e00959de9efaa5f1611e252340fb76688287899a`.
+This correction was prepared from merged `main` at `3dfa6e5847941011e257fe81d7db0207c367429a`.
 The pre-decision manifest was `MANIFEST.sha256` SHA-256
 `9f0ae0449edef13a44a72f3eba2598e3d204149aa59c6e54240f2e35465343f6`.
+
+This is an append-only binding correction to the prior closure candidate. The
+prior pack and its audit events remain immutable; this correction changes only
+the merged-main binding and does not change any criterion, evidence status,
+maturity disposition or claim limit.
 
 | Bound record | SHA-256 |
 |---|---|

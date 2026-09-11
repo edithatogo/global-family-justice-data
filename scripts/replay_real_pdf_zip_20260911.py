@@ -91,7 +91,16 @@ def path_b_pdf(source: bytes, contract: dict[str, Any]) -> int | float:
         handle.write(source)
         handle.flush()
         text = subprocess.check_output(
-            ["pdftotext", "-f", str(contract["page_number"]), "-l", str(contract["page_number"]), "-layout", handle.name, "-"],
+            [
+                "pdftotext",
+                "-f",
+                str(contract["page_number"]),
+                "-l",
+                str(contract["page_number"]),
+                "-layout",
+                handle.name,
+                "-",
+            ],
             text=True,
             errors="strict",
         )
@@ -134,7 +143,11 @@ def path_b(contracts: list[dict[str, Any]]) -> list[dict[str, Any]]:
     for contract in contracts:
         source = source_bytes(contract)
         adapter = contract["adapter_contract"]
-        value = path_b_pdf(source, adapter) if contract["format"] == "pdf" else path_b_zip(source, adapter)
+        value = (
+            path_b_pdf(source, adapter)
+            if contract["format"] == "pdf"
+            else path_b_zip(source, adapter)
+        )
         result.append(row(contract, value, contract["locator"]))
     return result
 
@@ -159,13 +172,21 @@ def main() -> None:
         comparison_id="G2CMP-REAL-PDF-ZIP-20260911-01",
         packet_id=packet["packet_id"],
         packet_sha256=sha(PACKET.read_bytes()),
-        primary_receipt={"path": a_path.relative_to(ROOT).as_posix(), "sha256": sha(a_path.read_bytes())},
-        secondary_receipt={"path": b_path.relative_to(ROOT).as_posix(), "sha256": sha(b_path.read_bytes())},
+        primary_receipt={
+            "path": a_path.relative_to(ROOT).as_posix(),
+            "sha256": sha(a_path.read_bytes()),
+        },
+        secondary_receipt={
+            "path": b_path.relative_to(ROOT).as_posix(),
+            "sha256": sha(b_path.read_bytes()),
+        },
         threshold_policy={
             "path": threshold_path.relative_to(ROOT).as_posix(),
             "sha256": sha(threshold_path.read_bytes()),
         },
-        source_commit=subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
+        source_commit=subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True
+        ).strip(),
         generated_at="2026-09-11T00:00:00Z",
         expected_source_keys=[item["source_record_key"] for item in contracts],
         limitations=(

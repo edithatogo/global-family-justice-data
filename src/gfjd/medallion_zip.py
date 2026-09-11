@@ -59,8 +59,7 @@ def extract_zip_csv(source: bytes, contract: dict[str, Any]) -> dict[str, Any]:
             isinstance(selector, dict)
             and 0 < len(selector) <= 32
             and all(
-                isinstance(key, str) and isinstance(value, str)
-                for key, value in selector.items()
+                isinstance(key, str) and isinstance(value, str) for key, value in selector.items()
             )
         )
         value_field = contract["value_field"]
@@ -71,7 +70,9 @@ def extract_zip_csv(source: bytes, contract: dict[str, Any]) -> dict[str, Any]:
         text = raw.decode("utf-8-sig")
         rows = list(csv.DictReader(io.StringIO(text)))
         _require(0 < len(rows) <= MAX_ROWS)
-        matches = [row for row in rows if all(row.get(key) == value for key, value in selector.items())]
+        matches = [
+            row for row in rows if all(row.get(key) == value for key, value in selector.items())
+        ]
         _require(len(matches) == 1 and value_field in matches[0])
         raw_value = matches[0][value_field].strip()
         _require(re.fullmatch(r"[0-9]+(?:\.[0-9]+)?", raw_value) is not None)

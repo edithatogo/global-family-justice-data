@@ -1,0 +1,19 @@
+{
+  "receipt_id": "R-HOSTED-METADATA-MANIFEST-20260911",
+  "observed_at": "2026-09-11T15:50:09Z",
+  "method": "anonymous GET of the exact revision-pinned Hugging Face metadata manifest file",
+  "path": "federation/metadata-publication-manifest-20260912.json",
+  "manifest_sha256": "962736b1fed5873e82447dca1f97c6b1a23ffdb4fd35dd8365f2cf8cae2c75be",
+  "retrievals": [
+    {"repository": "edithatogo/gfjd-source-catalogue", "revision": "fb59f66107d010e3f50d2461a53385064ca93b0d", "http_status": 200, "bytes": 3187, "sha256": "962736b1fed5873e82447dca1f97c6b1a23ffdb4fd35dd8365f2cf8cae2c75be"},
+    {"repository": "edithatogo/gfjd-observations", "revision": "5569cedc53dbf317b4d6567943f309b5334a1c15", "http_status": 200, "bytes": 3187, "sha256": "962736b1fed5873e82447dca1f97c6b1a23ffdb4fd35dd8365f2cf8cae2c75be"},
+    {"repository": "edithatogo/gfjd-outcomes-evidence", "revision": "686c0017c07f322a54e26c0efdfa29cf35b86b88", "http_status": 200, "bytes": 3187, "sha256": "962736b1fed5873e82447dca1f97c6b1a23ffdb4fd35dd8365f2cf8cae2c75be"},
+    {"repository": "edithatogo/gfjd-extraction-benchmark", "revision": "affe596bbd05787e56cfff6b979fd69da5147ac4", "http_status": 200, "bytes": 3187, "sha256": "962736b1fed5873e82447dca1f97c6b1a23ffdb4fd35dd8365f2cf8cae2c75be"}
+  ],
+  "status": "supporting_anonymous_metadata_retrieval",
+  "limitations": [
+    "This receipt verifies only the metadata-only manifest file at four owned public dataset revisions.",
+    "It does not establish rights clearance, accepted medallion products, maturity, gate passage, publication of source bytes or release readiness.",
+    "No source-derived payload, raw response or product bytes were requested or persisted by this check."
+  ]
+}

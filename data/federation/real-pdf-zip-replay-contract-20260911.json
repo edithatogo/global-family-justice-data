@@ -1,0 +1,114 @@
+{
+  "schema_version": "1.0",
+  "packet_id": "G2PKT-REAL-PDF-ZIP-REPLAY-20260911-01",
+  "claim_limit": "supporting reproducibility only; no rights, semantic, layer, maturity, gate, publication or release acceptance",
+  "thresholds": {
+    "critical_concordance": 1.0,
+    "overall_populated_field_concordance": 0.99,
+    "exact_comparison": true,
+    "fuzzy_matching": false,
+    "critical_waiver": false
+  },
+  "contracts": [
+    {
+      "inventory_id": "ARC-AUS-FCFCOA-202425",
+      "payload_path": "data/raw/files/FCFCOA-ANNUAL-2024-25/annual-report-2024-25.pdf",
+      "source_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "format": "pdf",
+      "row_id": "G2ROW-AUS-PDF-REAL",
+      "source_record_key": "c8c7ba87f41fb4b2e1ce18f6034f2a0e4b14e18239d0982629598c516d2223c7",
+      "candidate_id": "AUS",
+      "source_id": "AUS_FCFCOA_AR",
+      "source_edition_id": "AUS_FCFCOA_AR_2024_25",
+      "locator": "PDF page 102; Table 3.3.1(a): total filings by application type, TOTAL row",
+      "measure_original": "total filings by application type",
+      "matter_type_original": "applications and filings",
+      "statistic_type": "count",
+      "unit": "filings",
+      "cohort_basis": "source-defined FCFCOA original-jurisdiction filings, 2024–25",
+      "population_scope": "source-defined FCFCOA Division 2 original jurisdiction",
+      "adapter_contract": {
+        "extraction_version": "gfjd-medallion-pdf-v1",
+        "source_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+        "page_number": 102,
+        "markers": ["Table 3.3.1(a): total filings by application type, 2024–25", "TOTAL"],
+        "pattern": "(?m)^TOTAL\\s+(?P<value>[0-9,]+)\\s+100\\.0%$"
+      }
+    },
+    {
+      "inventory_id": "ARC-ZAF-JUD-202425",
+      "payload_path": "data/raw/files/SA-JUDICIARY-2024-25/annual-judiciary-report-2024-25.pdf",
+      "source_sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce",
+      "format": "pdf",
+      "row_id": "G2ROW-ZAF-PDF-REAL",
+      "source_record_key": "4922ef6dc1646c7a24dc658f8734794e9ab403e84f59698b9aa11df9ad63e461",
+      "candidate_id": "ZAF",
+      "source_id": "ZAF_DOJCD_ANNUAL_REPORT",
+      "source_edition_id": "ZAF_DOJCD_ANNUAL_REPORT_2024_2025",
+      "locator": "PDF page 51; Table 19, Provision of Maintenance, actual achievement",
+      "measure_original": "maintenance matters finalised within 90 days from date of proper service of process",
+      "matter_type_original": "Provision of Maintenance",
+      "statistic_type": "percentage",
+      "unit": "percent",
+      "cohort_basis": "source-defined maintenance matters with proper service of process",
+      "population_scope": "source-defined beneficiaries and administrative regions",
+      "adapter_contract": {
+        "extraction_version": "gfjd-medallion-pdf-v1",
+        "source_sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce",
+        "page_number": 52,
+        "markers": ["Table 20:", "% Finalised"],
+        "pattern": "(?m)^Administrative Region 12 .*? (?P<value>87)%$"
+      }
+    },
+    {
+      "inventory_id": "ARC-USA-MN-MJB-PERF-2024",
+      "payload_path": "data/raw/files/USA-MN-MJB/ACQ-USA-MN-MJB-20260814T144054Z-32931494/Annual-Report-2024-Performance-Measures.pdf",
+      "source_sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b",
+      "format": "pdf",
+      "row_id": "G2ROW-USA-PDF-REAL",
+      "source_record_key": "7a4e2c0b8269d80cb18aee625472d6a8845ba41989cceabcc8c20d2f7355bfe2",
+      "candidate_id": "USA",
+      "source_id": "USA_MN_MJB_PERFORMANCE",
+      "source_edition_id": "USA_MN_MJB_PERFORMANCE_2024",
+      "locator": "PDF page 14; Table 4 Statewide Clearance Rates; Family FY24",
+      "measure_original": "clearance rate",
+      "matter_type_original": "Family",
+      "statistic_type": "percentage",
+      "unit": "percent",
+      "cohort_basis": "source-defined statewide Family case group, FY24",
+      "population_scope": "source-defined Minnesota Judicial Branch statewide measure",
+      "adapter_contract": {
+        "extraction_version": "gfjd-medallion-pdf-v1",
+        "source_sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b",
+        "page_number": 14,
+        "markers": ["Table 4. Statewide Clearance Rates Fiscal Year 2020 – Fiscal Year 2024", "Family"],
+        "pattern": "(?m)^Family\\s+101%\\s+100%\\s+100%\\s+101%\\s+(?P<value>99)%\\s*$"
+      }
+    },
+    {
+      "inventory_id": "ARC-GBR-EAW-2026Q1",
+      "payload_path": "data/raw/files/GBR-EAW-MOJ-FAMILY-Q/ACQ-GBR-EAW-MOJ-FAMILY-Q-20260731T222608Z-8EA47087/FCSQ_2026_Q1.zip",
+      "source_sha256": "8ea470874a6d24ca0db2c7253dd4141f595304262617248c2063ecd0e4cb1c96",
+      "format": "zip",
+      "row_id": "G2ROW-GBR-ZIP-REAL",
+      "source_record_key": "2f4e2cb992246874932c8d71d0e0d8ab3b2968e5f638a2263a2d69bf2e5316f7",
+      "candidate_id": "GBR",
+      "source_id": "GBR_EAW_MOJ_FAMILY_Q",
+      "source_edition_id": "GBR_EAW_MOJ_FAMILY_Q_2026Q1",
+      "locator": "CSV Children Act 26 Weeks 2026 Q1.csv; source-defined first row selector",
+      "measure_original": "Percentage_Disposed_in_26_weeks",
+      "matter_type_original": "Children Act (Private)",
+      "statistic_type": "proportion",
+      "unit": "source proportion",
+      "cohort_basis": "source-defined Children Act (Private), England and Wales, All, 2 Private Law",
+      "population_scope": "source-defined England and Wales series",
+      "adapter_contract": {
+        "extraction_version": "gfjd-medallion-zip-csv-v1",
+        "source_sha256": "8ea470874a6d24ca0db2c7253dd4141f595304262617248c2063ecd0e4cb1c96",
+        "member_name": "CSV Children Act 26 Weeks 2026 Q1.csv",
+        "selector": {"Case_Type": "Children Act (Private)", "Region": "England and Wales", "DFJ": "All", "Type": "2 Private Law", "year": "NULL", "quarter": "2011-Q1"},
+        "value_field": "Percentage_Disposed_in_26_weeks"
+      }
+    }
+  ]
+}

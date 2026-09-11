@@ -409,6 +409,7 @@ rights, standards conformance, maturity, publication or release.
 Real B0 qualification continuation (2026-09-11):
 `E-G4-MEDALLION-B0-QUALIFICATION-20260911` independently rechecked all six
 local payload digests and exercised bounded PDF, ZIP and XLSX safety mechanics.
-The supporting B1/Silver replay remains verified only for the SWE XLSX route;
-route-specific PDF/ZIP replay is still pending. No layer promotion, rights
-clearance, maturity or gate acceptance is claimed.
+`E-REAL-PDF-ZIP-REPLAY-20260911` now records a fresh two-path replay for the
+AUS, ZAF and USA PDFs and GBR ZIP, with 100% critical and overall concordance.
+These are supporting reproducibility receipts only; rows remain quarantined
+and no semantic, rights, layer, maturity or gate acceptance is claimed.

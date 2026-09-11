@@ -250,6 +250,11 @@ def _scan_zip(data: bytes, location: str) -> list[Finding]:
     return findings
 
 
+def scan_zip(data: bytes, location: str) -> list[Finding]:
+    """Stable public wrapper for the bounded ZIP safety scan."""
+    return _scan_zip(data, location)
+
+
 def _scan_pdf(data: bytes, location: str) -> list[Finding]:
     if not data.startswith(b"%PDF-"):
         return [Finding("MEDIA_TYPE_MISMATCH", location, "expected PDF signature")]

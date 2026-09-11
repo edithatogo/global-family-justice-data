@@ -1,0 +1,98 @@
+{
+  "artifact": "rights-terms-intake",
+  "version": "2026-09-11",
+  "purpose": "Machine-verifiable metadata intake for exact-edition rights and terms review; this artifact records limits and unknowns and does not clear any source for redistribution.",
+  "public_boundary": "metadata_and_citation_only",
+  "checked_at": "2026-09-11T17:31:36Z",
+  "method": {
+    "scope": "six exact editions already registered in data/seed/source_edition_template.csv",
+    "checks": [
+      "manifest bytes and declared content SHA-256 were recorded",
+      "canonical publication locator and any recorded terms locator were captured",
+      "current repository rights and redistribution statuses were copied without promotion",
+      "no source bytes, excerpts, contacts or legal conclusions were added"
+    ],
+    "claim_limit": "A public locator or owner assumption is not rights clearance. Exact-edition licence, database-right, third-party-component and redistribution conditions remain separately reviewable."
+  },
+  "editions": [
+    {
+      "source_edition_id": "ED-GBR-EAW-MOJ-FCSQ-2026Q1",
+      "source_id": "GBR-EAW-MOJ-FAMILY-Q",
+      "manifest_path": "data/raw/manifests/ACQ-GBR-EAW-MOJ-FAMILY-Q-20260731T222608Z-8EA47087.json",
+      "manifest_sha256": "eecddb07e787c703113bcc7363b68cc91f1c0890ed1e3757b8abed5b832f8c31",
+      "content_sha256": "8ea470874a6d24ca0db2c7253dd4141f595304262617248c2063ecd0e4cb1c96",
+      "publication_locator": "https://www.gov.uk/government/statistics/family-court-statistics-quarterly-january-to-march-2026",
+      "terms_locator": "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/",
+      "rights_status": "review_required",
+      "redistribution_status": "metadata_only",
+      "disposition": "acquisition-time manifest recorded an OGL notice, but the current controlled-source disposition remains review_required and metadata-only",
+      "required_action": "reconcile the exact edition licence notice, database-right conditions and third-party exclusions before any reuse decision"
+    },
+    {
+      "source_edition_id": "ED-AUS-FCFCOA-ANNUAL-2024-25",
+      "source_id": "AUS-FCFCOA-AR",
+      "manifest_path": "data/raw/manifests/ACQ-AUS-FCFCOA-AR-20260801T051117Z-E251DA7A.json",
+      "manifest_sha256": "4df2b158bd6975f8222c943e7d186774a8b122a85983ae57bec516d2a2452fb6",
+      "content_sha256": "e251da7a9424aeba5e8c9e53a7f33fc5901769b10e6e0ea27f5b446bc5fd2ee9",
+      "publication_locator": "https://www.fcfcoa.gov.au/fcfcoa-annual-reports/2024-25",
+      "terms_locator": null,
+      "rights_status": "unknown",
+      "redistribution_status": "metadata_only",
+      "disposition": "official edition identified; no exact-edition reuse terms were established by this intake",
+      "required_action": "obtain and review exact-edition licence, third-party components and database-right conditions"
+    },
+    {
+      "source_edition_id": "ED-BRA-CNJ-JUSTICA-2026",
+      "source_id": "BRA-CNJ-DATAJUD",
+      "manifest_path": "data/raw/manifests/ACQ-BRA-CNJ-DATAJUD-20260801T052351Z-3415D516.json",
+      "manifest_sha256": "aaa22969f265f0a9021c8355d3f2357994753aeb6465c69d14a18e9bd9509a0c",
+      "content_sha256": "3415d516d756f48d7337e83e6faa8477644fe98b5cedb43cb04999f59fd5a71f",
+      "publication_locator": "https://www.cnj.jus.br/wp-content/uploads/2026/06/justica-em-numeros-2026.pdf",
+      "terms_locator": null,
+      "rights_status": "unknown",
+      "redistribution_status": "metadata_only",
+      "disposition": "official edition identified; report and DataJud-derived material remain rights-unresolved",
+      "required_action": "obtain written permission or exact-edition terms covering report, database and derived response reuse"
+    },
+    {
+      "source_edition_id": "ED-SWE-DOMSTOLSVERKET-FAMILY-2025",
+      "source_id": "SWE-DOMSTOLSVERKET",
+      "manifest_path": "data/raw/manifests/ACQ-SWE-DOMSTOLSVERKET-20260801T034016Z-47A751D4.json",
+      "manifest_sha256": "1a56bcfb3cce545d5102d91efc6871120502c2f09ea2eee39a383cc7000bc3b1",
+      "content_sha256": "47a751d419ffc4861eda29580654cc1a5053a2852f05052e5c387b61c6dceceb",
+      "publication_locator": "https://www.domstol.se/domstolsverket/om-sveriges-domstolar/statistik-styrning-och-utveckling/statistik/officiell-domstolsstatistik/",
+      "terms_locator": null,
+      "rights_status": "unknown",
+      "redistribution_status": "metadata_only",
+      "disposition": "official workbook identified; attachment-specific reuse and third-party component status remain unresolved",
+      "required_action": "capture exact workbook terms and separate official statistics from report/artwork components"
+    },
+    {
+      "source_edition_id": "ED-USA-MN-MJB-PERF-2024",
+      "source_id": "USA-MN-MJB",
+      "manifest_path": "data/raw/manifests/ACQ-USA-MN-MJB-20260814T144054Z-32931494.json",
+      "manifest_sha256": "0a4e45a77393dc7f316a2242a0d5788c8a6c0a8c966c0395b64fff471808eb69",
+      "content_sha256": "329314940f94aedc369d92992d5eb335c22f717984cc4f90020d14d94e7cd38b",
+      "publication_locator": "https://mncourts.gov/help-topics/court-statistics/publications-and-reports",
+      "terms_locator": null,
+      "rights_status": "review_required",
+      "redistribution_status": "metadata_only",
+      "disposition": "official statewide report identified; exact-edition terms and family-measure reuse remain under review",
+      "required_action": "review publisher terms, third-party components and database-right conditions before any reuse"
+    },
+    {
+      "source_edition_id": "ED-ZAF-JUDICIARY-ANNUAL-2024-25",
+      "source_id": "ZAF-JUD-ANNUAL",
+      "manifest_path": "data/raw/manifests/ACQ-ZAF-JUD-ANNUAL-20260801T051403Z-24991662.json",
+      "manifest_sha256": "463fe5c79e03492d258dda47c4190af286ace08df31a8c2e15247dc3d567e8e8",
+      "content_sha256": "24991662becb0c299624d5dae43f45425f8dac77bc7a3c93eac0fd012c3485ce",
+      "publication_locator": "https://www.judiciary.org.za/index.php/documents/judiciary-annual-reports",
+      "terms_locator": null,
+      "rights_status": "unknown",
+      "redistribution_status": "metadata_only",
+      "disposition": "official annual report identified; exact-edition reuse terms and third-party components remain unresolved",
+      "required_action": "obtain and review annual-report licence/permission and component exclusions"
+    }
+  ],
+  "overall_disposition": "supporting in_review evidence only; no rights clearance, publication, release or gate passage"
+}

@@ -10,9 +10,9 @@ maturity, clear rights, authorise publication, or authorise release.
 
 ## Immutable bindings
 
-This pack was prepared from merged `main` at `a5632583ed9c5f26e8aec1addee26cba522dd7a8`.
+This pack was prepared from merged `main` at `e00959de9efaa5f1611e252340fb76688287899a`.
 The pre-decision manifest was `MANIFEST.sha256` SHA-256
-`0e11984ec08eb1c6192c68186ed481ce52cc6f9ae6cc7c5fddc557c127c171e6`.
+`9f0ae0449edef13a44a72f3eba2598e3d204149aa59c6e54240f2e35465343f6`.
 
 | Bound record | SHA-256 |
 |---|---|
@@ -23,6 +23,7 @@ The pre-decision manifest was `MANIFEST.sha256` SHA-256
 | Path B extraction | `37dc1c3b5bee4ba889cb3b78eb77bb177b7b06c5143e7a94fb7793f044094e2b` |
 | Owner supporting adjudication | `dda4255d8132eb06763ba68c48830be2aafbee2a46293b83b1e6801af5fda167` |
 | L2 maturity plan | `aa74338e6f35ddc16389e5b484e27031ee5d5b447e50326a3133708caf1aecf9` |
+| Current maturity assessment | `f7287a0ed7c2156c0d20c65c70dbf3a90f2b01943d1cdee072c59ddfc0eacd20` |
 
 ## Current criterion disposition
 

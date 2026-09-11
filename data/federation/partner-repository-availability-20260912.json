@@ -31,11 +31,17 @@
         "contracts/medallion/v2/field-lineage.schema.json",
         "contracts/medallion/v3/backfill-replay.schema.json"
       ],
-      "observed_blob_sha256": {
+      "observed_git_blob_sha1": {
         "contracts/medallion/manifest.json": "ef2ae847b2cf9e59523b86e3ce7ff743ca545cf5",
         "contracts/medallion/v1/medallion-conformance.schema.json": "34e49fc7970cf0ead6d7156a8a06a83b00011bbf",
         "contracts/medallion/v2/field-lineage.schema.json": "0a83a0a96fbbe8c522b5b1c3530c5a27e841fe75",
         "contracts/medallion/v3/backfill-replay.schema.json": "cc9604cbb628629591f39d3249079ee626560f13"
+      },
+      "observed_content_sha256": {
+        "contracts/medallion/manifest.json": "ef98ac5a452bbdceedbc724c4ed48be0518998083c08a4537b0db275cd38c6b7",
+        "contracts/medallion/v1/medallion-conformance.schema.json": "4c1ee81b026c64cf8f962d602cd64441a4a023c132346349c8b27dab0981f10e",
+        "contracts/medallion/v2/field-lineage.schema.json": "bf31ee62a3566a8fde512748b79f644e0fab760f60924e4eb9d510d3c1ef6f8a",
+        "contracts/medallion/v3/backfill-replay.schema.json": "5d0f472b124701ef66dcc1a5c39670826b8e95e5faf576cc394a3cd22df9419c"
       },
       "status": "reachable_reference_only_v1_to_v3; no_v4_federation_schema"
     },

@@ -1,6 +1,6 @@
 # Generated programme status
 
-Generated: `2026-09-11T11:51:51+00:00`
+Generated: `2026-09-11T12:03:11+00:00`
 
 Current repository version: **0.6.0-alpha.2**
 Declared current gate: **G2**
@@ -27,7 +27,7 @@ Conductor validation: **PASS** (0 errors, 14 warnings)
 | T3 — Acquisition, preservation and source monitoring | 5/5 (100.0%) | 3/5 (60.0%) | 0 | 4/10 |
 | T4 — Data platform and engineering | 10/10 (100.0%) | 6/10 (60.0%) | 0 | 7/20 |
 | T5 — Harmonisation, quality and assurance | 14/14 (100.0%) | 8/14 (57.1%) | 0 | 26/106 |
-| T6 — Product, documentation and accessibility | 8/9 (88.9%) | 0/9 (0.0%) | 0 | 0/19 |
+| T6 — Product, documentation and accessibility | 7/9 (77.8%) | 0/9 (0.0%) | 0 | 0/19 |
 | T7 — Security, privacy, legal and supply-chain assurance | 7/8 (87.5%) | 4/8 (50.0%) | 0 | 7/14 |
 | T8 — Operations, reliability and release management | 6/8 (75.0%) | 1/8 (12.5%) | 0 | 1/10 |
 | T9 — International community, localisation and sustainability | 4/5 (80.0%) | 0/5 (0.0%) | 0 | 0/12 |
@@ -60,6 +60,6 @@ Evidence-assured maturity floor: **L1**
 
 - **P0 WI-G2-CLOSE** (T0/G2): Assemble and approve the G2 gate evidence pack — _in_review_
 - **P0 WI-G4-MED-02** (T4/G4): Implement public field lineage, bitemporal snapshot identity and deterministic partition replay. — _in_review_
-- **P1 WI-G4-MED-04** (T6/G4): Publish and verify the role-separated GFJD Hugging Face medallion estate. — _in_review_
+- **P1 WI-G4-MED-04** (T6/G4): Publish and verify the role-separated GFJD Hugging Face medallion estate. — _planned_
 
 > A gate is ready only after evidence, work, maturity, risk, defect and dependency controls pass. It passes only after a recorded governance decision. Document presence and self-assessment do not constitute acceptance.

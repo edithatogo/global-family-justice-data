@@ -97,3 +97,15 @@ history and all factual medallion acceptance criteria remain open.
 
 The scope guard routes resume advice; it is neither a network sandbox nor an
 executor. Existing command and source-access controls remain mandatory.
+
+## 2026-09-11 hosted metadata retrieval
+
+The metadata-only estate manifest was committed to the four owned Hugging Face
+datasets and anonymously retrieved at each revision with HTTP 200 and matching
+SHA-256 `962736b1fed5873e82447dca1f97c6b1a23ffdb4fd35dd8365f2cf8cae2c75be`.
+The receipt is `data/federation/hosted-metadata-manifest-retrieval-20260911.json`
+(SHA-256 `aa6cbed9185d59defbfe48ed24d524c8e745e3903362e2672c9f93c9bec66fb8`).
+This is metadata-only supporting evidence: it does not establish source rights,
+accepted products, maturity, gate passage or release. The next action is to
+retain the manifest and receipt as in-review evidence while pursuing the still
+missing L2 empirical, rights and release records.

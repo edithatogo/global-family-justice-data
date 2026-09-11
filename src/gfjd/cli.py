@@ -32,6 +32,7 @@ from .public_monitor import (
     PublicMonitorError,
     monitor_custody,
     verify_monitor_receipt,
+    verify_monitor_rollup,
     verify_supersession,
     write_monitor_receipt,
 )
@@ -210,6 +211,10 @@ def build_parser() -> argparse.ArgumentParser:
         "verify-monitor", help="Recompute a public monitoring receipt outcome"
     )
     monitor_verify.add_argument("receipt", type=Path)
+    rollup_verify = archive_sub.add_parser(
+        "verify-monitor-rollup", help="Verify a digest-bound monitoring rollup contract"
+    )
+    rollup_verify.add_argument("rollup", type=Path)
     register_tooling_commands(commands)
     return parser
 
@@ -282,6 +287,14 @@ def main(argv: Sequence[str] | None = None) -> int:
                     print("\n".join(f"- {error}" for error in errors))
                     return 1
                 print("Public archive monitor receipt verified.")
+                return 0
+            if args.archive_command == "verify-monitor-rollup":
+                rollup = json.loads(_project_path(project, args.rollup).read_text(encoding="utf-8"))
+                errors = verify_monitor_rollup(rollup)
+                if errors:
+                    print("\n".join(f"- {error}" for error in errors))
+                    return 1
+                print("Public archive monitor rollup verified.")
                 return 0
             if args.archive_command == "verify-supersession":
                 errors, order = verify_supersession(_project_path(project, args.record))

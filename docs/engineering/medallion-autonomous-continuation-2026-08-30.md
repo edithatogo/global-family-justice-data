@@ -117,3 +117,10 @@ at commit `57c35dc8bc5e2d316203abe67b3e3a231795f603`. Its append-only receipt
 all twelve GitHub/Hugging Face replicas available and hash-matching. This is a
 fresh custody-monitoring observation only; sustained history, rights, restore,
 maturity, gate and release evidence remain open.
+
+The sustained-monitoring rollup `data/federation/public-b0-monitor-rollup-20260911.json`
+(SHA-256 `b2be2f14c7fff6913fc39a33a36cd1f59b2767ff0f10b7ab809f4c589c4b4536`)
+binds successful scheduled run `34094742129` and fresh run `34620587686`.
+Both cover all six objects and twelve GitHub/Hugging Face replicas. This reduces
+the monitoring-history gap but does not establish rights, restore, semantic
+validity, maturity promotion, gate passage or release.

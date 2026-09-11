@@ -9,6 +9,7 @@ import socket
 import urllib.error
 import urllib.request
 from collections.abc import Callable
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -18,6 +19,7 @@ from blake3 import blake3
 from .public_archive import verify_custody_receipt
 
 MONITOR_CONTRACT_VERSION = "gfjd-public-b0-monitor-v1"
+MONITOR_ROLLUP_CONTRACT_VERSION = "gfjd-public-b0-monitor-rollup-v1"
 SUPERSESSION_CONTRACT_VERSION = "gfjd-public-b0-supersession-v1"
 ALLOWED_FINAL_HOST_SUFFIXES = (
     "github.com",
@@ -129,6 +131,59 @@ def verify_monitor_receipt(receipt: dict[str, Any]) -> list[str]:
     )
     if receipt.get("status") != expected_status:
         errors.append("monitor status does not match recomputed observations")
+    return errors
+
+
+def verify_monitor_rollup(rollup: dict[str, Any]) -> list[str]:
+    """Validate the semantic contract for a digest-bound monitor rollup.
+
+    The rollup intentionally stores receipt digests and URLs, not receipt bytes.
+    This verifier therefore checks the binding and recomputable rollup claims;
+    the individual receipt verifier remains authoritative for each receipt.
+    """
+    errors: list[str] = []
+    if rollup.get("contract_version") != MONITOR_ROLLUP_CONTRACT_VERSION:
+        errors.append("unsupported monitor rollup contract_version")
+    if rollup.get("status") != "pass":
+        errors.append("monitor rollup status must be pass")
+    if rollup.get("object_count") != 6:
+        errors.append("monitor rollup object_count must be 6")
+    if rollup.get("replica_count_per_run") != 12:
+        errors.append("monitor rollup replica_count_per_run must be 12")
+    providers = rollup.get("providers")
+    if providers != ["github", "huggingface"]:
+        errors.append("monitor rollup providers must be github and huggingface")
+    observations = rollup.get("observations")
+    if not isinstance(observations, list) or len(observations) != 2:
+        return [*errors, "monitor rollup must contain exactly two observations"]
+    run_ids: set[str] = set()
+    receipt_hashes: set[str] = set()
+    for observation in observations:
+        run_id = str(observation.get("run_id", ""))
+        if not run_id or run_id in run_ids:
+            errors.append("monitor rollup run IDs must be non-empty and unique")
+        run_ids.add(run_id)
+        try:
+            datetime.fromisoformat(str(observation.get("checked_at", "")).replace("Z", "+00:00"))
+        except ValueError:
+            errors.append(f"{run_id}: checked_at must be an ISO-8601 timestamp")
+        url = str(observation.get("receipt_url", ""))
+        parsed = urlparse(url)
+        if parsed.scheme != "https" or parsed.hostname != "github.com":
+            errors.append(f"{run_id}: receipt_url must be an HTTPS GitHub URL")
+        digest = str(observation.get("receipt_sha256", ""))
+        if len(digest) != 64 or any(char not in "0123456789abcdef" for char in digest):
+            errors.append(f"{run_id}: receipt_sha256 must be lowercase SHA-256")
+        if digest in receipt_hashes:
+            errors.append("monitor rollup receipt hashes must be unique")
+        receipt_hashes.add(digest)
+        if observation.get("receipt_bytes") != 10275:
+            errors.append(f"{run_id}: receipt_bytes must match the monitored receipt size")
+        head = str(observation.get("head_commit", ""))
+        if len(head) != 40 or any(char not in "0123456789abcdef" for char in head):
+            errors.append(f"{run_id}: head_commit must be a 40-character commit SHA")
+        if observation.get("workflow_conclusion") != "success":
+            errors.append(f"{run_id}: workflow_conclusion must be success")
     return errors
 
 

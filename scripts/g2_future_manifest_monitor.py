@@ -100,9 +100,7 @@ def main() -> int:
     known_exposures = _known_exposures(contract["cumulative_exposure_ledgers"])
     opener = urllib.request.build_opener(_NoRedirect)
     total_limit = int(rules["maximum_total_uncompressed_bytes"])
-    partition_limit = int(
-        rules.get("maximum_partition_uncompressed_bytes", total_limit)
-    )
+    partition_limit = int(rules.get("maximum_partition_uncompressed_bytes", total_limit))
     total_bytes = 0
     parsed: list[tuple[str, list]] = []
     requests: list[dict[str, object]] = []
@@ -124,9 +122,7 @@ def main() -> int:
             with opener.open(request, timeout=120) as response:
                 if response.status != 200:
                     raise ValueError(f"non-success HTTP status {response.status}")
-                body = _read_bounded(
-                    response, min(partition_limit, total_limit - total_bytes)
-                )
+                body = _read_bounded(response, min(partition_limit, total_limit - total_bytes))
                 effective = response.geturl()
                 if effective != endpoint:
                     raise ValueError("redirect or effective URL mismatch")

@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "decision_id": "D-G2-BRA-REPLAY-20260912-02",
+  "decided_at": "2026-09-12T04:03:46Z",
+  "decision_status": "authorized",
+  "owner_identity": "repository owner and founder",
+  "owner_role": "repository owner and sole accountable decision-maker",
+  "packet_id": "G2-BRA-AGGREGATE-REPLAY-20260911-01",
+  "packet_sha256": "4620b15a9b96c8b9a66429ebff63d7f770c1b89b80b346c306f06541edb64855",
+  "network_access": true,
+  "publication": false,
+  "release": false,
+  "rights_clearance": false,
+  "immutable_reference": "6f1ba733d26e9993a60f04d0a2a4f2b64ed8c293",
+  "conditions": [
+    "exact packet only",
+    "exactly one HTTPS POST",
+    "zero retries and zero redirects",
+    "restricted ephemeral response handling only",
+    "no raw response or source bytes retained",
+    "aggregate-only class code 1389",
+    "publication, release, rights clearance, Gold promotion and G2 passage remain unauthorized",
+    "any transport, identity, schema, size, digest, prohibited-data or ambiguity failure terminates the lineage"
+  ],
+  "reopen_triggers": [
+    "any stop condition",
+    "owner withdrawal",
+    "packet digest drift"
+  ]
+}

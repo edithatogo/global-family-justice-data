@@ -1,0 +1,17 @@
+{
+  "evidence_id": "E-G2-MATURITY-REASSESSMENT-20260912",
+  "record_type": "repository_owned_maturity_reassessment",
+  "basis": [
+    "data/federation/g2-bra-replay-semantic-review-20260912.json",
+    "data/federation/bra-aggregate-replay-receipt-20260912.json"
+  ],
+  "evidence_assured_maturity_floor_before": "L1",
+  "evidence_assured_maturity_floor_after": "L1",
+  "dimensions_changed": [],
+  "g2_state": "blocked_by_maturity",
+  "disposition": "retain_existing_levels; do_not_promote_from_terminal_failure",
+  "next_requirement": "A materially distinct, successful empirical evidence lineage and owner adjudication",
+  "publication_authorized": false,
+  "release_authorized": false,
+  "g2_passage": false
+}

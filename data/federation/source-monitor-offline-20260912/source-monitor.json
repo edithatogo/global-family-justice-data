@@ -1,0 +1,166 @@
+{
+  "as_of": "2026-09-12",
+  "network_access": false,
+  "sources": [
+    {
+      "source_id": "INT-CEPEJ-STAT",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-31",
+      "age_days": 43,
+      "licence_status": "unknown",
+      "health": "review_required"
+    },
+    {
+      "source_id": "SWE-DOMSTOLSVERKET",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-31",
+      "age_days": 43,
+      "licence_status": "unknown",
+      "health": "review_required"
+    },
+    {
+      "source_id": "USA-MN-MJB",
+      "canonical_url_present": true,
+      "last_verified": "2026-08-14",
+      "age_days": 29,
+      "licence_status": "restricted_or_unknown",
+      "health": "review_required"
+    },
+    {
+      "source_id": "INT-CEPEJ-2024",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-31",
+      "age_days": 43,
+      "licence_status": "restricted_or_unknown",
+      "health": "review_required"
+    },
+    {
+      "source_id": "INT-NCSC-COURTOOLS",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-31",
+      "age_days": 43,
+      "licence_status": "restricted_or_unknown",
+      "health": "review_required"
+    },
+    {
+      "source_id": "INT-NCSC-FAMILY",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-31",
+      "age_days": 43,
+      "licence_status": "restricted_or_unknown",
+      "health": "review_required"
+    },
+    {
+      "source_id": "INT-HCCH-CA",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-31",
+      "age_days": 43,
+      "licence_status": "restricted_or_unknown",
+      "health": "review_required"
+    },
+    {
+      "source_id": "INT-WJP-A2J",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-19",
+      "age_days": 55,
+      "licence_status": "restricted_or_unknown",
+      "health": "review_required"
+    },
+    {
+      "source_id": "GBR-EAW-MOJ-FAMILY-Q",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-31",
+      "age_days": 43,
+      "licence_status": "open_licence_verified",
+      "health": "metadata_healthy"
+    },
+    {
+      "source_id": "AUS-FCFCOA-AR",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-19",
+      "age_days": 55,
+      "licence_status": "commonwealth_copyright_check",
+      "health": "metadata_healthy"
+    },
+    {
+      "source_id": "NZL-MOJ-RESEARCH-DATA",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-19",
+      "age_days": 55,
+      "licence_status": "crown_copyright_check",
+      "health": "metadata_healthy"
+    },
+    {
+      "source_id": "SGP-JUD-STATS",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-19",
+      "age_days": 55,
+      "licence_status": "government_terms_check",
+      "health": "metadata_healthy"
+    },
+    {
+      "source_id": "CAN-BC-PC-TTT",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-19",
+      "age_days": 55,
+      "licence_status": "government_terms_check",
+      "health": "metadata_healthy"
+    },
+    {
+      "source_id": "USA-CA-JCC-CSR",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-19",
+      "age_days": 55,
+      "licence_status": "government_terms_check",
+      "health": "metadata_healthy"
+    },
+    {
+      "source_id": "IND-NJDG",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-19",
+      "age_days": 55,
+      "licence_status": "government_terms_check",
+      "health": "metadata_healthy"
+    },
+    {
+      "source_id": "BRA-CNJ-DATAJUD",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-19",
+      "age_days": 55,
+      "licence_status": "government_terms_check",
+      "health": "metadata_healthy"
+    },
+    {
+      "source_id": "MEX-INEGI-CNIJE",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-19",
+      "age_days": 55,
+      "licence_status": "government_open_data_check",
+      "health": "metadata_healthy"
+    },
+    {
+      "source_id": "ESP-CGPJ-DURATION",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-19",
+      "age_days": 55,
+      "licence_status": "government_terms_check",
+      "health": "metadata_healthy"
+    },
+    {
+      "source_id": "ZAF-JUD-ANNUAL",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-19",
+      "age_days": 55,
+      "licence_status": "government_terms_check",
+      "health": "metadata_healthy"
+    },
+    {
+      "source_id": "GBR-EAW-NUFFIELD-DT",
+      "canonical_url_present": true,
+      "last_verified": "2026-07-19",
+      "age_days": 55,
+      "licence_status": "restricted_or_unknown",
+      "health": "review_required"
+    }
+  ]
+}

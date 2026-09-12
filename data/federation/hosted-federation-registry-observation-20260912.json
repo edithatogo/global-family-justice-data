@@ -40,7 +40,14 @@
       "sha256": "001cf4fee54862995e1e513fb6dba6e68fd85a458898e7c52cc2ec6407ab4adb",
       "schema_version": "5",
       "owner": "edithatogo",
-      "dataset_entry_count": 52
+      "dataset_entry_count": 52,
+      "gfjd_entries": [
+        {"repo_id": "edithatogo/gfjd-extraction-benchmark", "role": "benchmark", "status": "public_metadata_scaffold_no_product_payload", "rights_status": "no_product_payload_published"},
+        {"repo_id": "edithatogo/gfjd-observations", "role": "observations", "status": "public_metadata_scaffold_no_product_payload", "rights_status": "no_product_payload_published"},
+        {"repo_id": "edithatogo/gfjd-outcomes-evidence", "role": "outcomes_evidence", "status": "public_metadata_scaffold_no_product_payload", "rights_status": "no_product_payload_published"},
+        {"repo_id": "edithatogo/gfjd-source-catalogue", "role": "source_catalog", "status": "public_metadata_scaffold_no_product_payload", "rights_status": "no_product_payload_published"},
+        {"repo_id": "edithatogo/gfjd-source-archive", "role": "source_archive", "status": "public_source_objects_observed_policy_reconciliation_pending", "rights_status": "exact_edition_review_required_no_blanket_clearance"}
+      ]
     },
     "catalog.schema.json": {
       "url": "https://huggingface.co/datasets/edithatogo/dataset-estate-registry/resolve/8f4c5b03adebdc8cbe19d9f20b18745d4da1b83c/catalog.schema.json",

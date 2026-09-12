@@ -172,6 +172,40 @@ def test_executor_records_network_started_failure(monkeypatch: pytest.MonkeyPatc
     assert failure["retry_authorized"] is False
 
 
+def test_executor_converts_adapter_failure_to_terminal_error(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    packet, _, packet_sha = bra_aggregate_replay.load_packet(PACKET)
+
+    class Response:
+        status = 200
+
+        def getheader(self, name: str, default: str = "") -> str:
+            return "application/json" if name == "Content-Type" else default
+
+        def read(self, limit: int) -> bytes:
+            return b"{}"
+
+    class Connection:
+        def __init__(self, *args: object, **kwargs: object) -> None:
+            pass
+
+        def request(self, *args: object, **kwargs: object) -> None:
+            pass
+
+        def getresponse(self) -> Response:
+            return Response()
+
+        def close(self) -> None:
+            pass
+
+    monkeypatch.setattr(bra_aggregate_replay, "resolve_public_addresses", lambda _: ("1.1.1.1",))
+    monkeypatch.setattr(bra_aggregate_replay, "PeerBoundHTTPSConnection", Connection)
+    with pytest.raises(bra_aggregate_replay.BraReplayError, match="contract violation") as error:
+        bra_aggregate_replay.execute(packet, packet_sha, "test-key")
+    assert error.value.network_call_started is True
+
+
 @pytest.mark.parametrize(
     ("mutation", "message"),
     [

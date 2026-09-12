@@ -29,7 +29,7 @@ Recorded completion follows configured work statuses and is not renewed assuranc
 | WI-G3-05 | T2/G3 | in_review | Standard direct enquiries have been completed or transparently closed for priority gaps. | E-DIRECT-ENQUIRY-REGISTER | WI-G2-CLOSE (in_review) |
 | WI-G3-06 | T3/G3 | in_review | Every catalogued source has rights, retrieval, version and preservation metadata appropriate to its access route. | E-SOURCE-PRESERVATION-AUDIT | WI-G2-CLOSE (in_review) |
 | WI-G3-07 | T6/G3 | in_review | A complete data-availability atlas and machine-readable source register are production-ready. | E-COVERAGE-ATLAS-BETA | WI-G2-CLOSE (in_review) |
-| WI-G3-08 | T3/G3 | in_review | High-priority source aging, broken-link and content-drift monitoring is operational. | E-SOURCE-MONITORING-REPORT; E-SOURCE-MONITORING-OFFLINE-20260912 | WI-G2-CLOSE (in_review) |
+| WI-G3-08 | T3/G3 | in_review | High-priority source aging, broken-link and content-drift monitoring is operational. | E-SOURCE-MONITORING-REPORT; E-SOURCE-MONITORING-OFFLINE-20260912; E-PUBLIC-B0-MONITOR-20260912 | WI-G2-CLOSE (in_review) |
 | WI-G3-CLOSE | T0/G3 | in_review | Assemble and approve the G3 gate evidence pack |  | WI-G3-01 (in_review); WI-G3-02 (in_review); WI-G3-03 (in_review); WI-G3-04 (in_review); WI-G3-05 (in_review); WI-G3-06 (in_review); WI-G3-07 (in_review); WI-G3-08 (in_review) |
 | WI-G4-01 | T6/G4 | in_review | The global source census and availability atlas are complete in beta form. | E-BETA-SOURCE-CENSUS | WI-G3-CLOSE (in_review) |
 | WI-G4-02 | T4/G4 | in_review | The harmonised core dataset builds from approved inputs with lineage and release contracts. | E-BETA-CORE-DATASET | WI-G3-CLOSE (in_review) |

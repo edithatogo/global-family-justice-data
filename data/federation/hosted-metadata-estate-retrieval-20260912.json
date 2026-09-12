@@ -1,0 +1,102 @@
+{
+  "receipt_id": "R-HOSTED-METADATA-ESTATE-20260912",
+  "observed_at": "2026-09-12T00:24:55Z",
+  "operator": "repository-owned anonymous hosted-estate observer",
+  "method": "anonymous GET of revision-pinned Hugging Face dataset metadata and tree endpoints",
+  "provider": "huggingface",
+  "publication_manifest": {
+    "path": "data/estate/metadata-publication-manifest-20260912.json",
+    "sha256": "962736b1fed5873e82447dca1f97c6b1a23ffdb4fd35dd8365f2cf8cae2c75be"
+  },
+  "repositories": [
+    {
+      "repository": "edithatogo/gfjd-source-catalogue",
+      "revision": "257802ec64818ebc5a2c1207f2ac4ffb5f4e42d5",
+      "metadata_endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-source-catalogue/revision/257802ec64818ebc5a2c1207f2ac4ffb5f4e42d5",
+      "metadata_http_status": 200,
+      "metadata_response_bytes": 1399,
+      "metadata_response_sha256": "a9e04adb6f30c2e0a1f5e2db66669abef4521b322b28617b1655fc86fd012493",
+      "tree_endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-source-catalogue/tree/257802ec64818ebc5a2c1207f2ac4ffb5f4e42d5?recursive=true&expand=false",
+      "tree_http_status": 200,
+      "tree_response_bytes": 293,
+      "tree_response_sha256": "511d4d07b1541e7cf23885da4efba702579e8b1db7bfcef8a9e43ae6cc531eae",
+      "entries": [
+        {"path": ".gitattributes", "size": 2504, "oid": "bed0738c7eeb449bca98b5d2f33c89a1ee56349a"},
+        {"path": "README.md", "size": 1582, "oid": "2f35fb410fc2c4855a97b9c888f94123557d44ce"},
+        {"path": "RIGHTS.md", "size": 417, "oid": "5e55ae18f54994c103db4fd48a0061ea4dd75b18"}
+      ],
+      "product_payload_paths": []
+    },
+    {
+      "repository": "edithatogo/gfjd-observations",
+      "revision": "48f9a68af864318160bc56da8256caa35b94a793",
+      "metadata_endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-observations/revision/48f9a68af864318160bc56da8256caa35b94a793",
+      "metadata_http_status": 200,
+      "metadata_response_bytes": 1379,
+      "metadata_response_sha256": "99cafb70f3492e8aabc284da6a3434dc5e002ee2287846eac896ad8ab8b5340b",
+      "tree_endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-observations/tree/48f9a68af864318160bc56da8256caa35b94a793?recursive=true&expand=false",
+      "tree_http_status": 200,
+      "tree_response_bytes": 293,
+      "tree_response_sha256": "283882b99fe1ee14325634d5d44e69a43d70a8aae3f5dd98e406c0d534153a31",
+      "entries": [
+        {"path": ".gitattributes", "size": 2504, "oid": "bed0738c7eeb449bca98b5d2f33c89a1ee56349a"},
+        {"path": "README.md", "size": 1566, "oid": "107cdcd7fbbbfb376260fd431927dbbfe5dcc3a6"},
+        {"path": "RIGHTS.md", "size": 413, "oid": "1a360edb8b0fb3910d75e194d6bfc550e8e3e37b"}
+      ],
+      "product_payload_paths": []
+    },
+    {
+      "repository": "edithatogo/gfjd-outcomes-evidence",
+      "revision": "02e12eb96c4f36a88b6162acaa7aa9c67afffbfa",
+      "metadata_endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-outcomes-evidence/revision/02e12eb96c4f36a88b6162acaa7aa9c67afffbfa",
+      "metadata_http_status": 200,
+      "metadata_response_bytes": 1412,
+      "metadata_response_sha256": "e5b3d77610e3da3856de40c8bbc669c2d8abe0f70518020e31eeb19080d35e55",
+      "tree_endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-outcomes-evidence/tree/02e12eb96c4f36a88b6162acaa7aa9c67afffbfa?recursive=true&expand=false",
+      "tree_http_status": 200,
+      "tree_response_bytes": 293,
+      "tree_response_sha256": "856219e382ad6b7effa6e234e9ea91ff131e06f8bd60660afee9488d4c9acfb0",
+      "entries": [
+        {"path": ".gitattributes", "size": 2504, "oid": "bed0738c7eeb449bca98b5d2f33c89a1ee56349a"},
+        {"path": "README.md", "size": 1593, "oid": "7324d525d631462d3b2d0032154374d98c52ab40"},
+        {"path": "RIGHTS.md", "size": 418, "oid": "5b4dc2700507018081b5c8ac215e62325f0d1a6f"}
+      ],
+      "product_payload_paths": []
+    },
+    {
+      "repository": "edithatogo/gfjd-extraction-benchmark",
+      "revision": "05d4ad9038c388f988a6ca6be91e2f0de57f4d59",
+      "metadata_endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-extraction-benchmark/revision/05d4ad9038c388f988a6ca6be91e2f0de57f4d59",
+      "metadata_http_status": 200,
+      "metadata_response_bytes": 1404,
+      "metadata_response_sha256": "3f160b92b69b78788245f549233ef997094d60a0e3478c526e09dff23d22b422",
+      "tree_endpoint": "https://huggingface.co/api/datasets/edithatogo/gfjd-extraction-benchmark/tree/05d4ad9038c388f988a6ca6be91e2f0de57f4d59?recursive=true&expand=false",
+      "tree_http_status": 200,
+      "tree_response_bytes": 293,
+      "tree_response_sha256": "0b845b420f3afe2f525ee499e29f6506df8839058202729df380ca4390e6d717",
+      "entries": [
+        {"path": ".gitattributes", "size": 2504, "oid": "bed0738c7eeb449bca98b5d2f33c89a1ee56349a"},
+        {"path": "README.md", "size": 1584, "oid": "1a502049f39cfe6c86142fa4e1a50938477a0c17"},
+        {"path": "RIGHTS.md", "size": 421, "oid": "65e6ed7cb0e54e25e2054f545f6c3ec3ce97419f"}
+      ],
+      "product_payload_paths": []
+    }
+  ],
+  "status": "supporting_current_anonymous_metadata_retrieval",
+  "interpretation": "All four revision-pinned dataset metadata and tree endpoints returned HTTP 200. Each tree contains only repository metadata and no product payload paths.",
+  "authority": {
+    "source_bytes_requested": false,
+    "source_content_opened": false,
+    "payload_bytes_persisted": false,
+    "repository_modified": false,
+    "rights_clearance": false,
+    "publication": false,
+    "release": false,
+    "gate_acceptance": false
+  },
+  "limitations": [
+    "This receipt verifies only current anonymous metadata and tree responses at four owner-controlled Hugging Face revisions.",
+    "The absence of product payload paths is a current metadata observation, not a rights, quality, maturity, interoperability or release determination.",
+    "No source-derived payload, raw response body or product bytes were requested or persisted by this check."
+  ]
+}

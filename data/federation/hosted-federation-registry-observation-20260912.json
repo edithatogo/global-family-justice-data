@@ -1,0 +1,82 @@
+{
+  "receipt_id": "R-HOSTED-FEDERATION-REGISTRY-20260912",
+  "observed_at": "2026-09-12T00:46:20Z",
+  "operator": "repository-owned federation observer",
+  "method": "anonymous GET of revision-pinned Hugging Face dataset metadata, tree and registry metadata files",
+  "provider": "huggingface",
+  "repository": "edithatogo/dataset-estate-registry",
+  "revision": "8f4c5b03adebdc8cbe19d9f20b18745d4da1b83c",
+  "repository_api": {
+    "endpoint": "https://huggingface.co/api/datasets/edithatogo/dataset-estate-registry",
+    "http_status": 200,
+    "response_bytes": 1619,
+    "response_sha256": "ba436b5b2ba78e2ffea47f1c161b76e4807d7d862bee46edb685bea43e6f150d"
+  },
+  "tree": {
+    "endpoint": "https://huggingface.co/api/datasets/edithatogo/dataset-estate-registry/tree/main?recursive=true&expand=false",
+    "resolved_revision": "8f4c5b03adebdc8cbe19d9f20b18745d4da1b83c",
+    "http_status": 200,
+    "response_bytes": 1292,
+    "response_sha256": "0ab74f27487ac7baf7268df87412ac3f6a2a890602fcb345aa796112ce58ab46",
+    "paths": [
+      ".gitattributes",
+      "PROCESS.md",
+      "README.md",
+      "catalog.json",
+      "catalog.schema.json",
+      "reconciliation-report.md",
+      "registry/hpo/history-frontier-2026-08-16.json",
+      "registry/hpo/translations-frontier-2026-08-16.json",
+      "validate_registry.py",
+      "viewer-audit.json"
+    ],
+    "registry_metadata_paths": ["catalog.json", "catalog.schema.json", "PROCESS.md", "reconciliation-report.md", "viewer-audit.json"]
+  },
+  "registry_files": {
+    "catalog.json": {
+      "url": "https://huggingface.co/datasets/edithatogo/dataset-estate-registry/resolve/8f4c5b03adebdc8cbe19d9f20b18745d4da1b83c/catalog.json",
+      "http_status": 200,
+      "bytes": 26292,
+      "sha256": "001cf4fee54862995e1e513fb6dba6e68fd85a458898e7c52cc2ec6407ab4adb",
+      "schema_version": "5",
+      "owner": "edithatogo",
+      "dataset_entry_count": 52
+    },
+    "catalog.schema.json": {
+      "url": "https://huggingface.co/datasets/edithatogo/dataset-estate-registry/resolve/8f4c5b03adebdc8cbe19d9f20b18745d4da1b83c/catalog.schema.json",
+      "http_status": 200,
+      "bytes": 1722,
+      "sha256": "92220ad58029e4d21ca3fb5e73c8ea8e45576d9b6ff712292ecbf57ed90b3a6f"
+    },
+    "PROCESS.md": {
+      "url": "https://huggingface.co/datasets/edithatogo/dataset-estate-registry/resolve/8f4c5b03adebdc8cbe19d9f20b18745d4da1b83c/PROCESS.md",
+      "http_status": 200,
+      "bytes": 838,
+      "sha256": "1bb2e4a32e302ed8538611df9a246b5dfd2eed9c68585b7e57cba7fa8cf1fbc7"
+    },
+    "reconciliation-report.md": {
+      "url": "https://huggingface.co/datasets/edithatogo/dataset-estate-registry/resolve/8f4c5b03adebdc8cbe19d9f20b18745d4da1b83c/reconciliation-report.md",
+      "http_status": 200,
+      "bytes": 1164,
+      "sha256": "93994efe9b7d6541c7eafe1639e45dda0654d54f888e0658f98321a6f7a305aa"
+    }
+  },
+  "checks": {
+    "catalog_schema_validation": "pass",
+    "owner_metadata": "edithatogo",
+    "public_and_ungated": true,
+    "registry_revision_observed": true,
+    "partner_registration": false,
+    "live_interoperability": false,
+    "rights_clearance": false,
+    "publication": false,
+    "release": false,
+    "gate_acceptance": false
+  },
+  "status": "supporting_hosted_registry_metadata",
+  "limitations": [
+    "This receipt proves an owner-controlled public registry catalog and schema were reachable and schema-valid at the observed revision.",
+    "It does not prove semantic compatibility, partner acceptance, zero-copy interoperability, rights clearance, custody of every referenced dataset or gate readiness.",
+    "No repository or dataset was modified and no source-derived payload was requested."
+  ]
+}

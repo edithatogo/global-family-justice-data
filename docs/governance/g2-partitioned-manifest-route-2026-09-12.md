@@ -4,12 +4,13 @@
 **Status:** `in_review` — repository-owned preparation only  
 **Gate:** G2 — Reproducible pilot proven
 
-The previous official-manifest attempt terminated before candidate selection:
-one partition redirected and an earlier child manifest exceeded its per-response
-budget. This packet freezes a materially distinct successor design that uses the
-canonical trailing-slash partitions and a streaming parser. Each partition is a
-separate, explicitly bound request; redirects are prohibited, and no returned
-locator may be opened during registration.
+Earlier official-manifest lineages terminated before candidate selection: one
+streaming attempt redirected, while the immediate canonical successor returned
+all three trailing-slash partitions but ended with fewer than two eligible
+editions. This packet freezes a materially distinct successor design that uses
+the canonical trailing-slash partitions and a streaming parser. Each partition
+is a separate, explicitly bound request; redirects are prohibited, and no
+returned locator may be opened during registration.
 
 The machine-readable contract is
 `data/methods/g2/G2PARTITIONED-MANIFEST-20260912-01/contract.json`. It raises
@@ -37,6 +38,8 @@ candidate URLs, extracted values or provider response are asserted here.
 ## Stop conditions
 
 Any binding mismatch, redirect, non-success response, malformed manifest,
-partition or total byte overflow, prior-exposure overlap, incomplete enumeration
-or insufficient eligible editions terminates the successor lineage. There is no
+partition or total byte overflow, overlap by a proposed eligible candidate,
+incomplete enumeration or insufficient eligible editions terminates the
+successor lineage. Ordinary re-observation of already exposed locators remains
+registered exposure and is not itself a failure. There is no
 retry, repair, substitution, fuzzy matching, waiver or failed-output reuse.

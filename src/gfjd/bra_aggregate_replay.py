@@ -26,8 +26,8 @@ from .g2_successor_transport import (
 from .medallion_api import (
     FROZEN_CLASS_CODE,
     FROZEN_CLASS_NAME,
-    MedallionApiError,
     VERSION,
+    MedallionApiError,
     _canonical,
     extract_aggregate,
 )

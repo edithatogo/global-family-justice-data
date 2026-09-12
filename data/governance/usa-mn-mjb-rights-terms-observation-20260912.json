@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "evidence_id": "E-RIGHTS-USA-MN-MJB-TERMS-20260912",
+  "source_id": "USA-MN-MJB",
+  "observed_at": "2026-09-12T01:45:00Z",
+  "public_metadata_only": true,
+  "authoritative_locators": {
+    "publication_page": "https://mncourts.gov/about-the-courts/publicationsandreports.aspx",
+    "terms_page": "https://mncourts.gov/specialpages/terms-of-use",
+    "data_requests_page": "https://mncourts.gov/media-test-page/data-requests"
+  },
+  "observations": [
+    "The official terms page states that Minnesota Judicial Branch website content is protected by copyright and other restrictions and prohibits unauthorized reproduction, commercial publication, exploitation and data-mining/bot extraction.",
+    "The official data-requests page states that limited bulk extracts may require a signed data-use agreement.",
+    "The publications page identifies annual reports and statistics but does not itself establish an exact-edition redistribution licence."
+  ],
+  "disposition": {
+    "rights_status": "restricted_or_unknown",
+    "redistribution_status": "metadata_only",
+    "release_boundary": "metadata_and_citation_only",
+    "required_next_step": "Obtain and review any applicable signed data-use agreement or exact-edition permission before source-byte or derived-data redistribution."
+  },
+  "limitations": [
+    "This is a terms metadata observation, not legal advice or rights clearance.",
+    "No source bytes, dashboard response, bulk extract, contact or personal data was acquired or persisted.",
+    "The observation does not establish that any particular annual report or dashboard value is reusable."
+  ]
+}

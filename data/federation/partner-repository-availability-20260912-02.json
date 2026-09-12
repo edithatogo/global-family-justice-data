@@ -1,0 +1,36 @@
+{
+  "receipt_id": "R-FEDERATION-PARTNER-AVAILABILITY-20260912-02",
+  "observed_at": "2026-09-12T00:57:40Z",
+  "method": "append-only reconciliation of the prior partner metadata receipt with the current owner-controlled hosted registry observation",
+  "parent_receipt": {
+    "path": "data/federation/partner-repository-availability-20260912.json",
+    "sha256": "9fa0aa78d82ef7a34d0cf432d6bcaac274ad95645f25e70579790d0b24d224af"
+  },
+  "registry_observation": {
+    "path": "data/federation/hosted-federation-registry-observation-20260912.json",
+    "sha256": "765b24c13ee0bee2ef8e4d1d909b4ac2afb80ea39b6b4f2d438c6390eadc194a",
+    "repository": "edithatogo/dataset-estate-registry",
+    "provider": "huggingface",
+    "revision": "8f4c5b03adebdc8cbe19d9f20b18745d4da1b83c",
+    "catalog_schema_validation": "pass",
+    "catalog_entry_count": 52,
+    "gfjd_entry_count": 5
+  },
+  "reconciled_state": {
+    "github_repository_named_dataset_estate_registry": "not_found_at_prior_observation",
+    "huggingface_registry": "reachable_owner_controlled_metadata_registry",
+    "partner_registration": "not_established",
+    "semantic_compatibility": "unverified",
+    "live_interoperability": "unverified",
+    "rights_clearance": "unverified",
+    "publication": false,
+    "release": false,
+    "gate_acceptance": false
+  },
+  "status": "supporting_metadata_reconciliation",
+  "limitations": [
+    "The prior GitHub 404 is preserved as historical evidence; the current Hugging Face registry observation is a separate provider and identity.",
+    "Registry availability and schema validity do not establish partner registration, semantic compatibility, live interoperability, rights clearance or gate acceptance.",
+    "No repository or dataset was modified and no source or product payload was requested."
+  ]
+}

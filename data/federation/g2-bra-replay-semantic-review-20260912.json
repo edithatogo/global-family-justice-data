@@ -1,0 +1,24 @@
+{
+  "evidence_id": "E-G2-BRA-REPLAY-SEMANTIC-REVIEW-20260912",
+  "record_type": "repository_owned_terminal_replay_review",
+  "packet_id": "G2-BRA-AGGREGATE-REPLAY-20260911-01",
+  "packet_sha256": "4620b15a9b96c8b9a66429ebff63d7f770c1b89b80b346c306f06541edb64855",
+  "receipt_path": "data/federation/bra-aggregate-replay-receipt-20260912.json",
+  "receipt_sha256": "0a02c2e00c38a4bb7fe9d224cc533d0edbd2893313d788ec53f1e1b4829562c3",
+  "status": "terminal_failed_not_qualifying",
+  "semantic_disposition": "not_established",
+  "finding": "The single authorized provider response failed the frozen aggregate contract because the class bucket was absent or ambiguous.",
+  "concordance": "not_run",
+  "maturity_effect": "no_promotion",
+  "g2_effect": "G2 remains blocked_by_maturity",
+  "retry_authorized": false,
+  "raw_response_retained": false,
+  "publication_authorized": false,
+  "release_authorized": false,
+  "rights_clearance": false,
+  "limitations": [
+    "This is repository-owned supporting evidence, not independent assurance.",
+    "No aggregate value can be accepted from this response.",
+    "A materially distinct future method requires a new owner decision."
+  ]
+}

@@ -156,12 +156,14 @@ b55a3fe7bdfe9627cf4c946782649355f01c419655881a7b5644b33925182784  data/federatio
 81aff74bf47f15bec3fa852ef5c7c84228c3b4a22ed0841b93a2df0ecd9ac0db  data/federation/config-drafts-2026-09-01/bundle/metadata/source-catalogue/ro-crate-metadata.json
 33111dad536c7243cb02cdef36597eda6b70ad8ca6de38bfff9fb27a314eaf69  data/federation/config-drafts-2026-09-01/receipt.json
 5d5f99f0b7284bc96a478e33c4091bea09128534bf4691c4f2b6b49fa9109699  data/federation/g2-bra-replay-owner-authorization-20260912.json
+e393d50badac11e2e94bc0afff9276b9b0b81930bc312eb4afefd7e4529ad2cf  data/federation/g2-bra-replay-semantic-review-20260912.json
 89ba9ab9a3efcf332e8d8281df761a00c8cb7a788e51480e65c7dfc87a396879  data/federation/g2-l2-m03-census-review-20260909.json
 4cdaebb60d5b44a5df80cc41065ba06a9d6cf2c7d079bebb1b101965744108d8  data/federation/g2-l2-m07-clean-retrieval-receipt-20260909.json
 92febf92ada5e1133e32e15b0c4c53fe0c45df27b76dfed465c16e88adaca53d  data/federation/g2-l2-m07-fresh-replay-20260910.json
 15a6fe07b0a91d2ca4018b423d9c725d5c70ae75e18da7b33515fbd20d800824  data/federation/g2-l2-m10-metadata-review-20260910.json
 d2cc5517f45c9e610c06ec66c3524a89cbd01fd912705248300c6a29c5c2fe65  data/federation/g2-l2-m10-metadata-review-rollup-20260911.json
 3932285c41035cce300d4dda7c78035bf06ab350c7d23df13687b54a3cfe2446  data/federation/g2-l2-m10-row-review-20260911.json
+2a2a79064956973c4b2fd60e7f0a23a3b72d35c6801b64dea25ec70ce0a8e63e  data/federation/g2-maturity-reassessment-20260912.json
 e1c5c22eff66c99714fbd2301d490bb59eafc5444eccfafe7c5319f8fc4e3a99  data/federation/hosted-estate-availability-check-20260909.json
 30b1918a7fc8b5f2aa96bb5fe15cd7d5a91e7c7e4721d4dd79ff8ae311255b1b  data/federation/hosted-estate-readme-retrieval-20260909.json
 3f88fa29775ec06558f5d0e826b106bfc7d76c0692a98075dcb25d9ac22f950f  data/federation/hosted-estate-tree-receipt-20260910.json
@@ -685,6 +687,7 @@ f0bd079eb6a029206ebfa54654b873d336cfb491b0c01c24f432b266d723416e  docs/governanc
 622062683ce94528ff155657242715d7792f74beb478d86e7245d0e67f52c10d  docs/governance/g2-gate-evidence-pack-current-reconciliation-2026-09-12-02.md
 3a2c97dc34497a5fb4faecbc96baaf78edad2559716658b3fa1108299a2681f1  docs/governance/g2-gate-evidence-pack-current-reconciliation-2026-09-12-03.md
 8e3c56ac973f98a82fbabfafb4e3662da9b1bf07ee65bf1ba3b4a895cb712cdf  docs/governance/g2-gate-evidence-pack-current-reconciliation-2026-09-12-04.md
+bd7eb0bd4f335a6c99ca1b20cabc91ae67f7b9fec67bbda4758605abe5dd465d  docs/governance/g2-gate-evidence-pack-current-reconciliation-2026-09-12-05.md
 fd43ed97ea908956d5faeb36b7f7942bb1d315b4197b2501e87d7652b7a59981  docs/governance/g2-gate-evidence-pack-current-reconciliation-2026-09-12.md
 9c66b7db2196839066969e85bd9de6877dbd229fe2bd667c0a6fd664a6dc1e18  docs/governance/g2-historical-repro-policy-owner-decision-2026-08-30.md
 72de63a0c37677bbd60ebb57d2a7c6cafba70cea5ace512b126a2f2f7ee62573  docs/governance/g2-historical-route-options-2026-08-30.md
@@ -960,7 +963,7 @@ b10515baf6f547477e43280229edc5432a0c93f1426fa52fbec5b4284727a75d  docs/programme
 f733be3a6d8f33450394c9ff31b25fe1843423004ce0254392c773cdf660c4b4  docs/programme/generated/active-work.md
 e1c7e35cf339047cc6d93977dc5347e73b2465d79186a97400d0ca6bc24c7373  docs/programme/generated/completed-work.md
 6bdd1bfd7f904ae06f5ddfe8248962a24dfc5a1426108ce2c0ddfa15aa3346db  docs/programme/generated/programme-graph.mmd
-9a4bc8267149927f91bc9fdd2f0ce214e985110e6ca5b104c6dc0afd652e95ee  docs/programme/generated/status.md
+b1c942a848165ec974a8e69be0a1e0b86f2ea9797579077e6d7eebc2bbabc58d  docs/programme/generated/status.md
 5f44f2a64e49c3ac616f5dd456061d9c00bdbdfc09e218bab6fab36852109465  docs/programme/maximal-public-medallion-federation-plan-2026-08-26.md
 0ad9141ba5324d51875c18319afa3a40b05e5e15bf8603d439f10f4bd45e7576  docs/programme/milestone-scorecard-template.md
 619a8e1750e5a18c0a5773eae038ff5f06f86429fba50eff3cebde8e5464f3ff  docs/programme/risk-register.md

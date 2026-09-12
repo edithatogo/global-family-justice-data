@@ -21,7 +21,7 @@ Recorded completion follows configured work statuses and is not renewed assuranc
 
 | Work item | Track/gate | Status | Title | Evidence IDs | Dependencies |
 |---|---|---|---|---|---|
-| WI-G2-CLOSE | T0/G2 | in_review | Assemble and approve the G2 gate evidence pack | E-G2-GATE-CLOSURE-PACK-20260911; E-G2-GATE-CURRENT-RECONCILIATION-20260912 | WI-G2-01 (accepted); WI-G2-02 (accepted); WI-G2-03 (accepted); WI-G2-04 (accepted); WI-G2-05 (accepted); WI-G2-06 (accepted); WI-G2-07 (accepted); WI-G2-08 (accepted) |
+| WI-G2-CLOSE | T0/G2 | in_review | Assemble and approve the G2 gate evidence pack | E-G2-GATE-CLOSURE-PACK-20260911; E-G2-GATE-CURRENT-RECONCILIATION-20260912; E-G2-GATE-CURRENT-RECONCILIATION-20260912-02 | WI-G2-01 (accepted); WI-G2-02 (accepted); WI-G2-03 (accepted); WI-G2-04 (accepted); WI-G2-05 (accepted); WI-G2-06 (accepted); WI-G2-07 (accepted); WI-G2-08 (accepted) |
 | WI-G3-01 | T2/G3 | in_review | The in-scope jurisdiction universe, federal/devolved rules and review cycle are frozen. | E-GLOBAL-UNIVERSE | WI-G2-CLOSE (in_review) |
 | WI-G3-02 | T2/G3 | in_review | Every in-scope jurisdiction has exactly one current reviewed coverage status and institutional map. | E-GLOBAL-COVERAGE-REPORT | WI-G2-CLOSE (in_review) |
 | WI-G3-03 | T5/G3 | in_review | Negative findings, inaccessible sources and non-official-only findings have second review. | E-NEGATIVE-FINDINGS-AUDIT | WI-G2-CLOSE (in_review) |

@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "packet_sha256": "4620b15a9b96c8b9a66429ebff63d7f770c1b89b80b346c306f06541edb64855",
+  "terminal": "failed",
+  "failed_at": "2026-09-12T04:05:02Z",
+  "error": "medallion API contract violation: aggregate class bucket is absent or ambiguous",
+  "network_call_started": true,
+  "raw_response_retained": false,
+  "retry_authorized": false,
+  "promotion_authorized": false,
+  "claim_limit": "terminal failure record only; no semantic, rights, maturity, gate, publication or release acceptance"
+}

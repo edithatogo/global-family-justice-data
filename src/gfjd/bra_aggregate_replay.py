@@ -27,6 +27,7 @@ from .medallion_api import (
     FROZEN_CLASS_CODE,
     FROZEN_CLASS_NAME,
     VERSION,
+    MedallionApiError,
     _canonical,
     extract_aggregate,
 )
@@ -177,7 +178,13 @@ def execute(packet: dict[str, Any], packet_sha256: str, api_key: str) -> dict[st
         "class_code": FROZEN_CLASS_CODE,
         "class_name": FROZEN_CLASS_NAME,
     }
-    adapter_receipt = extract_aggregate(raw_response, contract)
+    try:
+        adapter_receipt = extract_aggregate(raw_response, contract)
+    except MedallionApiError as exc:
+        # Adapter/schema failures after the POST are terminal.  Convert them
+        # into the executor's failure type so main() emits the required
+        # non-retryable receipt without ever retaining the raw response.
+        raise BraReplayError(str(exc), network_call_started=True) from exc
     return {
         "schema_version": "1.0",
         "packet_id": packet["packet_id"],

@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "campaign_id": "G2PARTITIONED-MANIFEST-20260912-01",
+  "status": "repository_prepared_not_authorized",
+  "predecessor": "G2FUTURE-EDITION-CANONICAL-20260829-01",
+  "method": "partitioned_official_manifest_streaming",
+  "purpose": "A materially distinct successor route that requests only explicitly bound official manifest partitions and never follows redirects.",
+  "exposure_cutoff": "2026-08-29T05:17:40Z",
+  "allowed_locator_hosts": ["www.justice.govt.nz"],
+  "ordered_endpoints": [
+    "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/1/",
+    "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/2/",
+    "https://www.justice.govt.nz/sitemap.xml/sitemap/SilverStripe-CMS-Model-SiteTree/3/"
+  ],
+  "execution_rules": {
+    "request_in_order": true,
+    "one_request_per_partition": true,
+    "zero_retries": true,
+    "follow_redirects": false,
+    "require_effective_url_equal_requested": true,
+    "streaming_parser": "gfjd.g2_sitemap_stream.iter_sitemap_entries",
+    "maximum_partition_uncompressed_bytes": 67108864,
+    "maximum_total_uncompressed_bytes": 268435456,
+    "maximum_locator_count": 1000000,
+    "persist_every_returned_locator_as_exposure": true,
+    "candidate_document_access": false,
+    "source_access": false
+  },
+  "prior_exposure_ledgers": [
+    "data/methods/g2/G2FUTURE-EDITION-CANONICAL-20260829-01/execution/exposure-ledger.jsonl"
+  ],
+  "cumulative_exposure_ledgers": [
+    "data/methods/g2/G2FUTURE-EDITION-CANONICAL-20260829-01/execution/exposure-ledger.jsonl"
+  ],
+  "terminal_stops": [
+    "binding_or_host_failure",
+    "redirect_or_effective_url_mismatch",
+    "non_success_http_status",
+    "malformed_xml",
+    "partition_byte_budget_exceeded",
+    "total_byte_budget_exceeded",
+    "locator_budget_exceeded",
+    "incomplete_partition_enumeration",
+    "prior_exposure_overlap_of_proposed_eligible_candidate",
+    "fewer_than_two_eligible_editions"
+  ],
+  "role_policy": {
+    "registrar": "fresh_metadata_only_session",
+    "candidate_selector": "deterministic_offline_process_after_receipt",
+    "extractors": "not_created_until_separate_execution_authorization",
+    "comparator": "not_created_until qualifying source artifacts exist",
+    "advisory_review": "role-separated and non-independent"
+  },
+  "authority_boundary": {
+    "manifest_endpoint_access": false,
+    "returned_locator_access": false,
+    "candidate_document_access": false,
+    "source_access": false,
+    "extraction": false,
+    "comparison": false,
+    "rights_clearance": false,
+    "g2_acceptance": false,
+    "publication": false,
+    "release": false
+  }
+}

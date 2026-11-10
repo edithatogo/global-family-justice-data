@@ -1,6 +1,14 @@
 schema_version = "1.0"
 
 [[action]]
+repository = "edithatogo/repository-standards"
+# Descriptive review metadata; this is not an existing Git tag or release.
+# Qualified source: repository-standards PR #122 (84 tests and hosted canary).
+tag = "reviewed commit; no release tag"
+sha = "985503bc8eae58e7d6ef36a6e5427d0077e0193c"
+purpose = "Read-only Presidio and Gitleaks repository checks; isolated Python 3.12 tooling"
+
+[[action]]
 repository = "actions/checkout"
 tag = "v7.0.0"
 sha = "9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0"

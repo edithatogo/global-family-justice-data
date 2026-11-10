@@ -28,6 +28,7 @@ allowed_action_repositories = [
   "actions/upload-artifact",
   "astral-sh/setup-uv",
   "codecov/codecov-action",
+  "edithatogo/repository-standards",
   "github/codeql-action",
 ]
 

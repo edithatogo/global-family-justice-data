@@ -6,6 +6,27 @@
 
 This repository is a bootstrap-ready engineering and programme-control baseline. It is not a completed international family-justice dataset and is not the stable v1.0 service.
 
+## 2026-11-10 privacy CI integration — PR #260
+
+The authorized repository privacy rollout adds read-only Presidio and Gitleaks
+checks for pull requests, default-branch pushes, and scheduled/manual full scans.
+The shared implementation is pinned to repository-standards commit
+`985503bc8eae58e7d6ef36a6e5427d0077e0193c` (source PR #122, 84 tests and a hosted
+canary). Its isolated Python 3.12 environment is a tooling compatibility choice;
+the GFJD dependency lock and supported product runtimes are unchanged.
+
+The workflow reuses the repository-reviewed checkout v7.0.0 pin and declares
+job-level read-only permissions. The action registry and its matching desired
+repository allowlist admit the exact reviewed source. Registry metadata states
+truthfully that the source commit has no release tag; immutable SHA validation
+remains mandatory. The source manifest was regenerated after the initial check
+identified only the newly added workflow as missing.
+
+Local workflow and repository policy audits pass with zero errors or warnings.
+Full local and hosted validation receipts remain distinct from source-action
+qualification and from programme acceptance. This CI integration changes no
+research data, governance authorization, G1–G6 status, or release decision.
+
 ## Continuation ledger — 2026-08-31 API qualification
 
 ### 2026-09-07 anonymous browser control preparation

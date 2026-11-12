@@ -54,3 +54,15 @@ repository = "codecov/codecov-action"
 tag = "v4.6.0"
 sha = "0f8570b1a125f4937846a11fcfa3bcd548bd8c97"
 purpose = "OIDC-authenticated coverage upload"
+
+[[action]]
+repository = "actions/checkout"
+tag = "v7.0.1"
+sha = "3d3c42e5aac5ba805825da76410c181273ba90b1"
+purpose = "Privacy workflow full-history checkout"
+
+[[action]]
+repository = "edithatogo/repository-standards"
+tag = "privacy-secrets action pinned commit"
+sha = "985503bc8eae58e7d6ef36a6e5427d0077e0193c"
+purpose = "Shared audited Presidio and Gitleaks scanner"

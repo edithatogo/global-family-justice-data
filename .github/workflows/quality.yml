@@ -31,7 +31,7 @@ jobs:
       contents: read
     steps:
       - name: Check out immutable revision
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.0
         with:
           persist-credentials: false
           fetch-depth: 1
@@ -89,7 +89,7 @@ jobs:
         python: ['3.11', '3.12', '3.13', '3.14']
     steps:
       - name: Check out immutable revision
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.0
         with:
           persist-credentials: false
           fetch-depth: 0
@@ -133,7 +133,7 @@ jobs:
       contents: read
     steps:
       - name: Check out immutable revision
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.0
         with:
           persist-credentials: false
           fetch-depth: 0
@@ -177,7 +177,7 @@ jobs:
       id-token: write
     steps:
       - name: Check out immutable revision
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.0
         with:
           persist-credentials: false
           fetch-depth: 0
@@ -235,7 +235,7 @@ jobs:
       contents: read
     steps:
       - name: Check out immutable revision
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.0
         with:
           persist-credentials: false
           fetch-depth: 1
@@ -292,7 +292,7 @@ jobs:
         os: [ubuntu-24.04, macos-15, windows-2025]
     steps:
       - name: Check out immutable revision
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.0
         with:
           persist-credentials: false
           fetch-depth: 1
@@ -322,7 +322,7 @@ jobs:
       contents: read
     steps:
       - name: Check out immutable revision
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.0
         with:
           persist-credentials: false
           fetch-depth: 1
@@ -369,7 +369,7 @@ jobs:
       contents: read
     steps:
       - name: Check out immutable revision
-        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.0
         with:
           persist-credentials: false
           fetch-depth: 1

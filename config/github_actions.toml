@@ -2,8 +2,8 @@ schema_version = "1.0"
 
 [[action]]
 repository = "actions/checkout"
-tag = "v7.0.0"
-sha = "9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0"
+tag = "v7.0.1"
+sha = "3d3c42e5aac5ba805825da76410c181273ba90b1"
 purpose = "Repository checkout"
 
 [[action]]
@@ -55,11 +55,6 @@ tag = "v4.6.0"
 sha = "0f8570b1a125f4937846a11fcfa3bcd548bd8c97"
 purpose = "OIDC-authenticated coverage upload"
 
-[[action]]
-repository = "actions/checkout"
-tag = "v7.0.1"
-sha = "3d3c42e5aac5ba805825da76410c181273ba90b1"
-purpose = "Privacy workflow full-history checkout"
 
 [[action]]
 repository = "edithatogo/repository-standards"

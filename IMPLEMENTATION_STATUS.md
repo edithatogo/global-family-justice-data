@@ -6,6 +6,20 @@
 
 This repository is a bootstrap-ready engineering and programme-control baseline. It is not a completed international family-justice dataset and is not the stable v1.0 service.
 
+## Continuation ledger — 2026-11-15 issue-form metadata
+
+Corrected the top-level `about` key to `description` in the correction,
+data-correction and work-item YAML issue forms. Their questions, labels,
+required fields and safety guidance are unchanged. All four issue forms pass
+standalone duplicate-key, metadata and form-structure validation; parsed
+before/after comparison confirms only the intended key replacements.
+
+The source manifest passed for 1,414 files before the repair and was refreshed
+for these three forms and this ledger. Full `make check` and `autonomy-full`
+were not executed in this storage-constrained workspace. Hosted checks remain
+required before integration. This maintenance repair makes no programme-gate,
+source-rights, publication or release acceptance claim.
+
 ## Continuation ledger — 2026-08-31 API qualification
 
 ### 2026-09-07 anonymous browser control preparation

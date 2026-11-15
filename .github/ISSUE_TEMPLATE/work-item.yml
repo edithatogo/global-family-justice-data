@@ -1,5 +1,5 @@
 name: Propose or update a conductor work item
-about: Connect delivery activity to a track, gate and evidence record
+description: Connect delivery activity to a track, gate and evidence record
 labels: ['programme']
 body:
   - type: dropdown

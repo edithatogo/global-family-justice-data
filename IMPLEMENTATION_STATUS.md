@@ -15,10 +15,16 @@ standalone duplicate-key, metadata and form-structure validation; parsed
 before/after comparison confirms only the intended key replacements.
 
 The source manifest passed for 1,414 files before the repair and was refreshed
-for these three forms and this ledger. Full `make check` and `autonomy-full`
-were not executed in this storage-constrained workspace. Hosted checks remain
-required before integration. This maintenance repair makes no programme-gate,
-source-rights, publication or release acceptance claim.
+for these three forms, `docs/programme/generated/status.md`, and this ledger.
+`make status`, `format`, `lint`, `typecheck`, `compile`, `contracts`,
+`generated`, `validate`, `policy`, `release-rehearsal`,
+`integration-rehearsals`, `medallion-lineage-rehearsal`,
+`federation-bundle-rehearsal`, `package-reproducibility`,
+`release-reproducibility`, and `autonomy-context` all passed; `coverage`
+reached 84.61% (2,301 passed, 3 skipped for local-private payloads, 1 local
+failure in `test_g2_blind_holdout_plan_is_prospective_and_fail_closed` on
+`git verify-commit` without local signing keys). This maintenance repair makes no
+programme-gate, source-rights, publication or release acceptance claim.
 
 ## Continuation ledger — 2026-08-31 API qualification
 

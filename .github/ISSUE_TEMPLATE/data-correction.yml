@@ -1,5 +1,5 @@
 name: Report a data or methods correction
-about: Report an extraction, definition, lineage or comparability problem
+description: Report an extraction, definition, lineage or comparability problem
 labels: ['correction', 'triage']
 body:
   - type: input

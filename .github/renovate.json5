@@ -1,6 +1,10 @@
 {
-  "extends": ["github>edithatogo/renovate-config"],
-  "dependencyDashboard": true,
-  "prCreation": "not-pending",
-  "separateMajorMinor": true
+  extends: [
+    'github>edithatogo/renovate-config',
+  ],
+  dependencyDashboard: {
+    enabled: true,
+  },
+  prCreation: 'not-pending',
+  separateMajorMinor: true,
 }

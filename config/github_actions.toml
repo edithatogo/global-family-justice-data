@@ -54,3 +54,9 @@ repository = "codecov/codecov-action"
 tag = "v4.6.0"
 sha = "0f8570b1a125f4937846a11fcfa3bcd548bd8c97"
 purpose = "OIDC-authenticated coverage upload"
+
+[[action]]
+repository = "fair-software/howfairis-github-action"
+tag = "0.2.1"
+sha = "4c11146488125aa6e1531184eed51d781bcd5871"
+purpose = "Manually dispatched, fail-closed public software metadata assessment"
